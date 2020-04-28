@@ -1,38 +1,45 @@
-pix-ui
+Pix-UI
 ==============================================================================
 
-[Short description of the addon.]
+Pix-UI is the implementation of Pix design principles 
+and guidelines for its products.
 
 
 Compatibility
 ------------------------------------------------------------------------------
 
-* Ember.js v3.12 or above
+* Ember.js v3.4 or above
 * Ember CLI v2.13 or above
-* Node.js v10 or above
+* Node.js v8 or above
 
 
 Installation
 ------------------------------------------------------------------------------
 
-```
-ember install pix-ui
-```
+* `git clone <repository-url>` this repository
+* change into the new directory
+* `npm install`
 
+Running / Development
+---------------------
+
+To visualize the components created in this library,
+you can run storybook:
+* `npm run storybook`
 
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+To create a new component:
+* `ember generate component <component-name>`
 
+It will create the following files:
+* addon/components/<component-name>.js
+* addon/templates/components/<component-name>.hbs
+* tests/integration/components/<component-name>-test.js
+* app/components/<component-name>.js
 
-Contributing
-------------------------------------------------------------------------------
-
-See the [Contributing](CONTRIBUTING.md) guide for details.
-
-
-License
-------------------------------------------------------------------------------
-
-This project is licensed under the [MIT License](LICENSE.md).
+Edit those files to fit your component needs.  
+Then call your component in 
+stories/<component-name>.stories.js to 
+visualize it in storybook.
