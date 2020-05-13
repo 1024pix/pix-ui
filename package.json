@@ -12,6 +12,9 @@
     "doc": "doc",
     "test": "tests"
   },
+  "files": [
+    "colors.scss"
+  ],
   "scripts": {
     "build": "ember build --environment=production",
     "build-storybook": "ember build && build-storybook -s dist",
