@@ -25,7 +25,7 @@ Running / Development
 
 To visualize the components created in this library,
 you can run storybook:
-* `npm run storybook`
+* `npm start`
 
 Usage
 ------------------------------------------------------------------------------
