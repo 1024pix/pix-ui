@@ -21,30 +21,30 @@
   line-height: 2rem;
   color: $white;
   font-size: 0.9rem;white-space: nowrap;
-border-radius: 4px;
-transition: opacity 0.3s;
+  border-radius: 4px;
+  transition: opacity 0.3s;
 
-&::before {
-  content: "";
-  position: absolute;
-  border-width: 5px;
-  border-style: solid;
-}
+  &::before {
+    content: "";
+    position: absolute;
+    border-width: 5px;
+    border-style: solid;
+  }
 }
 
 .pix-tooltip__content--right {
-top: calc(50% - 1rem); // -1rem is half of the height of tooltip
-left: calc(100% + 10px);
+  top: calc(50% - 1rem); // -1rem is half of the height of tooltip
+  left: calc(100% + 10px);
 
-&::before {
-  top: calc(50% - 5px); // -5px is half of the height of ::before elmt
-  left: -10px; // 10px is width of the ::before elmt
-  border-color: transparent $black transparent transparent;
-}
+  &::before {
+    top: calc(50% - 5px); // -5px is half of the height of ::before elmt
+    left: -10px; // 10px is width of the ::before elmt
+    border-color: transparent $black transparent transparent;
+  }
 }
 
 .pix-tooltip__content--top {
-bottom: calc(100% + 10px);
+  bottom: calc(100% + 10px);
   left: 50%; // 50% here is the parent width
   transform: translate(-50%); // 50% here is the width of this current element
 
