@@ -1,0 +1,37 @@
+import { create } from '@storybook/theming/create';
+
+export default create({
+  base: 'light', // needed, this is not an optional parameter
+
+  colorPrimary: '#388AFF',
+  colorSecondary: 'linear-gradient(135deg, #388AFF 0%, #985FFF 100%)',
+
+  // UI
+  appBg: '#F4F5F7', // background of the global app
+  appContentBg: 'white', // background of the component preview canvas
+  appBorderColor: 'white',
+  appBorderRadius: 4,
+
+  // Typography
+  fontBase: '"Open Sans", sans-serif',
+  fontCode: 'monospace',
+
+  // Text colors of the left menu
+  textColor: 'black',
+  textInverseColor: 'black',
+
+  // Toolbar default and active colors
+  barTextColor: 'white',
+  barSelectedColor: 'white', // Selected tab when multiple tabs
+  barBg: 'linear-gradient(135deg, #388AFF 0%, #985FFF 100%)',
+
+  // Form colors
+  // inputBg: 'white',
+  // inputBorder: 'white',
+  // inputTextColor: 'white',
+  // inputBorderRadius: 4,
+
+  brandTitle: 'Pix',
+  brandUrl: 'https://pix.fr/',
+  brandImage: 'https://pix.fr/images/pix-logo.svg',
+});
