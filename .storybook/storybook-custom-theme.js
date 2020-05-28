@@ -4,7 +4,7 @@ export default create({
   base: 'light', // needed, this is not an optional parameter
 
   colorPrimary: '#388AFF',
-  colorSecondary: 'linear-gradient(135deg, #388AFF 0%, #985FFF 100%)',
+  colorSecondary: '#388AFF',
 
   // UI
   appBg: '#F4F5F7', // background of the global app
