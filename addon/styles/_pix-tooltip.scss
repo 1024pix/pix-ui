@@ -22,6 +22,10 @@
   border-radius: 4px;
   transition: opacity 0.3s;
 
+  &--no-wrap {
+    white-space: nowrap;
+  }
+
   &::before {
     content: "";
     position: absolute;
