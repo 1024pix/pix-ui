@@ -24,6 +24,7 @@
   "scripts": {
     "build": "ember build --environment=production",
     "build-storybook": "ember build && build-storybook -s dist",
+    "deploy-storybook": "storybook-to-ghpages",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
     "start": "ember serve",
@@ -47,6 +48,7 @@
     "@storybook/addons": "^5.3.19",
     "@storybook/ember": "^6.0.0-alpha.27",
     "@storybook/ember-cli-storybook": "^0.2.1",
+    "@storybook/storybook-deployer": "^2.8.6",
     "@storybook/theming": "^5.3.19",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
