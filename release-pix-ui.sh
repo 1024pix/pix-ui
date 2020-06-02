@@ -2,11 +2,20 @@
 
 set -euxo pipefail
 
-source "$(dirname $0)"/common.sh
+
+CWD_DIR=$(pwd)
+
+echo "${CWD_DIR}"
+
+source "${CWD_DIR}/common.sh"
 
 VERSION_TYPE=$1
 
 echo "Version type ${VERSION_TYPE}"
+
+function get_package_version() {
+  node -p -e "require('./package.json').version"
+}
 
 function clone_repository_and_move_inside {
   REPOSITORY_FOLDER=$(mktemp -d)
@@ -20,8 +29,8 @@ function clone_repository_and_move_inside {
 }
 
 function configure_git_user_information {
-  git config user.name "$GIT_USER_NAME"
-  git config user.email "$GIT_USER_EMAIL"
+  git config user.name Pix bot
+  git config user.email pix@
   echo "Set Git user information"
 }
 
@@ -30,22 +39,17 @@ function install_required_packages {
   echo "Install packages"
 }
 
-function complete_change_log() {    
-    node “${CWD_DIR}/scripts/get-pull-requests-to-release-in-prod.js” “${NEW_PACKAGE_VERSION}”        
-    echo “Updated CHANGELOG.md”   
-}
-
 function create_and_deploy_release {
-  npm run deploy-storybook
+  npm run release:${VERSION_TYPE}
   echo "Deploy new release"
 }
 
 echo "Start deploying version ${VERSION_TYPE}…"
 
-clone_repository_and_move_inside
+NEW_PACKAGE_VERSION=$(get_package_version)
+# clone_repository_and_move_inside
 configure_git_user_information
-install_required_packages
-complete_change_log
+# install_required_packages
 create_and_deploy_release
 
 echo -e "Release deployment ${GREEN}succeeded${RESET_COLOR}."
