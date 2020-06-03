@@ -1,5 +1,9 @@
 
 ## v0.1.0 (03/06/2020)
+## v0.1.1 (03/06/2020)
+
+- [#12](https://github.com/1024pix/pix-ui/pull/12) [BUGFIX] Ajustements sur le script de déploiement.
+
 
 - [#2](https://github.com/1024pix/pix-ui/pull/2) [FEATURE] Création d'un composant Tooltip
 - [#1](https://github.com/1024pix/pix-ui/pull/1) [FEATURE] Ajout de style commun avec sass
