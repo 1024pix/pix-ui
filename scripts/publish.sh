@@ -90,6 +90,7 @@ function push_commit_and_tag_to_remote_master() {
 }
 
 function deploy_storybook_to_ghpages() {
+    npm install
     npm run deploy-storybook
     echo "Deploying storybook on https://1024pix.github.io/pix-ui/"
 }
