@@ -36,9 +36,11 @@
   "dependencies": {
     "@storybook/addon-centered": "^5.3.19",
     "@storybook/addon-notes": "^5.3.19",
+    "axios": "^0.19.2",
     "ember-cli-babel": "^7.18.0",
     "ember-cli-htmlbars": "^4.2.3",
     "ember-cli-sass": "^10.0.1",
+    "moment": "^2.26.0",
     "sass": "^1.26.5"
   },
   "devDependencies": {
