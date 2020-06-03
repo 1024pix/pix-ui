@@ -24,7 +24,7 @@ function clone_repository_and_move_inside {
 }
 
 function configure_git_user_information {
-  git config user.name "${GIT_USER_NAME}"
-  git config user.email "${GIT_USER_EMAIL}"
+  git config user.name "Pix Bot"
+  git config user.email "sam@bot.pix.fr"
   echo "Set Git user information"
 }
