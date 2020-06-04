@@ -108,7 +108,7 @@ ensure_new_version_is_either_minor_or_patch_or_major
 echo "== Package release =="
 checkout_dev
 fetch_and_rebase
-update_pix_ui_module_version "/tmp/pixui"
+update_pix_ui_module_version
 complete_change_log
 create_a_release_commit
 push_commit_to_remote_dev
