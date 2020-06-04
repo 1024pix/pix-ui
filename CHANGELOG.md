@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.1.2 (04/06/2020)
+
+- [#13](https://github.com/1024pix/pix-ui/pull/13) [TECH] Correction de l'ordre des titres du Changelog
+
 ## v0.1.1 (03/06/2020)
 
 - [#12](https://github.com/1024pix/pix-ui/pull/12) [BUGFIX] Ajustements sur le script de déploiement.
