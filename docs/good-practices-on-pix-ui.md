@@ -1,0 +1,28 @@
+Guide des bonnes pratiques
+==============================================================================
+
+
+- Les **noms des composants** commençent par `Pix` et sont écrit en camel case. 
+*Par exemple, un composant bouton devient : `PixButton`.*
+<br/>
+
+
+- Les **noms des classes CSS** suivent la convention BEM. 
+[Plus d'informations ici.](https://github.com/1024pix/pix/blob/dev/docs/CSS.md)
+<br/>
+
+- Les **noms des fichiers** suivent l'exemple de la pix-tooltip.
+*Par exemple, pour les styles, on recomandera de rajouter `_` devant le nom du fichier pour indiquer que c'est un ["fichier partiel Sass"](https://sass-lang.com/guide#topic-4).*
+<br/>
+
+- Utiliser les **variables Sass** déjà existantes. 
+*Par exemple, vérifier dans les fichiers `_fonts.scss` et `_colors.scss`. Si elles n'existent pas les rajouter au bon endroit.*
+<br/>
+
+- Faire des **tests**. On recommandera de tester pour chaque composant : le cas par défaut, le(s) cas particulier(s) et un cas où ça ne fonctionne pas.
+<br/>
+
+
+## Accessibilité :
+
+L'accessiblité est un enjeu important sur nos composants UI. Merci de prendre connaissance de [nos pratiques sur l'accessibilité ici.](https://github.com/1024pix/pix/blob/dev/docs/Accessibilite.md)
