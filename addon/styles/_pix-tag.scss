@@ -1,0 +1,42 @@
+.pix-tag {
+  display: inline-block;
+  box-sizing: border-box;
+  text-align: center;
+  vertical-align: baseline;
+  white-space: nowrap;
+  line-height: 1.25rem;
+  padding: 0 8px;
+  
+  font-family: $font-roboto;
+  font-size: 0.8125rem;
+  font-weight: $font-normal;
+
+  border: 1px solid transparent;
+  border-radius: 0.75rem;
+
+  color: $white;
+  background-color: $blue;
+
+  &--blue-light {
+    color: darken($blue, 10%);
+    background-color: lighten($blue, 30%);
+  }
+
+  &--green {
+    background-color: $dark-green-certif;
+  }
+
+  &--green-light {
+    color: darken($dark-green-certif, 10%);
+    background-color: lighten($dark-green-certif, 60%);
+  }
+
+  &--purple {
+    background-color: $purple;
+  }
+
+  &--purple-light {
+    color: darken($purple, 10%);
+    background-color: lighten($purple, 30%);
+  }
+}
