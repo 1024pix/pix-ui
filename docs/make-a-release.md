@@ -1,0 +1,43 @@
+Faire une release
+==============================================================================
+
+### C'est quoi une release ?
+Une release est la publication d'un nouvelle version du projet.
+
+D'un point de vue externe au projet, cela signifie que les applications se servant de Pix-UI pourront se servir des nouveaux composants et des dernières features.
+
+D'un point de vue interne sela signifie qu'on met à jour la branche `master` par rapport à `dev` et qu'on crée un tag git pour nommer cette version. Les nouveautés embarquées sont donc uniquement celles déjà présentes sur `dev` au moment de la release.
+
+Par ailleurs, sur Pix-UI une release signifie aussi la mise à jour automatique de [notre storybook en ligne](https://1024pix.github.io/pix-ui/).
+
+### Effectuer la release
+Après s'être mis à jour sur la branche dev lancer le script de publication : 
+- `git checkout dev`
+- `git pull`
+- `./scripts/publish.sh <version_souhaitée>`
+
+  `<version_souhaitée>` peut prendre 3 valeurs : 
+    - `patch` : correctif de bug
+    - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix-UI
+    - `major` : modifications apportant des changements dans l'utilisation de Pix-UI
+
+Pour plus d'informations au sujet de la version à choisir se référencer à [SemVer](https://semver.org/lang/fr/).
+
+| | |
+|-|-|
+| `INFO` | Au début, pour la création des premiers composants Pix-UI, nous recommandons d'effectuer des releases de type `minor`. |
+
+Le script de publication effectuera automatiquement les actions suivantes : 
+- mise à jour de la version du projet dans le `package.json`
+- création d'un tag git correspondant à la nouvelle version
+- mise à jour de la liste des changements dans le [CHANGELOG.md](../CHANGELOG.md)
+- mise à jour de la branche `master` par rapport à `dev`
+- re-[déploiement de storybook sur les GitHub Pages](/storybook_deployment_on_gh_pages)
+
+
+### Constater le bon fonctionnement de la release
+
+Pour vérifier si la release s'est bien déroulée : 
+- vérifier le contenu du [CHANGELOG.md](../CHANGELOG.md) : contient-il toutes les PR qui ont été mergées récemment sur la branche `dev` ?
+- vérifier si notre [Storybook en ligne](https://1024pix.github.io/pix-ui/) montre bien les nouveaux composants.
+
