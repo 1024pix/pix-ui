@@ -1,0 +1,16 @@
+.pix-message {
+  position: relative;
+  margin: 0 0 1rem 0;
+  padding: 1rem;
+  border-radius: 4px;
+
+  @mixin buttonColor($color){
+    color: darken($color, 15%);
+    background-color: rgba($color, .2);
+  }
+
+  &.pix-message--info { @include buttonColor($communication-light); }
+  &.pix-message--success { @include buttonColor($success); }
+  &.pix-message--warning { @include buttonColor($warning); }
+  &.pix-message--alert { @include buttonColor($error); }
+}
