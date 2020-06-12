@@ -46,6 +46,7 @@
     "@glimmer/tracking": "^1.0.0",
     "@storybook/addons": "^5.3.19",
     "@storybook/addon-centered": "^5.3.19",
+    "@storybook/addon-a11y": "^5.3.19",
     "@storybook/ember": "^6.0.0-alpha.27",
     "@storybook/ember-cli-storybook": "^0.2.1",
     "@storybook/storybook-deployer": "^2.8.6",
