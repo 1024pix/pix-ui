@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v0.2.0 (12/06/2020)
+
+- [#18](https://github.com/1024pix/pix-ui/pull/18) [FEATURE] Ajout du composant Message
+- [#17](https://github.com/1024pix/pix-ui/pull/17) [FEATURE] Ajout du composant PixTag
+- [#16](https://github.com/1024pix/pix-ui/pull/16) [DOCS] Ajout de documentations (readme, bonne pratiques ...)
+- [#14](https://github.com/1024pix/pix-ui/pull/14) [DOCS] Documentation sur le déploiement de Storybook en ligne
+
 ## v0.1.2 (04/06/2020)
 
 - [#13](https://github.com/1024pix/pix-ui/pull/13) [TECH] Correction de l'ordre des titres du Changelog
