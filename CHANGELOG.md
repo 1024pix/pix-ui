@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.2.1 (17/06/2020)
+
+- [#20](https://github.com/1024pix/pix-ui/pull/20) [TECH] Mettre des dépendances en "devDependancies"
+
 ## v0.2.0 (12/06/2020)
 
 - [#18](https://github.com/1024pix/pix-ui/pull/18) [FEATURE] Ajout du composant Message
