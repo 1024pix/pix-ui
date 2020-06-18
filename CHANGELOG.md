@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.2.2 (18/06/2020)
+
+- [#21](https://github.com/1024pix/pix-ui/pull/21) [TECH] Correction du déploiment automatique de storybook en ligne
+
 ## v0.2.1 (17/06/2020)
 
 - [#20](https://github.com/1024pix/pix-ui/pull/20) [TECH] Mettre des dépendances en "devDependancies"
