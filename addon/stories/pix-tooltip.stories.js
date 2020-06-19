@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import centered from '@storybook/addon-centered/ember';
 
 export default { title: 'Tooltip' };
 
@@ -83,4 +84,5 @@ tooltip.story = {
       markdown,
     },
   },
+  decorators: [centered],
 };

@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import centered from '@storybook/addon-centered/ember';
 
 export default { title: 'Message' };
 
@@ -59,4 +60,5 @@ message.story = {
       markdown,
     },
   },
+  decorators: [centered],
 };
