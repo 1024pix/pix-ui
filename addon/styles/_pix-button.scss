@@ -82,3 +82,29 @@
     background-color: darken($yellow, 14%);
   }
 }
+
+.pix-button--size-large {
+  padding: 14px 24px;
+
+  &.pix-button--rounded {
+    border-radius: 24px;
+  }
+}
+
+.pix-button--rounded {
+  border-radius: 18px;
+}
+
+.pix-button--type-outlined {
+  background-color: $white;
+  color: $grey-80;
+
+  &:hover, &:focus, &:active {
+    background-color: $white;
+    border-width: 2px;
+  }
+}
+
+.pix-button:disabled {
+  cursor: not-allowed;
+}
