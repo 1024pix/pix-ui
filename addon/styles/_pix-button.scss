@@ -29,3 +29,56 @@
     text-decoration: none;
   }
 }
+
+.pix-button--color-green {
+  background-color: $green;
+  border-color: $green;
+
+  &:hover, &:focus {
+    background-color: darken($green, 4%);
+  }
+
+  &:active {
+    background-color: darken($green, 8%);
+  }
+}
+
+.pix-button--color-red {
+  background-color: $red;
+  border-color: $red;
+
+  &:hover, &:focus {
+    background-color: darken($red, 4%);
+  }
+
+  &:active {
+    background-color: darken($red, 8%);
+  }
+}
+
+.pix-button--color-grey {
+  background-color: $grey-50;
+  border-color: $grey-50;
+
+  &:hover, &:focus {
+    background-color: darken($grey-50, 4%);
+  }
+
+  &:active {
+    background-color: darken($grey-50, 8%);
+  }
+}
+
+.pix-button--color-yellow {
+  background-color: $yellow;
+  border-color: $yellow;
+  color: $grey-80;
+
+  &:hover, &:focus {
+    background-color: darken($yellow, 8%);
+  }
+
+  &:active {
+    background-color: darken($yellow, 14%);
+  }
+}
