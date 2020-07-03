@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.3.0 (03/07/2020)
+
+- [#22](https://github.com/1024pix/pix-ui/pull/22) [FEATURE] Ajout d'un PixBackgroundBlue & PixBlocShadow
+
 ## v0.2.2 (18/06/2020)
 
 - [#21](https://github.com/1024pix/pix-ui/pull/21) [TECH] Correction du déploiment automatique de storybook en ligne
