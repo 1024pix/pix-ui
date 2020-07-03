@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import centered from '@storybook/addon-centered/ember';
 
 export default { title: 'Chips' };
 
@@ -68,5 +69,6 @@ tag.story = {
       markdown,
     },
   },
+  decorators: [centered],
 };
 

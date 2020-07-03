@@ -1,0 +1,30 @@
+.pix-block {
+  position: relative;
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 980px;
+  padding: 14px 24px;
+  margin-bottom: 32px;
+  background-color: $white;
+  border-radius: 5px;
+  
+  &--shadow-light {
+    box-shadow: 0 10px 20px 0 rgba($blue, .06);
+  }
+  &--shadow-heavy {
+    box-shadow: 0 50px 54px -40px rgba($grey-200, .4),
+                0 7px 14px 0 rgba($grey-150, .1);
+  }
+}
+
+.pix-background-header {
+  &__background + .pix-block {
+    margin-top: 68px;
+  }
+}
+
+@include device-is('mobile') {
+  .pix-block {
+    padding: 16px;
+  }
+}
