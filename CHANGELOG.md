@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v0.4.0 (17/07/2020)
+
+- [#25](https://github.com/1024pix/pix-ui/pull/25) [FEATURE] Ajout du composant PixLinkBack
+- [#26](https://github.com/1024pix/pix-ui/pull/26) [TECH] Changer le port de l'app Ember Pix UI
+- [#19](https://github.com/1024pix/pix-ui/pull/19) [TECH] Ajout du addon-a11y pour vérifier des points d'accessibilité sur les add-on pix.
+
 ## v0.3.0 (03/07/2020)
 
 - [#22](https://github.com/1024pix/pix-ui/pull/22) [FEATURE] Ajout d'un PixBackgroundBlue & PixBlocShadow
