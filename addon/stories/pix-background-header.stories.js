@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export default { title: 'BackroundHeader' };
+export default { title: 'BackgroundHeader' };
 
 const canvasContent = hbs`
 <PixBackgroundHeader @background-color='pink'>
@@ -16,14 +16,14 @@ const canvasContent = hbs`
 `;
 
 const markdown = `
-# BackroundHeader
+# BackgroundHeader
 
-Un \`BackroundHeader\` est une bannière donnant un fond de couleur bleu en haut d'une page.
+Un \`BackgroundHeader\` est une bannière donnant un fond de couleur bleu en haut d'une page.
 Les enfants de la bannière se mettrons en colonne.
 
 > Pour le moment ce composant n'est pas paramétrable car nous n'avons pas d'autres types de bannières.
 
-> Le \`BackroundHeader\` se couple bien avec un ou plusieurs \`PixBlock\`.
+> Le \`BackgroundHeader\` se couple bien avec un ou plusieurs \`PixBlock\`.
 
 ## Usage
 
