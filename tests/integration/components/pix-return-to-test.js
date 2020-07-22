@@ -10,7 +10,7 @@ module('Integration | Component | pix-return-to', function(hooks) {
 
   test('it renders the default PixReturnTo', async function(assert) {
     // when
-    await render(hbs`<PixReturnTo @route='home' @text='Home' />`);
+    await render(hbs`<PixReturnTo @route='home'>Home</PixReturnTo> `);
     
     // then
     const PixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
