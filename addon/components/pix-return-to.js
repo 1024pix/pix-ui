@@ -1,13 +1,13 @@
 import Component from '@glimmer/component';
 
-export default class PixLinkBack extends Component {
-  text = 'pix-link-back';
+export default class PixReturnTo extends Component {
+  text = 'pix-return-to';
   availableShade = ['black', 'white', 'blue'];
 
   get route() {
     const routeParam = this.args.route;
     if(routeParam == undefined || routeParam.trim() == '') {
-      throw new Error('ERROR in PixLinkBack component, @route param is not provided');
+      throw new Error('ERROR in PixReturnTo component, @route param is not provided');
     }
     return routeParam;
   }

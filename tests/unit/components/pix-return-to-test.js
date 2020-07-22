@@ -3,14 +3,14 @@ import { setupTest } from 'ember-qunit';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 
-module('Unit | Component | pix-link-back', function(hooks) {
+module('Unit | Component | pix-return-to', function(hooks) {
   setupTest(hooks);
 
   test('its default color is black', function(assert) {
     // given
     const componentParams = { route: 'uneRoute', shade: 'test' };
     const expectedShade = 'black';
-    const component = createGlimmerComponent('component:pix-link-back', componentParams);
+    const component = createGlimmerComponent('component:pix-return-to', componentParams);
 
     // when & then
     assert.equal(component.shade, expectedShade);
@@ -20,7 +20,7 @@ module('Unit | Component | pix-link-back', function(hooks) {
     // given
     const componentParams = { route: 'uneRoute', shade: 'white' };
     const expectedShade = 'white';
-    const component = createGlimmerComponent('component:pix-link-back', componentParams);
+    const component = createGlimmerComponent('component:pix-return-to', componentParams);
 
     // when & then
     assert.equal(component.shade, expectedShade);
@@ -29,8 +29,8 @@ module('Unit | Component | pix-link-back', function(hooks) {
   test('it throws if route param is undefined or empty', function(assert) {
     // given
     const componentParams = { route: '  ' };
-    const expectedError = new Error('ERROR in PixLinkBack component, @route param is not provided');
-    const component = createGlimmerComponent('component:pix-link-back', componentParams);
+    const expectedError = new Error('ERROR in PixReturnTo component, @route param is not provided');
+    const component = createGlimmerComponent('component:pix-return-to', componentParams);
 
     // when & then
     assert.throws(

@@ -1,0 +1,30 @@
+{{#if @model}}
+
+  <LinkTo @route={{this.route}} class="pix-return-to pix-return-to--{{this.shade}}"
+          @model={{@model}}
+          ...attributes>
+
+    {{#if (has-block)}}
+      <span aria-hidden="true" class="pix-return-to__icon"><FaIcon @icon='arrow-left' /></span>
+      <span class="pix-return-to__text"> {{yield}} </span>
+    {{else}}
+      <span title="Flèche de retour" class="pix-return-to__icon"><FaIcon @icon='arrow-left' /></span>
+    {{/if}}
+
+  </LinkTo>
+
+{{else}}
+
+  <LinkTo @route={{this.route}} class="pix-return-to pix-return-to--{{this.shade}}"
+          ...attributes>
+
+    {{#if (has-block)}}
+      <span aria-hidden="true" class="pix-return-to__icon"><FaIcon @icon='arrow-left' /></span>
+      <span class="pix-return-to__text"> {{yield}} </span>
+    {{else}}
+      <span title="Flèche de retour" class="pix-return-to__icon"><FaIcon @icon='arrow-left' /></span>
+    {{/if}}
+
+  </LinkTo>
+
+{{/if}}
