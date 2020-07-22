@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.5.0 (22/07/2020)
+
+- [#27](https://github.com/1024pix/pix-ui/pull/27) [BUGFIX] Corrections de la PixLinkBack renommée en PixReturnTo
+
 ## v0.4.0 (17/07/2020)
 
 - [#25](https://github.com/1024pix/pix-ui/pull/25) [FEATURE] Ajout du composant PixLinkBack
