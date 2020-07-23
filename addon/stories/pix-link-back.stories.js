@@ -77,11 +77,5 @@ export const returnTo = () => {
   }
 };
 
-returnTo.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  },
-  decorators: [centered],
-};
+returnTo.parameters = { notes: { markdown } };
+returnTo.decorators = [centered];

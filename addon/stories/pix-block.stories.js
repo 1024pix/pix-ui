@@ -52,10 +52,4 @@ export const block = () => {
   }
 };
 
-block.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  }
-};
+block.parameters = { notes: { markdown } };

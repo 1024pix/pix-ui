@@ -54,11 +54,5 @@ export const message = () => {
   }
 };
 
-message.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  },
-  decorators: [centered],
-};
+message.parameters = { notes: { markdown } };
+message.decorators = [centered];

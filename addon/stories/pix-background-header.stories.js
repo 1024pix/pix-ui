@@ -57,10 +57,4 @@ export const backgroundHeader = () => {
   }
 };
 
-backgroundHeader.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  }
-};
+backgroundHeader.parameters = { notes: { markdown } };
