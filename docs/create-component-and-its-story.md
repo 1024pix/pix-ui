@@ -2,17 +2,21 @@ Créer un composant et sa story
 ==============================================================================
 
 ### Création des fichiers nécessaires au composant
-* `ember generate component <pix-component-name>`
+* `ember generate pix-component <component-name>`
+/!\ ne pas préfixer le nom du composant par `pix`, cela se fera automatiquement avec la commande /!\
 
-Cette commande créera les fichiers suivants : 
-* `addon/templates/components/<pix-component-name>.hbs`: template du composant.
-* `tests/integration/components/<pix-component-name>-test.js`: test du composant.
-* `app/components/<pix-component-name>.js`, sert uniquement à ember pour retrouver les composants existants dans le dossier `addon`. **On ne modifiera pas ce fichier là.**
+Cette commande est [un blueprint ember](https://cli.emberjs.com/release/advanced-use/blueprints/), c'est à dire une commande customisée, elle permet d'automatiser plusieurs choses. 
 
-Il vous faudra, certainement, rajouter les fichiers suivants : 
-* `addon/components/<pix-component-name>.js`: controller du composant.
-* `addon/styles/<_pix-component-name>.scss`: style du composant.
-* `addon/stories/<pix-component-name>.stories.js`: **visualisation et documententation** du composant
+La commande crée et pré-remplis les fichiers suivants :
+* `addon/templates/components/pix-<component-name>.hbs`: template du composant.
+* `addon/components/pix-<component-name>.js`: controller du composant.
+* `addon/stories/pix-<component-name>.stories.js`: **visualisation et documententation** du composant
+* `addon/styles/pix-<component-name>.scss`: style du composant.
+* `app/components/pix-<component-name>.js`, sert uniquement à ember pour retrouver les composants existants dans le dossier `addon`. **On ne modifiera pas ce fichier là.**
+* `tests/integration/components/pix-<component-name>-test.js`: test du composant.
+
+De plus la commande met à jour les imports scss dans le fichier :
+* `addon.scss` (elle rajoutera l'import juste avant la ligne `html {`)
 
 En somme, rien de nouveau ici en dehors de ces deux points : 
 - le contenu de `app` ne nous intéressera pas, tout se passe dans le dossier `addon`
@@ -30,6 +34,7 @@ Voici le template classique d'une story :
 
 ~~~javascript
 import { hbs } from 'ember-cli-htmlbars'; // import nécessaire pour 'canvasContent'
+import centered from '@storybook/addon-centered/ember'; // potentiels import de décorateurs
 
 export default { title: 'MonSuperComposant' }; // titre de la section affiché dans le menu de storybook
 
@@ -37,11 +42,10 @@ export default { title: 'MonSuperComposant' }; // titre de la section affiché d
 
 export const monSuperComposant = () => { return canvasContent };
 
-monSuperComposant.story = {
-  parameters: {
-    notes: { markdown }, // contenu de la documentation grâce à l'addon Notes
-  },
+monSuperComposant.parameters = { 
+  notes: { markdown } // contenu de la documentation grâce à l'addon Notes
 };
+returnTo.decorators = [centered]; // potentiel décorateur, par example celui-ci centre la story dans le canvas
 ~~~
 
 [L'addon "Notes" de Storybook](https://github.com/storybookjs/storybook/tree/master/addons/notes) nous permet d'obtenir un pannel supplémentaire dans notre site Storybook. Ce pannel sert de documentation du composant et est écrit en [markdown](https://github.com/adam-p/markdown-here/wiki/Markdown-Cheatsheet).
