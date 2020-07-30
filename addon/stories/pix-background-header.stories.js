@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export default { title: 'BackgroundHeader' };
+export default { title: 'Layout/BackgroundHeader' };
 
 const canvasContent = hbs`
 <PixBackgroundHeader @background-color='pink'>
@@ -57,10 +57,5 @@ export const backgroundHeader = () => {
   }
 };
 
-backgroundHeader.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  }
-};
+backgroundHeader.storyName = "Background Header";
+backgroundHeader.parameters = { notes: { markdown } };

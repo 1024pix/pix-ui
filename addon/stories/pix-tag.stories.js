@@ -63,12 +63,5 @@ export const tag = () => {
   }
 };
 
-tag.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  },
-  decorators: [centered],
-};
-
+tag.parameters = { notes: { markdown } };
+tag.decorators = [centered];

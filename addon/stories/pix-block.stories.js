@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export default { title: 'Block' };
+export default { title: 'Layout/Block' };
 
 const canvasContent = hbs`
 <div style='background-color: #F4F5F7; padding: 30px;'>
@@ -52,10 +52,4 @@ export const block = () => {
   }
 };
 
-block.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  }
-};
+block.parameters = { notes: { markdown } };

@@ -78,11 +78,5 @@ export const tooltip = () => {
   }
 };
 
-tooltip.story = {
-  parameters: {
-    notes: {
-      markdown,
-    },
-  },
-  decorators: [centered],
-};
+tooltip.parameters = { notes: { markdown } };
+tooltip.decorators = [centered];
