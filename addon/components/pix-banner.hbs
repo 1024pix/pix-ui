@@ -1,0 +1,6 @@
+<div class="pix-banner" ...attributes>
+  {{yield}}
+  {{#if this.displayAction}}
+    <a class="pix-banner__action" href={{@actionUrl}}>{{@actionLabel}}</a>
+  {{/if}}
+</div>

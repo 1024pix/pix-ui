@@ -1,0 +1,34 @@
+.pix-banner {
+  @import 'reset-css';
+
+  font-family: $font-open-sans;
+  font-weight: $font-normal;
+  padding: 32px 58px;
+  background-color: $dark-orga;
+  color: $white;
+  font-size: 0.875rem;
+
+  &__action {
+    color: $white;
+    border: 1px solid $white;
+    border-radius: 4px;
+    padding: 10px 28px;
+    text-decoration: none;
+    margin-left: 18px;
+    letter-spacing: 0.028rem;
+    transition: background-color 0.3s ease-out;
+
+    &:hover {
+      background-color: rgba($grey-70, 0.3);
+    }
+
+    &:active {
+      background-color: rgba($grey-70, 0.6);
+    }
+
+    &:focus {
+      background-color: $yellow;
+      color: $grey-90;
+    }
+  }
+}
