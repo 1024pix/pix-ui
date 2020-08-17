@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v0.6.0 (17/08/2020)
+
+- [#29](https://github.com/1024pix/pix-ui/pull/29) [FEATURE] Ajout du composant PixBanner (PIX-1114).
+- [#28](https://github.com/1024pix/pix-ui/pull/28) [TECH] Correction des warnings de storybook
+- [#23](https://github.com/1024pix/pix-ui/pull/23) [TECH] Ajout d'un reset CSS
+
 ## v0.5.0 (22/07/2020)
 
 - [#27](https://github.com/1024pix/pix-ui/pull/27) [BUGFIX] Corrections de la PixLinkBack renommée en PixReturnTo
