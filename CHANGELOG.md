@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.7.0 (21/08/2020)
+
+- [#24](https://github.com/1024pix/pix-ui/pull/24) [TECH] Ajout d'une commande custom pour créer un composant Pix UI
+
 ## v0.6.0 (17/08/2020)
 
 - [#29](https://github.com/1024pix/pix-ui/pull/29) [FEATURE] Ajout du composant PixBanner (PIX-1114).
