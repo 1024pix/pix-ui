@@ -8,12 +8,19 @@ const canvasContent = hbs`
   Bienvenue sur PixOrga !
 </PixBanner>
 
-<h3>Message important avec action</h3>
+<h3>Message important avec lien externe</h3>
 <PixBanner
   @actionLabel='Ajouter des élèves'
   @actionUrl='https://orga.pix.fr/eleves'
 >
   La liste des élèves est vide, ajouter des élèves pour commencer
+</PixBanner>
+<h3>Message important avec lien-interne</h3>
+<PixBanner
+  @actionLabel='Liste des campagnes'
+  @actionUrl='authenticated.campaigns'
+>
+  Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.
 </PixBanner>
 `;
 
