@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.8.0 (24/08/2020)
+
+- [#30](https://github.com/1024pix/pix-ui/pull/30) [FEATURE] Add support for ember app internal links in PixBanner (PIX-1085).
+
 ## v0.7.0 (21/08/2020)
 
 - [#24](https://github.com/1024pix/pix-ui/pull/24) [TECH] Ajout d'une commande custom pour créer un composant Pix UI
