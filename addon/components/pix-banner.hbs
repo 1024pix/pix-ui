@@ -1,5 +1,5 @@
 <div class="pix-banner" ...attributes>
-  {{yield}}
+  <div class="pix-banner__content">{{yield}}</div>
   {{#if this.displayAction}}
     {{#if this.isExternalLink}}
       <a class="pix-banner__action" href={{@actionUrl}}>{{@actionLabel}}</a>
