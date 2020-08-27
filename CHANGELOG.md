@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.8.1 (27/08/2020)
+
+- [#31](https://github.com/1024pix/pix-ui/pull/31) [TECH] Ajout de ...attributes à la PixTooltip
+
 ## v0.8.0 (24/08/2020)
 
 - [#30](https://github.com/1024pix/pix-ui/pull/30) [FEATURE] Add support for ember app internal links in PixBanner (PIX-1085).
