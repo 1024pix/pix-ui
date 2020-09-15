@@ -6,19 +6,29 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | action-button', function(hooks) {
   setupRenderingTest(hooks);
 
-  const COMPONENT_SELECTOR = '.pix-action-button';
+  const iconClass = '.pix-action-button > svg';
 
-  test('it renders the default PixActionButton', async function(assert) {
+  test('it renders PixActionButton with a default fa-icon', async function(assert) {
     // when
     await render(hbs`
-      <PixActionButton>
-        content
-      </PixActionButton>
+      <PixActionButton></PixActionButton>
     `);
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    const iconElement = this.element.querySelector(iconClass);
 
     // then
-    assert.equal(componentElement.textContent.trim(), 'content');
+    assert.ok(iconElement.classList.contains('fa-plus'));
+  });
+
+  test('it renders PixActionButton with the specified FaIcon', async function(assert) {
+    // when
+    await render(hbs`
+      <PixActionButton @icon='times'></PixActionButton>
+    `);
+    const iconElement = this.element.querySelector(iconClass);
+
+    // then
+    assert.ok(iconElement.classList.contains('fa-times'));
+    assert.notOk(iconElement.classList.contains('fa-plus'));
   });
 
 });
