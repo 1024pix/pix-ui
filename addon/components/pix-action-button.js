@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class PixActionButton extends Component {
   text = 'pix-action-button';
@@ -6,5 +7,12 @@ export default class PixActionButton extends Component {
   get icon() {
     const defaultIcon = 'plus';
     return this.args.icon ? this.args.icon : defaultIcon;
+  }
+
+  @action
+  triggerAction() {
+    if (this.args.triggerAction) {
+      this.args.triggerAction();
+    }
   }
 }
