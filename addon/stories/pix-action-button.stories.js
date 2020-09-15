@@ -33,6 +33,7 @@ Avec paramètre:
 | Nom           | Type          |  Valeurs possibles  | Par défaut | Optionnel |
 | ------------- |:-------------:|:-------------------:|:----------:|----------:|
 |icon|string|les icons de font-awesome|'plus'|oui|
+|triggerAction|function|-|-|oui|
 
 `
 ;
