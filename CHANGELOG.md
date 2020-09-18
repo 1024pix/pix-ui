@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v0.9.0 (18/09/2020)
+
+- [#34](https://github.com/1024pix/pix-ui/pull/34) [TECH] Upgrade Ember-cli and font-awesome.
+- [#32](https://github.com/1024pix/pix-ui/pull/32) [TECH] Eviter de jouer circle-ci sur la branche gh-pages
+- [#31](https://github.com/1024pix/pix-ui/pull/31) [TECH] Ajout de ...attributes à la PixTooltip
+
 ## v0.8.1 (27/08/2020)
 
 - [#31](https://github.com/1024pix/pix-ui/pull/31) [TECH] Ajout de ...attributes à la PixTooltip
