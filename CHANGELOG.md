@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.10.0 (24/09/2020)
+
+- [#33](https://github.com/1024pix/pix-ui/pull/33) [FEATURE] Créer le composant PixActionButton
+
 ## v0.9.0 (18/09/2020)
 
 - [#34](https://github.com/1024pix/pix-ui/pull/34) [TECH] Upgrade Ember-cli and font-awesome.
