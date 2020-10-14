@@ -8,9 +8,11 @@ export default class PixButton extends Component {
 
   @action
   async triggerAction() {
-    if (this.args.action) {
+    try {
       this.isLoading = true;
       await this.args.action()
+      this.isLoading = false;
+    } catch (e) {
       this.isLoading = false;
     }
   }
