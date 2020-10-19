@@ -1,0 +1,12 @@
+<button type="button" class="pix-button" {{on "click" this.triggerAction}} ...attributes disabled={{this.isLoading}}>
+{{#if this.isLoading}}
+  <div class="loader loader--{{this.args.loading-color}}">
+    <div class="bounce1"></div>
+    <div class="bounce2"></div>
+    <div class="bounce3"></div>
+ </div>
+{{else}}
+  {{yield}}
+{{/if}}
+
+</button>
