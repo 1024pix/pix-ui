@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.13.0 (19/10/2020)
+
+- [#35](https://github.com/1024pix/pix-ui/pull/35) [FEATURE] Ajout du composant Bouton.
+
 ## v0.12.0 (30/09/2020)
 
 
