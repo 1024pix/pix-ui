@@ -1,0 +1,20 @@
+<div class={{this.pixStarsClass}} ...attributes>
+  <span class="sr-only">{{@alt}}</span>
+  {{#each this.stars as |star|}}
+    <svg
+      class="pix-stars__{{star}}"
+      data-test-status={{star}}
+      viewBox="0 0 36 36"
+    >
+      <defs>
+        <linearGradient id="pix-stars-default" x1="68.643%" y1="0%" x2="68.643%" y2="100%">
+          <stop stop-color="#FEDC41" offset="0%"/>
+          <stop stop-color="#FF9F00" offset="100%"/>
+        </linearGradient>
+      </defs>
+      <path d="M8.423 35.82c-.761.507-1.765-.125-1.635-1.03l1.619-11.335L.311 15.36a1.059 1.059 0 01.6-1.796l11.268-1.61L17.027.642c.367-.856 1.58-.856 1.946 0l4.848 11.31 11.269 1.61a1.059 1.059 0 01.599 1.797l-8.096 8.096 1.62 11.334c.129.906-.875 1.538-1.636 1.03L18 29.436 8.423 35.82z" />
+    </svg>
+  {{/each}}
+</div>
+
+

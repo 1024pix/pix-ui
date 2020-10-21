@@ -1,0 +1,44 @@
+.pix-stars {
+  @import 'reset-css';
+
+  > svg {
+    width: 36px;
+    height: 36px;
+  }
+
+  &--blue > &__acquired {
+    fill: $blue;
+  }
+
+  &--blue > &__unacquired {
+    fill: #e9eafc;
+    stroke: $blue;
+  }
+
+  &--grey > &__acquired {
+    fill: $grey-40;
+  }
+  &--grey > &__unacquired {
+    fill: white;
+    stroke: $grey-40;
+  }
+
+  &__acquired {
+    fill: url(#pix-stars-default);
+  }
+
+  &__unacquired {
+    fill: #e9eafc;
+  }
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}
