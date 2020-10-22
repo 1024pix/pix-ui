@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.14.0 (22/10/2020)
+
+- [#36](https://github.com/1024pix/pix-ui/pull/36) [FEATURE] Ajout du composant PixStars (pix-1448)
+
 ## v0.13.0 (19/10/2020)
 
 - [#35](https://github.com/1024pix/pix-ui/pull/35) [FEATURE] Ajout du composant Bouton.
