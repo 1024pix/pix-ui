@@ -49,7 +49,7 @@ Ce composant est un bouton simple qui empêche les clics multiples.
 ## Usage
 
 ~~~javascript
-<PixButton @action={{action yourAction}} @loading-color='grey'>
+<PixButton @action={{action yourAction}} @loading-color='grey' @type='button'>
   Nom du bouton
 </PixButton>
 ~~~
@@ -60,6 +60,7 @@ Ce composant est un bouton simple qui empêche les clics multiples.
 | ------------- |:-------------:|:-------------------:|:----------:|----------:|
 | action | action | | | Non |
 | loading-color | string | white/grey | white | Oui |
+| type | string | button/submit | button | Oui |
 
 `
 ;

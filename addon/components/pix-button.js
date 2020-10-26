@@ -6,11 +6,15 @@ export default class PixButton extends Component {
   text = 'pix-button';
   @tracked isLoading = false;
 
+  get type() {
+    return this.args.type || 'button';
+  }
+
   @action
-  async triggerAction() {
+  async triggerAction(params) {
     try {
       this.isLoading = true;
-      await this.args.action()
+      await this.args.action(params)
       this.isLoading = false;
     } catch (e) {
       this.isLoading = false;
