@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.15.0 (26/10/2020)
+
+- [#37](https://github.com/1024pix/pix-ui/pull/37) [STYLE] Les étoiles bleues "vides" de PixStars ne doivent pas avoir de bordure
+
 ## v0.14.0 (22/10/2020)
 
 - [#36](https://github.com/1024pix/pix-ui/pull/36) [FEATURE] Ajout du composant PixStars (pix-1448)
