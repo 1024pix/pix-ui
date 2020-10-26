@@ -19,6 +19,20 @@ module('Integration | Component | button', function(hooks) {
 
     // then
     assert.equal(componentElement.textContent.trim(), 'Mon bouton');
+    assert.equal(componentElement.type, 'button');
+  });
+
+  test('it renders the PixButton component with the given type', async function(assert) {
+    // when
+    await render(hbs`
+      <PixButton @type="submit">
+        Mon bouton
+      </PixButton>
+    `);
+    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+
+    // then
+    assert.equal(componentElement.type, 'submit');
   });
 
   test('it should call the action', async function(assert) {
@@ -38,4 +52,6 @@ module('Integration | Component | button', function(hooks) {
     assert.equal(this.count, 2);
     assert.equal(componentElement.disabled, false);
   });
+
+
 });
