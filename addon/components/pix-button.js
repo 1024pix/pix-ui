@@ -18,6 +18,7 @@ export default class PixButton extends Component {
       this.isLoading = false;
     } catch (e) {
       this.isLoading = false;
+      throw(new Error(e))
     }
   }
 
