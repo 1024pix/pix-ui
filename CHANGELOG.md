@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.16.0 (16/11/2020)
+
+- [#40](https://github.com/1024pix/pix-ui/pull/40) [TECH] Afficher l'erreur levée par un bouton.
+
 ## v0.15.1 (27/10/2020)
 
 - [#38](https://github.com/1024pix/pix-ui/pull/38) [BUGFIX] Amélioration du Pix-Button pour les formulaire
