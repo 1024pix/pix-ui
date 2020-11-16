@@ -26,3 +26,9 @@
 
 # storybook
 .storybook/preview-head.html
+
+# IDE
+**/.idea
+!.idea/runConfigurations/*.xml
+*.iml
+*.code-workspace
