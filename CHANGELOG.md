@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.17.0 (16/11/2020)
+
+- [#39](https://github.com/1024pix/pix-ui/pull/39) [DesignFix] Corriger le design de la PixReturnTo
+
 ## v0.16.0 (16/11/2020)
 
 - [#40](https://github.com/1024pix/pix-ui/pull/40) [TECH] Afficher l'erreur levée par un bouton.
