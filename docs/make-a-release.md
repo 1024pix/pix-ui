@@ -4,13 +4,35 @@ Faire une release
 ### C'est quoi une release ?
 Une release est la publication d'un nouvelle version du projet.
 
-D'un point de vue externe au projet, cela signifie que les applications se servant de Pix-UI pourront se servir des nouveaux composants et des dernières features.
+Autrement dit, on crée un tag git pour nommer cette version. Les nouveautés embarquées par cette version sont donc uniquement celles déjà présentes sur `dev` au moment de la release.
 
-D'un point de vue interne sela signifie qu'on met à jour la branche `master` par rapport à `dev` et qu'on crée un tag git pour nommer cette version. Les nouveautés embarquées sont donc uniquement celles déjà présentes sur `dev` au moment de la release.
+Les applications se servant de Pix-UI pourront alors se mettre à jour et utiliser les nouveaux composants et des dernières features en précisant le numéro de la version.
 
 Par ailleurs, sur Pix-UI une release signifie aussi la mise à jour automatique de [notre storybook en ligne](https://1024pix.github.io/pix-ui/).
 
-### Effectuer la release
+### Effectuer la release, méthode via slack (conseillée)
+Aller dans le channel slack dédié au releases : [#tech-releases](https://1024pix.slack.com/archives/CVAMDQYHY), puis taper la commande suivante : 
+- `/publish-pix-ui <version_souhaitée>`
+    `<version_souhaitée>` peut prendre 3 valeurs : 
+    - `patch` : correctif de bug
+    - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix-UI
+    - `major` : modifications apportant des changements dans l'utilisation de Pix-UI
+
+Vous devriez voir apparaître dans le channel un premier message (visible que par vous) de Pix-bot vous indiquant que la demande de déploiement pour Pix-UI a bien été prise en compte.
+
+Ensuite Pix-Bot vous confirmera à nouveau via 2 messages (un privé et un public) du bon déploiement de Pix-UI en indiquant le numéro de sa nouvelle version. 
+
+Et voilà :tada:
+
+### Constater le bon fonctionnement de la release
+
+Pour vérifier si la release s'est bien déroulée : 
+- vérifier le contenu du [CHANGELOG.md](../CHANGELOG.md) : contient-il toutes les PR qui ont été mergées récemment sur la branche `dev` ?
+- vérifier si notre [Storybook en ligne](https://1024pix.github.io/pix-ui/) montre bien les nouveaux composants.
+
+
+
+### Effectuer la release, méthode à la mano (déconseillé)
 Après s'être mis à jour sur la branche dev lancer le script de publication : 
 - `git checkout dev`
 - `git pull`
@@ -34,10 +56,4 @@ Le script de publication effectuera automatiquement les actions suivantes :
 - mise à jour de la branche `master` par rapport à `dev`
 - re-[déploiement de storybook sur les GitHub Pages](/storybook_deployment_on_gh_pages)
 
-
-### Constater le bon fonctionnement de la release
-
-Pour vérifier si la release s'est bien déroulée : 
-- vérifier le contenu du [CHANGELOG.md](../CHANGELOG.md) : contient-il toutes les PR qui ont été mergées récemment sur la branche `dev` ?
-- vérifier si notre [Storybook en ligne](https://1024pix.github.io/pix-ui/) montre bien les nouveaux composants.
 
