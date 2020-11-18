@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v0.18.0 (18/11/2020)
+
+- [#41](https://github.com/1024pix/pix-ui/pull/41) [FEATURE] Ajout du composant pix-select
+- [#42](https://github.com/1024pix/pix-ui/pull/42) [DOC] Mise à jour de la documentation pour faire un déploiement de Pix-UI 
+
 ## v0.17.0 (16/11/2020)
 
 - [#39](https://github.com/1024pix/pix-ui/pull/39) [DesignFix] Corriger le design de la PixReturnTo
