@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.18.1 (18/11/2020)
+
+- [#43](https://github.com/1024pix/pix-ui/pull/43) [TECH] Ne pas lancer circle-ci sur la branche gh-pages
+
 ## v0.18.0 (18/11/2020)
 
 - [#41](https://github.com/1024pix/pix-ui/pull/41) [FEATURE] Ajout du composant pix-select
