@@ -1,0 +1,23 @@
+.pix-filter-banner {
+  @import 'reset-css';
+
+  position: relative;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-sizing: border-box;
+  width: 100%;
+
+  background-color: $white;
+  box-shadow: 0 2px 5px 0 rgba($black, 0.05);
+  min-height: 64px;
+  padding: 14px 24px;
+
+  &__title {
+    color: $grey-60;
+    font-family: $font-roboto;
+    font-size: 0.875rem;
+    padding-right: 24px;
+    margin: 0;
+  }
+}
