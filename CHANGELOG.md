@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v0.18.2 (01/12/2020)
+
+- [#44](https://github.com/1024pix/pix-ui/pull/44) [TECH] Skip la CI sur les gh-pages
+
 ## v0.18.1 (18/11/2020)
 
 - [#43](https://github.com/1024pix/pix-ui/pull/43) [TECH] Ne pas lancer circle-ci sur la branche gh-pages
