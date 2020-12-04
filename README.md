@@ -56,7 +56,7 @@ Pour visualiser les composants créés, il faut lancer storybook :
 
 Pour créer un composant ainsi que sa story :
 * `ember generate pix-component <nom_du_composant>`
-[Voir la documentation par ici.](/docs/create-component.md)
+[Voir la documentation par ici.](/docs/create-component-and-its-story.md)
 
 
 ## Documentations <a id="Documentation"></a>
