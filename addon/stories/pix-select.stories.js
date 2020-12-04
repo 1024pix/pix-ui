@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Form' };
+export default { title: 'Form/Select' };
 
 const canvasContent = hbs`
   <PixSelect
