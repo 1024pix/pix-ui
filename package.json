@@ -23,7 +23,7 @@
   },
   "scripts": {
     "build": "ember build --environment=production",
-    "build-storybook": "ember build && build-storybook -s dist",
+    "build-storybook": "ember build && cp -v CNAME dist && build-storybook -s dist",
     "deploy-storybook": "storybook-to-ghpages",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
