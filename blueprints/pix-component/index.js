@@ -1,6 +1,6 @@
 'use strict';
 const stringUtils = require('ember-cli-string-utils');
-const insertIntoFile = require('../../lib/utilities/insert-into-file');
+const insertIntoFile = require('./utilities/insert-into-file');
 const EOL = require('os').EOL;
 
 module.exports = {
