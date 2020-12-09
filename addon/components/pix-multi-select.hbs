@@ -1,0 +1,26 @@
+<div class='pix-multi-select' ...attributes {{on-click-outside this.hideDropDown}}>
+    <button type="button" class="pix-multi-select__list-button" {{on "click" this.dropDown}} >
+        {{@title}}
+        <FaIcon class={{if this.isExpanded 'pix-multi-select__icon pix-multi-select__icon--expand' 'pix-multi-select__icon'}} @icon={{if this.isExpanded "chevron-up" "chevron-down"}}/>
+    </button>
+
+    <ul class="pix-multi-select__list {{if this.isExpanded "" "pix-multi-select__list--hidden"}}">
+      {{#if this.hasResults}}
+        {{#each this.results as |option|}} 
+         <li class="pix-multi-select__item">
+            <input class="pix-multi-select__checkbox" 
+              type="checkbox" 
+              checked={{option.checked}} 
+              id={{concat @id '-' option.value}} 
+              name={{option.label}} 
+              value={{option.value}} {{on 'change' this.onSelect}}/> 
+            <label for={{concat @id '-' option.value}}>
+              <span>{{yield option}}</span>
+            </label>
+          </li>
+          {{/each}}
+      {{else}}
+         <li class="pix-multi-select__item pix-multi-select__item--no-result">{{this.emptyMessage}}</li>
+      {{/if}}
+    </ul>
+</div>

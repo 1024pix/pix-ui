@@ -1,0 +1,140 @@
+.pix-multi-select {
+  display: inline-block;
+  position: relative;
+  min-width: 250px;
+  max-width: 450px;
+
+  &__list-button {
+    font-family: $font-roboto;
+    font-weight: $font-normal;
+    position: relative;
+    border: 1px $grey-20 solid;
+    height: 35px;
+    padding: 8px 36px 8px 16px;
+    width: 100%;
+    background-color: $white;
+    border-radius: 3px;
+    margin:0 1px;
+    outline: none;
+    box-sizing: border-box;
+    font-size: 0.9rem;
+    cursor: pointer;
+  
+    &:focus-within, &:hover {
+      border-color: $blue;
+    }
+  }
+
+  &__icon {
+    font-size: 16px;
+    color: $grey-25;
+    right: 16px;
+    top: calc(50% - 8px);
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+
+    &--expand {
+      color: $blue;
+    }
+  }
+
+  &__list {
+    width: 100%;
+    margin: 0px;
+    z-index: 200;
+    background-color: $white;
+    position: absolute;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    overflow-y: auto;
+    max-height: 200px;
+    list-style-type: none;
+    padding: 0;
+    box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
+
+    &--hidden {
+      display: none;
+    }  
+
+    &::-webkit-scrollbar {
+      width: 11px;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 4px;
+      border: 1px solid $grey-20;
+      background: $white;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      background: $grey-30;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: $grey-35;
+    }
+  }
+
+  &__item {
+    font-family: $font-roboto;
+    position: relative;
+    border-bottom: 1px solid $grey-15;
+    list-style: none;
+    font-size: 0.9rem;
+
+    &--no-result {
+      text-align: center;
+      padding: 4px 0;
+    }
+  
+    &:last-of-type {
+      border-bottom: none;
+    }
+    
+    &:hover, &:focus-within {
+      background-color: $grey-10;
+    }   
+  }
+  
+  &__checkbox {
+    position: absolute;
+    opacity: 0;
+  
+    & + label {
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 8px 16px;
+      cursor: pointer;
+    }
+  
+    & + label:before {
+      content: '';
+      margin-right: 8px;
+      display: inline-block;
+      vertical-align: text-top;
+      width: 16px;
+      height: 16px;
+      border-radius: 4px;
+      background: $white;
+      border: 1px solid $grey-20;
+    }
+        
+    &:checked + label:before {
+      background: $blue;
+    }
+      
+    &:checked + label:after {
+      position: absolute;
+      top: calc(50% - 6px);
+      left: 21px;
+      width: 6px;
+      height: 8px;
+      background: transparent;
+      border: 1.75px solid $white;
+      border-top: none;
+      border-right: none;
+      transform: rotate(-45deg);
+      content: '';
+    }
+  }
+}
