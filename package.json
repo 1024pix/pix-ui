@@ -55,7 +55,7 @@
     "@storybook/ember-cli-storybook": "^0.3.0",
     "@storybook/storybook-deployer": "^2.8.7",
     "@storybook/theming": "^6.1.10",
-    "axios": "^0.19.2",
+    "axios": "^0.21.0",
     "babel-eslint": "^10.1.0",
     "broccoli-asset-rev": "^3.0.0",
     "ember-auto-import": "^1.6.0",
