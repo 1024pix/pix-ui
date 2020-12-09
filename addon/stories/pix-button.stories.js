@@ -7,14 +7,14 @@ const canvasContent = {
   template: hbs`
     <h2> Bouton avec loader blanc et une action qui se résout</h2>
     <PixButton
-    @action={{action onClick}}
+    @triggerAction={{action onClick}}
     @loading-color='white'
     >
     Cliquez pour valider !
 </PixButton>
  <h2> Bouton avec loader gris et une action qui se ne résout pas</h2>
     <PixButton
-    @action={{action onClickFailed}}
+    @triggerAction={{action onClickFailed}}
     @loading-color='grey'
     >
     Cliquez pour valider !
@@ -49,7 +49,7 @@ Ce composant est un bouton simple qui empêche les clics multiples.
 ## Usage
 
 ~~~javascript
-<PixButton @action={{action yourAction}} @loading-color='grey' @type='button'>
+<PixButton @triggerAction={{action yourAction}} @loading-color='grey' @type='button'>
   Nom du bouton
 </PixButton>
 ~~~
