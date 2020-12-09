@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Chips' };
+export default { title: 'Basics/Tag' };
 
 const canvasContent = hbs`
 <h3>Classic colors</h3>

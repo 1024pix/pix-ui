@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Tooltip' };
+export default { title: 'Basics/Tooltip' };
 
 const canvasContent = hbs`
 <PixTooltip
