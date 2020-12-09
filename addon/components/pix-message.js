@@ -1,9 +1,8 @@
-import Component from '@ember/component';
-import { computed } from '@ember/object';
+import Component from '@glimmer/component';
 
-export default Component.extend({
-  getType: computed('type', function() {
+export default class PixMessage extends Component {
+  get type() {
     const correctTypes = ["info", "success", "warning", "alert"];
-    return correctTypes.includes(this.type) ? this.type : 'info';
-  }),
-});
+    return correctTypes.includes(this.args.type) ? this.args.type : 'info';
+  }
+}

@@ -1,5 +1,5 @@
 'use strict';
-const stringUtils = require('ember-cli-string-utils');
+const kebabCase = require('lodash/kebabCase');
 const insertIntoFile = require('./utilities/insert-into-file');
 const EOL = require('os').EOL;
 
@@ -8,7 +8,7 @@ module.exports = {
 
   locals(options) {
     const componentName = options.entity.name;
-    const dasherizedName = 'pix-' + stringUtils.dasherize(componentName);
+    const dasherizedName = 'pix-' + kebabCase(componentName);
 
     importNewStyleInGlobalStyle(dasherizedName);
 
