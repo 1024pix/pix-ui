@@ -1,36 +1,23 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
+import { withKnobs, number, select, text } from '@storybook/addon-knobs';
 
-export default { title: 'Others/Stars' };
+export default {
+  title: 'Others/Stars',
+  decorators: [withKnobs],
+};
 
 const canvasContent = hbs`
-  <h2>Differentes couleurs</h2>
-  <PixStars 
-    @count={{2}}
-    @total={{5}}
-    @alt="message alt"
+  <h2>PixStars</h2>
+  <p>Vous pouvez intéragir avec le composant via l'onglet "knobs"</p>
+  <PixStars
+    @count={{count}}
+    @total={{total}}
+    @alt="{{alt}}"
+    @color="{{color}}"
   />
 
-  <PixStars 
-    @count={{2}}
-    @total={{5}}
-    @alt="message alt"
-    @color="blue"
-  />
-
-  <PixStars 
-    @count={{2}}
-    @total={{5}}
-    @alt="message alt"
-    @color="grey"
-  />
-
-  <h2>Ne pas afficher les étoiles vides</h2>
   <p>Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'étoiles.</p>
-  <PixStars 
-    @count={{3}}
-    @alt="message alt"
-  />
 `;
 
 const markdown = `
@@ -42,7 +29,7 @@ Un texte alternatif peut être renseigné et différents styles sont pré-défin
 ## Usage
 
 ~~~javascript
-<PixStars 
+<PixStars
   @count={{2}}
   @total={{5}}
   @alt="message alternatif"
@@ -63,8 +50,22 @@ Un texte alternatif peut être renseigné et différents styles sont pré-défin
 ;
 
 export const stars = () => {
+  const starOptions = {
+    range: true,
+    min: 0,
+    max: 10,
+    step: 1,
+  };
+  const colors = [undefined, 'yellow', 'blue', 'grey'];
+
   return {
     template: canvasContent,
+    context: {
+      count: number('count', 2, starOptions),
+      total: number('total', 5, starOptions),
+      alt: text('alt', 'message alternatif'),
+      color: select('color', colors, undefined),
+    },
   }
 };
 
