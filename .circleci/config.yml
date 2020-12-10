@@ -17,4 +17,6 @@ jobs:
     steps:
       - checkout
       - run: npm ci
+      - run: npm run lint:js
+      - run: npm run lint:hbs
       - run: npm test
