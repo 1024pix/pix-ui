@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v1.0.0 (10/12/2020)
+
+- [#46](https://github.com/1024pix/pix-ui/pull/46) [FEATURE] Création du composant multi-select (PIX-1674).
+- [#45](https://github.com/1024pix/pix-ui/pull/45) [FEATURE] Création du composant de bannière de filtres (PIX-1675).
+- [#51](https://github.com/1024pix/pix-ui/pull/51) [TECH] Ne pas utiliser de mot clé ember comme nom de paramètre
+
 ## v0.18.2 (01/12/2020)
 
 - [#44](https://github.com/1024pix/pix-ui/pull/44) [TECH] Skip la CI sur les gh-pages
