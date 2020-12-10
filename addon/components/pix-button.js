@@ -14,7 +14,7 @@ export default class PixButton extends Component {
   async triggerAction(params) {
     try {
       this.isLoading = true;
-      await this.args.action(params)
+      await this.args.triggerAction(params);
       this.isLoading = false;
     } catch (e) {
       this.isLoading = false;

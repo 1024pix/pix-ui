@@ -38,11 +38,11 @@ module('Integration | Component | button', function(hooks) {
   test('it should call the action', async function(assert) {
     // when
     this.set('count', 1);
-    this.set('action', () => {
+    this.set('triggerAction', () => {
       this.count = this.count + 1;
     });
     await render(hbs`
-      <PixButton @action={{this.action}} />
+      <PixButton @triggerAction={{this.triggerAction}} />
     `);
 
     await click('button');
