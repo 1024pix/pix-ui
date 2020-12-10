@@ -21,7 +21,7 @@ const canvasContent = {
 </PixButton>`,
   context: {
     onClick: async () => {
-      const promise = new Promise((resolve, reject) => {
+      const promise = new Promise((resolve) => {
         setTimeout(() => {
           console.log('OK !')
           resolve();

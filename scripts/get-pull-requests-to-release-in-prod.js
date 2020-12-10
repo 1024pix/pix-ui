@@ -1,4 +1,3 @@
-#! /usr/bin/env node
 const axios = require('axios');
 const moment = require('moment');
 const _ = require('lodash');
@@ -68,6 +67,7 @@ function main() {
     })
     .catch((e)=>{
       console.log(e);
+      //eslint-disable-next-line no-process-exit
       process.exit(1);
     });
 }

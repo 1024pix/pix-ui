@@ -27,12 +27,13 @@ module.exports = {
     // node files
     {
       files: [
+        'scripts/*.js',
         '.eslintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'index.js',
         'testem.js',
-        'blueprints/*/index.js',
+        'blueprints/**/*.js',
         'config/**/*.js',
         'tests/dummy/config/**/*.js'
       ],
