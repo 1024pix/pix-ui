@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'ReturnTo' };
+export default { title: 'Basics/Return To' };
 
 const canvasContent = hbs`
   <h2>Liens avec texte</h2>

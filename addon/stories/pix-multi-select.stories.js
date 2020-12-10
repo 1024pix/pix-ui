@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Form/MultiSelect' };
+export default { title: 'Form/Multi Select' };
 
 const canvasContent = hbs`
   <h2>Multi Select avec scroll</h2>

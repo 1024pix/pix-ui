@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'FilterBanner' };
+export default { title: 'Form/Filter Banner' };
 
 const canvasContent = hbs`
 <h3>Avec titre</h3>

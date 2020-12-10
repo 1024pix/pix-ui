@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'ActionButton' };
+export default { title: 'Basics/Action Button' };
 
 const canvasContent = hbs`
   <h3>Par défaut:</h3>

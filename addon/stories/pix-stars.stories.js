@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Stars' };
+export default { title: 'Others/Stars' };
 
 const canvasContent = hbs`
   <h2>Differentes couleurs</h2>

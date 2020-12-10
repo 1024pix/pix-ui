@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export default { title: 'Banner' };
+export default { title: 'Notification/Banner' };
 
 const canvasContent = hbs`
 <h3>Message important sans action</h3>

@@ -5,7 +5,7 @@ import { tracked } from '@glimmer/tracking';
 
 export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
-  @tracked _selected;
+  @tracked _selected = this.args.selected || [];
 
   get hasResults() {
     return this.results.length > 0;
@@ -13,16 +13,11 @@ export default class PixMultiSelect extends Component {
 
   get results() {
     const defaultSelected = this.args.options;
-    
     defaultSelected.forEach(option => {
-      option.checked = this.selected.includes(option.value);
+      option.checked = this._selected.includes(option.value);
     });
 
     return defaultSelected;
-  }
-
-  get selected() {
-    return this._selected = this.args.selected || [];
   }
 
   get emptyMessage() {

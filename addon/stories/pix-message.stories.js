@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Message' };
+export default { title: 'Notification/Message' };
 
 const canvasContent = hbs`
 <PixMessage @type='info'>
