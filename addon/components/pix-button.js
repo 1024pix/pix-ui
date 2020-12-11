@@ -18,6 +18,9 @@ export default class PixButton extends Component {
       this.isLoading = false;
     } catch (e) {
       this.isLoading = false;
+      if(!this.args.triggerAction) {
+        throw(new Error('@triggerAction params is required for PixButton !'));
+      }
       throw(new Error(e))
     }
   }

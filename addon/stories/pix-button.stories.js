@@ -58,7 +58,7 @@ Ce composant est un bouton simple qui empêche les clics multiples.
 
 | Nom           | Type          |  Valeurs possibles  | Par défaut | Optionnel |
 | ------------- |:-------------:|:-------------------:|:----------:|----------:|
-| action | action | | | Non |
+| triggerAction | action | | | Non |
 | loading-color | string | white/grey | white | Oui |
 | type | string | button/submit | button | Oui |
 
