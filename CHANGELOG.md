@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v1.0.1 (11/12/2020)
+
+- [#54](https://github.com/1024pix/pix-ui/pull/54) [TECH] Envoyer un message d'erreur plus explicite pour le PixButton
+- [#53](https://github.com/1024pix/pix-ui/pull/53) [TECH] Ajouter knobs au projet
+- [#52](https://github.com/1024pix/pix-ui/pull/52) [TECH] Organisation des composants en categories
+- [#50](https://github.com/1024pix/pix-ui/pull/50) [TECH] Mise à jour des dépendances pix-ui
+- [#49](https://github.com/1024pix/pix-ui/pull/49) [TECH] Ajouter le linter aux build circle-ci
+- [#47](https://github.com/1024pix/pix-ui/pull/47) [TECH] Corriger les erreurs eslint
+
 ## v1.0.0 (10/12/2020)
 
 - [#46](https://github.com/1024pix/pix-ui/pull/46) [FEATURE] Création du composant multi-select (PIX-1674).
