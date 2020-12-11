@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { withKnobs, number, select, text } from '@storybook/addon-knobs';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-stars.stories.js';
+import { hbs } from 'ember-cli-htmlbars';
+
+<Meta title='Others/Pix Stars' component='PixStars' decorators={[withKnobs, centered]} />
+
+# Pix Stars
+
+Affiche une série d'étoiles en fonction des paramètres donnés. 
+Un texte alternatif peut être renseigné et différents styles sont pré-définis.
+Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'étoiles.
+
+<Canvas>
+  <Story name="Pix Stars" story={stories.stars} height="60px" />
+</Canvas>
+
+## Usage
+
+```javascript
+<PixStars
+  @count={{2}}
+  @total={{5}}
+  @alt="message alternatif"
+  @color="blue"
+/>
+```
+
+## Props
+
+| Nom            |  Type   | Valeurs possibles | Par défaut | Optionnel |
+| -------------- | :-----: | :---------------: | :--------: | --------: |
+| count          | number  |         -         |     0      |       oui |
+| total          | number  |         -         |     0      |       oui |
+| alt            | string  |         -         |     -      |       non |
+| color          | string  |  yellow/blue/grey |  yellow    |       oui |
