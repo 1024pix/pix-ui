@@ -51,4 +51,14 @@
     color: darken($yellow, 25%);
     background-color: lighten($yellow, 35%);
   }
+
+  &--grey {
+    color: $grey-15;
+    background-color: $grey-60;
+  }
+
+  &--grey-light {
+    color: $grey-60;
+    background-color: $grey-15;
+  }
 }
