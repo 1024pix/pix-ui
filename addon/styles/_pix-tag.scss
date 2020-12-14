@@ -25,7 +25,7 @@
   }
 
   &--green {
-    background-color: $dark-green-certif;
+    background-color: darken($dark-green-certif, 2%);
   }
 
   &--green-light {
