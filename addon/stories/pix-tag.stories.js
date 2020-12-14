@@ -18,6 +18,14 @@ const canvasContent = hbs`
   This is a green tag
 </PixTag>
 
+<PixTag @color='yellow'>
+  This is a yellow tag
+</PixTag>
+
+<PixTag @color='grey'>
+  This is a grey tag
+</PixTag>
+
 <br><br>
 <h3>Light colors</h3>
 
@@ -31,6 +39,14 @@ const canvasContent = hbs`
 
 <PixTag @color='green-light'>
   This is a green tag
+</PixTag>
+
+<PixTag @color='yellow-light'>
+  This is a yellow tag
+</PixTag>
+
+<PixTag @color='grey-light'>
+  This is a grey tag
 </PixTag>
 `;
 
@@ -53,7 +69,7 @@ Un \`Tag\` est un type de \`Chips\` qui permet de mettre en avant une informatio
 
 | Nom           | Type          | Valeurs possibles     | Par défaut | Optionnel |
 | ------------- |:-------------:|:---------------------:|:----------:|----------:|
-| color         | string        | blue, blue-light, purple, purple-light, green, green-light   | blue       | oui       |
+| color         | string        | blue, blue-light, purple, purple-light, green, green-light, yellow, yellow-light, grey, grey-light   | blue       | oui       |
 `
 ;
 
