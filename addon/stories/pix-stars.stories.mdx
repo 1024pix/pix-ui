@@ -1,10 +1,15 @@
-import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import { withKnobs, number, select, text } from '@storybook/addon-knobs';
 import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-stars.stories.js';
 import { hbs } from 'ember-cli-htmlbars';
 
-<Meta title='Others/Pix Stars' component='PixStars' decorators={[withKnobs, centered]} />
+<Meta
+  title='Others/PixStars'
+  component='PixStars'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
 
 # Pix Stars
 
@@ -13,12 +18,12 @@ Un texte alternatif peut être renseigné et différents styles sont pré-défin
 Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'étoiles.
 
 <Canvas>
-  <Story name="Pix Stars" story={stories.stars} height="60px" />
+  <Story name="PixStars" story={stories.stars} height="60px" />
 </Canvas>
 
 ## Usage
 
-```javascript
+```js
 <PixStars
   @count={{2}}
   @total={{5}}
@@ -27,11 +32,6 @@ Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'�
 />
 ```
 
-## Props
+## Arguments
 
-| Nom            |  Type   | Valeurs possibles | Par défaut | Optionnel |
-| -------------- | :-----: | :---------------: | :--------: | --------: |
-| count          | number  |         -         |     0      |       oui |
-| total          | number  |         -         |     0      |       oui |
-| alt            | string  |         -         |     -      |       non |
-| color          | string  |  yellow/blue/grey |  yellow    |       oui |
+<ArgsTable story="PixStars" />
