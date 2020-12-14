@@ -3,29 +3,58 @@
   position: relative;
   min-width: 250px;
   max-width: 450px;
+}
 
-  &__list-button {
-    font-family: $font-roboto;
-    font-weight: $font-normal;
-    position: relative;
-    border: 1px $grey-20 solid;
-    height: 35px;
-    padding: 8px 36px 8px 16px;
+.pix-multi-select-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  position: relative;
+  border: 1px $grey-20 solid;
+  height: 35px;
+  padding: 8px 36px 8px 16px;
+  width: 100%;
+  background-color: $white;
+  border-radius: 3px;
+  margin:0 1px;
+  outline: none;
+  box-sizing: border-box;
+  font-size: 0.9rem;
+  cursor: pointer;
+
+  &:focus-within, &:hover {
+    border-color: $blue;
+  }
+
+  &__search-icon {
+    color: $grey-30;
+  }
+
+  &__title {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+  }
+
+  &__search-input {
+    height: inherit;
     width: 100%;
-    background-color: $white;
-    border-radius: 3px;
-    margin:0 1px;
+    border: none;
     outline: none;
-    box-sizing: border-box;
-    font-size: 0.9rem;
-    cursor: pointer;
-  
-    &:focus-within, &:hover {
-      border-color: $blue;
+    padding: 0 10px;
+    border-radius: 3px;
+    font-size: 1em;
+    background: transparent;
+
+    &:focus {
+      outline: none;
     }
   }
 
-  &__icon {
+  &__dropdown-icon {
     font-size: 16px;
     color: $grey-25;
     right: 16px;
@@ -38,40 +67,41 @@
       color: $blue;
     }
   }
+}
 
-  &__list {
-    width: 100%;
-    margin: 0px;
-    z-index: 200;
-    background-color: $white;
-    position: absolute;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    overflow-y: auto;
-    max-height: 200px;
-    list-style-type: none;
-    padding: 0;
-    box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
 
-    &--hidden {
-      display: none;
-    }  
+.pix-multi-select-list {
+  width: 100%;
+  margin: 0px;
+  z-index: 200;
+  background-color: $white;
+  position: absolute;
+  border-top: none;
+  border-radius: 0 0 4px 4px;
+  overflow-y: auto;
+  max-height: 200px;
+  list-style-type: none;
+  padding: 0;
+  box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
 
-    &::-webkit-scrollbar {
-      width: 11px;
-    }
-    &::-webkit-scrollbar-track {
-      border-radius: 4px;
-      border: 1px solid $grey-20;
-      background: $white;
-    }
-    &::-webkit-scrollbar-thumb {
-      border-radius: 4px;
-      background: $grey-30;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: $grey-35;
-    }
+  &--hidden {
+    display: none;
+  }  
+
+  &::-webkit-scrollbar {
+    width: 11px;
+  }
+  &::-webkit-scrollbar-track {
+    border-radius: 4px;
+    border: 1px solid $grey-20;
+    background: $white;
+  }
+  &::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background: $grey-30;
+  }
+  &::-webkit-scrollbar-thumb:hover {
+    background: $grey-35;
   }
 
   &__item {
@@ -83,7 +113,7 @@
 
     &--no-result {
       text-align: center;
-      padding: 4px 0;
+      padding: 12px 0;
     }
   
     &:last-of-type {
@@ -103,13 +133,13 @@
       position: relative;
       display: flex;
       align-items: center;
-      padding: 8px 16px;
+      padding: 11px 16px;
       cursor: pointer;
     }
   
     & + label:before {
       content: '';
-      margin-right: 8px;
+      margin-right: 12px;
       display: inline-block;
       vertical-align: text-top;
       width: 16px;
@@ -121,20 +151,31 @@
         
     &:checked + label:before {
       background: $blue;
+      border-color: $blue;
     }
       
     &:checked + label:after {
       position: absolute;
-      top: calc(50% - 6px);
+      top: calc(50% - 5px);
       left: 21px;
-      width: 6px;
-      height: 8px;
+      width: 7px;
+      height: 5px;
       background: transparent;
-      border: 1.75px solid $white;
+      border: 2px solid $white;
       border-top: none;
       border-right: none;
       transform: rotate(-45deg);
       content: '';
+    }
+
+    &--searchable {
+      & + label {
+        padding: 11px 36px;
+      }
+      
+      &:checked + label:after {
+        left: 41px;
+      }
     }
   }
 }
