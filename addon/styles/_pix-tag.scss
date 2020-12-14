@@ -41,4 +41,14 @@
     color: darken($purple, 10%);
     background-color: lighten($purple, 30%);
   }
+
+  &--yellow {
+    color: $grey-90;
+    background-color: $yellow;
+  }
+
+  &--yellow-light {
+    color: darken($yellow, 25%);
+    background-color: lighten($yellow, 35%);
+  }
 }
