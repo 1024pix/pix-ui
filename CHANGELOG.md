@@ -1,5 +1,27 @@
 # Pix-UI Changelog
 
+## v1.2.0 (15/12/2020)
+
+- [#48](https://github.com/1024pix/pix-ui/pull/48) [FEATURE] Donner la possibilité de faire une recherche sur un multi-select (Pix-1677)
+- [#56](https://github.com/1024pix/pix-ui/pull/56) [FEATURE] Ajout des variantes jaunes et grises pour le composant PixTag
+- [#46](https://github.com/1024pix/pix-ui/pull/46) [FEATURE] Création du composant multi-select (PIX-1674).
+- [#45](https://github.com/1024pix/pix-ui/pull/45) [FEATURE] Création du composant de bannière de filtres (PIX-1675).
+- [#41](https://github.com/1024pix/pix-ui/pull/41) [FEATURE] Ajout du composant pix-select
+- [#38](https://github.com/1024pix/pix-ui/pull/38) [BUGFIX] Amélioration du Pix-Button pour les formulaire
+- [#54](https://github.com/1024pix/pix-ui/pull/54) [TECH] Envoyer un message d'erreur plus explicite pour le PixButton
+- [#53](https://github.com/1024pix/pix-ui/pull/53) [TECH] Ajouter knobs au projet
+- [#52](https://github.com/1024pix/pix-ui/pull/52) [TECH] Organisation des composants en categories
+- [#50](https://github.com/1024pix/pix-ui/pull/50) [TECH] Mise à jour des dépendances pix-ui
+- [#47](https://github.com/1024pix/pix-ui/pull/47) [TECH] Corriger les erreurs eslint
+- [#49](https://github.com/1024pix/pix-ui/pull/49) [TECH] Ajouter le linter aux build circle-ci
+- [#51](https://github.com/1024pix/pix-ui/pull/51) [TECH] Ne pas utiliser de mot clé ember comme nom de paramètre
+- [#44](https://github.com/1024pix/pix-ui/pull/44) [TECH] Skip la CI sur les gh-pages
+- [#43](https://github.com/1024pix/pix-ui/pull/43) [TECH] Ne pas lancer circle-ci sur la branche gh-pages
+- [#40](https://github.com/1024pix/pix-ui/pull/40) [TECH] Afficher l'erreur levée par un bouton.
+- [#57](https://github.com/1024pix/pix-ui/pull/57) [Feature] Ajout de l'argument uppercase sur le composant PixTag
+- [#42](https://github.com/1024pix/pix-ui/pull/42) [DOC] Mise à jour de la documentation pour faire un déploiement de Pix-UI 
+- [#39](https://github.com/1024pix/pix-ui/pull/39) [DesignFix] Corriger le design de la PixReturnTo
+
 ## v1.1.0 (15/12/2020)
 
 - [#48](https://github.com/1024pix/pix-ui/pull/48) [FEATURE] Donner la possibilité de faire une recherche sur un multi-select (Pix-1677)
