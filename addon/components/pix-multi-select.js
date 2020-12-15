@@ -4,8 +4,11 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class PixMultiSelect extends Component {
-  @tracked isExpanded = false;
   @tracked _selected = this.args.selected || [];
+  @tracked _strictSearch = this.args.strictSearch || false; 
+
+  @tracked isExpanded = false;  
+  @tracked searchData;
 
   get hasResults() {
     return this.results.length > 0;
@@ -17,11 +20,13 @@ export default class PixMultiSelect extends Component {
       option.checked = this._selected.includes(option.value);
     });
 
-    return defaultSelected;
-  }
+    if(this.searchData) {
+     return defaultSelected.filter(list => {
+      return this._strictSearch ? list.label.includes(this.searchData) : this.removeCapitalizeAndDiacritics(list.label).includes(this.searchData);
+     });
+    }
 
-  get emptyMessage() {
-    return this.args.emptyMessage || `Pas de résultat`;
+    return defaultSelected;
   }
 
   @action
@@ -38,12 +43,30 @@ export default class PixMultiSelect extends Component {
   }
 
   @action
-  dropDown() {
+  showDropDown() {
+    this.isExpanded = this.args.showOptionsOnInput || false;
+  }
+  
+  @action
+  toggleDropDown() {
     this.isExpanded = !this.isExpanded;
   }
 
   @action
   hideDropDown() {
-    this.isExpanded = false;
+    if(this.isExpanded) {
+      this.isExpanded = false;
+    }  
+  }
+
+  @action
+  updateSearch(event) {
+    this.searchData = this._strictSearch ? event.target.value : this.removeCapitalizeAndDiacritics(event.target.value);
+    this.isExpanded = true;
+  }
+
+  @action
+  removeCapitalizeAndDiacritics(string) {
+    return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   }
 }

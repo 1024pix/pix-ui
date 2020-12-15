@@ -1,26 +1,49 @@
-<div class='pix-multi-select' ...attributes {{on-click-outside this.hideDropDown}}>
-    <button type="button" class="pix-multi-select__list-button" {{on "click" this.dropDown}} >
-        {{@title}}
-        <FaIcon class={{if this.isExpanded 'pix-multi-select__icon pix-multi-select__icon--expand' 'pix-multi-select__icon'}} @icon={{if this.isExpanded "chevron-up" "chevron-down"}}/>
-    </button>
+<div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown}}>
+  {{#if @isSearchable}}
+    <label 
+      class="pix-multi-select-header"
+      for={{concat 'search-input' @id}}>
 
-    <ul class="pix-multi-select__list {{if this.isExpanded "" "pix-multi-select__list--hidden"}}">
-      {{#if this.hasResults}}
-        {{#each this.results as |option|}} 
-         <li class="pix-multi-select__item">
-            <input class="pix-multi-select__checkbox" 
-              type="checkbox" 
-              checked={{option.checked}} 
-              id={{concat @id '-' option.value}} 
-              name={{option.label}} 
-              value={{option.value}} {{on 'change' this.onSelect}}/> 
-            <label for={{concat @id '-' option.value}}>
-              <span>{{yield option}}</span>
-            </label>
-          </li>
-          {{/each}}
-      {{else}}
-         <li class="pix-multi-select__item pix-multi-select__item--no-result">{{this.emptyMessage}}</li>
-      {{/if}}
-    </ul>
+      <span class="pix-multi-select-header__title">{{@title}}</span>
+      
+      <FaIcon @icon='search'
+              class="pix-multi-select-header__search-icon" />
+      
+      <input 
+        type="text" 
+        id={{concat 'search-input' @id}}
+        name={{concat 'search-input' @id}}
+        placeholder={{@placeholder}}
+        {{on "input" this.updateSearch}}
+        {{on "focus" this.showDropDown}}
+        class="pix-multi-select-header__search-input"/>  
+    </label>
+  {{else}}
+    <button 
+      type="button" 
+      class="pix-multi-select-header" {{on "click" this.toggleDropDown}}>
+      {{@title}}
+      <FaIcon class="pix-multi-select-header__dropdown-icon  {{if this.isExpanded 'pix-multi-select-header__dropdown-icon--expand' }}" @icon={{if this.isExpanded "chevron-up" "chevron-down"}}/>
+    </button>
+  {{/if}}
+
+  <ul class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}">
+    {{#if this.hasResults}}
+      {{#each this.results as |option|}} 
+        <li class="pix-multi-select-list__item">
+          <input class="pix-multi-select-list__checkbox  {{if @isSearchable 'pix-multi-select-list__checkbox--searchable' }}" 
+            type="checkbox" 
+            checked={{option.checked}} 
+            id={{concat @id '-' option.value}} 
+            name={{option.label}} 
+            value={{option.value}} {{on 'change' this.onSelect}}/> 
+          <label for={{concat @id '-' option.value}}>
+            {{yield option}}
+          </label>
+        </li>
+        {{/each}}
+    {{else}}
+        <li class="pix-multi-select-list__item pix-multi-select-list__item--no-result">{{@emptyMessage}}</li>
+    {{/if}}
+  </ul>
 </div>
