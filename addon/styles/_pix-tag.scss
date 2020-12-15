@@ -61,4 +61,8 @@
     color: $grey-60;
     background-color: $grey-15;
   }
+
+  &--uppercase {
+    text-transform: uppercase;
+  }
 }
