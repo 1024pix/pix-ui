@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v1.1.0 (15/12/2020)
+
+- [#48](https://github.com/1024pix/pix-ui/pull/48) [FEATURE] Donner la possibilité de faire une recherche sur un multi-select (Pix-1677)
+- [#56](https://github.com/1024pix/pix-ui/pull/56) [FEATURE] Ajout des variantes jaunes et grises pour le composant PixTag
+
 ## v1.0.1 (11/12/2020)
 
 - [#54](https://github.com/1024pix/pix-ui/pull/54) [TECH] Envoyer un message d'erreur plus explicite pour le PixButton
