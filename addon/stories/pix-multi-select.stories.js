@@ -116,6 +116,7 @@ Examples de valeur préselectionné:
 | selected       | array         |                     |    []      |     oui   |
 | showOptionsOnInput | boolean       |     true/false      |    false   |     oui   |
 | isSearchable   | boolean       |     true/false      |    false   |     oui   |
+| strictSearch   | boolean       |     true/false      |    false   |     oui   |
 `;
 
 export const multiSelect = () => {

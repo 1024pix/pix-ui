@@ -1,22 +1,19 @@
 <div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown}}>
   {{#if @isSearchable}}
-    <label 
-      class="pix-multi-select-header"
-      for={{concat 'search-input' @id}}>
+    <label class="pix-multi-select-header" for={{@id}}>
 
       <span class="pix-multi-select-header__title">{{@title}}</span>
-      
-      <FaIcon @icon='search'
-              class="pix-multi-select-header__search-icon" />
-      
+      <FaIcon @icon='search' class="pix-multi-select-header__search-icon" />
+
       <input 
         type="text" 
-        id={{concat 'search-input' @id}}
-        name={{concat 'search-input' @id}}
+        id={{@id}}
+        name={{@id}}
         placeholder={{@placeholder}}
         {{on "input" this.updateSearch}}
         {{on "focus" this.showDropDown}}
-        class="pix-multi-select-header__search-input"/>  
+        class="pix-multi-select-header__search-input"/>
+
     </label>
   {{else}}
     <button 
