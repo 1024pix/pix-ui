@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v1.2.1 (15/12/2020)
+
+- [#58](https://github.com/1024pix/pix-ui/pull/58) [TECH] Donner un id fixe directement au mutliselect cherchable
+
 ## v1.2.0 (15/12/2020)
 
 - [#48](https://github.com/1024pix/pix-ui/pull/48) [FEATURE] Donner la possibilité de faire une recherche sur un multi-select (Pix-1677)
