@@ -48,6 +48,13 @@ const canvasContent = hbs`
 <PixTag @color='grey-light'>
   This is a grey tag
 </PixTag>
+
+<br><br>
+
+<h3>Modifiers</h3>
+<PixTag @uppercase={{true}}>
+  Uppercase
+</PixTag>
 `;
 
 const markdown = `
@@ -70,6 +77,7 @@ Un \`Tag\` est un type de \`Chips\` qui permet de mettre en avant une informatio
 | Nom           | Type          | Valeurs possibles     | Par défaut | Optionnel |
 | ------------- |:-------------:|:---------------------:|:----------:|----------:|
 | color         | string        | blue, blue-light, purple, purple-light, green, green-light, yellow, yellow-light, grey, grey-light   | blue       | oui       |
+| uppercase     | boolean       | true, false           | false       | oui       |
 `
 ;
 
