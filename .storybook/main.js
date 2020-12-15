@@ -5,4 +5,5 @@ module.exports = {
     '@storybook/addon-a11y',
   ],
   stories: ['../addon/**/*.stories.js'],
+  typescript: { reactDocgen: false },
 };
