@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v1.3.0 (17/12/2020)
+
+- [#59](https://github.com/1024pix/pix-ui/pull/59) [FEATURE] Ajout du PixTag compact
+- [#55](https://github.com/1024pix/pix-ui/pull/55) [FEATURE] Modification des addons dépréciés
+
 ## v1.2.1 (15/12/2020)
 
 - [#58](https://github.com/1024pix/pix-ui/pull/58) [TECH] Donner un id fixe directement au mutliselect cherchable
