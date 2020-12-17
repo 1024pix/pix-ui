@@ -19,11 +19,11 @@ module('Integration | Component | pix-tag', function(hooks) {
     assert.ok(pixTagElement.classList.contains('pix-tag--purple'));
   });
 
-  test('it renders with the uppercase argument', async function(assert) {
-    await render(hbs`<PixTag @uppercase={{true}} />`);
+  test('it renders a compact tag', async function(assert) {
+    await render(hbs`<PixTag @compact={{true}} />`);
 
     const pixTagElement = this.element.querySelector('.pix-tag');
-    assert.ok(pixTagElement.classList.contains('pix-tag--uppercase'));
+    assert.ok(pixTagElement.classList.contains('pix-tag--compact'));
   });
 
   test('it renders with attributes override', async function(assert) {

@@ -6,8 +6,7 @@
   text-align: center;
   vertical-align: baseline;
   white-space: nowrap;
-  line-height: 1.25rem;
-  padding: 0 8px;
+  padding: 4px 16px;
 
   font-family: $font-roboto;
   font-size: 0.8125rem;
@@ -62,7 +61,10 @@
     background-color: $grey-15;
   }
 
-  &--uppercase {
+  &--compact {
+    font-size: 0.625rem;
+    font-weight: $font-medium;
     text-transform: uppercase;
+    padding: 4px 13px;
   }
 }
