@@ -1,0 +1,48 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-message.stories.js';
+
+<Meta
+  title='Notification/Message'
+  component='PixMessage'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Message
+
+Un bandeau d'information, par défaut de type info.
+
+<Canvas>
+  <Story name="Message" story={stories.stars} height="60px" />
+</Canvas>
+
+## Usage
+
+```js
+<PixMessage @type='info'>
+  Ceci est un message à caractère informatif.
+</PixMessage>
+
+<br><br>
+
+<PixMessage @type='alert'>
+  <strong>Attention</strong> à la marche !
+</PixMessage>
+
+<br><br>
+
+<PixMessage @type='success'>
+  This is a success message.
+</PixMessage>
+
+<br><br>
+
+<PixMessage @type='warning'>
+  This is a warning.
+</PixMessage>
+```
+
+## Arguments
+
+<ArgsTable story="Message" />
