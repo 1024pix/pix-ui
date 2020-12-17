@@ -8,7 +8,7 @@
   white-space: nowrap;
   line-height: 1.25rem;
   padding: 0 8px;
-  
+
   font-family: $font-roboto;
   font-size: 0.8125rem;
   font-weight: $font-normal;
@@ -25,12 +25,12 @@
   }
 
   &--green {
-    background-color: darken($dark-green-certif, 2%);
+    background-color: $green;
   }
 
   &--green-light {
-    color: darken($dark-green-certif, 10%);
-    background-color: lighten($dark-green-certif, 60%);
+    color: $green;
+    background-color: lighten($green, 65%);
   }
 
   &--purple {
