@@ -51,9 +51,15 @@ const canvasContent = hbs`
 
 <br><br>
 
-<h3>Modifiers</h3>
-<PixTag @uppercase={{true}}>
-  Uppercase
+<h3>Compact</h3>
+<PixTag @compact={{true}} @color='yellow-light'>
+  À envoyer
+</PixTag>
+<PixTag @compact={{true}} @color='green-light'>
+  En cours
+</PixTag>
+<PixTag @compact={{true}} @color='grey-light'>
+  Terminé
 </PixTag>
 `;
 
@@ -77,7 +83,7 @@ Un \`Tag\` est un type de \`Chips\` qui permet de mettre en avant une informatio
 | Nom           | Type          | Valeurs possibles     | Par défaut | Optionnel |
 | ------------- |:-------------:|:---------------------:|:----------:|----------:|
 | color         | string        | blue, blue-light, purple, purple-light, green, green-light, yellow, yellow-light, grey, grey-light   | blue       | oui       |
-| uppercase     | boolean       | true, false           | false       | oui       |
+| compact       | boolean       | true, false           |   false    | oui       |
 `
 ;
 
