@@ -1,0 +1,34 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-background-header.stories.js';
+
+<Meta
+  title='Layout/Background Header'
+  component='PixBackgroundHeader'
+  decorators={[centered]}
+/>
+
+# Pix Background Header
+
+Un `BackgroundHeader` est une bannière donnant un fond de couleur bleu en haut d'une page.
+Les enfants de la bannière se mettrons en colonne.
+
+> Pour le moment ce composant n'est pas paramétrable car nous n'avons pas d'autres types de bannières.
+
+> Le `BackgroundHeader` se couple bien avec un ou plusieurs `PixBlock`.
+
+<Canvas>
+  <Story name="Background Header" story={stories.backgroundHeader} height="500px" />
+</Canvas>
+
+## Usage
+
+```js
+<PixBackgroundHeader>
+  <PixBlock>//TODO: add content here</PixBlock>
+</PixBackgroundHeader>
+```
+
+## Arguments
+
+Le composant ne prend pas d'arguments
