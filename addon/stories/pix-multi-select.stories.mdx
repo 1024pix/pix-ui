@@ -1,0 +1,37 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-multi-select.stories.js';
+
+<Meta
+  title='Form/Multi Select'
+  component='Multi Select'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Multi Select
+
+Un select custom permettant une gestion de la multiselection. Permet de passer soit du texte brut soit des composants à sa liste. (PixStars etc...)
+l'ajout de \`class\` et d'autres attributs comme \`aria-label\` sont possibles.
+
+<Canvas height="300px" >
+  <Story name="Multi Select" story={stories.multiSelect} />
+</Canvas>
+
+## Usage
+
+```js
+<PixMultiSelect
+  @title={{title}}
+  @emptyMessage={{emptyMessage}}
+  @id={{id}}
+  @onSelect={{doSomething}}
+  @selected={{selected}}
+  @options={{options}} as |option|>
+  {{option.label}}
+</PixMultiSelect>
+```
+
+## Arguments
+
+<ArgsTable story="Multi Select" />
