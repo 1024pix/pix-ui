@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-stars.stories.js';
+
+<Meta
+  title='Others/PixStars'
+  component='PixStars'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Stars
+
+Affiche une série d'étoiles en fonction des paramètres donnés.
+Un texte alternatif peut être renseigné et différents styles sont pré-définis.
+Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'étoiles.
+
+<Canvas>
+  <Story name="PixStars" story={stories.stars} height="60px" />
+</Canvas>
+
+## Usage
+
+```js
+<PixStars
+  @count={{2}}
+  @total={{5}}
+  @alt="message alternatif"
+  @color="blue"
+/>
+```
+
+## Arguments
+
+<ArgsTable story="PixStars" />

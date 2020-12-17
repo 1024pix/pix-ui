@@ -1,39 +1,23 @@
 import { hbs } from 'ember-cli-htmlbars';
-import centered from '@storybook/addon-centered/ember';
 
-export default { title: '<%= classifiedModuleName %>' };
-
-const canvasContent = hbs`
-  <Pix<%= classifiedModuleName %>>
-  </Pix<%= classifiedModuleName %>>
-`;
-
-const markdown = `
-# <%= classifiedModuleName %>
-TODO
-
-## Usage
-
-~~~javascript
-<Pix<%= classifiedModuleName %>>
-  // TODO
-</Pix<%= classifiedModuleName %>>
-~~~
-
-## Props
-
-| Nom           | Type          |  Valeurs possibles  | Par défaut | Optionnel |
-| ------------- |:-------------:|:-------------------:|:----------:|----------:|
-| | | | | |
-
-`
-;
-
-export const <%= camelizedModuleName %> = () => {
+export const <%= camelizedModuleName %> = (args) => {
   return {
-    template: canvasContent,
-  }
+    template: hbs`
+      <Pix<%= classifiedModuleName %>>
+        TODO
+      </Pix<%= classifiedModuleName %>>
+    `,
+    context: args,
+  };
 };
 
-<%= camelizedModuleName %>.parameters = { notes: { markdown } };
-<%= camelizedModuleName %>.decorators = [centered];
+// TODO: add component attributes information
+// select attribute data type from https://storybook.js.org/docs/react/essentials/controls
+export const argTypes = {
+  attributeName: {
+    name: 'attribute name',
+    description: 'attribute description',
+    type: { name: 'string', required: false },
+    defaultValue: '',
+  },
+};

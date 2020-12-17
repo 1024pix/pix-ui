@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-<%= dasherizedModuleName %>.stories.js';
+
+<Meta
+  title='<%= classifiedModuleName %>'
+  component='Pix<%= classifiedModuleName %>'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix<%= classifiedModuleName %>
+
+TODO: insert component description
+
+<Canvas>
+  <Story name='Pix<%= classifiedModuleName %>' story={stories.<%= camelizedModuleName %>} height="60px" />
+</Canvas>
+
+## Usage
+
+```js
+<Pix<%= classifiedModuleName %>>
+  TODO: add component attibutes
+</Pix<%= classifiedModuleName %>>
+```
+
+## Arguments
+
+<ArgsTable story="Pix<%= classifiedModuleName %>" />
