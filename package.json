@@ -24,6 +24,7 @@
   "scripts": {
     "build": "ember build --environment=production",
     "build-storybook": "ember build && cp -v CNAME dist && build-storybook -s dist",
+    "clean": "rm -rf dist node_modules",
     "deploy-storybook": "storybook-to-ghpages",
     "lint:hbs": "ember-template-lint .",
     "lint:js": "eslint .",
