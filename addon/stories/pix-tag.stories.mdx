@@ -1,0 +1,86 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-tag.stories.js';
+
+<Meta
+  title='Basics/Tag'
+  component='PixTag'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Tag
+
+Un `Tag` est un type de `Chips` qui permet de mettre en avant une information ou bien de la catégoriser.
+
+> Il est possible de surcharger le style d'un `<PixTag>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
+
+<Canvas>
+  <Story name="Tag" story={stories.tag} height="60px" />
+</Canvas>
+
+## Usage
+
+```js
+<h3>Classic colors</h3>
+
+<PixTag>
+  This is a blue tag
+</PixTag>
+
+<PixTag @color='purple'>
+  This is a purple tag
+</PixTag>
+
+<PixTag @color='green'>
+  This is a green tag
+</PixTag>
+
+<PixTag @color='yellow'>
+  This is a yellow tag
+</PixTag>
+
+<PixTag @color='grey'>
+  This is a grey tag
+</PixTag>
+
+<br><br>
+<h3>Light colors</h3>
+
+<PixTag @color='blue-light'>
+  This is a blue tag
+</PixTag>
+
+<PixTag @color='purple-light'>
+  This is a purple tag
+</PixTag>
+
+<PixTag @color='green-light'>
+  This is a green tag
+</PixTag>
+
+<PixTag @color='yellow-light'>
+  This is a yellow tag
+</PixTag>
+
+<PixTag @color='grey-light'>
+  This is a grey tag
+</PixTag>
+
+<br><br>
+
+<h3>Compact</h3>
+<PixTag @compact={{true}} @color='yellow-light'>
+  À envoyer
+</PixTag>
+<PixTag @compact={{true}} @color='green-light'>
+  En cours
+</PixTag>
+<PixTag @compact={{true}} @color='grey-light'>
+  Terminé
+</PixTag>
+```
+
+## Arguments
+
+<ArgsTable story="Tag" />
