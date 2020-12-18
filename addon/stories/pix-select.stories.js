@@ -1,72 +1,45 @@
 import { hbs } from 'ember-cli-htmlbars';
-import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Form/Select' };
-
-const canvasContent = hbs`
-  <PixSelect
-    @options={{options}}
-    @onChange={{onChange}}
-    @emptyOptionLabel="Sélectionner une option"
-  />
-`;
-
-const markdown = `
-# Select
-
-Affiche un champ Select avec la liste des options fournie.
-
-Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
-
-## Usage
-
-~~~javascript
-<PixSelect
-  @options={{options}}
-  @onChange={{onChange}}
-  @selectedOption="1"
-  @emptyOptionLabel="Empty option"
-/>
-~~~
-
-Exemple d'options:
-
-~~~javascript
-[
-  { value: '1', label: 'Tomate' },
-  { value: '2', label: 'Fromage' },
-  { value: '3', label: 'Gruyère' },
-  { value: '4', label: 'Olive' },
-]
-~~~
-
-## Props
-
-| Nom              |   Type   | Valeurs possibles | Par défaut | Optionnel |
-| ---------------- | :------: | :---------------: | :--------: | --------: |
-| options          |  array   |         -         |     -      |       non |
-| onChange         | function |         -         |     -      |       non |
-| selectedOption   |  string  |         -         |     -      |       oui |
-| emptyOptionLabel |  string  |         -         |     -      |       oui |
-
-
-`
-;
-
-export const select = () => {
+export const select = (args) => {
   return {
-    template: canvasContent,
-    context: {
-      options: [
-        { value: '1', label: 'Tomate' },
-        { value: '2', label: 'Fromage' },
-        { value: '3', label: 'Gruyère' },
-        { value: '4', label: 'Olive' },
-      ],
-      onChange: console.log,
-    }
-  }
+    template: hbs`
+      <PixSelect
+        @options={{options}}
+        @onChange={{onChange}}
+        @selectedOption={{selectedOption}}
+        @emptyOptionLabel={{emptyOptionLabel}}
+      />
+    `,
+    context: args,
+  };
 };
 
-select.parameters = { notes: { markdown } };
-select.decorators = [centered];
+export const argTypes = {
+  options: {
+    name: 'options',
+    description: 'Listes des options du select',
+    type: { name: 'array', required: true },
+    defaultValue: [
+      { value: '1', label: 'Tomate' },
+      { value: '2', label: 'Fromage' },
+      { value: '3', label: 'Gruyère' },
+      { value: '4', label: 'Olive' },
+    ],
+  },
+  onChange: {
+    name: 'onChange',
+    description: 'Fonction à appeler si une option est sélectionnée',
+    type: { required: true },
+    defaultValue: () => { },
+  },
+  selectedOption: {
+    name: 'selectedOption',
+    description: 'Option sélectionnée',
+    type: { name: 'string', required: false },
+  },
+  emptyOptionLabel: {
+    name: 'emptyOptionLabel',
+    description: 'Texte à afficher si aucune option n‘est sélectionnée ',
+    type: { name: 'string', required: false },
+  }
+}

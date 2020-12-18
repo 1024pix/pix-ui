@@ -1,0 +1,35 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-select.stories.js';
+
+<Meta
+  title='Form/Select'
+  component='PixSelect'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Select
+
+Affiche un champ Select avec la liste des options fournie.
+
+Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
+
+<Canvas>
+  <Story name="Select" story={stories.select} height="60px" />
+</Canvas>
+
+## Usage
+
+```js
+<PixSelect
+  @options={{options}}
+  @onChange={{onChange}}
+  @selectedOption="1"
+  @emptyOptionLabel="Empty option"
+/>
+```
+
+## Arguments
+
+<ArgsTable story="Select" />
