@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-button.stories.js';
+
+<Meta
+  title='Basics/Button'
+  component='Button'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Button
+
+Ce composant est un bouton simple qui empêche les clics multiples.
+
+<Canvas>
+  <Story name="Button" story={stories.button} height="60px" />
+</Canvas>
+
+## Usage
+
+```js
+<h2> Bouton avec loader blanc et une action qui se résout</h2>
+<PixButton
+  @triggerAction={{action onClick}}
+  @loading-color='white'
+  >
+  Cliquez pour valider !
+</PixButton>
+
+<h2> Bouton avec loader gris et une action qui se ne résout pas</h2>
+<PixButton
+@triggerAction={{action onClickFailed}}
+@loading-color='grey'
+>
+  Cliquez pour valider !
+</PixButton>
+```
+
+## Arguments
+
+<ArgsTable story="Button" />
