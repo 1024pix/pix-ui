@@ -10,6 +10,7 @@
         id={{@id}}
         name={{@id}}
         placeholder={{@placeholder}}
+        autocomplete="off"
         {{on "input" this.updateSearch}}
         {{on "focus" this.showDropDown}}
         class="pix-multi-select-header__search-input"/>
@@ -38,7 +39,7 @@
             {{yield option}}
           </label>
         </li>
-        {{/each}}
+      {{/each}}
     {{else}}
         <li class="pix-multi-select-list__item pix-multi-select-list__item--no-result">{{@emptyMessage}}</li>
     {{/if}}

@@ -3,11 +3,18 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+function sortOptionsByCheckedFirst(a, b) {
+  if (a.checked && b.checked) return 0;
+  if (a.checked) return -1;
+  if (b.checked) return 1;
+  return 0;
+}
 export default class PixMultiSelect extends Component {
-  @tracked _selected = this.args.selected || [];
+  _selected = this.args.selected || [];
   @tracked _strictSearch = this.args.strictSearch || false; 
 
   @tracked isExpanded = false;  
+  @tracked isSorted = true;  
   @tracked searchData;
 
   get hasResults() {
@@ -15,10 +22,14 @@ export default class PixMultiSelect extends Component {
   }
 
   get results() {
-    const defaultSelected = this.args.options;
+    const defaultSelected = [...this.args.options];
     defaultSelected.forEach(option => {
       option.checked = this._selected.includes(option.value);
     });
+
+    if (this.args.isSearchable && (this.isSorted || !this.searchData)) {
+      defaultSelected.sort(sortOptionsByCheckedFirst);
+    } 
 
     if(this.searchData) {
      return defaultSelected.filter(list => {
@@ -32,7 +43,7 @@ export default class PixMultiSelect extends Component {
   @action
   onSelect(event) {
     if(event.target.checked) {
-      this._selected.push(event.target.value)
+      this._selected = [...this._selected, event.target.value]
     } else {
       this._selected = this._selected.filter((value) => {
         return value !== event.target.value
@@ -43,24 +54,27 @@ export default class PixMultiSelect extends Component {
   }
 
   @action
-  showDropDown() {
-    this.isExpanded = this.args.showOptionsOnInput || false;
-  }
-  
-  @action
   toggleDropDown() {
     this.isExpanded = !this.isExpanded;
   }
 
   @action
+  showDropDown() {
+    if (this.isExpanded) return;
+    this.isExpanded = this.args.showOptionsOnInput || false;
+    this.isSorted = true; 
+  }
+
+  @action
   hideDropDown() {
-    if(this.isExpanded) {
-      this.isExpanded = false;
-    }  
+    if(!this.isExpanded) return;
+    this.isExpanded = false;
+    this.isSorted = false;  
   }
 
   @action
   updateSearch(event) {
+    this.isSorted = false; 
     this.searchData = this._strictSearch ? event.target.value : this.removeCapitalizeAndDiacritics(event.target.value);
     this.isExpanded = true;
   }
