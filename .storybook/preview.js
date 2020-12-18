@@ -10,6 +10,7 @@ export const parameters = {
       return match ? match[1] : src;
     },
   },
+  controls: { expanded: true },
   previewTabs: { 
     'storybook/docs/panel': { index: -1 },
   },
