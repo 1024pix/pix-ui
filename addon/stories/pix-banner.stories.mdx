@@ -1,0 +1,50 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-banner.stories.js';
+
+<Meta
+  title='Notification/Banner'
+  component='PixBanner'
+  decorators={[centered]}
+  argTypes={stories.argsTypes}
+/>
+
+# Pix Banner
+
+Une `Banner` permet de mettre en avant une information importante.
+
+> Il est possible de surcharger le style d'une `<PixBanner>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
+
+<Canvas isColumn>
+  Bannière sans action
+  <Story name="Default Banner" story={stories.defaultBanner} height="100px" />
+  Bannière avec une route pour lien
+  <Story name="Banner with internal link" story={stories.bannerWithInternalLink} height="100px" />
+  Bannière avec une route externe
+  <Story name="Banner with external link" story={stories.bannerWithExternalLink} height="100px" />
+</Canvas>
+
+## Usage
+
+```html
+<PixBanner>Bannière sans action</PixBanner>
+
+<PixBanner
+  @actionLabel='Liste des campagnes'
+  @actionUrl='authenticated.campaigns'
+>
+  Bannière avec une route pour lien
+</PixBanner>
+
+<PixBanner
+  @actionLabel='Ajouter des élèves'
+  @actionUrl='https://orga.pix.fr/eleves'
+>
+  Bannière avec une route externe
+</PixBanner>
+
+```
+
+## Arguments
+
+<ArgsTable story="Banner with internal link" />

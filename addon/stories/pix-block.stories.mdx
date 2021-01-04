@@ -1,0 +1,47 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-block.stories.js';
+
+<Meta
+  title='Layout/Block'
+  component='PixBlock'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Block
+
+Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis et ayant une ombre projetée.
+
+> Les marges intérieures du bloc sont de 14px (haut et bas) et 24px (droite et gauche), sauf pour la version mobile où c'est 16px (partout).
+
+> Un \`Block\` prendra toute la largeur de son parent, dans la limite maximale de 980px.
+
+> Donnez donc un parent de la taille que vous souhaitez, votre bloc prendra la même taille.
+
+> Il est souvent utilisé dans le PixBackgroundHeader.
+
+<Canvas isColumn>
+  Block par défaut, avec shadow='light':
+  <Story name="Default block" story={stories.defaultBlock} height="60px" />
+  Block avec shadow='heavy':
+  <Story name="Block with specified shadow" story={stories.customizableblock} height="60px" />
+</Canvas>
+
+
+## Usage
+
+```html
+<PixBlock @shadow="light">
+  <div> Un bloc avec une ombre faible </div>
+</PixBlock>
+
+<PixBlock @shadow="heavy">
+  <div> Un bloc avec une ombre forte </div>
+</PixBlock>
+
+```
+
+## Arguments
+
+<ArgsTable story="Block with specified shadow" />

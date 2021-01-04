@@ -1,73 +1,59 @@
 import { hbs } from 'ember-cli-htmlbars';
-import centered from '@storybook/addon-centered/ember';
 
-export default { title: 'Basics/Button' };
+export const whiteButton = (args) => {
+  return {
+    template: hbs`
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color={{loadingColor}}
+          @type={{type}}>
+        Nom du bouton
+      </PixButton>
+    `,
+    context: args,
+  };
+};
 
-const canvasContent = {
-  template: hbs`
-    <h2> Bouton avec loader blanc et une action qui se résout</h2>
-    <PixButton
-    @triggerAction={{action onClick}}
-    @loading-color='white'
-    >
-    Cliquez pour valider !
-</PixButton>
- <h2> Bouton avec loader gris et une action qui se ne résout pas</h2>
-    <PixButton
-    @triggerAction={{action onClickFailed}}
-    @loading-color='grey'
-    >
-    Cliquez pour valider !
-</PixButton>`,
-  context: {
-    onClick: async () => {
-      const promise = new Promise((resolve) => {
+export const greyButton = (args) => {
+  return {
+    template: hbs`
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='grey'
+          @type={{type}}>
+        Nom du bouton
+      </PixButton>
+    `,
+    context: args,
+  };
+};
+
+export const argsTypes = {
+  triggerAction: {
+    name: 'triggerAction',
+    description: 'fonction à appeler en cas de clic',
+    type: { required: true },
+    defaultValue: () => {
+      return new Promise((resolve) => {
         setTimeout(() => {
           console.log('OK !')
           resolve();
         }, 2000);
-      });
-      return promise
+      })
     },
-    onClickFailed: async () => {
-      const promise = new Promise((resolve, reject) => {
-        setTimeout(() => {
-          console.log('Marche pas :(')
-          reject();
-        }, 2000);
-      });
-      return promise
-    }
-
-}
-}
-
-const markdown = `
-# Button
-Ce composant est un bouton simple qui empêche les clics multiples.
-
-## Usage
-
-~~~javascript
-<PixButton @triggerAction={{action yourAction}} @loading-color='grey' @type='button'>
-  Nom du bouton
-</PixButton>
-~~~
-
-## Props
-
-| Nom           | Type          |  Valeurs possibles  | Par défaut | Optionnel |
-| ------------- |:-------------:|:-------------------:|:----------:|----------:|
-| triggerAction | action | | | Non |
-| loading-color | string | white/grey | white | Oui |
-| type | string | button/submit | button | Oui |
-
-`
-;
-
-export const button = () => {
-  return canvasContent
+  },
+  loadingColor: {
+    name: 'loadingColor',
+    description: 'couleur de chargement',
+    type: { name: 'string', required: false },
+    defaultValue: 'white',
+    control: { type: 'select', options: ['white', 'grey'] },
+  },
+  type: {
+    name: 'type',
+    description: 'type du bouton',
+    type: { required: false },
+    defaultValue: 'button',
+    control: { type: 'select', options: ['button', 'submit'] },
+  },
 };
-
-button.parameters = { notes: { markdown } };
-button.decorators = [centered];

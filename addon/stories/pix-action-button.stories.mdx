@@ -1,0 +1,26 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-action-button.stories.js';
+
+<Meta
+  title='Basics/Action button'
+  component='PixActionButton'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Action Button
+
+Le ActionButton permet de créer un bouton contenant une icône font-awesome.
+
+<Canvas>
+  <Story name="Action button" story={stories.actionButton} height="60px" />
+</Canvas>
+
+## Usage
+
+```html
+<PixActionButton @icon='times' />
+```
+
+<ArgsTable story="Action button" />
