@@ -44,7 +44,6 @@ export default class PixMultiSelect extends Component {
   onSelect(event) {
     if(event.target.checked) {
       this._selected = [...this._selected, event.target.value]
-      console.log(this._selected)
     } else {
       this._selected = this._selected.filter((value) => {
         return value !== event.target.value
