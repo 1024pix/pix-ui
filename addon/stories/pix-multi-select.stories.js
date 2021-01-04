@@ -109,7 +109,7 @@ export const argTypes = {
     name: 'showOptionsOnInput',
     description: 'Afficher la liste au focus du champs de saisie lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
-    defaultValue: false,
+    defaultValue: true,
   },
   isSearchable: {
     name: 'isSearchable',

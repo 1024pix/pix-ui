@@ -11,10 +11,10 @@ function sortOptionsByCheckedFirst(a, b) {
 }
 export default class PixMultiSelect extends Component {
   _selected = this.args.selected || [];
+  @tracked _currentSelected = [...this._selected];
   @tracked _strictSearch = this.args.strictSearch || false; 
 
   @tracked isExpanded = false;  
-  @tracked isSorted = true;  
   @tracked searchData;
 
   get hasResults() {
@@ -22,22 +22,31 @@ export default class PixMultiSelect extends Component {
   }
 
   get results() {
-    const defaultSelected = [...this.args.options];
+    const defaultSelected = this._getList();
+
+    defaultSelected.forEach(option => {
+      option.checked = this._currentSelected.includes(option.value);
+    });
+
+    if (this.args.isSearchable) {
+      defaultSelected.sort(sortOptionsByCheckedFirst);
+    } 
+
     defaultSelected.forEach(option => {
       option.checked = this._selected.includes(option.value);
     });
 
-    if (this.args.isSearchable && (this.isSorted || !this.searchData)) {
-      defaultSelected.sort(sortOptionsByCheckedFirst);
-    } 
-
-    if(this.searchData) {
-     return defaultSelected.filter(list => {
-      return this._strictSearch ? list.label.includes(this.searchData) : this.removeCapitalizeAndDiacritics(list.label).includes(this.searchData);
-     });
-    }
 
     return defaultSelected;
+  }
+
+  @action
+  _getList() {
+    const defaultList = [...this.args.options];
+
+    return this.args.isSearchable && this.searchData ? defaultList.filter(list => {
+      return this._strictSearch ? list.label.includes(this.searchData) : this.removeCapitalizeAndDiacritics(list.label).includes(this.searchData);
+     }) : defaultList;
   }
 
   @action
@@ -56,27 +65,39 @@ export default class PixMultiSelect extends Component {
   @action
   toggleDropDown() {
     this.isExpanded = !this.isExpanded;
+
+    if(!this.isExpanded) {
+      this.updateCurrentSelectedList();
+    }
   }
 
   @action
   showDropDown() {
     if (this.isExpanded) return;
     this.isExpanded = this.args.showOptionsOnInput || false;
-    this.isSorted = true; 
   }
 
   @action
   hideDropDown() {
     if(!this.isExpanded) return;
     this.isExpanded = false;
-    this.isSorted = false;  
+
+    this.updateCurrentSelectedList();  
   }
 
   @action
   updateSearch(event) {
-    this.isSorted = false; 
     this.searchData = this._strictSearch ? event.target.value : this.removeCapitalizeAndDiacritics(event.target.value);
+
+    if(!this.searchData) {
+      this.updateCurrentSelectedList();
+    }
     this.isExpanded = true;
+  }
+
+  @action
+  updateCurrentSelectedList() {
+    this._currentSelected = [...this._selected];
   }
 
   @action
