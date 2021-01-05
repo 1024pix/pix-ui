@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, fillIn, focus } from '@ember/test-helpers';
+import { render, click, fillIn, focus, blur } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 import sinon from 'sinon';
@@ -477,6 +477,46 @@ module('Integration | Component | multi-select', function (hooks) {
       const checkbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
       await click(checkbox);
       await fillIn('input', '')
+    
+      // then
+      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
+      assert.equal(listElement.length, 3);
+      assert.equal(listElement.item(0).textContent.trim(), 'Oignon');
+      assert.equal(listElement.item(1).textContent.trim(), 'Salade');
+      assert.equal(listElement.item(2).textContent.trim(), 'Tomate');
+    });
+
+    test('it should sort items when search is unfocus', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.onSelect = DEFAULT_ON_SELECT;
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{isSearchable}}
+          @onSelect={{onSelect}}
+          @title={{title}}
+          @placeholder={{placeholder}}
+          @id={{id}}
+          @emptyMessage={{emptyMessage}}
+          @options={{options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+    
+      // when
+      await fillIn('input', 'Oi')
+      const checkbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
+      await click(checkbox);
+      
+      await blur('input');
+
+      await fillIn('input', '');
     
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
