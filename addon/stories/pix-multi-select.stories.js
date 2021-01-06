@@ -8,29 +8,6 @@ export const multiSelectSearchable = (args) => {
         @id={{id}}
         @title={{title}}
         @placeholder={{placeholder}}
-        @isSearchable={{true}}
-        @showOptionsOnInput={{showOptionsOnInput}}
-        @strictSearch={{strictSearch}}
-        @onSelect={{doSomething}}
-        @emptyMessage={{emptyMessage}}
-        @selected={{selected}}
-        @options={{options}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `,
-    context: args,
-  };
-};
-
-export const multiSelect = (args) => {
-  return {
-    template: hbs`
-      <PixMultiSelect
-        style="width:350px"
-        @id={{id}}
-        @title={{title}}
-        @placeholder={{placeholder}}
         @isSearchable={{isSearchable}}
         @showOptionsOnInput={{showOptionsOnInput}}
         @strictSearch={{strictSearch}}
@@ -46,10 +23,38 @@ export const multiSelect = (args) => {
   };
 };
 
+export const multiSelectWithChildComponent = (args) => {
+  return {
+    template: hbs`
+      <PixMultiSelect
+        @title={{titleStars}}
+        @id={{id}}
+        @onSelect={{onSelect}}
+        @emptyMessage={{emptyMessage}}
+        @options={{optionsStars}} as |star|
+      >
+        <PixStars
+          @count={{star.value}}
+          @total={{star.total}}
+        />
+      </PixMultiSelect>
+    `,
+    context: {
+      ...args,
+      titleStars: 'Sélectionner le niveau souhaité',
+      optionsStars: [
+        { value: '1', total: 3 },
+        { value: '2', total: 3 },
+        { value: '3', total: 3 },
+      ],
+    },
+  };
+};
+
 export const argTypes = {
   id: {
     name: 'id',
-    description: 'Permet l‘accessibilité du composant attribuant des ‘for‘ pour chaque entité',
+    description: 'Permet l‘accessibilité du composant attribuant des ``for`` pour chaque entité',
     type: { name: 'string', required: true },
     defaultValue: 'aromate',
   },
@@ -67,13 +72,13 @@ export const argTypes = {
   },
   placeholder: {
     name: 'placeholder',
-    description: 'Donner une liste d‘exemple pour la recherche utilisateur dans le cas ‘isSearchable‘ à ‘true‘',
+    description: 'Donner une liste d‘exemple pour la recherche utilisateur dans le cas ``isSearchable`` à ``true``',
     type: { name: 'string', required: true },
     defaultValue: 'Curcuma, Thym, ...',
   },
   options: {
     name: 'options',
-    description: 'Les options sont représentées par un tableau d‘objet contenant les propriétés value et label. ‘value‘ doit être de type ‘String‘ pour être conforme au traitement des input value.',
+    description: 'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
     type: { name: 'array', required: true },
     defaultValue: [
       {label:"ANETH HERBE AROMATIQUE", value: '1'},
@@ -91,7 +96,7 @@ export const argTypes = {
   },
   onSelect: {
     name: 'onSelect',
-    description: 'une fonction permettant d‘effectuer une action à chaque sélection',
+    description: 'Une fonction permettant d\'effectuer une action à chaque sélection',
     type: { required: true },
   },
   selected: {
@@ -102,19 +107,19 @@ export const argTypes = {
   },
   showOptionsOnInput: {
     name: 'showOptionsOnInput',
-    description: 'Afficher la liste au focus du champs de saisie lorsque ‘isSearchable‘ à ‘true‘',
+    description: 'Afficher la liste au focus du champs de saisie lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
-    defaultValue: false,
+    defaultValue: true,
   },
   isSearchable: {
     name: 'isSearchable',
     description: 'Permet de rajouter une saisie utilisateur pour faciliter la recherche',
     type: { name: 'boolean', required: false },
-    defaultValue: false,
+    defaultValue: true,
   },
   strictSearch: {
     name: 'strictSearch',
-    description: 'Permet de rendre sensible à la casse et au diacritiques lorsque ‘isSearchable‘ à ‘true‘',
+    description: 'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
     defaultValue: false,
   },
