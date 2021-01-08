@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v1.4.0 (08/01/2021)
+
+- [#63](https://github.com/1024pix/pix-ui/pull/63) [FEATURE] Ajout du composant PixTextarea
+- [#62](https://github.com/1024pix/pix-ui/pull/62) [FEATURE] Ajout du tri des éléments dans le multi-select (PIX-1685)
+- [#60](https://github.com/1024pix/pix-ui/pull/60) [TECH] Passer les stories à MDX
+
 ## v1.3.0 (17/12/2020)
 
 - [#59](https://github.com/1024pix/pix-ui/pull/59) [FEATURE] Ajout du PixTag compact
