@@ -1,0 +1,33 @@
+.pix-textarea {
+  @import 'reset-css';
+
+  textarea {
+    box-sizing: border-box;
+    width: 100%;
+    border: 1.6px solid $grey-45;
+    border-style: solid;
+    border-radius: 4px;
+    padding: 8px;
+    font-family: $font-roboto;
+    color: $grey-45;
+    font-size: 1rem;
+
+    &:hover {
+      border-color: $grey-60;
+    }
+
+    &:focus {
+      border: 1.6px solid $blue;
+      outline: none;
+    }
+  }
+
+  p {
+    color: $grey-45;
+    margin-top: 6px;
+    font-size: 12px;
+    display: flex;
+    flex-direction: row-reverse;
+  }
+
+}
