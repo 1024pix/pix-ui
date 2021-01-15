@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v1.4.1 (15/01/2021)
+
+- [#64](https://github.com/1024pix/pix-ui/pull/64) [FIX] Problème de CSS et de propagation sur le multiselect (PIX-1981)
+
 ## v1.4.0 (08/01/2021)
 
 - [#63](https://github.com/1024pix/pix-ui/pull/63) [FEATURE] Ajout du composant PixTextarea
