@@ -39,7 +39,7 @@
     height: 0;
   }
 
-  &__search-input {
+  input.pix-multi-select-header__search-input {
     height: inherit;
     width: 100%;
     border: none;
@@ -104,7 +104,7 @@
     background: $grey-35;
   }
 
-  &__item {
+  li.pix-multi-select-list__item {
     font-family: $font-roboto;
     position: relative;
     border-bottom: 1px solid $grey-15;
