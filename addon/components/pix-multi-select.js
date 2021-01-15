@@ -78,8 +78,13 @@ export default class PixMultiSelect extends Component {
   }
 
   @action
-  hideDropDown() {
+  hideDropDown(event) {
     if(!this.isExpanded) return;
+
+    if (event) {
+      event.stopPropagation();
+      event.preventDefault();
+    }
     this.isExpanded = false;
 
     this.updateCurrentSelectedList();  
