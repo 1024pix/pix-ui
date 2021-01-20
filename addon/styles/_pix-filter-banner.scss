@@ -20,4 +20,16 @@
     padding-right: 24px;
     margin: 0;
   }
+
+  &__content {
+    display: flex;
+
+    > * {
+      margin-right: 16px;
+    }
+
+    > *:last-child {
+      margin-right: 0;
+    }
+  }
 }
