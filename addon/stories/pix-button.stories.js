@@ -7,7 +7,7 @@ export const loadingButtons = (args) => {
           @triggerAction={{action triggerAction}}
           @loading-color='white'
           @type={{type}}>
-        Bouton avec loader blanc
+        Bouton avec loader blanc (default)
       </PixButton>
       <PixButton
           @triggerAction={{action triggerAction}}
@@ -60,6 +60,50 @@ export const borderButtons = (args) => {
   };
 };
 
+export const colorButtons = (args) => {
+  return {
+    template: hbs`
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='blue'
+            @type={{type}}>
+          Bouton avec background blue (default)
+        </PixButton>
+      </section>
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='green'
+            @type={{type}}>
+          Bouton avec background green
+        </PixButton>
+      </section>
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='yellow'
+            @type={{type}}>
+          Bouton avec background yellow
+        </PixButton>
+      </section>
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='transparent'
+            @type={{type}}>
+          Bouton avec background transparent
+        </PixButton>
+      </section>
+    `,
+    context: args,
+  };
+}
+
 export const argsTypes = {
   type: {
     name: 'type',
@@ -102,6 +146,16 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'squircle-big' },
+    }
+  },
+  backgroundColor: {
+    name: 'backgroundColor',
+    description: 'color: `blue`, `green`, `yellow`, `transparent`',
+    type: { name: 'string', required: false },
+    control: { disable: true },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'blue' },
     }
   },
 };
