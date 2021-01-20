@@ -142,8 +142,8 @@
       margin-right: 12px;
       display: inline-block;
       vertical-align: text-top;
-      width: 16px;
-      height: 16px;
+      min-width: 16px;
+      min-height: 16px;
       border-radius: 4px;
       background: $white;
       border: 1px solid $grey-20;
