@@ -20,6 +20,46 @@ export const loadingButtons = (args) => {
   };
 };
 
+export const borderButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @border='rounded-big'>
+        Bouton rounded-big
+      </PixButton>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @border='rounded-small'>
+        Bouton rounded-small
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @border='squircle-big'>
+        Bouton squircle-big (default)
+      </PixButton>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @border='squircle-small'>
+        Bouton squircle-small
+      </PixButton>
+    </section>
+    `,
+    context: args,
+  };
+};
+
 export const argsTypes = {
   type: {
     name: 'type',
@@ -52,6 +92,16 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'white' },
+    }
+  },
+  border: {
+    name: 'border',
+    description: 'bordure: `rounded-small`, `rounded-big`, `squircle-small`, `squircle-big`',
+    type: { name: 'string', required: false },
+    control: { disable: true },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'squircle-big' },
     }
   },
 };

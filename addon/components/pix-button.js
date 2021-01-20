@@ -10,6 +10,10 @@ export default class PixButton extends Component {
     return this.args.type || 'button';
   }
 
+  get border() {
+    return this.args.border || 'squircle-big';
+  }
+
   @action
   async triggerAction(params) {
     try {
