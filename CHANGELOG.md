@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v1.4.2 (21/01/2021)
+
+- [#65](https://github.com/1024pix/pix-ui/pull/65) [STYLE] Correction du style FilterBanner et MultiSelect
+
 ## v1.4.1 (15/01/2021)
 
 - [#64](https://github.com/1024pix/pix-ui/pull/64) [FIX] Problème de CSS et de propagation sur le multiselect (PIX-1981)
