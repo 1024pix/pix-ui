@@ -8,7 +8,11 @@ export const actionButton = (args) => {
         @triggerAction={{triggerAction}}
       />
     `,
-    context: args,
+    context: {
+      icon: 'times',
+      triggerAction: console.log,
+      ...args,
+    }
   };
 };
 
@@ -16,12 +20,12 @@ export const argTypes = {
   icon: {
     name: 'icon',
     description: 'icon fontawesome',
-    type: { name: 'string', required: false },
+    type: { name: 'string', required: true },
     defaultValue: 'times',
   },
   triggerAction: {
     name: 'triggerAction',
     description: 'fonction à appeler au clic du bouton',
-    type: { required: false },
+    type: { required: true },
   },
 };
