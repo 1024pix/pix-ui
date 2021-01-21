@@ -4,17 +4,16 @@ export const filterBanner = (args) => {
   return {
     template: hbs`
       <PixFilterBanner @title={{title}}>
-        <select>
-          <option value="22">
-            classe de 2nd
-          </option>
-          <option value="3">
-            classe de 3e
-          </option>
-        </select>
+        <PixSelect @options={{options}} @onChange={{onChange}} />
+        <PixSelect @options={{options}} @onChange={{onChange}} />
       </PixFilterBanner>
     `,
-    context: args,
+    context: {
+      title: 'Filtres',
+      ...args,
+      options:  [{ value: '1', label: 'Tomate' }],
+      onChange: console.log,
+    },
   };
 };
 
