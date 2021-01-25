@@ -45,11 +45,15 @@ module('Integration | Component | pix-tooltip', function(hooks) {
 
     [
       'top',
+      'top-left',
+      'top-right',
       'right',
       'left',
       'bottom',
+      'bottom-left',
+      'bottom-right',
     ].forEach(function(position) {
-      test(`it can reder ${position}`, async function(assert) {
+      test(`it can render ${position}`, async function(assert) {
         // given
         this.set('position', position);
 

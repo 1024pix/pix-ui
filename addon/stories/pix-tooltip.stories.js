@@ -29,7 +29,7 @@ export const argTypes = {
     description: 'Position de la tooltip',
     type: { name: 'string', required: false },
     defaultValue: 'top',
-    control: { type: 'select', options: ['top', 'right', 'bottom', 'left'] },
+    control: { type: 'select', options: ['top', 'top-left', 'top-right', 'right', 'bottom', 'bottom-left', 'bottom-right', 'left'] },
   },
   light: {
     name: 'light',
