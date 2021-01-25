@@ -100,9 +100,9 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     });
   });
 
-  module('tooltip display', function() {
+  module('tooltip inline display', function() {
 
-    const NO_WRAP_CLASS = 'pix-tooltip__content--no-wrap';
+    const INLINE_CLASS = 'pix-tooltip__content--inline';
 
     test('it can render in multiple lines', async function(assert) {
       // when
@@ -114,7 +114,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
 
       // then
-      assert.equal(tooltipContentClasses.includes(NO_WRAP_CLASS), false);
+      assert.equal(tooltipContentClasses.includes(INLINE_CLASS), false);
     });
 
     test('it can render inline', async function(assert) {
@@ -126,7 +126,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
-      assert.ok(tooltipContentElement.classList.toString().includes(NO_WRAP_CLASS));
+      assert.ok(tooltipContentElement.classList.toString().includes(INLINE_CLASS));
     });
   });
 
