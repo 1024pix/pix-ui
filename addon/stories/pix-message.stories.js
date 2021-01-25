@@ -3,7 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 export const messageInfo = (args) => {
   return {
     template: hbs`
-      <PixMessage @type={{type}}>
+      <PixMessage @type={{type}} @withIcon="true">
         Ceci est un message {{type}}
       </PixMessage>
     `,
@@ -48,5 +48,12 @@ export const argTypes = {
     type: { name: 'string', required: false },
     defaultValue: 'info',
     control: { type: 'select', options: ['info', 'success', 'warning', 'alert'] },
+  },
+  withIcon: {
+    name: 'withIcon',
+    description: 'Icone du message',
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
+    control: { type: 'boolean' },
   },
 }
