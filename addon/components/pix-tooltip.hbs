@@ -2,7 +2,7 @@
 
   {{yield}}
 
-  <span class='pix-tooltip__content pix-tooltip__content--{{this.position}} {{this.inlineClass}} {{if @light 'pix-tooltip__content--light'}}'>
+  <span class='pix-tooltip__content pix-tooltip__content--{{this.position}} {{this.inlineClass}} {{concat (if @light 'pix-tooltip__content--light') (if @wide ' pix-tooltip__content--wide')}}'>
     {{@text}}
   </span>
 

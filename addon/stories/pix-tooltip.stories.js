@@ -8,6 +8,7 @@ export const tooltip = (args) => {
         @position={{position}}
         @light={{light}}
         @inline={{inline}}
+        @wide={{wide}}
         >
           <div>Elément à survoler pour voir la tooltip</div>
       </PixTooltip>
@@ -38,7 +39,13 @@ export const argTypes = {
   },
   inline: {
     name: 'inline',
-    description: 'Texte à afficher',
+    description: 'Affichage en une seule ligne',
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
+  },
+  wide: {
+    name: 'wide',
+    description: 'Affichage large',
     type: { name: 'boolean', required: false },
     defaultValue: false,
   },

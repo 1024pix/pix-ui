@@ -125,4 +125,34 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       assert.ok(tooltipContentElement.classList.toString().includes(NO_WRAP_CLASS));
     });
   });
+
+  module('tooltip wide display', function() {
+
+    const WIDE_CLASS = 'pix-tooltip__content--wide';
+
+    test('it can render not widely', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
+
+      // then
+      assert.equal(tooltipContentClasses.includes(WIDE_CLASS), false);
+    });
+
+    test('it can render widely', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip @wide={{true}}>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+      // then
+      assert.ok(tooltipContentElement.classList.toString().includes(WIDE_CLASS));
+    });
+  });
 });
