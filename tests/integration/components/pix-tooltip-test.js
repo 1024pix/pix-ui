@@ -66,6 +66,36 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     });
   });
 
+  module('tooltip light display', function() {
+
+    const LIGHT_CLASS = 'pix-tooltip__content--light';
+
+    test('it can render in dark mode', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
+
+      // then
+      assert.equal(tooltipContentClasses.includes(LIGHT_CLASS), false);
+    });
+
+    test('it can render in light mode', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip @light={{true}}>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+      // then
+      assert.ok(tooltipContentElement.classList.toString().includes(LIGHT_CLASS));
+    });
+  });
+
   module('tooltip display', function() {
 
     const NO_WRAP_CLASS = 'pix-tooltip__content--no-wrap';

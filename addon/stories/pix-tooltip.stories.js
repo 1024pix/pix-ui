@@ -6,6 +6,7 @@ export const tooltip = (args) => {
       <PixTooltip
         @text={{text}}
         @position={{position}}
+        @light={{light}}
         @inline={{inline}}
         >
           <div>Elément à survoler pour voir la tooltip</div>
@@ -28,6 +29,12 @@ export const argTypes = {
     type: { name: 'string', required: false },
     defaultValue: 'top',
     control: { type: 'select', options: ['top', 'right', 'bottom', 'left'] },
+  },
+  light: {
+    name: 'light',
+    description: 'Affichage en mode clair',
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
   },
   inline: {
     name: 'inline',

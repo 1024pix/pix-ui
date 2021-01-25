@@ -17,10 +17,11 @@
   background-color: $black;
   position: absolute;
   z-index: 100;
-  margin: 0; padding: 10px 16px;
+  margin: 0;
+  padding: 10px 16px;
   left: auto;
   color: $white;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   border-radius: 4px;
   transition: opacity 0.3s;
 
@@ -36,6 +37,20 @@
   }
 }
 
+  &--light {
+    background-color: $white;
+    color: $grey-60;
+    border: 1px solid $grey-40;
+    box-shadow: -2px 4px 4px 2px rgba($black, 0.1);
+
+    &::before {
+      border-width: 1px;
+      height: 8px;
+      width: 8px;
+      background-color: $white;
+    }
+  }
+}
 
 .pix-tooltip__content--right {
   left: calc(100% + 10px);
@@ -44,6 +59,12 @@
     top: calc(50% - 5px); // 50% is the height of the parent and 5px the height of the triangle
     left: -10px; // 10px is width of the ::before elmt
     border-color: transparent $black transparent transparent;
+  }
+
+  &.pix-tooltip__content--light::before {
+    left: -5px;
+    transform: rotate(315deg);
+    border-color: $grey-40 transparent transparent $grey-40;
   }
 }
 
@@ -57,6 +78,12 @@
     left: calc(50% - 5px);
     border-color: $black transparent transparent transparent;
   }
+
+  &.pix-tooltip__content--light::before {
+    top: calc(100% - 5px);
+    transform: rotate(225deg);
+    border-color: $grey-40 transparent transparent $grey-40;
+  }
 }
 
 .pix-tooltip__content--bottom {
@@ -69,6 +96,12 @@
     left: calc(50% - 5px);
     border-color: transparent transparent $black transparent;
   }
+
+  &.pix-tooltip__content--light::before {
+    top: -5px;
+    transform: rotate(45deg);
+    border-color: $grey-40 transparent transparent $grey-40;
+  }
 }
 
 .pix-tooltip__content--left {
@@ -78,5 +111,11 @@
     top: calc(50% - 5px);
     right: -10px;
     border-color: transparent transparent transparent $black;
+  }
+
+  &.pix-tooltip__content--light::before {
+    right: -5px;
+    transform: rotate(135deg);
+    border-color: $grey-40 transparent transparent $grey-40;
   }
 }
