@@ -1,9 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const messageInfo = (args) => {
+export const message = (args) => {
   return {
     template: hbs`
-      <PixMessage @type={{type}} @withIcon="true">
+      <PixMessage @type={{type}} @withIcon={{withIcon}}>
         Ceci est un message {{type}}
       </PixMessage>
     `,
@@ -11,35 +11,6 @@ export const messageInfo = (args) => {
   };
 };
 
-export const messageAlert = () => {
-  return {
-    template: hbs`
-      <PixMessage @type='alert'>
-        Ceci est un message d'alert
-      </PixMessage>
-    `,
-  };
-};
-
-export const messageSuccess = () => {
-  return {
-    template: hbs`
-      <PixMessage @type='success'>
-        Ceci est un message de succès
-      </PixMessage>
-    `,
-  };
-};
-
-export const messageWarning = () => {
-  return {
-    template: hbs`
-      <PixMessage @type='warning'>
-        Ceci est un message de warning
-      </PixMessage>
-    `,
-  };
-};
 
 export const argTypes = {
   type: {

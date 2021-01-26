@@ -11,23 +11,20 @@ import * as stories from './pix-message.stories.js';
 
 # Pix Message
 
-Un bandeau d'information, par défaut de type info.
+Un bandeau d'information, par défaut de type info, avec une icone facultative.
 
 <Canvas isColumn>
-  <Story name="Message Info" story={stories.messageInfo} height="60px" />
-  <Story name="Message Alert" story={stories.messageAlert} height="60px" />
-  <Story name="Message Success" story={stories.messageSuccess} height="60px" />
-  <Story name="Message Warning" story={stories.messageWarning} height="60px" />
+  <Story name="Message" story={stories.message} height="60px" />
 </Canvas>
 
 ## Usage
 
 ```html
-<PixMessage @type='info'>
+<PixMessage @type='info' @withIcon='true'>
   Ceci est un message à caractère informatif.
 </PixMessage>
 ```
 
 ## Arguments
 
-<ArgsTable story="Message Info" />
+<ArgsTable story="Message" />
