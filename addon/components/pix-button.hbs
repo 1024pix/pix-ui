@@ -1,4 +1,8 @@
-<button type={{this.type}} class="pix-button" {{on "click" this.triggerAction}} ...attributes disabled={{this.isLoading}}>
+<button type={{this.type}}
+        class="pix-button pix-button--{{this.border}} pix-button--background-{{this.backgroundColor}}"
+        {{on "click" this.triggerAction}}
+        ...attributes
+        disabled={{this.isLoading}}>
 {{#if this.isLoading}}
   <div class="loader loader--{{@loading-color}}">
     <div class="bounce1"></div>

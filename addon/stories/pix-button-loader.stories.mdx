@@ -3,7 +3,7 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-button.stories.js';
 
 <Meta
-  title='Basics/Button'
+  title='Basics/Button/Loader'
   component='PixButton'
   decorators={[centered]}
   argTypes={stories.argsTypes}
@@ -14,10 +14,8 @@ import * as stories from './pix-button.stories.js';
 Ce composant est un bouton simple qui empêche les clics multiples.
 
 <Canvas isColumn>
-  Button avec loader blanc
-  <Story name="With white loader" story={stories.whiteButton} height="60px" />
-  Button avec loader gris
-  <Story name="With grey loader" story={stories.greyButton} height="60px" />
+  Button avec loader gris ou blanc
+  <Story name="Loader" story={stories.loadingButtons} height="60px" />
 </Canvas>
 
 ## Usage
@@ -41,4 +39,4 @@ Bouton avec loader gris et une action qui se résout
 
 ## Arguments
 
-<ArgsTable story="With white loader" />
+<ArgsTable story="Loader" />
