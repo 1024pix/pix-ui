@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v1.6.0 (26/01/2021)
+
+- [#69](https://github.com/1024pix/pix-ui/pull/69) [TECH] Ajout d'une icone facultative pour PixMessage
+
 ## v1.5.0 (26/01/2021)
 
 - [#66](https://github.com/1024pix/pix-ui/pull/66) [TECH] Pouvoir modifier les bords et la couleur de PixButton
