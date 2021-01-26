@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v1.5.0 (26/01/2021)
+
+- [#66](https://github.com/1024pix/pix-ui/pull/66) [TECH] Pouvoir modifier les bords et la couleur de PixButton
+
 ## v1.4.2 (21/01/2021)
 
 - [#65](https://github.com/1024pix/pix-ui/pull/65) [STYLE] Correction du style FilterBanner et MultiSelect
