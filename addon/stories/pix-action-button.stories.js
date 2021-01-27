@@ -7,7 +7,8 @@ export const actionButton = (args) => {
         @icon={{icon}}
         @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
-      />
+        @withBackground={{withBackground}}
+        />
     `,
     context: {
       icon: 'times',
@@ -34,5 +35,11 @@ export const argTypes = {
     name: 'triggerAction',
     description: 'fonction à appeler au clic du bouton',
     type: { required: true },
+  },
+  withBackground: {
+    name: 'withBackground',
+    description: 'Affichage du fond grisé',
+    type: { name: 'boolean', required: false },
+    table: { defaultValue: { summary: false } },
   },
 };
