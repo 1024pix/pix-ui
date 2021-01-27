@@ -2,5 +2,7 @@
   {{#if @withIcon}}
       <FaIcon @icon={{ this.iconClass }} />
   {{/if}}
-  {{yield}}
+  <span class="pix-message__content">
+    {{yield}}
+  </span>
 </p>

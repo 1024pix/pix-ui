@@ -5,6 +5,8 @@
   margin: 0 0 1rem 0;
   padding: 1rem;
   border-radius: 4px;
+  align-items: center;
+  display: flex;
 
   @mixin colorize($color, $percentageDarkenForColor, $percentageLightenForBackground){
     color: darken($color, $percentageDarkenForColor);
@@ -17,6 +19,6 @@
   &.pix-message--warning { @include colorize($warning, 25%, 35%); }
 
   svg {
-    margin-right: 6px;
+    margin-right: 12px;
   }
 }
