@@ -90,7 +90,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     test('it can render in light mode', async function(assert) {
       // when
       await render(hbs`
-        <PixTooltip @light={{true}}>
+        <PixTooltip @isLight={{true}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -120,7 +120,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     test('it can render inline', async function(assert) {
       // when
       await render(hbs`
-        <PixTooltip @inline={{true}}>
+        <PixTooltip @isInline={{true}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -150,7 +150,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     test('it can render widely', async function(assert) {
       // when
       await render(hbs`
-        <PixTooltip @wide={{true}}>
+        <PixTooltip @isWide={{true}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
