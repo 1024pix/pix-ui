@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v2.0.0 (27/01/2021)
+
+- [#68](https://github.com/1024pix/pix-ui/pull/68) [TECH] Enrichir la Pix Tooltip - BREAKING CHANGES (Pix-2000).
+- [#67](https://github.com/1024pix/pix-ui/pull/67) [TECH] Enrichir la PixActionButton - BREAKING CHANGES.
+
 ## v1.6.1 (27/01/2021)
 
 - [#70](https://github.com/1024pix/pix-ui/pull/70) [TECH] Corriger les attributs pour la PixTextarea
