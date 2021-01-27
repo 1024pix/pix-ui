@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v1.6.1 (27/01/2021)
+
+- [#70](https://github.com/1024pix/pix-ui/pull/70) [TECH] Corriger les attributs pour la PixTextarea
+
 ## v1.6.0 (26/01/2021)
 
 - [#69](https://github.com/1024pix/pix-ui/pull/69) [TECH] Ajout d'une icone facultative pour PixMessage
