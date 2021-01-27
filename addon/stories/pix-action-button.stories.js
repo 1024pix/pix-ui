@@ -5,23 +5,41 @@ export const actionButton = (args) => {
     template: hbs`
       <PixActionButton
         @icon={{icon}}
+        @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
-      />
+        @withBackground={{withBackground}}
+        />
     `,
-    context: args,
+    context: {
+      icon: 'times',
+      triggerAction: console.log,
+      ...args,
+    }
   };
 };
 
 export const argTypes = {
   icon: {
     name: 'icon',
-    description: 'icon fontawesome',
+    description: 'icône font-awesome',
+    type: { name: 'string', required: true },
+    table: { defaultValue: { summary: 'times' } },
+  },
+  iconPrefix: {
+    name: 'iconPrefix',
+    description: 'prefix de l\'icône font-awesome',
     type: { name: 'string', required: false },
-    defaultValue: 'times',
+    control: { type: 'select', options: ['far', 'fas'] },
   },
   triggerAction: {
     name: 'triggerAction',
     description: 'fonction à appeler au clic du bouton',
-    type: { required: false },
+    type: { required: true },
+  },
+  withBackground: {
+    name: 'withBackground',
+    description: 'Affichage du fond grisé',
+    type: { name: 'boolean', required: false },
+    table: { defaultValue: { summary: false } },
   },
 };
