@@ -5,6 +5,7 @@ export const actionButton = (args) => {
     template: hbs`
       <PixActionButton
         @icon={{icon}}
+        @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
       />
     `,
@@ -19,9 +20,15 @@ export const actionButton = (args) => {
 export const argTypes = {
   icon: {
     name: 'icon',
-    description: 'icon fontawesome',
+    description: 'icône font-awesome',
     type: { name: 'string', required: true },
-    defaultValue: 'times',
+    table: { defaultValue: { summary: 'times' } },
+  },
+  iconPrefix: {
+    name: 'iconPrefix',
+    description: 'prefix de l\'icône font-awesome',
+    type: { name: 'string', required: false },
+    control: { type: 'select', options: ['far', 'fas'] },
   },
   triggerAction: {
     name: 'triggerAction',
