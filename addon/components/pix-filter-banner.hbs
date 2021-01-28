@@ -1,8 +1,13 @@
 <div class='pix-filter-banner' ...attributes>
-  {{#if this.displayTitle}}
-    <p class="pix-filter-banner__title">{{@title}}</p>
-  {{/if}}
-  <div class="pix-filter-banner__content">
-    {{yield}}
+  <div class='pix-filter-banner__container'>
+    {{#if this.displayTitle}}
+      <p class="pix-filter-banner__title">{{@title}}</p>
+    {{/if}}
+    <div class="pix-filter-banner__content">
+      {{yield}}
+    </div>
   </div>
+  {{#if this.displayDetails}}
+  <p class="pix-filter-banner__details">{{@details}}</p>
+  {{/if}}
 </div>
