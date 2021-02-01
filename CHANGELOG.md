@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v2.0.1 (01/02/2021)
+
+- [#72](https://github.com/1024pix/pix-ui/pull/72) [FEATURE] Ajout du nombre d'éléments filtrés dans le composant filter banner sur Pix-UI(pix-2031).
+- [#73](https://github.com/1024pix/pix-ui/pull/73) [TECH] Toujours passer ...attributes à la PixTextarea
+
 ## v2.0.0 (27/01/2021)
 
 - [#68](https://github.com/1024pix/pix-ui/pull/68) [TECH] Enrichir la Pix Tooltip - BREAKING CHANGES (Pix-2000).
