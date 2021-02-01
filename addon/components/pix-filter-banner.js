@@ -7,4 +7,7 @@ export default class PixFilterBanner extends Component {
   get displayDetails() {
     return Boolean(this.args.details);
   }
+  get displayClearFilters() {
+    return Boolean(this.args.clearFiltersLabel);
+  }
 }
