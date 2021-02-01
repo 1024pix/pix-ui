@@ -41,4 +41,17 @@ module('Integration | Component | textarea', function(hooks) {
     assert.dom(CHAR_COUNT_SELECTOR).hasText('11 / 20');
   });
 
+  test('it should be possible to add required attributes to PixTextarea', async function(assert) {
+    // given
+    const defaultValue = '';
+    this.set('value', defaultValue);
+
+    // when
+    await render(hbs`<PixTextarea @value={{value}} required="true" />`);
+
+    // then
+    const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
+    assert.equal(textarea.required, true);
+  });
+
 });
