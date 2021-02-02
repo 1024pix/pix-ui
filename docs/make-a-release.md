@@ -6,17 +6,20 @@ Une release est la publication d'un nouvelle version du projet.
 
 Autrement dit, on crée un tag git pour nommer cette version. Les nouveautés embarquées par cette version sont donc uniquement celles déjà présentes sur `dev` au moment de la release.
 
-Les applications se servant de Pix-UI pourront alors se mettre à jour et utiliser les nouveaux composants et des dernières features en précisant le numéro de la version.
+Les applications se servant de Pix-UI pourront alors se mettre à jour et utiliser les nouveaux composants et des dernières features en précisant le numéro de la version. 
 
 Par ailleurs, sur Pix-UI une release signifie aussi la mise à jour automatique de [notre storybook en ligne](https://1024pix.github.io/pix-ui/).
 
 ### Effectuer la release, méthode via slack (conseillée)
 Aller dans le channel slack dédié au releases : [#tech-releases](https://1024pix.slack.com/archives/CVAMDQYHY), puis taper la commande suivante : 
-- `/publish-pix-ui <version_souhaitée>`
-    `<version_souhaitée>` peut prendre 3 valeurs : 
-    - `patch` : correctif de bug
-    - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix-UI
-    - `major` : modifications apportant des changements dans l'utilisation de Pix-UI
+```shell
+/publish-pix-ui <type_de_mise_à_jour>
+```
+
+  `<type_de_mise_à_jour>` peut prendre 3 valeurs : 
+  - `patch` : correctif de bug
+  - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix-UI
+  - `major` : modifications apportant des changements dans l'utilisation de Pix-UI
 
 Vous devriez voir apparaître dans le channel un premier message (visible que par vous) de Pix-bot vous indiquant que la demande de déploiement pour Pix-UI a bien été prise en compte.
 
@@ -31,17 +34,19 @@ Pour vérifier si la release s'est bien déroulée :
 - vérifier si notre [Storybook en ligne](https://1024pix.github.io/pix-ui/) montre bien les nouveaux composants.
 
 
-
 ### Effectuer la release, méthode à la mano (déconseillé)
-Après s'être mis à jour sur la branche dev lancer le script de publication : 
-- `git checkout dev`
-- `git pull`
-- `./scripts/publish.sh <version_souhaitée>`
+Après savoir récupérer le dernier commit de la branche dev, lancer le script de publication :
 
-  `<version_souhaitée>` peut prendre 3 valeurs : 
-    - `patch` : correctif de bug
-    - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix-UI
-    - `major` : modifications apportant des changements dans l'utilisation de Pix-UI
+```shell
+git checkout dev
+git pull
+./scripts/publish.sh <type_de_mise_à_jour>
+```
+
+`<type_de_mise_à_jour>` peut prendre 3 valeurs : 
+  - `patch` : correctif de bug
+  - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix-UI
+  - `major` : modifications apportant des changements dans l'utilisation de Pix-UI
 
 Pour plus d'informations au sujet de la version à choisir se référencer à [SemVer](https://semver.org/lang/fr/).
 
