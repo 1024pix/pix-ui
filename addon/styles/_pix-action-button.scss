@@ -2,7 +2,7 @@
   @import 'reset-css';
 
   font-size: 1.25rem;
-  border-radius: 5px;
+  border-radius: 50%;
   cursor: pointer;
   border: none;
   outline: none;
@@ -10,7 +10,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: $grey-15;
+  background-color: transparent;
   color: $grey-35;
   width: 38px;
   height: 38px;
@@ -20,4 +20,7 @@
     background-color: $grey-20;
   }
 
+  &--background {
+    background-color: $grey-15;
+  }
 }

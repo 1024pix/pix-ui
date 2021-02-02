@@ -45,11 +45,15 @@ module('Integration | Component | pix-tooltip', function(hooks) {
 
     [
       'top',
+      'top-left',
+      'top-right',
       'right',
       'left',
       'bottom',
+      'bottom-left',
+      'bottom-right',
     ].forEach(function(position) {
-      test(`it can reder ${position}`, async function(assert) {
+      test(`it can render ${position}`, async function(assert) {
         // given
         this.set('position', position);
 
@@ -66,9 +70,39 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     });
   });
 
-  module('tooltip display', function() {
+  module('tooltip light display', function() {
 
-    const NO_WRAP_CLASS = 'pix-tooltip__content--no-wrap';
+    const LIGHT_CLASS = 'pix-tooltip__content--light';
+
+    test('it can render in dark mode', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
+
+      // then
+      assert.equal(tooltipContentClasses.includes(LIGHT_CLASS), false);
+    });
+
+    test('it can render in light mode', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip @isLight={{true}}>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+      // then
+      assert.ok(tooltipContentElement.classList.toString().includes(LIGHT_CLASS));
+    });
+  });
+
+  module('tooltip inline display', function() {
+
+    const INLINE_CLASS = 'pix-tooltip__content--inline';
 
     test('it can render in multiple lines', async function(assert) {
       // when
@@ -80,19 +114,49 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
 
       // then
-      assert.equal(tooltipContentClasses.includes(NO_WRAP_CLASS), false);
+      assert.equal(tooltipContentClasses.includes(INLINE_CLASS), false);
     });
 
     test('it can render inline', async function(assert) {
       // when
       await render(hbs`
-        <PixTooltip @inline={{true}}>
+        <PixTooltip @isInline={{true}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
-      assert.ok(tooltipContentElement.classList.toString().includes(NO_WRAP_CLASS));
+      assert.ok(tooltipContentElement.classList.toString().includes(INLINE_CLASS));
+    });
+  });
+
+  module('tooltip wide display', function() {
+
+    const WIDE_CLASS = 'pix-tooltip__content--wide';
+
+    test('it can render not widely', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
+
+      // then
+      assert.equal(tooltipContentClasses.includes(WIDE_CLASS), false);
+    });
+
+    test('it can render widely', async function(assert) {
+      // when
+      await render(hbs`
+        <PixTooltip @isWide={{true}}>
+        </PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+      // then
+      assert.ok(tooltipContentElement.classList.toString().includes(WIDE_CLASS));
     });
   });
 });

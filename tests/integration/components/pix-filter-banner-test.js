@@ -33,4 +33,17 @@ module('Integration | Component | filter-banner', function(hooks) {
     // then
     assert.equal(componentElement.textContent.trim(), 'Titre de la bannière');
   });
+
+  test('it renders the PixFilterBanner with details', async function(assert) {
+    // when
+    await render(hbs`
+      <PixFilterBanner @details="5 participants filtrés">
+        content
+      </PixFilterBanner>
+    `);
+    const componentElement = this.element.querySelector('.pix-filter-banner__details');
+
+    // then
+    assert.equal(componentElement.textContent.trim(), '5 participants filtrés');
+  });
 });
