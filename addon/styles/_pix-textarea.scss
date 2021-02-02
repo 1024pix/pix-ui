@@ -11,6 +11,7 @@
     font-family: $font-roboto;
     color: $grey-45;
     font-size: 1rem;
+    resize: vertical;
 
     &:hover {
       border-color: $grey-60;
