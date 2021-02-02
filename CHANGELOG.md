@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v2.0.2 (02/02/2021)
+
+- [#71](https://github.com/1024pix/pix-ui/pull/71) [STYLE] Corriger l'affichage d'un texte sur deux lignes avec une icone dans PixMessage
+
 ## v2.0.1 (01/02/2021)
 
 - [#72](https://github.com/1024pix/pix-ui/pull/72) [FEATURE] Ajout du nombre d'éléments filtrés dans le composant filter banner sur Pix-UI(pix-2031).
