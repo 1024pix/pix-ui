@@ -6,11 +6,14 @@ export const message = (args) => {
       <PixMessage @type={{type}} @withIcon={{withIcon}}>
         Ceci est un message {{type}}
       </PixMessage>
+      <PixMessage @type={{type}} @withIcon={{true}}>
+        Ceci est un message avec une icone et un texte tellement long<br />
+        qu'il est nécessaire de l'afficher sur deux lignes.
+      </PixMessage>
     `,
     context: args
   };
 };
-
 
 export const argTypes = {
   type: {
