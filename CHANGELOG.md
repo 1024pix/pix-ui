@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v2.0.3 (03/02/2021)
+
+- [#75](https://github.com/1024pix/pix-ui/pull/75) [TECH] Permettre le redimensionnement de la textarea seulement vertical
+
 ## v2.0.2 (02/02/2021)
 
 - [#71](https://github.com/1024pix/pix-ui/pull/71) [STYLE] Corriger l'affichage d'un texte sur deux lignes avec une icone dans PixMessage
