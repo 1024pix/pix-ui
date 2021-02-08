@@ -104,6 +104,24 @@ export const colorButtons = (args) => {
   };
 }
 
+export const disabledButtons = (args) => {
+  return {
+    template: hbs`
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @isDisabled={{isDisabled}}>
+        Bouton actif (défaut)
+      </PixButton>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @isDisabled={{true}}>
+        Bouton désactivé
+      </PixButton>
+    `,
+    context: args,
+  };
+};
+
 export const argsTypes = {
   type: {
     name: 'type',
@@ -156,6 +174,15 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'blue' },
+    }
+  },
+  isDisabled: {
+    name: 'isDisabled',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
     }
   },
 };

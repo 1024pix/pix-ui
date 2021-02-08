@@ -18,6 +18,18 @@ export default class PixButton extends Component {
     return this.args.backgroundColor || 'blue';
   }
 
+  get isDisabled() {
+    return this.args.isDisabled === true || false;
+  }
+
+  get isButtonLoadingOrDisabled() {
+    return this.isLoading || this.isDisabled;
+  }
+
+  get ariaDisabled() {
+    return (this.isLoading || this.isDisabled).toString();
+  }
+
   @action
   async triggerAction(params) {
     try {
