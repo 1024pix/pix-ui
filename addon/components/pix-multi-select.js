@@ -9,72 +9,79 @@ function sortOptionsByCheckedFirst(a, b) {
   if (b.checked) return 1;
   return 0;
 }
-export default class PixMultiSelect extends Component {
-  _selected = this.args.selected || [];
-  @tracked _currentSelected = [...this._selected];
-  @tracked _strictSearch = this.args.strictSearch || false; 
 
+function removeCapitalizeAndDiacritics(string) {
+  return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+}
+
+export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;  
   @tracked searchData;
 
-  get hasResults() {
-    return this.results.length > 0;
+  @tracked options = [...this.args.options || []];
+
+  constructor(...args) {
+    super(...args)
+    this._setDisplayedOptions(this.args.selected, true);
   }
 
   get results() {
-    const defaultSelected = this._getList();
-
-    defaultSelected.forEach(option => {
-      option.checked = this._currentSelected.includes(option.value);
-    });
-
-    if (this.args.isSearchable) {
-      defaultSelected.sort(sortOptionsByCheckedFirst);
-    } 
-
-    defaultSelected.forEach(option => {
-      option.checked = this._selected.includes(option.value);
-    });
-
-
-    return defaultSelected;
+    if (this.args.isSearchable && this.searchData) {
+      return this.options.filter(({ label }) => this._search(label));
+    }
+    return this.options;
   }
 
-  @action
-  _getList() {
-    const defaultList = [...this.args.options];
+  _setDisplayedOptions(selected, shouldSort) {
+    const options = this.options.map((option) => ({
+      ...option,
+      checked: selected ? selected.includes(option.value) : false,
+    }));
 
-    return this.args.isSearchable && this.searchData ? defaultList.filter(list => {
-      return this._strictSearch ? list.label.includes(this.searchData) : this.removeCapitalizeAndDiacritics(list.label).includes(this.searchData);
-     }) : defaultList;
+    if (shouldSort && this.args.isSearchable) {
+      options.sort(sortOptionsByCheckedFirst);
+    }
+  
+    this.options = options;
+  }
+
+  _search(label) {
+    if (this.args.strictSearch) {
+      return label.includes(this.searchData);
+    }
+    return removeCapitalizeAndDiacritics(label).includes(this.searchData);
   }
 
   @action
   onSelect(event) {
+    let selected = [...this.args.selected || []];
     if(event.target.checked) {
-      this._selected = [...this._selected, event.target.value];
-        } else {
-      this._selected = this._selected.filter((value) => {
-        return value !== event.target.value;
-      });
+      selected.push(event.target.value);
+    } else {
+      selected = selected.filter((value) => value !== event.target.value);
     }
+    
+    this._setDisplayedOptions(selected, false);
 
-    this.args.onSelect(this._selected);
+    if (this.args.onSelect) {
+      this.args.onSelect(selected);
+    }
   }
 
   @action
   toggleDropDown() {
-    this.isExpanded = !this.isExpanded;
-
-    if(!this.isExpanded) {
-      this.updateCurrentSelectedList();
+    if (this.isExpanded) {
+      this.hideDropDown();
+    } else {
+      this.showDropDown();
     }
   }
 
   @action
   showDropDown() {
     if (this.isExpanded) return;
-    this.isExpanded = this.args.showOptionsOnInput || false;
+    this.isExpanded = true;
+    this._setDisplayedOptions(this.args.selected, true);
   }
 
   @action
@@ -86,27 +93,21 @@ export default class PixMultiSelect extends Component {
       event.preventDefault();
     }
     this.isExpanded = false;
+  }
 
-    this.updateCurrentSelectedList();  
+  @action
+  focusDropdown() {
+    if (this.args.isSearchable && this.args.showOptionsOnInput) {
+      this.showDropDown();
+    }
   }
 
   @action
   updateSearch(event) {
-    this.searchData = this._strictSearch ? event.target.value : this.removeCapitalizeAndDiacritics(event.target.value);
-
-    if(!this.searchData) {
-      this.updateCurrentSelectedList();
+    this.searchData = this.args.strictSearch ? event.target.value : removeCapitalizeAndDiacritics(event.target.value);
+    this.isExpanded = true; 
+    if (!event.target.value) {
+      this._setDisplayedOptions(this.args.selected, true);
     }
-    this.isExpanded = true;
-  }
-
-  @action
-  updateCurrentSelectedList() {
-    this._currentSelected = [...this._selected];
-  }
-
-  @action
-  removeCapitalizeAndDiacritics(string) {
-    return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
   }
 }
