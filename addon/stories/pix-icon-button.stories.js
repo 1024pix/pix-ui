@@ -42,7 +42,10 @@ export const argTypes = {
     name: 'withBackground',
     description: 'Affichage du fond grisé',
     type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    },
   },
   size: {
     name: 'size',
