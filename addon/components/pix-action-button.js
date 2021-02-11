@@ -9,6 +9,10 @@ export default class PixActionButton extends Component {
     return this.args.icon ? this.args.icon : defaultIcon;
   }
 
+  get size() {
+    return this.args.size || 'big';
+  }
+
   @action
   triggerAction() {
     if (this.args.triggerAction) {

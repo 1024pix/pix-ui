@@ -8,6 +8,7 @@ export const actionButton = (args) => {
         @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
         @withBackground={{withBackground}}
+        @size={{size}}
         />
     `,
     context: {
@@ -41,5 +42,15 @@ export const argTypes = {
     description: 'Affichage du fond grisé',
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
+  },
+  size: {
+    name: 'size',
+    description: 'size: `small`, `big`',
+    type: { name: 'string', required: false },
+    control: { type: 'select', options: ['big', 'small'] },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'big' },
+    }
   },
 };

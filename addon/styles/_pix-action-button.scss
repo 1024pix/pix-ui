@@ -1,7 +1,6 @@
 .pix-action-button {
   @import 'reset-css';
 
-  font-size: 1.25rem;
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -12,8 +11,6 @@
   justify-content: center;
   background-color: transparent;
   color: $grey-35;
-  width: 38px;
-  height: 38px;
 
   &:disabled {
     opacity: .5;
@@ -35,5 +32,17 @@
         background-color: $grey-15;
       }
     }
+  }
+
+  &--small {
+    width: 32px;
+    height: 32px;
+    font-size: 1rem;
+  }
+
+  &--big {
+    width: 38px;
+    height: 38px;
+    font-size: 1.25rem;
   }
 }
