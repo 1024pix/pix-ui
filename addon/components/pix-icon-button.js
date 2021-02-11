@@ -1,8 +1,8 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-export default class PixActionButton extends Component {
-  text = 'pix-action-button';
+export default class PixIconButton extends Component {
+  text = 'pix-icon-button';
 
   get icon() {
     const defaultIcon = 'plus';

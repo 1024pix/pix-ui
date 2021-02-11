@@ -1,9 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const actionButton = (args) => {
+export const iconButton = (args) => {
   return {
     template: hbs`
-      <PixActionButton
+      <PixIconButton
         @icon={{icon}}
         @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
