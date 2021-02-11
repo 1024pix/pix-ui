@@ -19,8 +19,14 @@ Le ActionButton permet de créer un bouton contenant une icône font-awesome.
 
 ## Usage
 
+état enabled
 ```html
 <PixActionButton @icon='times' @triggerAction="{{triggerAction}}"/>
+```
+
+état disabled
+```html
+<PixActionButton @icon='times' @triggerAction="{{triggerAction}}" disabled={{true}} aria-disabled="{{true}}"/>
 ```
 
 <ArgsTable story="Action button" />
