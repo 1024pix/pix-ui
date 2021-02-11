@@ -1,6 +1,6 @@
 <button
   type="button"
-  class="pix-action-button pix-action-button--{{this.size}} {{if @withBackground 'pix-action-button--background'}}"
+  class="pix-action-button pix-action-button--{{this.size}} pix-action-button--{{this.color}} {{if @withBackground 'pix-action-button--background'}}"
   {{on "click" this.triggerAction}}
   ...attributes>
   <FaIcon @icon={{this.icon}} @prefix={{@iconPrefix}}/>

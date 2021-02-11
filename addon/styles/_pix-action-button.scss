@@ -10,7 +10,6 @@
   align-items: center;
   justify-content: center;
   background-color: transparent;
-  color: $grey-35;
 
   &:disabled {
     opacity: .5;
@@ -44,5 +43,13 @@
     width: 38px;
     height: 38px;
     font-size: 1.25rem;
+  }
+
+  &--dark-grey {
+    color: $grey-60;
+  }
+
+  &--light-grey {
+    color: $grey-35;
   }
 }

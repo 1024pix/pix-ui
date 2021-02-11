@@ -9,6 +9,7 @@ export const actionButton = (args) => {
         @triggerAction={{triggerAction}}
         @withBackground={{withBackground}}
         @size={{size}}
+        @color={{color}}
         />
     `,
     context: {
@@ -51,6 +52,16 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },
+    }
+  },
+  color: {
+    name: 'color',
+    description: 'color: `light-grey`, `dark-grey`',
+    type: { name: 'string', required: false },
+    control: { type: 'select', options: ['light-grey', 'dark-grey'] },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'light-grey' },
     }
   },
 };

@@ -13,6 +13,10 @@ export default class PixActionButton extends Component {
     return this.args.size || 'big';
   }
 
+  get color() {
+    return this.args.color || 'light-grey';
+  }
+
   @action
   triggerAction() {
     if (this.args.triggerAction) {
