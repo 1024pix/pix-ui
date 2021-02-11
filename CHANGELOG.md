@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v2.1.0 (11/02/2021)
+
+- [#77](https://github.com/1024pix/pix-ui/pull/77) [TECH] Pouvoir désactiver le PixButton
+
 ## v2.0.3 (03/02/2021)
 
 - [#75](https://github.com/1024pix/pix-ui/pull/75) [TECH] Permettre le redimensionnement de la textarea seulement vertical
