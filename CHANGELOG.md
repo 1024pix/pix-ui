@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v2.2.0 (12/02/2021)
+
+- [#74](https://github.com/1024pix/pix-ui/pull/74) [FEATURE] Ajout d'un bouton permettant de supprimer tous les éléments filtrés d'un seul clic dans le filter banner(PIX-2032).
+- [#76](https://github.com/1024pix/pix-ui/pull/76) [FIX] Multi-select: le composant ne se met pas a jour quand on modifie l'argument '@selected' (PIX-2141)
+
 ## v2.1.0 (11/02/2021)
 
 - [#77](https://github.com/1024pix/pix-ui/pull/77) [TECH] Pouvoir désactiver le PixButton
