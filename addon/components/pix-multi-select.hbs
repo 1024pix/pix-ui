@@ -12,7 +12,7 @@
         placeholder={{@placeholder}}
         autocomplete="off"
         {{on "input" this.updateSearch}}
-        {{on "focus" this.showDropDown}}
+        {{on "focus" this.focusDropdown}}
         class="pix-multi-select-header__search-input"/>
 
     </label>
@@ -26,7 +26,7 @@
   {{/if}}
 
   <ul class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}">
-    {{#if this.hasResults}}
+    {{#if (gt this.results.length 0)}}
       {{#each this.results as |option|}} 
         <li class="pix-multi-select-list__item">
           <input class="pix-multi-select-list__checkbox  {{if @isSearchable 'pix-multi-select-list__checkbox--searchable' }}" 
