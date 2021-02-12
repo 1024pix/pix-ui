@@ -1,5 +1,5 @@
 <div class='pix-filter-banner' ...attributes>
-  <div class='pix-filter-banner__container'>
+  <div class='pix-filter-banner__container-left'>
     {{#if this.displayTitle}}
       <p class="pix-filter-banner__title">{{@title}}</p>
     {{/if}}
@@ -7,7 +7,17 @@
       {{yield}}
     </div>
   </div>
-  {{#if this.displayDetails}}
-  <p class="pix-filter-banner__details">{{@details}}</p>
-  {{/if}}
+  <div class="pix-filter-banner__container-right">
+    {{#if this.displayDetails}}
+      <p class="pix-filter-banner__details">{{@details}}</p>
+    {{/if}}
+    {{#if this.displayClearFilters}}
+      <div class="pix-filter-banner__button-container"> 
+        <PixButton class="pix-filter-banner__button" @border="squircle-small" @triggerAction={{@onClearFilters}}>
+          <FaIcon class="pix-filter-banner-button__icon" @icon='trash-alt' @prefix='far'/>
+            {{@clearFiltersLabel}}
+        </PixButton>
+      </div>
+    {{/if}}
+  </div>
 </div>
