@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v3.0.0 (15/02/2021)
+
+- [#79](https://github.com/1024pix/pix-ui/pull/79) [TECH] Enrichir PixActionButton et la renommer en PixIconButton pour que cela reflète plus son utilisation - BREAKING CHANGES.
+
 ## v2.2.0 (12/02/2021)
 
 - [#74](https://github.com/1024pix/pix-ui/pull/74) [FEATURE] Ajout d'un bouton permettant de supprimer tous les éléments filtrés d'un seul clic dans le filter banner(PIX-2032).
