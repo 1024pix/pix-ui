@@ -1,13 +1,15 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const actionButton = (args) => {
+export const iconButton = (args) => {
   return {
     template: hbs`
-      <PixActionButton
+      <PixIconButton
         @icon={{icon}}
         @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
         @withBackground={{withBackground}}
+        @size={{size}}
+        @color={{color}}
         />
     `,
     context: {
@@ -40,6 +42,29 @@ export const argTypes = {
     name: 'withBackground',
     description: 'Affichage du fond grisé',
     type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    },
+  },
+  size: {
+    name: 'size',
+    description: 'size: `small`, `big`',
+    type: { name: 'string', required: false },
+    control: { type: 'select', options: ['big', 'small'] },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'big' },
+    }
+  },
+  color: {
+    name: 'color',
+    description: 'color: `light-grey`, `dark-grey`',
+    type: { name: 'string', required: false },
+    control: { type: 'select', options: ['light-grey', 'dark-grey'] },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'light-grey' },
+    }
   },
 };
