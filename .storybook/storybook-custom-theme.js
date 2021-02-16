@@ -23,7 +23,7 @@ export default create({
   // Toolbar default and active colors
   barTextColor: 'white',
   barSelectedColor: 'white', // Selected tab when multiple tabs
-  barBg: 'linear-gradient(135deg, #388AFF 0%, #985FFF 100%)',
+  barBg: 'linear-gradient(135deg, #3D68FF 0%, #8845FF 100%)',
 
   // Form colors
   // inputBg: 'white',
