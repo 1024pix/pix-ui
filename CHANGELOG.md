@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v3.1.0 (16/02/2021)
+
+- [#78](https://github.com/1024pix/pix-ui/pull/78) [FEAT] Mise à jour de la couleur de l'élément bannière.
+
 ## v3.0.0 (15/02/2021)
 
 - [#79](https://github.com/1024pix/pix-ui/pull/79) [TECH] Enrichir PixActionButton et la renommer en PixIconButton pour que cela reflète plus son utilisation - BREAKING CHANGES.
