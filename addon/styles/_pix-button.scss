@@ -9,6 +9,7 @@
   letter-spacing: .012rem;
   cursor: pointer;
   font-family: 'Roboto', Arial, sans-serif;
+  background-color: $blue;
 
   .loader > div {
     width: 10px;
@@ -66,7 +67,11 @@
 
   &--background-yellow {
     color: $grey-100;
-    background-color: $warning;
+    background-color: $yellow;
+  }
+
+  &--background-grey {
+    background-color: $blue-zodiac;
   }
 
   &--background-transparent {
