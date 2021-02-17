@@ -59,19 +59,35 @@
 
   &--background-blue {
     background-color: $blue;
+
+    &:hover {
+      background-color: darken($blue, 4%);
+    }
   }
 
   &--background-green {
     background-color: #037620;
+
+    &:hover {
+      background-color: darken(#037620, 4%);
+    }
   }
 
   &--background-yellow {
     color: $grey-100;
     background-color: $yellow;
+
+    &:hover {
+      background-color: darken($yellow, 4%);
+    }
   }
 
   &--background-grey {
     background-color: $blue-zodiac;
+
+    &:hover {
+      background-color: darken($blue-zodiac, 4%);
+    }
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
@@ -84,11 +100,19 @@
   &--background-transparent-light {
     background-color: transparent;
     color: $grey-60;
+
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
   }
 
   &--background-transparent-dark {
     background-color: transparent;
     color: $white;
+
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
   }
 
   &--disabled {
