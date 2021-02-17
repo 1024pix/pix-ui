@@ -74,10 +74,21 @@
     background-color: $blue-zodiac;
   }
 
+  /* deprecated in favor of --background-transparent-light + --border */
   &--background-transparent {
     background-color: transparent;
     color: $grey-50;
     border: 1px solid $grey-50;
+  }
+
+  &--background-transparent-light {
+    background-color: transparent;
+    color: $grey-60;
+  }
+
+  &--background-transparent-dark {
+    background-color: transparent;
+    color: $white;
   }
 
   &--disabled {

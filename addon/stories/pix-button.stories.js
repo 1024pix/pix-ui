@@ -102,10 +102,19 @@ export const colorButtons = (args) => {
       <section>
         <PixButton
             @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='transparent'
+            @loading-color='grey'
+            @backgroundColor='transparent-light'
             @type={{type}}>
-          Bouton avec background transparent
+          Bouton avec background transparent-light
+        </PixButton>
+      </section>
+      <section style="background-color: #345193">
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='transparent-dark'
+            @type={{type}}>
+          Bouton avec background transparent-dark
         </PixButton>
       </section>
     `,
@@ -177,7 +186,7 @@ export const argsTypes = {
   },
   backgroundColor: {
     name: 'backgroundColor',
-    description: 'color: `blue`, `green`, `yellow`, `grey`, `transparent`',
+    description: 'color: `blue`, `green`, `yellow`, `grey`, `transparent-light`, `transparent-dark`',
     type: { name: 'string', required: false },
     control: { disable: true },
     table: {
