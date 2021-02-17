@@ -63,6 +63,10 @@
     &:hover {
       background-color: darken($blue, 4%);
     }
+
+    &:active {
+      background-color: darken($blue, 8%);
+    }
   }
 
   &--background-green {
@@ -70,6 +74,10 @@
 
     &:hover {
       background-color: darken(#037620, 4%);
+    }
+
+    &:active {
+      background-color: darken(#037620, 8%);
     }
   }
 
@@ -80,6 +88,10 @@
     &:hover {
       background-color: darken($yellow, 4%);
     }
+
+    &:active {
+      background-color: darken($yellow, 8%);
+    }
   }
 
   &--background-grey {
@@ -87,6 +99,10 @@
 
     &:hover {
       background-color: darken($blue-zodiac, 4%);
+    }
+
+    &:active {
+      background-color: darken($blue-zodiac, 8%);
     }
   }
 
@@ -104,6 +120,10 @@
     &:hover {
       background-color: rgba($black, 0.1);
     }
+
+    &:active {
+      background-color: rgba($black, 0.2);
+    }
   }
 
   &--background-transparent-dark {
@@ -112,6 +132,10 @@
 
     &:hover {
       background-color: rgba($black, 0.1);
+    }
+
+    &:active {
+      background-color: rgba($black, 0.2);
     }
   }
 
