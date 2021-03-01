@@ -1,0 +1,29 @@
+.pix-input {
+  @import "reset-css";
+
+  appearance: none;
+  background-color: $white;
+  border: 1px $grey-20 solid;
+  border-radius: 3px;
+  box-sizing: border-box;
+  color: $black;
+  font-family: $font-roboto;
+  font-size: 1rem;
+  height: 46px;
+  padding: 0 8px;
+  position: relative;
+  width: 100%;
+
+  // Remove arrow for Chrome
+  &::-webkit-calendar-picker-indicator {
+    display: none;
+  }
+
+  &:focus {
+    outline-color: $blue;
+  }
+
+  &__has-a-valid-option-as-value:focus {
+    outline-color: $green;
+  }
+}

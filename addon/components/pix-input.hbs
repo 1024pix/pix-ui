@@ -1,0 +1,15 @@
+<input 
+  list="{{this.datalistId}}" {{on "input" this.onInputChange}}
+  class="pix-input {{if this.isValueAValidOption "pix-input__has-a-valid-option-as-value"}}"
+  ...attributes
+/>
+
+{{#if @searchableOptions}}
+  <datalist id={{this.datalistId}}>
+    {{#each @searchableOptions as |opt|}}
+      <option label={{opt.label}}>
+        {{opt.value}}
+      </option>
+    {{/each}}
+  </datalist>
+{{/if}}
