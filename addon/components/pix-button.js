@@ -30,6 +30,10 @@ export default class PixButton extends Component {
     return (this.isLoading || this.isDisabled).toString();
   }
 
+  get size() {
+    return this.args.size || 'big';
+  }
+
   @action
   async triggerAction(params) {
     try {

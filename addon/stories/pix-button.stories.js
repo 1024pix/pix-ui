@@ -126,6 +126,32 @@ export const disabledButtons = (args) => {
   };
 };
 
+export const sizeButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @size='small'>
+        Bouton small
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @size='big'>
+        Bouton big (default)
+      </PixButton>
+    </section>
+    `,
+    context: args,
+  };
+}
+
 export const argsTypes = {
   type: {
     name: 'type',
@@ -187,6 +213,16 @@ export const argsTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
+    }
+  },
+  size: {
+    name: 'size',
+    description: 'taille: `big`,`small`',
+    type: { name: 'string', required: false },
+    control: { disable: true },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'big' },
     }
   },
 };

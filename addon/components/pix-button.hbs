@@ -1,5 +1,5 @@
 <button type={{this.type}}
-        class="pix-button pix-button--shape-{{this.shape}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}"
+        class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}"
         {{on "click" this.triggerAction}}
         ...attributes
         disabled={{this.isButtonLoadingOrDisabled}}

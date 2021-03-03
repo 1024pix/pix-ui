@@ -45,6 +45,18 @@
     border-radius: 5px;
   }
 
+  &--size-big {
+    padding: 14px 24px;
+  }
+
+  &--size-small.pix-button--shape-rounded {
+    padding: 10px 24px;
+  }
+
+  &--size-small.pix-button--shape-squircle {
+    padding: 10px 16px;
+  }
+
   &--background-blue {
     background-color: $blue;
 
