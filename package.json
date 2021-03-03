@@ -81,7 +81,7 @@
     "ember-template-lint": "^3.0.0",
     "ember-try": "^1.4.0",
     "eslint": "^7.21.0",
-    "eslint-plugin-ember": "^10.0.2",
+    "eslint-plugin-ember": "^10.2.0",
     "eslint-plugin-node": "^11.1.0",
     "fs-extra": "^9.0.1",
     "loader.js": "^4.7.0",
