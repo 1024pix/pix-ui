@@ -1,13 +1,12 @@
 <div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown capture=true}}>
   {{#if @isSearchable}}
-    <label class="pix-multi-select-header" for={{@id}}>
+    <label class="pix-multi-select-header">
 
       <span class="pix-multi-select-header__title">{{@title}}</span>
       <FaIcon @icon='search' class="pix-multi-select-header__search-icon" />
 
       <input 
-        type="text" 
-        id={{@id}}
+        type="text"
         name={{@id}}
         placeholder={{@placeholder}}
         autocomplete="off"
