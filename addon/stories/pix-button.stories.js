@@ -20,7 +20,7 @@ export const loadingButtons = (args) => {
   };
 };
 
-export const borderButtons = (args) => {
+export const shapeButtons = (args) => {
   return {
     template: hbs`
     <section>
@@ -28,15 +28,8 @@ export const borderButtons = (args) => {
           @triggerAction={{action triggerAction}}
           @loading-color='white'
           @type={{type}}
-          @border='rounded-big'>
-        Bouton rounded-big
-      </PixButton>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @border='rounded-small'>
-        Bouton rounded-small
+          @shape='rounded'>
+        Bouton rounded
       </PixButton>
     </section>
     <section>
@@ -44,15 +37,8 @@ export const borderButtons = (args) => {
           @triggerAction={{action triggerAction}}
           @loading-color='white'
           @type={{type}}
-          @border='squircle-big'>
-        Bouton squircle-big (default)
-      </PixButton>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @border='squircle-small'>
-        Bouton squircle-small
+          @shape='squircle'>
+        Bouton squircle (default)
       </PixButton>
     </section>
     `,
@@ -174,14 +160,14 @@ export const argsTypes = {
       defaultValue: { summary: 'white' },
     }
   },
-  border: {
-    name: 'border',
-    description: 'bordure: `rounded-small`, `rounded-big`, `squircle-small`, `squircle-big`',
+  shape: {
+    name: 'shape',
+    description: 'forme: `rounded`,`squircle`',
     type: { name: 'string', required: false },
     control: { disable: true },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'squircle-big' },
+      defaultValue: { summary: 'squircle' },
     }
   },
   backgroundColor: {

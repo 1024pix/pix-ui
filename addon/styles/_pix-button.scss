@@ -37,23 +37,11 @@
     animation-delay: -0.16s;
   }
 
-  &--rounded-big {
-    padding: 14px 24px;
+  &--shape-rounded {
     border-radius: 23px;
   }
 
-  &--rounded-small {
-    padding: 10px 24px;
-    border-radius: 23px;
-  }
-
-  &--squircle-big {
-    padding: 14px 24px;
-    border-radius: 5px;
-  }
-
-  &--squircle-small {
-    padding: 10px 16px;
+  &--shape-squircle {
     border-radius: 5px;
   }
 

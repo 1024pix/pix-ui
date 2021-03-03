@@ -12,8 +12,8 @@
       <p class="pix-filter-banner__details">{{@details}}</p>
     {{/if}}
     {{#if this.displayClearFilters}}
-      <div class="pix-filter-banner__button-container"> 
-        <PixButton class="pix-filter-banner__button" @border="squircle-small" @triggerAction={{@onClearFilters}}>
+      <div class="pix-filter-banner__button-container">
+        <PixButton class="pix-filter-banner__button" @shape="squircle" @triggerAction={{@onClearFilters}}>
           <FaIcon class="pix-filter-banner-button__icon" @icon='trash-alt' @prefix='far'/>
             {{@clearFiltersLabel}}
         </PixButton>

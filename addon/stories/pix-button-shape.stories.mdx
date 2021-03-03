@@ -3,7 +3,7 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-button.stories.js';
 
 <Meta
-  title='Basics/Button/Border'
+  title='Basics/Button/Shape'
   component='PixButton'
   decorators={[centered]}
   argTypes={stories.argsTypes}
@@ -14,15 +14,15 @@ import * as stories from './pix-button.stories.js';
 Ce composant est un bouton simple qui empêche les clics multiples.
 
 <Canvas isColumn>
-  <Story name="Border" story={stories.borderButtons} height="200px" />
+  <Story name="Shape" story={stories.shapeButtons} height="200px" />
 </Canvas>
 
 ## Usage
 
 ```html
-Par défaut, la bordure est `squircle-big`
+Par défaut, la forme est `squircle`
 <PixButton
-  @border="squircle-big"
+  @shape="squircle"
   >
   Cliquez pour valider !
 </PixButton>
@@ -30,4 +30,4 @@ Par défaut, la bordure est `squircle-big`
 
 ## Arguments
 
-<ArgsTable story="Border" />
+<ArgsTable story="Shape" />
