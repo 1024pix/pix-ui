@@ -8,14 +8,14 @@
   align-items: center;
   border-bottom: transparent solid 2px;
   text-decoration: none;
-  
+
   &__icon {
     position: relative;
     z-index: 3;
     padding: 4px 7px;
     font-size: 1rem;
   }
-  
+
   &__icon::before {
     content: '';
     position: absolute;
@@ -58,7 +58,7 @@
     }
   }
 
-  &--white { @include coloriseLink($grey-10, $white, $white); }
+  &--white { @include coloriseLink($grey-10, $grey-0, $grey-0); }
   &--black { @include coloriseLink($grey-80, $grey-200, $grey-60); }
-  &--blue { @include coloriseLink($communication-dark, $blue-hover, $communication-dark); }
+  &--blue { @include coloriseLink($communication-dark, #3257D9, $communication-dark); }
 }

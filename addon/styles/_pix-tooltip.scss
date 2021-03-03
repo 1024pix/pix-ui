@@ -14,13 +14,13 @@
 .pix-tooltip__content {
   opacity: 0;
   pointer-events: none;
-  background-color: $black;
+  background-color: $grey-200;
   position: absolute;
   z-index: 100;
   margin: 0;
   padding: 10px 16px;
   left: auto;
-  color: $white;
+  color: $grey-0;
   font-size: 0.875rem;
   border-radius: 4px;
   transition: opacity 0.3s;
@@ -42,16 +42,16 @@
   }
 
   &--light {
-    background-color: $white;
+    background-color: $grey-0;
     color: $grey-60;
     border: 1px solid $grey-40;
-    box-shadow: -2px 4px 4px 2px rgba($black, 0.1);
+    box-shadow: -2px 4px 4px 2px rgba($grey-200, 0.1);
 
     &::before {
       border-width: 1px;
       height: 8px;
       width: 8px;
-      background-color: $white;
+      background-color: $grey-0;
     }
   }
 }
@@ -62,7 +62,7 @@
   &::before {
     top: calc(50% - 5px); // 50% is the height of the parent and 5px the height of the triangle
     left: -10px; // 10px is width of the ::before elmt
-    border-color: transparent $black transparent transparent;
+    border-color: transparent $grey-200 transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -80,7 +80,7 @@
   &::before {
     top: 100%;
     left: calc(50% - 5px);
-    border-color: $black transparent transparent transparent;
+    border-color: $grey-200 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -97,7 +97,7 @@
   &::before {
     top: 100%;
     left: calc(100% - 27px);
-    border-color: $black transparent transparent transparent;
+    border-color: $grey-200 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -114,7 +114,7 @@
 
   &::before {
     top: 100%;
-    border-color: $black transparent transparent transparent;
+    border-color: $grey-200 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -132,7 +132,7 @@
   &::before {
     top: -10px;
     left: calc(50% - 5px);
-    border-color: transparent transparent $black transparent;
+    border-color: transparent transparent $grey-200 transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -149,7 +149,7 @@
   &::before {
     top: -10px;
     left: calc(100% - 27px);
-    border-color: transparent transparent $black transparent;
+    border-color: transparent transparent $grey-200 transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -166,7 +166,7 @@
 
   &::before {
     top: -10px;
-    border-color: transparent transparent $black transparent;
+    border-color: transparent transparent $grey-200 transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -182,7 +182,7 @@
   &::before {
     top: calc(50% - 5px);
     right: -10px;
-    border-color: transparent transparent transparent $black;
+    border-color: transparent transparent transparent $grey-200;
   }
 
   &.pix-tooltip__content--light::before {

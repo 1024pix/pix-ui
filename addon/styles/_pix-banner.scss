@@ -5,15 +5,15 @@
   font-weight: $font-normal;
   padding: 32px 58px;
   background-color: $dark-orga;
-  color: $white;
+  color: $grey-0;
   font-size: 0.875rem;
   display: flex;
   flex-direction: row;
   align-items: center;
 
   &__action {
-    color: $white;
-    border: 1px solid $white;
+    color: $grey-0;
+    border: 1px solid $grey-0;
     border-radius: 4px;
     padding: 10px 28px;
     text-decoration: none;

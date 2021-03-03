@@ -2,7 +2,7 @@
 
   @import 'reset-css';
   border-color: transparent;
-  color: $white;
+  color: $grey-0;
   font-size: 1rem;
   white-space: nowrap;
   font-weight: 500;
@@ -13,7 +13,7 @@
   .loader > div {
     width: 10px;
     height: 10px;
-    background-color: $white;
+    background-color: $grey-0;
     border-radius: 100%;
     display: inline-block;
     -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
@@ -21,7 +21,7 @@
   }
 
   .loader--white > div {
-    background-color: $white;
+    background-color: $grey-0;
   }
   .loader--grey > div {
     background-color: $grey-80;
