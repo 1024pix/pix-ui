@@ -53,7 +53,7 @@
     "@storybook/addon-centered": "^5.3.21",
     "@storybook/addon-controls": "^6.1.21",
     "@storybook/addon-docs": "^6.1.21",
-    "@storybook/addons": "^6.1.10",
+    "@storybook/addons": "^6.1.21",
     "@storybook/ember": "^6.1.10",
     "@storybook/ember-cli-storybook": "^0.3.0",
     "@storybook/storybook-deployer": "^2.8.7",
