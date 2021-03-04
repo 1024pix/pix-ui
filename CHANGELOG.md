@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v3.1.1 (04/03/2021)
+
+- [#86](https://github.com/1024pix/pix-ui/pull/86) Informer tout le monde que l'apperçu du multiselect dans storybook ne fonctionne pas
+
 ## v3.1.0 (16/02/2021)
 
 - [#78](https://github.com/1024pix/pix-ui/pull/78) [FEAT] Mise à jour de la couleur de l'élément bannière.
