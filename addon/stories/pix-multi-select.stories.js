@@ -3,6 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 export const multiSelectSearchable = (args) => {
   return {
     template: hbs`
+      <h3>⚠️ Pour voir le réel rendu, importez PixMultiSelect dans votre app</h3>
       <PixMultiSelect
         style="width:350px"
         @id={{id}}
@@ -26,6 +27,7 @@ export const multiSelectSearchable = (args) => {
 export const multiSelectWithChildComponent = (args) => {
   return {
     template: hbs`
+      <h3>⚠️ Pour voir le réel rendu, importez PixMultiSelect dans votre app</h3>
       <PixMultiSelect
         @title={{titleStars}}
         @id={{id}}
