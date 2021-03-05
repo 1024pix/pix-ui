@@ -15,8 +15,17 @@ Affiche un champ Select avec la liste des options fournie.
 
 Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
 
+> **⚠️** __N'oubliez pas de rajouter un id et un label rattaché à l'input pour le rendre accessible !
+A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'input.__
+
+> Pour aider l'utilisateur avec le PixSelect cherchable, rajoutez un placeholder cohérent !
+
 <Canvas>
-  <Story name="Select" story={stories.select} height="60px" />
+  <Story name="Select" story={stories.select} height="100px" />
+</Canvas>
+
+<Canvas>
+  <Story name="SearchableSelect" story={stories.searchableSelect} height="110px" />
 </Canvas>
 
 ## Usage
@@ -27,6 +36,8 @@ Les options sont représentées par un tableau d'objet contenant les propriété
   @onChange={{onChange}}
   @selectedOption="1"
   @emptyOptionLabel="Empty option"
+  @isSearchable={{false}}
+  @isValidationActive={{false}}
 />
 ```
 

@@ -87,7 +87,7 @@ module('Integration | Component | input', function (hooks) {
       await fillIn('input', 'noix');
 
       // then
-      assert.dom('.pix-input__has-a-valid-option-as-value').exists();
+      assert.dom('.pix-input--is-valid').exists();
     });
   });
 });

@@ -23,7 +23,7 @@
     outline-color: $blue;
   }
 
-  &__has-a-valid-option-as-value:focus {
+  &--is-valid:focus {
     outline-color: $green;
   }
 }
