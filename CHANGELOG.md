@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v3.2.0 (08/03/2021)
+
+- [#83](https://github.com/1024pix/pix-ui/pull/83) [FEATURE] Rendre PixSelect cherchable (PIX-2306)
+- [#84](https://github.com/1024pix/pix-ui/pull/84) [TECH] Mettre à jour les dépendances de Pix-UI
+
 ## v3.1.1 (04/03/2021)
 
 - [#86](https://github.com/1024pix/pix-ui/pull/86) Informer tout le monde que l'apperçu du multiselect dans storybook ne fonctionne pas
