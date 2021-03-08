@@ -13,6 +13,7 @@ module('Integration | Component | select', function (hooks) {
     { value: '3', label: 'Oignon' },
   ]
   const DEFAULT_ON_CHANGE = () => {};
+  const SEARCHABLE_SELECT_SELECTOR = '.pix-select input';
 
   test('it renders the PixSelect with given options', async function (assert) {
     // given
@@ -91,5 +92,72 @@ module('Integration | Component | select', function (hooks) {
 
     // then
     assert.ok(this.onChange.calledOnce, "the callback should be called once");
+  });
+
+  module('searchable PixSelect', function() {
+    test('it should be binded datalist element', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.isSearchable = true;
+
+      // when
+      await render(hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} />`);
+
+      // then
+      const input = this.element.querySelector(SEARCHABLE_SELECT_SELECTOR);
+      const datalist = this.element.querySelector('datalist');
+      const inputDefaultListAttribute = input.attributes.getNamedItem('list').value;
+      assert.equal(datalist.id, inputDefaultListAttribute);
+    });
+
+    test('it should be searchable with given options', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.isSearchable = true;
+
+      // when
+      await render(hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} />`);
+
+      // then
+      const options = this.element.querySelectorAll('option');
+      assert.equal(options.length, 3);
+      assert.equal(options.item(1).label, 'Tomate');
+    });
+
+    module('green validation', function () {
+
+      test('it should not have a green border', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+        this.isSearchable = true;
+  
+        // when
+        await render(hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} />`);
+        await fillIn(SEARCHABLE_SELECT_SELECTOR, 'tomate');
+  
+        // then
+        assert.dom('.pix-select--is-valid').doesNotExist();
+      });
+
+      test('it should have a green border when a valid option is selected and isGreenValidationActive argument is given', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+        this.isSearchable = true;
+        this.isValidationActive = true;
+
+        // when
+        await render(hbs`
+          <PixSelect
+            @options={{options}}
+            @isSearchable={{isSearchable}}
+            @isValidationActive={{isValidationActive}}
+          />`);
+        await fillIn(SEARCHABLE_SELECT_SELECTOR, 'tomate');
+  
+        // then
+        assert.dom('.pix-select--is-valid').exists();
+      });
+    });
+
   });
 });
