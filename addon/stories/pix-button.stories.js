@@ -125,7 +125,7 @@ export const disabledButtons = (args) => {
 export const argsTypes = {
   type: {
     name: 'type',
-    description: 'fonction à appeler en cas de clic',
+    description: 'type du bouton',
     type: { required: false },
     control: { disable: true },
     table: {
