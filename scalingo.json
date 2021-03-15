@@ -1,0 +1,17 @@
+{
+  "name": "Pix UI Review App",
+  "env": {
+    "REVIEW_APP": {
+      "description": "Indicates that the application is a review app",
+      "value": "true"
+    }
+  },
+  "addons": [
+  ],
+  "formation": {
+    "web": {
+      "amount": 1,
+      "size": "S"
+    }
+  }
+}
