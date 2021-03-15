@@ -7,7 +7,7 @@ on:
       - '*'
 
 jobs:
-  test:
+  deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
@@ -15,4 +15,7 @@ jobs:
         with:
           node-version: 14
       - run: npm ci
-      - run: npm run deploy-storybook
+      - name: Deploy storybook to Github Pages
+        run: npm run deploy-storybook -- --ci
+        env:
+          GH_TOKEN: 1024pix:${{ secrets.GITHUB_TOKEN }}
