@@ -67,6 +67,12 @@
     &:active {
       background-color: darken($blue, 8%);
     }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
+    }
   }
 
   &--background-green {
@@ -78,6 +84,12 @@
 
     &:active {
       background-color: darken(#037620, 8%);
+    }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
     }
   }
 
@@ -92,6 +104,12 @@
     &:active {
       background-color: darken($yellow, 8%);
     }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
+    }
   }
 
   &--background-grey {
@@ -104,6 +122,12 @@
     &:active {
       background-color: darken($blue-zodiac, 8%);
     }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
+    }
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
@@ -115,7 +139,7 @@
 
   &--background-transparent-light {
     background-color: transparent;
-    color: $grey-60;
+    color: $grey-90;
 
     &:hover {
       background-color: rgba($black, 0.1);
@@ -123,6 +147,13 @@
 
     &:active {
       background-color: rgba($black, 0.2);
+    }
+
+    &:focus {
+      outline-color: $yellow;
+      outline-style: auto;
+      outline-offset: 3px;
+      background-color: $yellow;
     }
 
     &.pix-button--border {
@@ -144,6 +175,14 @@
 
     &:active {
       background-color: rgba($black, 0.2);
+    }
+
+    &:focus {
+      outline-color: $yellow;
+      outline-style: auto;
+      outline-offset: 3px;
+      background-color: $yellow;
+      color: $grey-90;
     }
 
     &.pix-button--border {
