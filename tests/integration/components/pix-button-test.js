@@ -78,4 +78,18 @@ module('Integration | Component | button', function(hooks) {
     assert.equal(this.count, 2);
     assert.equal(componentElement.disabled, false);
   });
+
+  test('it renders the PixButton link component', async function(assert) {
+    // when
+    await render(hbs`
+      <PixButton
+      @isLink={{true}}
+      @route='profile'>
+        Mon lien
+      </PixButton>
+    `);
+
+    // then
+    assert.dom('a').exists();
+  });
 });

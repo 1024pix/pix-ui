@@ -183,6 +183,29 @@ export const sizeButtons = (args) => {
   };
 }
 
+export const linkButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton
+      @isLink={{false}}
+      >
+        Je suis un bouton (défaut)
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+        @isLink={{true}}
+        @route='profile'
+        >
+        Je suis un Lien
+      </PixButton>
+    </section>
+    `,
+    context: args,
+  };
+};
+
 export const argsTypes = {
   type: {
     name: 'type',
@@ -265,5 +288,26 @@ export const argsTypes = {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
     }
+  },
+  isLink: {
+    name: 'isLink',
+    description: 'Paramètre pour utiliser un composant LinkTo à la place d\'un bouton',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    }
+  },
+  route: {
+    name: 'route',
+    description: 'Route de redirection',
+    type: { name: 'string', required: true },
+    defaultValue: null,
+  },
+  model: {
+    name: 'model',
+    description: 'Model Ember',
+    type: { required: false },
   },
 };

@@ -38,6 +38,20 @@ export default class PixButton extends Component {
     return this.args.isBorderVisible || false;
   }
 
+  get isLink() {
+    return this.args.isLink || false;
+  }
+
+  get route() {
+    const routeParam = this.args.route;
+    if( this.isLink ) {
+      if( routeParam === undefined || routeParam.trim() === '') {
+        throw new Error('ERROR in PixButton component, @route param is not provided');
+      }
+    }
+    return routeParam;
+  }
+
   @action
   async triggerAction(params) {
     try {
