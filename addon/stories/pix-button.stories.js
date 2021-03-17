@@ -126,6 +126,37 @@ export const disabledButtons = (args) => {
   };
 };
 
+export const borderButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton @isBorderVisible={{false}}
+      @backgroundColor="transparent-light"
+      >
+        Bouton sans bordure (défaut)
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+        @isBorderVisible={{true}}
+        @backgroundColor="transparent-light"
+        >
+        Bouton avec bordure sur fond clair
+      </PixButton>
+    </section>
+      <section style="background-color: #345193">
+        <PixButton
+          @isBorderVisible={{true}}
+          @backgroundColor="transparent-dark"
+          >
+          Bouton avec bordure sur fond sombre
+        </PixButton>
+      </section>
+    `,
+    context: args,
+  };
+};
+
 export const sizeButtons = (args) => {
   return {
     template: hbs`
@@ -223,6 +254,16 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },
+    }
+  },
+  isBorderVisible: {
+    name: 'isBorderVisible',
+    description: 'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
     }
   },
 };

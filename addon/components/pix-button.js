@@ -34,6 +34,10 @@ export default class PixButton extends Component {
     return this.args.size || 'big';
   }
 
+  get isBorderVisible() {
+    return this.args.isBorderVisible || false;
+  }
+
   @action
   async triggerAction(params) {
     try {

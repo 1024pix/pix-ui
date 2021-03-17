@@ -124,6 +124,14 @@
     &:active {
       background-color: rgba($black, 0.2);
     }
+
+    &.pix-button--border {
+      border: 1px solid $grey-50;
+
+      &:hover, &:active {
+        border-color: $grey-80;
+      }
+    }
   }
 
   &--background-transparent-dark {
@@ -136,6 +144,10 @@
 
     &:active {
       background-color: rgba($black, 0.2);
+    }
+
+    &.pix-button--border {
+      border: 1px solid $white;
     }
   }
 
