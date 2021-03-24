@@ -1,0 +1,14 @@
+<div class="progress-gauge {{this.progressGaugeClass}} {{if @isArrowLeft 'progress-gauge--tooltip-left'}}" ...attributes>
+  <div class="progress-gauge__referrer"></div>
+  <div class="progress-gauge__marker" aria-hidden="true" style={{this.valueGaugeStyle}}></div>
+
+  {{#if @tooltipText}}
+    <div class="progress-gauge__tooltip-wrapper" style={{this.valueGaugeStyle}}>
+      <span class="progress-gauge__tooltip">{{@tooltipText}}</span>
+    </div>
+  {{/if}}
+
+  {{#if this.hasSubtitle}}
+    <p class="progress-gauge__sub-title">{{@subtitle}}</p>
+  {{/if}}
+</div>

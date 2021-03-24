@@ -1,0 +1,119 @@
+.progress-gauge {
+  position: relative;
+  min-width: 200px;
+  width: 100%;
+  border-radius: 5px;
+
+  &__sub-title {
+    font-size: 0.813rem;
+    font-weight: $font-light;
+    color: $yellow;
+    margin: 6px 0;
+    letter-spacing: 0.4px;
+    text-transform: uppercase;
+  }
+
+  &__marker, &__referrer {
+    height: 4px;
+    border-radius: 5px;
+    text-align: right;
+  }
+
+  &__marker {
+    margin-top: -4px;
+  }
+
+  &__tooltip-wrapper {
+    position: relative;
+  }
+
+  &__tooltip {
+    position: absolute;
+    min-width: 40px;
+    left: 100%;
+    transform: translate(-50%);
+    bottom: calc(100% + 10px);
+    border-radius: 5px;
+    text-align: center;
+    line-height: normal;
+    padding: 4px;
+    font-size: 0.8rem;
+    font-family: $font-open-sans;
+    font-weight: $font-bold;
+
+    &::before {
+      content: '';
+      position: absolute;
+      left: calc(50% - 4px);
+      border-top: 4px solid;
+      border-right: 4px solid transparent;
+      border-left: 4px solid transparent;
+      bottom: -4px;
+    }
+  }
+
+  &--white {
+    & .progress-gauge__referrer {
+      background-color: lighten($blue, 15%);
+    }
+
+    & .progress-gauge__marker {
+      background: $white;
+    }
+
+    & .progress-gauge__tooltip {
+      background: $white;
+      color: $blue;
+
+      &::before {
+        color: $white;
+        border-top-color: $white;
+      }
+    }
+
+    & .progress-gauge__sub-title {
+      color: $white;
+    }
+  }
+
+  &--yellow {
+    & .progress-gauge__referrer {
+      background-color: $grey-20;
+    }
+
+    & .progress-gauge__marker {
+      background: $pix-yellow-gradient-right;
+    }
+
+    & .progress-gauge__tooltip {
+      background: $pix-yellow-gradient;
+      color: $white;
+
+      &::before {
+        color: $yellow;
+        border-top-color: $yellow;
+      }
+    }
+
+    & .progress-gauge__sub-title {
+      color: $yellow;
+    }
+  }
+
+  &--tooltip-left {
+    & .progress-gauge__tooltip {
+      border-bottom-left-radius: 0;
+      bottom: calc(100% + 14px);
+      transform: none;
+      left: 100%;
+
+      &::before {
+        border-top: 8px solid;
+        border-right: 8px solid transparent;
+        border-left: none;
+        left: 0;
+        bottom: -8px;
+      }
+    }
+  }
+}
