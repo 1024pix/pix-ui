@@ -112,6 +112,25 @@
     }
   }
 
+  &--background-red {
+    color: $white;
+    background-color: $red;
+
+    &:hover {
+      background-color: darken($red, 4%);
+    }
+
+    &:active {
+      background-color: darken($red, 8%);
+    }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
+    }
+  }
+
   &--background-grey {
     background-color: $blue-zodiac;
 
