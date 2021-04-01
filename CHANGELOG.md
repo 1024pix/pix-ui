@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v3.3.0 (01/04/2021)
+
+- [#91](https://github.com/1024pix/pix-ui/pull/91) [TECH] Ajout de review app pour Storybook
+- [#89](https://github.com/1024pix/pix-ui/pull/89) [TECH] Déployer Storybook avec une GitHub action
+- [#88](https://github.com/1024pix/pix-ui/pull/88) [TECH] Corrige la doc de l'attribute type du bouton
+- [#92](https://github.com/1024pix/pix-ui/pull/92) [ProgressGauge] Ajout du composant barre de progression (Pix-2332).
+
 ## v3.2.0 (08/03/2021)
 
 - [#83](https://github.com/1024pix/pix-ui/pull/83) [FEATURE] Rendre PixSelect cherchable (PIX-2306)
