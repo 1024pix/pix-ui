@@ -1,0 +1,28 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-progress-gauge.stories.js';
+
+<Meta
+  title='Others/Progress Gauge/Yellow'
+  component='PixProgressGauge'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Yellow Progress Gauge
+
+Démonstration d'une barre de progression jaune, info bulle centré sans sous titre
+
+<Canvas>
+  <Story name='Yellow' story={stories.yellowProgressGauge} height="60px" />
+</Canvas>
+
+## Usage
+
+```html
+<PixProgressGauge
+  @value="50"
+  @tooltipText="50%"
+  @color="yellow"
+  @isArrowLeft="false" />
+```
