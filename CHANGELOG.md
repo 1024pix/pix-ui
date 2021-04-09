@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v3.4.0 (09/04/2021)
+
+- [#85](https://github.com/1024pix/pix-ui/pull/85) [TECH] Installation du pack "essentiels" des addons storybook
+
 ## v3.3.0 (01/04/2021)
 
 - [#91](https://github.com/1024pix/pix-ui/pull/91) [TECH] Ajout de review app pour Storybook
