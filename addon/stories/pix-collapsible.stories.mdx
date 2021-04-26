@@ -1,0 +1,31 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-collapsible.stories.js';
+
+<Meta
+  title='Collapsible'
+  component='PixCollapsible'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# PixCollapsible
+
+TODO: insert component description
+
+<Canvas>
+  <Story name='PixCollapsible' story={stories.collapsible} height="60px" />
+</Canvas>
+
+## Usage
+
+```html
+<PixCollapsible>
+  TODO: add component attibutes
+</PixCollapsible>
+```
+
+## Arguments
+
+<ArgsTable story="PixCollapsible" />

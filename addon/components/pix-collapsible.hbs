@@ -1,0 +1,11 @@
+<div class='pix-collapsible' ...attributes>
+  <button type="button" class='pix-collapsible__title' {{on "click" this.toggleCollapsible}}>
+    {{@title}}
+  </button>
+
+  {{#if this.isCollapsed}}
+    <div class='pix-collapsible__content'>
+      {{yield}}
+    </div>
+  {{/if}}
+</div>
