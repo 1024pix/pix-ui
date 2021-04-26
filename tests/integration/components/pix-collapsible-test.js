@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | collapsible', function(hooks) {
   setupRenderingTest(hooks);
@@ -35,5 +36,18 @@ module('Integration | Component | collapsible', function(hooks) {
     // then
     assert.dom(COLLAPSIBLE_TITLE_SELECTOR).hasText('Titre de mon élément déroulable');
     assert.dom(COLLAPSIBLE_CONTENT_SELECTOR).hasText('Contenu de mon élément');
+  });
+
+  test('it should not show PixCollapsible if title is not provided', async function(assert) {
+    // when
+    const componentParams = { title: '  ' };
+    const component = createGlimmerComponent('component:pix-collapsible', componentParams);
+
+    // then
+    const expectedError = new Error('ERROR in PixCollapsible component, @title param is not provided');
+    assert.throws(
+      function() { component.title },
+      expectedError
+    );
   });
 });

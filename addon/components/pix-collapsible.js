@@ -7,6 +7,13 @@ export default class PixCollapsible extends Component {
 
   @tracked isCollapsed = false;
 
+  get title() {
+    if (!this.args.title || !this.args.title.trim()) {
+      throw new Error('ERROR in PixCollapsible component, @title param is not provided');
+    }
+    return this.args.title;
+  }
+
   @action
   toggleCollapsible() {
     this.isCollapsed = !this.isCollapsed;
