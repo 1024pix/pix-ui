@@ -44,8 +44,8 @@ export default class PixButton extends Component {
 
   get route() {
     const routeParam = this.args.route;
-    if( this.isLink ) {
-      if( routeParam === undefined || routeParam.trim() === '') {
+    if (this.isLink) {
+      if (routeParam === undefined || routeParam.trim() === '') {
         throw new Error('ERROR in PixButton component, @route param is not provided');
       }
     }
@@ -60,11 +60,10 @@ export default class PixButton extends Component {
       this.isLoading = false;
     } catch (e) {
       this.isLoading = false;
-      if(!this.args.triggerAction) {
-        throw(new Error('@triggerAction params is required for PixButton !'));
+      if (!this.args.triggerAction) {
+        throw new Error('@triggerAction params is required for PixButton !');
       }
-      throw(new Error(e))
+      throw new Error(e);
     }
   }
-
 }

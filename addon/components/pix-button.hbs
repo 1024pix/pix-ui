@@ -1,10 +1,10 @@
 {{#if this.isLink}}
   {{#if @model}}
-  <LinkTo @route={{this.route}} class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
-          @model={{@model}}
-          ...attributes>
-    {{yield}}
-  </LinkTo>
+    <LinkTo @route={{this.route}} class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
+            @model={{@model}}
+            ...attributes>
+      {{yield}}
+    </LinkTo>
   {{else}}
     <LinkTo @route={{this.route}} class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
             ...attributes>
