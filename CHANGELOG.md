@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v3.5.0 (28/04/2021)
+
+- [#81](https://github.com/1024pix/pix-ui/pull/81) [TECH] Enrichir Pix Button.
+
 ## v3.4.0 (09/04/2021)
 
 - [#85](https://github.com/1024pix/pix-ui/pull/85) [TECH] Installation du pack "essentiels" des addons storybook
