@@ -20,7 +20,7 @@ export const loadingButtons = (args) => {
   };
 };
 
-export const borderButtons = (args) => {
+export const shapeButtons = (args) => {
   return {
     template: hbs`
     <section>
@@ -28,15 +28,8 @@ export const borderButtons = (args) => {
           @triggerAction={{action triggerAction}}
           @loading-color='white'
           @type={{type}}
-          @border='rounded-big'>
-        Bouton rounded-big
-      </PixButton>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @border='rounded-small'>
-        Bouton rounded-small
+          @shape='rounded'>
+        Bouton rounded
       </PixButton>
     </section>
     <section>
@@ -44,15 +37,8 @@ export const borderButtons = (args) => {
           @triggerAction={{action triggerAction}}
           @loading-color='white'
           @type={{type}}
-          @border='squircle-big'>
-        Bouton squircle-big (default)
-      </PixButton>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @border='squircle-small'>
-        Bouton squircle-small
+          @shape='squircle'>
+        Bouton squircle (default)
       </PixButton>
     </section>
     `,
@@ -94,9 +80,36 @@ export const colorButtons = (args) => {
         <PixButton
             @triggerAction={{action triggerAction}}
             @loading-color='white'
-            @backgroundColor='transparent'
+            @backgroundColor='red'
             @type={{type}}>
-          Bouton avec background transparent
+          Bouton avec background red
+        </PixButton>
+      </section>
+        <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='grey'
+            @type={{type}}>
+          Bouton avec background grey
+        </PixButton>
+      </section>
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='grey'
+            @backgroundColor='transparent-light'
+            @type={{type}}>
+          Bouton avec background transparent-light
+        </PixButton>
+      </section>
+      <section style="background-color: #345193">
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @backgroundColor='transparent-dark'
+            @type={{type}}>
+          Bouton avec background transparent-dark
         </PixButton>
       </section>
     `,
@@ -117,6 +130,86 @@ export const disabledButtons = (args) => {
           @isDisabled={{true}}>
         Bouton désactivé
       </PixButton>
+    `,
+    context: args,
+  };
+};
+
+export const borderButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton @isBorderVisible={{false}}
+      @backgroundColor="transparent-light"
+      >
+        Bouton sans bordure (défaut)
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+        @isBorderVisible={{true}}
+        @backgroundColor="transparent-light"
+        >
+        Bouton avec bordure sur fond clair
+      </PixButton>
+    </section>
+      <section style="background-color: #345193">
+        <PixButton
+          @isBorderVisible={{true}}
+          @backgroundColor="transparent-dark"
+          >
+          Bouton avec bordure sur fond sombre
+        </PixButton>
+      </section>
+    `,
+    context: args,
+  };
+};
+
+export const sizeButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @size='small'>
+        Bouton small
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+          @triggerAction={{action triggerAction}}
+          @loading-color='white'
+          @type={{type}}
+          @size='big'>
+        Bouton big (default)
+      </PixButton>
+    </section>
+    `,
+    context: args,
+  };
+}
+
+export const linkButtons = (args) => {
+  return {
+    template: hbs`
+    <section>
+      <PixButton
+      @isLink={{false}}
+      >
+        Je suis un bouton (défaut)
+      </PixButton>
+    </section>
+    <section>
+      <PixButton
+        @isLink={{true}}
+        @route='profile'
+        >
+        Je suis un Lien
+      </PixButton>
+    </section>
     `,
     context: args,
   };
@@ -156,19 +249,19 @@ export const argsTypes = {
       defaultValue: { summary: 'white' },
     }
   },
-  border: {
-    name: 'border',
-    description: 'bordure: `rounded-small`, `rounded-big`, `squircle-small`, `squircle-big`',
+  shape: {
+    name: 'shape',
+    description: 'forme: `rounded`,`squircle`',
     type: { name: 'string', required: false },
     control: { disable: true },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'squircle-big' },
+      defaultValue: { summary: 'squircle' },
     }
   },
   backgroundColor: {
     name: 'backgroundColor',
-    description: 'color: `blue`, `green`, `yellow`, `transparent`',
+    description: 'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
     type: { name: 'string', required: false },
     control: { disable: true },
     table: {
@@ -184,5 +277,46 @@ export const argsTypes = {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
     }
+  },
+  size: {
+    name: 'size',
+    description: 'taille: `big`,`small`',
+    type: { name: 'string', required: false },
+    control: { disable: true },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'big' },
+    }
+  },
+  isBorderVisible: {
+    name: 'isBorderVisible',
+    description: 'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    }
+  },
+  isLink: {
+    name: 'isLink',
+    description: 'Paramètre pour utiliser un composant LinkTo à la place d\'un bouton',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    }
+  },
+  route: {
+    name: 'route',
+    description: 'Route de redirection',
+    type: { name: 'string', required: true },
+    defaultValue: null,
+  },
+  model: {
+    name: 'model',
+    description: 'Model Ember',
+    type: { required: false },
   },
 };

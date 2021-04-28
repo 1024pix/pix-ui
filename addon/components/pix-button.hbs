@@ -1,16 +1,32 @@
-<button type={{this.type}}
-        class="pix-button pix-button--{{this.border}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}"
-        {{on "click" this.triggerAction}}
-        ...attributes
-        disabled={{this.isButtonLoadingOrDisabled}}
-        aria-disabled={{this.ariaDisabled}}>
-{{#if this.isLoading}}
-  <div class="loader loader--{{@loading-color}}">
-    <div class="bounce1"></div>
-    <div class="bounce2"></div>
-    <div class="bounce3"></div>
- </div>
+{{#if this.isLink}}
+  {{#if @model}}
+    <LinkTo @route={{this.route}} class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
+            @model={{@model}}
+            ...attributes>
+      {{yield}}
+    </LinkTo>
+  {{else}}
+    <LinkTo @route={{this.route}} class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
+            ...attributes>
+    {{yield}}
+    </LinkTo>
+  {{/if}}
 {{else}}
-  {{yield}}
+  <button type={{this.type}}
+          class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}
+            {{if this.isBorderVisible ' pix-button--border'}}"
+    {{on "click" this.triggerAction}}
+          ...attributes
+          disabled={{this.isButtonLoadingOrDisabled}}
+          aria-disabled={{this.ariaDisabled}}>
+    {{#if this.isLoading}}
+      <div class="loader loader--{{@loading-color}}">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+    {{else}}
+      {{yield}}
+    {{/if}}
+  </button>
 {{/if}}
-</button>

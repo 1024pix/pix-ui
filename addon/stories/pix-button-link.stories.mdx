@@ -3,7 +3,7 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-button.stories.js';
 
 <Meta
-  title='Basics/Button/Border'
+  title='Basics/Button/Link'
   component='PixButton'
   decorators={[centered]}
   argTypes={stories.argsTypes}
@@ -14,32 +14,23 @@ import * as stories from './pix-button.stories.js';
 Ce composant est un bouton simple qui empêche les clics multiples.
 
 <Canvas isColumn>
-  <Story name="Border" story={stories.borderButtons} height="300px" />
+  <Story name="Link" story={stories.linkButtons} height="200px" />
 </Canvas>
 
 ## Usage
 
 ```html
-Par défaut, le bouton n'a pas de bordure
+Par défaut, le composant est un bouton
 <PixButton
-  @isBorderVisible={{false}}
-  @backgroundColor="transparent-light"
+  @isLink={{false}}
   >
   Cliquez pour valider !
 </PixButton>
 
-Bouton avec bordure sur fond clair
+Composant LinkTo
 <PixButton
-  @isBorderVisible={{true}}
-  @backgroundColor="transparent-light"
-  >
-  Cliquez pour valider !
-</PixButton>
-
-Bouton avec bordure sur fond sombre
-<PixButton
-  @isBorderVisible={{true}}
-  @backgroundColor="transparent-dark"
+  @isLink={{true}}
+  @route='profile'
   >
   Cliquez pour valider !
 </PixButton>
@@ -47,4 +38,4 @@ Bouton avec bordure sur fond sombre
 
 ## Arguments
 
-<ArgsTable story="Border" />
+<ArgsTable story="Link" />

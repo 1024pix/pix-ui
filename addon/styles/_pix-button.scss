@@ -8,7 +8,8 @@
   font-weight: 500;
   letter-spacing: .012rem;
   cursor: pointer;
-  font-family: 'Roboto', Arial, sans-serif;
+  font-family: $font-roboto;
+  background-color: $blue;
 
   .loader > div {
     width: 10px;
@@ -16,7 +17,6 @@
     background-color: $white;
     border-radius: 100%;
     display: inline-block;
-    -webkit-animation: sk-bouncedelay 1.4s infinite ease-in-out both;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   }
 
@@ -27,52 +27,129 @@
     background-color: $grey-80;
   }
   .loader .bounce1 {
-    -webkit-animation-delay: -0.32s;
     animation-delay: -0.32s;
   }
 
   .loader .bounce2 {
-    -webkit-animation-delay: -0.16s;
     animation-delay: -0.16s;
   }
 
-  &--rounded-big {
-    padding: 14px 24px;
+  &--shape-rounded {
     border-radius: 23px;
   }
 
-  &--rounded-small {
+  &--shape-squircle {
+    border-radius: 5px;
+  }
+
+  &--size-big {
+    padding: 14px 24px;
+  }
+
+  &--size-small.pix-button--shape-rounded {
     padding: 10px 24px;
-    border-radius: 23px;
   }
 
-  &--squircle-big {
-    padding: 14px 24px;
-    border-radius: 5px;
-  }
-
-  &--squircle-small {
+  &--size-small.pix-button--shape-squircle {
     padding: 10px 16px;
-    border-radius: 5px;
+  }
+
+  @mixin colorizeBackground($backgroundColor, $outlineColor) {
+    background-color: $backgroundColor;
+
+    &:hover {
+      background-color: darken($backgroundColor, 4%);
+    }
+
+    &:active {
+      background-color: darken($backgroundColor, 8%);
+    }
+
+    &:focus {
+      outline-color: $outlineColor;
+      outline-style: auto;
+      outline-offset: 3px;
+    }
   }
 
   &--background-blue {
-    background-color: $blue;
+    @include colorizeBackground($blue, $blue);
   }
 
   &--background-green {
-    background-color: #037620;
+    @include colorizeBackground($green, $blue);
   }
 
   &--background-yellow {
     color: $grey-100;
-    background-color: $warning;
+    @include colorizeBackground($yellow, $blue);
   }
 
+  &--background-red {
+    color: $white;
+    @include colorizeBackground($red, $blue);
+  }
+
+  &--background-grey {
+    @include colorizeBackground($blue-zodiac, $blue);
+  }
+
+  /* deprecated in favor of --background-transparent-light + --border */
   &--background-transparent {
     background-color: transparent;
     color: $grey-50;
     border: 1px solid $grey-50;
+  }
+
+  &--background-transparent-light {
+    background-color: transparent;
+    color: $grey-90;
+
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
+
+    &:active {
+      background-color: rgba($black, 0.2);
+    }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
+    }
+
+    &.pix-button--border {
+      border: 1px solid $grey-50;
+
+      &:hover, &:active {
+        border-color: $grey-80;
+      }
+    }
+  }
+
+  &--background-transparent-dark {
+    background-color: transparent;
+    color: $white;
+
+    &:hover {
+      background-color: rgba($black, 0.1);
+    }
+
+    &:active {
+      background-color: rgba($black, 0.2);
+    }
+
+    &:focus {
+      outline-color: $blue;
+      outline-style: auto;
+      outline-offset: 3px;
+      color: $grey-90;
+    }
+
+    &.pix-button--border {
+      border: 1px solid $white;
+    }
   }
 
   &--disabled {
@@ -80,18 +157,11 @@
     cursor: default;
   }
 
-  @-webkit-keyframes sk-bouncedelay {
-    0%, 80%, 100% { -webkit-transform: scale(0) }
-    40% { -webkit-transform: scale(1.0) }
-  }
-
   @keyframes sk-bouncedelay {
     0%, 80%, 100% {
-      -webkit-transform: scale(0);
       transform: scale(0);
     } 40% {
-        -webkit-transform: scale(1.0);
-        transform: scale(1.0);
-      }
+      transform: scale(1.0);
+    }
   }
 }
