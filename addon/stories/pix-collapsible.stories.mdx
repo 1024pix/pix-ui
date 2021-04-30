@@ -4,25 +4,31 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-collapsible.stories.js';
 
 <Meta
-  title='Collapsible'
+  title='Others/Collapsible'
   component='PixCollapsible'
-  decorators={[centered]}
   argTypes={stories.argTypes}
 />
 
 # PixCollapsible
 
-TODO: insert component description
+Un `PixCollapsible` est un élément comprenant un libellé et un contenu.
+Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer le contenu du `PixCollapsible`.
+
+> Il est possible de cumuler les `PixCollapsible` de sorte à former un accordéon, il suffit de les mettres dans une même div parente.
 
 <Canvas>
-  <Story name='PixCollapsible' story={stories.collapsible} height="60px" />
+  <Story name='PixCollapsible' story={stories.collapsible} height="120px" />
+</Canvas>
+
+<Canvas>
+  <Story name='MultiplePixCollapsible' story={stories.multipleCollapsible} height="260px" />
 </Canvas>
 
 ## Usage
 
 ```html
-<PixCollapsible>
-  TODO: add component attibutes
+<PixCollapsible @title="Titre du contenu à dérouler en cliquant">
+  <p>Contenu du PixCollapsible</p>
 </PixCollapsible>
 ```
 

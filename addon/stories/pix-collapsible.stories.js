@@ -3,21 +3,39 @@ import { hbs } from 'ember-cli-htmlbars';
 export const collapsible = (args) => {
   return {
     template: hbs`
-      <PixCollapsible>
-        TODO
-      </PixCollapsible>
+    <PixCollapsible @title="Titre du contenu à dérouler en cliquant">
+      <div>Contenu du PixCollapsible</div>
+    </PixCollapsible>
     `,
     context: args,
   };
 };
 
-// TODO: add component attributes information
-// select attribute data type from https://storybook.js.org/docs/react/essentials/controls
+export const multipleCollapsible = (args) => {
+  return {
+    template: hbs`
+    <div>
+      <PixCollapsible @title="Titre A">
+        <div>Contenu A</div>
+      </PixCollapsible>
+
+      <PixCollapsible @title="Titre B">
+        <div>Contenu B</div>
+      </PixCollapsible>
+
+      <PixCollapsible @title="Titre C">
+        <div>Contenu C</div>
+      </PixCollapsible>
+    </div>
+    `,
+    context: args,
+  };
+};
+
 export const argTypes = {
   attributeName: {
-    name: 'attribute name',
-    description: 'attribute description',
-    type: { name: 'string', required: false },
-    defaultValue: '',
+    name: 'title',
+    description: 'Intitulé du contenu du PixCollapsible',
+    type: { name: 'string', required: true },
   },
 };

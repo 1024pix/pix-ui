@@ -1,6 +1,12 @@
 <div class='pix-collapsible' ...attributes>
-  <button type="button" class='pix-collapsible__title' {{on "click" this.toggleCollapsible}}>
-    {{this.title}}
+  <button
+    type="button"
+    {{on "click" this.toggleCollapsible}}
+    class='pix-collapsible__title {{if this.isOpen '' 'pix-collapsible__title--open'}}'
+  >
+    <span>
+      {{this.title}}
+    </span>
   </button>
 
   {{#if this.isCollapsed}}
