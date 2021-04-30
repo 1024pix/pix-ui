@@ -1,7 +1,7 @@
 .pix-button {
 
   @import 'reset-css';
-  border-color: transparent;
+  border: 1px solid transparent;
   color: $white;
   font-size: 1rem;
   white-space: nowrap;
@@ -56,19 +56,20 @@
 
   @mixin colorizeBackground($backgroundColor, $outlineColor) {
     background-color: $backgroundColor;
+    border: 1px solid $white;
 
     &:hover {
-      background-color: darken($backgroundColor, 4%);
+      background-color: darken($backgroundColor, 8%);
+      box-shadow: 0 0 0 1px darken($outlineColor, 8%);
     }
 
     &:active {
-      background-color: darken($backgroundColor, 8%);
+      background-color: darken($backgroundColor, 12%);
     }
 
     &:focus {
-      outline-color: $outlineColor;
-      outline-style: auto;
-      outline-offset: 3px;
+      background-color: darken($backgroundColor, 8%);
+      box-shadow: 0 0 0 1px darken($outlineColor, 8%);
     }
   }
 
@@ -77,21 +78,21 @@
   }
 
   &--background-green {
-    @include colorizeBackground($green, $blue);
+    @include colorizeBackground($green, $green);
   }
 
   &--background-yellow {
     color: $grey-100;
-    @include colorizeBackground($yellow, $blue);
+    @include colorizeBackground($yellow, $yellow);
   }
 
   &--background-red {
     color: $white;
-    @include colorizeBackground($red, $blue);
+    @include colorizeBackground($red, $red);
   }
 
   &--background-grey {
-    @include colorizeBackground($blue-zodiac, $blue);
+    @include colorizeBackground($blue-zodiac, $blue-zodiac);
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
