@@ -39,7 +39,7 @@
       background-color: $grey-10;
     }
 
-    &--open {
+    &--uncollapsed {
       background-color: $grey-10;
     }
   }
@@ -63,4 +63,16 @@
 
 .pix-collapsible:not(:first-child) {
   border-top: none;
+}
+
+.pix-collapsible--uncollapsed {
+  margin-bottom: 20px;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px 0 rgba($black, 0.05);
+}
+
+.pix-collapsible--uncollapsed + .pix-collapsible {
+  border-top: 1px solid $grey-20;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
 }

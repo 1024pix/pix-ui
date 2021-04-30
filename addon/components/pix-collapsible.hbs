@@ -1,19 +1,17 @@
-<div class='pix-collapsible' ...attributes>
+<div class='pix-collapsible {{if this.isUnCollapsed 'pix-collapsible--uncollapsed'}}' ...attributes>
+
   <button
     type="button"
     {{on "click" this.toggleCollapsible}}
-    class='pix-collapsible__title {{if this.isOpen '' 'pix-collapsible__title--open'}}'
+    class='pix-collapsible__title {{if this.isUnCollapsed 'pix-collapsible__title--uncollapsed'}}'
   >
-    <span>
-      {{this.title}}
-    </span>
-
+    <span>{{this.title}}</span>
     {{#if @withIcon}}
       <FaIcon @icon="{{if this.isCollapsed 'plus' 'minus'}}" class="pix-collapsible-title__icon" />
     {{/if}}
   </button>
 
-  {{#if this.isCollapsed}}
+  {{#if this.isUnCollapsed}}
     <div class='pix-collapsible__content'>
       {{yield}}
     </div>

@@ -5,9 +5,9 @@ import { action } from '@ember/object';
 export default class PixCollapsible extends Component {
   text = 'pix-collapsible';
 
-  @tracked isCollapsed = false;
+  @tracked isCollapsed = true;
 
-  get isOpen() {
+  get isUnCollapsed() {
     return !this.isCollapsed;
   }
 
