@@ -3,7 +3,9 @@ import { hbs } from 'ember-cli-htmlbars';
 export const collapsible = (args) => {
   return {
     template: hbs`
-    <PixCollapsible @title="Titre du contenu à dérouler en cliquant">
+    <PixCollapsible
+      @title={{title}}
+      @withIcon={{withIcon}}>
       <div>Contenu du PixCollapsible</div>
     </PixCollapsible>
     `,
@@ -15,15 +17,15 @@ export const multipleCollapsible = (args) => {
   return {
     template: hbs`
     <div>
-      <PixCollapsible @title="Titre A">
+      <PixCollapsible @title="Titre A" @withIcon={{withIcon}}>
         <div>Contenu A</div>
       </PixCollapsible>
 
-      <PixCollapsible @title="Titre B">
+      <PixCollapsible @title="Titre B" @withIcon={{withIcon}}>
         <div>Contenu B</div>
       </PixCollapsible>
 
-      <PixCollapsible @title="Titre C">
+      <PixCollapsible @title="Titre C" @withIcon={{withIcon}}>
         <div>Contenu C</div>
       </PixCollapsible>
     </div>
@@ -33,9 +35,17 @@ export const multipleCollapsible = (args) => {
 };
 
 export const argTypes = {
-  attributeName: {
+  title: {
     name: 'title',
     description: 'Intitulé du contenu du PixCollapsible',
     type: { name: 'string', required: true },
+    defaultValue: 'Titre du contenu à dérouler en cliquant',
+  },
+  withIcon: {
+    name: 'withIcon',
+    description: 'Ajoute l\'icon "plus" si la valeur est mise à "true"',
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
+    control: { type: 'boolean' },
   },
 };
