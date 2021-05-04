@@ -1,7 +1,7 @@
 .pix-button {
 
   @import 'reset-css';
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   color: $white;
   font-size: 1rem;
   white-space: nowrap;
@@ -56,20 +56,16 @@
 
   @mixin colorizeBackground($backgroundColor, $outlineColor) {
     background-color: $backgroundColor;
-    border: 1px solid $white;
+    border: 2px solid $white;
 
-    &:hover {
+    &:hover, &:focus, &:focus-visible {
       background-color: darken($backgroundColor, 8%);
-      box-shadow: 0 0 0 1px darken($outlineColor, 8%);
+      box-shadow: 0 0 0 2px darken($outlineColor, 8%);
+      outline: none;
     }
 
     &:active {
       background-color: darken($backgroundColor, 12%);
-    }
-
-    &:focus {
-      background-color: darken($backgroundColor, 8%);
-      box-shadow: 0 0 0 1px darken($outlineColor, 8%);
     }
   }
 
@@ -99,7 +95,7 @@
   &--background-transparent {
     background-color: transparent;
     color: $grey-50;
-    border: 1px solid $grey-50;
+    border: 2px solid $grey-50;
   }
 
   &--background-transparent-light {
@@ -121,7 +117,7 @@
     }
 
     &.pix-button--border {
-      border: 1px solid $grey-50;
+      border: 2px solid $grey-50;
 
       &:hover, &:active {
         border-color: $grey-80;
@@ -141,15 +137,15 @@
       background-color: rgba($black, 0.2);
     }
 
-    &:focus {
+    &:focus, &:focus-visible {
       outline-color: $blue;
       outline-style: auto;
       outline-offset: 3px;
-      color: $grey-90;
+      color: $yellow;
     }
 
     &.pix-button--border {
-      border: 1px solid $white;
+      border: 2px solid $white;
     }
   }
 
