@@ -16,8 +16,14 @@ Une `Banner` permet de mettre en avant une information importante.
 > Il est possible de surcharger le style d'une `<PixBanner>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
 
 <Canvas isColumn>
-  Bannière sans action
+  Bannière Information (par défault)
   <Story name="Default Banner" story={stories.defaultBanner} height="100px" />
+  Bannière Communication
+  <Story name="Banner with a message" story={stories.communicationBanner} height="100px" />
+  Bannière Warning
+  <Story name="Banner with a warning message" story={stories.warningBanner} height="100px" />
+  Bannière Error
+  <Story name="Banner with a error message" story={stories.errorBanner} height="100px" />
   Bannière avec une route pour lien
   <Story name="Banner with internal link" story={stories.bannerWithInternalLink} height="100px" />
   Bannière avec une route externe
@@ -28,6 +34,18 @@ Une `Banner` permet de mettre en avant une information importante.
 
 ```html
 <PixBanner>Bannière sans action</PixBanner>
+
+<PixBanner @type='communication' @color='blue'>
+  Bannière Communication
+</PixBanner>
+
+<PixBanner @type='warning'>
+  Bannière Warning
+</PixBanner>
+
+<PixBanner @type='error'>
+  Bannière Error
+</PixBanner>
 
 <PixBanner
   @actionLabel='Liste des campagnes'
