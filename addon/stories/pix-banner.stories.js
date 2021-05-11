@@ -1,10 +1,11 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const defaultBanner = () => {
+export const defaultBanner = (args) => {
   return {
     template: hbs`
-      <PixBanner>Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
+      <PixBanner @type={{type}} >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
     `,
+    context: args,
   };
 };
 
@@ -59,7 +60,6 @@ export const communicationBanner = (args) => {
     template: hbs`
       <PixBanner
         @type="communication"
-        @color="blue"
       >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
     `,
     context: args,
@@ -71,26 +71,19 @@ export const argsTypes = {
     name: 'actionLabel',
     description: 'Nom de l‘action',
     type: { name: 'string', required: false },
-    defaultValue: null,
+    control: { disable: true },
   },
   actionUrl: {
     name: 'actionUrl',
     description: 'Action link',
     type: { name: 'string', required: false },
-    defaultValue: null,
+    control: { disable: true },
   },
   type: {
     name: 'type',
     description: 'Définit le type de bannière',
     type: { name: 'string', required: false },
-    defaultValue: 'information',
-    control: { type: 'select', options: ['information', 'warning', 'error'] },
+    defaultValue: { summary: 'information'},
+    control: { type: 'select', options: ['information', 'warning', 'error', 'communication', 'communication-orga','communication-certif'] },
   },
-  color: {
-    name: 'color',
-    description: 'Détermine la couleur de la bannière de communication',
-    type: { name: 'string', required: false },
-    defaultValue: 'blue',
-    control: { type: 'select', options: ['blue', 'green', 'yellow', 'purple'] },
-  }
 };

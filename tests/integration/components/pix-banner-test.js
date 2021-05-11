@@ -19,7 +19,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.equal(componentElement.textContent.trim(), 'Mon texte');
-    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner-information');
+    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--information');
   });
 
   test('it renders the PixBanner with type warning', async function(assert) {
@@ -32,8 +32,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.textContent.trim(), 'Mon texte');
-    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner-warning');
+    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--warning');
   });
 
   test('it renders the PixBanner with type error', async function(assert) {
@@ -46,8 +45,49 @@ module('Integration | Component | Pix Banner', function(hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.textContent.trim(), 'Mon texte');
-    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner-error');
+    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--error');
+  });
+
+  test('it renders the PixBanner with type communication', async function(assert) {
+    // given
+
+    this.set('type', 'communication');
+
+    //when
+    await render(hbs`
+      <PixBanner @color={{this.color}} @type={{type}} />
+    `);
+
+    // then
+    assert.dom('.pix-banner--communication').exists();
+  });
+
+  test('it renders the PixBanner with type communication-orga', async function(assert) {
+    // given
+  
+    this.set('type', 'communication-orga');
+
+    //when
+    await render(hbs`
+      <PixBanner @color={{this.color}} @type={{type}} />
+    `);
+
+    // then
+    assert.dom('.pix-banner--communication-orga').exists();
+  });
+
+  test('it renders the PixBanner  with type communication-certif', async function(assert) {
+    // given
+  
+    this.set('type', 'communication-certif');
+
+    //when
+    await render(hbs`
+      <PixBanner @color={{this.color}} @type={{type}} />
+    `);
+
+    // then
+    assert.dom('.pix-banner--communication-certif').exists();
   });
 
   test('it renders the PixBanner with external url', async function(assert) {
@@ -61,7 +101,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
     `);
 
     // then
-    assert.dom('a').exists();
+    assert.equal(this.element.querySelector('a').textContent.trim(), 'Explorer');
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'www.test.fr/');
   });
 
@@ -77,21 +117,6 @@ module('Integration | Component | Pix Banner', function(hooks) {
     `);
 
     // then
-    assert.dom('a').exists();
-  });
-
-  test('it renders the PixBanner communication', async function(assert) {
-    // given
-  
-    this.set('color', 'yellow');
-    this.set('type', 'communication');
-
-    //when
-    await render(hbs`
-      <PixBanner @color={{this.color}} @type={{type}} />
-    `);
-
-    // then
-    assert.dom('.pix-banner-communication--yellow').exists();
+    assert.equal(this.element.querySelector('a').textContent.trim(), 'Explorer');
   });
 });
