@@ -12,11 +12,9 @@
       {{this.title}}
     </span>
 
-    {{#if @withPlusIcon}}
-      <FaIcon
-        @icon="{{if this.isCollapsed 'plus' 'minus'}}"
-        class="pix-collapsible-title__icon" />
-    {{/if}}
+    <FaIcon
+      @icon="{{if this.isCollapsed 'plus' 'minus'}}"
+      class="pix-collapsible-title__icon" />
   </button>
 
   {{#if this.isUnCollapsed}}

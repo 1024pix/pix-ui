@@ -5,7 +5,6 @@ export const collapsible = (args) => {
     template: hbs`
     <PixCollapsible
       @title={{title}}
-      @withPlusIcon={{withPlusIcon}}
       @titleIcon={{titleIcon}}>
       <div>Contenu du PixCollapsible</div>
     </PixCollapsible>
@@ -20,21 +19,18 @@ export const multipleCollapsible = (args) => {
     <div>
       <PixCollapsible
         @title="Titre A"
-        @withPlusIcon={{withPlusIcon}}
         @titleIcon={{titleIcon}}>
           <div>Contenu A</div>
       </PixCollapsible>
 
       <PixCollapsible
         @title="Titre B"
-        @withPlusIcon={{withPlusIcon}}
         @titleIcon={{titleIcon}}>
           <div>Contenu B</div>
       </PixCollapsible>
 
       <PixCollapsible
         @title="Titre C"
-        @withPlusIcon={{withPlusIcon}}
         @titleIcon={{titleIcon}}>
           <div>Contenu C</div>
       </PixCollapsible>
@@ -50,13 +46,6 @@ export const argTypes = {
     description: 'Intitulé du contenu du PixCollapsible',
     type: { name: 'string', required: true },
     defaultValue: 'Titre du contenu à dérouler en cliquant',
-  },
-  withPlusIcon: {
-    name: 'withPlusIcon',
-    description: 'Ajoute l\'icône "plus" si la valeur est mise à "true"',
-    type: { name: 'boolean', required: false },
-    defaultValue: false,
-    control: { type: 'boolean' },
   },
   titleIcon: {
     name: 'titleIcon',

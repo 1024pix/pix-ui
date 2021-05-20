@@ -16,8 +16,6 @@ Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer 
 
 > Il est possible de cumuler les `PixCollapsible` de sorte à former un accordéon, il suffit de les mettre dans une même div parente.
 
-> Il est possible d'afficher une icône "plus" à la fin du composant en passant le param `withIcon` à `true`.
-
 <Canvas>
   <Story name='PixCollapsible' story={stories.collapsible} height="120px" />
 </Canvas>
@@ -31,7 +29,6 @@ Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer 
 ```html
 <PixCollapsible
   @title="Titre du contenu à dérouler en cliquant"
-  @withPlusIcon="true"
   @iconTitle="user">
   <p>Contenu du PixCollapsible</p>
 </PixCollapsible>
