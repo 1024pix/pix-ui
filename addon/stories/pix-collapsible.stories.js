@@ -53,14 +53,14 @@ export const argTypes = {
   },
   withPlusIcon: {
     name: 'withPlusIcon',
-    description: 'Ajoute l\'icon "plus" si la valeur est mise à "true"',
+    description: 'Ajoute l\'icône "plus" si la valeur est mise à "true"',
     type: { name: 'boolean', required: false },
     defaultValue: false,
     control: { type: 'boolean' },
   },
   titleIcon: {
     name: 'titleIcon',
-    description: 'Ajoute l\'icon donnée en paramètre avant le titre du PixCollapsible',
+    description: 'Ajoute l\'icône donnée en paramètre avant le titre du PixCollapsible',
     type: { name: 'string', required: false },
     defaultValue: 'user',
   }

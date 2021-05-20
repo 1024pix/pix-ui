@@ -12,7 +12,6 @@
   background-color: $white;
 
   &__title {
-    margin: 0;
     box-sizing: border-box;
     padding: 14px 10px 14px 16px;
     min-width: 100%;
@@ -45,13 +44,10 @@
   
   &__content {
     padding: 16px 20px;
-    display: flex;
-    align-items: center;
   }
 }
 
 .pix-collapsible:first-child {
-  margin-top: 0;
   border-top-left-radius: 4px;
   border-top-right-radius: 4px;
 }
@@ -68,6 +64,15 @@
   border-radius: 4px;
 }
 
+.pix-collapsible--uncollapsed:first-child {
+  margin-top: 0;
+}
+
+.pix-collapsible--uncollapsed:last-child {
+  margin-bottom: 0;
+}
+
+// Pour le deuxième élément d'affilé qui est refermé, on enlève la bordure-top
 .pix-collapsible:not(.pix-collapsible--uncollapsed) + .pix-collapsible:not(.pix-collapsible--uncollapsed) {
   border-top: none;
 }

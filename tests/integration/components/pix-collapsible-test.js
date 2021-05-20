@@ -18,9 +18,9 @@ module('Integration | Component | collapsible', function(hooks) {
         <p>Contenu de mon élément</p>
       </PixCollapsible>
     `);
-    const componentElement = this.element.querySelector(COLLAPSIBLE_SELECTOR);
 
     // then
+    const componentElement = this.element.querySelector(COLLAPSIBLE_SELECTOR);
     assert.equal(componentElement.textContent.trim(), 'Titre de mon élément déroulable');
   });
 
@@ -39,11 +39,11 @@ module('Integration | Component | collapsible', function(hooks) {
   });
 
   test('it should not show PixCollapsible if title is not provided', async function(assert) {
-    // when
+    // given
     const componentParams = { title: '  ' };
     const component = createGlimmerComponent('component:pix-collapsible', componentParams);
 
-    // then
+    // when & then
     const expectedError = new Error('ERROR in PixCollapsible component, @title param is not provided');
     assert.throws(
       function() { component.title },
