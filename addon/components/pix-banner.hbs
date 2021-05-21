@@ -1,10 +1,13 @@
-<div class="pix-banner" ...attributes>
-  <div class="pix-banner__content">{{yield}}</div>
-  {{#if this.displayAction}}
-    {{#if this.isExternalLink}}
-      <a class="pix-banner__action" href={{@actionUrl}}>{{@actionLabel}}</a>
-    {{else}}
-      <LinkTo class="pix-banner__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
+<div class="pix-banner pix-banner-{{this.classNames}}" ...attributes>
+  <div class="pix-banner__content">
+    <FaIcon @icon={{this.icon}} />
+    {{yield}}
+    {{#if this.displayAction}}
+      {{#if this.isExternalLink}}
+        <a class="pix-banner__action" href={{@actionUrl}} target="_blank"  rel="noopener noreferrer">{{@actionLabel}}<FaIcon @icon='external-link-alt' /></a>
+      {{else}}
+        <LinkTo class="pix-banner__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
+      {{/if}}
     {{/if}}
-  {{/if}}
+  </div>
 </div>

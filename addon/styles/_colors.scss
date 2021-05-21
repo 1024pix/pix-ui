@@ -15,6 +15,16 @@ $dark-orga: #0095C0;
 $green: #038125;
 $orga: #00DDFF;
 $purple: #8845FF;
+
+//banner
+$blue-information: #C5E8FF;
+$yellow-warning: #FFEBB3;
+$red-error: #FFDBCC;
+$information-message: #0069AB;
+$warning-message: #805F00;
+$error-message: #992D00; 
+// status
+
 // gradients
 $pix-gradient: linear-gradient(135deg, $blue 0%, $purple 100%);
 $pix-blue-gradient: linear-gradient(135deg, #12A3FF 0%, #3D68FF 100%);
@@ -65,7 +75,7 @@ $information-dark: #F24645;
 $information-light: #F1A141;
 $security-dark: #AC008D;
 $security-light: #FF3F94;
-// status
+
 $error: #FF4B00;
 $success: #57C884;
 $warning: #FFBE00;
