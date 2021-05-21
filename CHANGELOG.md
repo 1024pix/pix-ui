@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v4.0.0 (21/05/2021)
+
+- [#97](https://github.com/1024pix/pix-ui/pull/97) [FEATURE] Harmonisation du composant PixBanner (pix-2563)
+- [#98](https://github.com/1024pix/pix-ui/pull/98) [BUGFIX] Corriger la taille de la police du composant Pix Tag
+
 ## v3.5.0 (28/04/2021)
 
 - [#81](https://github.com/1024pix/pix-ui/pull/81) [TECH] Enrichir Pix Button.
