@@ -2,64 +2,63 @@
   @import 'reset-css';
   font-family: $font-open-sans;
   font-weight: $font-normal;
-  padding: 32px 58px;
-  font-size: 0.875rem;
+  padding: 10px 16px;
   display: flex;
-  flex-direction: row;
   align-items: center;
+  font-size: 0.75rem;
+
+  @include device-is('tablet') {
+    padding: 32px 58px;
+    font-size: 0.875rem;
+  }
 
   &__action {
-    font-size: 0.875rem;
     text-decoration: underline;
     letter-spacing: 0.028rem;
-    transition: background-color 0.3s ease-out;
     color: inherit;
-    svg {
+    .external-link {
       margin-left: 3px;
+      font-size: 0.75rem;
+
+      @include device-is('tablet') {
+        font-size: 0.875rem;
+      }
     }
   }
-}
 
-.pix-banner-information {
-  background-color: $blue-information;
-  color: $information-message;
-}
+  &__icon {
+    font-size: 1rem;
+    margin-right: 10px;
 
-.pix-banner-warning {
-  background-color: $yellow-warning;
-  color: $warning-message;
-}
-.pix-banner-communication {
+    @include device-is('tablet') {
+      font-size: 1.25rem;
+    }
+  }
+
+  &--information {
+    @include colorize($communication-light, 20%, 35%);
+  }
   
-  &--blue {
-    background-color: $dark-orga;
-    color: $white;
+  &--warning {
+    @include colorize($warning, 25%, 35%);
   }
-  &--yellow {
-    background-color: $yellow;
-  }
-  &--purple {
-    background-color: $purple;
-    color: $white;
-  }
-  &--green {
-    background-color: $dark-green-certif;
-    color: $white;
-  }
-}
 
-.pix-banner-error {
-  background-color: $red-error;
-  color: $error-message;
-}
-@include device-is('mobile') {
-  .pix-banner {
-    flex-direction: column;
-    align-items: flex-start;
+  &--error {
+    @include colorize($error, 20%, 40%);
+  }
 
-    &__action {
-      margin-left: 0;
-      margin-top: 16px;
+  &--communication {
+    background-color: $blue;
+    color: $white;
+  
+    &-orga {
+      background-color: $dark-orga;
+      color: $white;
+    }
+  
+    &-certif {
+      background-color: $dark-green-certif;
+      color: $white;
     }
   }
 }

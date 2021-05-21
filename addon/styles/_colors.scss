@@ -16,14 +16,10 @@ $green: #038125;
 $orga: #00DDFF;
 $purple: #8845FF;
 
-//banner
-$blue-information: #C5E8FF;
-$yellow-warning: #FFEBB3;
-$red-error: #FFDBCC;
-$information-message: #0069AB;
-$warning-message: #805F00;
-$error-message: #992D00; 
-// status
+@mixin colorize($color, $percentageDarkenForColor, $percentageLightenForBackground){
+  color: darken($color, $percentageDarkenForColor);
+  background-color: lighten($color, $percentageLightenForBackground);
+}
 
 // gradients
 $pix-gradient: linear-gradient(135deg, $blue 0%, $purple 100%);
@@ -76,6 +72,7 @@ $information-light: #F1A141;
 $security-dark: #AC008D;
 $security-light: #FF3F94;
 
+// status
 $error: #FF4B00;
 $success: #57C884;
 $warning: #FFBE00;
