@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v5.0.0 (21/05/2021)
+
+- [#99](https://github.com/1024pix/pix-ui/pull/99) [BUGFIX] La bonne version de PixBanner-BREAKING-CHANGES (PIX-2563)
+
 ## v4.0.0 (21/05/2021)
 
 - [#97](https://github.com/1024pix/pix-ui/pull/97) [FEATURE] Harmonisation du composant PixBanner (pix-2563)
