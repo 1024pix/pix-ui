@@ -6,7 +6,7 @@
   font-size: 1rem;
   white-space: nowrap;
   font-weight: 500;
-  letter-spacing: .012rem;
+  letter-spacing: .028rem;
   cursor: pointer;
   font-family: $font-roboto;
   background-color: $blue;
@@ -35,11 +35,11 @@
   }
 
   &--shape-rounded {
-    border-radius: 23px;
+    border-radius: 25px;
   }
 
   &--shape-squircle {
-    border-radius: 5px;
+    border-radius: 8px;
   }
 
   &--size-big {
@@ -48,10 +48,12 @@
 
   &--size-small.pix-button--shape-rounded {
     padding: 10px 24px;
+    font-size: 0.875rem;
   }
 
   &--size-small.pix-button--shape-squircle {
     padding: 10px 16px;
+    font-size: 0.875rem;
   }
 
   @mixin colorizeBackground($backgroundColor, $outlineColor) {
