@@ -206,6 +206,7 @@ export const linkButtons = (args) => {
       <PixButton
         @isLink={{true}}
         @route='profile'
+        href="#"
         >
         Je suis un Lien
       </PixButton>
