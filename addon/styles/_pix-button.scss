@@ -1,12 +1,12 @@
 .pix-button {
 
   @import 'reset-css';
-  border-color: transparent;
+  border: 2px solid transparent;
   color: $white;
   font-size: 1rem;
   white-space: nowrap;
   font-weight: 500;
-  letter-spacing: .012rem;
+  letter-spacing: .028rem;
   cursor: pointer;
   font-family: $font-roboto;
   background-color: $blue;
@@ -35,11 +35,11 @@
   }
 
   &--shape-rounded {
-    border-radius: 23px;
+    border-radius: 25px;
   }
 
   &--shape-squircle {
-    border-radius: 5px;
+    border-radius: 8px;
   }
 
   &--size-big {
@@ -48,27 +48,26 @@
 
   &--size-small.pix-button--shape-rounded {
     padding: 10px 24px;
+    font-size: 0.875rem;
   }
 
   &--size-small.pix-button--shape-squircle {
     padding: 10px 16px;
+    font-size: 0.875rem;
   }
 
   @mixin colorizeBackground($backgroundColor, $outlineColor) {
     background-color: $backgroundColor;
+    border: 2px solid $white;
 
-    &:hover {
-      background-color: darken($backgroundColor, 4%);
+    &:hover, &:focus, &:focus-visible {
+      background-color: darken($backgroundColor, 8%);
+      box-shadow: 0 0 0 2px darken($outlineColor, 8%);
+      outline: none;
     }
 
     &:active {
-      background-color: darken($backgroundColor, 8%);
-    }
-
-    &:focus {
-      outline-color: $outlineColor;
-      outline-style: auto;
-      outline-offset: 3px;
+      background-color: darken($backgroundColor, 12%);
     }
   }
 
@@ -77,28 +76,28 @@
   }
 
   &--background-green {
-    @include colorizeBackground($green, $blue);
+    @include colorizeBackground($green, $green);
   }
 
   &--background-yellow {
     color: $grey-100;
-    @include colorizeBackground($yellow, $blue);
+    @include colorizeBackground($yellow, $yellow);
   }
 
   &--background-red {
     color: $white;
-    @include colorizeBackground($red, $blue);
+    @include colorizeBackground($red, $red);
   }
 
   &--background-grey {
-    @include colorizeBackground($blue-zodiac, $blue);
+    @include colorizeBackground($blue-zodiac, $blue-zodiac);
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
   &--background-transparent {
     background-color: transparent;
     color: $grey-50;
-    border: 1px solid $grey-50;
+    border: 2px solid $grey-50;
   }
 
   &--background-transparent-light {
@@ -120,7 +119,7 @@
     }
 
     &.pix-button--border {
-      border: 1px solid $grey-50;
+      border: 2px solid $grey-50;
 
       &:hover, &:active {
         border-color: $grey-80;
@@ -140,15 +139,15 @@
       background-color: rgba($black, 0.2);
     }
 
-    &:focus {
+    &:focus, &:focus-visible {
       outline-color: $blue;
       outline-style: auto;
       outline-offset: 3px;
-      color: $grey-90;
+      color: $yellow;
     }
 
     &.pix-button--border {
-      border: 1px solid $white;
+      border: 2px solid $white;
     }
   }
 
