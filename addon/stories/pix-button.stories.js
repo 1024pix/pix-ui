@@ -3,18 +3,23 @@ import { hbs } from 'ember-cli-htmlbars';
 export const loadingButtons = (args) => {
   return {
     template: hbs`
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}>
-        Bouton avec loader blanc (default)
-      </PixButton>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='grey'
-          @type={{type}}>
-        Bouton avec loader gris
-      </PixButton>
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='white'
+            @type={{type}}>
+          Bouton avec loader blanc (default)
+        </PixButton>
+      </section>
+      <section>
+        <PixButton
+            @triggerAction={{action triggerAction}}
+            @loading-color='grey'
+            @backgroundColor='yellow'
+            @type={{type}}>
+          Bouton avec loader gris
+        </PixButton>
+      </section>
     `,
     context: args,
   };

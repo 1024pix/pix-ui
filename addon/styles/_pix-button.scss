@@ -10,7 +10,17 @@
   cursor: pointer;
   font-family: $font-roboto;
   background-color: $blue;
+  display: flex;
+  justify-content: center;
 
+
+  .loader {
+    position: absolute;
+
+    &__not-visible-text {
+      visibility: hidden;
+    }
+  }
   .loader > div {
     width: 10px;
     height: 10px;
