@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v5.1.0 (02/06/2021)
+
+- [#95](https://github.com/1024pix/pix-ui/pull/95) [FEATURE] Ajout du composant PixCollapsible
+- [#96](https://github.com/1024pix/pix-ui/pull/96) [FEATURE] Ajout d'une bordure sur les boutons colorés lors des focus.
+- [#100](https://github.com/1024pix/pix-ui/pull/100) Ne pas changer la taille du bouton lors du loading.
+
 ## v5.0.0 (21/05/2021)
 
 - [#99](https://github.com/1024pix/pix-ui/pull/99) [BUGFIX] La bonne version de PixBanner-BREAKING-CHANGES (PIX-2563)
