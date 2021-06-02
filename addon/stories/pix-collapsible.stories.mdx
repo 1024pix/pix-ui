@@ -1,0 +1,39 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-collapsible.stories.js';
+
+<Meta
+  title='Others/Collapsible'
+  component='PixCollapsible'
+  argTypes={stories.argTypes}
+/>
+
+# PixCollapsible
+
+Un `PixCollapsible` est un élément comprenant un libellé et un contenu.
+Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer le contenu du `PixCollapsible`.
+
+> Il est possible de cumuler les `PixCollapsible` de sorte à former un accordéon, il suffit de les mettre dans une même div parente.
+
+<Canvas>
+  <Story name='PixCollapsible' story={stories.collapsible} height="120px" />
+</Canvas>
+
+<Canvas>
+  <Story name='MultiplePixCollapsible' story={stories.multipleCollapsible} height="260px" />
+</Canvas>
+
+## Usage
+
+```html
+<PixCollapsible
+  @title="Titre du contenu à dérouler en cliquant"
+  @iconTitle="user">
+  <p>Contenu du PixCollapsible</p>
+</PixCollapsible>
+```
+
+## Arguments
+
+<ArgsTable story="PixCollapsible" />
