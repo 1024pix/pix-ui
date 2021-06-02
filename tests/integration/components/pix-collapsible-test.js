@@ -7,7 +7,6 @@ import createGlimmerComponent from '../../helpers/create-glimmer-component';
 module('Integration | Component | collapsible', function(hooks) {
   setupRenderingTest(hooks);
 
-  const COLLAPSIBLE_SELECTOR = '.pix-collapsible';
   const COLLAPSIBLE_TITLE_SELECTOR = '.pix-collapsible__title';
   const COLLAPSIBLE_CONTENT_SELECTOR = '.pix-collapsible__content';
 
@@ -20,7 +19,7 @@ module('Integration | Component | collapsible', function(hooks) {
     `);
 
     // then
-    const componentElement = this.element.querySelector(COLLAPSIBLE_SELECTOR);
+    const componentElement = this.element.querySelector(COLLAPSIBLE_TITLE_SELECTOR);
     assert.equal(componentElement.textContent.trim(), 'Titre de mon élément déroulable');
   });
 

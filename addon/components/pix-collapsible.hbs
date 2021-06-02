@@ -4,6 +4,8 @@
     type="button"
     {{on "click" this.toggleCollapsible}}
     class='pix-collapsible__title {{if this.isUnCollapsed 'pix-collapsible__title--uncollapsed'}}'
+    aria-controls={{this.contentId}}
+    aria-expanded={{if this.isUnCollapsed 'true' 'false'}}
   >
     <span>
       {{#if @titleIcon}}
@@ -17,9 +19,10 @@
       class="pix-collapsible-title__icon" />
   </button>
 
-  {{#if this.isUnCollapsed}}
-    <div class='pix-collapsible__content'>
+  <div
+    id={{this.contentId}}
+    aria-hidden={{if this.isCollapsed 'true' 'false'}}
+    class='pix-collapsible__content {{if this.isUnCollapsed "pix-collapsible__content--uncollapse"}}' >
       {{yield}}
-    </div>
-  {{/if}}
+  </div>
 </div>

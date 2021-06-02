@@ -1,9 +1,11 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class PixCollapsible extends Component {
   text = 'pix-collapsible';
+  contentId = 'pix-collapsible-' + guidFor(this);
 
   @tracked isCollapsed = true;
 
