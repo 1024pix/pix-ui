@@ -234,7 +234,7 @@ export const argsTypes = {
   },
   triggerAction: {
     name: 'triggerAction',
-    description: 'fonction à appeler en cas de clic',
+    description: 'fonction à appeler en cas de clic, optionnel si le bouton est de type submit',
     type: { required: true },
     defaultValue: () => {
       return new Promise((resolve) => {
