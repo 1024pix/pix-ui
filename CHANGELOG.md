@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v5.2.0 (15/06/2021)
+
+- [#101](https://github.com/1024pix/pix-ui/pull/101) Permettre l'absence de trigger action sur PixButton de type submit
+
 ## v5.1.0 (02/06/2021)
 
 - [#95](https://github.com/1024pix/pix-ui/pull/95) [FEATURE] Ajout du composant PixCollapsible
