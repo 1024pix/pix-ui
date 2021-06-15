@@ -79,6 +79,23 @@ module('Integration | Component | button', function(hooks) {
     assert.equal(componentElement.disabled, false);
   });
 
+  module('when type is submit, if no trigger action is defined', ()=>{
+
+    test('if clicked, it should do nothing', async function(assert) {
+      // given
+      await render(hbs`
+      <PixButton @type="submit" />
+      `);
+
+      //  when
+      await click('button');
+
+      // then
+      const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+      assert.equal(componentElement.type, 'submit');
+    });
+  })
+
   test('it renders the PixButton link component', async function(assert) {
     // when
     await render(hbs`

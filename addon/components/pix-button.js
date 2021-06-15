@@ -52,6 +52,10 @@ export default class PixButton extends Component {
     return routeParam;
   }
 
+  get enableTriggerAction(){
+    return !(this.type === 'submit' && !this.args.triggerAction)
+  }
+
   @action
   async triggerAction(params) {
     try {
