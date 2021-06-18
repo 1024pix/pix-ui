@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v5.2.1 (18/06/2021)
+
+- [#102](https://github.com/1024pix/pix-ui/pull/102) [CLEAN] Corriger une petite coquille dans la doc de Pix-Tooltip
+
 ## v5.2.0 (15/06/2021)
 
 - [#101](https://github.com/1024pix/pix-ui/pull/101) Permettre l'absence de trigger action sur PixButton de type submit
