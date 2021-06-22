@@ -3,5 +3,8 @@ module.exports = {
     '@storybook/addon-essentials',
     '@storybook/addon-a11y',
   ],
-  stories: ['../addon/**/*.stories.@(js|mdx)'],
+  stories: [
+    '../docs/**/*.stories.@(mdx)',
+    '../addon/**/*.stories.@(js|mdx)',
+  ],
 };

@@ -11,7 +11,17 @@ export const parameters = {
     },
   },
   controls: { expanded: true },
-  previewTabs: { 
+  previewTabs: {
     'storybook/docs/panel': { index: -1 },
+  },
+  options: {
+    storySort: {
+      order: [
+        'Utiliser Pix UI',
+        ['Installation', 'Utiliser un composant'],
+        'Développement',
+        ['Design System', 'Utiliser un composant', 'Créer un composant', 'Bonnes pratiques', 'Architecture', 'Storybook'],
+      ],
+    },
   },
 };
