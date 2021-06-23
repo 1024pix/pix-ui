@@ -6,8 +6,10 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 ## Création des fichiers nécessaires au composant
 
+La commande suivante permet de générer un nouveau composant :
+
 ```shell
-ember generate pix-component <component-name>`
+ember generate pix-component <component-name>
 ```
 
 ⚠️ Ne pas préfixer le nom du composant par `pix`, cela se fera automatiquement avec la commande.
@@ -33,19 +35,23 @@ En somme, rien de nouveau ici en dehors de ces deux points :
 
 ## C'est quoi une story ?
 
-Une Story c'est deux fichiers
+Une story, c'est deux fichiers :
 - un dont l'extension est `.stories.mdx`
 - un dont l'extension est `.stories.js`
+
 Ils permettent de visualiser et documenter le composant.
 
 Lorsqu'on lance Storybook ce dernier va dans `.storybook/main.js` afin de trouver l'emplacement des fichiers `.stories.js`
-et `stories.mdx`. Ces derniers permettent ainsi d'afficher un aperçu des composants ainsi que leurs documentation.
+et `stories.mdx`.
+
+Ces derniers permettent ainsi d'afficher un aperçu des composants ainsi que leurs documentation.
 
 ## Comment écrire une story ?
 
 Voici par exemple la story du composant PixMessage :
 
 ```javascript
+// pix-message.stories.js
 import { hbs } from 'ember-cli-htmlbars'; // import nécessaire pour 'canvasContent'
 
 // Ici on instancie l'aperçu du composant dans la doc
@@ -72,41 +78,45 @@ export const argTypes = {
 }
 ```
 
+```markdown
+{/* pix-message.stories.mdx */}
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-message.stories.js';
 
+{/* Titre de la section affichée dans le menu de storybook */}
 
+<Meta
+  title='Notification/Message'
+  component='PixMessage'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
 
-##### markdown
-La constante `markdown` attend une string contenant (spoiler alert)... du markdown!
-Ce dernier sera affiché dans le pannel de documentation sur la page du composant correspondant.
+# Pix Message
 
-```javascript
-const markdown = `
-  # MonSuperComposant
-  Description brève de mon composant.
+Un bandeau d'information, par défaut de type info, avec une icone facultative.
 
-  Un peu plus d'information si je trouve ça utile pour utiliser ce composant...
+{/* Affiche la prévisualition du composant telle que définie dans pix-message.stories.js */}
 
-  ## Usage
+<Canvas isColumn>
+  <Story name="Message" story={stories.message} height="140px" />
+</Canvas>
 
-  ~~~javascript
-  <MonSuperComposant></MonSuperComposant>
-  ~~~
+## Usage
 
-  ## Props
+```html
+<PixMessage @type='info' @withIcon='true'>
+  Ceci est un message à caractère informatif.
+</PixMessage>
+\```
 
-  | Nom           | Type          | Valeurs possibles | Par défaut | Optionnel |
-  | ------------- |:-------------:|:-----------------:|:----------:|----------:|
-  |      -        |       -       |         -         |     -      |     -     |
-`
-;
+## Arguments
+
+{/* Affiche le tableau des arguments tels que définis dans pix-message.stories.js */}
+
+<ArgsTable story="Message" />
+
 ```
-
-|   |   |
-| - |:- |
-| `INFO` | Pour visualiser le résultat de votre story il ne vous manque plus qu'à lancer Storybook : `npm run storybook`. |
-
-
-
-
 
 Plus d'information sur le [guide d'ember de Storybook ici](https://storybook.js.org/docs/guides/guide-ember/).
