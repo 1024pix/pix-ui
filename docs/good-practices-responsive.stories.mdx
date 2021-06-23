@@ -6,8 +6,6 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 La mise en place de composants responsive doit respecter les règles définies dans le design system.
 
-Le développement des composants doit être pensé et développé pour mobile puis adapté à des résolutions et devices supérieurs par la suite. (mobile-first)
-
 ## Breakpoints
 
 L'ensemble des breakpoints pour les différentes résolutions sont définis dans [le chapitre **Layout/Breakpoints** du Design system](https://zeroheight.com/8dd127da7/p/6877af-layout/t/47086b).
@@ -29,3 +27,25 @@ Le différents devices disponibles sont :
 - `tablet`
 - `desktop`
 - `large-screen`
+
+## Mobile first
+
+Le développement des composants doit être pensé et développé pour mobile puis adapté à des résolutions et devices supérieurs par la suite. (mobile-first)
+
+```scss
+.my-class {
+  width: 100px; // Sur mobile par défaut
+
+  @include device-is('tablet') {
+    width: 200px; // Sur tablette
+  }
+
+  @include device-is('desktop') {
+    width: 300px; // Sur desktop
+  }
+
+  @include device-is('large-screen') {
+    width: 400px; // Sur écran large
+  }
+}
+```
