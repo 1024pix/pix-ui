@@ -10,3 +10,42 @@ import { Meta } from '@storybook/addon-docs/blocks';
 - Bonne pratiques (rem, )
 - Utilisation des variables SCSS
 - Colors
+
+
+## Arborescence
+
+- Chaque composant a son fichier scss qui sont importés dans `addon/styles/addon.scss`.
+- Les variables se trouvent dans leur fichier scss respectif: `_breakpoints.scss`, `_colors.scss`, `_fonts.scss`.
+
+~~~javascript
+@import 'pix-tooltip';
+~~~
+
+## Rendre surchargeable le SCSS
+
+Passer ...attributes au composants
+
+~~~html
+<div class="pix-background-header" ...attributes>
+~~~
+
+## Conventions
+
+### BEM
+
+- Nos classes suivent la convention BEM.
+[Plus d'informations ici.](https://github.com/1024pix/pix/blob/dev/docs/CSS.md)
+
+~~~javascript
+class='pix-tooltip__content'
+~~~
+
+## rem, spacing...
+
+Il est recommandé d'utiliser le `rem` plutot que `px`.
+1rem = 16px
+
+Concernant les niveaux de textes se référer a ZeroHeight [ici](https://zeroheight.com/8dd127da7/p/20e4df-typographie/b/974231).
+
+- Utiliser les **variables Sass** déjà existantes.
+*Par exemple, vérifier dans les fichiers `_fonts.scss` et `_colors.scss`. Si elles n'existent pas, les rajouter au bon endroit.*
