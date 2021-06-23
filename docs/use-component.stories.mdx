@@ -4,7 +4,86 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Utiliser un composant
 
-- Instancier un composant Pix UI
-  - (bonne pratique) Eviter de surcharger le CSS
-  - (bonne pratique) Tester a11y lors de l'ajout
-  - Installation de lib externe / icones utilisées par un composant ()
+Pour utiliser un composant dans une application Ember, on peut se référer à la documentation de ce composant.
+
+Par exemple, pour `PixMessage`, [la documentation](https://storybook.pix.fr/?path=/docs/notification-message--message)
+nous indique :
+
+```hbs
+<PixMessage @type='info' @withIcon='true'>
+  Ceci est un message à caractère informatif.
+</PixMessage>
+```
+
+La documentation d'un composant liste tous les arguments acceptés par le composant, notamment les arguments requis
+pour le fonctionnement du composant. On peut tester le rendu du composant en fonction de ses arguments dans l'onglet
+Canvas de storybook.
+
+## Bonnes pratiques
+
+### Éviter de surcharger le CSS
+
+Si l'on veut changer l'apparence d'un composant, il faut se poser plusieurs questions au préalable.
+
+Veut-on voir ce changement à chaque utilisation du composant ? Dans ce cas, il faut mieux modifier directement le
+composant dans Pix UI, en ouvrant une pull request, plutôt que de surcharger une instanciation dans l'application front.
+
+Dans le cas où le changement est très spécifique, il est recommandé de ne pas surchager les classes CSS du composant
+Pix UI.
+
+Par exemple, le rendu du composant PixMessage sera :
+
+```html
+<div class="pix-message"></div>
+```
+
+⚠️ NE PAS surcharger directement la classe du composant en faisant :
+
+```css
+.pix-message {
+  color: pink;
+}
+```
+
+👍🏻 Ajouter plutôt une nouvelle classe au composant avec l'attribut `class` :
+
+```hbs
+<PixMessage @type='info' @withIcon='true' class='message-rose'>
+  Ceci est un message à caractère informatif rose.
+</PixMessage>
+```
+
+```css
+.message-rose {
+  color: pink;
+}
+```
+
+Si cela ne fonctionne pas, vérifier dans Pix UI que le composant hérite des attributs grâce à l'argument `...attributes`
+et que cet argument soit placé en dernier pour qu'il puisse surchager les attributs par défaut du composant.
+
+```hbs
+<p class="pix-message {{concat "pix-message--" this.type}}" ...attributes>
+   ...
+</p>
+```
+
+### Tester l'accessibilité
+
+L'accessibilité du composant lui-même est déjà testé par Storybook, voir
+[Bonnes Pratiques / Accessibilité](/?path=/docs/développement-bonnes-pratiques-accessibilité--page).
+
+Mais il faut aussi vérifier son accessibilité une fois composant intégré dans l'application front.
+*Par exemple, le libellé étant spécifique à chaque bouton, il doit être défini à l'instanciation.*
+
+Pour tester l'accessibilité, on peut utiliser [l'extension Wave](https://wave.webaim.org/extension/) (Chrome et Firefox).
+
+Voici quelques liens utiles :
+- https://github.com/1024pix/pix/blob/dev/docs/Accessibilite.md
+- https://1024pix.atlassian.net/wiki/spaces/DEV/pages/2856288297/2021-05-27+-+Compte-rendu+Atelier+accessibilit+Tanaguru+les+devs
+
+### Icones utilisées par un composant
+
+Si une icone n'apparaît pas lorsqu'un composant est instancié, il faut vérifier que l'icone est bien déclarée dans le
+fichier `config/icons.js` de l'application concernée.
+*Par exemple, `PixBanner` utilise l'icône `info-circle`, il faut penser à l'ajouter au fichier `icons.js`.*
