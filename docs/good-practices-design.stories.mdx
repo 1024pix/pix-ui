@@ -4,28 +4,77 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Bonnes pratiques design
 
-- Responsabilités
-- Intentions
-- Nommages (composant, propriétés du composant...)
-- Breaking changes (deprecated...)
+## Nommage
 
+- les **noms de branches** commencent par `pix-ui`.
 
-- Les **noms des composants** commençent par `Pix` et sont écrit en camel case. 
-*Par exemple, un composant bouton devient : `PixButton`.*
-<br/>
-
-
-- Les **noms des classes CSS** suivent la convention BEM. 
-[Plus d'informations ici.](https://github.com/1024pix/pix/blob/dev/docs/CSS.md)
-<br/>
 
 - Les **noms des fichiers** suivent l'exemple de la pix-tooltip.
 *Par exemple, pour les styles, on recomandera de rajouter `_` devant le nom du fichier pour indiquer que c'est un ["fichier partiel Sass"](https://sass-lang.com/guide#topic-4).*
-<br/>
 
-- Utiliser les **variables Sass** déjà existantes. 
-*Par exemple, vérifier dans les fichiers `_fonts.scss` et `_colors.scss`. Si elles n'existent pas les rajouter au bon endroit.*
-<br/>
 
-- Faire des **tests**. On recommandera de tester pour chaque composant : le cas par défaut, le(s) cas particulier(s) et un cas où ça ne fonctionne pas.
-<br/>
+- Les **noms des composants** commencent par `Pix` et sont écrit en *PascalCase*.
+*Par exemple, un composant bouton devient : `PixButton`.*
+
+
+- Les **noms des propriétés des composants** sont écrit en *camelCase*.
+
+```hbs
+<PixSelect
+  @options={{options}}
+  @onChange={{onChange}}
+  @selectedOption="1"
+/>
+```
+
+- Les **noms des classes CSS** suivent la convention BEM.
+[Plus d'informations ici.](https://github.com/1024pix/pix/blob/dev/docs/CSS.md)
+
+```html
+class='pix-tooltip__content'
+```
+
+## Intentions & Responsabilités
+
+Il faut garder une **responsabilité unique** par composant.
+
+- Un composant doit interagir uniquement dans son scope afin de ne pas devenir trop complexe et provoquer des effets de bord.
+- Un composant trop complexe induit plusieurs paramètres ce qui rend donc son utilisation délicate.
+
+Par exemple si l'intention d'un composant est d'être un bouton (dans notre existant, *`PixButton`*) et qu'on le fait évoluer pour qu'il puisse devenir aussi un lien alors il perd son intention d'origine (le nommage du composant *`PixButton`* ne fait alors plus sens) et prend trop de responsabilités.
+
+Il conviendra alors d'avoir un composant pour un bouton et un autre pour un lien.
+
+## Breaking changes
+
+Un breaking change implique un changement d'intention ou/et de responsabilités du composant. Il est nécessaire de l'indiquer dans la PR correspondante.
+
+Exemple de PR : [Enrichir la Pix Tooltip - BREAKING CHANGES (Pix-2000).](https://github.com/1024pix/pix-ui/pull/68)
+
+Ainsi lorsque l'on souhaite mettre à jour Pix-UI dans une application, il est important de **verifier le bon fonctionnement des composants impactés par ces changements**.
+
+
+Lorsque l'on fait un breaking change, on a deux possibilités :
+
+- **Supprimer et/ou modifier l'existant**. Ce qui implique de faire une vérification stricte sur les applications qui utilisent le composant impacté.
+
+⚠️ Autrement nous prenons le risque de casser quelque chose.
+- Faire de la **rétrocompatibilité en faisant du deprecated**.
+
+### Deprecated
+
+Il est donc possible de signaler ces changements comme dépréciés:
+- Ne pas supprimer le composant actuel mais l'indiquer comme déprécié afin qu'il soit toujours utilisable le temps de faire les modifications. A terme l'élément déprécié sera supprimé dans une nouvelle version de Pix-UI.
+
+Exemple d'un composant déprécié :
+```hbs
+<PixSelect>
+  <NewPixSelect
+    @options={{options}}
+    @onChange={{onChange}}
+    @selectedOption="1"
+  />
+</PixSelect>
+```
+
+Autres détails d'un breaking change sur la page [Installation](/?path=/docs/utiliser-pix-ui-installation--page).
