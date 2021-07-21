@@ -1,0 +1,51 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Développement/Bonnes pratiques/Responsive' />
+
+# Bonnes pratiques responsive
+
+La mise en place de composants responsive doit respecter les règles définies dans le Design System.
+
+## Breakpoints
+
+L'ensemble des breakpoints pour les différentes résolutions sont définis dans [le chapitre **Layout/Breakpoints** du Design System](https://zeroheight.com/8dd127da7/p/6877af-layout/t/47086b).
+
+Ils sont décris dans le fichier `addon/styles/_breakpoints.scss` et utilisables via la mixin `device-is`
+
+Par exemple, ici le style s'applique si on a moins la largeure d'une tablette.
+
+
+```scss
+@include device-is('tablet') {
+  padding: 32px 58px;
+  font-size: 0.875rem;
+}
+```
+
+Le différents devices disponibles sont :
+- `mobile`
+- `tablet`
+- `desktop`
+- `large-screen`
+
+## Mobile first
+
+Le développement des composants doit être pensé et développé pour mobile puis adapté à des résolutions et devices supérieurs par la suite.
+
+```scss
+.my-class {
+  width: 100px; // Sur mobile par défaut
+
+  @include device-is('tablet') {
+    width: 200px; // Sur tablette
+  }
+
+  @include device-is('desktop') {
+    width: 300px; // Sur desktop
+  }
+
+  @include device-is('large-screen') {
+    width: 400px; // Sur écran large
+  }
+}
+```

@@ -1,0 +1,37 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Utiliser Pix UI/Installation' />
+
+# Installer l'addon Pix UI
+
+Pour installer Pix UI dans une application Ember il suffit d'écrire la commande suivante :
+
+`npm install git://github.com/1024pix/pix-ui.git#<tag_souhaité>` où `<tag_souhaité>` est la [dernière version](https://github.com/1024pix/pix-ui/tags).
+
+
+# Mise à jour de l'addon Pix UI <a id="Addon"></a>
+
+`npm install git://github.com/1024pix/pix-ui.git#<tag_souhaité>`
+
+ou bien, aller changer dans le `package.json` la version de Pix UI et faire un `npm install`.
+
+##### Quel tag choisir ?
+
+`<tag_souhaité>` doit correspondre au numéro de version à installer. Ce numéro de version correspond à une release.
+
+*Par exemple, on peut remplacer `<tag_souhaité>` par `v0.1.1`.*
+Pour voir la liste des tags de Pix UI, [c'est par ici.](https://github.com/1024pix/pix-ui/tags)
+
+Selon la convention [Semver](https://semver.org/lang/fr/), un tag est sous le format `vx.y.z`.
+- `x` est une version majeure
+- `y` est une version mineure
+- `z` est un patch
+
+# Breaking changes
+
+Lorsqu'il y a un changement de version majeure, il faut faire attention aux changements bloquants.
+
+Pour se mettre au courant des changements majeurs, il faut aller voir dans le [CHANGELOG](https://github.com/1024pix/pix-ui/blob/dev/CHANGELOG.md), pour pouvoir voir chaque PR concernée par la montée de version.
+
+*Par exemple, si l'on souhaite passer de la version v2.2.0 de Pix UI à v3.0.0, on voit dans le CHANGELOG que la PR [#79](https://github.com/1024pix/pix-ui/pull/79) a changé le nom d'un composant.
+Cela implique donc de changer le nom du composant partout dans l'application front où l'on souhaite monter de version.*

@@ -1,0 +1,48 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+import accessibilityImage from './assets/accessibility-storybook.png';
+
+<Meta title='Développement/Bonnes pratiques/Accessibilité' />
+
+# Bonnes pratiques d'accessibilité
+
+L'accessiblité est un enjeu important sur nos composants UI.
+
+## S'assurer d'avoir un composant accessible
+
+- Penser au contraste entre le fond et le texte de votre composant.
+- La taille de la police ne peut pas être inférieure à `10px`.
+- La navigation au clavier permet d'accéder à toutes les parties de votre composant `Tab pour aller à l'élément suivant, Entrée ou Espace pour valider, Maj+Tab pour revenir à l'élément précédent`.
+- S'assurer que les éléments en focus suivent un ordre logique.
+- Lancer un logiciel de lecture d'écran (VoiceOver pour Mac) et s'assurer que ce soit compréhensible pour l'utilisateur.
+
+
+Exemples pour l'utilisation du lecteur d'écran :
+- Est-ce que l’information est lu et est compréhensible ?
+
+- Si l'information est obligatoire, est-ce signalé ?
+
+- Est-ce que les champs à remplir sont bien accompagnés d’un label ?
+
+- En cas d’erreur, est-ce que l’on prévient bien l'utilisateur pour corriger son erreur ?
+
+
+Pour vous aider à créer un composant accessible :
+
+- les channels Slack `#tech-a11y` (interne) et `#ext-hotline-accessibilité-pix-tanaguru` (externe avec Tanaguru) sont disponibles pour répondre à vos questions sur le sujet.
+- Nos pratiques sur l'accessibilité [ici](https://github.com/1024pix/pix/blob/dev/docs/Accessibilite.md)
+- Compte-rendu détaillé de notre atelier avec Tanaguru [ici](https://1024pix.atlassian.net/wiki/spaces/DEV/pages/2856288297/2021-05-27+-+Compte-rendu+Atelier+accessibilit+Tanaguru+les+devs)
+- Checklist des recommandations WebAIM [ici](https://webaim.org/standards/wcag/checklist#sc2.4.4)
+
+
+## Vérifier l'accessibilité d'un composant sur Storybook
+
+Pour chaque composant, dans la partie 'Canvas', vous pouvez accéder à l'onglet 'Accessibility' qui donne un aperçu des règles d'accessibilité validées (Passes) ou non (Violations).
+
+
+Il est possible de cliquer sur "More info..." pour connaître en détail ces règles.
+
+<img src={accessibilityImage} alt="Accessibility in Storybook"/>
+
+Mais cela ne couvre pas à 100% les règles d'accessibilité.
+
+
