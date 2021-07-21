@@ -7,14 +7,12 @@ import accessibilityImage from './assets/accessibility-storybook.png';
 
 L'accessiblité est un enjeu important sur nos composants UI.
 
-- Comment vérifier l'a11y (checklist) ?
-- Indiquer les outils à dispo (dans storybook, lint, outil externe...)
-
 ## S'assurer d'avoir un composant accessible
 
 - Penser au contraste entre le fond et le texte de votre composant.
-- La taille de la police ne peut pas être inférieure à `10px`
-- La navigation au clavier permet d'accéder à toutes les parties de votre composant `Tab pour changer d’endroit, Entrée ou Espace pour valider, Maj+Tab pour revenir en arrière`
+- La taille de la police ne peut pas être inférieure à `10px`.
+- La navigation au clavier permet d'accéder à toutes les parties de votre composant `Tab pour aller à l'élément suivant, Entrée ou Espace pour valider, Maj+Tab pour revenir à l'élément précédent`.
+- S'assurer que les éléments en focus suivent un ordre logique.
 - Lancer un logiciel de lecture d'écran (VoiceOver pour Mac) et s'assurer que ce soit compréhensible pour l'utilisateur.
 
 
@@ -23,7 +21,7 @@ Exemples pour l'utilisation du lecteur d'écran :
 
 - Si l'information est obligatoire, est-ce signalé ?
 
-- Est-ce que les champs à remplir son bien accompagné d’un label ?
+- Est-ce que les champs à remplir sont bien accompagnés d’un label ?
 
 - En cas d’erreur, est-ce que l’on prévient bien l'utilisateur pour corriger son erreur ?
 
@@ -41,6 +39,10 @@ Pour vous aider à créer un composant accessible :
 Pour chaque composant, dans la partie 'Canvas', vous pouvez accéder à l'onglet 'Accessibility' qui donne un aperçu des règles d'accessibilité validées (Passes) ou non (Violations).
 
 
-Il est possible de cliquer sur "More info..." pour connaître en détails ces règles.
+Il est possible de cliquer sur "More info..." pour connaître en détail ces règles.
 
 <img src={accessibilityImage} alt="Accessibility in Storybook"/>
+
+Mais cela ne couvre pas à 100% les règles d'accessibilité.
+
+

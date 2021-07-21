@@ -2,18 +2,18 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 <Meta title='Développement/Architecture' />
 
-# Architecture du projet Pix-UI
+# Architecture du projet Pix UI
 
 ## Arborescence générale
 
 - `.circleci` : configuration pour les [tests de circleci](https://app.circleci.com/pipelines/github/1024pix/pix-ui)
 - `.storybook` : configuration de l'outil Storybook.
-- `addon` : contenu de notre addon Pix-UI.
+- `addon` : contenu de notre addon Pix UI.
 - `app` : aide l'Ember app à découvrir automatiquement les composants exportés par un addon.
-- `blueprints` : configuration des blueprints (permet de générer automatiquement un composant Pix-UI).
+- `blueprints` : configuration des blueprints (permet de générer automatiquement un composant Pix UI).
 - `config` : configuration de l'addon ember.
-- `docs` : documentation du projet Pix-UI.
-- `scripts` : scripts utiles aux [releases de Pix-UI](/?path=/docs/développement-faire-une-release--page).
+- `docs` : documentation du projet Pix UI.
+- `scripts` : scripts utiles aux [releases de Pix UI](/?path=/docs/développement-faire-une-release--page).
 - `tests` : dossier de tests unitaires et intégration.
 - `.env` : créé et utilisé par Storybook.
 - `CHANGELOG.md` : détails du contenu des dernières release.
@@ -25,7 +25,7 @@ Documentation ember sur l'[arborescence d'un addon ember ici](https://cli.emberj
 
 ### .storybook
 
-- `.storybook` 
+- `.storybook`
   - `main.js`: indique l’emplacement des fichiers stories et des addons de storybook.
   - `manager.js`: sert pour le thème de storybook.
   - `preview-head.html` : setup automatique de storybook utile au live reload.
@@ -37,7 +37,7 @@ Documentation ember sur l'[arborescence d'un addon ember ici](https://cli.emberj
 Ce répertoire peut contenir un grand nombre des mêmes sous-répertoires et fichiers qu'une application Ember, comme `/components/` par exemple.
 Pour créer des composants, la plupart du travail se fera ici.
 
-- `addon` 
+- `addon`
   - `components` : contient les templates et les controllers de chaque composants.
     - `pix-tooltip.hbs`
     - `pix-tooltip.js`
@@ -63,7 +63,7 @@ exportés par un addon.
 
 ### blueprints
 
-Actuellement il n'existe qu'un blueprint sur Pix-UI.
+Actuellement il n'existe qu'un blueprint sur Pix UI.
 Ce dernier est nommé `pix-component`, il contient tous les modèles permettant de générer les fichiers à la création d'un composant via la commande :
 
 ```
@@ -89,18 +89,18 @@ Les fichiers suffixés par `stories.mdx` s'afficheront dans la documentation de 
 ### scripts
 
 Une bonne partie des scripts présents dans ce dossier sont issus de [Pix-bot](https://github.com/1024pix/pix-bot) et servaient aux releases
-de Pix-UI mais sont aujourd'hui obsolètes.
+de Pix UI mais sont aujourd'hui obsolètes.
 
 Ils peuvent cependant servir en dernier recours si Pix-Bot ne fonctionne pas.
 
 ### tests
 
 - `tests`
-  - `dummy` : ne sert pas sous Pix-UI car nous utilisons Storybook pour tester et documenter nos composants.
+  - `dummy` : ne sert pas sous Pix UI car nous utilisons Storybook pour tester et documenter nos composants.
   - `helpers`
   - `integration` : au moins un test d'intégration est attendu par composant
   - `unit` : tests unitaires
   - `index.html`
-  - `test-helper.js` 
+  - `test-helper.js`
 
-Pour plus d'informations sur les bonnes pratiques de tests sur Pix-UI voir [les guidelines des tests](/?path=/docs/développement-bonnes-pratiques-tests--page).
+Pour plus d'informations sur les bonnes pratiques de tests sur Pix UI voir [les guidelines des tests](/?path=/docs/développement-bonnes-pratiques-tests--page).

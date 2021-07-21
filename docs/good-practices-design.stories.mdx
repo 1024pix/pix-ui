@@ -27,8 +27,7 @@ import { Meta } from '@storybook/addon-docs/blocks';
 />
 ```
 
-- Les **noms des classes CSS** suivent la convention BEM.
-[Plus d'informations ici.](https://github.com/1024pix/pix/blob/dev/docs/CSS.md)
+- Les **noms des classes CSS** suivent la convention [BEM](https://github.com/1024pix/pix/blob/dev/docs/CSS.md).
 
 ```html
 class='pix-tooltip__content'
@@ -41,7 +40,7 @@ Il faut garder une **responsabilité unique** par composant.
 - Un composant doit interagir uniquement dans son scope afin de ne pas devenir trop complexe et provoquer des effets de bord.
 - Un composant trop complexe induit plusieurs paramètres ce qui rend donc son utilisation délicate.
 
-Par exemple si l'intention d'un composant est d'être un bouton (dans notre existant, *`PixButton`*) et qu'on le fait évoluer pour qu'il puisse devenir aussi un lien alors il perd son intention d'origine (le nommage du composant *`PixButton`* ne fait alors plus sens) et prend trop de responsabilités.
+Par exemple, si l'intention d'un composant est d'être un bouton (dans notre existant, *`PixButton`*) et qu'on le fait évoluer pour qu'il puisse devenir aussi un lien, il perd alors son intention d'origine (le nommage du composant *`PixButton`* ne fait alors plus sens) et prend trop de responsabilités.
 
 Il conviendra alors d'avoir un composant pour un bouton et un autre pour un lien.
 
@@ -51,20 +50,12 @@ Un breaking change implique un changement d'intention ou/et de responsabilités 
 
 Exemple de PR : [Enrichir la Pix Tooltip - BREAKING CHANGES (Pix-2000).](https://github.com/1024pix/pix-ui/pull/68)
 
-Ainsi lorsque l'on souhaite mettre à jour Pix-UI dans une application, il est important de **verifier le bon fonctionnement des composants impactés par ces changements**.
+Lorsqu'une autre personne va mettre à jour Pix UI dans une application, il est important qu'elle **vérifie le bon fonctionnement et le bon affichage des composants impactés par ces changements**. Il faut lui faciliter au maximum cette tâche en indiquant clairement dans la description de la PR le ou les composants impactés et les vérifications à effectuer.
 
+## Rétrocompatibilité / Deprecated
 
-Lorsque l'on fait un breaking change, on a deux possibilités :
-
-- **Supprimer et/ou modifier l'existant**. Ce qui implique de faire une vérification stricte sur les applications qui utilisent le composant impacté.
-
-⚠️ Autrement nous prenons le risque de casser quelque chose.
-- Faire de la **rétrocompatibilité en faisant du deprecated**.
-
-### Deprecated
-
-Il est donc possible de signaler ces changements comme dépréciés:
-- Ne pas supprimer le composant actuel mais l'indiquer comme déprécié afin qu'il soit toujours utilisable le temps de faire les modifications. A terme l'élément déprécié sera supprimé dans une nouvelle version de Pix-UI.
+Il est aussi possible de signaler ces changements comme dépréciés :
+- Ne pas supprimer le composant actuel mais l'indiquer comme déprécié afin qu'il soit toujours utilisable le temps de faire les modifications. À terme, l'élément déprécié sera supprimé dans une nouvelle version majeure de Pix UI.
 
 Exemple d'un composant déprécié :
 ```hbs

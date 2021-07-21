@@ -17,21 +17,17 @@ ember generate pix-component <component-name>
 Cette commande est [un blueprint ember](https://cli.emberjs.com/release/advanced-use/blueprints/), c'est à dire une
 commande customisée, elle permet d'automatiser plusieurs choses.
 
-La commande crée et pré-remplit les fichiers suivants :
+La commande crée et pré-remplit les fichiers suivant :
 * `addon/templates/components/pix-<component-name>.hbs`: template du composant.
 * `addon/components/pix-<component-name>.js`: controller du composant.
-* `addon/stories/pix-<component-name>.stories.mdx`: documentation du composant
-* `addon/stories/pix-<component-name>.stories.js`: arguments et code de l'aperçu du composant dans la documentation
+* `addon/stories/pix-<component-name>.stories.mdx`: documentation du composant.
+* `addon/stories/pix-<component-name>.stories.js`: arguments et code de l'aperçu du composant dans la documentation.
 * `addon/styles/_pix-<component-name>.scss`: style du composant.
 * `app/components/pix-<component-name>.js`, sert uniquement à ember pour retrouver les composants existants dans le dossier `addon`. **On ne modifiera pas ce fichier là.**
 * `tests/integration/components/pix-<component-name>-test.js`: test du composant.
 
 De plus la commande met à jour les imports scss dans le fichier :
 * `addon.scss` (elle rajoutera l'import juste avant la ligne `html {`)
-
-En somme, rien de nouveau ici en dehors de ces deux points :
-- le contenu de `app` ne nous intéressera pas, tout se passe dans le dossier `addon`
-- les fichiers de la story : `addon/stories/<pix-component-name>.stories.js` et `addon/stories/<pix-component-name>.stories.mdx`
 
 ## C'est quoi une story ?
 
@@ -44,7 +40,7 @@ Ils permettent de visualiser et documenter le composant.
 Lorsqu'on lance Storybook ce dernier va dans `.storybook/main.js` afin de trouver l'emplacement des fichiers `.stories.js`
 et `stories.mdx`.
 
-Ces derniers permettent ainsi d'afficher un aperçu des composants ainsi que leurs documentation.
+Ces derniers permettent ainsi d'afficher un aperçu des composants ainsi que leur documentation.
 
 ## Comment écrire une story ?
 
@@ -66,7 +62,7 @@ export const message = (args) => {
   };
 };
 
-// Ici on définit et on document les arguments du composant
+// Ici on définit et on documente les arguments du composant
 export const argTypes = {
   type: {
     name: 'type',
@@ -95,9 +91,9 @@ import * as stories from './pix-message.stories.js';
 
 # Pix Message
 
-Un bandeau d'information, par défaut de type info, avec une icone facultative.
+Un bandeau d'information, par défaut de type info, avec une icône facultative.
 
-{/* Affiche la prévisualition du composant telle que définie dans pix-message.stories.js */}
+{/* Affiche la prévisualisation du composant telle que définie dans pix-message.stories.js */}
 
 <Canvas isColumn>
   <Story name="Message" story={stories.message} height="140px" />
