@@ -1,0 +1,25 @@
+<article class="pix-modal"
+         role="dialog"
+         aria-labelledby="modal-title"
+         aria-describedby="modal-desc"
+         aria-modal="true">
+  <header class="pix-modal__header">
+    <h2 id="modal-title" class="pix-modal-header__title">Ceci est une modale</h2>
+    <PixIconButton
+      @icon='times'
+      @triggerAction="{{triggerAction}}"
+    />
+  </header>
+  <main id="modal-desc" class="pix-modal__main">
+    <p class="pix-modal-main__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum vel orci ut diam ullamcorper venenatis. Integer a bibendum ex. Proin vitae mi quis lorem aliquam lacinia sed sit amet risus. Aliquam erat volutpat. Integer laoreet sodales mattis. In hac habitasse platea dictumst. Curabitur congue magna ac vehicula feugiat.</p>
+  </main>
+  <footer class="pix-modal__footer">
+    <PixButton class="pix-modal-footer__cancel"
+               @border="squircle-small">
+      Annuler
+    </PixButton>
+    <PixButton @border="squircle-small">
+      Valider
+    </PixButton>
+  </footer>
+</article>
