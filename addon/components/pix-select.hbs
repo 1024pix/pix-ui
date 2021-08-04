@@ -23,7 +23,11 @@
 
     <select {{on 'change' this.onChange}} ...attributes>
       {{#if (not-eq @emptyOptionLabel undefined)}}
-        <option value="">{{@emptyOptionLabel}}</option>
+        {{#if @emptyOptionNotSelectable}}
+          <option value="" hidden>{{@emptyOptionLabel}}</option>
+        {{else}}
+          <option value="">{{@emptyOptionLabel}}</option>
+        {{/if}}
       {{/if}}
       {{#each @options as |opt|}}
         <option value={{opt.value}} defaultSelected={{eq @selectedOption opt.value}}>

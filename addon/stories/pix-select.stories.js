@@ -12,6 +12,7 @@ export const select = (args) => {
         @onChange={{onChange}}
         @selectedOption={{selectedOption}}
         @emptyOptionLabel={{emptyOptionLabel}}
+        @emptyOptionNotSelectable={{emptyOptionNotSelectable}}
       />
     `,
     context: args,
@@ -30,6 +31,7 @@ export const searchableSelect = (args) => {
           @onChange={{onChange}}
           @selectedOption={{selectedOption}}
           @emptyOptionLabel={{emptyOptionLabel}}
+          @emptyOptionNotSelectable={{false}}
           @isSearchable={{true}}
           @isValidationActive={{true}}
           placeholder='Fraises, Mangues...'
@@ -100,4 +102,10 @@ export const argTypes = {
       'Rend la bordure du champ vert au focus si la valeur de recherche match une option (c\'est à dire si l\'utilisateur a selectionné une option valable',
     type: { name: "boolean", required: false },
   },
+  emptyOptionNotSelectable: {
+    name: 'emptyOptionNotSelectable',
+    description: 'Rend le premier champ qui est vide non visible une fois sélectionné',
+    type: { name: 'boolean', required: false },
+  },
+
 };
