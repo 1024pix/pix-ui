@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v5.2.2 (04/08/2021)
+
+- [#105](https://github.com/1024pix/pix-ui/pull/105) [FEATURE] Ne pas pouvoir sélectionner la valeur vide du PixSelect.
+- [#103](https://github.com/1024pix/pix-ui/pull/103) [TECH] Initialize Pix UI doc summary
+
 ## v5.2.1 (18/06/2021)
 
 - [#102](https://github.com/1024pix/pix-ui/pull/102) [CLEAN] Corriger une petite coquille dans la doc de Pix-Tooltip
