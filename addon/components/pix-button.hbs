@@ -1,31 +1,34 @@
 {{#if this.isLink}}
   {{#if @model}}
-    <LinkTo @route={{this.route}}
-            class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if
-                    this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
+    <LinkTo
+            @route={{this.route}}
+            class={{this.className}}
             @model={{@model}}
-            ...attributes>
+            ..attributes
+    >
       {{yield}}
     </LinkTo>
   {{else}}
-    <LinkTo @route={{this.route}}
-            class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if
-                    this.isDisabled ' pix-button--disabled'}}{{if this.isBorderVisible ' pix-button--border'}}"
-            ...attributes>
+    <LinkTo
+            @route={{this.route}}
+            class={{this.className}}
+            ...attributes
+    >
       {{yield}}
     </LinkTo>
   {{/if}}
 {{else}}
   {{#if this.enableTriggerAction}}
-    <button type={{this.type}}
-            class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}
-            {{if this.isBorderVisible ' pix-button--border'}}"
+    <button
+            type={{this.type}}
+            class={{this.className}}
             {{on "click" this.triggerAction}}
             ...attributes
             disabled={{this.isButtonLoadingOrDisabled}}
-            aria-disabled={{this.ariaDisabled}}>
+            aria-disabled={{this.ariaDisabled}}
+    >
       {{#if this.isLoading}}
-        <div class="loader loader--{{@loading-color}}">
+        <div class="loader loader--{{this.loadingColor}}">
           <div class="bounce1"></div>
           <div class="bounce2"></div>
           <div class="bounce3"></div>
@@ -36,13 +39,14 @@
       {{/if}}
     </button>
   {{else}}
-    <button type={{this.type}}
-            class="pix-button pix-button--shape-{{this.shape}} pix-button--size-{{this.size}} pix-button--background-{{this.backgroundColor}}{{if this.isDisabled ' pix-button--disabled'}}
-            {{if this.isBorderVisible ' pix-button--border'}}"
+    <button
+            type={{this.type}}
+            class={{this.className}}
             ...attributes
             disabled={{this.isButtonLoadingOrDisabled}}
-            aria-disabled={{this.ariaDisabled}}>
-        {{yield}}
+            aria-disabled={{this.ariaDisabled}}
+    >
+      {{yield}}
     </button>
   {{/if}}
 
