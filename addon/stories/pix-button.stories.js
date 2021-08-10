@@ -113,7 +113,8 @@ export const colorButtons = (args) => {
             @triggerAction={{action triggerAction}}
             @loading-color='white'
             @backgroundColor='transparent-dark'
-            @type={{type}}>
+            @type={{type}}
+        >
           Bouton avec background transparent-dark
         </PixButton>
       </section>
@@ -125,27 +126,31 @@ export const colorButtons = (args) => {
 export const disabledButtons = (args) => {
   return {
     template: hbs`
-      <PixButton
+      <div style="padding: 10px 20px; background-color: #b5b5b5;">
+        <PixButton
           @triggerAction={{action triggerAction}}
-          @isDisabled={{isDisabled}}>
-        Bouton actif (défaut)
-      </PixButton>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @isDisabled={{true}}>
-        Bouton désactivé
-      </PixButton>
+          @isDisabled={{isDisabled}}
+          @isBorderVisible={{isBorderVisible}}
+          @backgroundColor={{backgroundColor}}
+        >
+          Bouton
+        </PixButton>
+      </div>
     `,
     context: args,
   };
+};
+disabledButtons.args = {
+  isDisabled: true,
 };
 
 export const borderButtons = (args) => {
   return {
     template: hbs`
     <section>
-      <PixButton @isBorderVisible={{false}}
-      @backgroundColor="transparent-light"
+      <PixButton
+        @isBorderVisible={{false}}
+        @backgroundColor="transparent-light"
       >
         Bouton sans bordure (défaut)
       </PixButton>
@@ -268,8 +273,9 @@ export const argsTypes = {
   backgroundColor: {
     name: 'backgroundColor',
     description: 'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
+    options: ['blue', 'green', 'yellow', 'red', 'grey', 'transparent-light', 'transparent-dark'],
     type: { name: 'string', required: false },
-    control: { disable: true },
+    control: { type: 'select' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'blue' },
