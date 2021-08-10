@@ -14,7 +14,7 @@ import * as stories from './pix-progress-gauge.stories.js';
 Permet d'afficher un barre de progression sur un barème de 100%. Des paramètres existent pour changer la position de la tooltip ou la couleur du composant
 
 <Canvas>
-  <Story name='Custom' story={stories.customProgressGauge} height="60px" />
+  <Story name='Custom' story={stories.customProgressGauge} height={60} />
 </Canvas>
 
 ## Usage
@@ -22,9 +22,9 @@ Permet d'afficher un barre de progression sur un barème de 100%. Des paramètre
 ```html
 <PixProgressGauge
   @value="{{@value}}"
-  @color="{{@color}}" 
+  @color="{{@color}}"
   @tooltipText="50%"
-  @isArrowLeft="{{@isArrowLeft}}" 
+  @isArrowLeft="{{@isArrowLeft}}"
   @subTitle="{{@subtitle}}" />
 ```
 
