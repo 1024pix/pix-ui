@@ -13,7 +13,7 @@ import * as stories from './pix-progress-gauge.stories.js';
 Démonstration d'une barre de progression blanche avec l'info bulle à gauche avec un sous titre
 
 <Canvas>
-  <Story name='White' story={stories.whiteProgressGauge} height="100px" />
+  <Story name='White' story={stories.whiteProgressGauge} height={100} />
 </Canvas>
 
 ## Usage
@@ -23,6 +23,6 @@ Démonstration d'une barre de progression blanche avec l'info bulle à gauche av
   @value="50"
   @tooltipText="50%"
   @color="white"
-  @isArrowLeft="true" 
+  @isArrowLeft="true"
   @subtitle="Avancement" />
 ```
