@@ -70,14 +70,16 @@
     background-color: $backgroundColor;
     border: 2px solid $white;
 
-    &:hover, &:focus, &:focus-visible {
-      background-color: darken($backgroundColor, 8%);
-      box-shadow: 0 0 0 2px darken($outlineColor, 8%);
-      outline: none;
-    }
+    &:not(.pix-button--disabled) {
+      &:hover, &:focus, &:focus-visible {
+        background-color: darken($backgroundColor, 8%);
+        box-shadow: 0 0 0 2px darken($outlineColor, 8%);
+        outline: none;
+      }
 
-    &:active {
-      background-color: darken($backgroundColor, 12%);
+      &:active {
+        background-color: darken($backgroundColor, 12%);
+      }
     }
   }
 
@@ -114,25 +116,29 @@
     background-color: transparent;
     color: $grey-90;
 
-    &:hover {
-      background-color: rgba($black, 0.1);
-    }
+    &:not(.pix-button--disabled) {
+      &:hover {
+        background-color: rgba($black, 0.1);
+      }
 
-    &:active {
-      background-color: rgba($black, 0.2);
-    }
+      &:active {
+        background-color: rgba($black, 0.2);
+      }
 
-    &:focus {
-      outline-color: $blue;
-      outline-style: auto;
-      outline-offset: 3px;
+      &:focus {
+        outline-color: $blue;
+        outline-style: auto;
+        outline-offset: 3px;
+      }
     }
 
     &.pix-button--border {
       border: 2px solid $grey-50;
 
-      &:hover, &:active {
-        border-color: $grey-80;
+      &:not(.pix-button--disabled) {
+        &:hover, &:active {
+          border-color: $grey-80;
+        }
       }
     }
   }
@@ -141,19 +147,21 @@
     background-color: transparent;
     color: $white;
 
-    &:hover {
-      background-color: rgba($black, 0.1);
-    }
+    &:not(.pix-button--disabled) {
+      &:hover {
+        background-color: rgba($black, 0.1);
+      }
 
-    &:active {
-      background-color: rgba($black, 0.2);
-    }
+      &:active {
+        background-color: rgba($black, 0.2);
+      }
 
-    &:focus, &:focus-visible {
-      outline-color: $blue;
-      outline-style: auto;
-      outline-offset: 3px;
-      color: $yellow;
+      &:focus, &:focus-visible {
+        outline-color: $blue;
+        outline-style: auto;
+        outline-offset: 3px;
+        color: $yellow;
+      }
     }
 
     &.pix-button--border {
