@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const customProgressGauge = (args) => {
+export const Default = args => {
   return {
     template: hbs`
       <PixProgressGauge
@@ -8,39 +8,39 @@ export const customProgressGauge = (args) => {
         @color={{color}}
         @isArrowLeft={{isArrowLeft}}
         @subtitle={{subtitle}}
-        @tooltipText={{tooltipText}} />
+        @tooltipText={{tooltipText}}
+      />
     `,
     context: args,
   };
 };
+Default.args = {
+  tooltipText: '%',
+}
 
-export const whiteProgressGauge = () => {
+export const whiteProgressGauge = args => {
   return {
     template: hbs`
     <section style="width: 100%; padding: 35px 35px 5px;background-color: lightgray">
       <PixProgressGauge
-        @value="50"
-        @tooltipText="50%"
-        @color="white"
-        @isArrowLeft=true
-        @subtitle="Avancement" />
+        @value={{value}}
+        @color={{color}}
+        @isArrowLeft={{isArrowLeft}}
+        @subtitle={{subtitle}}
+        @tooltipText={{tooltipText}}
+      />
     </section>
-    `
+    `,
+    context: args,
   };
-}
-
-export const yellowProgressGauge = () => {
-  return {
-    template: hbs`
-    <section>
-      <PixProgressGauge
-        @value="50"
-        @tooltipText="50%"
-        @color="yellow" />
-    </section>
-    `
-  };
-}
+};
+whiteProgressGauge.args = {
+  value: '50',
+  tooltipText: '50%',
+  color: 'white',
+  isArrowLeft: true,
+  subtitle: 'Avancement',
+};
 
 export const argTypes = {
   value: {
@@ -73,6 +73,5 @@ export const argTypes = {
     description: 'Afficher un label dans l\'info bulle au dessus de la barre de progression',
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'null' } },
-    defaultValue: 'Tooltip',
   },
 };

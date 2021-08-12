@@ -1,229 +1,146 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const loadingButtons = (args) => {
-  return {
-    template: hbs`
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @type={{type}}>
-          Bouton avec loader blanc (default)
-        </PixButton>
-      </section>
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='grey'
-            @backgroundColor='yellow'
-            @type={{type}}>
-          Bouton avec loader gris
-        </PixButton>
-      </section>
-    `,
-    context: args,
-  };
-};
-
-export const shapeButtons = (args) => {
-  return {
-    template: hbs`
-    <section>
+const Template = args => ({
+  template: hbs`
+    <section style={{this.style}}>
       <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @shape='rounded'>
-        Bouton rounded
+        @triggerAction={{action triggerAction}}
+        @loadingColor={{loadingColor}}
+        @shape={{shape}}
+        @backgroundColor={{backgroundColor}}
+        @isDisabled={{isDisabled}}
+        @isLink={{isLink}}
+        @size={{size}}
+        @isBorderVisible={{isBorderVisible}}
+        @route={{route}}
+      >
+        {{this.label}}
       </PixButton>
     </section>
-    <section>
-      <PixButton
+    {{#each extraButtons as |button|}}
+      <section style={{button.style}}>
+        <PixButton
           @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @shape='squircle'>
-        Bouton squircle (default)
-      </PixButton>
-    </section>
-    `,
-    context: args,
-  };
-};
-
-export const colorButtons = (args) => {
-  return {
-    template: hbs`
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='blue'
-            @type={{type}}>
-          Bouton avec background blue (default)
-        </PixButton>
-      </section>
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='green'
-            @type={{type}}>
-          Bouton avec background green
-        </PixButton>
-      </section>
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='yellow'
-            @type={{type}}>
-          Bouton avec background yellow
-        </PixButton>
-      </section>
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='red'
-            @type={{type}}>
-          Bouton avec background red
-        </PixButton>
-      </section>
-        <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='grey'
-            @type={{type}}>
-          Bouton avec background grey
-        </PixButton>
-      </section>
-      <section>
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='grey'
-            @backgroundColor='transparent-light'
-            @type={{type}}>
-          Bouton avec background transparent-light
-        </PixButton>
-      </section>
-      <section style="background-color: #345193">
-        <PixButton
-            @triggerAction={{action triggerAction}}
-            @loading-color='white'
-            @backgroundColor='transparent-dark'
-            @type={{type}}
+          @loadingColor={{button.loadingColor}}
+          @shape={{button.shape}}
+          @backgroundColor={{button.backgroundColor}}
+          @isDisabled={{button.isDisabled}}
+          @isLink={{button.isLink}}
+          @size={{button.size}}
+          @isBorderVisible={{button.isBorderVisible}}
+          @route={{button.route}}
         >
-          Bouton avec background transparent-dark
+          {{button.label}}
         </PixButton>
       </section>
-    `,
-    context: args,
-  };
+    {{/each}}`,
+  context: args,
+});
+
+export const Default = Template.bind({});
+Default.args = {
+  route: '/',
+  loadingColor: 'white',
+  shape: 'squircle',
+  size: 'big',
+  backgroundColor: 'blue',
+  label: 'Bouton',
+  style: 'background-color: transparent',
+};
+
+export const borders = Template.bind({});
+borders.args = {
+  ...Default.args,
+  label: 'Bouton avec bordure sur fond clair',
+  backgroundColor: 'transparent-light',
+  loadingColor: 'grey',
+  isBorderVisible: true,
+  extraButtons: [{
+    ...Default.args,
+      label: 'Bouton avec bordure sur fond sombre',
+      style: 'background-color: #775555',
+      backgroundColor: 'transparent-dark',
+      isBorderVisible: true,
+  }]
+};
+
+export const colors = Template.bind({});
+colors.args = {
+  ...Default.args,
+  label: 'Bouton avec background blue (default)',
+  extraButtons: [
+    {
+      ...Default.args,
+      label: 'Bouton avec background green',
+      backgroundColor: 'green',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton avec background yellow',
+      backgroundColor: 'yellow',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton avec background red',
+      backgroundColor: 'red',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton avec background grey',
+      backgroundColor: 'grey',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton avec bordure sur fond clair',
+      backgroundColor: 'transparent-light',
+      loadingColor: 'grey',
+      isBorderVisible: true,
+    },
+    {
+      ...Default.args,
+      label: 'Bouton avec bordure sur fond sombre',
+      style: 'background-color: #775555',
+      backgroundColor: 'transparent-dark',
+      isBorderVisible: true,
+    }
+  ]
 }
 
-export const disabledButtons = (args) => {
-  return {
-    template: hbs`
-      <div style="padding: 10px 20px; background-color: #b5b5b5;">
-        <PixButton
-          @triggerAction={{action triggerAction}}
-          @isDisabled={{isDisabled}}
-          @isBorderVisible={{isBorderVisible}}
-          @backgroundColor={{backgroundColor}}
-        >
-          Bouton
-        </PixButton>
-      </div>
-    `,
-    context: args,
-  };
-};
-disabledButtons.args = {
+export const disabled = Template.bind({});
+disabled.args = {
+  ...Default.args,
+  label: 'Bouton désactivé',
   isDisabled: true,
 };
 
-export const borderButtons = (args) => {
-  return {
-    template: hbs`
-    <section>
-      <PixButton
-        @isBorderVisible={{false}}
-        @backgroundColor="transparent-light"
-      >
-        Bouton sans bordure (défaut)
-      </PixButton>
-    </section>
-    <section>
-      <PixButton
-        @isBorderVisible={{true}}
-        @backgroundColor="transparent-light"
-        >
-        Bouton avec bordure sur fond clair
-      </PixButton>
-    </section>
-      <section style="background-color: #345193">
-        <PixButton
-          @isBorderVisible={{true}}
-          @backgroundColor="transparent-dark"
-          >
-          Bouton avec bordure sur fond sombre
-        </PixButton>
-      </section>
-    `,
-    context: args,
-  };
+export const link = Template.bind({});
+link.args = {
+  ...Default.args,
+  label: 'Je suis un lien',
+  isLink: true,
+  route: 'profile',
 };
 
-export const sizeButtons = (args) => {
-  return {
-    template: hbs`
-    <section>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @size='small'>
-        Bouton small
-      </PixButton>
-    </section>
-    <section>
-      <PixButton
-          @triggerAction={{action triggerAction}}
-          @loading-color='white'
-          @type={{type}}
-          @size='big'>
-        Bouton big (default)
-      </PixButton>
-    </section>
-    `,
-    context: args,
-  };
-}
+export const loader = Template.bind({});
+loader.args = {
+  ...Default.args,
+  label: 'Bouton avec loader gris',
+  backgroundColor: 'yellow',
+  loadingColor: 'grey',
+};
 
-export const linkButtons = (args) => {
-  return {
-    template: hbs`
-    <section>
-      <PixButton
-      @isLink={{false}}
-      >
-        Je suis un bouton (défaut)
-      </PixButton>
-    </section>
-    <section>
-      <PixButton
-        @isLink={{true}}
-        @route='profile'
-        href="#"
-        >
-        Je suis un Lien
-      </PixButton>
-    </section>
-    `,
-    context: args,
-  };
+export const shape = Template.bind({});
+shape.args = {
+  ...Default.args,
+  label: 'Bouton rounded',
+  shape: 'rounded',
+};
+
+export const size = Template.bind({});
+size.args = {
+  ...Default.args,
+  label: 'Bouton small',
+  size: 'small',
 };
 
 export const argsTypes = {
@@ -254,7 +171,8 @@ export const argsTypes = {
     name: 'loadingColor',
     description: 'couleur de chargement: `white`, `grey`',
     type: { name: 'string', required: false },
-    control: { disable: true },
+    options: ['white', 'grey'],
+    control: { type: 'select' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'white' },
@@ -264,7 +182,8 @@ export const argsTypes = {
     name: 'shape',
     description: 'forme: `rounded`,`squircle`',
     type: { name: 'string', required: false },
-    control: { disable: true },
+    options: ['rounded', 'squircle'],
+    control: { type: 'select' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'squircle' },
@@ -293,8 +212,9 @@ export const argsTypes = {
   size: {
     name: 'size',
     description: 'taille: `big`,`small`',
+    options: ['big', 'small'],
     type: { name: 'string', required: false },
-    control: { disable: true },
+    control: { type: 'select' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },

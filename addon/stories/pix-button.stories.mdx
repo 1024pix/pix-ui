@@ -1,0 +1,100 @@
+import { Meta, Story, Canvas, ArgsTable, SourceContainer } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-button.stories.js';
+
+<Meta
+  title='Basics/Button'
+  component='PixButton'
+  decorators={[centered]}
+  argTypes={stories.argsTypes}
+/>
+
+# Pix Button
+
+## Default
+
+Le bouton par défaut qui empêche les clics multiples.
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={75} />
+</Canvas>
+
+## Borders
+
+Le bouton avec bordures et fond transparent
+
+<Canvas isColumn>
+  <Story story={stories.borders} height={150} />
+</Canvas>
+
+## Colors
+
+Le bouton avec toutes ses variations de couleur
+
+<Canvas isColumn>
+  <Story story={stories.colors} height={500} />
+</Canvas>
+
+## Disabled
+
+Le bouton désactivé
+
+<Canvas>
+  <Story story={stories.disabled} height={75} />
+</Canvas>
+
+## Link
+
+Le bouton en lien
+
+<Canvas>
+  <Story story={stories.link} height={75} />
+</Canvas>
+
+## Loader
+
+Le bouton avec loader gris
+
+<Canvas>
+  <Story story={stories.loader} height={75} />
+</Canvas>
+
+## Shape
+
+Le bouton rounded
+
+<Canvas>
+  <Story story={stories.shape} height={75} />
+</Canvas>
+
+## Size
+
+Le bouton en small
+
+<Canvas>
+  <Story story={stories.size} height={75} />
+</Canvas>
+
+## Usage
+
+Un petit bouton avec les bords arrondis en fond transparent avec une bordure
+
+```html
+<PixButton
+  @triggerAction={{action triggerAction}}
+  @loadingColor="white"
+  @shape="squircle"
+  @backgroundColor="transparent-light"
+  @isDisabled={{false}}
+  @isLink={{false}}
+  @size="small"
+  @isBorderVisible={{true}}
+  @route="profile"
+>
+  Cliquez-moi
+</PixButton>
+```
+
+## Arguments
+
+<ArgsTable story="Default" exclude={['buttons', 'model', 'label', 'style']} />

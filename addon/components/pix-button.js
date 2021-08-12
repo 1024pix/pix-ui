@@ -14,12 +14,16 @@ export default class PixButton extends Component {
     return this.args.shape || 'squircle';
   }
 
+  get loadingColor() {
+    return this.args.loadingColor || this.args['loading-color'] || 'white';
+  }
+
   get backgroundColor() {
     return this.args.backgroundColor || 'blue';
   }
 
   get isDisabled() {
-    return this.args.isDisabled === true || false;
+    return this.args.isDisabled;
   }
 
   get isButtonLoadingOrDisabled() {
@@ -27,7 +31,7 @@ export default class PixButton extends Component {
   }
 
   get ariaDisabled() {
-    return (this.isLoading || this.isDisabled).toString();
+    return this.isButtonLoadingOrDisabled;
   }
 
   get size() {
@@ -35,11 +39,23 @@ export default class PixButton extends Component {
   }
 
   get isBorderVisible() {
-    return this.args.isBorderVisible || false;
+    return this.args.isBorderVisible;
   }
 
   get isLink() {
-    return this.args.isLink || false;
+    return this.args.isLink;
+  }
+
+  get className() {
+    const classNames = [
+      'pix-button',
+      `pix-button--shape-${this.shape}`,
+      `pix-button--size-${this.size}`,
+      `pix-button--background-${this.backgroundColor}`
+    ];
+    this.isDisabled && classNames.push('pix-button--disabled');
+    this.isBorderVisible && classNames.push('pix-button--border');
+    return classNames.join(' ')
   }
 
   get route() {

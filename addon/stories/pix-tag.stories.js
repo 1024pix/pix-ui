@@ -3,7 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 export const tag = (args) => {
   return {
     template: hbs`
-      <PixTag @color="{{color}}" @compact={{compact}}>
+      <PixTag @color={{color}} @compact={{compact}}>
         Contenu du tag
       </PixTag>
     `,
@@ -11,15 +11,19 @@ export const tag = (args) => {
   };
 };
 
-export const compactTag = () => {
+export const compactTag = args => {
   return {
     template: hbs`
-      <PixTag @color="{{blue}}" @compact={{true}}>
+      <PixTag @color={{color}} @compact={{compact}}>
         Contenu du tag
       </PixTag>
     `,
+    context: args,
   };
 };
+compactTag.args = {
+  compact: true
+}
 
 
 export const argTypes = {

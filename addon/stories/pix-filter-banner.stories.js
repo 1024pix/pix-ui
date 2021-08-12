@@ -4,21 +4,21 @@ export const filterBanner = (args) => {
   return {
     template: hbs`
       <PixFilterBanner @title={{title}} @details={{details}} @clearFiltersLabel={{clearFiltersLabel}} @onClearFilters={{onClearFilters}}>
-        <PixSelect @options={{options}} @onChange={{onChange}} />
-        <PixSelect @options={{options}} @onChange={{onChange}} />
+        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
       </PixFilterBanner>
     `,
-    context: {
-      title: 'Filtres',
-      details: 'Des détails sur le filtre',
-      clearFiltersLabel: 'Effacer les filtres',
-      onClearFilters: console.log,
-      ...args,
-      options:  [{ value: '1', label: 'Tomate' }],
-      onChange: console.log,
-    },
+    context: args,
   };
 };
+filterBanner.args = {
+  title: 'Filtres',
+  details: 'Des détails sur le filtre',
+  clearFiltersLabel: 'Effacer les filtres',
+  onClearFilters: () => console.log('clear'),
+  options:  [{ value: '1', label: 'Tomate' }, { value: '2', label: 'Mozza' }],
+  onChange: () => console.log('change'),
+}
 
 export const argTypes = {
   title: {
