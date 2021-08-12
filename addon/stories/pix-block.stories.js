@@ -1,25 +1,13 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const defaultBlock = () => {
-  return {
-    template: hbs`
-      <PixBlock>
-        Lorem ipsum
-      </PixBlock>
-    `,
-  };
-};
-
-export const customizableblock = (args) => {
-  return {
-    template: hbs`
-      <PixBlock @shadow={{shadow}}>
-        Lorem ipsum
-      </PixBlock>
-    `,
-    context: args,
-  };
-};
+export const block = args => ({
+  template: hbs`
+    <PixBlock @shadow={{shadow}}>
+      Lorem ipsum
+    </PixBlock>
+  `,
+  context: args,
+});
 
 
 export const argTypes = {
