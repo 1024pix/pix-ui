@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { action } from '@storybook/addon-actions';
 
 export const multiSelectWithChildComponent = (args) => {
   return {
@@ -102,7 +103,7 @@ export const argTypes = {
     name: 'onSelect',
     description: 'Une fonction permettant d\'effectuer une action à chaque sélection',
     type: { required: true },
-    defaultValue: () => console.log('select'),
+    defaultValue: action('onSelect'),
   },
   selected: {
     name: 'selected',
