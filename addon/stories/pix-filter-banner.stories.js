@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { action } from '@storybook/addon-actions';
 
 export const filterBanner = (args) => {
   return {
@@ -15,9 +16,8 @@ filterBanner.args = {
   title: 'Filtres',
   details: 'Des détails sur le filtre',
   clearFiltersLabel: 'Effacer les filtres',
-  onClearFilters: () => console.log('clear'),
   options:  [{ value: '1', label: 'Tomate' }, { value: '2', label: 'Mozza' }],
-  onChange: () => console.log('change'),
+  onChange: action('select-onchange'),
 }
 
 export const argTypes = {
@@ -43,5 +43,6 @@ export const argTypes = {
     name: 'onClearFilters',
     description: 'fonction à appeler pour déclencher l’action de suppression des filtres',
     type: { required: false },
+    defaultValue: action('onClearFilters'),
   },
 };
