@@ -1,14 +1,18 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const returnTo = () => {
+export const returnTo = args => {
   return {
     template: hbs`
-      <PixReturnTo @route='profile' @shade='blue' />
+      <PixReturnTo @route='profile' @shade={{shade}} />
     `,
+    context: args,
   };
 };
+returnTo.args = {
+  shade: 'blue',
+}
 
-export const returnToWithLink = (args) => {
+export const returnToWithText = (args) => {
   return {
     template: hbs`
       <PixReturnTo @route='profile' @shade={{shade}}>
