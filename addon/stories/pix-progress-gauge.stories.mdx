@@ -3,13 +3,24 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-progress-gauge.stories.js';
 
 <Meta
-  title='Others/Progress Gauge/White'
+  title='Others/Progress Gauge'
   component='PixProgressGauge'
   decorators={[centered]}
   argTypes={stories.argTypes}
 />
 
 # Progress Gauge
+
+## Default
+
+Permet d'afficher un barre de progression sur un barème de 100%. Des paramètres existent pour changer la position de la tooltip ou la couleur du composant
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={60} />
+</Canvas>
+
+## White
+
 Démonstration d'une barre de progression blanche avec l'info bulle à gauche avec un sous titre
 
 <Canvas>
@@ -21,8 +32,12 @@ Démonstration d'une barre de progression blanche avec l'info bulle à gauche av
 ```html
 <PixProgressGauge
   @value="50"
-  @tooltipText="50%"
   @color="white"
+  @tooltipText="50%"
   @isArrowLeft="true"
-  @subtitle="Avancement" />
+  @subTitle="Un sous titre" />
 ```
+
+## Arguments
+
+<ArgsTable story="Default" />
