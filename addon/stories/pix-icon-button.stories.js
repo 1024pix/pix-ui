@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { action } from '@storybook/addon-actions';
 
 export const iconButton = (args) => {
   return {
@@ -12,13 +13,12 @@ export const iconButton = (args) => {
         @color={{color}}
         />
     `,
-    context: {
-      icon: 'times',
-      triggerAction: console.log,
-      ...args,
-    }
+    context: args
   };
 };
+iconButton.args = {
+  icon: 'times',
+}
 
 export const argTypes = {
   icon: {
@@ -37,6 +37,7 @@ export const argTypes = {
     name: 'triggerAction',
     description: 'fonction à appeler au clic du bouton',
     type: { required: true },
+    defaultValue: action('triggerAction'),
   },
   withBackground: {
     name: 'withBackground',

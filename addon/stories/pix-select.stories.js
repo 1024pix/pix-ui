@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { action } from '@storybook/addon-actions';
 
 export const select = (args) => {
   return {
@@ -79,7 +80,7 @@ export const argTypes = {
     name: 'onChange',
     description: 'Fonction à appeler si une option est sélectionnée',
     type: { required: true },
-    defaultValue: () => console.log('change'),
+    defaultValue: action('onChange'),
     control: { disable: true },
   },
   selectedOption: {
