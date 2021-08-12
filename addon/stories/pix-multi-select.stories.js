@@ -1,5 +1,36 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export const multiSelectWithChildComponent = (args) => {
+  return {
+    template: hbs`
+      <h3>⚠️ Pour voir le réel rendu, importez PixMultiSelect dans votre app</h3>
+      <PixMultiSelect
+        @title={{titleStars}}
+        @id={{id}}
+        @onSelect={{onSelect}}
+        @emptyMessage={{emptyMessage}}
+        @options={{options}} as |star|
+      >
+        <PixStars
+          @count={{star.value}}
+          @total={{star.total}}
+        />
+      </PixMultiSelect>
+    `,
+    context: {
+      ...args,
+    },
+  };
+};
+multiSelectWithChildComponent.args = {
+  titleStars: 'Sélectionner le niveau souhaité',
+  options: [
+    { value: '1', total: 3 },
+    { value: '2', total: 3 },
+    { value: '3', total: 3 },
+  ],
+}
+
 export const multiSelectSearchable = (args) => {
   return {
     template: hbs`
@@ -21,35 +52,6 @@ export const multiSelectSearchable = (args) => {
       </PixMultiSelect>
     `,
     context: args,
-  };
-};
-
-export const multiSelectWithChildComponent = (args) => {
-  return {
-    template: hbs`
-      <h3>⚠️ Pour voir le réel rendu, importez PixMultiSelect dans votre app</h3>
-      <PixMultiSelect
-        @title={{titleStars}}
-        @id={{id}}
-        @onSelect={{onSelect}}
-        @emptyMessage={{emptyMessage}}
-        @options={{optionsStars}} as |star|
-      >
-        <PixStars
-          @count={{star.value}}
-          @total={{star.total}}
-        />
-      </PixMultiSelect>
-    `,
-    context: {
-      ...args,
-      titleStars: 'Sélectionner le niveau souhaité',
-      optionsStars: [
-        { value: '1', total: 3 },
-        { value: '2', total: 3 },
-        { value: '3', total: 3 },
-      ],
-    },
   };
 };
 
@@ -100,6 +102,7 @@ export const argTypes = {
     name: 'onSelect',
     description: 'Une fonction permettant d\'effectuer une action à chaque sélection',
     type: { required: true },
+    defaultValue: () => console.log('select'),
   },
   selected: {
     name: 'selected',
