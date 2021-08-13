@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v5.3.0 (13/08/2021)
+
+- [#111](https://github.com/1024pix/pix-ui/pull/111) [FEATURE] Refacto des stories
+- [#110](https://github.com/1024pix/pix-ui/pull/110) [FEATURE] Centrer le contenu de Pix-Button par défaut
+- [#109](https://github.com/1024pix/pix-ui/pull/109) [FEATURE] Enlever les effets visuels au survol d'un bouton disabled
+- [#112](https://github.com/1024pix/pix-ui/pull/112) [TECH] Ajout des actions dans storybook (PIX-2995)
+- [#108](https://github.com/1024pix/pix-ui/pull/108) [TECH] Ajuster la taille des apperçus des composants dans les stories
+- [#104](https://github.com/1024pix/pix-ui/pull/104) [TECH] Bump des packages Storybook de 6.1.21 à 6.2.9.
+- [#106](https://github.com/1024pix/pix-ui/pull/106) [TECH] Voir le changelog dans storybook
+
 ## v5.2.2 (04/08/2021)
 
 - [#105](https://github.com/1024pix/pix-ui/pull/105) [FEATURE] Ne pas pouvoir sélectionner la valeur vide du PixSelect.
