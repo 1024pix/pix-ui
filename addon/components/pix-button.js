@@ -34,10 +34,6 @@ export default class PixButton extends Component {
     return this.args.size || 'big';
   }
 
-  get isBorderVisible() {
-    return this.args.isBorderVisible;
-  }
-
   get className() {
     const classNames = [
       'pix-button',
@@ -46,7 +42,7 @@ export default class PixButton extends Component {
       `pix-button--background-${this.backgroundColor}`
     ];
     this.args.isDisabled && classNames.push('pix-button--disabled');
-    this.isBorderVisible && classNames.push('pix-button--border');
+    this.args.isBorderVisible && classNames.push('pix-button--border');
     return classNames.join(' ')
   }
 
