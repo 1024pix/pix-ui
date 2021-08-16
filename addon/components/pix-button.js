@@ -42,10 +42,6 @@ export default class PixButton extends Component {
     return this.args.isBorderVisible;
   }
 
-  get isLink() {
-    return this.args.isLink;
-  }
-
   get className() {
     const classNames = [
       'pix-button',
@@ -56,16 +52,6 @@ export default class PixButton extends Component {
     this.isDisabled && classNames.push('pix-button--disabled');
     this.isBorderVisible && classNames.push('pix-button--border');
     return classNames.join(' ')
-  }
-
-  get route() {
-    const routeParam = this.args.route;
-    if (this.isLink) {
-      if (routeParam === undefined || routeParam.trim() === '') {
-        throw new Error('ERROR in PixButton component, @route param is not provided');
-      }
-    }
-    return routeParam;
   }
 
   get enableTriggerAction(){

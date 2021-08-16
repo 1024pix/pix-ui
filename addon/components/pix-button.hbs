@@ -1,7 +1,7 @@
-{{#if this.isLink}}
+{{#if @route}}
   {{#if @model}}
     <LinkTo
-            @route={{this.route}}
+            @route={{@route}}
             class={{this.className}}
             @model={{@model}}
             ...attributes
@@ -10,7 +10,7 @@
     </LinkTo>
   {{else}}
     <LinkTo
-            @route={{this.route}}
+            @route={{@route}}
             class={{this.className}}
             ...attributes
     >

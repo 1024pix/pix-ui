@@ -100,7 +100,6 @@ module('Integration | Component | button', function(hooks) {
     // when
     await render(hbs`
       <PixButton
-        @isLink={{true}}
         @route='profile'
         class="very-small">
           Mon lien
