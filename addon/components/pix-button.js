@@ -22,12 +22,8 @@ export default class PixButton extends Component {
     return this.args.backgroundColor || 'blue';
   }
 
-  get isDisabled() {
-    return this.args.isDisabled;
-  }
-
   get isButtonLoadingOrDisabled() {
-    return this.isLoading || this.isDisabled;
+    return this.isLoading || this.args.isDisabled;
   }
 
   get ariaDisabled() {
@@ -49,7 +45,7 @@ export default class PixButton extends Component {
       `pix-button--size-${this.size}`,
       `pix-button--background-${this.backgroundColor}`
     ];
-    this.isDisabled && classNames.push('pix-button--disabled');
+    this.args.isDisabled && classNames.push('pix-button--disabled');
     this.isBorderVisible && classNames.push('pix-button--border');
     return classNames.join(' ')
   }
