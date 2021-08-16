@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v5.3.1 (16/08/2021)
+
+- [#117](https://github.com/1024pix/pix-ui/pull/117) [BUGFIX] Permettre de passer des paramètres au PixButton de type lien (PIX-3036).
+- [#115](https://github.com/1024pix/pix-ui/pull/115) [TECH] Réparer le merge automatique (PIX-3001).
+- [#113](https://github.com/1024pix/pix-ui/pull/113) [TECH] Automerge la PR à l'ajout du label (PIX-3001).
+
 ## v5.3.0 (13/08/2021)
 
 - [#111](https://github.com/1024pix/pix-ui/pull/111) [FEATURE] Refacto des stories
