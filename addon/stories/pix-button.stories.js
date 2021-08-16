@@ -9,7 +9,6 @@ const Template = args => ({
         @shape={{shape}}
         @backgroundColor={{backgroundColor}}
         @isDisabled={{isDisabled}}
-        @isLink={{isLink}}
         @size={{size}}
         @isBorderVisible={{isBorderVisible}}
         @route={{route}}
@@ -25,7 +24,6 @@ const Template = args => ({
           @shape={{button.shape}}
           @backgroundColor={{button.backgroundColor}}
           @isDisabled={{button.isDisabled}}
-          @isLink={{button.isLink}}
           @size={{button.size}}
           @isBorderVisible={{button.isBorderVisible}}
           @route={{button.route}}
@@ -117,7 +115,6 @@ export const link = Template.bind({});
 link.args = {
   ...Default.args,
   label: 'Je suis un lien',
-  isLink: true,
   route: 'profile',
 };
 
@@ -230,19 +227,9 @@ export const argsTypes = {
       defaultValue: { summary: 'false' },
     }
   },
-  isLink: {
-    name: 'isLink',
-    description: 'Paramètre pour utiliser un composant LinkTo à la place d\'un bouton',
-    type: { name: 'boolean', required: false },
-    control: { type: 'boolean' },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: 'false' },
-    }
-  },
   route: {
     name: 'route',
-    description: 'Route de redirection',
+    description: 'Paramètre à renseigner pour utiliser un composant LinkTo à la place d\'un bouton. Il prend comme valeur la route de redirection',
     type: { name: 'string', required: true },
     defaultValue: null,
   },

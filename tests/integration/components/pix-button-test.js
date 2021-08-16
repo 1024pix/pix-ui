@@ -100,13 +100,28 @@ module('Integration | Component | button', function(hooks) {
     // when
     await render(hbs`
       <PixButton
-      @isLink={{true}}
-      @route='profile'>
-        Mon lien
+        @route='profile'
+        class="very-small">
+          Mon lien
       </PixButton>
     `);
 
     // then
-    assert.dom('a').exists();
+    assert.dom('a.very-small').exists();
+  });
+
+  test('it renders the PixButton link component with model', async function(assert) {
+    // when
+    await render(hbs`
+      <PixButton
+        @route='profile'
+        class="smaller"
+        @model={{1}}>
+          Mon lien
+      </PixButton>
+    `);
+
+    // then
+    assert.dom('a.smaller').exists();
   });
 });

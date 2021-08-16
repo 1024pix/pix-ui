@@ -22,12 +22,8 @@ export default class PixButton extends Component {
     return this.args.backgroundColor || 'blue';
   }
 
-  get isDisabled() {
-    return this.args.isDisabled;
-  }
-
   get isButtonLoadingOrDisabled() {
-    return this.isLoading || this.isDisabled;
+    return this.isLoading || this.args.isDisabled;
   }
 
   get ariaDisabled() {
@@ -38,14 +34,6 @@ export default class PixButton extends Component {
     return this.args.size || 'big';
   }
 
-  get isBorderVisible() {
-    return this.args.isBorderVisible;
-  }
-
-  get isLink() {
-    return this.args.isLink;
-  }
-
   get className() {
     const classNames = [
       'pix-button',
@@ -53,19 +41,9 @@ export default class PixButton extends Component {
       `pix-button--size-${this.size}`,
       `pix-button--background-${this.backgroundColor}`
     ];
-    this.isDisabled && classNames.push('pix-button--disabled');
-    this.isBorderVisible && classNames.push('pix-button--border');
+    this.args.isDisabled && classNames.push('pix-button--disabled');
+    this.args.isBorderVisible && classNames.push('pix-button--border');
     return classNames.join(' ')
-  }
-
-  get route() {
-    const routeParam = this.args.route;
-    if (this.isLink) {
-      if (routeParam === undefined || routeParam.trim() === '') {
-        throw new Error('ERROR in PixButton component, @route param is not provided');
-      }
-    }
-    return routeParam;
   }
 
   get enableTriggerAction(){
