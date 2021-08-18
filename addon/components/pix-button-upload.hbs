@@ -1,0 +1,10 @@
+<label for={{@id}} class={{this.className}} role="button">
+  {{yield}}
+</label>
+<input
+  id={{@id}}
+  type="file"
+  class="pix-button-upload__input"
+  {{on "change" this.handleChange}}
+  ...attributes
+/>
