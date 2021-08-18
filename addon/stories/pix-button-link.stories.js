@@ -10,6 +10,7 @@ export const htmlLinkTemplate = (args) => {
         @backgroundColor={{backgroundColor}}
         @size={{size}}
         @isBorderVisible={{isBorderVisible}}
+        @isDisabled={{isDisabled}}
       >
         Lien HTML classique
       </PixButtonLink>
@@ -29,6 +30,7 @@ export const emberLinkTemplate = (args) => {
         @backgroundColor={{backgroundColor}}
         @size={{size}}
         @isBorderVisible={{isBorderVisible}}
+        @isDisabled={{isDisabled}}
       >
         Lien route Ember (LinkTo)
       </PixButtonLink>
@@ -95,6 +97,15 @@ export const argTypes = {
   isBorderVisible: {
     name: 'isBorderVisible',
     description: 'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    }
+  },
+  isDisabled: {
+    name: 'isDisabled',
     type: { name: 'boolean', required: false },
     control: { type: 'boolean' },
     table: {

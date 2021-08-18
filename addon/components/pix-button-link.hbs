@@ -3,6 +3,7 @@
     <LinkTo
       @route={{@route}}
       @model={{@model}}
+      @disabled={{@isDisabled}}
       class={{this.className}}
       ...attributes
     >
@@ -11,6 +12,7 @@
   {{else}}
     <LinkTo
       @route={{@route}}
+      @disabled={{@isDisabled}}
       class={{this.className}}
       ...attributes
     >

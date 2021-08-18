@@ -35,7 +35,9 @@ Affiche un bouton avec les propriétés de lien HTML définies.
 Affiche un bouton vers la route EmberJS définie en paramètre.
 Equivalent au `<LinkTo />` de EmberJS avec le style d'un bouton Pix.
 
-Hérite des styles de base de `PixButton` (`shape`, `backgroundColor`, `size`, `isBorderVisible`)
+Hérite des styles de base de `PixButton` (`shape`, `backgroundColor`, `size`, `isBorderVisible`, `isDisabled`)
+
+Un bouton de route EmberJS peut être désactivé via la propriété `@isDisabled`. 
 
 <Canvas>
   <Story name='emberLink' story={stories.emberLink} height={60} />
