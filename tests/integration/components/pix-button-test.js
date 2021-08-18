@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 module('Integration | Component | button', function(hooks) {
   setupRenderingTest(hooks);
@@ -123,5 +124,52 @@ module('Integration | Component | button', function(hooks) {
 
     // then
     assert.dom('a.smaller').exists();
+  });
+
+  module('when the button has a trigger action with a promise', function(hooks) {
+    let clock;
+
+    hooks.beforeEach(function() {
+      clock = sinon.useFakeTimers();
+    })
+
+    hooks.afterEach(function() {
+      clock.restore();
+    })
+
+    test('should display a loading state', async function(assert) {
+      // given
+      this.set('triggerAction', () => {
+        return new Promise((resolve) => {
+          let wait = setTimeout(() => {
+            clearTimeout(wait);
+            resolve();
+          }, 1)
+        });
+      });
+
+      // when
+      await render(hbs`<PixButton @triggerAction={{this.triggerAction}} />`);
+      await click('button');
+
+      // then
+      const loadingComponent = this.element.querySelector('.loader');
+      assert.ok(loadingComponent);
+    });
+  });
+
+  module('when the button has isLoading to true', function() {
+    test('should display a loading state', async function(assert) {
+      // given
+      this.set('triggerAction', () => {});
+      this.set('isLoading', true);
+
+      // when
+      await render(hbs`<PixButton @isLoading={{isLoading}} />`);
+
+      // then
+      const loadingComponent = this.element.querySelector('.loader');
+      assert.ok(loadingComponent);
+    });
   });
 });
