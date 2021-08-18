@@ -1,0 +1,52 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-button-link.stories.js';
+
+<Meta
+  title='Basics/ButtonLink'
+  component='PixButtonLink'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# ButtonLink
+
+Affiche un lien avec le style d'un bouton Pix. Il peut être de type HTML ou Route EmberJS.
+
+Hérite des styles de base de `PixButton` (`shape`, `backgroundColor`, `size`, `isBorderVisible`)
+
+## Lien HTML
+
+Affiche un bouton avec les propriétés de lien HTML définies.
+
+<Canvas>
+  <Story name='htmlLink' story={stories.htmlLink} height={60} />
+</Canvas>
+
+```html
+<PixButtonLink @href="https://pix.fr" target="_blank">
+  Libellé du lien
+</PixButtonLink>
+```
+
+## Lien de route EmberJS
+
+Affiche un bouton vers la route EmberJS définie en paramètre.
+Equivalent au `<LinkTo />` de EmberJS avec le style d'un bouton Pix.
+
+Hérite des styles de base de `PixButton` (`shape`, `backgroundColor`, `size`, `isBorderVisible`)
+
+<Canvas>
+  <Story name='emberLink' story={stories.emberLink} height={60} />
+</Canvas>
+
+```html
+<PixButtonLink @route="ma.route.ember" @model="mon-model">
+  Libellé du lien
+</PixButtonLink>
+```
+
+## Arguments
+
+<ArgsTable story="htmlLink" />
