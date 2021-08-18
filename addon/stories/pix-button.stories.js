@@ -9,6 +9,7 @@ const Template = args => ({
         @shape={{shape}}
         @backgroundColor={{backgroundColor}}
         @isDisabled={{isDisabled}}
+        @isLoading={{isLoading}}
         @size={{size}}
         @isBorderVisible={{isBorderVisible}}
         @route={{route}}
@@ -24,6 +25,7 @@ const Template = args => ({
           @shape={{button.shape}}
           @backgroundColor={{button.backgroundColor}}
           @isDisabled={{button.isDisabled}}
+          @isLoading={{button.isLoading}}
           @size={{button.size}}
           @isBorderVisible={{button.isBorderVisible}}
           @route={{button.route}}
@@ -37,13 +39,18 @@ const Template = args => ({
 
 export const Default = Template.bind({});
 Default.args = {
-  route: '/',
   loadingColor: 'white',
   shape: 'squircle',
   size: 'big',
   backgroundColor: 'blue',
   label: 'Bouton',
-  style: 'background-color: transparent',
+  triggerAction: () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    })
+  },
 };
 
 export const borders = Template.bind({});
@@ -121,9 +128,16 @@ link.args = {
 export const loader = Template.bind({});
 loader.args = {
   ...Default.args,
-  label: 'Bouton avec loader gris',
+  label: 'Bouton avec loader au clic',
   backgroundColor: 'yellow',
   loadingColor: 'grey',
+  extraButtons: [
+    {
+      ...Default.args,
+      triggerAction: () => {},
+      isLoading: true,
+    }
+  ]
 };
 
 export const shape = Template.bind({});
@@ -155,13 +169,6 @@ export const argsTypes = {
     name: 'triggerAction',
     description: 'fonction à appeler en cas de clic, optionnel si le bouton est de type submit',
     type: { required: true },
-    defaultValue: () => {
-      return new Promise((resolve) => {
-        setTimeout(() => {
-          resolve();
-        }, 2000);
-      })
-    },
     control: { disable: true },
   },
   loadingColor: {
@@ -199,6 +206,16 @@ export const argsTypes = {
   },
   isDisabled: {
     name: 'isDisabled',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    }
+  },
+  isLoading: {
+    name: 'isLoading',
+    description: 'Affiche un loader. Si `@triggerAction` retourne une promesse alors le loading est géré automatiquement.',
     type: { name: 'boolean', required: false },
     control: { type: 'boolean' },
     table: {

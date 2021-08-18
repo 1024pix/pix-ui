@@ -4,7 +4,11 @@ import { tracked } from '@glimmer/tracking';
 
 export default class PixButton extends Component {
   text = 'pix-button';
-  @tracked isLoading = false;
+  @tracked isTriggering = false;
+
+  get isLoading() {
+    return this.args.isLoading || this.isTriggering;
+  }
 
   get type() {
     return this.args.type || 'button';
@@ -53,11 +57,11 @@ export default class PixButton extends Component {
   @action
   async triggerAction(params) {
     try {
-      this.isLoading = true;
+      this.isTriggering = true;
       await this.args.triggerAction(params);
-      this.isLoading = false;
+      this.isTriggering = false;
     } catch (e) {
-      this.isLoading = false;
+      this.isTriggering = false;
       if (!this.args.triggerAction) {
         throw new Error('@triggerAction params is required for PixButton !');
       }

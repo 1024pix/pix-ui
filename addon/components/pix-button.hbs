@@ -1,18 +1,18 @@
 {{#if @route}}
   {{#if @model}}
     <LinkTo
-            @route={{@route}}
-            class={{this.className}}
-            @model={{@model}}
-            ...attributes
+      @route={{@route}}
+      class={{this.className}}
+      @model={{@model}}
+      ...attributes
     >
       {{yield}}
     </LinkTo>
   {{else}}
     <LinkTo
-            @route={{@route}}
-            class={{this.className}}
-            ...attributes
+      @route={{@route}}
+      class={{this.className}}
+      ...attributes
     >
       {{yield}}
     </LinkTo>
@@ -20,12 +20,12 @@
 {{else}}
   {{#if this.enableTriggerAction}}
     <button
-            type={{this.type}}
-            class={{this.className}}
-            {{on "click" this.triggerAction}}
-            ...attributes
-            disabled={{this.isButtonLoadingOrDisabled}}
-            aria-disabled={{this.ariaDisabled}}
+      type={{this.type}}
+      class={{this.className}}
+      {{on "click" this.triggerAction}}
+      ...attributes
+      disabled={{this.isButtonLoadingOrDisabled}}
+      aria-disabled={{this.ariaDisabled}}
     >
       {{#if this.isLoading}}
         <div class="loader loader--{{this.loadingColor}}">
@@ -40,11 +40,11 @@
     </button>
   {{else}}
     <button
-            type={{this.type}}
-            class={{this.className}}
-            ...attributes
-            disabled={{this.isButtonLoadingOrDisabled}}
-            aria-disabled={{this.ariaDisabled}}
+      type={{this.type}}
+      class={{this.className}}
+      ...attributes
+      disabled={{this.isButtonLoadingOrDisabled}}
+      aria-disabled={{this.ariaDisabled}}
     >
       {{yield}}
     </button>

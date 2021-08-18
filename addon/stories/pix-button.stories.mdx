@@ -53,10 +53,13 @@ Le bouton en lien
 
 ## Loader
 
-Le bouton avec loader gris
+Le bouton avec loader.
+Le loader peut être affiché de deux façons :
+- En passant une promesse dans l'attribut `@triggerAction`
+- En passant directement l'attribut `@isLoading={{true}}`
 
 <Canvas>
-  <Story story={stories.loader} height={75} />
+  <Story story={stories.loader} height={150} />
 </Canvas>
 
 ## Shape
