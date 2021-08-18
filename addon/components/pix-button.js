@@ -1,8 +1,9 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-export default class PixButton extends Component {
+import PixButtonBase from './pix-button-base'
+
+export default class PixButton extends PixButtonBase {
   text = 'pix-button';
   @tracked isTriggering = false;
 
@@ -14,16 +15,8 @@ export default class PixButton extends Component {
     return this.args.type || 'button';
   }
 
-  get shape() {
-    return this.args.shape || 'squircle';
-  }
-
   get loadingColor() {
     return this.args.loadingColor || this.args['loading-color'] || 'white';
-  }
-
-  get backgroundColor() {
-    return this.args.backgroundColor || 'blue';
   }
 
   get isButtonLoadingOrDisabled() {
@@ -34,20 +27,8 @@ export default class PixButton extends Component {
     return this.isButtonLoadingOrDisabled;
   }
 
-  get size() {
-    return this.args.size || 'big';
-  }
-
   get className() {
-    const classNames = [
-      'pix-button',
-      `pix-button--shape-${this.shape}`,
-      `pix-button--size-${this.size}`,
-      `pix-button--background-${this.backgroundColor}`
-    ];
-    this.args.isDisabled && classNames.push('pix-button--disabled');
-    this.args.isBorderVisible && classNames.push('pix-button--border');
-    return classNames.join(' ')
+    return super.baseClassNames.join(' ')
   }
 
   get enableTriggerAction(){
