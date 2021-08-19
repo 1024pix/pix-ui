@@ -12,7 +12,6 @@ const Template = args => ({
         @isLoading={{isLoading}}
         @size={{size}}
         @isBorderVisible={{isBorderVisible}}
-        @route={{route}}
       >
         {{this.label}}
       </PixButton>
@@ -28,7 +27,6 @@ const Template = args => ({
           @isLoading={{button.isLoading}}
           @size={{button.size}}
           @isBorderVisible={{button.isBorderVisible}}
-          @route={{button.route}}
         >
           {{button.label}}
         </PixButton>
@@ -116,13 +114,6 @@ disabled.args = {
   ...Default.args,
   label: 'Bouton désactivé',
   isDisabled: true,
-};
-
-export const link = Template.bind({});
-link.args = {
-  ...Default.args,
-  label: 'Je suis un lien',
-  route: 'profile',
 };
 
 export const loader = Template.bind({});
@@ -246,13 +237,12 @@ export const argsTypes = {
   },
   route: {
     name: 'route',
-    description: 'Paramètre à renseigner pour utiliser un composant LinkTo à la place d\'un bouton. Il prend comme valeur la route de redirection',
-    type: { name: 'string', required: true },
-    defaultValue: null,
+    description: 'Déprécié et remplacé par le composant PixButtonLink',
+    type: { name: 'string', required: false },
   },
   model: {
     name: 'model',
-    description: 'Model Ember',
+    description: 'Déprécié et remplacé par le composant PixButtonLink',
     type: { required: false },
   },
 };
