@@ -25,6 +25,10 @@ export default class PixMultiSelect extends Component {
     this._setDisplayedOptions(this.args.selected, true);
   }
 
+  get isSmall() {
+    return this.args.size === 'small';
+  }
+
   get results() {
     if (this.args.isSearchable && this.searchData) {
       return this.options.filter(({ label }) => this._search(label));

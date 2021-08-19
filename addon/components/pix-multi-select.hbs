@@ -1,6 +1,6 @@
 <div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown capture=true}}>
   {{#if @isSearchable}}
-    <label class="pix-multi-select-header">
+    <label class="pix-multi-select-header {{if this.isSmall "pix-multi-select-header--small"}}">
 
       <span class="pix-multi-select-header__title">{{@title}}</span>
       <FaIcon @icon='search' class="pix-multi-select-header__search-icon" />
@@ -18,7 +18,9 @@
   {{else}}
     <button 
       type="button" 
-      class="pix-multi-select-header" {{on "click" this.toggleDropDown}}>
+      class="pix-multi-select-header {{if this.isSmall "pix-multi-select-header--small"}}"
+      {{on "click" this.toggleDropDown}}
+    >
       {{@title}}
       <FaIcon class="pix-multi-select-header__dropdown-icon  {{if this.isExpanded 'pix-multi-select-header__dropdown-icon--expand' }}" @icon={{if this.isExpanded "chevron-up" "chevron-down"}}/>
     </button>

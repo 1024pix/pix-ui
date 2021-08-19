@@ -10,6 +10,7 @@ export const multiSelectWithChildComponent = (args) => {
         @id={{id}}
         @onSelect={{onSelect}}
         @emptyMessage={{emptyMessage}}
+        @size={{size}}
         @options={{options}} as |star|
       >
         <PixStars
@@ -46,6 +47,7 @@ export const multiSelectSearchable = (args) => {
         @strictSearch={{strictSearch}}
         @onSelect={{doSomething}}
         @emptyMessage={{emptyMessage}}
+        @size={{size}}
         @selected={{selected}}
         @options={{options}} as |option|
       >
@@ -128,5 +130,16 @@ export const argTypes = {
     description: 'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
     defaultValue: false,
+  },
+  size: {
+    name: 'size',
+    description: 'taille: `big`,`small`',
+    options: ['big', 'small'],
+    type: { name: 'string', required: false },
+    control: { type: 'select' },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'big' },
+    }
   },
 };
