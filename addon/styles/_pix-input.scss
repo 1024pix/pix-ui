@@ -1,0 +1,36 @@
+.pix-input {
+  @import 'reset-css';
+
+  display: flex;
+  flex-direction: column;
+
+  label {
+    font-family: $font-roboto;
+    font-size: 0.875rem;
+    color: $grey-70;
+    margin-bottom: 4px;
+  }
+
+  input {
+    padding: 10px 16px;
+    border: 1.5px solid $grey-40;
+    border-radius: 4px;
+    font-family: $font-roboto;
+    font-size: 0.875rem;
+    font-weight: 400;
+    color: $grey-90;
+
+    &:hover {
+      cursor: pointer;
+    }
+
+    &:focus {
+      border: 1.5px solid $blue;
+      outline: 0.5px solid $blue;
+    }
+
+    &::placeholder {
+      color: $grey-30;
+    }
+  }
+}
