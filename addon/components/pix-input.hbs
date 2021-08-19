@@ -5,5 +5,11 @@
   {{#if @information}}
     <label for={{this.id}} class="pix-input__information">{{@information}}</label>
   {{/if}}
-  <input id={{this.id}} ...attributes />
+
+  <input id={{this.id}} class="{{if @errorMessage "pix-input__input--error"}}" ...attributes />
+
+  {{#if @errorMessage}}
+    <FaIcon @icon="times" class="pix-input__error-icon" />
+    <label for={{this.id}} class="pix-input__error-message">{{@errorMessage}}</label>
+  {{/if}}
 </div>

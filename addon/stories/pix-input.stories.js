@@ -1,21 +1,37 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const input = (args) => {
+export const Template = (args) => {
   return {
     template: hbs`
       <PixInput
         @id={{id}}
         @label={{label}}
         @information={{information}}
+        @errorMessage={{errorMessage}}
         placeholder='Jeanne, Pierre ...' />
     `,
     context: args,
   };
 };
+
+export const Default = Template.bind({});
+Default.args = {
+  id: 'firstName',
+}
+
+export const input = Template.bind({});
 input.args = {
   id: 'firstName',
   label: 'Prénom',
   information: 'a small information',
+}
+
+export const inError = Template.bind({});
+inError.args = {
+  id: 'firstName',
+  label: 'Prénom',
+  information: 'a small information',
+  errorMessage: 'un message d\'erreur',
 }
 
 export const argTypes = {
@@ -34,6 +50,12 @@ export const argTypes = {
   information: {
     name: 'information',
     description: 'Un descriptif complétant le label',
+    type: { name: 'string', required: false },
+    defaultValue: null,
+  },
+  errorMessage: {
+    name: 'errorMessage',
+    description: 'Affiche le message d\'erreur donné et encadre en rouge le champ',
     type: { name: 'string', required: false },
     defaultValue: null,
   },

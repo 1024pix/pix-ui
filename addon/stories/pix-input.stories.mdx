@@ -14,14 +14,33 @@ import * as stories from './pix-input.stories.js';
 
 Le PixInput permet de créer un champ de texte.
 
+
+## Default
+
 <Canvas>
-  <Story name='PixInput' story={stories.input} height={160} />
+  <Story name='PixInput' story={stories.Default} height={100} />
+</Canvas>
+
+## With label and information
+
+<Canvas>
+  <Story story={stories.input} height={100} />
+</Canvas>
+
+## In error
+
+<Canvas>
+  <Story story={stories.inError} height={130} />
 </Canvas>
 
 ## Usage
 
 ```html
-<PixInput @id='firstName' @label='Prénom' @information='Complément du label' />
+<PixInput
+  @id='firstName'
+  @label='Prénom'
+  @information='Complément du label'
+  @errorMessage="Un message d'erreur" />
 ```
 
 ## Arguments

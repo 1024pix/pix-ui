@@ -10,6 +10,7 @@ module('Integration | Component | input', function(hooks) {
   const INPUT_SELECTOR = '.pix-input input';
   const LABEL_SELECTOR = '.pix-input__label';
   const INFORMATION_SELECTOR = '.pix-input__information';
+  const ERROR_SELECTOR = '.pix-input__error-message';
 
   test('it renders the default PixInput', async function(assert) {
     // when
@@ -47,6 +48,15 @@ module('Integration | Component | input', function(hooks) {
     // when & then
     const selectorElement = this.element.querySelector(INFORMATION_SELECTOR);
     assert.equal(selectorElement.innerHTML, 'a small information');
+  });
+
+  test('it should be possible to give an error message to input', async function(assert) {
+    // given
+    await render(hbs`<PixInput @id="firstName" @errorMessage="Seul les caractères alphanumériques sont autorisés" />`);
+
+    // when & then
+    const selectorElement = this.element.querySelector(ERROR_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'Seul les caractères alphanumériques sont autorisés');
   });
 
   test('it should be possible to give more params to input', async function(assert) {
