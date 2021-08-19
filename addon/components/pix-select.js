@@ -14,6 +14,10 @@ export default class PixSelect extends Component {
     }
   }
 
+  get isSmall() {
+    return this.args.size === 'small';
+  }
+
   @action
   onChange(event) {
     if (this.args.onChange) {

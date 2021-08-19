@@ -13,6 +13,7 @@ export const select = (args) => {
         @emptyOptionNotSelectable={{emptyOptionNotSelectable}}
         @isSearchable={{isSearchable}}
         @isValidationActive={{isValidationActive}}
+        @size={{size}}
       />
     `,
     context: args,
@@ -32,6 +33,7 @@ export const searchableSelect = (args) => {
         @isSearchable={{isSearchable}}
         @isValidationActive={{isValidationActive}}
         placeholder={{this.placeholder}}
+        @size={{size}}
       />
     `,
     context: args,
@@ -113,5 +115,16 @@ export const argTypes = {
     description: 'Rend le premier champ qui est vide non visible une fois sélectionné',
     control: { type: 'boolean' },
     type: { name: 'boolean', required: false },
+  },
+  size: {
+    name: 'size',
+    description: 'taille: `big`,`small`',
+    options: ['big', 'small'],
+    type: { name: 'string', required: false },
+    control: { type: 'select' },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'big' },
+    }
   },
 };
