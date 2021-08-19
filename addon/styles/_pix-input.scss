@@ -18,6 +18,18 @@
     margin-top: 4px;
   }
 
+  svg.pix-input__icon {
+    position: absolute;
+    bottom: 10px;
+    right: 6px;
+    color: $grey-25;
+    margin-right: 6px;
+  }
+
+  svg ~ svg.pix-input__icon {
+    right: calc(6px + 12px + 2px);
+  }
+
   svg.pix-input__error-icon {
     position: absolute;
     bottom: 10px;
@@ -70,6 +82,10 @@
       &:focus {
         outline-color: $red;
       }
+    }
+
+    &.pix-input__input--error.pix-input__input--icon {
+      padding-right: 46px;
     }
   }
 }

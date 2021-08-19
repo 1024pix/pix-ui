@@ -8,6 +8,7 @@ export const Template = (args) => {
         @label={{label}}
         @information={{information}}
         @errorMessage={{errorMessage}}
+        @icon={{icon}}
         placeholder='Jeanne, Pierre ...' />
     `,
     context: args,
@@ -34,6 +35,13 @@ inError.args = {
   errorMessage: 'un message d\'erreur',
 }
 
+export const withIcon = Template.bind({});
+withIcon.args = {
+  id: 'firstName',
+  label: 'Prénom',
+  icon: 'eye',
+}
+
 export const argTypes = {
   id: {
     name: 'id',
@@ -56,6 +64,12 @@ export const argTypes = {
   errorMessage: {
     name: 'errorMessage',
     description: 'Affiche le message d\'erreur donné et encadre en rouge le champ',
+    type: { name: 'string', required: false },
+    defaultValue: null,
+  },
+  icon: {
+    name: 'icon',
+    description: 'Affiche l\'icon choisie à la fin de l\'input',
     type: { name: 'string', required: false },
     defaultValue: null,
   },
