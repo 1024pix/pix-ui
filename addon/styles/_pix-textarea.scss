@@ -4,13 +4,13 @@
   textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1.6px solid $grey-45;
+    border: 1px solid $grey-40;
     border-style: solid;
     border-radius: 4px;
     padding: 8px;
     font-family: $font-roboto;
-    color: $grey-45;
-    font-size: 1rem;
+    color: $grey-90;
+    font-size: 0.875rem;
     resize: vertical;
 
     &:hover {
@@ -18,7 +18,7 @@
     }
 
     &:focus {
-      border: 1.6px solid $blue;
+      border: 1px solid $blue;
       outline: none;
     }
   }
