@@ -1,6 +1,9 @@
 <div class='pix-input'>
   {{#if @label}}
-    <label for={{this.id}}>{{@label}}</label>
+    <label for={{this.id}} class="pix-input__label">{{@label}}</label>
+  {{/if}}
+  {{#if @information}}
+    <label for={{this.id}} class="pix-input__information">{{@information}}</label>
   {{/if}}
   <input id={{this.id}} ...attributes />
 </div>

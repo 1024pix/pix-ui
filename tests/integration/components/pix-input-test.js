@@ -8,7 +8,8 @@ module('Integration | Component | input', function(hooks) {
   setupRenderingTest(hooks);
 
   const INPUT_SELECTOR = '.pix-input input';
-  const LABEL_SELECTOR = '.pix-input label';
+  const LABEL_SELECTOR = '.pix-input__label';
+  const INFORMATION_SELECTOR = '.pix-input__information';
 
   test('it renders the default PixInput', async function(assert) {
     // when
@@ -37,6 +38,15 @@ module('Integration | Component | input', function(hooks) {
     // when & then
     const selectorElement = this.element.querySelector(LABEL_SELECTOR);
     assert.equal(selectorElement.innerHTML, 'Prénom');
+  });
+
+  test('it should be possible to give an extra information to input', async function(assert) {
+    // given
+    await render(hbs`<PixInput @id="firstName" @label="Prénom" @information="a small information" />`);
+
+    // when & then
+    const selectorElement = this.element.querySelector(INFORMATION_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'a small information');
   });
 
   test('it should be possible to give more params to input', async function(assert) {

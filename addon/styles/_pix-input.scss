@@ -4,14 +4,21 @@
   display: flex;
   flex-direction: column;
 
-  label {
+  &__label {
     font-family: $font-roboto;
     font-size: 0.875rem;
     color: $grey-70;
-    margin-bottom: 4px;
+  }
+
+  &__information {
+    font-family: $font-roboto;
+    font-size: 0.75rem;
+    color: $blue-zodiac;
+    margin-top: 4px;
   }
 
   input {
+    margin-top: 4px;
     padding: 10px 16px;
     border: 1.5px solid $grey-40;
     border-radius: 4px;
