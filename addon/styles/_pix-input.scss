@@ -24,6 +24,10 @@
     bottom: 10px;
     right: 6px;
     color: $grey-25;
+
+    &--left {
+      left: 6px;
+    }
   }
 
   svg ~ svg.pix-input__icon {
@@ -84,7 +88,11 @@
       padding-right: 30px;
     }
 
-    &.pix-input__input--error.pix-input__input--icon {
+    &.pix-input__input--icon.pix-input__input--icon-left {
+      padding-left: 30px;
+    }
+
+    &.pix-input__input--error.pix-input__input--icon:not(.pix-input__input--icon-left) {
       padding-right: 46px;
     }
   }

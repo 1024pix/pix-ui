@@ -67,6 +67,14 @@ module('Integration | Component | input', function(hooks) {
     assert.dom('.pix-input__icon').exists();
   });
 
+  test('it should be possible to put an icon to the left of input', async function(assert) {
+    // given
+    await render(hbs`<PixInput @id="firstName" @icon="times" @isIconLeft={{true}} />`);
+
+    // when & then
+    assert.dom('.pix-input__icon.pix-input__icon--left').exists();
+  });
+
   test('it should be possible to give more params to input', async function(assert) {
     // given
     await render(hbs`<PixInput @label="Prénom" @id="firstName" value='Jeanne' />`);

@@ -8,7 +8,11 @@
 
   <input
     id={{this.id}}
-    class="{{if @errorMessage "pix-input__input--error"}} {{if @icon "pix-input__input--icon"}}"
+    class="
+      {{if @errorMessage "pix-input__input--error"}}
+      {{if @icon " pix-input__input--icon"}}
+      {{if @isIconLeft " pix-input__input--icon-left"}}
+    "
     ...attributes />
 
   {{#if @errorMessage}}
@@ -17,7 +21,7 @@
   {{/if}}
 
   {{#if @icon}}
-    <FaIcon @icon={{@icon}} class="pix-input__icon" />
+    <FaIcon @icon={{@icon}} class="pix-input__icon {{if @isIconLeft "pix-input__icon--left"}}" />
   {{/if}}
 
 </div>

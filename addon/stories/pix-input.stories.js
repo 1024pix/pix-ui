@@ -9,6 +9,7 @@ export const Template = (args) => {
         @information={{information}}
         @errorMessage={{errorMessage}}
         @icon={{icon}}
+        @isIconLeft={{isIconLeft}}
         placeholder='Jeanne, Pierre ...' />
     `,
     context: args,
@@ -69,8 +70,19 @@ export const argTypes = {
   },
   icon: {
     name: 'icon',
-    description: 'Affiche l\'icon choisie à la fin de l\'input',
+    description: 'Affiche l\'icone choisie à la fin de l\'input',
     type: { name: 'string', required: false },
     defaultValue: null,
+  },
+  isIconLeft: {
+    name: 'isIconLeft',
+    description: 'Permet d\'afficher l\'icone choisie à la gauche',
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    defaultValue: false,
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
+    }
   },
 };
