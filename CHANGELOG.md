@@ -1,5 +1,13 @@
 # Pix-UI Changelog
 
+## v5.4.0 (20/08/2021)
+
+- [#120](https://github.com/1024pix/pix-ui/pull/120) [FEATURE] Ajout du composant PixButtonUpload
+- [#119](https://github.com/1024pix/pix-ui/pull/119) [FEATURE] Ajout du composant PixButtonLink
+- [#118](https://github.com/1024pix/pix-ui/pull/118) [FEATURE] Alignement du PixButton avec le design system
+- [#114](https://github.com/1024pix/pix-ui/pull/114) [TECH] Mise a jour des dépendances et fix des vulnérabilités (PIX-2961).
+- [#116](https://github.com/1024pix/pix-ui/pull/116) [TECH] S'assurer des règles d'a11y du linter (PIX-3033)
+
 ## v5.3.1 (16/08/2021)
 
 - [#117](https://github.com/1024pix/pix-ui/pull/117) [BUGFIX] Permettre de passer des paramètres au PixButton de type lien (PIX-3036).
