@@ -4,15 +4,17 @@
       @route={{@route}}
       @model={{@model}}
       @disabled={{@isDisabled}}
+      @query={{@query}}
       class={{this.className}}
       ...attributes
     >
-      {{yield}}
+      t {{yield}}
     </LinkTo>
   {{else}}
     <LinkTo
       @route={{@route}}
       @disabled={{@isDisabled}}
+      @query={{@query}}
       class={{this.className}}
       ...attributes
     >
