@@ -27,8 +27,8 @@ input.args = {
   information: 'a small information',
 }
 
-export const inError = Template.bind({});
-inError.args = {
+export const withErrorMessage = Template.bind({});
+withErrorMessage.args = {
   id: 'firstName',
   label: 'Prénom',
   information: 'a small information',

@@ -9,13 +9,14 @@
     font-family: $font-roboto;
     font-size: 0.875rem;
     color: $grey-70;
+    margin-bottom: 4px;
   }
 
   &__information {
     font-family: $font-roboto;
     font-size: 0.75rem;
     color: $blue-zodiac;
-    margin-top: 4px;
+    margin-bottom: 4px;
   }
 
   svg.pix-input__icon {
@@ -23,11 +24,11 @@
     bottom: 10px;
     right: 6px;
     color: $grey-25;
-    margin-right: 6px;
   }
 
   svg ~ svg.pix-input__icon {
     right: calc(6px + 12px + 2px);
+    padding-right: 6px;
   }
 
   svg.pix-input__error-icon {
@@ -45,7 +46,7 @@
 
   &__error-message {
     position: absolute;
-    bottom: calc(-4px - 1.5px - 0.75rem);
+    bottom: calc(-4px - 1px - 0.75rem);
     font-family: $font-roboto;
     font-size: 0.75rem;
     color: $red;
@@ -53,10 +54,9 @@
   }
 
   input {
-    margin-top: 4px;
     padding: 10px 16px;
     padding-right: 26px;
-    border: 1.5px solid $grey-40;
+    border: 1px solid $grey-40;
     border-radius: 4px;
     font-family: $font-roboto;
     font-size: 0.875rem;
@@ -68,8 +68,8 @@
     }
 
     &:focus {
-      border: 1.5px solid $blue;
-      outline: 0.5px solid $blue;
+      border: 1px solid $blue;
+      outline: none;
     }
 
     &::placeholder {
@@ -78,10 +78,10 @@
 
     &.pix-input__input--error {
       border-color: $red;
+    }
 
-      &:focus {
-        outline-color: $red;
-      }
+    &.pix-input__input--icon {
+      padding-right: 30px;
     }
 
     &.pix-input__input--error.pix-input__input--icon {
