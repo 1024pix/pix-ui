@@ -13,20 +13,50 @@ import * as stories from './pix-icon-button.stories.js';
 
 Le PixIconButton permet de créer un bouton contenant une icône font-awesome.
 
+## Default / Boutons d'action
+
+Le bouton par défaut. En small avec fond grisé.
+
 <Canvas>
-  <Story name="Icon button" story={stories.iconButton} height={60} />
+  <Story name="Default Small" story={stories.DefaultSmall} height={60} />
+</Canvas>
+
+## Default / Bouton de fermeture
+
+Le bouton par défaut. En big avec fond grisé.
+
+<Canvas>
+  <Story name="Default Big" story={stories.DefaultBig} height={60} />
+</Canvas>
+
+## Without Background
+
+Le bouton sans le fond grisé, pour les tableaux par exemple.
+
+<Canvas>
+  <Story name="Without Background" story={stories.withoutBackground} height={60} />
 </Canvas>
 
 ## Usage
 
-état enabled
+Par défaut
 ```html
-<PixIconButton @icon='times' @triggerAction="{{triggerAction}}"/>
+<PixIconButton
+    @icon='times'
+    @triggerAction="{{triggerAction}}"
+    @size='small'
+    @withBackground={{true}}
+/>
 ```
 
-état disabled
+État disabled
 ```html
-<PixIconButton @icon='times' @triggerAction="{{triggerAction}}" disabled={{true}} aria-disabled="{{true}}"/>
+<PixIconButton
+    @icon='times'
+    @triggerAction="{{triggerAction}}"
+    disabled={{true}}
+    aria-disabled="{{true}}"
+/>
 ```
 
-<ArgsTable story="Icon button" />
+<ArgsTable story="Default Small" />

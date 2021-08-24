@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
-export const iconButton = (args) => {
+const Template = (args) => {
   return {
     template: hbs`
       <PixIconButton
@@ -16,9 +16,26 @@ export const iconButton = (args) => {
     context: args
   };
 };
-iconButton.args = {
+
+export const DefaultSmall = Template.bind({});
+DefaultSmall.args = {
+  icon: 'arrow-down',
+  size: 'small',
+  withBackground: true,
+};
+
+export const DefaultBig = Template.bind({});
+DefaultBig.args = {
   icon: 'times',
-}
+  size: 'big',
+  withBackground: true,
+};
+
+export const withoutBackground = Template.bind({});
+withoutBackground.args = {
+  ...DefaultSmall.args,
+  withBackground: false,
+};
 
 export const argTypes = {
   icon: {
