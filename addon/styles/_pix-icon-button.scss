@@ -16,17 +16,22 @@
     cursor: default;
   }
 
-  &:hover, &:active {
+  &:hover, &:focus {
     transition: background-color 0.2s ease;
-    background-color: $grey-20;
+    background-color: $grey-15;
     &:disabled {
       background-color: transparent;
     }
   }
 
+  &:active {
+    transition: background-color 0.2s ease;
+    background-color: $grey-20;
+  }
+
   &--background {
-    background-color: $grey-15;
-    &:hover, &:active {
+    background-color: $grey-10;
+    &:hover, &:focus, &:active {
       &:disabled {
         background-color: $grey-15;
       }
