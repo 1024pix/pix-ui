@@ -20,6 +20,7 @@ export const tooltip = (args) => {
 export const argTypes = {
   text: {
     name: 'text',
+    defaultValue: 'Tooltiptop',
     description: 'Texte à afficher',
     type: { name: 'string', required: false },
   },
