@@ -17,6 +17,8 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 
 > ⚠️ A noter que le wrapper PixTooltip est en `display: flex;`, il s'adaptera donc à la taille de ses enfants. Ainsi si votre élément ne s'affiche plus comme avant après l'ajout de la PixTooltip, veillez à rajouter les dimensions voulues à l'enfant.
 
+> ⚠️ L'infobulle ne s'affichera pas si le texte est vide.
+
 <Canvas>
   <Story name="Tooltip" story={stories.tooltip} height={160} />
 </Canvas>
@@ -36,7 +38,7 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 <PixTooltip
   @text='A looooooong looooooong text but in a single line'
   @position='left'
-  @isInline=true
+  @isInline={{true}}
   >
   <button>Tooltip inline left</button>
 </PixTooltip>
@@ -46,7 +48,7 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 <PixTooltip
   @text='In accumsan scelerisque sapien, et lacinia nisi efficitur a.'
   @position='bottom'
-  @isLight=true
+  @isLight={{true}}
   >
   <button>Tooltip bottom light</button>
 </PixTooltip>
@@ -56,8 +58,8 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 <PixTooltip
   @text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
   @position='bottom-left'
-  @isLight=true
-  @wide=true
+  @isLight={{true}}
+  @isWide={{true}}
   >
   <button>Tooltip bottom left wide light</button>
 </PixTooltip>
