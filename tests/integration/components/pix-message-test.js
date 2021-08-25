@@ -50,8 +50,8 @@ module('Integration | Component | pix-message', function(hooks) {
     assert.equal(icon.getAttribute('data-icon'), 'check-circle');
   });
 
-  test('it renders with a alert icon for alert type', async function(assert) {
-    await render(hbs`<PixMessage @type="alert" @withIcon="true" />`);
+  test('it renders with a alert icon for error type', async function(assert) {
+    await render(hbs`<PixMessage @type="error" @withIcon="true" />`);
 
     const icon = this.element.querySelector('.pix-message svg');
     assert.dom('.pix-message svg').exists();
