@@ -10,7 +10,6 @@ const Template = (args) => {
         @triggerAction={{triggerAction}}
         @withBackground={{withBackground}}
         @size={{size}}
-        @color={{color}}
         />
     `,
     context: args
@@ -77,7 +76,7 @@ export const argTypes = {
   },
   color: {
     name: 'color',
-    description: 'color: `light-grey`, `dark-grey`',
+    description: 'Propriété dépréciée. Color: `light-grey`, `dark-grey`',
     type: { name: 'string', required: false },
     control: { type: 'select', options: ['light-grey', 'dark-grey'] },
     table: {
