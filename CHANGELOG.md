@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v5.5.0 (25/08/2021)
+
+- [#121](https://github.com/1024pix/pix-ui/pull/121) [FEATURE] Création du composant PixInput (PIX-3014).
+
 ## v5.4.1 (25/08/2021)
 
 - [#125](https://github.com/1024pix/pix-ui/pull/125) [FEATURE] Ne pas afficher la tooltip si le texte est vide
