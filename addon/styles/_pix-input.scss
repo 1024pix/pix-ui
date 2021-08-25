@@ -68,11 +68,12 @@
     color: $grey-90;
 
     &:hover {
-      cursor: pointer;
+      box-shadow: inset 0px 0px 0px 0.6px $grey-40;
     }
 
     &:focus {
-      border: 1px solid $blue;
+      border-color: $blue;
+      box-shadow: inset 0px 0px 0px 0.6px $blue;
       outline: none;
     }
 
@@ -82,6 +83,7 @@
 
     &.pix-input__input--error {
       border-color: $red;
+      box-shadow: inset 0px 0px 0px 0.6px $red;
     }
 
     &.pix-input__input--icon {

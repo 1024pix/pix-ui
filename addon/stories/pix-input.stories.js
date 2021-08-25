@@ -21,8 +21,8 @@ Default.args = {
   id: 'firstName',
 }
 
-export const input = Template.bind({});
-input.args = {
+export const withLabel = Template.bind({});
+withLabel.args = {
   id: 'firstName',
   label: 'Prénom',
   information: 'a small information',
@@ -70,13 +70,13 @@ export const argTypes = {
   },
   icon: {
     name: 'icon',
-    description: 'Affiche l\'icone choisie à la fin de l\'input',
+    description: 'Affiche l\'icône choisie à la fin de l\'input',
     type: { name: 'string', required: false },
     defaultValue: null,
   },
   isIconLeft: {
     name: 'isIconLeft',
-    description: 'Permet d\'afficher l\'icone choisie à la gauche',
+    description: 'Permet d\'afficher l\'icône choisie sur la gauche',
     type: { name: 'boolean', required: false },
     control: { type: 'boolean' },
     defaultValue: false,
