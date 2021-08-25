@@ -84,6 +84,14 @@ Infobulle dont le contenu reste sur une ligne.
   <Story name="Is Inline" story={stories.isInline} height={200} />
 </Canvas>
 
+## unescape HTML
+
+N'échappe pas l'HTML (Affiche du HTML formaté)
+
+<Canvas>
+    <Story name="unescape HTML" story={stories.unescapeHtml} height={200} />
+</Canvas>
+
 ## Usage
 
 ```html
@@ -102,7 +110,7 @@ Infobulle dont le contenu reste sur une ligne.
 
 <PixTooltip
   @text='Hey'
-  @isInline={{true}}
+  @isLight={{true}}
 >
   <button>Tooltip sur une ligne</button>
 </PixTooltip>
@@ -110,15 +118,23 @@ Infobulle dont le contenu reste sur une ligne.
 <PixTooltip
   @text='Hey'
   @position='bottom'
->
+  @isLight={{true}}
+  >
   <button>Tooltip apparaissant en bas</button>
 </PixTooltip>
 
 <PixTooltip
   @text='Hey'
   @isWide={{true}}
->
+  >
   <button>Tooltip en mode large</button>
+</PixTooltip>
+
+<PixTooltip
+  @text='Super <b style="color: green">i</b>n<b style="color: green">f</b>o'
+  @unescapeHtml={{true}}
+  >
+  <button>Html tooltip</button>
 </PixTooltip>
 ```
 
