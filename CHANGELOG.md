@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v5.4.1 (25/08/2021)
+
+- [#125](https://github.com/1024pix/pix-ui/pull/125) [FEATURE] Ne pas afficher la tooltip si le texte est vide
+
 ## v5.4.0 (20/08/2021)
 
 - [#120](https://github.com/1024pix/pix-ui/pull/120) [FEATURE] Ajout du composant PixButtonUpload
