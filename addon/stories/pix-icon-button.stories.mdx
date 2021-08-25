@@ -37,6 +37,10 @@ Le bouton sans le fond grisé, pour les tableaux par exemple.
   <Story name="Without Background" story={stories.withoutBackground} height={60} />
 </Canvas>
 
+## Accessibilité / aria-label
+
+L'attribut `aria-label` étant indispensable pour l'accessibilité de ce composant, la propriété `ariaLabel` a été ajouté.
+
 ## Color
 
 Cette propriété est dépréciée. L'icône du bouton ne peut avoir qu'une seule couleur.
@@ -46,6 +50,7 @@ Cette propriété est dépréciée. L'icône du bouton ne peut avoir qu'une seul
 Par défaut
 ```html
 <PixIconButton
+    @ariaLabel="L'action du bouton"
     @icon='times'
     @triggerAction="{{triggerAction}}"
     @size='small'

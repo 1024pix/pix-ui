@@ -5,6 +5,7 @@ const Template = (args) => {
   return {
     template: hbs`
       <PixIconButton
+        @ariaLabel={{ariaLabel}}
         @icon={{icon}}
         @iconPrefix={{iconPrefix}}
         @triggerAction={{triggerAction}}
@@ -18,6 +19,7 @@ const Template = (args) => {
 
 export const DefaultSmall = Template.bind({});
 DefaultSmall.args = {
+  ariaLabel: 'Action du bouton',
   icon: 'arrow-down',
   size: 'small',
   withBackground: true,
@@ -25,6 +27,7 @@ DefaultSmall.args = {
 
 export const DefaultBig = Template.bind({});
 DefaultBig.args = {
+  ariaLabel: 'Action du bouton',
   icon: 'times',
   size: 'big',
   withBackground: true,
@@ -37,6 +40,12 @@ withoutBackground.args = {
 };
 
 export const argTypes = {
+  ariaLabel: {
+    name: 'ariaLabel',
+    description: 'l\'action du bouton, pour l\'accessibilité',
+    type: { name: 'string', required: true },
+    table: { defaultValue: { summary: 'times' } },
+  },
   icon: {
     name: 'icon',
     description: 'icône font-awesome',
