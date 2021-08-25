@@ -1,0 +1,56 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-input.stories.js';
+
+<Meta
+  title='Form/Input'
+  component='PixInput'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# PixInput
+
+Le PixInput permet de créer un champ de texte.
+
+
+## Default
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={100} />
+</Canvas>
+
+## With label and information
+
+<Canvas>
+  <Story story={stories.withLabel} height={100} />
+</Canvas>
+
+## With error message
+
+<Canvas>
+  <Story story={stories.withErrorMessage} height={130} />
+</Canvas>
+
+## With icon
+
+<Canvas>
+  <Story story={stories.withIcon} height={130} />
+</Canvas>
+
+## Usage
+
+```html
+<PixInput
+  @id='firstName'
+  @label='Prénom'
+  @information='Complément du label'
+  @errorMessage="Un message d'erreur"
+  @icon="eye"
+  @isIconLeft={{false}} />
+```
+
+## Arguments
+
+<ArgsTable story="PixInput" />
