@@ -7,24 +7,10 @@ module('Integration | Component | pix-tooltip', function(hooks) {
   setupRenderingTest(hooks);
 
   const TOOLTIP_SELECTOR = '.pix-tooltip span';
-
-  test('it renders the default tooltip', async function(assert) {
-    // when
-    await render(hbs`
-      <PixTooltip>
-        template block text
-      </PixTooltip>
-    `);
-    const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
-
-    // then
-    assert.equal(this.element.textContent.trim(), 'template block text');
-    assert.equal(tooltipContentElement.classList.toString().trim(), 'pix-tooltip__content pix-tooltip__content--top');
-  });
+  const text = 'Un text à afficher au survol du contenu de la tooltip';
 
   test('it renders the tooltip text', async function(assert) {
     // given
-    const text = 'Un text à afficher au survol du contenu de la tooltip';
     this.set('text', text);
 
     // when
@@ -37,6 +23,20 @@ module('Integration | Component | pix-tooltip', function(hooks) {
 
     // then
     assert.equal(tooltipContentElement.innerHTML.trim(), text);
+  });
+
+  test('it renders only the inner data if there is no tooltip text', async function(assert) {
+    // when
+    await render(hbs`
+      <PixTooltip>
+        template block text
+      </PixTooltip>
+    `);
+    const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+    // then
+    assert.equal(this.element.textContent.trim(), 'template block text');
+    assert.notOk(tooltipContentElement);
   });
 
   module('tooltip position', function() {
@@ -55,12 +55,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     ].forEach(function(position) {
       test(`it can render ${position}`, async function(assert) {
         // given
+        this.set('text', text);
         this.set('position', position);
 
         // when
         await render(hbs`
-          <PixTooltip @position={{this.position}}>
-          </PixTooltip>
+          <PixTooltip @position={{this.position}} @text={{this.text}}></PixTooltip>
         `);
         const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
@@ -75,9 +75,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     const LIGHT_CLASS = 'pix-tooltip__content--light';
 
     test('it can render in dark mode', async function(assert) {
+      // given
+      this.set('text', text);
+
       // when
       await render(hbs`
-        <PixTooltip>
+        <PixTooltip @text={{this.text}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -88,9 +91,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     });
 
     test('it can render in light mode', async function(assert) {
+      // given
+      this.set('text', text);
+
       // when
       await render(hbs`
-        <PixTooltip @isLight={{true}}>
+        <PixTooltip @isLight={{true}} @text={{this.text}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -105,9 +111,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     const INLINE_CLASS = 'pix-tooltip__content--inline';
 
     test('it can render in multiple lines', async function(assert) {
+      // given
+      this.set('text', text);
+
       // when
       await render(hbs`
-        <PixTooltip>
+        <PixTooltip @text={{this.text}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -118,9 +127,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     });
 
     test('it can render inline', async function(assert) {
+      // given
+      this.set('text', text);
+
       // when
       await render(hbs`
-        <PixTooltip @isInline={{true}}>
+        <PixTooltip @isInline={{true}} @text={{this.text}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -135,9 +147,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     const WIDE_CLASS = 'pix-tooltip__content--wide';
 
     test('it can render not widely', async function(assert) {
+      // given
+      this.set('text', text);
+
       // when
       await render(hbs`
-        <PixTooltip>
+        <PixTooltip @text={{this.text}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -148,9 +163,12 @@ module('Integration | Component | pix-tooltip', function(hooks) {
     });
 
     test('it can render widely', async function(assert) {
+      // given
+      this.set('text', text);
+
       // when
       await render(hbs`
-        <PixTooltip @isWide={{true}}>
+        <PixTooltip @isWide={{true}} @text={{this.text}}>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);

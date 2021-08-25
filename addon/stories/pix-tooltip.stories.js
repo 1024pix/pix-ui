@@ -4,11 +4,11 @@ export const tooltip = (args) => {
   return {
     template: hbs`
       <PixTooltip
-        @text={{text}}
-        @position={{position}}
-        @isLight={{isLight}}
-        @isInline={{isInline}}
-        @isWide={{isWide}}
+        @text={{this.text}}
+        @position={{this.position}}
+        @isLight={{this.isLight}}
+        @isInline={{this.isInline}}
+        @isWide={{this.isWide}}
         >
           <div>Elément à survoler pour voir la tooltip</div>
       </PixTooltip>
@@ -20,6 +20,7 @@ export const tooltip = (args) => {
 export const argTypes = {
   text: {
     name: 'text',
+    defaultValue: 'Tooltiptop',
     description: 'Texte à afficher',
     type: { name: 'string', required: false },
   },
