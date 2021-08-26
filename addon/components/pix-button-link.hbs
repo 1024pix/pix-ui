@@ -3,6 +3,7 @@
       @route={{@route}}
       @models={{if @model (array @model) this.defaultModel}}
       @disabled={{@isDisabled}}
+      @query={{if @query @query this.defaultParams}}
       class={{this.className}}
       ...attributes
     >

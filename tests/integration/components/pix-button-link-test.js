@@ -49,4 +49,16 @@ module('Integration | Component | button-link', function(hooks) {
     assert.ok(componentElement);
   });
 
+  test('it renders an EmberJS link with query', async function(assert) {
+    // when
+    await render(hbs`
+      <PixButtonLink @route="bye" @model="bye" @query={{hash page=3 per_page=20}}>
+        content
+      </PixButtonLink>
+    `);
+
+    // then
+    const componentElement = this.element.querySelector('a[href="/bye/bye?page=3&per_page=20"]');
+    assert.ok(componentElement);
+  });
 });

@@ -26,6 +26,7 @@ export const emberLinkTemplate = (args) => {
       <PixButtonLink 
         @route=""
         @model=""
+        @query={{query}}
         @shape={{shape}}
         @backgroundColor={{backgroundColor}}
         @size={{size}}
@@ -59,6 +60,11 @@ export const argTypes = {
   model: {
     name: 'model',
     description: 'Model Ember lié à la route utilisée',
+    type: { required: false },
+  },
+  query: {
+    name: 'query',
+    description: 'Paramètre facultatif permettant d\'ajouter des paires de clé/valeur dans les paramètres d\'une URL',
     type: { required: false },
   },
   shape: {
