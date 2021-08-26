@@ -13,28 +13,28 @@ import * as stories from './pix-icon-button.stories.js';
 
 Le PixIconButton permet de créer un bouton contenant une icône font-awesome.
 
-## Default / Boutons d'action
+## Default
 
-Le bouton par défaut. En small avec fond grisé.
+Le bouton en version big et sans fond grisé.
 
 <Canvas>
-  <Story name="Default Small" story={stories.DefaultSmall} height={60} />
+  <Story name="Default" story={stories.Default} height={60} />
 </Canvas>
 
-## Default / Bouton de fermeture
+## Small
 
-Le bouton par défaut. En big avec fond grisé.
+Le bouton en version small.
 
 <Canvas>
-  <Story name="Default Big" story={stories.DefaultBig} height={60} />
+  <Story name="Small" story={stories.small} height={60} />
 </Canvas>
 
-## Without Background
+## With Background
 
-Le bouton sans le fond grisé, pour les tableaux par exemple.
+Le bouton avec le fond grisé.
 
 <Canvas>
-  <Story name="Without Background" story={stories.withoutBackground} height={60} />
+  <Story name="With Background" story={stories.withBackground} height={60} />
 </Canvas>
 
 ## Accessibilité / aria-label
@@ -43,7 +43,7 @@ L'attribut `aria-label` étant indispensable pour l'accessibilité de ce composa
 
 ## Color
 
-Cette propriété est dépréciée. L'icône du bouton ne peut avoir qu'une seule couleur.
+⚠️ Cette propriété est **dépréciée**. L'icône du bouton ne peut avoir qu'une seule couleur.
 
 ## Usage
 
@@ -51,9 +51,28 @@ Par défaut
 ```html
 <PixIconButton
     @ariaLabel="L'action du bouton"
-    @icon='times'
-    @triggerAction="{{triggerAction}}"
-    @size='small'
+    @icon="icon"
+    @triggerAction={{triggerAction}}
+/>
+```
+
+Bouton de fermeture
+```html
+<PixIconButton
+    @ariaLabel="L'action du bouton"
+    @icon="times"
+    @triggerAction={{triggerAction}}
+    @withBackground={{true}}
+/>
+```
+
+Bouton d'action
+```html
+<PixIconButton
+    @ariaLabel="L'action du bouton"
+    @icon="arrow-left"
+    @triggerAction={{triggerAction}}
+    @size="small"
     @withBackground={{true}}
 />
 ```
@@ -61,11 +80,11 @@ Par défaut
 État disabled
 ```html
 <PixIconButton
-    @icon='times'
-    @triggerAction="{{triggerAction}}"
+    @ariaLabel="L'action du bouton"
+    @icon="times"
     disabled={{true}}
-    aria-disabled="{{true}}"
+    aria-disabled={{true}}
 />
 ```
 
-<ArgsTable story="Default Small" />
+<ArgsTable story="Default" />

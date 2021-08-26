@@ -17,26 +17,25 @@ const Template = (args) => {
   };
 };
 
-export const DefaultSmall = Template.bind({});
-DefaultSmall.args = {
-  ariaLabel: 'Action du bouton',
-  icon: 'arrow-down',
-  size: 'small',
-  withBackground: true,
-};
-
-export const DefaultBig = Template.bind({});
-DefaultBig.args = {
+export const Default = Template.bind({});
+Default.args = {
   ariaLabel: 'Action du bouton',
   icon: 'times',
-  size: 'big',
-  withBackground: true,
+  triggerAction: () => {
+    return (new Promise()).resolves()
+  },
 };
 
-export const withoutBackground = Template.bind({});
-withoutBackground.args = {
-  ...DefaultSmall.args,
-  withBackground: false,
+export const small = Template.bind({});
+small.args = {
+  ...Default.args,
+  size: 'small',
+};
+
+export const withBackground = Template.bind({});
+withBackground.args = {
+  ...Default.args,
+  withBackground: true,
 };
 
 export const argTypes = {
@@ -48,19 +47,19 @@ export const argTypes = {
   },
   icon: {
     name: 'icon',
-    description: 'icône font-awesome',
+    description: 'Icône font-awesome',
     type: { name: 'string', required: true },
     table: { defaultValue: { summary: 'times' } },
   },
   iconPrefix: {
     name: 'iconPrefix',
-    description: 'prefix de l\'icône font-awesome',
+    description: 'Prefix de l\'icône font-awesome',
     type: { name: 'string', required: false },
     control: { type: 'select', options: ['far', 'fas'] },
   },
   triggerAction: {
     name: 'triggerAction',
-    description: 'fonction à appeler au clic du bouton',
+    description: 'Fonction à appeler au clic du bouton',
     type: { required: true },
     defaultValue: action('triggerAction'),
   },
@@ -75,7 +74,7 @@ export const argTypes = {
   },
   size: {
     name: 'size',
-    description: 'size: `small`, `big`',
+    description: 'Size: `small`, `big`',
     type: { name: 'string', required: false },
     control: { type: 'select', options: ['big', 'small'] },
     table: {
@@ -85,7 +84,7 @@ export const argTypes = {
   },
   color: {
     name: 'color',
-    description: 'Propriété dépréciée. Color: `light-grey`, `dark-grey`',
+    description: ' ⚠️ **Propriété dépréciée** ⚠️ Color: `light-grey`, `dark-grey`',
     type: { name: 'string', required: false },
     control: { type: 'select', options: ['light-grey', 'dark-grey'] },
     table: {
