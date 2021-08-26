@@ -1,69 +1,59 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const defaultBanner = (args) => {
-  return {
-    template: hbs`
-      <PixBanner @type={{type}} >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
-    `,
-    context: args,
-  };
-};
-
-export const bannerWithExternalLink = (args) => {
+const Template = (args) => {
   return {
     template: hbs`
       <PixBanner
-        @actionLabel= "Voir le nouveau site"
-        @actionUrl= "www.test.fr/"
-      >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
+        @type={{type}}
+        @actionLabel={{actionLabel}}
+        @actionUrl={{actionUrl}}
+      >
+        Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.
+      </PixBanner>
     `,
-    context: args,
+    context: args
   };
 };
 
-export const bannerWithInternalLink = (args) => {
-  return {
-    template: hbs`
-      <PixBanner
-        @actionLabel= "Voir la liste des participants"
-        @actionUrl= "campaign.list"
-      >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
-    `,
-    context: args,
-  };
+export const Default = Template.bind({});
+
+export const warning = Template.bind({});
+warning.args = {
+  type:'warning'
 };
 
-export const warningBanner = (args) => {
-  return {
-    template: hbs`
-      <PixBanner
-        @type="warning"
-      >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
-    `,
-    context: args,
-  };
+export const error = Template.bind({});
+error.args = {
+  type:'error'
 };
 
-export const errorBanner = (args) => {
-  return {
-    template: hbs`
-      <PixBanner
-        @type="error"
-      >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
-    `,
-    context: args,
-  };
+export const communicationPixApp = Template.bind({});
+communicationPixApp.args = {
+  type:'communication'
 };
 
-export const communicationBanner = (args) => {
-  return {
-    template: hbs`
-      <PixBanner
-        @type="communication"
-      >Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.</PixBanner>
-    `,
-    context: args,
-  };
+export const communicationPixOrga = Template.bind({});
+communicationPixOrga.args = {
+  type:'communication-orga'
+};
+
+export const communicationPixCertif = Template.bind({});
+communicationPixCertif.args = {
+  type:'communication-certif'
+};
+
+export const withExternalLink = Template.bind({});
+withExternalLink.args = {
+  type:'info',
+  actionLabel: 'Voir le nouveau site',
+  actionUrl: 'www.test.fr/',
+};
+
+export const withInternalLink = Template.bind({});
+withInternalLink.args = {
+  type:'info',
+  actionLabel: 'Voir la liste des participants',
+  actionUrl: 'campaign.list',
 };
 
 export const argsTypes = {
@@ -75,7 +65,7 @@ export const argsTypes = {
   },
   actionUrl: {
     name: 'actionUrl',
-    description: 'Action link',
+    description: 'Lien de l‘action',
     type: { name: 'string', required: false },
     control: { disable: true },
   },
