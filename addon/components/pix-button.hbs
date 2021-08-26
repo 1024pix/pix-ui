@@ -1,22 +1,12 @@
 {{#if @route}}
-  {{#if @model}}
-    <LinkTo
-      @route={{@route}}
-      class={{this.className}}
-      @model={{@model}}
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
-  {{else}}
-    <LinkTo
-      @route={{@route}}
-      class={{this.className}}
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
-  {{/if}}
+  <LinkTo
+    @route={{@route}}
+    @models={{if @model (array @model) this.defaultModel}}
+    class={{this.className}}
+    ...attributes
+  >
+    {{yield}}
+  </LinkTo>
 {{else}}
   {{#if this.enableTriggerAction}}
     <button
