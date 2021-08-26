@@ -1,6 +1,6 @@
 .pix-banner {
   @import 'reset-css';
-  font-family: $font-open-sans;
+  font-family: $font-roboto;
   font-weight: $font-normal;
   padding: 10px 16px;
   display: flex;
@@ -8,7 +8,7 @@
   font-size: 0.75rem;
 
   @include device-is('tablet') {
-    padding: 32px 58px;
+    padding: 20px 60px;
     font-size: 0.875rem;
   }
 
@@ -27,35 +27,38 @@
   }
 
   &__icon {
-    font-size: 1rem;
-    margin-right: 10px;
+    font-size: 0.875rem;
+    margin-right: $spacing-xs;
 
     @include device-is('tablet') {
-      font-size: 1.25rem;
+      font-size: 1rem;
     }
   }
 
   &--information {
-    @include colorize($communication-light, 20%, 35%);
+    background-color: $blue-alert-light;
+    color: $blue-alert-dark;
   }
-  
+
   &--warning {
-    @include colorize($warning, 25%, 35%);
+    background-color: $yellow-alert-light;
+    color: $yellow-alert-dark;
   }
 
   &--error {
-    @include colorize($error, 20%, 40%);
+    background-color: $pink-alert-light;
+    color: $pink-alert-dark;
   }
 
   &--communication {
     background-color: $blue;
     color: $white;
-  
+
     &-orga {
       background-color: $dark-orga;
       color: $white;
     }
-  
+
     &-certif {
       background-color: $dark-green-certif;
       color: $white;
