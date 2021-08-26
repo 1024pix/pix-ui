@@ -25,8 +25,8 @@ export default class PixMultiSelect extends Component {
     this._setDisplayedOptions(this.args.selected, true);
   }
 
-  get isSmall() {
-    return this.args.size === 'small';
+  get isBig() {
+    return this.args.size === 'big';
   }
 
   get results() {

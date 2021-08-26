@@ -10,7 +10,6 @@ export const multiSelectWithChildComponent = (args) => {
         @id={{id}}
         @onSelect={{onSelect}}
         @emptyMessage={{emptyMessage}}
-        @size={{size}}
         @options={{options}} as |star|
       >
         <PixStars
@@ -133,13 +132,12 @@ export const argTypes = {
   },
   size: {
     name: 'size',
-    description: 'taille: `big`,`small`',
+    description: '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
     options: ['big', 'small'],
     type: { name: 'string', required: false },
-    control: { type: 'select' },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: 'big' },
+      defaultValue: { summary: 'small' },
     }
   },
 };

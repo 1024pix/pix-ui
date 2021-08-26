@@ -13,7 +13,7 @@
   font-weight: $font-normal;
   position: relative;
   border: 1px $grey-40 solid;
-  height: 44px;
+  height: 36px;
   padding: 0px 32px 0px 16px;
   width: 100%;
   background-color: $white;
@@ -28,8 +28,8 @@
     border-color: $blue;
   }
 
-  &--small {
-    height: 36px;
+  &--big {
+    height: 44px;
   }
 
   &__search-icon {
