@@ -30,7 +30,7 @@ module('Integration | Component | button-link', function(hooks) {
         content
       </PixButtonLink>
     `);
-    
+
     // then
     const componentElement = this.element.querySelector('a[href="/hello-world"]');
     assert.ok(componentElement);

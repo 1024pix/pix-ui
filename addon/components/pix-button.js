@@ -5,6 +5,8 @@ import PixButtonBase from './pix-button-base'
 
 export default class PixButton extends PixButtonBase {
   text = 'pix-button';
+  defaultModel = [];
+
   @tracked isTriggering = false;
 
   get isLoading() {

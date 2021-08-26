@@ -3,6 +3,7 @@ import Component from '@glimmer/component';
 export default class PixReturnTo extends Component {
   text = 'pix-return-to';
   availableShade = ['black', 'white', 'blue'];
+  defaultModel = [];
 
   get route() {
     const routeParam = this.args.route;

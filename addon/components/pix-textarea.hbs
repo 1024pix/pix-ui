@@ -1,13 +1,11 @@
 <div class='pix-textarea'>
-  {{#if @maxlength}}
     <Textarea
       id={{@id}}
       @value={{@value}}
-      maxlength={{@maxlength}}
+      maxlength={{if @maxlength @maxlength}}
       ...attributes
     />
+  {{#if @maxlength}}
     <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
-  {{else}}
-    <Textarea id={{@id}} @value={{@value}} ...attributes />
   {{/if}}
 </div>

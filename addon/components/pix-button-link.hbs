@@ -1,24 +1,13 @@
 {{#if @route}}
-  {{#if @model}}
     <LinkTo
       @route={{@route}}
-      @model={{@model}}
+      @models={{if @model (array @model) this.defaultModel}}
       @disabled={{@isDisabled}}
       class={{this.className}}
       ...attributes
     >
       {{yield}}
     </LinkTo>
-  {{else}}
-    <LinkTo
-      @route={{@route}}
-      @disabled={{@isDisabled}}
-      class={{this.className}}
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
-  {{/if}}
 {{else}}
   <a href={{@href}} class={{this.className}} ...attributes>
     {{yield}}
