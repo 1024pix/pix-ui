@@ -64,7 +64,7 @@ export const argTypes = {
   },
   query: {
     name: 'query',
-    description: 'Paramètre facultatif permettant d\'ajouter des paires de clé/valeur dans les paramètres d\'une URL',
+    description: 'Paramètre facultatif du <LinkTo> Ember permettant d\'ajouter des paires de clé/valeur dans les paramètres d\'une URL',
     type: { required: false },
   },
   shape: {
