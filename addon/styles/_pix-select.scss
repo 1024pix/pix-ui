@@ -11,7 +11,7 @@
     color: $grey-90;
     font-family: $font-roboto;
     font-size: 0.875rem;
-    height: 44px;
+    height: 36px;
     width: 100%;
 
     &:focus, &:focus-within {
@@ -24,8 +24,8 @@
     @include pixSelect;
     padding: 0 32px 0 16px;
 
-    &.pix-select--small {
-      height: 36px;
+    &.pix-select--big {
+      height: 44px;
     }
 
     &::-ms-expand {
@@ -37,8 +37,8 @@
     @include pixSelect;
     padding: 0 8px 0 16px;
 
-    &.pix-select--small {
-      height: 36px;
+    &.pix-select--big {
+      height: 44px;
     }
   
     // Remove arrow for Chrome

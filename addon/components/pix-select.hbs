@@ -5,7 +5,7 @@
     <input
       list="{{this.datalistId}}"
       {{on "input" this.onChange}}
-      class="{{if this.isValid "pix-select--is-valid"}} {{if this.isSmall "pix-select--small"}}"
+      class="{{if this.isValid "pix-select--is-valid"}} {{if this.isBig "pix-select--big"}}"
       ...attributes
     />
 
@@ -18,7 +18,7 @@
   {{else}}
 
     <select
-      class="{{if this.isSmall "pix-select--small"}}"
+      class="{{if this.isBig "pix-select--big"}}"
       {{on 'change' this.onChange}}
       ...attributes
     >

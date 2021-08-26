@@ -14,8 +14,8 @@ export default class PixSelect extends Component {
     }
   }
 
-  get isSmall() {
-    return this.args.size === 'small';
+  get isBig() {
+    return this.args.size === 'big';
   }
 
   get isValid() {
