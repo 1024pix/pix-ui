@@ -67,15 +67,8 @@
     font-weight: 400;
     color: $grey-90;
 
-    &:hover {
-      box-shadow: inset 0px 0px 0px 0.6px $grey-40;
-    }
-
-    &:focus {
-      border-color: $blue;
-      box-shadow: inset 0px 0px 0px 0.6px $blue;
-      outline: none;
-    }
+    @include hoverFormElement();
+    @include focusFormElement();
 
     &::placeholder {
       color: $grey-30;

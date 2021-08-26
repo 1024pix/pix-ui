@@ -13,14 +13,8 @@
     font-size: 0.875rem;
     resize: vertical;
 
-    &:hover {
-      border-color: $grey-60;
-    }
-
-    &:focus {
-      border: 1px solid $blue;
-      outline: none;
-    }
+    @include hoverFormElement();
+    @include focusFormElement();
   }
 
   p {

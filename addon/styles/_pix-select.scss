@@ -14,10 +14,9 @@
     height: 36px;
     width: 100%;
 
-    &:focus, &:focus-within {
-      border-color: $blue;
-      outline: none;
-    }
+    @include hoverFormElement();
+    @include focusFormElement();
+    @include focusWithinFormElement();
   }
 
   select {

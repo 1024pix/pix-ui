@@ -24,9 +24,8 @@
   cursor: pointer;
   color: $grey-90;
 
-  &:focus-within, &:hover {
-    border-color: $blue;
-  }
+  @include hoverFormElement();
+  @include focusWithinFormElement();
 
   &--big {
     height: 44px;
@@ -53,10 +52,6 @@
     font-size: 0.875rem;
     color: $grey-90;
     background: transparent;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__dropdown-icon {
@@ -116,6 +111,8 @@
     list-style: none;
     font-size: 0.9rem;
 
+    @include hoverFormElement();  
+
     &--no-result {
       text-align: center;
       padding: 12px 0;
@@ -124,10 +121,6 @@
     &:last-of-type {
       border-bottom: none;
     }
-    
-    &:hover, &:focus-within {
-      background-color: $grey-10;
-    }   
   }
   
   &__checkbox {
