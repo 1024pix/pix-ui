@@ -18,6 +18,10 @@ export default class PixSelect extends Component {
     return this.args.size === 'small';
   }
 
+  get isValid() {
+    return this.args.isValidationActive && this.isValueAValidOption;
+  }
+
   @action
   onChange(event) {
     if (this.args.onChange) {
