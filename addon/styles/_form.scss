@@ -19,3 +19,11 @@
     outline: none;
   }
 }
+
+.pix-form__actions {
+  display: flex;
+
+  & > .pix-button:first-child {
+    margin-right: 10px;
+  }
+}

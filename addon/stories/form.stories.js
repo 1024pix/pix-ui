@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions';
 export const form = (args) => {
   return {
     template: hbs`
+    <form>
       <PixInput @id='firstName' @label='Prénom' />
       <br>
 
@@ -28,6 +29,15 @@ export const form = (args) => {
       <br>
 
       <PixTextarea @id="form__pix-textarea" @value="" @maxlength={{200}} />
+      <br>
+
+      <div class="pix-form__actions">
+        <PixButton @triggerAction={{cancel}} @backgroundColor="transparent-light" @isBorderVisible={{true}}>
+          Annuler
+        </PixButton>
+        <PixButton @type="submit">Envoyer mes réponses</PixButton>
+      </div>
+    </form>
     `,
     context: args,
   };
@@ -39,6 +49,7 @@ form.args = {
     { value: '2', total: 3 },
     { value: '3', total: 3 },
   ],
+  cancel: action('cancel'),
   onSelect: action('onSelect'),
   selectOptions: [
     { value: 'Figues', label: 'Figues' },
