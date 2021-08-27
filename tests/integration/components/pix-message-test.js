@@ -71,4 +71,14 @@ module('Integration | Component | pix-message', function(hooks) {
     assert.dom('.pix-message svg').exists();
     assert.equal(icon.getAttribute('data-icon'), 'exclamation-triangle');
   });
+
+  test('it renders with a alert icon for alert type', async function(assert) {
+    // given
+    await render(hbs`<PixMessage @type="alert" @withIcon="true" />`);
+
+    // when & then
+    const icon = this.element.querySelector('.pix-message svg');
+    assert.dom('.pix-message svg').exists();
+    assert.equal(icon.getAttribute('data-icon'), 'exclamation-triangle');
+  });
 });
