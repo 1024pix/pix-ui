@@ -20,7 +20,8 @@ export const form = (args) => {
       <br><br>
 
       <PixSelect
-        id="form__searchable-pix-select"
+        @id="form__searchable-pix-select"
+        @label="Votre fruit préféré est : "
         @options={{selectOptions}}
         @isSearchable={{true}}
         @isValidationActive={{true}}

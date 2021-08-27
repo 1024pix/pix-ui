@@ -3,6 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | select', function (hooks) {
   setupRenderingTest(hooks);
@@ -14,6 +15,7 @@ module('Integration | Component | select', function (hooks) {
   ]
   const DEFAULT_ON_CHANGE = () => {};
   const SEARCHABLE_SELECT_SELECTOR = '.pix-select input';
+  const LABEL_SELECTOR = '.pix-select label'
 
   test('it renders the PixSelect with given options', async function (assert) {
     // given
@@ -159,5 +161,33 @@ module('Integration | Component | select', function (hooks) {
       });
     });
 
+  });
+
+  test('it should be possible to give a label', async function(assert) {
+    // given
+    this.options = DEFAULT_OPTIONS;
+    this.onChange = DEFAULT_ON_CHANGE;
+    await render(hbs`
+      <PixSelect
+        @id="pix-select-with-label"
+        @label="Votre ville"
+        @options={{options}}
+        @onChange={{onChange}}
+      />
+    `);
+
+    // when & then
+    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'Votre ville');
+  });
+
+  test('it should throw an error if no id is provided when there is a label', async function(assert) {
+    // given
+    const componentParams = { id: '   ', label: 'Votre ville', options: DEFAULT_OPTIONS };
+    const component = createGlimmerComponent('component:pix-select', componentParams);
+
+    // when & then
+    const expectedError = new Error('ERROR in PixSelect component, @id param is necessary when giving @label');
+    assert.throws(function() { component.label }, expectedError);
   });
 });

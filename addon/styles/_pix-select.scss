@@ -60,4 +60,12 @@
     position: absolute;
     pointer-events: none;
   }
+
+  &__label {
+    @include label();
+  }
+
+  .pix-select__label ~ .pix-select__icon {
+    top: calc(50% + 6px);
+  } 
 }

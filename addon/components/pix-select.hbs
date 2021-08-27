@@ -1,8 +1,13 @@
 <div class="pix-select">
 
+  {{#if this.label}}
+    <label for={{@id}} class="pix-select__label">{{this.label}}</label>
+  {{/if}}
+
   {{#if @isSearchable}}
 
     <input
+      id={{@id}}
       list="{{this.datalistId}}"
       {{on "input" this.onChange}}
       class="{{if this.isValid "pix-select--is-valid"}} {{if this.isBig "pix-select--big"}}"
@@ -18,6 +23,7 @@
   {{else}}
 
     <select
+      id={{@id}}
       class="{{if this.isBig "pix-select--big"}}"
       {{on 'change' this.onChange}}
       ...attributes
