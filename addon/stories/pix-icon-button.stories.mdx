@@ -13,20 +13,78 @@ import * as stories from './pix-icon-button.stories.js';
 
 Le PixIconButton permet de créer un bouton contenant une icône font-awesome.
 
+## Default
+
+Le bouton en version big et sans fond grisé.
+
 <Canvas>
-  <Story name="Icon button" story={stories.iconButton} height={60} />
+  <Story name="Default" story={stories.Default} height={60} />
 </Canvas>
+
+## Small
+
+Le bouton en version small.
+
+<Canvas>
+  <Story name="Small" story={stories.small} height={60} />
+</Canvas>
+
+## With Background
+
+Le bouton avec le fond grisé.
+
+<Canvas>
+  <Story name="With Background" story={stories.withBackground} height={60} />
+</Canvas>
+
+## Accessibilité / aria-label
+
+L'attribut `aria-label` étant indispensable pour l'accessibilité de ce composant, la propriété `ariaLabel` a été ajouté.
+
+## Color
+
+⚠️ Cette propriété est **dépréciée**. L'icône du bouton ne peut avoir qu'une seule couleur.
 
 ## Usage
 
-état enabled
+Par défaut
 ```html
-<PixIconButton @icon='times' @triggerAction="{{triggerAction}}"/>
+<PixIconButton
+    @ariaLabel="L'action du bouton"
+    @icon="icon"
+    @triggerAction={{triggerAction}}
+/>
 ```
 
-état disabled
+Bouton de fermeture
 ```html
-<PixIconButton @icon='times' @triggerAction="{{triggerAction}}" disabled={{true}} aria-disabled="{{true}}"/>
+<PixIconButton
+    @ariaLabel="L'action du bouton"
+    @icon="times"
+    @triggerAction={{triggerAction}}
+    @withBackground={{true}}
+/>
 ```
 
-<ArgsTable story="Icon button" />
+Bouton d'action
+```html
+<PixIconButton
+    @ariaLabel="L'action du bouton"
+    @icon="arrow-left"
+    @triggerAction={{triggerAction}}
+    @size="small"
+    @withBackground={{true}}
+/>
+```
+
+État disabled
+```html
+<PixIconButton
+    @ariaLabel="L'action du bouton"
+    @icon="times"
+    disabled={{true}}
+    aria-disabled={{true}}
+/>
+```
+
+<ArgsTable story="Default" />

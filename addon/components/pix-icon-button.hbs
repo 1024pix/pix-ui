@@ -1,5 +1,6 @@
 <button
   type="button"
+  aria-label={{this.ariaLabel}}
   class="pix-icon-button pix-icon-button--{{this.size}} pix-icon-button--{{this.color}} {{if @withBackground 'pix-icon-button--background'}}"
   {{on "click" this.triggerAction}}
   ...attributes>

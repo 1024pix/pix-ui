@@ -17,6 +17,13 @@ export default class PixIconButton extends Component {
     return this.args.color || 'light-grey';
   }
 
+  get ariaLabel() {
+    if (!this.args.ariaLabel || !this.args.ariaLabel.trim()) {
+      throw new Error('ERROR in PixIconButton component, @ariaLabel param is not provided.');
+    }
+    return this.args.ariaLabel;
+  }
+
   @action
   triggerAction() {
     if (this.args.triggerAction) {

@@ -2,6 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import createGlimmerComponent from "../../helpers/create-glimmer-component";
 
 module('Integration | Component | icon-button', function(hooks) {
   setupRenderingTest(hooks);
@@ -12,7 +13,7 @@ module('Integration | Component | icon-button', function(hooks) {
   test('it renders PixIconButton with a default fa-icon', async function(assert) {
     // when
     await render(hbs`
-      <PixIconButton></PixIconButton>
+      <PixIconButton @ariaLabel="action du bouton" />
     `);
     const iconElement = this.element.querySelector(iconClass);
 
@@ -23,7 +24,7 @@ module('Integration | Component | icon-button', function(hooks) {
   test('it renders PixIconButton with the specified FaIcon', async function(assert) {
     // when
     await render(hbs`
-      <PixIconButton @icon='times'></PixIconButton>
+      <PixIconButton @icon='times' @ariaLabel="action du bouton" />
     `);
     const iconElement = this.element.querySelector(iconClass);
 
@@ -39,7 +40,7 @@ module('Integration | Component | icon-button', function(hooks) {
       this.count = this.count + 1;
     });
     await render(hbs`
-      <PixIconButton @triggerAction={{this.triggerAction}} />
+      <PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel="action du bouton" />
     `);
     await click('button');
 
@@ -53,12 +54,25 @@ module('Integration | Component | icon-button', function(hooks) {
 
     //when
     await render(hbs`
-      <PixIconButton @triggerAction={{this.triggerAction}} disabled={{true}} />
+      <PixIconButton @triggerAction={{this.triggerAction}} disabled={{true}} @ariaLabel="L'action du bouton" />
     `);
     await click('button');
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.equal(componentElement.disabled, true);
+  });
+
+  test('it should not show PixIconButton if ariaLabel is not provided', async function(assert) {
+    // given
+    const componentParams = { ariaLabel:'   ' };
+    const component = createGlimmerComponent('component:pix-icon-button', componentParams);
+
+    // when & then
+    const expectedError = new Error('ERROR in PixIconButton component, @ariaLabel param is not provided.');
+    assert.throws(
+      function() { component.ariaLabel },
+      expectedError
+    );
   });
 });
