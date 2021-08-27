@@ -1,19 +1,35 @@
 .pix-message {
   @import 'reset-css';
 
-  position: relative;
-  margin: 0 0 1rem 0;
-  padding: 1rem;
+  margin: 0;
+  padding: 0.75rem 1rem;
+  font-size: 0.875rem;
   border-radius: 4px;
   align-items: center;
   display: flex;
 
-  &.pix-message--info { @include colorize($communication-light, 20%, 35%); }
-  &.pix-message--alert { @include colorize($error, 20%, 40%); }
-  &.pix-message--success { @include colorize($success, 25%, 35%); }
-  &.pix-message--warning { @include colorize($warning, 25%, 35%); }
+  &.pix-message--info {
+    color: $blue-alert-dark;
+    background-color: $blue-alert-light;
+  }
+  &.pix-message--alert {
+    color: $pink-alert-dark;
+    background-color: $pink-alert-light;
+  }
+  &.pix-message--error {
+    color: $pink-alert-dark;
+    background-color: $pink-alert-light;
+  }
+  &.pix-message--success {
+    color: $green-alert-dark;
+    background-color: $green-alert-light;
+  }
+  &.pix-message--warning {
+    color: $yellow-alert-dark;
+    background-color: $yellow-alert-light;
+  }
 
   svg {
-    margin-right: 12px;
+    margin-right: 8px;
   }
 }

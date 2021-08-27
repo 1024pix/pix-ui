@@ -11,20 +11,61 @@ import * as stories from './pix-message.stories.js';
 
 # Pix Message
 
-Un bandeau d'information, par défaut de type info, avec une icone facultative.
+Un bandeau d'information avec une icône facultative.
 
-<Canvas isColumn>
-  <Story name="Message" story={stories.message} height={140} />
+## Default / Info
+
+Le bandeau est de type informatif sans icône (par défaut).
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={110} />
 </Canvas>
+
+## With icon
+
+Le bandeau avec une icône.
+
+<Canvas>
+  <Story name="With icon" story={stories.withIcon} height={110} />
+</Canvas>
+
+## Warning
+
+Le bandeau en cas d'alerte.
+
+<Canvas>
+  <Story name="Warning" story={stories.warning} height={110} />
+</Canvas>
+
+## Success
+
+Le bandeau en cas de validation.
+
+<Canvas>
+  <Story name="Success" story={stories.success} height={110} />
+</Canvas>
+
+## Error
+
+Le bandeau en cas de d'erreur.
+
+<Canvas>
+  <Story name="Error" story={stories.error} height={110} />
+</Canvas>
+
+## Alert
+
+⚠️ Ce type est déprécié, utilisez le type `error` à la place.
 
 ## Usage
 
+Par défaut
 ```html
-<PixMessage @type='info' @withIcon='true'>
+<PixMessage>
   Ceci est un message à caractère informatif.
 </PixMessage>
 ```
 
 ## Arguments
 
-<ArgsTable story="Message" />
+<ArgsTable story="Default" />
