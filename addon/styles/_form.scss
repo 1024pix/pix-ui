@@ -20,6 +20,28 @@
   }
 }
 
+@mixin label() {
+  display: block;
+  font-family: $font-roboto;
+  font-size: 0.875rem;
+  color: $grey-70;
+  margin-bottom: 4px;
+}
+
+@mixin errorMessage() {
+  position: absolute;
+  bottom: calc(-4px - 1px - 0.75rem);
+  font-family: $font-roboto;
+  font-size: 0.75rem;
+  color: $red;
+  margin-top: 4px;
+}
+
+@mixin formElementInError() {
+  border-color: $red;
+  box-shadow: inset 0px 0px 0px 0.6px $red;
+}
+
 .pix-form__actions {
   display: flex;
 
