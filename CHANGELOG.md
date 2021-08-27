@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v6.1.0 (27/08/2021)
+
+- [#124](https://github.com/1024pix/pix-ui/pull/124) [FEATURE] Aligner le style du PixMessage avec le design system (PIX-3021).
+
 ## v6.0.0 (27/08/2021)
 
 - [#123](https://github.com/1024pix/pix-ui/pull/123) [FEATURE] Aligner le style du PixIconButton avec le design system - BREAKING CHANGES (PIX-3017).
