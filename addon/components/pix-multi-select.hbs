@@ -1,11 +1,17 @@
 <div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown capture=true}}>
+
+  {{#if this.label}}
+    <label for={{@id}} class="pix-multi-select__label">{{this.label}}</label>
+  {{/if}}
+
   {{#if @isSearchable}}
     <label class="pix-multi-select-header {{if this.isBig "pix-multi-select-header--big"}}">
 
       <span class="pix-multi-select-header__title">{{@title}}</span>
       <FaIcon @icon='search' class="pix-multi-select-header__search-icon" />
 
-      <input 
+      <input
+        id={{@id}}
         type="text"
         name={{@id}}
         placeholder={{@placeholder}}
@@ -16,7 +22,8 @@
 
     </label>
   {{else}}
-    <button 
+    <button
+      id={{@id}}
       type="button" 
       class="pix-multi-select-header {{if this.isBig "pix-multi-select-header--big"}}"
       {{on "click" this.toggleDropDown}}
@@ -30,7 +37,9 @@
     {{#if (gt this.results.length 0)}}
       {{#each this.results as |option|}} 
         <li class="pix-multi-select-list__item">
-          <input class="pix-multi-select-list__checkbox  {{if @isSearchable 'pix-multi-select-list__checkbox--searchable' }}" 
+          <input
+            class="pix-multi-select-list__checkbox
+              {{if @isSearchable ' pix-multi-select-list__checkbox--searchable' }}" 
             type="checkbox" 
             checked={{option.checked}} 
             id={{concat @id '-' option.value}} 

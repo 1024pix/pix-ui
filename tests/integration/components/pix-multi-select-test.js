@@ -2,7 +2,7 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, click, fillIn, focus, blur } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-
+import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
 
 module('Integration | Component | multi-select', function (hooks) {
@@ -13,6 +13,8 @@ module('Integration | Component | multi-select', function (hooks) {
     { value: '2', label: 'Tomate' },
     { value: '3', label: 'Oignon' },
   ];
+  const LABEL_SELECTOR = '.pix-multi-select__label';
+
   test('it renders PixMultiSelect with list', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
@@ -618,5 +620,34 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.equal(listElement.item(1).textContent.trim(), 'Salade');
       assert.equal(listElement.item(2).textContent.trim(), 'Tomate');
     });
+  });
+
+  test('it should be possible to give a label', async function(assert) {
+    // given
+    this.options = DEFAULT_OPTIONS;
+    this.selected = [];
+    this.onSelect = (selected) => this.set('selected', selected);
+    await render(hbs`
+      <PixMultiSelect
+        @id="pix-select-with-label"
+        @label="Votre choix:"
+        @options={{options}}
+        @onChange={{onChange}}
+      />
+    `);
+
+    // when & then
+    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'Votre choix:');
+  });
+
+  test('it should throw an error if no id is provided when there is a label', async function(assert) {
+    // given
+    const componentParams = { id: '   ', label: 'Votre choix: ', options: DEFAULT_OPTIONS };
+    const component = createGlimmerComponent('component:pix-multi-select', componentParams);
+
+    // when & then
+    const expectedError = new Error('ERROR in PixMultiSelect component, @id param is necessary when giving @label');
+    assert.throws(function() { component.label }, expectedError);
   });
 });

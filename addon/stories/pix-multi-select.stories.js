@@ -10,6 +10,7 @@ export const multiSelectWithChildComponent = (args) => {
         @id={{id}}
         @onSelect={{onSelect}}
         @emptyMessage={{emptyMessage}}
+        @label={{label}}
         @options={{options}} as |star|
       >
         <PixStars
@@ -18,9 +19,7 @@ export const multiSelectWithChildComponent = (args) => {
         />
       </PixMultiSelect>
     `,
-    context: {
-      ...args,
-    },
+    context: args,
   };
 };
 multiSelectWithChildComponent.args = {
@@ -66,9 +65,18 @@ export const argTypes = {
   },
   title: {
     name: 'title',
-    description: 'Donner un titre à sa liste de choix multiple',
+    description: 'Donne un titre à sa liste de choix multiple.',
     type: { name: 'string', required: true },
     defaultValue: 'Rechercher un condiment',
+  },
+  label: {
+    name: 'label',
+    description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    }
   },
   emptyMessage: {
     name: 'emptyMessage',

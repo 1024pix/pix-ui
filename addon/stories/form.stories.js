@@ -9,8 +9,9 @@ export const form = (args) => {
       <br>
 
       <PixMultiSelect
-        @title="A quel point aimez vous Pix-UI ?"
+        @title="Votre notation en étoiles..."
         @id="form__pix-mutli-select"
+        @label="A quel point aimez vous Pix-UI ?"
         @onSelect={{onSelect}}
         @selected={{selected}}
         @options={{options}} as |star|
