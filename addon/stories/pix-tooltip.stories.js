@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const tooltip = (args) => {
+const Template = (args) => {
   return {
     template: hbs`
       <PixTooltip
@@ -10,11 +10,60 @@ export const tooltip = (args) => {
         @isInline={{this.isInline}}
         @isWide={{this.isWide}}
         >
-          <div>Elément à survoler pour voir la tooltip</div>
+          <PixButton>{{this.label}}</PixButton>
       </PixTooltip>
     `,
     context: args,
   };
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  text: 'Hello World',
+  label: 'À survoler pour voir la tooltip',
+};
+
+export const isLight = Template.bind({});
+isLight.args = {
+  ... Default.args,
+  isLight: true
+};
+
+export const isWide = Template.bind({});
+isWide.args = {
+  ... Default.args,
+  text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas molestie mauris vel viverra.',
+  isWide: true
+};
+
+export const isInline = Template.bind({});
+isInline.args = {
+  ... Default.args,
+  text: 'Je suis une trèèèèèèèès longue information',
+  isInline: true
+};
+
+export const left = Template.bind({});
+left.args = {
+  ... Default.args,
+  label:'Mon infobulle apparaît à gauche',
+  position: 'left',
+  isInline: true
+};
+
+export const right = Template.bind({});
+right.args = {
+  ... Default.args,
+  label: 'Mon infobulle apparaît à droite',
+  position: 'right',
+  isInline: true
+};
+
+export const bottom = Template.bind({});
+bottom.args = {
+  ... Default.args,
+  label: 'Mon infobulle apparaît en bas',
+  position: 'bottom'
 };
 
 export const argTypes = {
