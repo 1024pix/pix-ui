@@ -1,4 +1,9 @@
 <div class='pix-textarea'>
+
+  {{#if this.label}}
+    <label for={{@id}} class="pix-textarea__label">{{this.label}}</label>
+  {{/if}}
+
     <Textarea
       id={{@id}}
       @value={{@value}}

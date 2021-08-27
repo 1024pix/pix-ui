@@ -26,4 +26,7 @@
     margin-bottom: 0;
   }
 
+  &__label{
+    @include label();
+  }
 }

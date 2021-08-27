@@ -30,7 +30,7 @@ export const form = (args) => {
       />
       <br>
 
-      <PixTextarea @id="form__pix-textarea" @value="" @maxlength={{200}} />
+      <PixTextarea @id="form__pix-textarea" @value="" @maxlength={{200}} @label="Un commentaire ?" />
       <br>
 
       <div class="pix-form__actions">
