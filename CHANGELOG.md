@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v6.0.0 (27/08/2021)
+
+- [#123](https://github.com/1024pix/pix-ui/pull/123) [FEATURE] Aligner le style du PixIconButton avec le design system - BREAKING CHANGES (PIX-3017).
+- [#127](https://github.com/1024pix/pix-ui/pull/127) [TECH] Faire en sorte d'ajouter des arguments de manière dynamique
+
 ## v5.5.0 (25/08/2021)
 
 - [#121](https://github.com/1024pix/pix-ui/pull/121) [FEATURE] Création du composant PixInput (PIX-3014).
