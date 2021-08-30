@@ -15,6 +15,10 @@
 
     @include hoverFormElement();
     @include focusFormElement();
+
+    &.pix-textarea--error {
+      @include formElementInError();
+    }
   }
 
   p {
@@ -28,5 +32,9 @@
 
   &__label{
     @include label();
+  }
+
+  &__error-message {
+    @include errorMessage();
   }
 }

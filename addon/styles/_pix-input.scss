@@ -47,6 +47,8 @@
 
   &__error-message {
     @include errorMessage();
+    margin-top: 4px;
+    bottom: calc(-4px - 1px - 0.75rem);
   }
 
   input {

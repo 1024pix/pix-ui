@@ -8,6 +8,7 @@ export const textarea = (args) => {
         @value={{value}}
         @maxlength={{maxlength}}
         @label={{label}}
+        @errorMessage={{errorMessage}}
       />
     `,
     context: args,
@@ -44,5 +45,15 @@ export const argTypes = {
       type: { summary: 'string' },
       defaultValue: { summary: null },
     }
-  }
+  },
+
+  errorMessage: {
+    name: 'errorMessage',
+    description: 'Affiche une erreur en dessous du champ.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    }
+  },
 };

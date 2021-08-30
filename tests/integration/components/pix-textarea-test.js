@@ -10,6 +10,7 @@ module('Integration | Component | textarea', function(hooks) {
   const TEXTAREA_SELECTOR = '.pix-textarea textarea';
   const CHAR_COUNT_SELECTOR = '.pix-textarea p';
   const LABEL_SELECTOR = '.pix-textarea__label';
+  const ERROR_SELECTOR = '.pix-textarea__error-message';
 
   test('it renders PixTextarea with correct id and content', async function(assert) {
     // given 
@@ -80,5 +81,19 @@ module('Integration | Component | textarea', function(hooks) {
     const expectedError = new Error('ERROR in PixTextarea component, @id param is necessary when giving @label');
     assert.throws(function() { component.label }, expectedError);
   });
+
+  test('it should be possible to show an error message', async function(assert) {
+    // given
+    await render(hbs`
+      <PixTextarea
+        @id="pix-textarea-with-error"
+        @errorMessage="Veuillez remplir ce champ."
+      />
+    `);
+
+    // when & then
+    const selectorElement = this.element.querySelector(ERROR_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'Veuillez remplir ce champ.');
+  })
 
 });

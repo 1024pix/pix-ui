@@ -5,7 +5,7 @@ export const form = (args) => {
   return {
     template: hbs`
     <form>
-      <PixInput @id='firstName' @label='Prénom' />
+      <PixInput @id='firstName' @label='Prénom' @errorMessage={{genericErrorMessage}} />
       <br>
 
       <PixMultiSelect
@@ -30,7 +30,12 @@ export const form = (args) => {
       />
       <br>
 
-      <PixTextarea @id="form__pix-textarea" @value="" @maxlength={{200}} @label="Un commentaire ?" />
+      <PixTextarea
+        @id="form__pix-textarea"
+        @value=""
+        @maxlength={{200}}
+        @label="Un commentaire ?"
+        @errorMessage={{genericErrorMessage}} />
       <br>
 
       <div class="pix-form__actions">
@@ -45,6 +50,7 @@ export const form = (args) => {
   };
 };
 form.args = {
+  genericErrorMessage: '',
   selected: ['1','4'],
   options: [
     { value: '1', total: 3 },

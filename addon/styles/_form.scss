@@ -30,11 +30,9 @@
 
 @mixin errorMessage() {
   position: absolute;
-  bottom: calc(-4px - 1px - 0.75rem);
   font-family: $font-roboto;
   font-size: 0.75rem;
   color: $red;
-  margin-top: 4px;
 }
 
 @mixin formElementInError() {
