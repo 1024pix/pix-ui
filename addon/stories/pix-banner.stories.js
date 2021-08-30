@@ -61,13 +61,13 @@ export const argsTypes = {
     name: 'actionLabel',
     description: 'Nom de l‘action',
     type: { name: 'string', required: false },
-    control: { disable: true },
+    defaultValue: '',
   },
   actionUrl: {
     name: 'actionUrl',
     description: 'Lien de l‘action',
     type: { name: 'string', required: false },
-    control: { disable: true },
+    defaultValue: '',
   },
   type: {
     name: 'type',
