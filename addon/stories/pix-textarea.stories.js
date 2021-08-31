@@ -7,6 +7,8 @@ export const textarea = (args) => {
         @id={{id}}
         @value={{value}}
         @maxlength={{maxlength}}
+        @label={{label}}
+        @errorMessage={{errorMessage}}
       />
     `,
     context: args,
@@ -33,5 +35,25 @@ export const argTypes = {
     description: 'Nombre de caractères maximal à taper dans le champ',
     type: { name: 'number', required: false },
     defaultValue: 500,
+  },
+
+  label: {
+    name: 'label',
+    description: 'Donne un label au champ.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    }
+  },
+
+  errorMessage: {
+    name: 'errorMessage',
+    description: 'Affiche une erreur en dessous du champ.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    }
   },
 };

@@ -13,6 +13,24 @@ export default class PixSelect extends Component {
       this.datalistId = 'pix-select-list-' + guidFor(this);
     }
   }
+  
+  get label() {
+    const labelIsDefined = this.args.label && this.args.label.trim();
+    const idIsNotDefined = this.args.id && !this.args.id.trim();
+
+    if (labelIsDefined && idIsNotDefined) {
+      throw new Error('ERROR in PixSelect component, @id param is necessary when giving @label');
+    }
+    return this.args.label || null;
+  }
+
+  get isBig() {
+    return this.args.size === 'big';
+  }
+
+  get isValid() {
+    return this.args.isValidationActive && this.isValueAValidOption;
+  }
 
   @action
   onChange(event) {

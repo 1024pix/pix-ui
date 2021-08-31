@@ -10,6 +10,7 @@ export const multiSelectWithChildComponent = (args) => {
         @id={{id}}
         @onSelect={{onSelect}}
         @emptyMessage={{emptyMessage}}
+        @label={{label}}
         @options={{options}} as |star|
       >
         <PixStars
@@ -18,9 +19,7 @@ export const multiSelectWithChildComponent = (args) => {
         />
       </PixMultiSelect>
     `,
-    context: {
-      ...args,
-    },
+    context: args,
   };
 };
 multiSelectWithChildComponent.args = {
@@ -46,6 +45,7 @@ export const multiSelectSearchable = (args) => {
         @strictSearch={{strictSearch}}
         @onSelect={{doSomething}}
         @emptyMessage={{emptyMessage}}
+        @size={{size}}
         @selected={{selected}}
         @options={{options}} as |option|
       >
@@ -65,9 +65,18 @@ export const argTypes = {
   },
   title: {
     name: 'title',
-    description: 'Donner un titre à sa liste de choix multiple',
+    description: 'Donne un titre à sa liste de choix multiple.',
     type: { name: 'string', required: true },
     defaultValue: 'Rechercher un condiment',
+  },
+  label: {
+    name: 'label',
+    description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    }
   },
   emptyMessage: {
     name: 'emptyMessage',
@@ -128,5 +137,15 @@ export const argTypes = {
     description: 'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
     defaultValue: false,
+  },
+  size: {
+    name: 'size',
+    description: '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
+    options: ['big', 'small'],
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'small' },
+    }
   },
 };

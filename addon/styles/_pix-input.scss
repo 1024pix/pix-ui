@@ -6,10 +6,7 @@
   position: relative;
 
   &__label {
-    font-family: $font-roboto;
-    font-size: 0.875rem;
-    color: $grey-70;
-    margin-bottom: 4px;
+    @include label();
   }
 
   &__information {
@@ -49,17 +46,19 @@
   }
 
   &__error-message {
-    position: absolute;
-    bottom: calc(-4px - 1px - 0.75rem);
-    font-family: $font-roboto;
-    font-size: 0.75rem;
-    color: $red;
+    @include errorMessage();
     margin-top: 4px;
+    bottom: calc(-4px - 1px - 0.75rem);
   }
 
   input {
-    padding: 10px 16px;
-    padding-right: 26px;
+    display: flex;
+    box-sizing: border-box;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 16px 0 16px;
+    height: 36px;
+    line-height: 0;
     border: 1px solid $grey-40;
     border-radius: 4px;
     font-family: $font-roboto;
@@ -67,35 +66,28 @@
     font-weight: 400;
     color: $grey-90;
 
-    &:hover {
-      box-shadow: inset 0px 0px 0px 0.6px $grey-40;
-    }
-
-    &:focus {
-      border-color: $blue;
-      box-shadow: inset 0px 0px 0px 0.6px $blue;
-      outline: none;
-    }
+    @include hoverFormElement();
+    @include focusFormElement();
 
     &::placeholder {
       color: $grey-30;
     }
 
     &.pix-input__input--error {
-      border-color: $red;
-      box-shadow: inset 0px 0px 0px 0.6px $red;
+      padding-right: 32px;
+      @include formElementInError();
     }
 
     &.pix-input__input--icon {
-      padding-right: 30px;
+      padding-right: 32px;
     }
 
     &.pix-input__input--icon.pix-input__input--icon-left {
-      padding-left: 30px;
+      padding-left: 32px;
     }
 
     &.pix-input__input--error.pix-input__input--icon:not(.pix-input__input--icon-left) {
-      padding-right: 46px;
+      padding-right: 32px;
     }
   }
 }

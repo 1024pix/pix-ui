@@ -2,12 +2,15 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, fillIn } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | textarea', function(hooks) {
   setupRenderingTest(hooks);
 
   const TEXTAREA_SELECTOR = '.pix-textarea textarea';
   const CHAR_COUNT_SELECTOR = '.pix-textarea p';
+  const LABEL_SELECTOR = '.pix-textarea__label';
+  const ERROR_SELECTOR = '.pix-textarea__error-message';
 
   test('it renders PixTextarea with correct id and content', async function(assert) {
     // given 
@@ -53,5 +56,44 @@ module('Integration | Component | textarea', function(hooks) {
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
     assert.equal(textarea.required, true);
   });
+
+
+  test('it should be possible to give a label', async function(assert) {
+    // given
+    await render(hbs`
+      <PixTextarea
+        @id="pix-select-with-label"
+        @label="Décrivez votre problème"
+      />
+    `);
+
+    // when & then
+    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'Décrivez votre problème');
+  });
+
+  test('it should throw an error if no id is provided when there is a label', async function(assert) {
+    // given
+    const componentParams = { id: '   ', label: 'Décrivez votre problème' };
+    const component = createGlimmerComponent('component:pix-textarea', componentParams);
+
+    // when & then
+    const expectedError = new Error('ERROR in PixTextarea component, @id param is necessary when giving @label');
+    assert.throws(function() { component.label }, expectedError);
+  });
+
+  test('it should be possible to show an error message', async function(assert) {
+    // given
+    await render(hbs`
+      <PixTextarea
+        @id="pix-textarea-with-error"
+        @errorMessage="Veuillez remplir ce champ."
+      />
+    `);
+
+    // when & then
+    const selectorElement = this.element.querySelector(ERROR_SELECTOR);
+    assert.equal(selectorElement.innerHTML, 'Veuillez remplir ce champ.');
+  })
 
 });

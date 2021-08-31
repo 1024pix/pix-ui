@@ -5,24 +5,27 @@
 
   @mixin pixSelect {
     appearance: none;
-    border: 1.5px $grey-20 solid;
+    border: 1px $grey-40 solid;
     box-sizing: border-box;
-    border-radius: 3px;
-    color: $black;
+    border-radius: 4px;
+    color: $grey-90;
     font-family: $font-roboto;
-    font-size: 1rem;
-    height: 46px;
+    font-size: 0.875rem;
+    height: 36px;
     width: 100%;
 
-    &:focus, &:focus-within {
-      box-shadow: 0 0 0 1.8pt $blue;
-      outline: solid 1px $blue;
-    }
+    @include hoverFormElement();
+    @include focusFormElement();
+    @include focusWithinFormElement();
   }
 
   select {
     @include pixSelect;
     padding: 0 32px 0 16px;
+
+    &.pix-select--big {
+      height: 44px;
+    }
 
     &::-ms-expand {
       display: none;
@@ -31,7 +34,11 @@
 
   input {
     @include pixSelect;
-    padding: 0 8px;
+    padding: 0 8px 0 16px;
+
+    &.pix-select--big {
+      height: 44px;
+    }
   
     // Remove arrow for Chrome
     &::-webkit-calendar-picker-indicator {
@@ -40,18 +47,25 @@
 
     &.pix-select--is-valid:focus,
     &.pix-select--is-valid:focus-within {
-      box-shadow: 0 0 0 1.8pt $green;
-      outline-color: $green;
+      border-color: $green;
     }
   }
 
   &__icon {
     font-size: 11px;
     color: $grey-30;
-    right: 8px;
+    right: 10px;
     top: calc(50% - 6px);
     padding: 0 0 2px;
     position: absolute;
     pointer-events: none;
   }
+
+  &__label {
+    @include label();
+  }
+
+  .pix-select__label ~ .pix-select__icon {
+    top: calc(50% + 6px);
+  } 
 }

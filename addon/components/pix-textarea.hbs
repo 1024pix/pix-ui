@@ -1,11 +1,21 @@
 <div class='pix-textarea'>
+
+  {{#if this.label}}
+    <label for={{@id}} class="pix-textarea__label">{{this.label}}</label>
+  {{/if}}
+
     <Textarea
       id={{@id}}
       @value={{@value}}
       maxlength={{if @maxlength @maxlength}}
+      class="{{if @errorMessage "pix-textarea--error"}}"
       ...attributes
     />
   {{#if @maxlength}}
     <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
+  {{/if}}
+
+  {{#if @errorMessage}}
+    <label for={{this.id}} class="pix-textarea__error-message">{{@errorMessage}}</label>
   {{/if}}
 </div>

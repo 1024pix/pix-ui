@@ -25,6 +25,20 @@ export default class PixMultiSelect extends Component {
     this._setDisplayedOptions(this.args.selected, true);
   }
 
+  get label() {
+    const labelIsDefined = this.args.label && this.args.label.trim();
+    const idIsNotDefined = this.args.id && !this.args.id.trim();
+
+    if (labelIsDefined && idIsNotDefined) {
+      throw new Error('ERROR in PixMultiSelect component, @id param is necessary when giving @label');
+    }
+    return this.args.label || null;
+  }
+
+  get isBig() {
+    return this.args.size === 'big';
+  }
+
   get results() {
     if (this.args.isSearchable && this.searchData) {
       return this.options.filter(({ label }) => this._search(label));

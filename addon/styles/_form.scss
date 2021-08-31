@@ -1,0 +1,49 @@
+@mixin hoverFormElement(){
+  &:hover {
+    box-shadow: inset 0px 0px 0px 0.6px $grey-40;
+  }
+}
+
+@mixin focusFormElement(){
+  &:focus {
+    border-color: $blue;
+    box-shadow: inset 0px 0px 0px 0.6px $blue;
+    outline: none;
+  }
+}
+
+@mixin focusWithinFormElement(){
+  &:focus {
+    border-color: $blue;
+    box-shadow: inset 0px 0px 0px 0.6px $blue;
+    outline: none;
+  }
+}
+
+@mixin label() {
+  display: block;
+  font-family: $font-roboto;
+  font-size: 0.875rem;
+  color: $grey-70;
+  margin-bottom: 4px;
+}
+
+@mixin errorMessage() {
+  position: absolute;
+  font-family: $font-roboto;
+  font-size: 0.75rem;
+  color: $red;
+}
+
+@mixin formElementInError() {
+  border-color: $red;
+  box-shadow: inset 0px 0px 0px 0.6px $red;
+}
+
+.pix-form__actions {
+  display: flex;
+
+  & > .pix-button:first-child {
+    margin-right: 10px;
+  }
+}

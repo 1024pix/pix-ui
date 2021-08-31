@@ -4,22 +4,20 @@
   textarea {
     box-sizing: border-box;
     width: 100%;
-    border: 1.6px solid $grey-45;
+    border: 1px solid $grey-40;
     border-style: solid;
     border-radius: 4px;
-    padding: 8px;
+    padding: 10px 16px;
     font-family: $font-roboto;
-    color: $grey-45;
-    font-size: 1rem;
+    color: $grey-90;
+    font-size: 0.875rem;
     resize: vertical;
 
-    &:hover {
-      border-color: $grey-60;
-    }
+    @include hoverFormElement();
+    @include focusFormElement();
 
-    &:focus {
-      border: 1.6px solid $blue;
-      outline: none;
+    &.pix-textarea--error {
+      @include formElementInError();
     }
   }
 
@@ -32,4 +30,11 @@
     margin-bottom: 0;
   }
 
+  &__label{
+    @include label();
+  }
+
+  &__error-message {
+    @include errorMessage();
+  }
 }

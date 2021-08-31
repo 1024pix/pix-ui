@@ -2,7 +2,11 @@
   display: inline-block;
   position: relative;
   min-width: 250px;
-  max-width: 450px;
+  width: 100%;
+
+  &__label {
+    @include label();
+  }
 }
 
 .pix-multi-select-header {
@@ -12,20 +16,23 @@
   font-family: $font-roboto;
   font-weight: $font-normal;
   position: relative;
-  border: 1px $grey-20 solid;
-  height: 35px;
-  padding: 8px 36px 8px 16px;
+  border: 1px $grey-40 solid;
+  height: 36px;
+  padding: 0px 32px 0px 16px;
   width: 100%;
   background-color: $white;
-  border-radius: 3px;
-  margin:0 1px;
+  border-radius: 4px;
   outline: none;
   box-sizing: border-box;
-  font-size: 0.9rem;
+  font-size: 0.875rem;
   cursor: pointer;
+  color: $grey-90;
 
-  &:focus-within, &:hover {
-    border-color: $blue;
+  @include hoverFormElement();
+  @include focusWithinFormElement();
+
+  &--big {
+    height: 44px;
   }
 
   &__search-icon {
@@ -46,19 +53,16 @@
     outline: none;
     padding: 0 10px;
     border-radius: 3px;
-    font-size: 1em;
+    font-size: 0.875rem;
+    color: $grey-90;
     background: transparent;
-
-    &:focus {
-      outline: none;
-    }
   }
 
   &__dropdown-icon {
-    font-size: 16px;
-    color: $grey-25;
-    right: 16px;
-    top: calc(50% - 8px);
+    font-size: 11px;
+    color: $grey-30;
+    right: 10px;
+    top: calc(50% - 6px);
     padding: 0 0 2px;
     position: absolute;
     pointer-events: none;
@@ -111,6 +115,8 @@
     list-style: none;
     font-size: 0.9rem;
 
+    @include hoverFormElement();  
+
     &--no-result {
       text-align: center;
       padding: 12px 0;
@@ -119,10 +125,6 @@
     &:last-of-type {
       border-bottom: none;
     }
-    
-    &:hover, &:focus-within {
-      background-color: $grey-10;
-    }   
   }
   
   &__checkbox {
