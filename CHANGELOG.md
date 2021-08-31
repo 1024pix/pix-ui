@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v7.0.0 (31/08/2021)
+
+- [#122](https://github.com/1024pix/pix-ui/pull/122) [TECH] Aligner le style des composants de formulaire avec le design system (PIX-3052).
+
 ## v6.2.0 (31/08/2021)
 
 - [#128](https://github.com/1024pix/pix-ui/pull/128) [FEATURE] Aligner le style du PixBanner avec le design system (PIX-3022).
