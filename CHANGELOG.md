@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v8.0.0 (01/09/2021)
+
+- [#129](https://github.com/1024pix/pix-ui/pull/129) [FEATURE] Aligner le style du PixTooltip avec le design system (PIX-3019).
+
 ## v7.0.0 (31/08/2021)
 
 - [#122](https://github.com/1024pix/pix-ui/pull/122) [TECH] Aligner le style des composants de formulaire avec le design system (PIX-3052).
