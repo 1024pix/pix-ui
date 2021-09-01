@@ -8,11 +8,13 @@
 
   & > *:first-child:hover + .pix-tooltip__content,
   & > *:first-child:focus + .pix-tooltip__content{
+    display: block;
     opacity: 1;
   }
 }
 
 .pix-tooltip__content {
+  display: none;
   opacity: 0;
   pointer-events: none;
   background-color: $grey-100;
