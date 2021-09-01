@@ -19,8 +19,69 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 
 > ⚠️ L'infobulle ne s'affichera pas si le texte est vide.
 
+## Accessibilité
+
+Les tooltips doivent être appliquées de préférences sur des éléments nativement focusable comme `<button>` ou `<input>`.
+
+Si vous utilisez un élément `<div>` ou `<span>`, il faut ajouter `tabindex="0"` pour qu'il prenne le focus.
+
+```html
+<PixTooltip @text="My tooltip">
+  <span tabindex="0">Mon span</span>
+</PixTooltip>
+```
+
+Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur via `aria-describedby`:
+
+```html
+<PixTooltip @id="tooltip-1" @text="My tooltip">
+  <PixButton aria-describedby="tooltip-1">Mon bouton</PixButton>
+</PixTooltip>
+```
+
+## Default
+
+Infobulle en position `top`, fond sombre (par défaut).
+
 <Canvas>
-  <Story name="Tooltip" story={stories.tooltip} height={160} />
+  <Story name="Default" story={stories.Default} height={200} />
+</Canvas>
+
+## Is Light
+
+Infobulle en mode clair.
+
+> ⚠️ le tooltip "light" est à utiliser de préférence sur fond coloré ! Mais ce n'est pas obligatoire.
+
+<Canvas>
+  <Story name="Is Light" story={stories.isLight} height={200} />
+</Canvas>
+
+## Position
+
+Différentes positions de l'infobulle.
+Existe aussi `top-left`, `top-right`, `bottom-left` et `bottom-right`.
+
+<Canvas isColumn>
+  <Story name="Left" story={stories.left} height={100} />
+  <Story name="Right" story={stories.right} height={100} />
+  <Story name="Bottom" story={stories.bottom} height={150} />
+</Canvas>
+
+## Is Wide
+
+Infobulle en plus large.
+
+<Canvas>
+  <Story name="Is Wide" story={stories.isWide} height={200} />
+</Canvas>
+
+## Is Inline
+
+Infobulle dont le contenu reste sur une ligne.
+
+<Canvas>
+  <Story name="Is Inline" story={stories.isInline} height={200} />
 </Canvas>
 
 ## Usage
@@ -28,43 +89,39 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 ```html
 <PixTooltip
   @text='Hey'
-  @position='top'
-  >
-  <button>Tooltip top</button>
+>
+  <button>Tooltip par défaut</button>
 </PixTooltip>
 
-<br><br>
+<PixTooltip
+  @text='Hey'
+  @isLight={{true}}
+>
+  <button>Tooltip en mode clair</button>
+</PixTooltip>
 
 <PixTooltip
-  @text='A looooooong looooooong text but in a single line'
-  @position='left'
+  @text='Hey'
   @isInline={{true}}
-  >
-  <button>Tooltip inline left</button>
+>
+  <button>Tooltip sur une ligne</button>
 </PixTooltip>
 
-<br><br>
-
 <PixTooltip
-  @text='In accumsan scelerisque sapien, et lacinia nisi efficitur a.'
+  @text='Hey'
   @position='bottom'
-  @isLight={{true}}
-  >
-  <button>Tooltip bottom light</button>
+>
+  <button>Tooltip apparaissant en bas</button>
 </PixTooltip>
 
-<br><br>
-
 <PixTooltip
-  @text='Lorem Ipsum is simply dummy text of the printing and typesetting industry.'
-  @position='bottom-left'
-  @isLight={{true}}
+  @text='Hey'
   @isWide={{true}}
-  >
-  <button>Tooltip bottom left wide light</button>
+>
+  <button>Tooltip en mode large</button>
 </PixTooltip>
 ```
 
 ## Arguments
 
-<ArgsTable story="Tooltip" />
+<ArgsTable story="Default" />

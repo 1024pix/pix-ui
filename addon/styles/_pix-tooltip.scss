@@ -6,23 +6,27 @@
   justify-content: center;
   align-items: center;
 
-  & > *:first-child:hover + .pix-tooltip__content {
+  & > *:first-child:hover + .pix-tooltip__content,
+  & > *:first-child:focus + .pix-tooltip__content{
+    display: block;
     opacity: 1;
   }
 }
 
 .pix-tooltip__content {
+  display: none;
   opacity: 0;
   pointer-events: none;
-  background-color: $black;
+  background-color: $grey-100;
   position: absolute;
   z-index: 100;
-  margin: 0;
-  padding: 10px 16px;
+  padding: 8px 16px;
   left: auto;
   color: $white;
+  font-family: $font-roboto;
   font-size: 0.875rem;
-  border-radius: 4px;
+  border-radius: 6px;
+  line-height: 1.4rem;
   transition: opacity 0.3s;
 
   &--inline {
@@ -38,17 +42,16 @@
 
   &--wide {
     width: 382px;
-    padding: 16px;
   }
 
   &--light {
+    font-weight: $font-medium;
     background-color: $white;
     color: $grey-60;
-    border: 1px solid $grey-40;
-    box-shadow: -2px 4px 4px 2px rgba($black, 0.1);
+    box-shadow: 0px 6px 24px 0px rgba($grey-70, 0.14);
 
     &::before {
-      border-width: 1px;
+      border-width: 0px;
       height: 8px;
       width: 8px;
       background-color: $white;
@@ -62,7 +65,7 @@
   &::before {
     top: calc(50% - 5px); // 50% is the height of the parent and 5px the height of the triangle
     left: -10px; // 10px is width of the ::before elmt
-    border-color: transparent $black transparent transparent;
+    border-color: transparent $grey-100 transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -80,7 +83,7 @@
   &::before {
     top: 100%;
     left: calc(50% - 5px);
-    border-color: $black transparent transparent transparent;
+    border-color: $grey-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -97,7 +100,7 @@
   &::before {
     top: 100%;
     left: calc(100% - 27px);
-    border-color: $black transparent transparent transparent;
+    border-color: $grey-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -114,7 +117,7 @@
 
   &::before {
     top: 100%;
-    border-color: $black transparent transparent transparent;
+    border-color: $grey-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -132,7 +135,7 @@
   &::before {
     top: -10px;
     left: calc(50% - 5px);
-    border-color: transparent transparent $black transparent;
+    border-color: transparent transparent $grey-100 transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -149,7 +152,7 @@
   &::before {
     top: -10px;
     left: calc(100% - 27px);
-    border-color: transparent transparent $black transparent;
+    border-color: transparent transparent $grey-100 transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -166,7 +169,7 @@
 
   &::before {
     top: -10px;
-    border-color: transparent transparent $black transparent;
+    border-color: transparent transparent $grey-100 transparent;
   }
 
   &.pix-tooltip__content--light::before {
@@ -182,7 +185,7 @@
   &::before {
     top: calc(50% - 5px);
     right: -10px;
-    border-color: transparent transparent transparent $black;
+    border-color: transparent transparent transparent $grey-100;
   }
 
   &.pix-tooltip__content--light::before {
