@@ -19,20 +19,42 @@ Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément
 
 > ⚠️ L'infobulle ne s'affichera pas si le texte est vide.
 
+## Accessibilité
+
+Les tooltips doivent être appliquées de préférences sur des éléments nativement focusable comme `<button>` ou `<input>`.
+
+Si vous utilisez un élément `<div>` ou `<span>`, il faut ajouter `tabindex="0"` pour qu'il prenne le focus.
+
+```html
+<PixTooltip @text="My tooltip">
+  <span tabindex="0">Mon span</span>
+</PixTooltip>
+```
+
+Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur via `aria-describedby`:
+
+```html
+<PixTooltip @id="tooltip-1" @text="My tooltip">
+  <PixButton aria-describedby="tooltip-1">Mon bouton</PixButton>
+</PixTooltip>
+```
+
 ## Default
 
 Infobulle en position `top`, fond sombre (par défaut).
 
 <Canvas>
-  <Story name="Default" story={stories.Default} height={130} />
+  <Story name="Default" story={stories.Default} height={200} />
 </Canvas>
 
 ## Is Light
 
 Infobulle en mode clair.
 
+> ⚠️ le tooltip "light" est à utiliser de préférence sur fond coloré ! Mais ce n'est pas obligatoire.
+
 <Canvas>
-  <Story name="Is Light" story={stories.isLight} height={130} />
+  <Story name="Is Light" story={stories.isLight} height={200} />
 </Canvas>
 
 ## Position
@@ -43,7 +65,7 @@ Existe aussi `top-left`, `top-right`, `bottom-left` et `bottom-right`.
 <Canvas isColumn>
   <Story name="Left" story={stories.left} height={100} />
   <Story name="Right" story={stories.right} height={100} />
-  <Story name="Bottom" story={stories.bottom} height={130} />
+  <Story name="Bottom" story={stories.bottom} height={150} />
 </Canvas>
 
 ## Is Wide
@@ -51,7 +73,7 @@ Existe aussi `top-left`, `top-right`, `bottom-left` et `bottom-right`.
 Infobulle en plus large.
 
 <Canvas>
-  <Story name="Is Wide" story={stories.isWide} height={180} />
+  <Story name="Is Wide" story={stories.isWide} height={200} />
 </Canvas>
 
 ## Is Inline
@@ -59,7 +81,7 @@ Infobulle en plus large.
 Infobulle dont le contenu reste sur une ligne.
 
 <Canvas>
-  <Story name="Is Inline" story={stories.isInline} height={130} />
+  <Story name="Is Inline" story={stories.isInline} height={200} />
 </Canvas>
 
 ## Usage

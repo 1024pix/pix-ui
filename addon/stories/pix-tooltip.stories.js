@@ -4,13 +4,16 @@ const Template = (args) => {
   return {
     template: hbs`
       <PixTooltip
+        @id="tooltip-1"
         @text={{this.text}}
         @position={{this.position}}
         @isLight={{this.isLight}}
         @isInline={{this.isInline}}
         @isWide={{this.isWide}}
-        >
-          <PixButton>{{this.label}}</PixButton>
+      >
+        <PixButton aria-describedby="tooltip-1">
+          {{this.label}}
+        </PixButton>
       </PixTooltip>
     `,
     context: args,
@@ -67,6 +70,11 @@ bottom.args = {
 };
 
 export const argTypes = {
+  id: {
+    name: 'id',
+    description: 'Identifiant permettant de référencer le déclencheur via aria-describedby',
+    type: { name: 'string', required: true },
+  },
   text: {
     name: 'text',
     defaultValue: 'Tooltiptop',
