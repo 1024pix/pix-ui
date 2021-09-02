@@ -42,6 +42,7 @@
 
 .pix-form__actions {
   display: flex;
+  justify-content: center;
 
   & > .pix-button:first-child {
     margin-right: 10px;
