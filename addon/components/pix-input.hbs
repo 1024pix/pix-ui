@@ -8,11 +8,7 @@
 
   <input
     id={{this.id}}
-    class="
-      {{if @errorMessage "pix-input__input--error"}}
-      {{if @icon " pix-input__input--icon"}}
-      {{if @isIconLeft " pix-input__input--icon-left"}}
-    "
+    class={{this.className}}
     ...attributes />
 
   {{#if @errorMessage}}
