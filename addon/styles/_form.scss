@@ -40,6 +40,16 @@
   box-shadow: inset 0px 0px 0px 0.6px $red;
 }
 
+@mixin input() {
+  line-height: 0;
+  font-family: $font-roboto;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: $grey-90;
+  border-radius: $spacing-xxs;
+  padding: 0 $spacing-s 0 $spacing-s;
+}
+
 .pix-form__actions {
   display: flex;
   justify-content: center;

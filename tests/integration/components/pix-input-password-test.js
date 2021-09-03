@@ -7,11 +7,11 @@ import createGlimmerComponent from "../../helpers/create-glimmer-component";
 module('Integration | Component | pix-input-password', function(hooks) {
   setupRenderingTest(hooks);
 
-  const INPUT_SELECTOR = '.pix-input input[type=password]';
+  const INPUT_SELECTOR = '.pix-input-password input[type=password]';
   const LABEL_SELECTOR = '.pix-input__label';
   const INFORMATION_SELECTOR = '.pix-input__information';
   const ERROR_SELECTOR = '.pix-input__error-message';
-  const BUTTON_SELECTOR = '.pix-input-password--button';
+  const BUTTON_SELECTOR = '.pix-input-password__button';
 
   test('it should throw an error if there is no id', async function(assert) {
     // given
