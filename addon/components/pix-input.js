@@ -9,4 +9,12 @@ export default class PixInput extends Component {
     }
     return this.args.id;
   }
+
+  get className() {
+    const classNames = [];
+    this.args.errorMessage && classNames.push('pix-input__input--error');
+    this.args.icon && classNames.push('pix-input__input--icon');
+    this.args.isIconLeft && classNames.push('pix-input__input--icon-left');
+    return classNames.join(' ');
+  }
 }
