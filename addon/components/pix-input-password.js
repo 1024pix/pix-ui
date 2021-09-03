@@ -15,19 +15,11 @@ export default class PixInputPassword extends PixInput {
     return this.args.label;
   }
 
-  get type() {
-    return this.isPasswordVisible ? 'text' : 'password';
-  }
-
   get ariaLabel() {
     if (!this.args.label && !this.args.ariaLabel) {
       throw new Error(ERROR_MESSAGE);
     }
     return this.args.label ? null : this.args.ariaLabel;
-  }
-
-  get className() {
-    return super.className;
   }
 
   @action
