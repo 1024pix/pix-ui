@@ -7,6 +7,8 @@ export const form = (args) => {
     <form>
       <PixInput @id='firstName' @label='Prénom' @errorMessage={{genericErrorMessage}} />
       <br>
+      <PixInputPassword @id='password' @label='Mot de passe' @errorMessage={{genericErrorMessage}} />
+      <br>
 
       <PixMultiSelect
         @title="Votre notation en étoiles..."
