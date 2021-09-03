@@ -1,5 +1,10 @@
 # Pix-UI Changelog
 
+## v8.0.1 (03/09/2021)
+
+- [#131](https://github.com/1024pix/pix-ui/pull/131) [FEATURE] Centrer les boutons d'un formulaire par défaut
+- [#133](https://github.com/1024pix/pix-ui/pull/133) [TECH] Enlever le padding des section mis globalement
+
 ## v8.0.0 (01/09/2021)
 
 - [#129](https://github.com/1024pix/pix-ui/pull/129) [FEATURE] Aligner le style du PixTooltip avec le design system (PIX-3019).
