@@ -19,16 +19,18 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 
 ## Default
 
-<Canvas>
-  <Story name='Default' story={stories.Default} height={60} />
+<Canvas isColumn>
+  <Story story={stories.Default} height={60} />
+  <Story name='Default checked' story={stories.defaultChecked} height={60} />
 </Canvas>
 
 ## IsDisabled
 
 État inactif du bouton radio.
 
-<Canvas>
+<Canvas isColumn>
   <Story name='Disabled' story={stories.isDisabled} height={60} />
+  <Story name='Disabled checked' story={stories.disabledChecked} height={60} />
 </Canvas>
 
 ## Usage
@@ -36,7 +38,6 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 ```html
 
 <PixRadioButton
-    @ariaLabel={{ariaLabel}}
     @id={{id}}
     @label={{label}}
     @value={{value}}

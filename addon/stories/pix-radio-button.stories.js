@@ -26,6 +26,31 @@ isDisabled.args = {
   isDisabled: true
 }
 
+const checked = (args) => {
+  return {
+    template: hbs`
+      <PixRadioButton
+        @id={{id}}
+        @label={{label}}
+        @isDisabled={{isDisabled}}
+        checked
+      />
+    `,
+    context: args,
+  };
+};
+
+export const disabledChecked = checked.bind({});
+disabledChecked.args = {
+  ...Default.args,
+  isDisabled: true
+}
+
+export const defaultChecked = checked.bind({});
+defaultChecked.args = {
+  ...Default.args,
+}
+
 export const argTypes = {
   id: {
     name: 'id',
