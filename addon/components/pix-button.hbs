@@ -15,7 +15,7 @@
       {{on "click" this.triggerAction}}
       ...attributes
       disabled={{this.isButtonLoadingOrDisabled}}
-      aria-disabled={{this.ariaDisabled}}
+      aria-disabled="{{this.ariaDisabled}}"
     >
       {{#if this.isLoading}}
         <div class="loader loader--{{this.loadingColor}}">
@@ -34,7 +34,7 @@
       class={{this.className}}
       ...attributes
       disabled={{this.isButtonLoadingOrDisabled}}
-      aria-disabled={{this.ariaDisabled}}
+      aria-disabled="{{this.ariaDisabled}}"
     >
       {{yield}}
     </button>
