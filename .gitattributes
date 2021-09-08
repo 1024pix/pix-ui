@@ -1,0 +1,13 @@
+.circleci export-ignore
+.gitattribute export-ignore
+.github export-ignore
+.storybook export-ignore
+.docs export-ignore
+scripts export-ignore
+.buildpacks export-ignore
+.editorconfig export-ignore
+.gitattributes export-ignore
+.gitignore export-ignore
+scalingo.json export-ignore
+servers.conf.erb export-ignore
+
