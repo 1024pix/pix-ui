@@ -177,4 +177,38 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       assert.ok(tooltipContentElement.classList.toString().includes(WIDE_CLASS));
     });
   });
+
+  module('tooltip unescape html', function() {
+    const htmlText = '<b>Tooltip</b>'
+
+    test('it renders escaped html', async function(assert) {
+      // given
+      this.set('text', htmlText);
+
+      // when
+      await render(hbs`
+        <PixTooltip @text={{this.text}} @unescapeHtml={{false}}></PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+      // then
+      const displayedText = decodeURI(tooltipContentElement.innerHTML.trim());
+      assert.equal(displayedText, "&lt;b&gt;Tooltip&lt;/b&gt;");
+    });
+
+    test('it renders unescaped html', async function(assert) {
+      // given
+      this.set('text', htmlText);
+
+      // when
+      await render(hbs`
+        <PixTooltip @text={{this.text}} @unescapeHtml={{true}}></PixTooltip>
+      `);
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+
+      // then
+      const displayedText = decodeURI(tooltipContentElement.innerHTML.trim());
+      assert.equal(displayedText, "<b>Tooltip</b>");
+    });
+  });
 });

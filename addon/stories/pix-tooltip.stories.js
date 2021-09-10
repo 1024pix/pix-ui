@@ -10,6 +10,7 @@ const Template = (args) => {
         @isLight={{this.isLight}}
         @isInline={{this.isInline}}
         @isWide={{this.isWide}}
+        @unescapeHtml={{this.unescapeHtml}}
       >
         <PixButton aria-describedby="tooltip-1">
           {{this.label}}
@@ -69,6 +70,14 @@ bottom.args = {
   position: 'bottom'
 };
 
+export const unescapeHtml = Template.bind({});
+unescapeHtml.args = {
+  ... Default.args,
+  text: 'Hello <b style="color: red;">W</b>orld',
+  label: 'J\'affiche du html',
+  unescapeHtml: true,
+};
+
 export const argTypes = {
   id: {
     name: 'id',
@@ -103,6 +112,12 @@ export const argTypes = {
   isWide: {
     name: 'isWide',
     description: 'Affichage large',
+    type: { name: 'boolean', required: false },
+    table: { defaultValue: { summary: false } },
+  },
+  unescapeHtml: {
+    name: 'unescapeHtml',
+    description: 'Évite d\'échapper les caractères HTML',
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
   },
