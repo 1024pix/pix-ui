@@ -5,6 +5,7 @@
   id={{@id}}
   type="file"
   class="pix-button-upload__input"
-  {{on "change" this.handleChange}}
+  value={{this.files}}
+  {{on "input" this.handleChange}}
   ...attributes
 />
