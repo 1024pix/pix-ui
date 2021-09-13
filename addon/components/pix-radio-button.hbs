@@ -1,13 +1,12 @@
-<label
-  for={{this.id}}
-  class="pix-radio-button {{if this.isDisabled ' pix-radio-button--disabled'}}">
-  <input
-    id={{this.id}}
-    disabled={{this.isDisabled}}
-    aria-disabled="{{this.isDisabled}}"
-    type="radio"
-    value={{@value}}
-    ...attributes
- />
-  {{@label}}
-</label>
+<div class="pix-radio-button">
+  <label class="{{if @isDisabled ' pix-radio-button--disabled'}}">
+    <input
+      disabled={{@isDisabled}}
+      aria-disabled="{{@isDisabled}}"
+      type="radio"
+      value={{@value}}
+      ...attributes
+    />
+    {{@label}}
+  </label>
+</div>

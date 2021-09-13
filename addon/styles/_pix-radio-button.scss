@@ -1,13 +1,13 @@
 .pix-radio-button {
-  @import 'reset-css';
-
-  display: flex;
-  align-items: center;
   cursor: pointer;
-
   font-family: $font-roboto;
   font-size: 0.875rem;
   color: $grey-70;
+
+  label {
+    display: flex;
+    align-items: center;
+  }
 
   input {
     appearance: none;
@@ -23,6 +23,7 @@
     &:hover {
       background-color: $grey-15;
       box-shadow: 0 0 0 8px $grey-15;
+      transition: all 0.3s ease;
     }
 
     &:focus-visible {

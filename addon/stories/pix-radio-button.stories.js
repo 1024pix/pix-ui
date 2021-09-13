@@ -4,7 +4,6 @@ const Template = (args) => {
   return {
     template: hbs`
       <PixRadioButton
-        @id={{id}}
         @label={{label}}
         @value={{value}}
         @isDisabled={{isDisabled}}
@@ -16,7 +15,6 @@ const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  id: 'id',
   label:'Poivron',
 }
 
@@ -30,7 +28,6 @@ const checked = (args) => {
   return {
     template: hbs`
       <PixRadioButton
-        @id={{id}}
         @label={{label}}
         @isDisabled={{isDisabled}}
         checked
@@ -47,17 +44,9 @@ disabledChecked.args = {
 }
 
 export const defaultChecked = checked.bind({});
-defaultChecked.args = {
-  ...Default.args,
-}
+defaultChecked.args = Default.args;
 
 export const argTypes = {
-  id: {
-    name: 'id',
-    description: 'Identifiant permettant de lui attacher un label',
-    type: { name: 'string', required: true },
-    defaultValue: null,
-  },
   label: {
     name: 'label',
     description: 'Le label du bouton radio',

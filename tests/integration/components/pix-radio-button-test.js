@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import createGlimmerComponent from "../../helpers/create-glimmer-component";
 
 module('Integration | Component | pix-radio-button', function(hooks) {
   setupRenderingTest(hooks);
@@ -12,7 +11,7 @@ module('Integration | Component | pix-radio-button', function(hooks) {
 
   test('it renders the default PixRadioButton', async function(assert) {
     // when
-    await render(hbs`<PixRadioButton @label="Abricot" @id="abricot" />`);
+    await render(hbs`<PixRadioButton @label="Abricot" />`);
 
     // then
     const componentLabelElement = this.element.querySelector(LABEL_SELECTOR);
@@ -38,15 +37,5 @@ module('Integration | Component | pix-radio-button', function(hooks) {
     // when & then
     const componentInput = this.element.querySelector(INPUT_SELECTOR);
     assert.equal(componentInput.checked, true);
-  });
-
-  test('it should throw an error if there is no id', async function(assert) {
-    // given
-    const componentParams = { id: null };
-    const component = createGlimmerComponent('component:pix-radio-button', componentParams);
-
-    // when & then
-    const expectedError = new Error('ERROR in PixRadioButton component, @id param is not provided');
-    assert.throws(function() { component.id }, expectedError);
   });
 });

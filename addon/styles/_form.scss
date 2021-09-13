@@ -50,6 +50,16 @@
   padding: 0 $spacing-s 0 $spacing-s;
 }
 
+.pix-form__label {
+  @include label();
+  padding-bottom: 12px;
+}
+
+.pix-radio-button {
+  padding: $spacing-xs 0 $spacing-xs 0;
+}
+
+
 .pix-form__actions {
   display: flex;
   justify-content: center;

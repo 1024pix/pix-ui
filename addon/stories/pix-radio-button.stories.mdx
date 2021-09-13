@@ -20,7 +20,7 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 ## Default
 
 <Canvas isColumn>
-  <Story story={stories.Default} height={60} />
+  <Story name= "Default" story={stories.Default} height={60} />
   <Story name='Default checked' story={stories.defaultChecked} height={60} />
 </Canvas>
 
@@ -38,23 +38,9 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 ```html
 
 <PixRadioButton
-    @id={{id}}
     @label={{label}}
     @value={{value}}
     @isDisabled={{isDisabled}}
-/>
-
-Bouton radio avec label
-<PixRadioButton
-    @label={{label}}
-    @id={{id}}
-/>
-
-Bouton radio inactif
-<PixRadioButton
-    @label={{label}}
-    @id={{id}}
-    @isDisabled={{true}}
 />
 ```
 
