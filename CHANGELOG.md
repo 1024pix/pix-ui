@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v8.1.1 (14/09/2021)
+
+- [#136](https://github.com/1024pix/pix-ui/pull/136) [BUGFIX] Pouvoir uploader le même nom de fichier 2 fois de suite
+
 ## v8.1.0 (14/09/2021)
 
 - [#130](https://github.com/1024pix/pix-ui/pull/130) [FEATURE] Création du composant PixRadioButton (PIX-3031).
