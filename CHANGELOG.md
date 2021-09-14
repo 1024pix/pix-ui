@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v8.1.0 (14/09/2021)
+
+- [#130](https://github.com/1024pix/pix-ui/pull/130) [FEATURE] Création du composant PixRadioButton (PIX-3031).
+- [#126](https://github.com/1024pix/pix-ui/pull/126) [FEATURE] Permettre d'afficher du code formatté HTML dans la tooltip
+- [#132](https://github.com/1024pix/pix-ui/pull/132) [FEATURE] Création du composant PixInputPassword (PIX-3089). 
+
 ## v8.0.1 (03/09/2021)
 
 - [#131](https://github.com/1024pix/pix-ui/pull/131) [FEATURE] Centrer les boutons d'un formulaire par défaut
