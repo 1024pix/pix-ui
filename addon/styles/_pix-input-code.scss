@@ -1,0 +1,59 @@
+.pix-input-code {
+  @import 'reset-css';
+  display: flex;
+
+  // hide up/down cursors
+  input[type=number] {
+    // Firefox
+    -moz-appearance: textfield;
+
+    // The rest
+    &::-webkit-inner-spin-button,
+    &::-webkit-outer-spin-button {
+      -webkit-appearance: none;
+    }
+  }
+
+  &__input {
+    display: inline-block;
+    box-sizing: border-box;
+    height: 44px;
+    width: 38px;
+    padding: 10px 12px 8px;
+    background-color: $grey-10;
+    border: 1px solid $grey-15;
+    border-radius: 4px;
+    text-align: center;
+    outline: none;
+
+    &:not(:first-child) {
+      margin-left: 4px;
+    }
+
+    &:nth-child(3n+4) {
+      margin-left: 12px;
+    }
+
+    &::placeholder {
+      color: $grey-22;
+    }
+
+    &:hover {
+      border-color: $grey-45;
+    }
+
+    &:active,
+    &:focus {
+      border-color: $blue;
+      background-color: $white;
+
+      &::placeholder {
+        opacity: 0;
+      }
+    }
+
+    &.filled {
+      background-color: $white;
+    }
+  }
+}
