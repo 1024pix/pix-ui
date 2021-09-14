@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-radio-button.stories.js';
+
+<Meta
+  title='Form/Radio Button'
+  component='PixRadioButton'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Radio Button
+
+Un bouton radio permettant de sélectionner une seule option dans une liste.
+
+⚠️ Le bouton radio ne peut pas être utilisé seul : il faut au minimum **2 options**.
+Il est préférable de ne pas sélectionner d’option par défaut pour que le choix de l’utilisateur soit conscient (en particulier si le choix est obligatoire).
+
+## Default
+
+<Canvas isColumn>
+  <Story name= "Default" story={stories.Default} height={60} />
+  <Story name='Default checked' story={stories.defaultChecked} height={60} />
+</Canvas>
+
+## IsDisabled
+
+État inactif du bouton radio.
+
+<Canvas isColumn>
+  <Story name='Disabled' story={stories.isDisabled} height={60} />
+  <Story name='Disabled checked' story={stories.disabledChecked} height={60} />
+</Canvas>
+
+## Usage
+
+```html
+
+<PixRadioButton
+    @label={{label}}
+    @value={{value}}
+    @isDisabled={{isDisabled}}
+/>
+```
+
+## Arguments
+
+<ArgsTable story="Default" />

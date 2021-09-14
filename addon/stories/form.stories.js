@@ -40,6 +40,19 @@ export const form = (args) => {
         @errorMessage={{genericErrorMessage}} />
       <br>
 
+      <label class="pix-form__label"> Votre légume préféré est : </label>
+      <PixRadioButton
+        @label="Chou"
+        @value="chou"
+        name="légume"
+      />
+      <PixRadioButton
+        @label="Carotte"
+        @value="carotte"
+        name="légume"
+      />
+      <br>
+
       <div class="pix-form__actions">
         <PixButton @triggerAction={{cancel}} @backgroundColor="transparent-light" @isBorderVisible={{true}}>
           Annuler

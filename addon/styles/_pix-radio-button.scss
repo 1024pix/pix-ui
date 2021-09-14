@@ -1,0 +1,72 @@
+.pix-radio-button {
+  cursor: pointer;
+  font-family: $font-roboto;
+  font-size: 0.875rem;
+  color: $grey-70;
+
+  label {
+    display: flex;
+    align-items: center;
+  }
+
+  input {
+    appearance: none;
+    position: relative;
+    border-radius: 50%;
+    width: 18px;
+    height: 18px;
+    margin: 0 10px 0 0;
+    border: 1px solid $grey-70;
+    cursor: pointer;
+    background-color: transparent;
+
+    &:hover {
+      background-color: $grey-15;
+      box-shadow: 0 0 0 8px $grey-15;
+      transition: all 0.3s ease;
+    }
+
+    &:focus-visible {
+      box-shadow: $white 0 0 0 2px, $blue 0 0 0 4px;
+      outline: none;
+    }
+
+    &:active {
+      border-color: $blue;
+      background-color: transparent;
+      box-shadow: none;
+    }
+
+    &:checked {
+      border-color: $blue;
+
+      &:after {
+        background-color: $blue;
+        border-radius: 50%;
+        content: "";
+        height: 12px;
+        width: 12px;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    &:disabled {
+      border: 1px solid $grey-45;
+      background-color: transparent;
+      box-shadow: none;
+      cursor: not-allowed;
+
+      &:checked:after {
+        background-color: $grey-25;
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+    color: $grey-45;
+  }
+}
