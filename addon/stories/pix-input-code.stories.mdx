@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-input-code.stories.js';
+
+<Meta
+  title='Form/Inputs/Code'
+  component='PixInputCode'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Input Code
+
+Le `PixInputCode` permet d'associer plusieurs champs pour entrer un code reçu.
+
+Un aria-label est requis pour l'accessibilité.
+
+Par défaut il y a 6 champs mais le nombre est modifiable avec `numInputs`.
+
+Le composant peut être numérique ou alphanumérique précisé avec la propriété `inputType`, par défaut il est numérique.
+
+## Default
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={70}/>
+</Canvas>
+
+## Usage
+
+```html
+<PixInputCode
+    @ariaLabel="My aria-label"
+    @numInputs={{6}}
+    @inputType="number"
+    @onAllInputsFilled={{(code) => {}}}
+/>
+```
+
+## Arguments
+
+<ArgsTable story="Default"/>
