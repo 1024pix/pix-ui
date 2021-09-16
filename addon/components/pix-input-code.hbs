@@ -1,0 +1,20 @@
+{{!-- template-lint-disable no-down-event-binding --}}
+<div class='pix-input-code'>
+  {{#each this.numIterations as |i|}}
+    <input
+      ...attributes
+      id="code-input-{{i}}"
+      type="{{this.inputType}}"
+      aria-label="{{this.ariaLabel}}"
+      class="pix-input-code__input"
+      min="1"
+      max="9"
+      autocomplete="off"
+      placeholder="{{this.placeholder}}"
+      {{on "keydown" this.handleArrowUpOrDown}}
+      {{on "keyup" (fn this.handleKeyUp i)}}
+      {{on "input" (fn this.handleCodeInput i)}}
+      {{on "paste" (fn this.handlePaste i)}}
+    />
+  {{/each}}
+</div>
