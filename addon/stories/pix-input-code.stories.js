@@ -42,4 +42,10 @@ export const argTypes = {
       defaultValue: { summary: 6 },
     }
   },
+  onAllInputsFilled: {
+    name: 'onAllInputsFilled',
+    description: 'fonction appeler une fois que tous les champs ont été rempli avec le code en parametre',
+    type: { required: false },
+    control: { disable: true },
+  },
 };

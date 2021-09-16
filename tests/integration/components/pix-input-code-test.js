@@ -1,5 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
+import sinon from 'sinon';
 import { render, focus, fillIn, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from "../../helpers/create-glimmer-component";
@@ -144,5 +145,70 @@ module('Integration | Component | pix-input-code', function (hooks) {
     [1, 2, 3, 4, 5, 6].forEach(index => {
       assert.dom(`${INPUT_SELECTOR}-${index}`).hasValue(`${index}`);
     });
+  });
+
+  test('it should trigger function with entered code when all inputs are filled', async function (assert) {
+    // given
+    this.set('onAllInputsFilled', sinon.spy());
+    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+    // when
+    await fillIn(`${INPUT_SELECTOR}-1`, '3');
+    await fillIn(`${INPUT_SELECTOR}-2`, '5');
+    await fillIn(`${INPUT_SELECTOR}-3`, '7');
+    await fillIn(`${INPUT_SELECTOR}-4`, '2');
+    await fillIn(`${INPUT_SELECTOR}-5`, '4');
+    await fillIn(`${INPUT_SELECTOR}-6`, '6');
+
+    // then
+    assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
+    assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+  });
+
+  test('it should not trigger function with entered code when all inputs not filled', async function (assert) {
+    // given
+    this.set('onAllInputsFilled', sinon.spy());
+    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+    // when
+    await fillIn(`${INPUT_SELECTOR}-1`, '3');
+    await fillIn(`${INPUT_SELECTOR}-2`, '5');
+    await fillIn(`${INPUT_SELECTOR}-3`, '7');
+    await fillIn(`${INPUT_SELECTOR}-5`, '4');
+    await fillIn(`${INPUT_SELECTOR}-6`, '6');
+
+    // then
+    assert.notOk(this.onAllInputsFilled.calledOnce);
+  });
+
+  test('it should trigger function with entered code even if last entered value is not the last input', async function (assert) {
+    // given
+    this.set('onAllInputsFilled', sinon.spy());
+    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+    // when
+    await fillIn(`${INPUT_SELECTOR}-1`, '3');
+    await fillIn(`${INPUT_SELECTOR}-2`, '5');
+    await fillIn(`${INPUT_SELECTOR}-3`, '7');
+    await fillIn(`${INPUT_SELECTOR}-5`, '4');
+    await fillIn(`${INPUT_SELECTOR}-6`, '6');
+    await fillIn(`${INPUT_SELECTOR}-4`, '2');
+
+    // then
+    assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
+    assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+  });
+
+  test('it should trigger function with entered code after paste', async function (assert) {
+    // given
+    this.set('onAllInputsFilled', sinon.spy());
+    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+    // when
+    await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '357246' } });
+
+    // then
+    assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
+    assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
   });
 });

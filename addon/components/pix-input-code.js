@@ -39,6 +39,19 @@ export default class PixInputCode extends Component {
     if (elem.value.length > 1) elem.value = [...elem.value][0];
   }
 
+  triggerAction() {
+    if (!this.args.onAllInputsFilled) return;
+
+    const code = [];
+    for(let i = 1; i <= this.numInputs; i++) {
+      const elem = document.getElementById(`code-input-${i}`);
+     elem.value.length > 0 && code.push(elem.value);
+    }
+    if (code.length === this.numInputs) {
+      this.args.onAllInputsFilled(code.join(''));
+    }
+  }
+
   @action
   handleCodeInput(index) {
     const elem = document.getElementById(`code-input-${index}`);
@@ -46,6 +59,7 @@ export default class PixInputCode extends Component {
     if (elem.value.length > 0) {
       elem.classList.add("filled");
       this.moveFocus && this.focusElem(index + 1);
+      this.triggerAction();
     } else {
       elem.classList.remove("filled");
     }
@@ -83,5 +97,6 @@ export default class PixInputCode extends Component {
       }
     });
     this.focusElem(index);
+    this.triggerAction();
   }
 }
