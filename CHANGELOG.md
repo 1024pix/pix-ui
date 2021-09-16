@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v8.1.2 (16/09/2021)
+
+- [#138](https://github.com/1024pix/pix-ui/pull/138) [BUGFIX] Modifier l'évènement utilisé dans PixButtonUpload
+
 ## v8.1.1 (14/09/2021)
 
 - [#136](https://github.com/1024pix/pix-ui/pull/136) [BUGFIX] Pouvoir uploader le même nom de fichier 2 fois de suite
