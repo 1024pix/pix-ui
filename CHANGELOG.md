@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v8.2.0 (17/09/2021)
+
+- [#137](https://github.com/1024pix/pix-ui/pull/137) [FEATURE] Création du composant PixInputCode (PIX-3172). 
+
 ## v8.1.2 (16/09/2021)
 
 - [#138](https://github.com/1024pix/pix-ui/pull/138) [BUGFIX] Modifier l'évènement utilisé dans PixButtonUpload
