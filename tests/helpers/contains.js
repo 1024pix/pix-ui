@@ -29,3 +29,18 @@ export function contains(text) {
 
   this.pushResult({ result, message });
 }
+
+export function notContains(text) {
+  const elements = _isTextInElement(getRootElement(), text);
+  const result = elements.length === 0;
+
+  let message = `Element with "${ text }" found`;
+  if (result) {
+    message = `There is no elements with "${ text }"`;
+  }
+
+  this.pushResult({
+    result,
+    message,
+  });
+}
