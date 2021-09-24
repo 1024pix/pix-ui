@@ -7,6 +7,10 @@ import createGlimmerComponent from '../../helpers/create-glimmer-component';
 module('Unit | Component | pix-button', function(hooks) {
   setupTest(hooks);
 
+  test('failing test, just for testing github token', function(assert){
+    assert.equal(1, 2);
+  })
+
   module('#enableTriggerAction', function(){
 
     test('it should return true if button type is button', function(assert){
