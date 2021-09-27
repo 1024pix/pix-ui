@@ -1,4 +1,4 @@
-<div class='pix-collapsible {{if this.isUnCollapsed 'pix-collapsible--uncollapsed'}}' ...attributes>
+<div class='pix-collapsible {{if this.isUnCollapsed 'pix-collapsible--uncollapsed'}}'>
 
   <button
     type="button"
@@ -6,6 +6,7 @@
     class='pix-collapsible__title {{if this.isUnCollapsed 'pix-collapsible__title--uncollapsed'}}'
     aria-controls={{this.contentId}}
     aria-expanded={{if this.isUnCollapsed 'true' 'false'}}
+    ...attributes
   >
     <span>
       {{#if @titleIcon}}
