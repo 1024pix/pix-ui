@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, fillIn, focus, blur } from '@ember/test-helpers';
+import { render, focus, blur } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
+import { fillInByLabel } from '../../helpers/fill-in-by-label';
 import { clickByLabel } from '../../helpers/click-by-label';
 
 module('Integration | Component | multi-select', function (hooks) {
@@ -265,13 +266,15 @@ module('Integration | Component | multi-select', function (hooks) {
           @id={{id}}
           @label="label"
           @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @label="Mon multi select"
+          @options={{options}} as |option|
+        >
           {{option.label}}
         </PixMultiSelect>
       `);
 
       // when
-      await fillIn('input', 'tomate');
+      await fillInByLabel('Mon multi select', 'tomate');
 
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
@@ -301,13 +304,15 @@ module('Integration | Component | multi-select', function (hooks) {
           @placeholder={{placeholder}}
           @id={{id}}
           @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @label="Mon multi select"
+          @options={{options}} as |option|
+        >
           {{option.label}}
         </PixMultiSelect>
       `);
 
       // when
-      await fillIn('input', 'tomate');
+      await fillInByLabel('Mon multi select', 'tomate');
 
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
@@ -481,15 +486,17 @@ module('Integration | Component | multi-select', function (hooks) {
           @placeholder={{placeholder}}
           @id={{id}}
           @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @label="Mon multi select"
+          @options={{options}} as |option|
+        >
           {{option.label}}
         </PixMultiSelect>
       `);
     
       // when
-      await fillIn('input', 'Oi')
+      await fillInByLabel('Mon multi select', 'Oi');
       await clickByLabel('Oignon');
-      await fillIn('input', 'o')
+      await fillInByLabel('Mon multi select', 'o');
 
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
@@ -518,15 +525,17 @@ module('Integration | Component | multi-select', function (hooks) {
           @placeholder={{placeholder}}
           @id={{id}}
           @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @label="Mon multi select"
+          @options={{options}} as |option|
+        >
           {{option.label}}
         </PixMultiSelect>
       `);
     
       // when
-      await fillIn('input', 'Oi')
+      await fillInByLabel('Mon multi select', 'Oi')
       await clickByLabel('Oignon');
-      await fillIn('input', '')
+      await fillInByLabel('Mon multi select', '')
     
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
@@ -598,18 +607,20 @@ module('Integration | Component | multi-select', function (hooks) {
           @placeholder={{placeholder}}
           @id={{id}}
           @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @label="Mon multi select"
+          @options={{options}} as |option|
+        >
           {{option.label}}
         </PixMultiSelect>
       `);
     
       // when
-      await fillIn('input', 'Oi')
+      await fillInByLabel('Mon multi select', 'Oi')
       await clickByLabel('Oignon');
       
       await blur('input');
 
-      await fillIn('input', '');
+      await fillInByLabel('Mon multi select', '');
     
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');

@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, fillIn } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
+import { fillInByLabel } from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | textarea', function(hooks) {
   setupRenderingTest(hooks);
@@ -14,8 +15,8 @@ module('Integration | Component | textarea', function(hooks) {
     const newContent = 'Bonjour Pix !';
 
     // when
-    await render(hbs`<PixTextarea @id=7 @value="old value" />`);
-    await fillIn(TEXTAREA_SELECTOR, newContent);
+    await render(hbs`<PixTextarea @id=7 @value="old value" @label="label" />`);
+    await fillInByLabel('label', newContent);
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
@@ -32,8 +33,14 @@ module('Integration | Component | textarea', function(hooks) {
     this.set('maxlength', maxlength);
 
     // when
-    await render(hbs`<PixTextarea @value={{value}} @maxlength={{maxlength}} />`);
-    await fillIn(TEXTAREA_SELECTOR, 'Hello Pix !');
+    await render(hbs`
+      <PixTextarea
+        @value={{value}}
+        @maxlength={{maxlength}}
+        @id="textarea-id"
+        @label="label"
+      />`);
+    await fillInByLabel('label', 'Hello Pix !');
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
