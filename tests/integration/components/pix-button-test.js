@@ -19,7 +19,7 @@ module('Integration | Component | button', function(hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.textContent.trim(), 'Mon bouton');
+    assert.contains('Mon bouton');
     assert.equal(componentElement.type, 'button');
   });
 

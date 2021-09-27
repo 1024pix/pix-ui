@@ -13,9 +13,9 @@ module('Integration | Component | pix-return-to', function(hooks) {
     await render(hbs`<PixReturnTo @route='home'>Home</PixReturnTo> `);
     
     // then
-    const PixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
-    assert.equal(PixReturnToElement.textContent.trim(), 'Home');
-    assert.ok(PixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--black'));
+    const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
+    assert.contains('Home');
+    assert.ok(pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--black'));
   });
 
   test('it renders with the given shade', async function(assert) {
@@ -23,8 +23,8 @@ module('Integration | Component | pix-return-to', function(hooks) {
     await render(hbs`<PixReturnTo @route='home' @shade="white" />`);
 
     // then
-    const PixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
-    assert.ok(PixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--white'));
+    const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
+    assert.ok(pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--white'));
   });
 
   test('it renders without text', async function(assert) {
@@ -32,7 +32,7 @@ module('Integration | Component | pix-return-to', function(hooks) {
     await render(hbs`<PixReturnTo @route='home' />`);
 
     // then
-    const PixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
-    assert.equal(PixReturnToElement.textContent.trim(), '');
+    const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
+    assert.equal(pixReturnToElement.textContent.trim(), '');
   });
 });

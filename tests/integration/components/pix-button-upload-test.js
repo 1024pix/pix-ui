@@ -6,8 +6,6 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | button-upload', function(hooks) {
   setupRenderingTest(hooks);
 
-  const COMPONENT_SELECTOR = '.pix-button';
-
   test('it renders the default PixButtonUpload', async function(assert) {
     // when
     await render(hbs`
@@ -15,10 +13,9 @@ module('Integration | Component | button-upload', function(hooks) {
         content
       </PixButtonUpload>
     `);
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
 
     // then
-    assert.equal(componentElement.textContent.trim(), 'content');
+    assert.contains('content');
   });
 
 });

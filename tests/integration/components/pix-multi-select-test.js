@@ -36,12 +36,10 @@ module('Integration | Component | multi-select', function (hooks) {
         {{option.label}}
       </PixMultiSelect>
     `);
-
-    const buttonElement = this.element.querySelector('.pix-multi-select-header');
-    const listElement = this.element.querySelectorAll('li');
-
+    
     // then
-    assert.equal(buttonElement.textContent.trim(), this.title);
+    const listElement = this.element.querySelectorAll('li');
+    assert.contains('MultiSelectTest');
     assert.equal(listElement.length, 3);
   });
 
@@ -71,12 +69,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
     
     // then
-    const buttonElement = this.element.querySelector('.pix-multi-select-header');
     const listElement = this.element.querySelectorAll('li');
-    assert.equal(buttonElement.textContent.trim(), this.title);
+    assert.contains('MultiSelectTest');
 
     assert.equal(listElement.length, 1);
-    assert.equal(listElement.item(0).textContent.trim(), 'no result');
+    assert.contains('no result');
   });
 
   test('it renders the PixMultiSelect with default checked', async function (assert) {
@@ -217,6 +214,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
+      // when
       await render(hbs`
         <PixMultiSelect
           @isSearchable={{isSearchable}}
@@ -231,13 +229,10 @@ module('Integration | Component | multi-select', function (hooks) {
         </PixMultiSelect>
       `);
 
-      // when
-      const labelElement = this.element.querySelector('.pix-multi-select-header');
+      // then
       const inputElement = this.element.querySelector('.pix-multi-select-header__search-input');
       const listElement = this.element.querySelectorAll('li');
-
-      // then
-      assert.equal(labelElement.textContent.trim(), this.title);
+      assert.contains('MultiSelectTest');
       assert.equal(inputElement.placeholder, this.placeholder);
       assert.equal(listElement.length, 3);
     });
@@ -270,12 +265,10 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       await fillIn('input', 'tomate');
 
-      // when
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-
       // then
+      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.length, 1);
-      assert.equal(listElement.item(0).textContent.trim(), 'Tomate');
+      assert.contains('Tomate');
     });
 
     test('it should renders no result given case sensitive', async function (assert) {
@@ -311,7 +304,7 @@ module('Integration | Component | multi-select', function (hooks) {
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.length, 1);
-      assert.equal(listElement.item(0).textContent.trim(), 'no result');
+      assert.contains('no result');
     });
 
     test('it should display list PixMultiSelect on focus', async function (assert) {
