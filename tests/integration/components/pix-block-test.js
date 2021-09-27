@@ -18,7 +18,7 @@ module('Integration | Component | pix-block', function(hooks) {
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
-    assert.equal(blockElement.textContent.trim(), 'Je suis un beau bloc avec une ombre légere');
+    assert.contains('Je suis un beau bloc avec une ombre légere');
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 
@@ -35,7 +35,7 @@ module('Integration | Component | pix-block', function(hooks) {
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
-    assert.equal(blockElement.textContent.trim(), 'Je suis trop d4rk');
+    assert.contains('Je suis trop d4rk');
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-heavy');
   });
 
@@ -52,7 +52,7 @@ module('Integration | Component | pix-block', function(hooks) {
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
-    assert.equal(blockElement.textContent.trim(), 'Joli bloc quand même');
+    assert.contains('Joli bloc quand même');
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 });

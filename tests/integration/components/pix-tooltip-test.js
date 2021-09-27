@@ -7,7 +7,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
   setupRenderingTest(hooks);
 
   const TOOLTIP_SELECTOR = '.pix-tooltip span';
-  const text = 'Un text à afficher au survol du contenu de la tooltip';
+  const text = 'Un texte à afficher au survol du contenu de la tooltip';
 
   test('it renders the tooltip text', async function(assert) {
     // given
@@ -19,10 +19,9 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         template block text
       </PixTooltip>
     `);
-    const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
     // then
-    assert.equal(tooltipContentElement.innerHTML.trim(), text);
+    assert.contains(text);
   });
 
   test('it renders only the inner data if there is no tooltip text', async function(assert) {
@@ -32,10 +31,10 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         template block text
       </PixTooltip>
     `);
-    const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
     // then
-    assert.equal(this.element.textContent.trim(), 'template block text');
+    const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+    assert.contains('template block text');
     assert.notOk(tooltipContentElement);
   });
 
@@ -62,9 +61,9 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         await render(hbs`
           <PixTooltip @position={{this.position}} @text={{this.text}}></PixTooltip>
         `);
-        const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
         // then
+        const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
         assert.ok(tooltipContentElement.classList.toString().includes(TOOLTIP_POSITION_SELECTOR+position));
       });
     });
@@ -83,10 +82,10 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         <PixTooltip @text={{this.text}}>
         </PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
-      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
 
       // then
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
       assert.equal(tooltipContentClasses.includes(LIGHT_CLASS), false);
     });
 
@@ -99,9 +98,9 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         <PixTooltip @isLight={{true}} @text={{this.text}}>
         </PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       assert.ok(tooltipContentElement.classList.toString().includes(LIGHT_CLASS));
     });
   });
@@ -135,9 +134,9 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         <PixTooltip @isInline={{true}} @text={{this.text}}>
         </PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       assert.ok(tooltipContentElement.classList.toString().includes(INLINE_CLASS));
     });
   });
@@ -155,10 +154,10 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         <PixTooltip @text={{this.text}}>
         </PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
-      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
 
       // then
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+      const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
       assert.equal(tooltipContentClasses.includes(WIDE_CLASS), false);
     });
 
@@ -171,44 +170,43 @@ module('Integration | Component | pix-tooltip', function(hooks) {
         <PixTooltip @isWide={{true}} @text={{this.text}}>
         </PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       assert.ok(tooltipContentElement.classList.toString().includes(WIDE_CLASS));
     });
   });
 
   module('tooltip unescape html', function() {
-    const htmlText = '<b>Tooltip</b>'
 
     test('it renders escaped html', async function(assert) {
       // given
+      const htmlText = '<b>Tooltip</b>';
       this.set('text', htmlText);
 
       // when
       await render(hbs`
         <PixTooltip @text={{this.text}} @unescapeHtml={{false}}></PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
+      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       const displayedText = decodeURI(tooltipContentElement.innerHTML.trim());
       assert.equal(displayedText, "&lt;b&gt;Tooltip&lt;/b&gt;");
     });
 
     test('it renders unescaped html', async function(assert) {
       // given
+      const htmlText = '<b>Tooltip</b>';
       this.set('text', htmlText);
 
       // when
       await render(hbs`
         <PixTooltip @text={{this.text}} @unescapeHtml={{true}}></PixTooltip>
       `);
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
 
       // then
-      const displayedText = decodeURI(tooltipContentElement.innerHTML.trim());
-      assert.equal(displayedText, "<b>Tooltip</b>");
+      assert.contains("Tooltip");
     });
   });
 });

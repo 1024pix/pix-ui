@@ -6,7 +6,6 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | pix-radio-button', function(hooks) {
   setupRenderingTest(hooks);
 
-  const LABEL_SELECTOR = '.pix-radio-button';
   const INPUT_SELECTOR = '.pix-radio-button input';
 
   test('it renders the default PixRadioButton', async function(assert) {
@@ -14,10 +13,8 @@ module('Integration | Component | pix-radio-button', function(hooks) {
     await render(hbs`<PixRadioButton @label="Abricot" />`);
 
     // then
-    const componentLabelElement = this.element.querySelector(LABEL_SELECTOR);
     const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
-
-    assert.equal(componentLabelElement.textContent.trim(), 'Abricot');
+    assert.contains('Abricot');
     assert.equal(componentInputElement.type, 'radio');
   });
 

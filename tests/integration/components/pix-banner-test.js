@@ -17,8 +17,8 @@ module('Integration | Component | Pix Banner', function(hooks) {
     `);
 
     // then
+    assert.contains('Mon texte');
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.textContent.trim(), 'Mon texte');
     assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--information');
   });
 
@@ -101,7 +101,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
     `);
 
     // then
-    assert.equal(this.element.querySelector('a').textContent.trim(), 'Explorer');
+    assert.contains('Explorer');
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'www.test.fr/');
   });
 
@@ -117,6 +117,6 @@ module('Integration | Component | Pix Banner', function(hooks) {
     `);
 
     // then
-    assert.equal(this.element.querySelector('a').textContent.trim(), 'Explorer');
+    assert.contains('Explorer');
   });
 });

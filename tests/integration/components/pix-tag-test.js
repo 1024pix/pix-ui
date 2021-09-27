@@ -9,7 +9,7 @@ module('Integration | Component | pix-tag', function(hooks) {
   test('it renders the given content', async function(assert) {
     await render(hbs`<PixTag>tag text</PixTag>`);
 
-    assert.equal(this.element.textContent.trim(), 'tag text');
+    assert.contains('tag text');
   });
 
   test('it renders with the given color class', async function(assert) {

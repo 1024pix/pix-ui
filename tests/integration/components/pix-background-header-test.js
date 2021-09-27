@@ -20,7 +20,7 @@ module('Integration | Component | pix-background-header', function(hooks) {
     const backgroundElement = this.element.querySelector(BACKGROUND_SELECTOR);
 
     // then
-    assert.equal(backgroundHeaderElement.textContent.trim(), 'Je suis un beau background bleu');
+    assert.contains('Je suis un beau background bleu');
     assert.equal(backgroundHeaderElement.className, 'pix-background-header');
     assert.equal(backgroundElement.className, 'pix-background-header__background');
   });
@@ -35,7 +35,7 @@ module('Integration | Component | pix-background-header', function(hooks) {
       await render(hbs`
         <PixBackgroundHeader>
           <PixBlock @shadow={{this.shadowWeight}}>Je suis un beau bloc foncé</PixBlock>
-          <PixBlock>Je suis deuxième bloc</PixBlock>
+          <PixBlock>Je suis un deuxième bloc</PixBlock>
         </PixBackgroundHeader>
       `);
       const firstBlockElement = this.element.querySelector(BACKGROUND_HEADER_SELECTOR).children[1];
@@ -43,9 +43,9 @@ module('Integration | Component | pix-background-header', function(hooks) {
 
       // then
       assert.equal(firstBlockElement.className, 'pix-block pix-block--shadow-heavy');
-      assert.equal(firstBlockElement.textContent.trim(), 'Je suis un beau bloc foncé');
+      assert.contains('Je suis un beau bloc foncé');
       assert.equal(lastBlockElement.className, 'pix-block pix-block--shadow-light');
-      assert.equal(lastBlockElement.textContent.trim(), 'Je suis deuxième bloc');
+      assert.contains('Je suis un deuxième bloc');
     });
   });
 });

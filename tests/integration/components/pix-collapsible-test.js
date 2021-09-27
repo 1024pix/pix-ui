@@ -8,7 +8,6 @@ module('Integration | Component | collapsible', function(hooks) {
   setupRenderingTest(hooks);
 
   const COLLAPSIBLE_TITLE_SELECTOR = '.pix-collapsible__title';
-  const COLLAPSIBLE_CONTENT_SELECTOR = '.pix-collapsible__content';
 
   test('it show only PixCollapsible title by default', async function(assert) {
     // when
@@ -19,8 +18,7 @@ module('Integration | Component | collapsible', function(hooks) {
     `);
 
     // then
-    const componentElement = this.element.querySelector(COLLAPSIBLE_TITLE_SELECTOR);
-    assert.equal(componentElement.textContent.trim(), 'Titre de mon élément déroulable');
+    assert.contains('Titre de mon élément déroulable');
   });
 
   test('it shows content on click on PixCollapsible title', async function(assert) {
@@ -33,8 +31,8 @@ module('Integration | Component | collapsible', function(hooks) {
     await click(COLLAPSIBLE_TITLE_SELECTOR);
 
     // then
-    assert.dom(COLLAPSIBLE_TITLE_SELECTOR).hasText('Titre de mon élément déroulable');
-    assert.dom(COLLAPSIBLE_CONTENT_SELECTOR).hasText('Contenu de mon élément');
+    assert.contains('Titre de mon élément déroulable');
+    assert.contains('Contenu de mon élément');
   });
 
   test('it should not show PixCollapsible if title is not provided', async function(assert) {
