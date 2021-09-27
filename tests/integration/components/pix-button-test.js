@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+import { clickByLabel } from '../../helpers/click-by-label';
 
 module('Integration | Component | button', function(hooks) {
   setupRenderingTest(hooks);
@@ -46,13 +47,15 @@ module('Integration | Component | button', function(hooks) {
     //when
     await render(hbs`
       <PixButton
-      @isDisabled={{true}}
-      @triggerAction={{this.triggerAction}}>
+        @isDisabled={{true}}
+        @triggerAction={{this.triggerAction}}
+        aria-label="button label"
+      >
         Mon bouton
       </PixButton>
     `);
 
-    await click('button');
+    await clickByLabel('button label');
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -69,10 +72,10 @@ module('Integration | Component | button', function(hooks) {
 
     //when
     await render(hbs`
-      <PixButton @triggerAction={{this.triggerAction}} />
+      <PixButton @triggerAction={{this.triggerAction}} aria-label="button label" />
     `);
 
-    await click('button');
+    await clickByLabel('button label');
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -85,11 +88,11 @@ module('Integration | Component | button', function(hooks) {
     test('if clicked, it should do nothing', async function(assert) {
       // given
       await render(hbs`
-      <PixButton @type="submit" />
+      <PixButton @type="submit" aria-label="button label"  />
       `);
 
       //  when
-      await click('button');
+      await clickByLabel('button label');
 
       // then
       const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -149,8 +152,8 @@ module('Integration | Component | button', function(hooks) {
       });
 
       // when
-      await render(hbs`<PixButton @triggerAction={{this.triggerAction}} />`);
-      await click('button');
+      await render(hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label="button label"  />`);
+      await clickByLabel('button label');
 
       // then
       const loadingComponent = this.element.querySelector('.loader');
