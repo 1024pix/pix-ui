@@ -1,8 +1,11 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
+
+import fillInByLabel from '../../helpers/fill-in-by-label';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from "../../helpers/create-glimmer-component";
+import sinon from 'sinon';
 
 module('Integration | Component | pix-input-password', function(hooks) {
   setupRenderingTest(hooks);
@@ -90,5 +93,19 @@ module('Integration | Component | pix-input-password', function(hooks) {
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
     assert.equal(selectorElement.value, 'pix123');
+  });
+
+  module('Attributes @onChange', function() {
+    test('it calls onChange event while typing', async function(assert) {
+      // given
+      this.onChange = sinon.spy();
+      // when
+      await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" @onChange={{this.onChange}}/>`);
+  
+      await fillInByLabel('Mot de passe', 'Jeanne');
+  
+      // then
+      assert.ok(this.onChange.called);
+    });
   });
 });
