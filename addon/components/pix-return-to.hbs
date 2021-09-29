@@ -6,10 +6,10 @@
 >
 
   {{#if (has-block)}}
-    <span aria-hidden="true" class="pix-return-to__icon"><FaIcon @icon='arrow-left' /></span>
+    <span aria-hidden="true" class="pix-return-to__icon"><FaIcon @icon="arrow-left" /></span>
     <span class="pix-return-to__text"> {{yield}} </span>
   {{else}}
-    <span title="Flèche de retour" class="pix-return-to__icon"><FaIcon @icon='arrow-left' /></span>
+    <span title="Flèche de retour" class="pix-return-to__icon"><FaIcon @icon="arrow-left" /></span>
   {{/if}}
 
 </LinkTo>

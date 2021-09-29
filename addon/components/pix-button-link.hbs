@@ -1,14 +1,14 @@
 {{#if @route}}
-    <LinkTo
-      @route={{@route}}
-      @models={{if @model (array @model) this.defaultModel}}
-      @disabled={{@isDisabled}}
-      @query={{if @query @query this.defaultParams}}
-      class={{this.className}}
-      ...attributes
-    >
-      {{yield}}
-    </LinkTo>
+  <LinkTo
+    @route={{@route}}
+    @models={{if @model (array @model) this.defaultModel}}
+    @disabled={{@isDisabled}}
+    @query={{if @query @query this.defaultParams}}
+    class={{this.className}}
+    ...attributes
+  >
+    {{yield}}
+  </LinkTo>
 {{else}}
   <a href={{@href}} class={{this.className}} ...attributes>
     {{yield}}
