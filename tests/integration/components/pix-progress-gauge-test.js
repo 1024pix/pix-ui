@@ -63,7 +63,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
   
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.equal(componentElement.classList.contains('progress-gauge--tooltip-left'), false);
+      assert.false(componentElement.classList.contains('progress-gauge--tooltip-left'));
     });
     
     test('it renders the progress gauge with tootlip left class', async function(assert) {
@@ -76,7 +76,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
       
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.equal(componentElement.classList.contains('progress-gauge--tooltip-left'), true);
+      assert.true(componentElement.classList.contains('progress-gauge--tooltip-left'));
     });
   });
 
@@ -87,7 +87,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.equal(componentElement.classList.contains('progress-gauge--yellow'), true);
+      assert.true(componentElement.classList.contains('progress-gauge--yellow'));
     });
 
     test('it renders the progress gauge with yellow class when color not exists', async function(assert) {
@@ -100,7 +100,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
       
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.equal(componentElement.classList.contains('progress-gauge--yellow'), true);
+      assert.true(componentElement.classList.contains('progress-gauge--yellow'));
     });
  
     test('it renders the progress gauge with yellow class', async function(assert) {
@@ -113,7 +113,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.equal(componentElement.classList.contains('progress-gauge--yellow'), true);
+      assert.true(componentElement.classList.contains('progress-gauge--yellow'));
     });
     
     test('it renders the progress gauge with white class', async function(assert) {
@@ -126,7 +126,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
       
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.equal(componentElement.classList.contains('progress-gauge--white'), true);
+      assert.true(componentElement.classList.contains('progress-gauge--white'));
     });
   });
 
@@ -140,7 +140,7 @@ module('Integration | Component | progress-gauge', function(hooks) {
   
       // then
       const componentElement = this.element.querySelector('.progress-gauge__sub-title');
-      assert.equal(!!componentElement, false);
+      assert.false(!!componentElement);
     });
   
     test('it renders the progress gauge sub-title', async function(assert) {

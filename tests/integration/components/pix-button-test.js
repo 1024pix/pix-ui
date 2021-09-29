@@ -60,7 +60,7 @@ module('Integration | Component | button', function(hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.equal(this.count, 1);
-    assert.equal(componentElement.disabled, true);
+    assert.true(componentElement.disabled);
   });
 
   test('it should call the action', async function(assert) {
@@ -80,7 +80,7 @@ module('Integration | Component | button', function(hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.equal(this.count, 2);
-    assert.equal(componentElement.disabled, false);
+    assert.false(componentElement.disabled);
   });
 
   module('when type is submit, if no trigger action is defined', ()=>{

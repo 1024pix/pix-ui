@@ -58,7 +58,7 @@ module('Integration | Component | textarea', function(hooks) {
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
-    assert.equal(textarea.required, true);
+    assert.true(textarea.required);
   });
 
 

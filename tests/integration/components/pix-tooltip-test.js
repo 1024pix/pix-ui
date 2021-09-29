@@ -86,7 +86,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
-      assert.equal(tooltipContentClasses.includes(LIGHT_CLASS), false);
+      assert.false(tooltipContentClasses.includes(LIGHT_CLASS));
     });
 
     test('it can render in light mode', async function(assert) {
@@ -122,7 +122,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
 
       // then
-      assert.equal(tooltipContentClasses.includes(INLINE_CLASS), false);
+      assert.false(tooltipContentClasses.includes(INLINE_CLASS));
     });
 
     test('it can render inline', async function(assert) {
@@ -158,7 +158,7 @@ module('Integration | Component | pix-tooltip', function(hooks) {
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
-      assert.equal(tooltipContentClasses.includes(WIDE_CLASS), false);
+      assert.false(tooltipContentClasses.includes(WIDE_CLASS));
     });
 
     test('it can render widely', async function(assert) {

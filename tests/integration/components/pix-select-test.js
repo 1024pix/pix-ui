@@ -76,9 +76,9 @@ module('Integration | Component | select', function (hooks) {
 
     // then
     const options = this.element.querySelectorAll('option');
-    assert.equal(options.item(1).selected, true);
-    assert.equal(options.item(0).selected, false);
-    assert.equal(options.item(2).selected, false);
+    assert.true(options.item(1).selected);
+    assert.false(options.item(0).selected);
+    assert.false(options.item(2).selected);
   });
 
   test('it should trigger onChange function when an item is selected', async function (assert) {

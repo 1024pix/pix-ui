@@ -24,7 +24,7 @@ module('Integration | Component | pix-radio-button', function(hooks) {
 
     // then
     const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
-    assert.equal(componentInputElement.disabled, true);
+    assert.true(componentInputElement.disabled);
   });
 
   test('it should be possible to add more params to PixRadioButton', async function(assert) {
@@ -33,6 +33,6 @@ module('Integration | Component | pix-radio-button', function(hooks) {
 
     // when & then
     const componentInput = this.element.querySelector(INPUT_SELECTOR);
-    assert.equal(componentInput.checked, true);
+    assert.true(componentInput.checked);
   });
 });

@@ -18,7 +18,7 @@ module('Unit | Component | pix-button', function(hooks) {
       const result = component.enableTriggerAction;
 
       // then
-      assert.equal(result, true);
+      assert.true(result);
     })
 
     test('it should return true if button type is submit and triggerAction is defined', function(assert){
@@ -30,7 +30,7 @@ module('Unit | Component | pix-button', function(hooks) {
       const result = component.enableTriggerAction;
 
       // then
-      assert.equal(result, true);
+      assert.true(result);
     })
 
     test('it should return false if button type is submit and triggerAction is not defined', function(assert){
@@ -42,7 +42,7 @@ module('Unit | Component | pix-button', function(hooks) {
       const result = component.enableTriggerAction;
 
       // then
-      assert.equal(result, false);
+      assert.false(result);
     })
   })
 });

@@ -109,9 +109,9 @@ module('Integration | Component | multi-select', function (hooks) {
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
     assert.equal(checkboxElement.length, 3);
-    assert.equal(checkboxElement.item(0).checked, false);
-    assert.equal(checkboxElement.item(1).checked, true);
-    assert.equal(checkboxElement.item(2).checked, false);
+    assert.false(checkboxElement.item(0).checked);
+    assert.true(checkboxElement.item(1).checked);
+    assert.false(checkboxElement.item(2).checked);
   });
 
   test('it should display selected labels when the multiselect is searchable', async function (assert) {
@@ -173,9 +173,9 @@ module('Integration | Component | multi-select', function (hooks) {
     
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
-    assert.equal(checkboxElement.item(0).checked, false);
-    assert.equal(checkboxElement.item(1).checked, false);
-    assert.equal(checkboxElement.item(2).checked, false);
+    assert.false(checkboxElement.item(0).checked);
+    assert.false(checkboxElement.item(1).checked);
+    assert.false(checkboxElement.item(2).checked);
   });
 
   test('it should trigger onSelect function when an item is selected', async function (assert) {
@@ -205,7 +205,7 @@ module('Integration | Component | multi-select', function (hooks) {
     
     // then
     const firstCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-    assert.equal(firstCheckbox.checked, true);
+    assert.true(firstCheckbox.checked);
     assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
     assert.ok(this.onSelect.calledWith, ['1']);
   });

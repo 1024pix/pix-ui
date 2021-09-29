@@ -61,7 +61,7 @@ module('Integration | Component | icon-button', function(hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.disabled, true);
+    assert.true(componentElement.disabled);
   });
 
   test('it should not show PixIconButton if ariaLabel is not provided', async function(assert) {
