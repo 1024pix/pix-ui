@@ -15,8 +15,8 @@ export default class PixSelect extends Component {
   }
   
   get label() {
-    const labelIsDefined = this.args.label && this.args.label.trim();
-    const idIsNotDefined = !(this.args.id && this.args.id.trim());
+    const labelIsDefined = this.args.label?.trim();
+    const idIsNotDefined = !(this.args.id?.trim());
 
     if (labelIsDefined && idIsNotDefined) {
       throw new Error('ERROR in PixSelect component, @id param is necessary when giving @label');
