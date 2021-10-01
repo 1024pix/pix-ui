@@ -31,5 +31,5 @@ function _matchesTitle(element, labelText) {
 
 function _matchesAriaLabel(element, labelText) {
   const ariaLabel = element.getAttribute('aria-label');
-  return ariaLabel && ariaLabel.match(labelText);
+  return ariaLabel?.match(labelText);
 }
