@@ -6,9 +6,10 @@
     <label for={{this.id}} class="pix-input__information">{{@information}}</label>
   {{/if}}
 
-  <input
+  <Input
     id={{this.id}}
     class={{this.className}}
+    @value={{@value}}
     ...attributes />
 
   {{#if @errorMessage}}

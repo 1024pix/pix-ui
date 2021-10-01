@@ -78,12 +78,21 @@ module('Integration | Component | input', function(hooks) {
     assert.dom('.pix-input__icon.pix-input__icon--left').exists();
   });
 
-  test('it should be possible to give more params to input', async function(assert) {
+  test('it should be possible to track value from input', async function(assert) {
     // given & when
-    await render(hbs`<PixInput @label="Prénom" @id="firstName" value='Jeanne' />`);
+    await render(hbs`<PixInput @label="Prénom" @id="firstName" @value='Jeanne' />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
     assert.equal(selectorElement.value, 'Jeanne');
+  });
+
+  test('it should be possible to give more params to input', async function(assert) {
+    // given & when
+    await render(hbs`<PixInput @label="Prénom" @id="firstName" autocomplete="on" />`);
+
+    // then
+    const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    assert.equal(selectorElement.autocomplete, 'on');
   });
 });

@@ -50,6 +50,12 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: null,
   },
+  value: {
+    name: 'value',
+    description: 'Valeur de l\'input',
+    type: { name: 'string', required: false },
+    defaultValue: null,
+  },
   label: {
     name: 'label',
     description: 'Le label de l\'input',
