@@ -26,7 +26,7 @@ function _matchesInnerText(element, labelText) {
 }
 
 function _matchesTitle(element, labelText) {
-  return element.title && element.title.match(labelText);
+  return element.title?.match(labelText);
 }
 
 function _matchesAriaLabel(element, labelText) {
