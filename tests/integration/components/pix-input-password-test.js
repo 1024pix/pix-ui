@@ -74,4 +74,13 @@ module('Integration | Component | pix-input-password', function(hooks) {
     assert.throws(function() { component.label }, expectedError);
     assert.throws(function() { component.ariaLabel }, expectedError);
   });
+
+  test('it should be possible to track value of input', async function(assert) {
+    // given && when
+    await render(hbs`<PixInputPassword @id="password" @label="Mot de passe" @value="pix123" />`);
+
+    // then
+    const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    assert.equal(selectorElement.value, 'pix123');
+  });
 });

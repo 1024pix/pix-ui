@@ -42,16 +42,22 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: null,
   },
+  value: {
+    name: 'value',
+    description: 'Valeur de l\'input',
+    type: { name: 'string', required: false },
+    defaultValue: null,
+  },
   label: {
     name: 'label',
-    description: 'Label de l\'input',
-    type: { name: 'string', required: false },
+    description: 'Label de l\'input. Requis si ariaLabel n\'est pas définit.',
+    type: { name: 'string', required: true },
     defaultValue: null,
   },
   ariaLabel: {
     name: 'ariaLabel',
-    description: 'l\'action du bouton, pour l\'accessibilité',
-    type: { name: 'string', required: false },
+    description: 'L\'action du bouton, pour l\'accessibilité. Requis si label n\'est pas définit.',
+    type: { name: 'string', required: true },
     defaultValue: null,
   },
   information: {
