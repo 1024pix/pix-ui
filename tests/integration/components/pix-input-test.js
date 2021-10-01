@@ -29,6 +29,15 @@ module('Integration | Component | input', function(hooks) {
     assert.throws(function() { component.id }, expectedError);
   });
 
+  test('it should be possible to give a number as id', async function(assert) {
+    // given & when
+    await render(hbs`<PixInput @id={{123}} />`);
+
+    // then
+    const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    assert.equal(selectorElement.id, '123');
+  });
+
   test('it should be possible to give a label to input', async function(assert) {
     // given & when
     await render(hbs`<PixInput @label="Prénom" @id="firstName" />`);
