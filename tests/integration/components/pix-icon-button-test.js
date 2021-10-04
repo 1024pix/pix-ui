@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from "../../helpers/create-glimmer-component";
+import { clickByLabel } from '../../helpers/click-by-label';
 
 module('Integration | Component | icon-button', function(hooks) {
   setupRenderingTest(hooks);
@@ -42,7 +43,7 @@ module('Integration | Component | icon-button', function(hooks) {
     await render(hbs`
       <PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel="action du bouton" />
     `);
-    await click('button');
+    await clickByLabel('action du bouton');
 
     // then
     assert.equal(this.count, 2);
@@ -56,7 +57,7 @@ module('Integration | Component | icon-button', function(hooks) {
     await render(hbs`
       <PixIconButton @triggerAction={{this.triggerAction}} disabled={{true}} @ariaLabel="L'action du bouton" />
     `);
-    await click('button');
+    await clickByLabel('action du bouton');
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);

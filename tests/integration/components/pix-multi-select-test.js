@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click, fillIn, focus, blur } from '@ember/test-helpers';
+import { render, fillIn, focus, blur } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
+import { clickByLabel } from '../../helpers/click-by-label';
 
 module('Integration | Component | multi-select', function (hooks) {
   setupRenderingTest(hooks);
@@ -59,13 +60,15 @@ module('Integration | Component | multi-select', function (hooks) {
         @onSelect={{onSelect}}
         @title={{title}}
         @id={{id}}
+        @label="label"
         @emptyMessage={{emptyMessage}}
-        @options={{options}} as |option|>
+        @options={{options}} as |option|
+      >
         {{option.label}}
       </PixMultiSelect>
     `);
 
-    await click('button');
+    await clickByLabel('label');
 
     
     // then
@@ -92,6 +95,7 @@ module('Integration | Component | multi-select', function (hooks) {
         @title={{title}}
         @id={{id}}
         @selected={{selected}}
+        @label="label"
         @emptyMessage={{emptyMessage}}
         @options={{options}} as |option|
       >
@@ -99,7 +103,7 @@ module('Integration | Component | multi-select', function (hooks) {
       </PixMultiSelect>
     `);
 
-    await click('button');
+    await clickByLabel('label');
     
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
@@ -124,6 +128,7 @@ module('Integration | Component | multi-select', function (hooks) {
         @title={{title}}
         @id={{id}}
         @selected={{selected}}
+        @label="label"
         @emptyMessage={{emptyMessage}}
         @options={{options}} as |option|>
         {{option.label}}
@@ -132,7 +137,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     // when
     this.set('selected', []);
-    await click('button');
+    await clickByLabel('label');
     
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
@@ -155,6 +160,7 @@ module('Integration | Component | multi-select', function (hooks) {
       @onSelect={{onSelect}}
       @title={{title}}
       @id={{id}}
+      @label="label"
       @emptyMessage={{emptyMessage}}
       @options={{options}} as |option|>
       {{option.label}}
@@ -162,11 +168,11 @@ module('Integration | Component | multi-select', function (hooks) {
   `);
 
     // when
-    await click('button');
-    const firstCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-    await click(firstCheckbox);
-
+    await clickByLabel('label');
+    await clickByLabel('Salade');
+    
     // then
+    const firstCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
     assert.equal(firstCheckbox.checked, true);
     assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
     assert.ok(this.onSelect.calledWith, ['1']);
@@ -187,6 +193,7 @@ module('Integration | Component | multi-select', function (hooks) {
         @onSelect={{onSelect}}
         @title={{title}}
         @id={{id}}
+        @label="label"
         @emptyMessage={{emptyMessage}}
         @options={{options}} as |option|>
         {{option.label}}
@@ -194,9 +201,8 @@ module('Integration | Component | multi-select', function (hooks) {
     `);
 
     // when
-    await click('button');
-    const firstCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-    await click(firstCheckbox);
+    await clickByLabel('label');
+    await clickByLabel('Salade');
 
     // then
     assert.ok(this.onSelect.calledWith, ['2']);
@@ -223,6 +229,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @title={{title}}
           @placeholder={{placeholder}}
           @id={{id}}
+          @label="label"
           @emptyMessage={{emptyMessage}}
           @options={{options}} as |option|>
           {{option.label}}
@@ -256,6 +263,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @title={{title}}
           @placeholder={{placeholder}}
           @id={{id}}
+          @label="label"
           @emptyMessage={{emptyMessage}}
           @options={{options}} as |option|>
           {{option.label}}
@@ -433,6 +441,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @onSelect={{onSelect}}
           @title={{title}}
           @placeholder={{placeholder}}
+          @label="label"
           @id={{id}}
           @emptyMessage={{emptyMessage}}
           @options={{options}} as |option|>
@@ -441,9 +450,8 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
     
       // when
-      await click('input[type=text]')
-      const thirdCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(2);
-      await click(thirdCheckbox);
+      await clickByLabel('label')
+      await clickByLabel(DEFAULT_OPTIONS[1].label);
 
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
@@ -480,8 +488,7 @@ module('Integration | Component | multi-select', function (hooks) {
     
       // when
       await fillIn('input', 'Oi')
-      const checkbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-      await click(checkbox);
+      await clickByLabel('Oignon');
       await fillIn('input', 'o')
 
       // then
@@ -518,8 +525,7 @@ module('Integration | Component | multi-select', function (hooks) {
     
       // when
       await fillIn('input', 'Oi')
-      const checkbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-      await click(checkbox);
+      await clickByLabel('Oignon');
       await fillIn('input', '')
     
       // then
@@ -549,6 +555,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @title={{title}}
           @placeholder={{placeholder}}
           @id={{id}}
+          @label="label"
           @emptyMessage={{emptyMessage}}
           @showOptionsOnInput={{true}}
           @options={{options}} as |option|>
@@ -557,13 +564,12 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
     
       // when
-      await click('input[type=text]')
+      await clickByLabel('label')
       
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.item(0).textContent.trim(), 'Tomate');
 
-      const checkbox = this.element.querySelectorAll('input[type=checkbox]').item(2);
-      await click(checkbox);
+      await clickByLabel('Oignon');
     
       // then
       const listElement2 = this.element.querySelectorAll('.pix-multi-select-list__item');
@@ -599,8 +605,7 @@ module('Integration | Component | multi-select', function (hooks) {
     
       // when
       await fillIn('input', 'Oi')
-      const checkbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-      await click(checkbox);
+      await clickByLabel('Oignon');
       
       await blur('input');
 

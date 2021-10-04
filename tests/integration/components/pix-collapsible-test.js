@@ -1,13 +1,12 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, click } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
+import { clickByLabel } from '../../helpers/click-by-label';
 
 module('Integration | Component | collapsible', function(hooks) {
   setupRenderingTest(hooks);
-
-  const COLLAPSIBLE_TITLE_SELECTOR = '.pix-collapsible__title';
 
   test('it show only PixCollapsible title by default', async function(assert) {
     // when
@@ -24,11 +23,14 @@ module('Integration | Component | collapsible', function(hooks) {
   test('it shows content on click on PixCollapsible title', async function(assert) {
     // when
     await render(hbs`
-      <PixCollapsible @title="Titre de mon élément déroulable">
+      <PixCollapsible
+        @title="Titre de mon élément déroulable"
+        aria-label="collapsible label"
+      >
         <p>Contenu de mon élément</p>
       </PixCollapsible>
     `);
-    await click(COLLAPSIBLE_TITLE_SELECTOR);
+    await clickByLabel('collapsible label');
 
     // then
     assert.contains('Titre de mon élément déroulable');

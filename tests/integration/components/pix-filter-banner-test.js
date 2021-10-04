@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { click, render } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
+import { clickByLabel } from '../../helpers/click-by-label';
 
 
 module('Integration | Component | filter-banner', function(hooks) {
@@ -67,11 +68,14 @@ module('Integration | Component | filter-banner', function(hooks) {
     
     //when
     await render(hbs`
-      <PixFilterBanner @clearFiltersLabel={{clearFiltersLabel}} @onClearFilters={{onClearFilters}}>
+      <PixFilterBanner
+        @clearFiltersLabel={{clearFiltersLabel}}
+        @onClearFilters={{onClearFilters}}
+      >
         content
       </PixFilterBanner>
     `);
-    await click('button');
+    await clickByLabel('some label');
     
     // then
     assert.ok(this.onClearFilters.calledOnce, 'the callback should be called once');
