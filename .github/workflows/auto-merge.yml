@@ -9,8 +9,9 @@ on:
       - completed
 
 permissions:
-  contents: read
-  pull-requests: write
+  checks: read
+  contents: write
+  actions: write
 
 jobs:
   automerge:
