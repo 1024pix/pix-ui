@@ -9,15 +9,16 @@ on:
       - completed
 
 permissions:
-  contents: read
-  pull-requests: write
+  checks: read
+  contents: write
+  actions: write
 
 jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
       - name: automerge
-        uses: "pascalgn/automerge-action@v0.8.3"
+        uses: "pascalgn/automerge-action@v0.14.3"
         env:
           GITHUB_TOKEN: "${{ github.token }}"
           MERGE_LABELS: ":rocket: Ready to Merge"
