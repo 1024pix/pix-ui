@@ -1,5 +1,13 @@
 # Pix-UI Changelog
 
+## v8.3.0 (04/10/2021)
+
+- [#145](https://github.com/1024pix/pix-ui/pull/145) [BUGFIX] Correction de l'id requis quand le label est renseigné
+- [#150](https://github.com/1024pix/pix-ui/pull/150) [TECH] Mettre à jour la version de l'auto merge et donner les permissions nécessaires au github token
+- [#142](https://github.com/1024pix/pix-ui/pull/142) [TECH] Ajout du helper contains
+- [#140](https://github.com/1024pix/pix-ui/pull/140) [TECH] Restreindre les permissions par défaut du github token
+- [#141](https://github.com/1024pix/pix-ui/pull/141) [DOC] Ajouter comment créer un composant dans le README
+
 ## v8.2.0 (17/09/2021)
 
 - [#137](https://github.com/1024pix/pix-ui/pull/137) [FEATURE] Création du composant PixInputCode (PIX-3172). 
