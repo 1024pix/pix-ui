@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import sinon from 'sinon';
-import { render, focus, fillIn, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
+import { render, focus, triggerKeyEvent, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from "../../helpers/create-glimmer-component";
+import { fillInByLabel } from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | pix-input-code', function (hooks) {
   setupRenderingTest(hooks);
@@ -35,10 +36,10 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
   test('it should focus on next input after inputting value', async function (assert) {
     // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
+    await render(hbs`<PixInputCode @ariaLabel="Mon super input code" />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-1`, '1');
+    await fillInByLabel('Mon super input code n°1', '1');
 
     // then
     assert.dom(`${INPUT_SELECTOR}-1`).hasClass('filled');
@@ -101,7 +102,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-4`, '12345');
+    await fillInByLabel('label n°4', '12345');
 
     // then
     assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
@@ -114,7 +115,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-4`, 'a');
+    await fillInByLabel('label n°4', 'a');
 
     // then
     assert.dom(`${INPUT_SELECTOR}-4`).isFocused();
@@ -127,7 +128,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" @inputType="text" />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-4`, 'abcdf');
+    await fillInByLabel('label n°4', 'abcdf');
 
     // then
     assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
@@ -153,12 +154,12 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-1`, '3');
-    await fillIn(`${INPUT_SELECTOR}-2`, '5');
-    await fillIn(`${INPUT_SELECTOR}-3`, '7');
-    await fillIn(`${INPUT_SELECTOR}-4`, '2');
-    await fillIn(`${INPUT_SELECTOR}-5`, '4');
-    await fillIn(`${INPUT_SELECTOR}-6`, '6');
+    await fillInByLabel('label n°1', '3');
+    await fillInByLabel('label n°2', '5');
+    await fillInByLabel('label n°3', '7');
+    await fillInByLabel('label n°4', '2');
+    await fillInByLabel('label n°5', '4');
+    await fillInByLabel('label n°6', '6');
 
     // then
     assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
@@ -171,11 +172,11 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-1`, '3');
-    await fillIn(`${INPUT_SELECTOR}-2`, '5');
-    await fillIn(`${INPUT_SELECTOR}-3`, '7');
-    await fillIn(`${INPUT_SELECTOR}-5`, '4');
-    await fillIn(`${INPUT_SELECTOR}-6`, '6');
+    await fillInByLabel('label n°1', '3');
+    await fillInByLabel('label n°2', '5');
+    await fillInByLabel('label n°3', '7');
+    await fillInByLabel('label n°5', '4');
+    await fillInByLabel('label n°6', '6');
 
     // then
     assert.notOk(this.onAllInputsFilled.calledOnce);
@@ -187,12 +188,12 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
     // when
-    await fillIn(`${INPUT_SELECTOR}-1`, '3');
-    await fillIn(`${INPUT_SELECTOR}-2`, '5');
-    await fillIn(`${INPUT_SELECTOR}-3`, '7');
-    await fillIn(`${INPUT_SELECTOR}-5`, '4');
-    await fillIn(`${INPUT_SELECTOR}-6`, '6');
-    await fillIn(`${INPUT_SELECTOR}-4`, '2');
+    await fillInByLabel('label n°1', '3');
+    await fillInByLabel('label n°2', '5');
+    await fillInByLabel('label n°3', '7');
+    await fillInByLabel('label n°5', '4');
+    await fillInByLabel('label n°6', '6');
+    await fillInByLabel('label n°4', '2');
 
     // then
     assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');

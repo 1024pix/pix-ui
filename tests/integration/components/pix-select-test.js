@@ -1,9 +1,10 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, fillIn } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
+import { fillInByLabel } from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | select', function (hooks) {
   setupRenderingTest(hooks);
@@ -84,13 +85,15 @@ module('Integration | Component | select', function (hooks) {
   
     await render(hbs`
       <PixSelect
+        @id="an-id"
         @options={{options}}
         @onChange={{onChange}}
+        @label="Mon select"
       />
     `);
 
     // when
-    await fillIn('select', '2')
+    await fillInByLabel('Mon select', '2')
 
     // then
     assert.ok(this.onChange.calledOnce, "the callback should be called once");
@@ -134,8 +137,13 @@ module('Integration | Component | select', function (hooks) {
         this.isSearchable = true;
   
         // when
-        await render(hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} />`);
-        await fillIn(SEARCHABLE_SELECT_SELECTOR, 'tomate');
+        await render(hbs`<PixSelect
+          @id="an-id"
+          @options={{options}}
+          @isSearchable={{isSearchable}}
+          @label="Mon select"
+        />`);
+        await fillInByLabel('Mon select', 'tomate');
   
         // then
         assert.dom('.pix-select--is-valid').doesNotExist();
@@ -153,8 +161,10 @@ module('Integration | Component | select', function (hooks) {
             @options={{options}}
             @isSearchable={{isSearchable}}
             @isValidationActive={{isValidationActive}}
+            @id="select-id"
+            @label="Mon select"
           />`);
-        await fillIn(SEARCHABLE_SELECT_SELECTOR, 'tomate');
+        await fillInByLabel('Mon select', 'tomate');
   
         // then
         assert.dom('.pix-select--is-valid').exists();

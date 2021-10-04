@@ -1,8 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, fillIn } from '@ember/test-helpers';
+import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
+import { fillInByLabel } from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | input', function(hooks) {
   setupRenderingTest(hooks);
@@ -11,8 +12,8 @@ module('Integration | Component | input', function(hooks) {
 
   test('it renders the default PixInput', async function(assert) {
     // when
-    await render(hbs`<PixInput @id="firstName" />`);
-    await fillIn(INPUT_SELECTOR, 'Jeanne');
+    await render(hbs`<PixInput @id="first-name" @label="Prénom" />`);
+    await fillInByLabel('Prénom', 'Jeanne');
 
     // then
     assert.contains('Jeanne');
