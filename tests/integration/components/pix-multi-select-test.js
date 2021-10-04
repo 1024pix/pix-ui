@@ -4,8 +4,8 @@ import { render, focus, blur } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
-import { fillInByLabel } from '../../helpers/fill-in-by-label';
-import { clickByLabel } from '../../helpers/click-by-label';
+import fillInByLabel from '../../helpers/fill-in-by-label';
+import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | multi-select', function (hooks) {
   setupRenderingTest(hooks);

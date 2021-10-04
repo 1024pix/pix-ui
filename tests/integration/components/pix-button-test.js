@@ -3,7 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
-import { clickByLabel } from '../../helpers/click-by-label';
+import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | button', function(hooks) {
   setupRenderingTest(hooks);
