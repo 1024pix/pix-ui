@@ -1,5 +1,13 @@
 # Pix-UI Changelog
 
+## v8.4.0 (05/10/2021)
+
+- [#149](https://github.com/1024pix/pix-ui/pull/149) [FEATURE] Permettre de tracker les values des PixInput et PixInputPassword
+- [#151](https://github.com/1024pix/pix-ui/pull/151) [TECH] Ajout du helper getByLabel
+- [#144](https://github.com/1024pix/pix-ui/pull/144) [TECH] Ajout du helper fillInByLabel (PIX-3470)
+- [#146](https://github.com/1024pix/pix-ui/pull/146) [TECH] Ajout du helper clickByLabel (PIX-3470)
+- [#143](https://github.com/1024pix/pix-ui/pull/143) [TECH] Ajout du helper notContains (PIX-3470)
+
 ## v8.3.0 (04/10/2021)
 
 - [#145](https://github.com/1024pix/pix-ui/pull/145) [BUGFIX] Correction de l'id requis quand le label est renseigné
