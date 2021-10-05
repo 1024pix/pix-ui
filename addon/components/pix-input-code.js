@@ -99,10 +99,11 @@ export default class PixInputCode extends Component {
     const pastedTextWithOnlyValidCharacters = _removeNotAllowedCharaters(pastedText);
 
     pastedTextWithOnlyValidCharacters.forEach(char => {
-      const elem = document.getElementById(`code-input-${index}`);
-      if (elem) {
+      const input = document.getElementById(`code-input-${index}`);
+      if (input) {
         this.focusElement(index);
-        elem.value = char;
+        input.value = char;
+        input.classList.add("filled");
         index++;
       }
     });
