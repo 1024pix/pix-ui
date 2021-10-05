@@ -29,7 +29,7 @@
     width: 38px;
     padding: 10px 12px 8px;
     background-color: $grey-10;
-    border: 1px solid $grey-15;
+    border: 1px solid $grey-50;
     border-radius: 4px;
     text-align: center;
     outline: none;
@@ -39,7 +39,7 @@
     }
 
     &::placeholder {
-      color: $grey-22;
+      color: $grey-50;
     }
 
     &:hover {
