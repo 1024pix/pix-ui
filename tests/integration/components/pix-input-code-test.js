@@ -206,7 +206,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
     // when
-    await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '357246' } });
+    await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '‎ 357246' } });
 
     // then
     assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');

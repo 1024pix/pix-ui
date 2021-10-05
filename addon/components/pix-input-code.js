@@ -87,8 +87,11 @@ export default class PixInputCode extends Component {
   handlePaste(index, event) {
     event.preventDefault();
     event.stopPropagation();
+
     const pastedText = (event.clipboardData || window.clipboardData).getData('text');
-    [...pastedText].forEach(char => {
+    const pastedTextWithOnlyValidCharacters = _removeNotAllowedCharaters(pastedText);
+
+    pastedTextWithOnlyValidCharacters.forEach(char => {
       const elem = document.getElementById(`code-input-${index}`);
       if (elem) {
         this.focusElement(index);
@@ -99,4 +102,9 @@ export default class PixInputCode extends Component {
     this.focusElement(index);
     this.triggerAction();
   }
+}
+
+function _removeNotAllowedCharaters(pastedText) {
+  const alphanumericCharacters = /^[a-zA-Z0-9_]*$/;
+  return [...pastedText].filter((char) => alphanumericCharacters.test(char));
 }
