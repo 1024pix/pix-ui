@@ -31,6 +31,18 @@ module('Integration | Component | pix-input-code', function (hooks) {
     assert.contains('Ce code est le code de vérification d\'email');
   });
 
+  test('it should explain how PixInputCode can be eddited', async function(assert) {
+    // given & when
+    await render(hbs`<PixInputCode
+      @legend="Ce code est le code de vérification d'email"
+      @ariaLabel="Champ"
+      @detailsOfUse="Vous pouvez utiliser les flèches pour naviguer de champ en champ"
+    />`);
+
+    // then
+    assert.contains('Vous pouvez utiliser les flèches pour naviguer de champ en champ');
+  });
+
   test('it should throw an error if PixInputCode does not have an ariaLabel', async function (assert) {
     // given
     const componentParams = { ariaLabel: null, legend: 'super legende' };

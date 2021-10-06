@@ -2,6 +2,9 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
 const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend';
+const DETAILS_OF_DEPLACEMENT_MESSAGE = "Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier.";
+const DETAILS_OF_FILL_FOR_INPUT_NUMBER_MESSAGE = "Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.";
+const DETAILS_OF_FILL_FOR_INPUT_TEXT_MESSAGE = "Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.";
 
 export default class PixInputCode extends Component {
   moveFocus = true;
@@ -16,6 +19,15 @@ export default class PixInputCode extends Component {
       throw new Error(ERROR_MESSAGE);
     }
     return this.args.ariaLabel;
+  }
+
+  get detailsOfUse() {
+    const defaultDetailsOfFill = this.inputType === 'number'
+      ? DETAILS_OF_FILL_FOR_INPUT_NUMBER_MESSAGE
+      : DETAILS_OF_FILL_FOR_INPUT_TEXT_MESSAGE;
+    const defaultDetailsOfUseMessage = DETAILS_OF_DEPLACEMENT_MESSAGE + ' ' + defaultDetailsOfFill;
+
+    return this.args.detailsOfUse ? this.args.detailsOfUse : defaultDetailsOfUseMessage;
   }
 
   get legend() {

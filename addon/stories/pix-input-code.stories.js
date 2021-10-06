@@ -8,6 +8,7 @@ export const Template = (args) => {
         @legend={{legend}}
         @inputType={{inputType}}
         @numInputs={{numInputs}}
+        @detailsOfUse={{detailsOfUse}}
       />
     `,
     context: args,
@@ -28,8 +29,17 @@ export const argTypes = {
   },
   legend: {
     name: 'legend',
-    description: "La description du composant. Indiquer ce à quoi correspond votre PixInputCode.",
+    description: "La description du composant. Ce champ n'est pas visible. Indiquer ce à quoi correspond votre PixInputCode.",
     type: { name: 'string', required: true },
+  },
+  detailsOfUse: {
+    name: 'detailsOfUse',
+    description: "Explications du fonctionnement des champs du PixInputCode. Ce champ n'est pas visible. Le texte par défaut est uniquement en Français. Veillez à donc le surchager avec vos traductions. Par ailleurs, le texte par défaut change selon le type du champ du PixInputCode",
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier. Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.' },
+    }
   },
   inputType: {
     name: 'inputType',
