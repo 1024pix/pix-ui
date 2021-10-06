@@ -5,6 +5,7 @@ export const Template = (args) => {
     template: hbs`
       <PixInputCode
         @ariaLabel={{ariaLabel}}
+        @legend={{legend}}
         @inputType={{inputType}}
         @numInputs={{numInputs}}
       />
@@ -15,13 +16,19 @@ export const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  ariaLabel: "Code de validation d'adresse e-mail",
+  ariaLabel: "Chiffre",
+  legend: "Code de validation d'adresse e-mail"
 }
 
 export const argTypes = {
-  'ariaLabel': {
+  ariaLabel: {
     name: 'ariaLabel',
-    description: "L'aria-label de chaque champ",
+    description: "L'aria-label de chaque case. L'aria-label est automatiquement complété à la fin par n°<numéro>. Avec <numéro> correspondant à la position du champ dans le PixInputCode.",
+    type: { name: 'string', required: true },
+  },
+  legend: {
+    name: 'legend',
+    description: "La description du composant. Indiquer ce à quoi correspond votre PixInputCode.",
     type: { name: 'string', required: true },
   },
   inputType: {
@@ -44,7 +51,7 @@ export const argTypes = {
   },
   onAllInputsFilled: {
     name: 'onAllInputsFilled',
-    description: 'fonction appeler une fois que tous les champs ont été rempli avec le code en parametre',
+    description: 'fonction appelée (avec le code en paramètre) une fois tous les champs remplis',
     type: { required: false },
     control: { disable: true },
   },

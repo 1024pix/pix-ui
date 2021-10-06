@@ -30,7 +30,8 @@ Le composant peut être numérique ou alphanumérique précisé avec la proprié
 
 ```html
 <PixInputCode
-    @ariaLabel="My aria-label"
+    @ariaLabel="Chiffre"
+    @legend="Code correspondant au code de vérification envoyé par email"
     @numInputs={{6}}
     @inputType="number"
     @onAllInputsFilled={{(code) => {}}}

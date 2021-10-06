@@ -14,7 +14,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
   test('it renders the default PixInputCode with 6 inputs', async function (assert) {
     // given & when
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
+    await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Champ" />`);
 
     // then
     assert.dom(COMPONENT_SELECTOR).exists();
@@ -22,15 +22,36 @@ module('Integration | Component | pix-input-code', function (hooks) {
     assert.equal(inputElementsFound.length, 6);
   });
 
+  test('it should have a fieldset with a legend for accessibility', async function(assert) {
+    // given & when
+    await render(hbs`<PixInputCode @legend="Ce code est le code de vérification d'email" @ariaLabel="Champ" />`);
+
+    // then
+    assert.dom('fieldset').exists();
+    assert.contains('Ce code est le code de vérification d\'email');
+  });
+
   test('it should throw an error if PixInputCode does not have an ariaLabel', async function (assert) {
     // given
-    const componentParams = { ariaLabel: null };
+    const componentParams = { ariaLabel: null, legend: 'super legende' };
     const component = createGlimmerComponent('component:pix-input-code', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel');
+    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend');
     assert.throws(function () {
       component.ariaLabel
+    }, expectedError);
+  });
+
+  test('it should throw an error if PixInputCode does not have a legend', async function (assert) {
+    // given
+    const componentParams = { ariaLabel: 'Champ', legend: null };
+    const component = createGlimmerComponent('component:pix-input-code', componentParams);
+
+    // when & then
+    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend');
+    assert.throws(function () {
+      component.legend
     }, expectedError);
   });
 
@@ -38,7 +59,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should focus on next input after inputting value', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="Mon super input code" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Mon super input code" />`);
 
       // when
       await fillInByLabel('Mon super input code n°1', '1');
@@ -50,7 +71,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should truncate input to 1 digit', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await fillInByLabel('label n°4', '12345');
@@ -63,7 +84,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should not allow characters when type is number', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await fillInByLabel('label n°4', 'a');
@@ -76,7 +97,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should truncate input to 1 character', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" @inputType="text" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @inputType="text" />`);
 
       // when
       await fillInByLabel('label n°4', 'abcdf');
@@ -89,7 +110,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     test('it should trigger function with entered code when all inputs are filled', async function (assert) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
-      await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
       // when
       await fillInByLabel('label n°1', '3');
@@ -107,7 +128,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     test('it should not trigger function with entered code when all inputs not filled', async function (assert) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
-      await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
       // when
       await fillInByLabel('label n°1', '3');
@@ -123,7 +144,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     test('it should trigger function with entered code even if last entered value is not the last input', async function (assert) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
-      await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
       // when
       await fillInByLabel('label n°1', '3');
@@ -144,7 +165,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should focus on previous input after Backspace', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -159,7 +180,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should focus on previous input after ArrowLeft', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -171,7 +192,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should focus on next input after ArrowRight', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -183,7 +204,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should not focus on next input after ArrowUp or ArrowDown', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -201,7 +222,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should support paste filling all inputs', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
       await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '123456' } });
@@ -215,7 +236,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     test('it should trigger function with entered code after paste', async function (assert) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
-      await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
   
       // when
       await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '‎ 357246' } });

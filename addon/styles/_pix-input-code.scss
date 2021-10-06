@@ -14,6 +14,14 @@
     }
   }
 
+  fieldset legend {
+    display: none;
+  }
+
+  input:nth-of-type(3n+4) {
+    margin-left: 12px;
+  }
+
   &__input {
     display: inline-block;
     box-sizing: border-box;
@@ -28,10 +36,6 @@
 
     &:not(:first-child) {
       margin-left: 4px;
-    }
-
-    &:nth-child(3n+4) {
-      margin-left: 12px;
     }
 
     &::placeholder {

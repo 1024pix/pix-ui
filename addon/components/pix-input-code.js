@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel';
+const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend';
 
 export default class PixInputCode extends Component {
   moveFocus = true;
@@ -16,6 +16,13 @@ export default class PixInputCode extends Component {
       throw new Error(ERROR_MESSAGE);
     }
     return this.args.ariaLabel;
+  }
+
+  get legend() {
+    if (!this.args.legend) {
+      throw new Error(ERROR_MESSAGE);
+    }
+    return this.args.legend;
   }
 
   get inputType() {
