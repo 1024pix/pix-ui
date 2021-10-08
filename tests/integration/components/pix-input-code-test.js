@@ -36,7 +36,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     await render(hbs`<PixInputCode
       @legend="Ce code est le code de vérification d'email"
       @ariaLabel="Champ"
-      @detailsOfUse="Vous pouvez utiliser les flèches pour naviguer de champ en champ"
+      @explanationOfUse="Vous pouvez utiliser les flèches pour naviguer de champ en champ"
     />`);
 
     // then
@@ -49,7 +49,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     const component = createGlimmerComponent('component:pix-input-code', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend');
+    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend');
     assert.throws(function () {
       component.ariaLabel
     }, expectedError);
@@ -61,7 +61,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     const component = createGlimmerComponent('component:pix-input-code', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend');
+    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend');
     assert.throws(function () {
       component.legend
     }, expectedError);
@@ -71,10 +71,10 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should focus on next input after inputting value', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Mon super input code" />`);
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Champ" />`);
 
       // when
-      await fillInByLabel('Mon super input code n°1', '1');
+      await fillInByLabel('Champ 1', '1');
 
       // then
       assert.dom(`${INPUT_SELECTOR}-1`).hasClass('filled');
@@ -86,7 +86,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
       await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
-      await fillInByLabel('label n°4', '12345');
+      await fillInByLabel('label 4', '12345');
 
       // then
       assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
@@ -99,7 +99,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
       await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
       // when
-      await fillInByLabel('label n°4', 'a');
+      await fillInByLabel('label 4', 'a');
 
       // then
       assert.dom(`${INPUT_SELECTOR}-4`).isFocused();
@@ -112,7 +112,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
       await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @inputType="text" />`);
 
       // when
-      await fillInByLabel('label n°4', 'abcdf');
+      await fillInByLabel('label 4', 'abcdf');
 
       // then
       assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
@@ -125,12 +125,12 @@ module('Integration | Component | pix-input-code', function (hooks) {
       await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
       // when
-      await fillInByLabel('label n°1', '3');
-      await fillInByLabel('label n°2', '5');
-      await fillInByLabel('label n°3', '7');
-      await fillInByLabel('label n°4', '2');
-      await fillInByLabel('label n°5', '4');
-      await fillInByLabel('label n°6', '6');
+      await fillInByLabel('label 1', '3');
+      await fillInByLabel('label 2', '5');
+      await fillInByLabel('label 3', '7');
+      await fillInByLabel('label 4', '2');
+      await fillInByLabel('label 5', '4');
+      await fillInByLabel('label 6', '6');
 
       // then
       assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
@@ -143,11 +143,11 @@ module('Integration | Component | pix-input-code', function (hooks) {
       await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
       // when
-      await fillInByLabel('label n°1', '3');
-      await fillInByLabel('label n°2', '5');
-      await fillInByLabel('label n°3', '7');
-      await fillInByLabel('label n°5', '4');
-      await fillInByLabel('label n°6', '6');
+      await fillInByLabel('label 1', '3');
+      await fillInByLabel('label 2', '5');
+      await fillInByLabel('label 3', '7');
+      await fillInByLabel('label 5', '4');
+      await fillInByLabel('label 6', '6');
 
       // then
       assert.notOk(this.onAllInputsFilled.calledOnce);
@@ -159,12 +159,12 @@ module('Integration | Component | pix-input-code', function (hooks) {
       await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
 
       // when
-      await fillInByLabel('label n°1', '3');
-      await fillInByLabel('label n°2', '5');
-      await fillInByLabel('label n°3', '7');
-      await fillInByLabel('label n°5', '4');
-      await fillInByLabel('label n°6', '6');
-      await fillInByLabel('label n°4', '2');
+      await fillInByLabel('label 1', '3');
+      await fillInByLabel('label 2', '5');
+      await fillInByLabel('label 3', '7');
+      await fillInByLabel('label 5', '4');
+      await fillInByLabel('label 6', '6');
+      await fillInByLabel('label 4', '2');
 
       // then
       assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');

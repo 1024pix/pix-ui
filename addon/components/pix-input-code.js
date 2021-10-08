@@ -1,16 +1,16 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel and an @legend';
-const DETAILS_OF_DEPLACEMENT_MESSAGE = "Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier.";
-const DETAILS_OF_FILL_FOR_INPUT_NUMBER_MESSAGE = "Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.";
-const DETAILS_OF_FILL_FOR_INPUT_TEXT_MESSAGE = "Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.";
+const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend';
+const NAVIGATION_EXPLANATION = "Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier.";
+const NUMBER_INPUT_EXPLANATION = "Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.";
+const TEXT_INPUT_EXPLANATION = "Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.";
 
 export default class PixInputCode extends Component {
   moveFocus = true;
   numInputs = this.args.numInputs || 6;
 
-  get numbersForIterations() {
+  get numberOfIterations() {
     return Array.from({ length: this.numInputs }, (_, i) => i + 1);
   }
 
@@ -21,13 +21,13 @@ export default class PixInputCode extends Component {
     return this.args.ariaLabel;
   }
 
-  get detailsOfUse() {
-    const defaultDetailsOfFill = this.inputType === 'number'
-      ? DETAILS_OF_FILL_FOR_INPUT_NUMBER_MESSAGE
-      : DETAILS_OF_FILL_FOR_INPUT_TEXT_MESSAGE;
-    const defaultDetailsOfUseMessage = DETAILS_OF_DEPLACEMENT_MESSAGE + ' ' + defaultDetailsOfFill;
+  get explanationOfUse() {
+    const defaultFillingExplanation = this.inputType === 'number'
+      ? NUMBER_INPUT_EXPLANATION
+      : TEXT_INPUT_EXPLANATION;
+    const defaultExplanationOfUseMessage = NAVIGATION_EXPLANATION + ' ' + defaultFillingExplanation;
 
-    return this.args.detailsOfUse ? this.args.detailsOfUse : defaultDetailsOfUseMessage;
+    return this.args.explanationOfUse ? this.args.explanationOfUse : defaultExplanationOfUseMessage;
   }
 
   get legend() {
@@ -108,7 +108,7 @@ export default class PixInputCode extends Component {
     event.stopPropagation();
 
     const pastedText = (event.clipboardData || window.clipboardData).getData('text');
-    const pastedTextWithOnlyValidCharacters = _removeNotAllowedCharaters(pastedText);
+    const pastedTextWithOnlyValidCharacters = _extractValidCharacters(pastedText);
 
     pastedTextWithOnlyValidCharacters.forEach(char => {
       const input = document.getElementById(`code-input-${index}`);
@@ -124,7 +124,7 @@ export default class PixInputCode extends Component {
   }
 }
 
-function _removeNotAllowedCharaters(pastedText) {
+function _extractValidCharacters(pastedText) {
   const alphanumericCharacters = /^[a-zA-Z0-9_]*$/;
   return [...pastedText].filter((char) => alphanumericCharacters.test(char));
 }

@@ -38,6 +38,8 @@
     text-align: center;
     outline: none;
 
+    @include hoverFormElement();
+
     &:not(:first-child) {
       margin-left: 4px;
     }

@@ -8,7 +8,7 @@ export const Template = (args) => {
         @legend={{legend}}
         @inputType={{inputType}}
         @numInputs={{numInputs}}
-        @detailsOfUse={{detailsOfUse}}
+        @explanationOfUse={{explanationOfUse}}
       />
     `,
     context: args,
@@ -17,14 +17,14 @@ export const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  ariaLabel: "Chiffre",
+  ariaLabel: "Champ",
   legend: "Code de validation d'adresse e-mail"
 }
 
 export const argTypes = {
   ariaLabel: {
     name: 'ariaLabel',
-    description: "L'aria-label de chaque case. L'aria-label est automatiquement complété à la fin par n°<numéro>. Avec <numéro> correspondant à la position du champ dans le PixInputCode.",
+    description: "L'aria-label de chaque champ. L'aria-label est automatiquement complété à la fin par ` <numero>`, où `<numero>` correspond à la position du champ dans le PixInputCode.",
     type: { name: 'string', required: true },
   },
   legend: {
@@ -32,9 +32,9 @@ export const argTypes = {
     description: "La description du composant. Ce champ n'est pas visible. Indiquer ce à quoi correspond votre PixInputCode.",
     type: { name: 'string', required: true },
   },
-  detailsOfUse: {
-    name: 'detailsOfUse',
-    description: "Explications du fonctionnement des champs du PixInputCode. Ce champ n'est pas visible. Le texte par défaut est uniquement en Français. Veillez à donc le surchager avec vos traductions. Par ailleurs, le texte par défaut change selon le type du champ du PixInputCode",
+  explanationOfUse: {
+    name: 'explanationOfUse',
+    description: "Explication du fonctionnement des champs du PixInputCode. Ce champ n'est pas visible. Le texte par défaut est uniquement en Français. Veillez à donc le surchager avec vos traductions. Par ailleurs, le texte par défaut change selon le type du champ du PixInputCode",
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
@@ -61,7 +61,7 @@ export const argTypes = {
   },
   onAllInputsFilled: {
     name: 'onAllInputsFilled',
-    description: 'fonction appelée (avec le code en paramètre) une fois tous les champs remplis',
+    description: 'Fonction appelée (avec le code en paramètre) une fois tous les champs remplis',
     type: { required: false },
     control: { disable: true },
   },
