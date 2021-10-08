@@ -14,7 +14,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
   test('it renders the default PixInputCode with 6 inputs', async function (assert) {
     // given & when
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
+    await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Champ" />`);
 
     // then
     assert.dom(COMPONENT_SELECTOR).exists();
@@ -22,194 +22,240 @@ module('Integration | Component | pix-input-code', function (hooks) {
     assert.equal(inputElementsFound.length, 6);
   });
 
+  test('it should have a fieldset with a legend for accessibility', async function(assert) {
+    // given & when
+    await render(hbs`<PixInputCode @legend="Ce code est le code de vérification d'email" @ariaLabel="Champ" />`);
+
+    // then
+    assert.dom('fieldset').exists();
+    assert.contains('Ce code est le code de vérification d\'email');
+  });
+
+  test('it should explain how PixInputCode can be eddited', async function(assert) {
+    // given & when
+    await render(hbs`<PixInputCode
+      @legend="Ce code est le code de vérification d'email"
+      @ariaLabel="Champ"
+      @explanationOfUse="Vous pouvez utiliser les flèches pour naviguer de champ en champ"
+    />`);
+
+    // then
+    assert.contains('Vous pouvez utiliser les flèches pour naviguer de champ en champ');
+  });
+
   test('it should throw an error if PixInputCode does not have an ariaLabel', async function (assert) {
     // given
-    const componentParams = { ariaLabel: null };
+    const componentParams = { ariaLabel: null, legend: 'super legende' };
     const component = createGlimmerComponent('component:pix-input-code', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel');
+    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend');
     assert.throws(function () {
       component.ariaLabel
     }, expectedError);
   });
 
-  test('it should focus on next input after inputting value', async function (assert) {
+  test('it should throw an error if PixInputCode does not have a legend', async function (assert) {
     // given
-    await render(hbs`<PixInputCode @ariaLabel="Mon super input code" />`);
+    const componentParams = { ariaLabel: 'Champ', legend: null };
+    const component = createGlimmerComponent('component:pix-input-code', componentParams);
 
-    // when
-    await fillInByLabel('Mon super input code n°1', '1');
-
-    // then
-    assert.dom(`${INPUT_SELECTOR}-1`).hasClass('filled');
-    assert.dom(`${INPUT_SELECTOR}-2`).isFocused();
+    // when & then
+    const expectedError = new Error('ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend');
+    assert.throws(function () {
+      component.legend
+    }, expectedError);
   });
 
-  test('it should focus on previous input after Backspace', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
+  module('when adding characters', function () {
 
-    // when
-    await focus(`${INPUT_SELECTOR}-4`);
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keyup', 'Backspace');
+    test('it should focus on next input after inputting value', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Champ" />`);
 
-    // then
-    assert.dom(`${INPUT_SELECTOR}-3`).isFocused();
+      // when
+      await fillInByLabel('Champ 1', '1');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-1`).hasClass('filled');
+      assert.dom(`${INPUT_SELECTOR}-2`).isFocused();
+    });
+
+    test('it should truncate input to 1 digit', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+
+      // when
+      await fillInByLabel('label 4', '12345');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
+      assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
+      assert.dom(`${INPUT_SELECTOR}-4`).hasValue('1');
+    });
+
+    test('it should not allow characters when type is number', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+
+      // when
+      await fillInByLabel('label 4', 'a');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-4`).isFocused();
+      assert.dom(`${INPUT_SELECTOR}-4`).doesNotHaveClass('filled');
+      assert.dom(`${INPUT_SELECTOR}-4`).hasValue('');
+    });
+
+    test('it should truncate input to 1 character', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @inputType="text" />`);
+
+      // when
+      await fillInByLabel('label 4', 'abcdf');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
+      assert.dom(`${INPUT_SELECTOR}-4`).hasValue('a');
+    });
+
+    test('it should trigger function with entered code when all inputs are filled', async function (assert) {
+      // given
+      this.set('onAllInputsFilled', sinon.spy());
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+      // when
+      await fillInByLabel('label 1', '3');
+      await fillInByLabel('label 2', '5');
+      await fillInByLabel('label 3', '7');
+      await fillInByLabel('label 4', '2');
+      await fillInByLabel('label 5', '4');
+      await fillInByLabel('label 6', '6');
+
+      // then
+      assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
+      assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+    });
+
+    test('it should not trigger function with entered code when all inputs not filled', async function (assert) {
+      // given
+      this.set('onAllInputsFilled', sinon.spy());
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+      // when
+      await fillInByLabel('label 1', '3');
+      await fillInByLabel('label 2', '5');
+      await fillInByLabel('label 3', '7');
+      await fillInByLabel('label 5', '4');
+      await fillInByLabel('label 6', '6');
+
+      // then
+      assert.notOk(this.onAllInputsFilled.calledOnce);
+    });
+
+    test('it should trigger function with entered code even if last entered value is not the last input', async function (assert) {
+      // given
+      this.set('onAllInputsFilled', sinon.spy());
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+
+      // when
+      await fillInByLabel('label 1', '3');
+      await fillInByLabel('label 2', '5');
+      await fillInByLabel('label 3', '7');
+      await fillInByLabel('label 5', '4');
+      await fillInByLabel('label 6', '6');
+      await fillInByLabel('label 4', '2');
+
+      // then
+      assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
+      assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+    });
+
   });
 
-  test('it should focus on previous input after ArrowLeft', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
+  module('when deleting characters', function () {
 
-    // when
-    await focus(`${INPUT_SELECTOR}-4`);
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keyup', 'ArrowLeft');
+    test('it should focus on previous input after Backspace', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
-    // then
-    assert.dom(`${INPUT_SELECTOR}-3`).isFocused();
-  });
+      // when
+      await focus(`${INPUT_SELECTOR}-4`);
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keyup', 'Backspace');
 
-  test('it should focus on next input after ArrowRight', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
-
-    // when
-    await focus(`${INPUT_SELECTOR}-4`);
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keyup', 'ArrowRight');
-
-    // then
-    assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
-  });
-
-  test('it should not focus on next input after ArrowUp or ArrowDown', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
-
-    // when
-    await focus(`${INPUT_SELECTOR}-4`);
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowUp');
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowUp');
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowUp');
-    await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowDown');
-
-    // then
-    assert.dom(`${INPUT_SELECTOR}-4`).isFocused();
-  });
-
-  test('it should truncate input to 1 digit', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
-
-    // when
-    await fillInByLabel('label n°4', '12345');
-
-    // then
-    assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
-    assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
-    assert.dom(`${INPUT_SELECTOR}-4`).hasValue('1');
-  });
-
-  test('it should not allow characters when type is number', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
-
-    // when
-    await fillInByLabel('label n°4', 'a');
-
-    // then
-    assert.dom(`${INPUT_SELECTOR}-4`).isFocused();
-    assert.dom(`${INPUT_SELECTOR}-4`).doesNotHaveClass('filled');
-    assert.dom(`${INPUT_SELECTOR}-4`).hasValue('');
-  });
-
-  test('it should truncate input to 1 character', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" @inputType="text" />`);
-
-    // when
-    await fillInByLabel('label n°4', 'abcdf');
-
-    // then
-    assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
-    assert.dom(`${INPUT_SELECTOR}-4`).hasValue('a');
-  });
-
-  test('it should support paste filling all inputs', async function (assert) {
-    // given
-    await render(hbs`<PixInputCode @ariaLabel="label" />`);
-
-    // when
-    await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '123456' } });
-
-    // then
-    [1, 2, 3, 4, 5, 6].forEach(index => {
-      assert.dom(`${INPUT_SELECTOR}-${index}`).hasValue(`${index}`);
+      // then
+      assert.dom(`${INPUT_SELECTOR}-3`).isFocused();
     });
   });
 
-  test('it should trigger function with entered code when all inputs are filled', async function (assert) {
-    // given
-    this.set('onAllInputsFilled', sinon.spy());
-    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+  module('when changing focus', function () {
 
-    // when
-    await fillInByLabel('label n°1', '3');
-    await fillInByLabel('label n°2', '5');
-    await fillInByLabel('label n°3', '7');
-    await fillInByLabel('label n°4', '2');
-    await fillInByLabel('label n°5', '4');
-    await fillInByLabel('label n°6', '6');
+    test('it should focus on previous input after ArrowLeft', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
-    // then
-    assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
-    assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+      // when
+      await focus(`${INPUT_SELECTOR}-4`);
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keyup', 'ArrowLeft');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-3`).isFocused();
+    });
+
+    test('it should focus on next input after ArrowRight', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+
+      // when
+      await focus(`${INPUT_SELECTOR}-4`);
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keyup', 'ArrowRight');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-5`).isFocused();
+    });
+
+    test('it should not focus on next input after ArrowUp or ArrowDown', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+
+      // when
+      await focus(`${INPUT_SELECTOR}-4`);
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowUp');
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowUp');
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowUp');
+      await triggerKeyEvent(`${INPUT_SELECTOR}-4`, 'keydown', 'ArrowDown');
+
+      // then
+      assert.dom(`${INPUT_SELECTOR}-4`).isFocused();
+    });
   });
 
-  test('it should not trigger function with entered code when all inputs not filled', async function (assert) {
-    // given
-    this.set('onAllInputsFilled', sinon.spy());
-    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+  module('when filling inputs by copy paste', function () {
 
-    // when
-    await fillInByLabel('label n°1', '3');
-    await fillInByLabel('label n°2', '5');
-    await fillInByLabel('label n°3', '7');
-    await fillInByLabel('label n°5', '4');
-    await fillInByLabel('label n°6', '6');
+    test('it should support paste filling all inputs', async function (assert) {
+      // given
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
 
-    // then
-    assert.notOk(this.onAllInputsFilled.calledOnce);
-  });
+      // when
+      await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '123456' } });
 
-  test('it should trigger function with entered code even if last entered value is not the last input', async function (assert) {
-    // given
-    this.set('onAllInputsFilled', sinon.spy());
-    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+      // then
+      [1, 2, 3, 4, 5, 6].forEach(index => {
+        assert.dom(`${INPUT_SELECTOR}-${index}`).hasValue(`${index}`);
+      });
+    });
 
-    // when
-    await fillInByLabel('label n°1', '3');
-    await fillInByLabel('label n°2', '5');
-    await fillInByLabel('label n°3', '7');
-    await fillInByLabel('label n°5', '4');
-    await fillInByLabel('label n°6', '6');
-    await fillInByLabel('label n°4', '2');
-
-    // then
-    assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
-    assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
-  });
-
-  test('it should trigger function with entered code after paste', async function (assert) {
-    // given
-    this.set('onAllInputsFilled', sinon.spy());
-    await render(hbs`<PixInputCode @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
-
-    // when
-    await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '357246' } });
-
-    // then
-    assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
-    assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+    test('it should trigger function with entered code after paste', async function (assert) {
+      // given
+      this.set('onAllInputsFilled', sinon.spy());
+      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`);
+  
+      // when
+      await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', { clipboardData: { getData: () => '‎ 357246' } });
+  
+      // then
+      assert.ok(this.onAllInputsFilled.calledOnce, 'the callback should be called once');
+      assert.ok(this.onAllInputsFilled.calledWith, ['357246']);
+    });
   });
 });

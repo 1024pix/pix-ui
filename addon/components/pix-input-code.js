@@ -1,13 +1,16 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel';
+const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend';
+const NAVIGATION_EXPLANATION = "Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier.";
+const NUMBER_INPUT_EXPLANATION = "Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.";
+const TEXT_INPUT_EXPLANATION = "Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.";
 
 export default class PixInputCode extends Component {
   moveFocus = true;
   numInputs = this.args.numInputs || 6;
 
-  get numIterations() {
+  get numberOfIterations() {
     return Array.from({ length: this.numInputs }, (_, i) => i + 1);
   }
 
@@ -18,6 +21,22 @@ export default class PixInputCode extends Component {
     return this.args.ariaLabel;
   }
 
+  get explanationOfUse() {
+    const defaultFillingExplanation = this.inputType === 'number'
+      ? NUMBER_INPUT_EXPLANATION
+      : TEXT_INPUT_EXPLANATION;
+    const defaultExplanationOfUseMessage = NAVIGATION_EXPLANATION + ' ' + defaultFillingExplanation;
+
+    return this.args.explanationOfUse ? this.args.explanationOfUse : defaultExplanationOfUseMessage;
+  }
+
+  get legend() {
+    if (!this.args.legend) {
+      throw new Error(ERROR_MESSAGE);
+    }
+    return this.args.legend;
+  }
+
   get inputType() {
     return this.args.inputType || 'number';
   }
@@ -26,7 +45,7 @@ export default class PixInputCode extends Component {
     return this.inputType === 'number' ? '0' : null;
   }
 
-  focusElem(index) {
+  focusElement(index) {
     const nextElem = document.getElementById(`code-input-${index}`);
     nextElem && nextElem.focus();
   }
@@ -45,7 +64,7 @@ export default class PixInputCode extends Component {
     const code = [];
     for(let i = 1; i <= this.numInputs; i++) {
       const elem = document.getElementById(`code-input-${i}`);
-     elem.value.length > 0 && code.push(elem.value);
+      elem.value.length > 0 && code.push(elem.value);
     }
     if (code.length === this.numInputs) {
       this.args.onAllInputsFilled(code.join(''));
@@ -58,7 +77,7 @@ export default class PixInputCode extends Component {
     this.validateInput(elem);
     if (elem.value.length > 0) {
       elem.classList.add("filled");
-      this.moveFocus && this.focusElem(index + 1);
+      this.moveFocus && this.focusElement(index + 1);
       this.triggerAction();
     } else {
       elem.classList.remove("filled");
@@ -73,7 +92,7 @@ export default class PixInputCode extends Component {
       ArrowRight: index + 1
     }
     const newIndex = eventMap[event.code || event.key];
-    this.focusElem(newIndex);
+    this.focusElement(newIndex);
   }
 
   @action
@@ -87,16 +106,25 @@ export default class PixInputCode extends Component {
   handlePaste(index, event) {
     event.preventDefault();
     event.stopPropagation();
+
     const pastedText = (event.clipboardData || window.clipboardData).getData('text');
-    [...pastedText].forEach(char => {
-      const elem = document.getElementById(`code-input-${index}`);
-      if (elem) {
-        this.focusElem(index);
-        elem.value = char;
+    const pastedTextWithOnlyValidCharacters = _extractValidCharacters(pastedText);
+
+    pastedTextWithOnlyValidCharacters.forEach(char => {
+      const input = document.getElementById(`code-input-${index}`);
+      if (input) {
+        this.focusElement(index);
+        input.value = char;
+        input.classList.add("filled");
         index++;
       }
     });
-    this.focusElem(index);
+    this.focusElement(index);
     this.triggerAction();
   }
+}
+
+function _extractValidCharacters(pastedText) {
+  const alphanumericCharacters = /^[a-zA-Z0-9_]*$/;
+  return [...pastedText].filter((char) => alphanumericCharacters.test(char));
 }
