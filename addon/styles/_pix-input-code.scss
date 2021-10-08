@@ -26,14 +26,17 @@
     margin-left: 12px;
   }
 
-  &__input {
+  input.pix-input-code__input {
     display: inline-block;
     box-sizing: border-box;
     height: 44px;
     width: 38px;
     padding: 10px 12px 8px;
     background-color: $grey-10;
-    border: 1px solid $grey-50;
+    border: 1.4px solid $grey-50;
+    font-family: $font-roboto;
+    font-size: 1.25rem;
+    color: $grey-90;
     border-radius: 4px;
     text-align: center;
     outline: none;
@@ -49,7 +52,7 @@
     }
 
     &:hover {
-      border-color: $grey-45;
+      border-color: $grey-70;
     }
 
     &:active,
