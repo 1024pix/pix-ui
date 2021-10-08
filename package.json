@@ -1,6 +1,6 @@
 {
   "name": "pix-ui",
-  "version": "8.4.0",
+  "version": "9.0.0",
   "description": "Addon pour l'UI des applications Pix",
   "keywords": [
     "ember-addon"

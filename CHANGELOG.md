@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v9.0.0 (08/10/2021)
+
+- [#152](https://github.com/1024pix/pix-ui/pull/152) [BUGFIX] Mettre à jour le PixInputCode [BREAKING_CHANGES] 
+
 ## v8.4.0 (05/10/2021)
 
 - [#149](https://github.com/1024pix/pix-ui/pull/149) [FEATURE] Permettre de tracker les values des PixInput et PixInputPassword
