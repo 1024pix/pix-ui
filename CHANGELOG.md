@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v9.0.1 (12/10/2021)
+
+- [#153](https://github.com/1024pix/pix-ui/pull/153) [BUGFIX] Améliorer l'ordre des explications d'accessibilité du PixInputCode 
+
 ## v9.0.0 (08/10/2021)
 
 - [#152](https://github.com/1024pix/pix-ui/pull/152) [BUGFIX] Mettre à jour le PixInputCode [BREAKING_CHANGES] 
