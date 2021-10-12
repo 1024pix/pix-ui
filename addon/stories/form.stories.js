@@ -29,6 +29,7 @@ export const form = (args) => {
         @isSearchable={{true}}
         @isValidationActive={{true}}
         placeholder='Fraises, Mangues...'
+        style='width:100%'
       />
       <br>
 
