@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v9.1.0 (18/10/2021)
+
+- [#155](https://github.com/1024pix/pix-ui/pull/155) [FEATURE] Ajouter le chargement asynchrone des options sur PixMultiSelect
+- [#154](https://github.com/1024pix/pix-ui/pull/154) [BUGFIX] Les options du select n'apparaissent pas complètement (PIX-3608).
+- [#135](https://github.com/1024pix/pix-ui/pull/135)  [TECH] Exclure des fichiers de l'archive pix-ui
+
 ## v9.0.1 (12/10/2021)
 
 - [#153](https://github.com/1024pix/pix-ui/pull/153) [BUGFIX] Améliorer l'ordre des explications d'accessibilité du PixInputCode 
