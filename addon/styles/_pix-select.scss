@@ -12,7 +12,6 @@
     font-family: $font-roboto;
     font-size: 0.875rem;
     height: 36px;
-    width: 100%;
 
     @include hoverFormElement();
     @include focusFormElement();
@@ -39,7 +38,7 @@
     &.pix-select--big {
       height: 44px;
     }
-  
+
     // Remove arrow for Chrome
     &::-webkit-calendar-picker-indicator {
       display: none;
@@ -67,5 +66,5 @@
 
   .pix-select__label ~ .pix-select__icon {
     top: calc(50% + 6px);
-  } 
+  }
 }
