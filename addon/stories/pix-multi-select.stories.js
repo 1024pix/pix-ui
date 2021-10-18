@@ -1,10 +1,24 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
+const DEFAULT_OPTIONS = [
+  {label:"ANETH HERBE AROMATIQUE", value: '1'},
+  {label:"ANIS VERT HERBE AROMATIQUE", value: '2'},
+  {label:"BADIANE AROMATE", value: '3'},
+  {label:"BAIES ROSES EPICES", value: '4'},
+  {label:"BASILIC HERBE AROMATIQUE", value: '5'},
+  {label:"BOURRACHE OFFICINALE HERBE AROMATIQUE", value: '6'},
+  {label:"CANNELLE AROMATE", value: '7'},
+  {label:"CAPRE CONDIMENT", value: '8'},
+  {label:"CARDAMOME AROMATE", value: '9'},
+  {label:"CARVI HERBE AROMATIQUE", value: '10'},
+  {label:"CERFEUIL HERBE AROMATIQUE", value: '11'},
+]
+
 export const multiSelectWithChildComponent = (args) => {
   return {
     template: hbs`
-      <h3>⚠️ Pour voir le réel rendu, importez PixMultiSelect dans votre app</h3>
+      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
         @title={{titleStars}}
         @id={{id}}
@@ -22,6 +36,7 @@ export const multiSelectWithChildComponent = (args) => {
     context: args,
   };
 };
+
 multiSelectWithChildComponent.args = {
   titleStars: 'Sélectionner le niveau souhaité',
   options: [
@@ -34,7 +49,7 @@ multiSelectWithChildComponent.args = {
 export const multiSelectSearchable = (args) => {
   return {
     template: hbs`
-      <h3>⚠️ Pour voir le réel rendu, importez PixMultiSelect dans votre app</h3>
+      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
         style="width:350px"
         @id={{id}}
@@ -48,6 +63,32 @@ export const multiSelectSearchable = (args) => {
         @size={{size}}
         @selected={{selected}}
         @options={{options}} as |option|
+      >
+        {{option.label}}
+      </PixMultiSelect>
+    `,
+    context: args,
+  };
+};
+
+export const multiSelectAsyncOptions = (args) => {
+  args.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
+  return {
+    template: hbs`
+      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+      <PixMultiSelect
+        style="width:350px"
+        @id={{id}}
+        @title={{title}}
+        @placeholder={{placeholder}}
+        @isSearchable={{isSearchable}}
+        @showOptionsOnInput={{showOptionsOnInput}}
+        @strictSearch={{strictSearch}}
+        @onSelect={{doSomething}}
+        @emptyMessage={{emptyMessage}}
+        @size={{size}}
+        @selected={{selected}}
+        @onLoadOptions={{onLoadOptions}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
@@ -84,6 +125,12 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: 'pas de résultat',
   },
+  loadingMessage: {
+    name: 'loadingMessage',
+    description: 'Message qui apparaît dans les options quand celles-ci sont en train d\'être chargées via onLoadOptions',
+    type: { name: 'string', required: false },
+    defaultValue: 'Chargement...',
+  },
   placeholder: {
     name: 'placeholder',
     description: 'Donner une liste d‘exemple pour la recherche utilisateur dans le cas ``isSearchable`` à ``true``',
@@ -94,19 +141,12 @@ export const argTypes = {
     name: 'options',
     description: 'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
     type: { name: 'array', required: true },
-    defaultValue: [
-      {label:"ANETH HERBE AROMATIQUE", value: '1'},
-      {label:"ANIS VERT HERBE AROMATIQUE", value: '2'},
-      {label:"BADIANE AROMATE", value: '3'},
-      {label:"BAIES ROSES EPICES", value: '4'},
-      {label:"BASILIC HERBE AROMATIQUE", value: '5'},
-      {label:"BOURRACHE OFFICINALE HERBE AROMATIQUE", value: '6'},
-      {label:"CANNELLE AROMATE", value: '7'},
-      {label:"CAPRE CONDIMENT", value: '8'},
-      {label:"CARDAMOME AROMATE", value: '9'},
-      {label:"CARVI HERBE AROMATIQUE", value: '10'},
-      {label:"CERFEUIL HERBE AROMATIQUE", value: '11'},
-    ],
+    defaultValue: DEFAULT_OPTIONS,
+  },
+  onLoadOptions: {
+    name: 'onLoadOptions',
+    description: 'Charge de manière asynchrone les options. Doit renvoyer une promesse avec la liste des options. Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
+    type: { required: false },
   },
   onSelect: {
     name: 'onSelect',

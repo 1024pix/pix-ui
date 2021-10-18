@@ -14,7 +14,7 @@
         id={{@id}}
         type="text"
         name={{@id}}
-        placeholder={{@placeholder}}
+        placeholder={{this.placeholder}}
         autocomplete="off"
         {{on "input" this.updateSearch}}
         {{on "focus" this.focusDropdown}}
@@ -50,8 +50,10 @@
           </label>
         </li>
       {{/each}}
+    {{else if this.isLoadingOptions}}
+      <li class="pix-multi-select-list__item pix-multi-select-list__item--no-result">{{@loadingMessage}}</li>
     {{else}}
-        <li class="pix-multi-select-list__item pix-multi-select-list__item--no-result">{{@emptyMessage}}</li>
+      <li class="pix-multi-select-list__item pix-multi-select-list__item--no-result">{{@emptyMessage}}</li>
     {{/if}}
   </ul>
 </div>

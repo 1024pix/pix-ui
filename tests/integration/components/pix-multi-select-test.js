@@ -114,6 +114,37 @@ module('Integration | Component | multi-select', function (hooks) {
     assert.equal(checkboxElement.item(2).checked, false);
   });
 
+  test('it should display selected labels when the multiselect is searchable', async function (assert) {
+    // given
+    this.options = DEFAULT_OPTIONS;
+    this.onSelect = (selected) => this.set('selected', selected);
+    this.selected = ['2', '3'];
+    this.emptyMessage = 'no result';
+    this.title = 'MultiSelectTest';
+    this.id = 'id-MultiSelectTest';
+
+    // when
+    await render(hbs`
+      <PixMultiSelect
+        @onSelect={{onSelect}}
+        @title={{title}}
+        @id={{id}}
+        @selected={{selected}}
+        @label="label"
+        @emptyMessage={{emptyMessage}}
+        @placeholder="Yo"
+        @isSearchable={{true}}
+        @options={{options}} as |option|
+      >
+        {{option.label}}
+      </PixMultiSelect>
+    `);
+    
+    // then
+    const inputElement = this.element.querySelector('.pix-multi-select-header__search-input');
+    assert.equal(inputElement.placeholder, 'Tomate, Oignon');
+  });
+
   test('it should updates selected items when @selected is changed', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
@@ -658,5 +689,33 @@ module('Integration | Component | multi-select', function (hooks) {
     // when & then
     const expectedError = new Error('ERROR in PixMultiSelect component, @id param is necessary when giving @label');
     assert.throws(function() { component.label }, expectedError);
+  });
+
+  test('it should asynchronously load options', async function (assert) {
+    // given
+    this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS)
+    this.selected = [];
+    this.onSelect = (selected) => this.set('selected', selected);
+    this.emptyMessage = 'no result';
+    this.title = 'MultiSelectTest';
+    this.id = 'id-MultiSelectTest';
+
+    // when
+    await render(hbs`
+      <PixMultiSelect
+        @selected={{selected}}
+        @onSelect={{onSelect}}
+        @title={{title}}
+        @id={{id}}
+        @emptyMessage={{emptyMessage}}
+        @onLoadOptions={{onLoadOptions}} as |option|>
+        {{option.label}}
+      </PixMultiSelect>
+    `);
+    
+    // then
+    const listElement = this.element.querySelectorAll('li');
+    assert.contains('MultiSelectTest');
+    assert.equal(listElement.length, 3);
   });
 });
