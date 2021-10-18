@@ -18,11 +18,24 @@ export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;  
   @tracked searchData;
 
-  @tracked options = [...this.args.options || []];
+  @tracked options = [];
+  @tracked isLoadingOptions = false;
 
   constructor(...args) {
     super(...args)
-    this._setDisplayedOptions(this.args.selected, true);
+    const { onLoadOptions, selected } = this.args;
+  
+    if (onLoadOptions) {
+      this.isLoadingOptions = true;
+      onLoadOptions().then((options = []) => {
+        this.options = options;
+        this._setDisplayedOptions(selected, true);
+        this.isLoadingOptions = false;
+      });
+    } else {
+      this.options = [...this.args.options || []];
+      this._setDisplayedOptions(selected, true);
+    }
   }
 
   get label() {
@@ -44,6 +57,21 @@ export default class PixMultiSelect extends Component {
       return this.options.filter(({ label }) => this._search(label));
     }
     return this.options;
+  }
+
+  get placeholder() {
+    const { selected, placeholder } = this.args;
+    if (selected?.length > 0) {
+      const selectedOptionLabels = this.options
+        .filter(({ value, label }) => {
+          const hasOption = selected.includes(value);
+          return hasOption && Boolean(label)
+        })
+        .map(({ label }) => label)
+        .join(', ');
+      return selectedOptionLabels;
+    }
+    return placeholder;
   }
 
   _setDisplayedOptions(selected, shouldSort) {
