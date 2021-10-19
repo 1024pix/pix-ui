@@ -9,6 +9,7 @@ export const Template = (args) => {
         @label={{label}}
         @information={{information}}
         @errorMessage={{errorMessage}}
+        @prefix={{prefix}}
       />
     `,
     context: args,
@@ -33,6 +34,13 @@ withErrorMessage.args = {
   id: 'password',
   label: 'Mot de passe',
   errorMessage: 'Un message d\'erreur.',
+}
+
+export const withPrefix = Template.bind({});
+withPrefix.args = {
+  id: 'password',
+  label: 'Mot de passe',
+  prefix: 'C -',
 }
 
 export const argTypes = {
@@ -69,6 +77,12 @@ export const argTypes = {
   errorMessage: {
     name: 'errorMessage',
     description: 'Affiche le message d\'erreur donné et encadre en rouge le champ',
+    type: { name: 'string', required: false },
+    defaultValue: null,
+  },
+  prefix: {
+    name: 'prefix',
+    description: 'Affiche un préfixe avant la zone de saisie du champ',
     type: { name: 'string', required: false },
     defaultValue: null,
   },
