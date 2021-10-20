@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v10.0.0 (20/10/2021)
+
+- [#156](https://github.com/1024pix/pix-ui/pull/156) [TECH] Enlever les règles bloquantes et non utiles du reset CSS [BREAKING_CHANGES]
+
 ## v9.2.0 (20/10/2021)
 
 - [#157](https://github.com/1024pix/pix-ui/pull/157) [FEATURE] Afficher un préfixe optionnel dans le composant PixInputPassword.
