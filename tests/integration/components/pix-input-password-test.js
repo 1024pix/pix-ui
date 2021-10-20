@@ -46,6 +46,14 @@ module('Integration | Component | pix-input-password', function(hooks) {
     assert.contains('Un message d\'erreur.');
   });
 
+  test('it should display an input prefix if necessary', async function(assert) {
+    // given & when
+    await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" @prefix="A prefix" />`);
+
+    // then
+    assert.contains('A prefix');
+  });
+
   test('it should be possible to add more params to input', async function(assert) {
     // given & when
     await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" autocomplete="off" />`);
