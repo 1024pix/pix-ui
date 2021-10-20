@@ -6,7 +6,6 @@
   @mixin pixSelect {
     appearance: none;
     border: 1px $grey-40 solid;
-    box-sizing: border-box;
     border-radius: 4px;
     color: $grey-90;
     font-family: $font-roboto;

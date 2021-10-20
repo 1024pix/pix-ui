@@ -18,9 +18,12 @@
 
   svg.pix-input__icon {
     position: absolute;
-    bottom: 10px;
+    bottom: 9px;
     right: 6px;
     color: $grey-25;
+    font-size: 1.125rem;
+    width: 18px;
+    height: 18px;
 
     &--left {
       left: 6px;
@@ -29,7 +32,7 @@
 
   svg ~ svg.pix-input__icon {
     right: calc(6px + 12px + 2px);
-    padding-right: 6px;
+    margin-right: 8px;
   }
 
   svg.pix-input__error-icon {
@@ -41,8 +44,8 @@
     border-radius: 50%;
     font-size: 0.6rem;
     padding: 2px;
-    width: 12px;
-    height: 12px;
+    width: 18px;
+    height: 18px;
   }
 
   &__error-message {
@@ -54,7 +57,6 @@
   input {
     display: flex;
     height: 36px;
-    box-sizing: border-box;
     flex-direction: column;
     justify-content: center;
     border: 1px solid $grey-40;
