@@ -1,5 +1,9 @@
 # Pix-UI Changelog
 
+## v9.2.0 (20/10/2021)
+
+- [#157](https://github.com/1024pix/pix-ui/pull/157) [FEATURE] Afficher un préfixe optionnel dans le composant PixInputPassword.
+
 ## v9.1.0 (18/10/2021)
 
 - [#155](https://github.com/1024pix/pix-ui/pull/155) [FEATURE] Ajouter le chargement asynchrone des options sur PixMultiSelect
