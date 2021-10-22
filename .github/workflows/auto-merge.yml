@@ -12,6 +12,7 @@ permissions:
   checks: read
   contents: write
   actions: write
+  pull-requests: write
 
 jobs:
   automerge:
@@ -26,3 +27,4 @@ jobs:
           UPDATE_LABELS: ":rocket: Ready to Merge"
           UPDATE_METHOD: "rebase"
           MERGE_FORKS: "false"
+          LOG: "TRACE"
