@@ -10,9 +10,9 @@ on:
 
 permissions:
   checks: read
+  statuses: write
   contents: write
   actions: write
-  pull-requests: write
 
 jobs:
   automerge:
