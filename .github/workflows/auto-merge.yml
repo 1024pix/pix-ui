@@ -8,11 +8,7 @@ on:
     types:
       - completed
 
-permissions:
-  checks: read
-  statuses: write
-  contents: write
-  actions: write
+permissions: write-all
 
 jobs:
   automerge:
