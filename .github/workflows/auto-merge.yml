@@ -27,3 +27,4 @@ jobs:
           UPDATE_LABELS: ":rocket: Ready to Merge"
           UPDATE_METHOD: "rebase"
           MERGE_FORKS: "false"
+          LOG: "TRACE"
