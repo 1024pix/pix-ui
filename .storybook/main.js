@@ -5,6 +5,6 @@ module.exports = {
   ],
   stories: [
     '../docs/**/*.stories.@(mdx)',
-    '../addon/**/*.stories.@(js|mdx)',
+    '../app/**/*.stories.@(js|mdx)',
   ],
 };
