@@ -5,13 +5,13 @@ import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
-module('Integration | Component | textarea', function(hooks) {
+module('Integration | Component | textarea', function (hooks) {
   setupRenderingTest(hooks);
 
   const TEXTAREA_SELECTOR = '.pix-textarea textarea';
 
-  test('it renders PixTextarea with correct id and content', async function(assert) {
-    // given 
+  test('it renders PixTextarea with correct id and content', async function (assert) {
+    // given
     const newContent = 'Bonjour Pix !';
 
     // when
@@ -24,8 +24,7 @@ module('Integration | Component | textarea', function(hooks) {
     assert.equal(textarea.id, 7);
   });
 
-
-  test('it should count textarea characters length', async function(assert) {
+  test('it should count textarea characters length', async function (assert) {
     // given
     const defaultValue = '';
     this.set('value', defaultValue);
@@ -48,7 +47,7 @@ module('Integration | Component | textarea', function(hooks) {
     assert.contains('11 / 20');
   });
 
-  test('it should be possible to add required attributes to PixTextarea', async function(assert) {
+  test('it should be possible to add required attributes to PixTextarea', async function (assert) {
     // given
     const defaultValue = '';
     this.set('value', defaultValue);
@@ -61,8 +60,7 @@ module('Integration | Component | textarea', function(hooks) {
     assert.true(textarea.required);
   });
 
-
-  test('it should be possible to give a label', async function(assert) {
+  test('it should be possible to give a label', async function (assert) {
     // given & when
     await render(hbs`
       <PixTextarea
@@ -75,17 +73,21 @@ module('Integration | Component | textarea', function(hooks) {
     assert.contains('Décrivez votre problème');
   });
 
-  test('it should throw an error if no id is provided when there is a label', async function(assert) {
+  test('it should throw an error if no id is provided when there is a label', async function (assert) {
     // given & when
     const componentParams = { id: '   ', label: 'Décrivez votre problème' };
     const component = createGlimmerComponent('component:pix-textarea', componentParams);
 
     // then
-    const expectedError = new Error('ERROR in PixTextarea component, @id param is necessary when giving @label');
-    assert.throws(function() { component.label }, expectedError);
+    const expectedError = new Error(
+      'ERROR in PixTextarea component, @id param is necessary when giving @label'
+    );
+    assert.throws(function () {
+      component.label;
+    }, expectedError);
   });
 
-  test('it should be possible to show an error message', async function(assert) {
+  test('it should be possible to show an error message', async function (assert) {
     // given & when
     await render(hbs`
       <PixTextarea
@@ -96,6 +98,5 @@ module('Integration | Component | textarea', function(hooks) {
 
     // then
     assert.contains('Veuillez remplir ce champ.');
-  })
-
+  });
 });

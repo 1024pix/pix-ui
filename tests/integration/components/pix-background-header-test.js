@@ -3,13 +3,13 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | pix-background-header', function(hooks) {
+module('Integration | Component | pix-background-header', function (hooks) {
   setupRenderingTest(hooks);
 
   const BACKGROUND_HEADER_SELECTOR = '.pix-background-header';
   const BACKGROUND_SELECTOR = `${BACKGROUND_HEADER_SELECTOR} .pix-background-header__background`;
 
-  test('it renders the default PixBackgroundHeader', async function(assert) {
+  test('it renders the default PixBackgroundHeader', async function (assert) {
     // when
     await render(hbs`
       <PixBackgroundHeader>
@@ -25,9 +25,8 @@ module('Integration | Component | pix-background-header', function(hooks) {
     assert.equal(backgroundElement.className, 'pix-background-header__background');
   });
 
-  module('when there is PixBloc inside PixBackgroundHeader component', function() {
-
-    test('first PixBlock render', async function(assert) {
+  module('when there is PixBloc inside PixBackgroundHeader component', function () {
+    test('first PixBlock render', async function (assert) {
       // given
       this.set('shadowWeight', 'heavy');
 

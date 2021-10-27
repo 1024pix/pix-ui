@@ -21,7 +21,6 @@ export default class PixInput extends Component {
 
   @action
   onChange() {
-    if(typeof this.args.onChange === 'function')
-      this.args.onChange();
+    if (typeof this.args.onChange === 'function') this.args.onChange();
   }
 }

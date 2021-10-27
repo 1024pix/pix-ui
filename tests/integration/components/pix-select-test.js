@@ -13,10 +13,10 @@ module('Integration | Component | select', function (hooks) {
     { value: '1', label: 'Salade' },
     { value: '2', label: 'Tomate' },
     { value: '3', label: 'Oignon' },
-  ]
+  ];
   const DEFAULT_ON_CHANGE = () => {};
   const SEARCHABLE_SELECT_SELECTOR = '.pix-select input';
-  const LABEL_SELECTOR = '.pix-select label'
+  const LABEL_SELECTOR = '.pix-select label';
 
   test('it renders the PixSelect with given options', async function (assert) {
     // given
@@ -85,7 +85,7 @@ module('Integration | Component | select', function (hooks) {
     // given
     this.options = DEFAULT_OPTIONS;
     this.onChange = sinon.spy();
-  
+
     await render(hbs`
       <PixSelect
         @id="an-id"
@@ -96,13 +96,13 @@ module('Integration | Component | select', function (hooks) {
     `);
 
     // when
-    await fillInByLabel('Mon select', '2')
+    await fillInByLabel('Mon select', '2');
 
     // then
-    assert.ok(this.onChange.calledOnce, "the callback should be called once");
+    assert.ok(this.onChange.calledOnce, 'the callback should be called once');
   });
 
-  module('searchable PixSelect', function() {
+  module('searchable PixSelect', function () {
     test('it should be binded datalist element', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
@@ -133,12 +133,11 @@ module('Integration | Component | select', function (hooks) {
     });
 
     module('green validation', function () {
-
       test('it should not have a green border', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
         this.isSearchable = true;
-  
+
         // when
         await render(hbs`<PixSelect
           @id="an-id"
@@ -147,7 +146,7 @@ module('Integration | Component | select', function (hooks) {
           @label="Mon select"
         />`);
         await fillInByLabel('Mon select', 'tomate');
-  
+
         // then
         assert.dom('.pix-select--is-valid').doesNotExist();
       });
@@ -168,15 +167,14 @@ module('Integration | Component | select', function (hooks) {
             @label="Mon select"
           />`);
         await fillInByLabel('Mon select', 'tomate');
-  
+
         // then
         assert.dom('.pix-select--is-valid').exists();
       });
     });
-
   });
 
-  test('it should be possible to give a label', async function(assert) {
+  test('it should be possible to give a label', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
@@ -194,13 +192,17 @@ module('Integration | Component | select', function (hooks) {
     assert.equal(selectorElement.innerHTML, 'Votre ville');
   });
 
-  test('it should throw an error if no id is provided when there is a label', async function(assert) {
+  test('it should throw an error if no id is provided when there is a label', async function (assert) {
     // given
     const componentParams = { id: '   ', label: 'Votre ville', options: DEFAULT_OPTIONS };
     const component = createGlimmerComponent('component:pix-select', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixSelect component, @id param is necessary when giving @label');
-    assert.throws(function() { component.label }, expectedError);
+    const expectedError = new Error(
+      'ERROR in PixSelect component, @id param is necessary when giving @label'
+    );
+    assert.throws(function () {
+      component.label;
+    }, expectedError);
   });
 });

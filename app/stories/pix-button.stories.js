@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-const Template = args => ({
+const Template = (args) => ({
   template: hbs`
     <section style={{this.style}}>
       <PixButton
@@ -47,7 +47,7 @@ Default.args = {
       setTimeout(() => {
         resolve();
       }, 2000);
-    })
+    });
   },
 };
 
@@ -58,13 +58,15 @@ borders.args = {
   backgroundColor: 'transparent-light',
   loadingColor: 'grey',
   isBorderVisible: true,
-  extraButtons: [{
-    ...Default.args,
+  extraButtons: [
+    {
+      ...Default.args,
       label: 'Bouton avec bordure sur fond sombre',
       style: 'background-color: #775555',
       backgroundColor: 'transparent-dark',
       isBorderVisible: true,
-  }]
+    },
+  ],
 };
 
 export const colors = Template.bind({});
@@ -105,9 +107,9 @@ colors.args = {
       style: 'background-color: #775555',
       backgroundColor: 'transparent-dark',
       isBorderVisible: true,
-    }
-  ]
-}
+    },
+  ],
+};
 
 export const disabled = Template.bind({});
 disabled.args = {
@@ -127,8 +129,8 @@ loader.args = {
       ...Default.args,
       triggerAction: () => {},
       isLoading: true,
-    }
-  ]
+    },
+  ],
 };
 
 export const shape = Template.bind({});
@@ -154,7 +156,7 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'button' },
-    }
+    },
   },
   triggerAction: {
     name: 'triggerAction',
@@ -171,7 +173,7 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'white' },
-    }
+    },
   },
   shape: {
     name: 'shape',
@@ -182,18 +184,19 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'squircle' },
-    }
+    },
   },
   backgroundColor: {
     name: 'backgroundColor',
-    description: 'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
+    description:
+      'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
     options: ['blue', 'green', 'yellow', 'red', 'grey', 'transparent-light', 'transparent-dark'],
     type: { name: 'string', required: false },
     control: { type: 'select' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'blue' },
-    }
+    },
   },
   isDisabled: {
     name: 'isDisabled',
@@ -202,17 +205,18 @@ export const argsTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
-    }
+    },
   },
   isLoading: {
     name: 'isLoading',
-    description: 'Affiche un loader. Si `@triggerAction` retourne une promesse alors le loading est géré automatiquement.',
+    description:
+      'Affiche un loader. Si `@triggerAction` retourne une promesse alors le loading est géré automatiquement.',
     type: { name: 'boolean', required: false },
     control: { type: 'boolean' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
-    }
+    },
   },
   size: {
     name: 'size',
@@ -223,17 +227,18 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },
-    }
+    },
   },
   isBorderVisible: {
     name: 'isBorderVisible',
-    description: 'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+    description:
+      'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
     type: { name: 'boolean', required: false },
     control: { type: 'boolean' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
-    }
+    },
   },
   route: {
     name: 'route',

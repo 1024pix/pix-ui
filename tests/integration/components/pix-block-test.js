@@ -3,12 +3,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | pix-block', function(hooks) {
+module('Integration | Component | pix-block', function (hooks) {
   setupRenderingTest(hooks);
 
   const BLOCK_SELECTOR = '.pix-block';
 
-  test('it renders the default PixBlock', async function(assert) {
+  test('it renders the default PixBlock', async function (assert) {
     // when
     await render(hbs`
       <PixBlock>
@@ -22,7 +22,7 @@ module('Integration | Component | pix-block', function(hooks) {
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 
-  test('it can have heavy shadow', async function(assert) {
+  test('it can have heavy shadow', async function (assert) {
     // given
     this.set('shadowWeight', 'heavy');
 
@@ -39,7 +39,7 @@ module('Integration | Component | pix-block', function(hooks) {
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-heavy');
   });
 
-  test('it give light bloc even if there is wrong parameters', async function(assert) {
+  test('it give light bloc even if there is wrong parameters', async function (assert) {
     // given
     this.set('shadowWeight', 'normal');
 

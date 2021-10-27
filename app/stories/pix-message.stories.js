@@ -10,7 +10,7 @@ const Template = (args) => {
         Ceci est un message {{type}} avec un texte tellement long qu'il est nécessaire <br /> de l'afficher sur deux lignes.
       </PixMessage>
     `,
-    context: args
+    context: args,
   };
 };
 
@@ -54,4 +54,4 @@ export const argTypes = {
     defaultValue: false,
     control: { type: 'boolean' },
   },
-}
+};

@@ -49,8 +49,8 @@ export const argTypes = {
   },
   titleIcon: {
     name: 'titleIcon',
-    description: 'Ajoute l\'icône donnée en paramètre avant le titre du PixCollapsible',
+    description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
     type: { name: 'string', required: false },
     defaultValue: 'user',
-  }
+  },
 };

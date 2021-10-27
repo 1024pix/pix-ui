@@ -1,6 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const Default = args => {
+export const Default = (args) => {
   return {
     template: hbs`
       <PixProgressGauge
@@ -16,9 +16,9 @@ export const Default = args => {
 };
 Default.args = {
   tooltipText: '%',
-}
+};
 
-export const whiteProgressGauge = args => {
+export const whiteProgressGauge = (args) => {
   return {
     template: hbs`
     <section style="width: 100%; padding: 35px 35px 5px;background-color: lightgray">
@@ -51,26 +51,27 @@ export const argTypes = {
   },
   color: {
     name: 'color',
-    description: 'Modifie la couleur de la barre de progression. Peut prendre les valeurs `yellow` ou `white`',
+    description:
+      'Modifie la couleur de la barre de progression. Peut prendre les valeurs `yellow` ou `white`',
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'yellow' } },
     control: { type: 'select', options: ['yellow', 'white'] },
   },
   isArrowLeft: {
     name: 'isArrowLeft',
-    description: 'Modifie la position de l\'info bulle sur la gauche',
+    description: "Modifie la position de l'info bulle sur la gauche",
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
   },
-  subtitle:  {
+  subtitle: {
     name: 'subtitle',
     description: 'Afficher un sous-titre sous la barre de progression',
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'null' } },
   },
-  tooltipText:  {
+  tooltipText: {
     name: 'tooltipText',
-    description: 'Afficher un label dans l\'info bulle au dessus de la barre de progression',
+    description: "Afficher un label dans l'info bulle au dessus de la barre de progression",
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'null' } },
   },

@@ -38,7 +38,7 @@ module('Integration | Component | multi-select', function (hooks) {
         {{option.label}}
       </PixMultiSelect>
     `);
-    
+
     // then
     const listElement = this.element.querySelectorAll('li');
     assert.contains('MultiSelectTest');
@@ -71,7 +71,6 @@ module('Integration | Component | multi-select', function (hooks) {
 
     await clickByLabel('label');
 
-    
     // then
     const listElement = this.element.querySelectorAll('li');
     assert.contains('MultiSelectTest');
@@ -105,7 +104,7 @@ module('Integration | Component | multi-select', function (hooks) {
     `);
 
     await clickByLabel('label');
-    
+
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
     assert.equal(checkboxElement.length, 3);
@@ -139,7 +138,7 @@ module('Integration | Component | multi-select', function (hooks) {
         {{option.label}}
       </PixMultiSelect>
     `);
-    
+
     // then
     const inputElement = this.element.querySelector('.pix-multi-select-header__search-input');
     assert.equal(inputElement.placeholder, 'Tomate, Oignon');
@@ -170,7 +169,7 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     this.set('selected', []);
     await clickByLabel('label');
-    
+
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
     assert.false(checkboxElement.item(0).checked);
@@ -202,7 +201,7 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     await clickByLabel('label');
     await clickByLabel('Salade');
-    
+
     // then
     const firstCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
     assert.true(firstCheckbox.checked);
@@ -240,11 +239,11 @@ module('Integration | Component | multi-select', function (hooks) {
     assert.ok(this.onSelect.calledWith, ['2']);
   });
 
-  module('When it is a searchable multiselect', function() {
+  module('When it is a searchable multiselect', function () {
     test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -279,7 +278,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should renders filtered given case insensitive', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -316,7 +315,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should renders no result given case sensitive', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -354,7 +353,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should display list PixMultiSelect on focus', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -389,7 +388,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should not display list PixMultiSelect on focus', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -424,7 +423,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should sort default selected items when focused', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -462,7 +461,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should not sort when user select item', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -484,9 +483,9 @@ module('Integration | Component | multi-select', function (hooks) {
           {{option.label}}
         </PixMultiSelect>
       `);
-    
+
       // when
-      await clickByLabel('label')
+      await clickByLabel('label');
       await clickByLabel(DEFAULT_OPTIONS[1].label);
 
       // then
@@ -500,7 +499,7 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should not sort when user search and select item', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = []
+      this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.title = 'MultiSelectTest';
@@ -523,7 +522,7 @@ module('Integration | Component | multi-select', function (hooks) {
           {{option.label}}
         </PixMultiSelect>
       `);
-    
+
       // when
       await fillInByLabel('Mon multi select', 'Oi');
       await clickByLabel('Oignon');
@@ -562,12 +561,12 @@ module('Integration | Component | multi-select', function (hooks) {
           {{option.label}}
         </PixMultiSelect>
       `);
-    
+
       // when
-      await fillInByLabel('Mon multi select', 'Oi')
+      await fillInByLabel('Mon multi select', 'Oi');
       await clickByLabel('Oignon');
-      await fillInByLabel('Mon multi select', '')
-    
+      await fillInByLabel('Mon multi select', '');
+
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.length, 3);
@@ -602,15 +601,15 @@ module('Integration | Component | multi-select', function (hooks) {
           {{option.label}}
         </PixMultiSelect>
       `);
-    
+
       // when
-      await clickByLabel('label')
-      
+      await clickByLabel('label');
+
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.item(0).textContent.trim(), 'Tomate');
 
       await clickByLabel('Oignon');
-    
+
       // then
       const listElement2 = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement2.item(0).textContent.trim(), 'Tomate');
@@ -644,15 +643,15 @@ module('Integration | Component | multi-select', function (hooks) {
           {{option.label}}
         </PixMultiSelect>
       `);
-    
+
       // when
-      await fillInByLabel('Mon multi select', 'Oi')
+      await fillInByLabel('Mon multi select', 'Oi');
       await clickByLabel('Oignon');
-      
+
       await blur('input');
 
       await fillInByLabel('Mon multi select', '');
-    
+
       // then
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.length, 3);
@@ -662,7 +661,7 @@ module('Integration | Component | multi-select', function (hooks) {
     });
   });
 
-  test('it should be possible to give a label', async function(assert) {
+  test('it should be possible to give a label', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
     this.selected = [];
@@ -681,19 +680,23 @@ module('Integration | Component | multi-select', function (hooks) {
     assert.equal(selectorElement.innerHTML, 'Votre choix:');
   });
 
-  test('it should throw an error if no id is provided when there is a label', async function(assert) {
+  test('it should throw an error if no id is provided when there is a label', async function (assert) {
     // given
     const componentParams = { id: '   ', label: 'Votre choix: ', options: DEFAULT_OPTIONS };
     const component = createGlimmerComponent('component:pix-multi-select', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixMultiSelect component, @id param is necessary when giving @label');
-    assert.throws(function() { component.label }, expectedError);
+    const expectedError = new Error(
+      'ERROR in PixMultiSelect component, @id param is necessary when giving @label'
+    );
+    assert.throws(function () {
+      component.label;
+    }, expectedError);
   });
 
   test('it should asynchronously load options', async function (assert) {
     // given
-    this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS)
+    this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
     this.selected = [];
     this.onSelect = (selected) => this.set('selected', selected);
     this.emptyMessage = 'no result';
@@ -712,7 +715,7 @@ module('Integration | Component | multi-select', function (hooks) {
         {{option.label}}
       </PixMultiSelect>
     `);
-    
+
     // then
     const listElement = this.element.querySelectorAll('li');
     assert.contains('MultiSelectTest');

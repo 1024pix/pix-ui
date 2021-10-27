@@ -27,15 +27,25 @@ function _getElementControlledByLabel(label, labelText) {
 }
 
 function _findElementWithLabel(labelText) {
-  const labellableElementSelectors = ['button', 'a[href]', '[role="button"]', 'input', 'textarea', 'select', 'label[for]', 'img'];
+  const labellableElementSelectors = [
+    'button',
+    'a[href]',
+    '[role="button"]',
+    'input',
+    'textarea',
+    'select',
+    'label[for]',
+    'img',
+  ];
   return findAll(labellableElementSelectors.join(',')).find(_matchesLabel(labelText));
 }
 
 function _matchesLabel(labelText) {
-  return (element) => _matchesInnerText(element, labelText)
-    || _matchesTitle(element, labelText)
-    || _matchesAriaLabel(element, labelText)
-    || _matchesAltAttribute(element, labelText);
+  return (element) =>
+    _matchesInnerText(element, labelText) ||
+    _matchesTitle(element, labelText) ||
+    _matchesAriaLabel(element, labelText) ||
+    _matchesAltAttribute(element, labelText);
 }
 
 function _matchesInnerText(element, labelText) {

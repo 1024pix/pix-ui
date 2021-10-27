@@ -13,7 +13,7 @@ const Template = (args) => {
         @size={{size}}
         />
     `,
-    context: args
+    context: args,
   };
 };
 
@@ -22,7 +22,7 @@ Default.args = {
   ariaLabel: 'Action du bouton',
   icon: 'times',
   triggerAction: () => {
-    return (new Promise()).resolves()
+    return new Promise().resolves();
   },
 };
 
@@ -41,7 +41,7 @@ withBackground.args = {
 export const argTypes = {
   ariaLabel: {
     name: 'ariaLabel',
-    description: 'l\'action du bouton, pour l\'accessibilité',
+    description: "l'action du bouton, pour l'accessibilité",
     type: { name: 'string', required: true },
     table: { defaultValue: { summary: 'times' } },
   },
@@ -53,7 +53,7 @@ export const argTypes = {
   },
   iconPrefix: {
     name: 'iconPrefix',
-    description: 'Prefix de l\'icône font-awesome',
+    description: "Prefix de l'icône font-awesome",
     type: { name: 'string', required: false },
     control: { type: 'select', options: ['far', 'fas'] },
   },
@@ -80,7 +80,7 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },
-    }
+    },
   },
   color: {
     name: 'color',
@@ -90,6 +90,6 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'light-grey' },
-    }
+    },
   },
 };

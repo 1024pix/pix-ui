@@ -1,8 +1,8 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
-const Template = args => ({
-    template: hbs`
+const Template = (args) => ({
+  template: hbs`
       <PixSelect
         @id={{id}}
         @options={{options}}
@@ -15,7 +15,7 @@ const Template = args => ({
         @label={{label}}
       />
     `,
-    context: args,
+  context: args,
 });
 
 export const Default = Template.bind({});
@@ -35,14 +35,14 @@ Default.args = {
     { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
   ],
   onChange: action('onChange'),
-}
+};
 
 export const withLabel = Template.bind({});
 withLabel.args = {
   ...Default.args,
   id: 'pix-select-with-label',
   label: 'Ton fruit préféré: ',
-}
+};
 
 export const searchableSelect = Template.bind({});
 searchableSelect.args = {
@@ -51,12 +51,13 @@ searchableSelect.args = {
   isSearchable: true,
   isValidationActive: true,
   placeholder: 'Fraises, Mangues...',
-}
+};
 
 export const argTypes = {
   options: {
     name: 'options',
-    description: 'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être que le champ puisse être cherchable',
+    description:
+      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être que le champ puisse être cherchable',
     type: { name: 'object', required: true },
   },
   onChange: {
@@ -68,13 +69,13 @@ export const argTypes = {
   selectedOption: {
     name: 'selectedOption',
     description: 'Option sélectionnée',
-    options: [ '1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
     control: { type: 'select' },
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
-    }
+    },
   },
   emptyOptionLabel: {
     name: 'emptyOptionLabel',
@@ -83,7 +84,7 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
-    }
+    },
   },
   isSearchable: {
     name: 'isSearchable',
@@ -93,18 +94,18 @@ export const argTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
-    }
+    },
   },
   isValidationActive: {
     name: 'isValidationActive',
     description:
-      'Rend la bordure du champ vert au focus si la valeur de recherche match une option (c\'est à dire si l\'utilisateur a selectionné une option valable',
+      "Rend la bordure du champ vert au focus si la valeur de recherche match une option (c'est à dire si l'utilisateur a selectionné une option valable",
     control: { type: 'boolean' },
-    type: { name: "boolean", required: false },
+    type: { name: 'boolean', required: false },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
-    }
+    },
   },
   emptyOptionNotSelectable: {
     name: 'emptyOptionNotSelectable',
@@ -114,17 +115,18 @@ export const argTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
-    }
+    },
   },
   size: {
     name: 'size',
-    description: '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
+    description:
+      '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
     options: ['big', 'small'],
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'small' },
-    }
+    },
   },
   label: {
     name: 'label',
@@ -133,6 +135,6 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
-    }
-  }
+    },
+  },
 };

@@ -65,7 +65,7 @@ function main() {
 
       fs.writeFileSync(CHANGELOG_FILE, currentChangeLog.join('\n'));
     })
-    .catch((e)=>{
+    .catch((e) => {
       console.log(e);
       //eslint-disable-next-line no-process-exit
       process.exit(1);

@@ -16,9 +16,12 @@ filterBanner.args = {
   title: 'Filtres',
   details: 'Des détails sur le filtre',
   clearFiltersLabel: 'Effacer les filtres',
-  options:  [{ value: '1', label: 'Tomate' }, { value: '2', label: 'Mozza' }],
+  options: [
+    { value: '1', label: 'Tomate' },
+    { value: '2', label: 'Mozza' },
+  ],
   onChange: action('select-onchange'),
-}
+};
 
 export const argTypes = {
   title: {

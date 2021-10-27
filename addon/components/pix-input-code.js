@@ -1,10 +1,14 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 
-const ERROR_MESSAGE = 'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend';
-const NAVIGATION_EXPLANATION = "Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier.";
-const NUMBER_INPUT_EXPLANATION = "Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.";
-const TEXT_INPUT_EXPLANATION = "Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.";
+const ERROR_MESSAGE =
+  'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend';
+const NAVIGATION_EXPLANATION =
+  'Pour se déplacer de champ en champ vous pouvez utiliser la tabulation ou bien les flèches gauche et droite de votre clavier.';
+const NUMBER_INPUT_EXPLANATION =
+  'Pour remplir un champ vous pouvez utiliser des chiffres de 1 à 9 ou bien les flèches haut et bas de votre clavier pour incrémenter de 1 la valeur du champ.';
+const TEXT_INPUT_EXPLANATION =
+  'Pour remplir un champ vous pouvez utiliser les caractères alphanumériques de votre clavier.';
 
 export default class PixInputCode extends Component {
   moveFocus = true;
@@ -22,9 +26,8 @@ export default class PixInputCode extends Component {
   }
 
   get explanationOfUse() {
-    const defaultFillingExplanation = this.inputType === 'number'
-      ? NUMBER_INPUT_EXPLANATION
-      : TEXT_INPUT_EXPLANATION;
+    const defaultFillingExplanation =
+      this.inputType === 'number' ? NUMBER_INPUT_EXPLANATION : TEXT_INPUT_EXPLANATION;
     const defaultExplanationOfUseMessage = NAVIGATION_EXPLANATION + ' ' + defaultFillingExplanation;
 
     return this.args.explanationOfUse ? this.args.explanationOfUse : defaultExplanationOfUseMessage;
@@ -62,7 +65,7 @@ export default class PixInputCode extends Component {
     if (!this.args.onAllInputsFilled) return;
 
     const code = [];
-    for(let i = 1; i <= this.numInputs; i++) {
+    for (let i = 1; i <= this.numInputs; i++) {
       const elem = document.getElementById(`code-input-${i}`);
       elem.value.length > 0 && code.push(elem.value);
     }
@@ -76,11 +79,11 @@ export default class PixInputCode extends Component {
     const elem = document.getElementById(`code-input-${index}`);
     this.validateInput(elem);
     if (elem.value.length > 0) {
-      elem.classList.add("filled");
+      elem.classList.add('filled');
       this.moveFocus && this.focusElement(index + 1);
       this.triggerAction();
     } else {
-      elem.classList.remove("filled");
+      elem.classList.remove('filled');
     }
   }
 
@@ -89,8 +92,8 @@ export default class PixInputCode extends Component {
     const eventMap = {
       Backspace: index - 1,
       ArrowLeft: index - 1,
-      ArrowRight: index + 1
-    }
+      ArrowRight: index + 1,
+    };
     const newIndex = eventMap[event.code || event.key];
     this.focusElement(newIndex);
   }
@@ -110,12 +113,12 @@ export default class PixInputCode extends Component {
     const pastedText = (event.clipboardData || window.clipboardData).getData('text');
     const pastedTextWithOnlyValidCharacters = _extractValidCharacters(pastedText);
 
-    pastedTextWithOnlyValidCharacters.forEach(char => {
+    pastedTextWithOnlyValidCharacters.forEach((char) => {
       const input = document.getElementById(`code-input-${index}`);
       if (input) {
         this.focusElement(index);
         input.value = char;
-        input.classList.add("filled");
+        input.classList.add('filled');
         index++;
       }
     });
