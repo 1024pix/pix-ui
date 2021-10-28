@@ -22,7 +22,7 @@ Pix-UI c'est l'implémentation des principes du design system de Pix. Cela se ma
 ## Installation de l'addon Pix-UI <a id="Addon"></a>
 
 Pour utiliser les composants sur une application Ember externe, il faut installer l'addon ember Pix-UI avec la commande : 
-- `npm install git://github.com/1024pix/pix-ui.git#<tag_souhaité>`
+- `npm install @1024pix/pix-ui@<tag_souhaité>`
 
 ##### Quel tag choisir ?
 
