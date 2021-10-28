@@ -1,1 +1,1 @@
-export { default } from 'pix-ui/components/pix-multi-select';
+export { default } from '@1024pix/pix-ui/components/pix-multi-select';
