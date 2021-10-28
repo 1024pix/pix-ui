@@ -1,5 +1,5 @@
 {
-  "name": "pix-ui",
+  "name": "@1024pix/pix-ui",
   "version": "10.0.2",
   "description": "Addon pour l'UI des applications Pix",
   "keywords": [
@@ -15,7 +15,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/1024pix/pix-ui.git"
+    "url": "git+ssh://git@github.com/1024pix/pix-ui.git"
   },
   "directories": {
     "doc": "doc",
@@ -98,6 +98,11 @@
     "qunit-dom": "^1.6.0",
     "sass": "^1.37.5"
   },
+  "bugs": {
+    "url": "https://github.com/1024pix/pix-ui/issues"
+  },
+  "homepage": "https://github.com/1024pix/pix-ui#readme",
+  "main": "index.js",
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
