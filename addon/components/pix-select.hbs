@@ -36,9 +36,17 @@
         {{/if}}
       {{/if}}
       {{#each @options as |opt|}}
-        <option value={{opt.value}} defaultSelected={{eq @selectedOption opt.value}}>
-          {{opt.label}}
-        </option>
+        {{#if (eq @selectedOption opt.value)}}
+          {{!-- https://github.com/emberjs/ember.js/issues/15484
+                ember-prop-modifier let us fix a bug about selected attribute in FireFox --}}
+          <option value={{opt.value}} {{prop selected="true"}}>
+            {{opt.label}}
+          </option>
+        {{else}}
+          <option value={{opt.value}}>
+            {{opt.label}}
+          </option>
+        {{/if}}
       {{/each}}
     </select>
     <FaIcon class='pix-select__icon' @icon="chevron-down" />
