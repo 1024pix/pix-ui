@@ -1,5 +1,18 @@
 # Pix-UI Changelog
 
+## v10.0.1 (03/11/2021)
+
+
+### :building_construction: Tech
+- [#163](https://github.com/1024pix/pix-ui/pull/163) [TECH] Ne plus inclure les stories dans le bundle de Pix-UI
+- [#162](https://github.com/1024pix/pix-ui/pull/162) [TECH] Donner toutes les permissions à l'auto-merge
+- [#161](https://github.com/1024pix/pix-ui/pull/161) [TECH] Ajout de la permission pour l'auto merge d'écrire sur les status
+- [#160](https://github.com/1024pix/pix-ui/pull/160) [TECH] Restaurer la version initiale de automerge.
+- [#159](https://github.com/1024pix/pix-ui/pull/159) [TECH] Ajout d'une permission d'écriture pour l'auto merge
+
+### :bug: Bug fix
+- [#166](https://github.com/1024pix/pix-ui/pull/166) [BUGFIX] Empêcher PixSelect de déborder de l'élément parent
+
 ## v10.0.0 (20/10/2021)
 
 - [#156](https://github.com/1024pix/pix-ui/pull/156) [TECH] Enlever les règles bloquantes et non utiles du reset CSS [BREAKING_CHANGES]
