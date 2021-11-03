@@ -32,6 +32,7 @@ Default.args = {
     { value: '9', label: 'Avocat' },
     { value: '10', label: 'Fraises' },
     { value: '11', label: 'Kaki' },
+    { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
   ],
   onChange: action('onChange'),
 }
