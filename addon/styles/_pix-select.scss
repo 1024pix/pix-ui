@@ -11,6 +11,8 @@
     font-family: $font-roboto;
     font-size: 0.875rem;
     height: 36px;
+    max-width: 100%;
+    text-overflow: ellipsis;
 
     @include hoverFormElement();
     @include focusFormElement();
