@@ -33,6 +33,7 @@ module('Integration | Component | select', function (hooks) {
 
     // then
     const options = this.element.querySelectorAll('option');
+
     assert.equal(options.length, 3);
     assert.equal(options.item(0).value, '1');
     assert.equal(options.item(0).text, 'Salade');
@@ -75,7 +76,9 @@ module('Integration | Component | select', function (hooks) {
 
     // then
     const options = this.element.querySelectorAll('option');
-    assert.equal(options.item(1).defaultSelected, true);
+    assert.equal(options.item(1).selected, true);
+    assert.equal(options.item(0).selected, false);
+    assert.equal(options.item(2).selected, false);
   });
 
   test('it should trigger onChange function when an item is selected', async function (assert) {

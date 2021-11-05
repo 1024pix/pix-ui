@@ -13,7 +13,7 @@ export default class PixSelect extends Component {
       this.datalistId = 'pix-select-list-' + guidFor(this);
     }
   }
-  
+
   get label() {
     const labelIsDefined = this.args.label?.trim();
     const idIsNotDefined = !(this.args.id?.trim());
