@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v10.0.2 (08/11/2021)
+
+
+### :coffee: Various
+- [#165](https://github.com/1024pix/pix-ui/pull/165) [FIXBUG] Problème de sélection des statuts sur Firefox (PIX-3636)
+
 ## v10.0.1 (03/11/2021)
 
 
