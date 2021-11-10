@@ -1,0 +1,19 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Développement/Tester un composant en developpement dans une app" />
+
+# Tester un composant en developpement dans une app
+
+Il est possible de tester l'intégration d'un composant dans une application
+Ember sans nécessairement créer une nouvelle release.
+
+Pour cela, dans le repertoire de l'application Ember, installer Pix UI
+en utilisant l'adresse du dépôt Github et le nom de la branche.
+Par exemple :
+
+```shell
+npm install "git://github.com/1024pix/pix-ui#add-modal-component" --save-dev
+```
+
+Une fois l'application Ember redémarrée, il sera possible d'accéder aux
+composants Pix UI tels qu'ils sont dans la branche en cours de développement.
