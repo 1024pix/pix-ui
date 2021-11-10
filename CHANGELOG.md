@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v10.1.0 (10/11/2021)
+
+
+### :coffee: Various
+- [#164](https://github.com/1024pix/pix-ui/pull/164) [INFRA] Release npm @1024pix/pix-ui automatisée
+
 ## v10.0.2 (08/11/2021)
 
 
