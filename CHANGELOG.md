@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v10.2.1 (10/11/2021)
+
+
+### :building_construction: Tech
+- [#173](https://github.com/1024pix/pix-ui/pull/173) [TECH] Mise a jour du nom de domaine.
+
 ## v10.2.0 (10/11/2021)
 
 
