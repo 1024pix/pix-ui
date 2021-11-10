@@ -16,6 +16,10 @@
     margin-bottom: 4px;
   }
 
+  &__container {
+    position: relative;
+  }
+
   svg.pix-input__icon {
     position: absolute;
     bottom: 9px;

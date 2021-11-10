@@ -6,21 +6,25 @@
     <label for={{this.id}} class="pix-input__information">{{@information}}</label>
   {{/if}}
 
-  <Input
-    id={{this.id}}
-    class={{this.className}}
-    @value={{@value}}
-    {{on "change" this.onChange}}
-    ...attributes
-  />
+  <div class="pix-input__container">
+    <input
+      id={{this.id}}
+      class={{this.className}}
+      value={{@value}}
+      {{on "change" this.onChange}}
+      ...attributes
+    />
+
+    {{#if @errorMessage}}
+      <FaIcon @icon="times" class="pix-input__error-icon" />
+    {{/if}}
+
+    {{#if @icon}}
+      <FaIcon @icon={{@icon}} class="pix-input__icon {{if @isIconLeft "pix-input__icon--left"}}" />
+    {{/if}}
+  </div>
 
   {{#if @errorMessage}}
-    <FaIcon @icon="times" class="pix-input__error-icon" />
     <label for={{this.id}} class="pix-input__error-message">{{@errorMessage}}</label>
   {{/if}}
-
-  {{#if @icon}}
-    <FaIcon @icon={{@icon}} class="pix-input__icon {{if @isIconLeft "pix-input__icon--left"}}" />
-  {{/if}}
-
 </div>

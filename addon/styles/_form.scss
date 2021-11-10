@@ -29,7 +29,6 @@
 }
 
 @mixin errorMessage() {
-  position: absolute;
   font-family: $font-roboto;
   font-size: 0.75rem;
   color: $red;
