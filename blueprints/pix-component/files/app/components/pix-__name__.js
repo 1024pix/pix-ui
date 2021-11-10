@@ -1,1 +1,1 @@
-export { default } from 'pix-ui/components/pix-<%= dasherizedModuleName %>';
+export { default } from '@1024pix/pix-ui/components/pix-<%= dasherizedModuleName %>';
