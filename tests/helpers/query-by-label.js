@@ -31,6 +31,7 @@ function _findElementWithLabel(labelText) {
     'button',
     'a[href]',
     '[role="button"]',
+    '[role="option"]',
     'input',
     'textarea',
     'select',
