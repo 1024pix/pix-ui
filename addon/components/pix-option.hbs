@@ -1,0 +1,11 @@
+{{#if @selected}}
+  {{! https://github.com/emberjs/ember.js/issues/15484
+      ember-prop-modifier let us fix a bug about selected attribute in FireFox }}
+  <option value={{@option.value}} {{prop selected="true"}}>
+    {{@option.label}}
+  </option>
+{{else}}
+  <option value={{@option.value}}>
+    {{@option.label}}
+  </option>
+{{/if}}
