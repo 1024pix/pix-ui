@@ -4,6 +4,7 @@ import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
+import sinon from 'sinon';
 
 module('Integration | Component | input', function(hooks) {
   setupRenderingTest(hooks);
@@ -94,5 +95,19 @@ module('Integration | Component | input', function(hooks) {
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
     assert.equal(selectorElement.autocomplete, 'on');
+  });
+
+  module('Attributes @onChange', function() {
+    test('it calls onChange event while typing', async function(assert) {
+      // given
+      this.onChange = sinon.spy();
+      // when
+      await render(hbs`<PixInput @label="Prénom" @id="firstName" @onChange={{this.onChange}}/>`);
+  
+      await fillInByLabel('Prénom', 'Jeanne');
+  
+      // then
+      assert.ok(this.onChange.called);
+    });
   });
 });

@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 
+import { action } from '@ember/object';
 export default class PixInput extends Component {
   text = 'pix-input';
 
@@ -16,5 +17,11 @@ export default class PixInput extends Component {
     this.args.icon && classNames.push('pix-input__input--icon');
     this.args.isIconLeft && classNames.push('pix-input__input--icon-left');
     return classNames.join(' ');
+  }
+
+  @action
+  onChange() {
+    if(typeof this.args.onChange === 'function')
+      this.args.onChange();
   }
 }
