@@ -1,0 +1,58 @@
+<div class="pix-select-group" {{on-click-outside this.hideOptions capture=true}}>
+
+  <label for={{@id}} class="pix-select-group__label">{{@label}}</label>
+
+  <span class="pix-select-group__search">
+    {{#if @isSearchable}}
+      <input
+        role="searchbox"
+        id={{@id}}
+        {{on "input" this.onSearch}}
+        {{on "click" this.displayOptions}}
+        value={{this.inputValue}}
+        ...attributes
+      />
+    {{else}}
+      <input
+        id={{@id}}
+        {{on "click" this.displayOptions}}
+        value={{this.selectedOption.label}}
+        ...attributes
+        autocomplete="off"
+        readonly
+      />
+    {{/if}}
+
+    <FaIcon
+      class="pix-select-group__icon pix-select-group__icon--searchable"
+      @icon="chevron-down"
+    />
+  </span>
+  {{! in order to let the focus on the input when the user click on a category }}
+  {{! we added a handler on mousedown to prevent the li element to steal the focus }}
+  {{! template-lint-disable no-down-event-binding }}
+  <ul
+    class="option-list {{if this.optionsHidden "option-list--hidden"}}"
+    role="listbox"
+    {{on "mousedown" this.avoidTakingFocus}}
+  >
+    {{! template-lint-enable no-down-event-binding }}
+    {{#each this.optionsByCategory as |category|}}
+      <li role="group">
+        <span class="option-list__category-title">{{category.label}}</span>
+        <ul>
+          {{#each category.options as |opt|}}
+            <li
+              class="option-list__option"
+              role="option"
+              optionValue={{opt.value}}
+              {{on "click" this.onClick}}
+            >
+              {{opt.label}}
+            </li>
+          {{/each}}
+        </ul>
+      </li>
+    {{/each}}
+  </ul>
+</div>

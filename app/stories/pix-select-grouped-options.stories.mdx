@@ -1,0 +1,49 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-select-grouped-options.stories.js';
+
+<Meta
+  title='Form/Select Grouped Options'
+  component='PixSelectGroupedOptions'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Select Grouped Options
+
+Affiche un champ Select avec la liste des options fournies, les options sont groupées par catégories et triés
+par ordre alphabétique.
+
+> **⚠️** __N'oubliez pas de rajouter un id et un label rattaché à l'input pour le rendre accessible !
+A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'input.__
+
+> Pour aider l'utilisateur avec le PixSelectGroupedOptions cherchable, rajoutez un placeholder cohérent !
+
+## Default
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={500} />
+</Canvas>
+
+## Searchable
+
+<Canvas>
+  <Story name="Searchable" story={stories.searchable} height={500} />
+</Canvas>
+
+## Usage
+
+```html
+<PixSelectGroupedOptions
+  @options={{options}}
+  @onChange={{onChange}}
+  @selectedOption="1"
+  @label={{label}}
+  @isSearchable={{false}}
+  @categories={{categories}}
+/>
+```
+
+## Arguments
+
+<ArgsTable story="Grouped options" />

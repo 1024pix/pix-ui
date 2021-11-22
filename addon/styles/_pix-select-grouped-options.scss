@@ -1,0 +1,113 @@
+.pix-select-group {
+  @import 'reset-css';
+
+  position: relative;
+
+  @mixin pixSelectGroup {
+    appearance: none;
+    border: 1px $grey-40 solid;
+    border-radius: 4px;
+    color: $grey-90;
+    font-family: $font-roboto;
+    font-size: 0.875rem;
+    height: 36px;
+    width: 100%;
+    text-overflow: ellipsis;
+
+    @include hoverFormElement();
+    @include focusFormElement();
+    @include focusWithinFormElement();
+  }
+
+  &__search {
+    position: relative;
+  }
+
+  select {
+    @include pixSelectGroup;
+    padding: 0 32px 0 16px;
+
+    &::-ms-expand {
+      display: none;
+    }
+  }
+
+  input {
+    @include pixSelectGroup;
+    padding: 0 8px 0 16px;
+
+    &.pix-select--big {
+      height: 44px;
+    }
+
+    // Remove arrow for Chrome
+    &::-webkit-calendar-picker-indicator {
+      display: none;
+    }
+
+    &:focus {
+      border-radius: 4px 4px 0px 0px;
+    }
+
+    &:read-only {
+      cursor: default;
+    }
+  }
+
+  &__icon {
+    font-size: 11px;
+    color: $grey-30;
+    right: 10px;
+    top: calc(50% + 6px);
+    padding: 0 0 2px;
+    position: absolute;
+    pointer-events: none;
+
+    &--searchable {
+      top: calc(50% - 3px);
+    }
+  }
+
+  &__label {
+    @include label();
+  }
+
+  .pix-select__label ~ .pix-select__icon {
+    top: calc(50% + 6px);
+  }
+
+}
+
+.option-list {
+  position: absolute;
+  width: max-content;
+  list-style: none;
+  color: $white;
+  background-color: $grey-70;
+  border-radius: 0px 0px 4px 4px;
+  width: 100%;
+
+  li {
+    line-height: 36px;
+    cursor: default;
+
+    &.option-list__option {
+      padding: 0 16px;
+      cursor: pointer;
+
+      &:hover {
+        background-color: $blue-hover;
+      }
+    }
+
+    &.option-list__category-title {
+      padding: 0 8px;
+      font-weight: bold;
+    }
+
+  }
+
+  &--hidden {
+    display: none;
+  }
+}
