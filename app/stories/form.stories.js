@@ -67,7 +67,7 @@ export const form = (args) => {
 };
 form.args = {
   genericErrorMessage: '',
-  selected: ['1','4'],
+  selected: ['1', '4'],
   options: [
     { value: '1', total: 3 },
     { value: '2', total: 3 },
@@ -88,4 +88,4 @@ form.args = {
     { value: 'Fraises', label: 'Fraises' },
     { value: 'Kaki', label: 'Kaki' },
   ],
-}
+};

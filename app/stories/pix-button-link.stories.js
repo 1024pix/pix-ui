@@ -19,7 +19,6 @@ export const htmlLinkTemplate = (args) => {
   };
 };
 
-
 export const emberLinkTemplate = (args) => {
   return {
     template: hbs`
@@ -53,7 +52,8 @@ export const argTypes = {
   },
   route: {
     name: 'route',
-    description: 'Paramètre à renseigner pour utiliser un composant LinkTo à la place d\'un lien classique. Il prend comme valeur la route de redirection',
+    description:
+      "Paramètre à renseigner pour utiliser un composant LinkTo à la place d'un lien classique. Il prend comme valeur la route de redirection",
     type: { name: 'string', required: false },
     defaultValue: null,
   },
@@ -64,7 +64,8 @@ export const argTypes = {
   },
   query: {
     name: 'query',
-    description: 'Paramètre facultatif du <LinkTo> Ember permettant d\'ajouter des paires de clé/valeur dans les paramètres d\'une URL',
+    description:
+      "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
     type: { required: false },
   },
   shape: {
@@ -76,18 +77,19 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'squircle' },
-    }
+    },
   },
   backgroundColor: {
     name: 'backgroundColor',
-    description: 'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
+    description:
+      'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
     options: ['blue', 'green', 'yellow', 'red', 'grey', 'transparent-light', 'transparent-dark'],
     type: { name: 'string', required: false },
     control: { type: 'select' },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'blue' },
-    }
+    },
   },
   size: {
     name: 'size',
@@ -98,17 +100,18 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },
-    }
+    },
   },
   isBorderVisible: {
     name: 'isBorderVisible',
-    description: 'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+    description:
+      'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
     type: { name: 'boolean', required: false },
     control: { type: 'boolean' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
-    }
+    },
   },
   isDisabled: {
     name: 'isDisabled',
@@ -117,6 +120,6 @@ export const argTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
-    }
+    },
   },
 };

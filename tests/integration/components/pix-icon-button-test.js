@@ -2,16 +2,16 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import createGlimmerComponent from "../../helpers/create-glimmer-component";
+import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import clickByLabel from '../../helpers/click-by-label';
 
-module('Integration | Component | icon-button', function(hooks) {
+module('Integration | Component | icon-button', function (hooks) {
   setupRenderingTest(hooks);
 
   const COMPONENT_SELECTOR = '.pix-icon-button';
   const iconClass = `${COMPONENT_SELECTOR} > svg`;
 
-  test('it renders PixIconButton with a default fa-icon', async function(assert) {
+  test('it renders PixIconButton with a default fa-icon', async function (assert) {
     // when
     await render(hbs`
       <PixIconButton @ariaLabel="action du bouton" />
@@ -22,7 +22,7 @@ module('Integration | Component | icon-button', function(hooks) {
     assert.ok(iconElement.classList.contains('fa-plus'));
   });
 
-  test('it renders PixIconButton with the specified FaIcon', async function(assert) {
+  test('it renders PixIconButton with the specified FaIcon', async function (assert) {
     // when
     await render(hbs`
       <PixIconButton @icon='times' @ariaLabel="action du bouton" />
@@ -34,7 +34,7 @@ module('Integration | Component | icon-button', function(hooks) {
     assert.notOk(iconElement.classList.contains('fa-plus'));
   });
 
-  test('it should trigger action if given one', async function(assert) {
+  test('it should trigger action if given one', async function (assert) {
     // when
     this.set('count', 1);
     this.set('triggerAction', () => {
@@ -49,7 +49,7 @@ module('Integration | Component | icon-button', function(hooks) {
     assert.equal(this.count, 2);
   });
 
-  test('it renders PixIconButton with disabled attribute', async function(assert) {
+  test('it renders PixIconButton with disabled attribute', async function (assert) {
     // given
     this.set('triggerAction', () => {});
 
@@ -61,19 +61,20 @@ module('Integration | Component | icon-button', function(hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.disabled, true);
+    assert.true(componentElement.disabled);
   });
 
-  test('it should not show PixIconButton if ariaLabel is not provided', async function(assert) {
+  test('it should not show PixIconButton if ariaLabel is not provided', async function (assert) {
     // given
-    const componentParams = { ariaLabel:'   ' };
+    const componentParams = { ariaLabel: '   ' };
     const component = createGlimmerComponent('component:pix-icon-button', componentParams);
 
     // when & then
-    const expectedError = new Error('ERROR in PixIconButton component, @ariaLabel param is not provided.');
-    assert.throws(
-      function() { component.ariaLabel },
-      expectedError
+    const expectedError = new Error(
+      'ERROR in PixIconButton component, @ariaLabel param is not provided.'
     );
+    assert.throws(function () {
+      component.ariaLabel;
+    }, expectedError);
   });
 });

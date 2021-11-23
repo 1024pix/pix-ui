@@ -1,7 +1,7 @@
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-import PixButtonBase from './pix-button-base'
+import PixButtonBase from './pix-button-base';
 
 export default class PixButton extends PixButtonBase {
   text = 'pix-button';
@@ -30,11 +30,11 @@ export default class PixButton extends PixButtonBase {
   }
 
   get className() {
-    return super.baseClassNames.join(' ')
+    return super.baseClassNames.join(' ');
   }
 
-  get enableTriggerAction(){
-    return !(this.type === 'submit' && !this.args.triggerAction)
+  get enableTriggerAction() {
+    return !(this.type === 'submit' && !this.args.triggerAction);
   }
 
   @action

@@ -1,4 +1,4 @@
-<div class='pix-input'>
+<div class="pix-input">
   {{#if @label}}
     <label for={{this.id}} class="pix-input__label">{{@label}}</label>
   {{/if}}
@@ -10,8 +10,9 @@
     id={{this.id}}
     class={{this.className}}
     @value={{@value}}
-    {{on 'change' this.onChange}}
-    ...attributes />
+    {{on "change" this.onChange}}
+    ...attributes
+  />
 
   {{#if @errorMessage}}
     <FaIcon @icon="times" class="pix-input__error-icon" />

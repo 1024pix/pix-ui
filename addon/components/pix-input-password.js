@@ -1,11 +1,11 @@
-import PixInput from './pix-input'
+import PixInput from './pix-input';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-const ERROR_MESSAGE = 'ERROR in PixInputPassword component, you must provide @label or @ariaLabel params';
+const ERROR_MESSAGE =
+  'ERROR in PixInputPassword component, you must provide @label or @ariaLabel params';
 
 export default class PixInputPassword extends PixInput {
-
   @tracked isPasswordVisible = false;
 
   get label() {
@@ -29,7 +29,6 @@ export default class PixInputPassword extends PixInput {
 
   @action
   onChange() {
-    if(typeof this.args.onChange === 'function')
-      this.args.onChange();
+    if (typeof this.args.onChange === 'function') this.args.onChange();
   }
 }

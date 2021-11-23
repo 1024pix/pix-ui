@@ -15,14 +15,14 @@ const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  label:'Poivron',
-}
+  label: 'Poivron',
+};
 
 export const isDisabled = Template.bind({});
 isDisabled.args = {
   ...Default.args,
-  isDisabled: true
-}
+  isDisabled: true,
+};
 
 const checked = (args) => {
   return {
@@ -40,8 +40,8 @@ const checked = (args) => {
 export const disabledChecked = checked.bind({});
 disabledChecked.args = {
   ...Default.args,
-  isDisabled: true
-}
+  isDisabled: true,
+};
 
 export const defaultChecked = checked.bind({});
 defaultChecked.args = Default.args;
@@ -55,7 +55,7 @@ export const argTypes = {
   },
   value: {
     name: 'value',
-    description: 'Valeur permettant d\'identifier l\'option sélectionnée',
+    description: "Valeur permettant d'identifier l'option sélectionnée",
     type: { name: 'string', required: false },
     defaultValue: null,
   },
@@ -66,6 +66,6 @@ export const argTypes = {
     defaultValue: false,
     table: {
       defaultValue: { summary: 'false' },
-    }
+    },
   },
 };

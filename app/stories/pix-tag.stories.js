@@ -11,7 +11,7 @@ export const tag = (args) => {
   };
 };
 
-export const compactTag = args => {
+export const compactTag = (args) => {
   return {
     template: hbs`
       <PixTag @color={{color}} @compact={{compact}}>
@@ -22,9 +22,8 @@ export const compactTag = args => {
   };
 };
 compactTag.args = {
-  compact: true
-}
-
+  compact: true,
+};
 
 export const argTypes = {
   color: {
@@ -32,18 +31,21 @@ export const argTypes = {
     description: 'Couleur du tag',
     type: { name: 'number', required: false },
     defaultValue: 'blue',
-    control: { type: 'select', options: [
-      'blue',
-      'blue-light',
-      'purple',
-      'purple-light',
-      'green',
-      'green-light',
-      'yellow',
-      'yellow-light',
-      'grey',
-      'grey-light'
-    ]}
+    control: {
+      type: 'select',
+      options: [
+        'blue',
+        'blue-light',
+        'purple',
+        'purple-light',
+        'green',
+        'green-light',
+        'yellow',
+        'yellow-light',
+        'grey',
+        'grey-light',
+      ],
+    },
   },
   compact: {
     name: 'compact',

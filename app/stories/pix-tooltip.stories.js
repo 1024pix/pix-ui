@@ -29,52 +29,52 @@ Default.args = {
 
 export const isLight = Template.bind({});
 isLight.args = {
-  ... Default.args,
-  isLight: true
+  ...Default.args,
+  isLight: true,
 };
 
 export const isWide = Template.bind({});
 isWide.args = {
-  ... Default.args,
+  ...Default.args,
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas molestie mauris vel viverra.',
-  isWide: true
+  isWide: true,
 };
 
 export const isInline = Template.bind({});
 isInline.args = {
-  ... Default.args,
+  ...Default.args,
   text: 'Je suis une trèèèèèèèès longue information',
-  isInline: true
+  isInline: true,
 };
 
 export const left = Template.bind({});
 left.args = {
-  ... Default.args,
-  label:'Mon infobulle apparaît à gauche',
+  ...Default.args,
+  label: 'Mon infobulle apparaît à gauche',
   position: 'left',
-  isInline: true
+  isInline: true,
 };
 
 export const right = Template.bind({});
 right.args = {
-  ... Default.args,
+  ...Default.args,
   label: 'Mon infobulle apparaît à droite',
   position: 'right',
-  isInline: true
+  isInline: true,
 };
 
 export const bottom = Template.bind({});
 bottom.args = {
-  ... Default.args,
+  ...Default.args,
   label: 'Mon infobulle apparaît en bas',
-  position: 'bottom'
+  position: 'bottom',
 };
 
 export const unescapeHtml = Template.bind({});
 unescapeHtml.args = {
-  ... Default.args,
+  ...Default.args,
   text: 'Hello <b style="color: red;">W</b>orld',
-  label: 'J\'affiche du html',
+  label: "J'affiche du html",
   unescapeHtml: true,
 };
 
@@ -95,7 +95,19 @@ export const argTypes = {
     description: 'Position de la tooltip',
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'top' } },
-    control: { type: 'select', options: ['top', 'top-left', 'top-right', 'right', 'bottom', 'bottom-left', 'bottom-right', 'left'] },
+    control: {
+      type: 'select',
+      options: [
+        'top',
+        'top-left',
+        'top-right',
+        'right',
+        'bottom',
+        'bottom-left',
+        'bottom-right',
+        'left',
+      ],
+    },
   },
   isLight: {
     name: 'isLight',
@@ -117,7 +129,7 @@ export const argTypes = {
   },
   unescapeHtml: {
     name: 'unescapeHtml',
-    description: 'Évite d\'échapper les caractères HTML',
+    description: "Évite d'échapper les caractères HTML",
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
   },

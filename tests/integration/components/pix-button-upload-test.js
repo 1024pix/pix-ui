@@ -3,10 +3,10 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | button-upload', function(hooks) {
+module('Integration | Component | button-upload', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the default PixButtonUpload', async function(assert) {
+  test('it renders the default PixButtonUpload', async function (assert) {
     // when
     await render(hbs`
       <PixButtonUpload @id="1">
@@ -17,5 +17,4 @@ module('Integration | Component | button-upload', function(hooks) {
     // then
     assert.contains('content');
   });
-
 });

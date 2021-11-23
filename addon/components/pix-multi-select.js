@@ -11,20 +11,23 @@ function sortOptionsByCheckedFirst(a, b) {
 }
 
 function removeCapitalizeAndDiacritics(string) {
-  return string.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+  return string
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
 }
 
 export default class PixMultiSelect extends Component {
-  @tracked isExpanded = false;  
+  @tracked isExpanded = false;
   @tracked searchData;
 
   @tracked options = [];
   @tracked isLoadingOptions = false;
 
   constructor(...args) {
-    super(...args)
+    super(...args);
     const { onLoadOptions, selected } = this.args;
-  
+
     if (onLoadOptions) {
       this.isLoadingOptions = true;
       onLoadOptions().then((options = []) => {
@@ -33,7 +36,7 @@ export default class PixMultiSelect extends Component {
         this.isLoadingOptions = false;
       });
     } else {
-      this.options = [...this.args.options || []];
+      this.options = [...(this.args.options || [])];
       this._setDisplayedOptions(selected, true);
     }
   }
@@ -43,7 +46,9 @@ export default class PixMultiSelect extends Component {
     const idIsNotDefined = this.args.id && !this.args.id.trim();
 
     if (labelIsDefined && idIsNotDefined) {
-      throw new Error('ERROR in PixMultiSelect component, @id param is necessary when giving @label');
+      throw new Error(
+        'ERROR in PixMultiSelect component, @id param is necessary when giving @label'
+      );
     }
     return this.args.label || null;
   }
@@ -65,7 +70,7 @@ export default class PixMultiSelect extends Component {
       const selectedOptionLabels = this.options
         .filter(({ value, label }) => {
           const hasOption = selected.includes(value);
-          return hasOption && Boolean(label)
+          return hasOption && Boolean(label);
         })
         .map(({ label }) => label)
         .join(', ');
@@ -83,7 +88,7 @@ export default class PixMultiSelect extends Component {
     if (shouldSort && this.args.isSearchable) {
       options.sort(sortOptionsByCheckedFirst);
     }
-  
+
     this.options = options;
   }
 
@@ -96,13 +101,13 @@ export default class PixMultiSelect extends Component {
 
   @action
   onSelect(event) {
-    let selected = [...this.args.selected || []];
-    if(event.target.checked) {
+    let selected = [...(this.args.selected || [])];
+    if (event.target.checked) {
       selected.push(event.target.value);
     } else {
       selected = selected.filter((value) => value !== event.target.value);
     }
-    
+
     this._setDisplayedOptions(selected, false);
 
     if (this.args.onSelect) {
@@ -128,7 +133,7 @@ export default class PixMultiSelect extends Component {
 
   @action
   hideDropDown(event) {
-    if(!this.isExpanded) return;
+    if (!this.isExpanded) return;
 
     if (event) {
       event.stopPropagation();
@@ -146,8 +151,10 @@ export default class PixMultiSelect extends Component {
 
   @action
   updateSearch(event) {
-    this.searchData = this.args.strictSearch ? event.target.value : removeCapitalizeAndDiacritics(event.target.value);
-    this.isExpanded = true; 
+    this.searchData = this.args.strictSearch
+      ? event.target.value
+      : removeCapitalizeAndDiacritics(event.target.value);
+    this.isExpanded = true;
     if (!event.target.value) {
       this._setDisplayedOptions(this.args.selected, true);
     }

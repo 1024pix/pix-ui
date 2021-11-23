@@ -44,7 +44,7 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
-    }
+    },
   },
 
   errorMessage: {
@@ -54,6 +54,6 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
-    }
+    },
   },
 };

@@ -5,12 +5,12 @@ import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import clickByLabel from '../../helpers/click-by-label';
 
-module('Integration | Component | button', function(hooks) {
+module('Integration | Component | button', function (hooks) {
   setupRenderingTest(hooks);
 
   const COMPONENT_SELECTOR = '.pix-button';
 
-  test('it renders the default PixButton', async function(assert) {
+  test('it renders the default PixButton', async function (assert) {
     // when
     await render(hbs`
       <PixButton>
@@ -24,7 +24,7 @@ module('Integration | Component | button', function(hooks) {
     assert.equal(componentElement.type, 'button');
   });
 
-  test('it renders the PixButton component with the given type', async function(assert) {
+  test('it renders the PixButton component with the given type', async function (assert) {
     // when
     await render(hbs`
       <PixButton @type="submit">
@@ -37,7 +37,7 @@ module('Integration | Component | button', function(hooks) {
     assert.equal(componentElement.type, 'submit');
   });
 
-  test('it renders the PixButton component with isDisabled attribute', async function(assert) {
+  test('it renders the PixButton component with isDisabled attribute', async function (assert) {
     // given
     this.set('count', 1);
     this.set('triggerAction', () => {
@@ -60,10 +60,10 @@ module('Integration | Component | button', function(hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.equal(this.count, 1);
-    assert.equal(componentElement.disabled, true);
+    assert.true(componentElement.disabled);
   });
 
-  test('it should call the action', async function(assert) {
+  test('it should call the action', async function (assert) {
     // given
     this.set('count', 1);
     this.set('triggerAction', () => {
@@ -80,12 +80,11 @@ module('Integration | Component | button', function(hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.equal(this.count, 2);
-    assert.equal(componentElement.disabled, false);
+    assert.false(componentElement.disabled);
   });
 
-  module('when type is submit, if no trigger action is defined', ()=>{
-
-    test('if clicked, it should do nothing', async function(assert) {
+  module('when type is submit, if no trigger action is defined', () => {
+    test('if clicked, it should do nothing', async function (assert) {
       // given
       await render(hbs`
       <PixButton @type="submit" aria-label="button label"  />
@@ -98,9 +97,9 @@ module('Integration | Component | button', function(hooks) {
       const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
       assert.equal(componentElement.type, 'submit');
     });
-  })
+  });
 
-  test('it renders the PixButton link component', async function(assert) {
+  test('it renders the PixButton link component', async function (assert) {
     // when
     await render(hbs`
       <PixButton
@@ -114,7 +113,7 @@ module('Integration | Component | button', function(hooks) {
     assert.dom('a.very-small').exists();
   });
 
-  test('it renders the PixButton link component with model', async function(assert) {
+  test('it renders the PixButton link component with model', async function (assert) {
     // when
     await render(hbs`
       <PixButton
@@ -129,30 +128,32 @@ module('Integration | Component | button', function(hooks) {
     assert.dom('a.smaller').exists();
   });
 
-  module('when the button has a trigger action with a promise', function(hooks) {
+  module('when the button has a trigger action with a promise', function (hooks) {
     let clock;
 
-    hooks.beforeEach(function() {
+    hooks.beforeEach(function () {
       clock = sinon.useFakeTimers();
-    })
+    });
 
-    hooks.afterEach(function() {
+    hooks.afterEach(function () {
       clock.restore();
-    })
+    });
 
-    test('should display a loading state', async function(assert) {
+    test('should display a loading state', async function (assert) {
       // given
       this.set('triggerAction', () => {
         return new Promise((resolve) => {
           let wait = setTimeout(() => {
             clearTimeout(wait);
             resolve();
-          }, 1)
+          }, 1);
         });
       });
 
       // when
-      await render(hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label="button label"  />`);
+      await render(
+        hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label="button label"  />`
+      );
       await clickByLabel('button label');
 
       // then
@@ -161,8 +162,8 @@ module('Integration | Component | button', function(hooks) {
     });
   });
 
-  module('when the button has isLoading to true', function() {
-    test('should display a loading state', async function(assert) {
+  module('when the button has isLoading to true', function () {
+    test('should display a loading state', async function (assert) {
       // given
       this.set('triggerAction', () => {});
       this.set('isLoading', true);

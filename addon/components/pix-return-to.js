@@ -7,7 +7,7 @@ export default class PixReturnTo extends Component {
 
   get route() {
     const routeParam = this.args.route;
-    if(routeParam == undefined || routeParam.trim() == '') {
+    if (routeParam == undefined || routeParam.trim() == '') {
       throw new Error('ERROR in PixReturnTo component, @route param is not provided');
     }
     return routeParam;

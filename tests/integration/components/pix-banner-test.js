@@ -3,12 +3,12 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
-module('Integration | Component | Pix Banner', function(hooks) {
+module('Integration | Component | Pix Banner', function (hooks) {
   setupRenderingTest(hooks);
 
   const COMPONENT_SELECTOR = '.pix-banner';
 
-  test('it renders the default PixBanner', async function(assert) {
+  test('it renders the default PixBanner', async function (assert) {
     // when
     await render(hbs`
       <PixBanner>
@@ -19,10 +19,13 @@ module('Integration | Component | Pix Banner', function(hooks) {
     // then
     assert.contains('Mon texte');
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--information');
+    assert.equal(
+      componentElement.classList.toString().trim(),
+      'pix-banner pix-banner--information'
+    );
   });
 
-  test('it renders the PixBanner with type warning', async function(assert) {
+  test('it renders the PixBanner with type warning', async function (assert) {
     // when
     await render(hbs`
       <PixBanner @type='warning'>
@@ -35,7 +38,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
     assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--warning');
   });
 
-  test('it renders the PixBanner with type error', async function(assert) {
+  test('it renders the PixBanner with type error', async function (assert) {
     // when
     await render(hbs`
       <PixBanner @type='error'>
@@ -48,7 +51,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
     assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--error');
   });
 
-  test('it renders the PixBanner with type communication', async function(assert) {
+  test('it renders the PixBanner with type communication', async function (assert) {
     // given
 
     this.set('type', 'communication');
@@ -62,9 +65,9 @@ module('Integration | Component | Pix Banner', function(hooks) {
     assert.dom('.pix-banner--communication').exists();
   });
 
-  test('it renders the PixBanner with type communication-orga', async function(assert) {
+  test('it renders the PixBanner with type communication-orga', async function (assert) {
     // given
-  
+
     this.set('type', 'communication-orga');
 
     //when
@@ -76,9 +79,9 @@ module('Integration | Component | Pix Banner', function(hooks) {
     assert.dom('.pix-banner--communication-orga').exists();
   });
 
-  test('it renders the PixBanner  with type communication-certif', async function(assert) {
+  test('it renders the PixBanner  with type communication-certif', async function (assert) {
     // given
-  
+
     this.set('type', 'communication-certif');
 
     //when
@@ -90,7 +93,7 @@ module('Integration | Component | Pix Banner', function(hooks) {
     assert.dom('.pix-banner--communication-certif').exists();
   });
 
-  test('it renders the PixBanner with external url', async function(assert) {
+  test('it renders the PixBanner with external url', async function (assert) {
     // given
     this.set('actionUrl', 'www.test.fr/');
     this.set('actionLabel', 'Explorer');
@@ -105,9 +108,9 @@ module('Integration | Component | Pix Banner', function(hooks) {
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'www.test.fr/');
   });
 
-  test('it renders the PixBanner with internal link', async function(assert) {
+  test('it renders the PixBanner with internal link', async function (assert) {
     // given
-  
+
     this.set('actionUrl', 'campaign.participants');
     this.set('actionLabel', 'Explorer');
 
