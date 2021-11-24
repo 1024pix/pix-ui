@@ -1,0 +1,90 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title='Développement/Breaking changes' />
+
+# Breaking changes dans Pix UI
+
+## Qu'est-ce qu'un breaking change ?
+
+> Breaking change: change in one part of a software system that potentially
+> causes other components to fail; occurs most often in shared libraries of
+> code used by multiple applications.
+> [[wiktionary](https://en.wiktionary.org/wiki/breaking_change)]
+
+Au sens de Pix UI, un breaking change est un changement dans Pix UI qui va
+avoir un effet de bord indésirable dans une app Ember qui dépend de Pix UI. Cet
+effet indésirable peut-être une erreur, auquel cas cas les tests et/ou le build
+de l'app vont échouer, ce qui rend le problème facile à détecter.
+
+Mais le problème peut aussi être silencieux, obligeant le développeur qui fait
+la montée de version à être vigilant. On veut donc non seulement l'avertir de
+la présence de ce breaking change (en faisant un release majeure) mais aussi
+lui donner un maximum d'informations sur ce qu'il va devoir vérifier et
+modifier.
+
+## Comment identifier les *breaking changes* dans Pix UI ?
+
+Pour cela, on peut se poser les questions suivantes :
+
+Mes changements dans Pix UI peuvent-ils déclencher une erreur dans une app Pix ?
+
+Exemples :
+- Un composant est supprimé
+- Un composant change de nom
+- Un argument obligatoire est ajouté à un composant
+
+Mes changements dans Pix UI peuvent-ils provoquer un problème silencieux dans
+une app Pix ?
+
+Exemples :
+- Un argument facultatif change de nom
+- La valeur par défaut d'un argument change
+- Un changement de style CSS à l'intérieur va avoir des effets de bord à
+  l'extérieur (ex: un élément `block` devient un élément `inline`).
+
+Il faut prêter une attention particulière aux modifications et aux ajouts de
+code existant touchant les interfaces publiques des composants. Les ajouts de
+code provoquent rarement des *breaking-changes*.
+
+Exemples :
+- Un nouveau composant est ajouté
+- Un argument facultatif est ajouté
+
+Astuce : pour repérer les potentiels breaking changes, le mieux est d'installer
+la version en cours de développement de Pix UI dans une app Ember à partir de
+sa branche sur Github. Si, sans faire aucune autre modification que cette mise
+à jour, on observe des changements, alors il s'agit probablement de *breaking
+changes*.
+
+## Comment communiquer en cas de *breaking change* ?
+
+C'est au développeur qui ouvre la *pull request* qu'incombe la responsabilité
+d'identifier les éventuels *breaking changes* dans ses modifications et, le cas
+échéant, de les signaler dans le titre de la PR. Il lui faudra donner aussi un
+maximum d'informations dans une section breaking changes de la PR sur ce qu'il
+convient de faire pour vérifier que rien de casse lors de la montée de version
+de Pix UI.
+
+Ainsi :
+- le développeur qui fera la prochaine release de Pix UI saura que ce doit être
+  une version majeure ;
+- le développeur qui fera la montée de version de Pix UI côté app Ember aura
+  connaissance de ces *breaking changes* et de ce qu'il a à vérifier.
+
+## Comment éviter un *breaking change* ?
+
+On veut éviter de faire de trop nombreuses versions majeures, car elles
+impliquent un risque et un effort d'attention supplémentaire du développeur qui
+va faire la montée de version de Pix UI dans une app Ember.
+
+Plutôt que de supprimer une partie du code (comme par exemple l'argument d'une
+fonction devenu obsolète), on peut la marquer comme *deprecated* et lancer un
+warning pour avertir le développeur que la fonctionnalité sera prochainement
+supprimée ou modifiée.
+
+Lors de la montée de version suivante, on pourra supprimer tous les codes
+deprecated, ce qui permet de regrouper les breaking changes, laisser au
+développeur le temps d'adapter le code et éviter de multiplier les montées de
+versions majeures.
+
+
