@@ -1,3 +1,6 @@
+## :boom: BREAKING_CHANGES
+> _Décrivez ici les changements cassant (voir la doc associée)[https://github.com/1024pix/pix-ui/blob/dev/docs/breaking-changes.stories.mdx], s'il n'y en a pas indiquez le aussi.
+
 ## :christmas_tree: Problème
 > _Décrivez ici le besoin ou l'intention couvert par cette Pull Request._
 
