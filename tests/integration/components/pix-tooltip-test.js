@@ -15,8 +15,14 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
     // when
     await render(hbs`
-      <PixTooltip @text={{this.text}}>
-        template block text
+      <PixTooltip>
+        <:triggerElement>
+          template block text
+        </:triggerElement>
+
+        <:tooltip>
+          {{this.text}}
+        </:tooltip>
       </PixTooltip>
     `);
 
@@ -28,7 +34,9 @@ module('Integration | Component | pix-tooltip', function (hooks) {
     // when
     await render(hbs`
       <PixTooltip>
-        template block text
+        <:triggerElement>
+          template block text
+        </:triggerElement>
       </PixTooltip>
     `);
 
@@ -58,7 +66,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
         // when
         await render(hbs`
-          <PixTooltip @position={{this.position}} @text={{this.text}}></PixTooltip>
+          <PixTooltip @position={{this.position}}>
+            <:tooltip>
+              {{this.text}}
+            </:tooltip>
+          </PixTooltip>
         `);
 
         // then
@@ -79,7 +91,10 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
       // when
       await render(hbs`
-        <PixTooltip @text={{this.text}}>
+        <PixTooltip>
+          <:tooltip>
+            {{this.text}}
+          </:tooltip>
         </PixTooltip>
       `);
 
@@ -95,7 +110,10 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
       // when
       await render(hbs`
-        <PixTooltip @isLight={{true}} @text={{this.text}}>
+        <PixTooltip @isLight={{true}}>
+          <:tooltip>
+            {{this.text}}
+          </:tooltip>
         </PixTooltip>
       `);
 
@@ -114,7 +132,10 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
       // when
       await render(hbs`
-        <PixTooltip @text={{this.text}}>
+        <PixTooltip>
+          <:tooltip>
+            {{this.text}}
+          </:tooltip>
         </PixTooltip>
       `);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -130,7 +151,10 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
       // when
       await render(hbs`
-        <PixTooltip @isInline={{true}} @text={{this.text}}>
+        <PixTooltip @isInline={{true}}>
+          <:tooltip>
+           {{this.text}}
+          </:tooltip>
         </PixTooltip>
       `);
 
@@ -149,7 +173,10 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
       // when
       await render(hbs`
-        <PixTooltip @text={{this.text}}>
+        <PixTooltip>
+          <:tooltip>
+            {{this.text}}
+          </:tooltip>
         </PixTooltip>
       `);
 
@@ -165,45 +192,16 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
       // when
       await render(hbs`
-        <PixTooltip @isWide={{true}} @text={{this.text}}>
+        <PixTooltip @isWide={{true}}>
+          <:tooltip>
+            {{this.text}}
+          </:tooltip>
         </PixTooltip>
       `);
 
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       assert.ok(tooltipContentElement.classList.toString().includes(WIDE_CLASS));
-    });
-  });
-
-  module('tooltip unescape html', function () {
-    test('it renders escaped html', async function (assert) {
-      // given
-      const htmlText = '<b>Tooltip</b>';
-      this.set('text', htmlText);
-
-      // when
-      await render(hbs`
-        <PixTooltip @text={{this.text}} @unescapeHtml={{false}}></PixTooltip>
-      `);
-
-      // then
-      const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
-      const displayedText = decodeURI(tooltipContentElement.innerHTML.trim());
-      assert.equal(displayedText, '&lt;b&gt;Tooltip&lt;/b&gt;');
-    });
-
-    test('it renders unescaped html', async function (assert) {
-      // given
-      const htmlText = '<b>Tooltip</b>';
-      this.set('text', htmlText);
-
-      // when
-      await render(hbs`
-        <PixTooltip @text={{this.text}} @unescapeHtml={{true}}></PixTooltip>
-      `);
-
-      // then
-      assert.contains('Tooltip');
     });
   });
 });

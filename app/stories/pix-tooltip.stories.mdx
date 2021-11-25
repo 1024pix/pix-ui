@@ -13,7 +13,7 @@ import * as stories from './pix-tooltip.stories.js';
 
 Une infobulle qui s'affiche au survol d'un élément.
 
-Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément sur lequel on souhaite ajouter une infobulle.
+Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément sur lequel on souhaite ajouter une infobulle. L'utilisation de `Named Block` permet d'utiliser des composants HTML facilement dans la tooltip.
 
 > ⚠️ A noter que le wrapper PixTooltip est en `display: flex;`, il s'adaptera donc à la taille de ses enfants. Ainsi si votre élément ne s'affiche plus comme avant après l'ajout de la PixTooltip, veillez à rajouter les dimensions voulues à l'enfant.
 
@@ -26,16 +26,28 @@ Les tooltips doivent être appliquées de préférences sur des éléments nativ
 Si vous utilisez un élément `<div>` ou `<span>`, il faut ajouter `tabindex="0"` pour qu'il prenne le focus.
 
 ```html
-<PixTooltip @text="My tooltip">
-  <span tabindex="0">Mon span</span>
+<PixTooltip>
+  <:triggerElement>
+    <span tabindex="0">Mon span</span>
+  </:triggerElement>
+
+  <:tooltip>
+    My tooltip
+  </:tooltip>
 </PixTooltip>
 ```
 
 Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur via `aria-describedby`:
 
 ```html
-<PixTooltip @id="tooltip-1" @text="My tooltip">
-  <PixButton aria-describedby="tooltip-1">Mon bouton</PixButton>
+<PixTooltip @id="tooltip-1">
+  <:triggerElement>
+    <PixButton aria-describedby="tooltip-1">Mon bouton</PixButton>
+  </:triggerElement>
+
+  <:tooltip>
+    My tooltip
+  </:tooltip>
 </PixTooltip>
 ```
 
@@ -84,57 +96,74 @@ Infobulle dont le contenu reste sur une ligne.
   <Story name="Is Inline" story={stories.isInline} height={200} />
 </Canvas>
 
-## unescape HTML
 
-N'échappe pas l'HTML (Affiche du HTML formaté)
+## With HTML
+
+Infobulle contenant des éléments HTML
 
 <Canvas>
-    <Story name="unescape HTML" story={stories.unescapeHtml} height={200} />
+  <Story name="WithHTML" story={stories.WithHTML} height={200} />
 </Canvas>
 
 ## Usage
 
 ```html
-<PixTooltip
-  @text='Hey'
->
-  <button>Tooltip par défaut</button>
+<PixTooltip>
+  <:triggerElement>
+    <button>Tooltip par défaut</button>
+  </:triggerElement>
+  <:tooltip>
+    <FaIcon @icon="external-link-alt" /> Avec des <strong>éléments</strong> HTML/Ember
+  </:tooltip>
 </PixTooltip>
 
 <PixTooltip
-  @text='Hey'
   @isLight={{true}}
 >
-  <button>Tooltip en mode clair</button>
+  <:triggerElement>
+    <button>Tooltip en mode clair</button>
+  </:triggerElement>
+
+  <:tooltip>
+    Hey
+  </:tooltip>
 </PixTooltip>
 
 <PixTooltip
-  @text='Hey'
   @isLight={{true}}
 >
-  <button>Tooltip sur une ligne</button>
+  <:triggerElement>
+    <button>Tooltip sur une ligne</button>
+  </:triggerElement>
+
+  <:tooltip>
+    Hey
+  </:tooltip>
 </PixTooltip>
 
 <PixTooltip
-  @text='Hey'
   @position='bottom'
   @isLight={{true}}
   >
-  <button>Tooltip apparaissant en bas</button>
+  <:triggerElement>
+    <button>Tooltip apparaissant en bas</button>
+  </:triggerElement>
+
+  <:tooltip>
+    Hey
+  </:tooltip>
 </PixTooltip>
 
 <PixTooltip
-  @text='Hey'
   @isWide={{true}}
   >
-  <button>Tooltip en mode large</button>
-</PixTooltip>
+  <:triggerElement>
+    <button>Tooltip en mode large</button>
+  </:triggerElement>
 
-<PixTooltip
-  @text='Super <b style="color: green">i</b>n<b style="color: green">f</b>o'
-  @unescapeHtml={{true}}
-  >
-  <button>Html tooltip</button>
+  <:tooltip>
+    Hey
+  </:tooltip>
 </PixTooltip>
 ```
 
