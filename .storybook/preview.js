@@ -22,7 +22,15 @@ export const parameters = {
         'Utiliser Pix UI',
         ['Installation', 'Utiliser un composant'],
         'Développement',
-        ['Design System', 'Utiliser un composant', 'Créer un composant', 'Bonnes pratiques', 'Architecture', 'Storybook'],
+        [
+          'Design System',
+          'Créer un composant',
+          'Bonnes pratiques',
+          'Breaking changes',
+          'Faire une release',
+          'Architecture',
+          'Storybook'
+        ],
       ],
     },
   },
