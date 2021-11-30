@@ -1,0 +1,143 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-tooltip-deprecated.stories.js';
+
+<Meta
+  title='Basics/TooltipDeprecated (3.24 Compliant)'
+  component='PixTooltipDeprecated'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Tooltip
+
+Une infobulle qui s'affiche au survol d'un élément.
+
+Ce composant est utilisé comme wrapper, c'est à dire qu'il encadre l'élément sur lequel on souhaite ajouter une infobulle.
+
+> ⚠️ A noter que le wrapper PixTooltipDeprecated est en `display: flex;`, il s'adaptera donc à la taille de ses enfants. Ainsi si votre élément ne s'affiche plus comme avant après l'ajout de la PixTooltipDeprecated, veillez à rajouter les dimensions voulues à l'enfant.
+
+> ⚠️ L'infobulle ne s'affichera pas si le texte est vide.
+
+## Accessibilité
+
+Les tooltips doivent être appliquées de préférences sur des éléments nativement focusable comme `<button>` ou `<input>`.
+
+Si vous utilisez un élément `<div>` ou `<span>`, il faut ajouter `tabindex="0"` pour qu'il prenne le focus.
+
+```html
+<PixTooltipDeprecated @text="My tooltip">
+  <span tabindex="0">Mon span</span>
+</PixTooltipDeprecated>
+```
+
+Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur via `aria-describedby`:
+
+```html
+<PixTooltipDeprecated @id="tooltip-1" @text="My tooltip">
+  <PixButton aria-describedby="tooltip-1">Mon bouton</PixButton>
+</PixTooltipDeprecated>
+```
+
+## Default
+
+Infobulle en position `top`, fond sombre (par défaut).
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={200} />
+</Canvas>
+
+## Is Light
+
+Infobulle en mode clair.
+
+> ⚠️ le tooltip "light" est à utiliser de préférence sur fond coloré ! Mais ce n'est pas obligatoire.
+
+<Canvas>
+  <Story name="Is Light" story={stories.isLight} height={200} />
+</Canvas>
+
+## Position
+
+Différentes positions de l'infobulle.
+Existe aussi `top-left`, `top-right`, `bottom-left` et `bottom-right`.
+
+<Canvas isColumn>
+  <Story name="Left" story={stories.left} height={100} />
+  <Story name="Right" story={stories.right} height={100} />
+  <Story name="Bottom" story={stories.bottom} height={150} />
+</Canvas>
+
+## Is Wide
+
+Infobulle en plus large.
+
+<Canvas>
+  <Story name="Is Wide" story={stories.isWide} height={200} />
+</Canvas>
+
+## Is Inline
+
+Infobulle dont le contenu reste sur une ligne.
+
+<Canvas>
+  <Story name="Is Inline" story={stories.isInline} height={200} />
+</Canvas>
+
+## unescape HTML
+
+N'échappe pas l'HTML (Affiche du HTML formaté)
+
+<Canvas>
+    <Story name="unescape HTML" story={stories.unescapeHtml} height={200} />
+</Canvas>
+
+## Usage
+
+```html
+<PixTooltipDeprecated
+  @text='Hey'
+>
+  <button>Tooltip par défaut</button>
+</PixTooltipDeprecated>
+
+<PixTooltipDeprecated
+  @text='Hey'
+  @isLight={{true}}
+>
+  <button>Tooltip en mode clair</button>
+</PixTooltipDeprecated>
+
+<PixTooltipDeprecated
+  @text='Hey'
+  @isLight={{true}}
+>
+  <button>Tooltip sur une ligne</button>
+</PixTooltipDeprecated>
+
+<PixTooltipDeprecated
+  @text='Hey'
+  @position='bottom'
+  @isLight={{true}}
+  >
+  <button>Tooltip apparaissant en bas</button>
+</PixTooltipDeprecated>
+
+<PixTooltipDeprecated
+  @text='Hey'
+  @isWide={{true}}
+  >
+  <button>Tooltip en mode large</button>
+</PixTooltipDeprecated>
+
+<PixTooltipDeprecated
+  @text='Super <b style="color: green">i</b>n<b style="color: green">f</b>o'
+  @unescapeHtml={{true}}
+  >
+  <button>Html tooltip</button>
+</PixTooltipDeprecated>
+```
+
+## Arguments
+
+<ArgsTable story="Default" />
