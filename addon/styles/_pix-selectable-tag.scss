@@ -1,0 +1,86 @@
+$checkmark-width: 0.625rem;
+$checkmark-width-with-space: $checkmark-width + 0.438rem;
+@mixin checkmarkColor($borderColor) {
+  
+  input[type="checkbox"]:checked + label::before {
+    position: absolute;
+    top: 6px;
+    left: 8px;
+    width: $checkmark-width;
+    height: 0.3125rem;
+    border: 2px solid;
+    border-color: $borderColor;
+    border-top: none;
+    border-right: none;
+    transform: rotate(-45deg);
+    content: "";
+  }
+}
+
+.pix-selectable-tag {
+  @import 'reset-css';
+  display: inline-block;
+  text-align: center;
+  position: relative;
+  padding: 3px calc(8px + #{$checkmark-width-with-space} / 2);
+  letter-spacing: 0.009rem;
+  border-radius: 0.75rem;
+  border: $grey-30 solid 1px;
+  color: $grey-60;
+  background-color: $white;
+  font-family: $font-roboto;
+  font-size: 0.8125rem;
+  font-weight: $font-normal;
+  cursor: pointer;
+
+  input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+  }
+
+  label {
+    cursor: pointer;
+  }
+
+  &:hover {
+    background-color: $grey-22;
+    border: $grey-25 solid 1px;
+    color: $grey-70;
+  }
+  
+  &--checked {
+    @include checkmarkColor($grey-70);
+    border: $grey-22 solid 1px;
+    background-color: $grey-20;
+    color: $grey-70;
+    padding: 3px 8px;
+
+    &:hover {
+      @include checkmarkColor($grey-70);
+      background-color: $grey-22;
+      border: $grey-25 solid 1px;
+      color: $grey-70;
+    }
+
+    & label {
+      padding-left: $checkmark-width-with-space;
+    }
+  }
+
+  &:focus-within {
+    @include checkmarkColor($white);
+    background-color: $blue-zodiac;
+    color: $white;
+    box-shadow: 0 0 0 1px $blue-zodiac;
+    border-color: $white;
+    outline: none;
+
+    &:hover {
+      @include checkmarkColor($grey-70);
+      color: $grey-70;
+      background-color: $grey-22;
+      border: $grey-25 solid 1px;
+    }
+  }
+}
