@@ -1,9 +1,8 @@
 <span class="pix-tooltip" ...attributes>
-  {{#if (has-block "triggerElement")}}
-    {{yield to="triggerElement"}}
-  {{/if}}
 
-  {{#if (has-block "tooltip")}}
+  {{yield}}
+
+  {{#if @text}}
     <span
       id={{@id}}
       role="tooltip"
@@ -12,7 +11,8 @@
         {{if @isLight "pix-tooltip__content--light"}}
         {{if @isWide "pix-tooltip__content--wide"}}"
     >
-      {{yield to="tooltip"}}
+      {{this.text}}
     </span>
   {{/if}}
+
 </span>

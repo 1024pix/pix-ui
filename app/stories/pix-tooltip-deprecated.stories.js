@@ -3,43 +3,19 @@ import { hbs } from 'ember-cli-htmlbars';
 const Template = (args) => {
   return {
     template: hbs`
-      <PixTooltip
-        @id={{this.id}}
+      <PixTooltipDeprecated
+        @id="tooltip-1"
+        @text={{this.text}}
         @position={{this.position}}
         @isLight={{this.isLight}}
         @isInline={{this.isInline}}
-        @isWide={{this.isWide}}>
-        <:triggerElement>
-          <PixButton aria-describedby={{this.id}}>
-            {{this.label}}
-          </PixButton>
-        </:triggerElement>
-
-        <:tooltip>
-          {{this.text}}
-        </:tooltip>
-      </PixTooltip>
-    `,
-    context: args,
-  };
-};
-
-const TemplateWithHTMLElement = (args) => {
-  return {
-    template: hbs`
-      <PixTooltip
-        @id={{this.id}}
-        @isInline=true>
-        <:triggerElement>
-          <PixButton aria-describedby={{this.id}}>
-            {{this.label}}
-          </PixButton>
-        </:triggerElement>
-
-        <:tooltip>
-          <FaIcon @icon="external-link-alt" /> <strong>HTML/Ember</strong>
-        </:tooltip>
-      </PixTooltip>
+        @isWide={{this.isWide}}
+        @unescapeHtml={{this.unescapeHtml}}
+      >
+        <PixButton aria-describedby="tooltip-1">
+          {{this.label}}
+        </PixButton>
+      </PixTooltipDeprecated>
     `,
     context: args,
   };
@@ -54,14 +30,12 @@ Default.args = {
 export const isLight = Template.bind({});
 isLight.args = {
   ...Default.args,
-  id: 'tooltip-light',
   isLight: true,
 };
 
 export const isWide = Template.bind({});
 isWide.args = {
   ...Default.args,
-  id: 'tooltip-wide',
   text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas molestie mauris vel viverra.',
   isWide: true,
 };
@@ -69,7 +43,6 @@ isWide.args = {
 export const isInline = Template.bind({});
 isInline.args = {
   ...Default.args,
-  id: 'tooltip-large',
   text: 'Je suis une trèèèèèèèès longue information',
   isInline: true,
 };
@@ -77,7 +50,6 @@ isInline.args = {
 export const left = Template.bind({});
 left.args = {
   ...Default.args,
-  id: 'tooltip-left',
   label: 'Mon infobulle apparaît à gauche',
   position: 'left',
   isInline: true,
@@ -86,7 +58,6 @@ left.args = {
 export const right = Template.bind({});
 right.args = {
   ...Default.args,
-  id: 'tooltip-right',
   label: 'Mon infobulle apparaît à droite',
   position: 'right',
   isInline: true,
@@ -95,14 +66,16 @@ right.args = {
 export const bottom = Template.bind({});
 bottom.args = {
   ...Default.args,
-  id: 'tooltip-bottom',
   label: 'Mon infobulle apparaît en bas',
   position: 'bottom',
 };
 
-export const WithHTML = TemplateWithHTMLElement.bind({});
-WithHTML.args = {
-  label: 'À survoler pour voir la tooltip',
+export const unescapeHtml = Template.bind({});
+unescapeHtml.args = {
+  ...Default.args,
+  text: 'Hello <b style="color: red;">W</b>orld',
+  label: "J'affiche du html",
+  unescapeHtml: true,
 };
 
 export const argTypes = {
@@ -151,6 +124,12 @@ export const argTypes = {
   isWide: {
     name: 'isWide',
     description: 'Affichage large',
+    type: { name: 'boolean', required: false },
+    table: { defaultValue: { summary: false } },
+  },
+  unescapeHtml: {
+    name: 'unescapeHtml',
+    description: "Évite d'échapper les caractères HTML",
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
   },
