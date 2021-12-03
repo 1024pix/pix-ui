@@ -1,8 +1,8 @@
 {{! template-lint-disable no-down-event-binding }}
 <div class="pix-input-code">
   <fieldset aria-describedby="pix-input-code__details-of-use">
-    <legend>{{this.legend}}</legend>
     <p id="pix-input-code__details-of-use">{{this.explanationOfUse}}</p>
+    <legend>{{this.legend}}</legend>
     {{#each this.numberOfIterations as |i|}}
       <input
         ...attributes
