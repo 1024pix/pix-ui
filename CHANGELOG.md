@@ -1,5 +1,24 @@
 # Pix-UI Changelog
 
+## v11.0.0 (03/12/2021)
+
+
+### :rocket: Enhancement
+- [#177](https://github.com/1024pix/pix-ui/pull/177) [FEATURE] Création du composant Tag sélectionnable  dans Pix UI (PIX-3757)
+
+### :building_construction: Tech
+- [#180](https://github.com/1024pix/pix-ui/pull/180) [TECH] Ajouter la possibilité d'utiliser des composants Ember à l'intérieur de la tooltip (Pix-3925)
+- [#179](https://github.com/1024pix/pix-ui/pull/179) [TECH] Mise à jour du template de pull request pour faire apparaître plus clairement les BREAKING_CHANGES
+- [#148](https://github.com/1024pix/pix-ui/pull/148) [TECH] Formatter les fichiers avec prettier (PIX-3469)
+
+### :bug: Bug fix
+- [#147](https://github.com/1024pix/pix-ui/pull/147) [BUGFIX] Ajout de l'évènement onChange afin de supprimer le message d'erreur lorsque l'utilisateur modifie sa saisie (PIX-3476)
+
+### :coffee: Various
+- [#178](https://github.com/1024pix/pix-ui/pull/178) [DOC] Améliorer l'information sur les breaking changes dans Pix UI
+- [#174](https://github.com/1024pix/pix-ui/pull/174) [DOC] Mise a jour de la la méthode d'installation dans la documentation
+- [#158](https://github.com/1024pix/pix-ui/pull/158) [DOC] Suivre le déploiement de la release.
+
 ## v10.2.1 (10/11/2021)
 
 
