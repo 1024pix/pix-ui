@@ -37,7 +37,9 @@ Si vous utilisez un élément `<div>` ou `<span>`, il faut ajouter `tabindex="0"
 </PixTooltip>
 ```
 
-Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur via `aria-describedby`:
+Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur 
+
+- soit via `aria-describedby` si l'élément possèdent déjà un label, car le tooltip agit alors comme une description supplémentaire.
 
 ```html
 <PixTooltip @id="tooltip-1">
@@ -50,6 +52,15 @@ Les tooltips doivent prendre un `@id` et être référencées par leur élément
   </:tooltip>
 </PixTooltip>
 ```
+
+- soit via `aria-labelledby` si l'élément ne possède pas de label et que le tooltip fait office de libellé.
+
+```html
+<PixTooltip @id="tooltip-2" @text="Cette information apparaît uniquement au survol de l'icone">
+  <span class="icon icon-info" aria-labelledby="tooltip-2"></span>
+</PixTooltip>
+```
+
 
 ## Default
 
