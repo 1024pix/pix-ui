@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v12.0.0 (08/12/2021)
+
+
+### :bug: Bug fix
+- [#181](https://github.com/1024pix/pix-ui/pull/181) [BUGFIX] Corriger les explications d'utilisations du PixInputCode
+
+### :coffee: Various
+- [#171](https://github.com/1024pix/pix-ui/pull/171) [DOC] Améliorer l'information sur l'accessibilité dans la doc de PixTooltip
+
 ## v11.0.0 (03/12/2021)
 
 
