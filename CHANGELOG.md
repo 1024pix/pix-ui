@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v11.1.0 (16/12/2021)
+
+
+### :building_construction: Tech
+- [#175](https://github.com/1024pix/pix-ui/pull/175) [TECH] Faire en sorte que le message d'erreur soit situé à l'intérieur de l'élément qui le compose (PIX-3829)
+
 ## v11.0.1 (08/12/2021)
 
 
