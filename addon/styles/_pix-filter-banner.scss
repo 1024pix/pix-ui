@@ -3,9 +3,8 @@
 
   position: relative;
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
+  flex-direction: column;
+  gap: 6px;
   width: 100%;
 
   background-color: $white;
@@ -15,53 +14,34 @@
 
   &__container-left {
     display: flex;
-    align-items: center;
-    height: 36px;
+    flex-direction: column;
+    gap: 12px;
+    
+    > * > * {
+      width: 100%;
+    }
   }
 
   &__container-right {
     display: flex;
-    align-items: center;
-    justify-content: flex-end;
-    height: 36px;
+    flex-direction: column;
   }
 
   &__title {
     color: $grey-60;
     font-family: $font-roboto;
     font-size: 0.875rem;
-    padding-right: 24px;
     margin: 0;
   }
 
-  &__content {
-    display: flex;
-
-    > * {
-      margin-right: 16px;
-    }
-
-    > *:last-child {
-      margin-right: 0;
-    }
-  }
-
-  &__details {
+  p.pix-filter-banner__details {
     color: $grey-60;
     font-family: $font-roboto;
     font-weight: $font-medium;
-    padding-left: 16px;
     font-size: 0.875rem;
-    margin: 0;
-    margin-right: 16px;
-    height: 18px;
-    padding-top: 4px;
-    text-align: center;
-  }
-
-  &__button-container {
-    border-left: 1px solid $grey-15;
-    padding-left: 16px;
+    margin-top: 10px;
+    padding-top: 10px;
+    border-top: 1px solid $grey-15;
   }
 
   &__button {
@@ -71,4 +51,54 @@
 
 .pix-filter-banner-button__icon {
   padding-right: 4px;
+}
+
+@include device-is('tablet') {
+  .pix-filter-banner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    &__container-left {
+      flex-direction: row;
+      height: 36px;
+      align-items: center;
+    }
+
+    &__container-right {
+      flex-direction: row;
+      height: 36px;
+      align-items: center;
+      justify-content: flex-end;
+    }
+
+    &__content {
+      > * {
+        margin-right: 16px;
+      }
+
+      > *:last-child {
+        margin-right: 0;
+      }
+    }
+
+    &__title {
+      padding-right: 24px;
+      margin: 0;
+    }
+
+    p.pix-filter-banner__details {
+      margin: 0;
+      margin-right: 16px;
+      padding-left: 16px;
+      padding-top: 4px;
+      text-align: center;
+      border: none;
+    }
+
+    &__button-container {
+      border-left: 1px solid $grey-15;
+      padding-left: 16px;
+    }
+  }
 }
