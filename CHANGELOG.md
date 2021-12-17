@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v11.1.1 (17/12/2021)
+
+
+### :building_construction: Tech
+- [#182](https://github.com/1024pix/pix-ui/pull/182) [TECH] Rendre responsive la PixFilterBanner
+
 ## v11.1.0 (16/12/2021)
 
 
