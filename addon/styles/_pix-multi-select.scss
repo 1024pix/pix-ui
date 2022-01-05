@@ -34,13 +34,6 @@
     color: $grey-30;
   }
 
-  &__title {
-    position: absolute;
-    opacity: 0;
-    width: 0;
-    height: 0;
-  }
-
   input.pix-multi-select-header__search-input {
     height: inherit;
     width: 100%;

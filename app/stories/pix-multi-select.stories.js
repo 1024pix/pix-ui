@@ -101,12 +101,6 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: 'aromate',
   },
-  title: {
-    name: 'title',
-    description: 'Donne un titre à sa liste de choix multiple.',
-    type: { name: 'string', required: true },
-    defaultValue: 'Rechercher un condiment',
-  },
   label: {
     name: 'label',
     description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',

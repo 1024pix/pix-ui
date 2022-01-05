@@ -28,6 +28,12 @@ export default class PixMultiSelect extends Component {
     super(...args);
     const { onLoadOptions, selected } = this.args;
 
+    if (this.args.title) {
+      throw new Error(
+        'ERROR in PixMultiSelect component: @title argument has been removed and must not be used anymore. Use @label to display a visible label or aria-label for accessibility.'
+      );
+    }
+
     if (this.args.size) {
       throw new Error(
         'ERROR in PixMultiSelect component: @size argument has been removed and must not be used anymore.'

@@ -702,4 +702,20 @@ module('Integration | Component | multi-select', function (hooks) {
     );
     assert.throws(renderComponent, expectedError);
   });
+
+  test('it should throw an error if removed argument title is used', async function (assert) {
+    // given
+    const componentParams = { title: 'MultiSelect', options: DEFAULT_OPTIONS };
+
+    // when
+    const renderComponent = function () {
+      createGlimmerComponent('component:pix-multi-select', componentParams);
+    };
+
+    // then
+    const expectedError = new Error(
+      'ERROR in PixMultiSelect component: @title argument has been removed and must not be used anymore. Use @label to display a visible label or aria-label for accessibility.'
+    );
+    assert.throws(renderComponent, expectedError);
+  });
 });
