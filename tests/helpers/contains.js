@@ -2,7 +2,7 @@ import { getRootElement } from '@ember/test-helpers';
 
 function _isTextInElement(element, text) {
   const isTextFoundInElement =
-    element.textContent?.trim().includes(text) || element.value?.trim().includes(text);
+    element.textContent?.trim().includes(text) || element.value?.toString().trim().includes(text);
 
   if (isTextFoundInElement) {
     return true;
