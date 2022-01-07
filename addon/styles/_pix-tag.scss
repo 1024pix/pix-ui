@@ -50,6 +50,15 @@
     background-color: lighten($yellow, 35%);
   }
 
+  &--orange {
+    background-color: $orange;
+  }
+
+  &--orange-light {
+    color: darken($orange, 25%);
+    background-color: lighten($orange, 35%);
+  }
+
   &--grey {
     color: $grey-15;
     background-color: $grey-60;
