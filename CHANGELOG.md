@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v11.2.0 (14/01/2022)
+
+
+### :coffee: Various
+- [#185](https://github.com/1024pix/pix-ui/pull/185) [A11Y] Ajouter une nouvelle couleur dans la palette de PixTag (PIX-4109)
+
 ## v11.1.1 (17/12/2021)
 
 
