@@ -1,0 +1,28 @@
+<div class="pix-modal__overlay">
+  <div
+    class="pix-modal"
+    role="dialog"
+    aria-labelledby="modal-title"
+    aria-describedby="modal-content"
+    aria-modal="true"
+    ...attributes
+  >
+    <header class="pix-modal__header">
+      <h1 id="modal-title" class="pix-modal__title">{{@title}}</h1>
+      <PixIconButton
+        @icon="times"
+        @triggerAction={{@onCloseButtonClick}}
+        @ariaLabel="Fermer"
+        @size="small"
+        @withBackground={{true}}
+        class="pix-modal__close-button"
+      />
+    </header>
+    <main id="modal-content" class="pix-modal__content">
+      {{yield to="content"}}
+    </main>
+    <footer class="pix-modal__footer">
+      {{yield to="footer"}}
+    </footer>
+  </div>
+</div>
