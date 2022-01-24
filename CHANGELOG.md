@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v12.0.0 (24/01/2022)
+
+
+### :rocket: Enhancement
+- [#94](https://github.com/1024pix/pix-ui/pull/94) [FEATURE] Ajout du composant PixModal
+
+### :bug: Bug fix
+- [#186](https://github.com/1024pix/pix-ui/pull/186) [BUGFIX] Désactiver l'autocomplete sur le composant Pix Select (PIX-4158)
+- [#187](https://github.com/1024pix/pix-ui/pull/187) [BUGFIX] Rendre tout le tag sélectionnable (PIX-4179)
+
 ## v11.2.0 (14/01/2022)
 
 
