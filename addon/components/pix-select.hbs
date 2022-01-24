@@ -12,6 +12,7 @@
       {{on "input" this.onChange}}
       class="{{if this.isValid "pix-select--is-valid"}} {{if this.isBig "pix-select--big"}}"
       ...attributes
+      autocomplete="off"
     />
 
     <datalist id={{this.datalistId}}>

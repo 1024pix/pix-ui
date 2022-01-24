@@ -132,6 +132,21 @@ module('Integration | Component | select', function (hooks) {
       assert.equal(options.item(1).label, 'Tomate');
     });
 
+    test('it should keep autocomplete off even if pix select receive the "auto-complete=on" attribute', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.isSearchable = true;
+
+      // when
+      await render(
+        hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} autocomplete="on"/>`
+      );
+
+      // then
+      const input = this.element.querySelector(SEARCHABLE_SELECT_SELECTOR);
+      assert.equal(input.autocomplete, 'off');
+    });
+
     module('green validation', function () {
       test('it should not have a green border', async function (assert) {
         // given
