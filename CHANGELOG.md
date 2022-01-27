@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.0.0 (27/01/2022)
+
+
+### :coffee: Various
+- [#188](https://github.com/1024pix/pix-ui/pull/188) [BREAKING_CHANGES] Input / InputPassword missing event on onChange (PIX-4243)
+
 ## v12.0.0 (24/01/2022)
 
 
