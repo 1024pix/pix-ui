@@ -7,13 +7,7 @@
   {{/if}}
 
   <div class="pix-input__container">
-    <input
-      id={{this.id}}
-      class={{this.className}}
-      value={{@value}}
-      {{on "change" this.onChange}}
-      ...attributes
-    />
+    <input id={{this.id}} class={{this.className}} value={{@value}} ...attributes />
 
     {{#if @errorMessage}}
       <FaIcon @icon="times" class="pix-input__error-icon" />

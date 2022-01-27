@@ -26,9 +26,4 @@ export default class PixInputPassword extends PixInput {
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
   }
-
-  @action
-  onChange() {
-    if (typeof this.args.onChange === 'function') this.args.onChange();
-  }
 }
