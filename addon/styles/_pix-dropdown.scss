@@ -1,0 +1,149 @@
+.pix-dropdown {
+  @import 'reset-css';
+  width: 100%;
+  position: relative;
+
+  button {
+    background: transparent;
+    margin: 0;
+    text-align: left;
+    cursor: pointer;
+  }
+
+  &__label {
+    @include label();
+  }
+
+  &__controller {
+    width: 100%;
+    position: relative;
+
+    &--placeholder {
+      @include hoverFormElement();
+      @include focusFormElement();
+      width: 100%;
+      min-width: 250px;
+      min-height: 34px;
+      border: 1px solid $grey-40;
+      border-radius: $spacing-xxs;
+      padding: 0;
+      background: white;
+
+      &.expanded {
+        border-bottom-left-radius: 0;
+        border-bottom-right-radius: 0;
+      }
+    }
+
+    &--placeholder-text {
+      margin: 0;
+      font-size: 0.875rem;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      padding: 8px 68px 8px 16px;
+
+      &.default {
+        color: $grey-60;
+        padding-right: 36px;
+      }
+    }
+
+    &--clear {
+      font-size: 1rem;
+      color: $grey-50;
+      position: absolute;
+      padding: 8px 8px 6px;
+      border: none;
+      border-right: 2px solid $grey-40;
+      right: 38px;
+      top: 1px;
+      width: fit-content;
+
+      &:hover {
+        color: $grey-70;
+      }
+    }
+
+    &--chevron {
+      position: absolute;
+      z-index: -1;
+      top: 9px;
+      right: 12px;
+      color: $grey-50;
+    }
+  }
+
+  &__menu {
+    background: white;
+    position: absolute;
+    top: 100%;
+    width: 100%;
+    max-height: 0;
+    transition: max-height ease-in 0.5s;
+    overflow: hidden;
+    overflow-y: auto;
+    z-index: 1;
+
+    &.expanded {
+      max-height: 300px;
+      border: 1px solid $grey-40;
+      border-top: none;
+      border-radius: 0 0 $spacing-xxs $spacing-xxs;
+    }
+
+    &--search {
+      display: flex;
+      position: relative;
+
+      &-icon {
+        color: $grey-30;
+        margin: 4px;
+        position: absolute;
+        left: 16px;
+        top: 12px;
+      }
+
+      &-input {
+        border: none;
+        border-bottom: 1px solid $grey-40;
+        font-size: 0.875rem;
+        flex-grow: 1;
+        margin: 12px 12px 8px;
+        padding: 4px 4px 4px 32px;
+        outline: none;
+
+        &:hover {
+          box-shadow: inset 0 -0.7px 0 0 $grey-40;
+        }
+
+        &:focus {
+          box-shadow: inset 0 -0.7px 0 0 $blue;
+          border-color: $blue;
+        }
+
+        &-label {
+          height: 0;
+          width: 0;
+          overflow: hidden;
+        }
+      }
+    }
+
+    &--option {
+      padding: 8px 12px;
+      font-size: 0.875rem;
+      cursor: pointer;
+
+      &.selected {
+        color: $grey-70;
+      }
+
+      &:focus,
+      &:hover {
+        outline: none;
+        background: $grey-15;
+      }
+    }
+  }
+}
