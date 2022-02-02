@@ -42,7 +42,7 @@ Ce qui impliquerait :
 
 ## Décision
 
-Nous privélégierons les éléments HTML natifs et éviterons autant que possible le two-way-binding.
+Nous privilégierons les éléments HTML natifs et éviterons autant que possible le two-way-binding.
 
 ## Conséquences
 
