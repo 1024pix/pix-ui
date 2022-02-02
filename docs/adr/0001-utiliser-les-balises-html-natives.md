@@ -25,7 +25,7 @@ Privilégier l'utilisation des composants helpers que propose Ember (`<Input>` /
 
 Ce qui impliquerait : 
 - une solution plus "ember way"
-- une obligation d'utiliser le two-way-binding (les modifications de valeurs dans un composant enfant répercutera les changements automatiquement dans un composant parent) qui va à l'encontre du principe Data Down Action Up (les données descendent vers les composants enfants et les enfants remontent les actions aux composants parents).
+- une obligation d'utiliser le two-way-binding (les modifications de valeurs dans un composant enfant seront  automatiquement propagées au composant parent) qui va à l'encontre du principe Data Down Action Up (les données descendent vers les composants enfants et les enfants remontent les actions aux composants parents).
 - plus de magie et moins de contrôle, lorsqu'on passe l'attribut `@value` Ember met tout à jour tout seul (le changement est répercuté partout)
 - une obligation de copier le modèle pour ne pas le modifier
 - une difficulté pour la validation de formulaire, avec la librairie `ember-cp-validation` les erreurs s'affichent dans le formulaire au moindre changement (ce qui n'est pas souhaitable) mais de toute manière on est pas sûrs de vouloir continuer à utiliser cette librairie.
