@@ -48,4 +48,4 @@ Nous privilégierons les éléments HTML natifs et éviterons autant que possibl
 
 Il faut mettre à jour le PixTextarea pour qu'il utilise une balise `<textarea>`.
 
-⚠️ Lors de la mise à jour des versions v11.0.0 / v11.1.0 de Pix-UI il faut mettre à jour tous les PixInput et PixInputPassword afin qu'il définissent un `onChange` pour ne pas casse le comportement existant.
+⚠️ Pour ne pas casser le comportement existant. lors de la mise à jour des versions v11.0.0 / v11.1.0 de Pix-UI il faut mettre à jour tous les PixInput et PixInputPassword afin qu'il définissent un `onChange`.
