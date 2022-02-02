@@ -11,7 +11,7 @@ Accepté
 Le framework Ember propose des composants helpers tels que `<Input>` ou `<Textarea>`.
 Cependant leurs comportements diffèrent pas mal des éléments HTML natifs `<input>` et `<textarea>`. 
 
-Ainsi nous aimerions privilégier l'une des deux utilisations afin de ne plusà avoir à changer, comme ça a pu être le cas dans le composant PixInput ([voir discussion sur le sujet](https://github.com/1024pix/pix-ui/pull/147#discussion_r724312399)).
+Ainsi nous aimerions privilégier l'une des deux utilisations afin de ne plus avoir à changer, comme ça a pu être le cas dans le composant PixInput ([voir discussion sur le sujet](https://github.com/1024pix/pix-ui/pull/147#discussion_r724312399)).
 
 Actuellement, tous les composants Pix-UI utilisent des balises HTML natives sauf le PixTextarea qui utilise le `<Textarea>` d'Ember.
 
