@@ -20,7 +20,7 @@ Historique des PRs qui ont mené à cette problématique :
 - https://github.com/1024pix/pix-ui/pull/147/files a changé le PixInputPassword pour utiliser `<input>` plutôt que `<Input>` (embarqué dans la version v11.0.0 de Pix-UI).
 - https://github.com/1024pix/pix-ui/pull/175/files a changé le PixInput pour utiliser `<input>` plutôt que `<Input>` (embarqué dans la version v11.1.0 de Pix-UI).
 
-#### Possibilité 1
+#### Solution 1
 Privilégier l'utilisation des composants helpers que propose Ember (`<Input>` / `<Textarea>`).
 
 Ce qui impliquerait : 
