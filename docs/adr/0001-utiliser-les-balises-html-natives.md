@@ -9,7 +9,7 @@ Accepté
 ## Contexte
 
 Le framework Ember propose des composants helpers tels que `<Input>` ou `<Textarea>`.
-Cependant leur comportement diffèrent pas mal des éléments HTML natifs `<input>` et `textarea`. 
+Cependant leurs comportements diffèrent pas mal des éléments HTML natifs `<input>` et `<textarea>`. 
 
 Ainsi nous aimerions privilégier l'une des deux utilisations afin de ne plusà avoir à changer, comme ça a pu être le cas dans le composant PixInput ([voir discussion sur le sujet](https://github.com/1024pix/pix-ui/pull/147#discussion_r724312399)).
 
