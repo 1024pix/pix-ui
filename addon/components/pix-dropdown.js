@@ -4,6 +4,8 @@ import { action } from '@ember/object';
 
 export default class PixDropdown extends Component {
   defaultId = Math.floor(Math.random() * 100);
+  focusedOption = null;
+  focusedIndex = null;
   @tracked selectedOption = null;
   @tracked isExpanded = false;
   @tracked options = this.args.options;
@@ -45,13 +47,59 @@ export default class PixDropdown extends Component {
   }
 
   @action
+  resetPreviouslyFocused() {
+    if (!this.focusedOption) return;
+
+    const previouslyFocusedElement = document.getElementById(this.focusedOption.value);
+    previouslyFocusedElement?.blur();
+    this.focusedOption = undefined;
+    this.focusedIndex = undefined;
+  }
+
+  _navigateToOption(option, index) {
+    if (!option) return;
+
+    this.resetPreviouslyFocused();
+    this.focusedOption = option;
+    this.focusedIndex = index;
+    const focusedElement = document.getElementById(option.value);
+    focusedElement?.scrollIntoView({ block: 'nearest' });
+    focusedElement?.focus();
+  }
+
+  _computeNextIndex(isArrowDown, index) {
+    const length = this.options.length;
+    let nextIndex;
+    if (index === undefined || index === null) {
+      nextIndex = isArrowDown ? 0 : length - 1;
+    } else {
+      const delta = isArrowDown ? 1 : -1;
+      nextIndex = index + delta;
+    }
+    // navigate through array in a circle
+    // (i.e. go back to first after last or last after first)
+    return ((nextIndex % length) + length) % length;
+  }
+
+  @action
+  navigateThroughOptions(event) {
+    const isArrowDown = event.code === 'ArrowDown';
+    if (event.code !== 'ArrowUp' && !isArrowDown) return;
+    const nextIndex = this._computeNextIndex(isArrowDown, this.focusedIndex);
+    this._navigateToOption(this.options[nextIndex], nextIndex);
+  }
+
+  @action
   toggleDropdown() {
     this.isExpanded = !this.isExpanded;
 
     if (this.isExpanded) {
+      this.resetPreviouslyFocused();
       const searchInput = document.getElementById(this.searchInputId);
       if (searchInput) {
         searchInput.focus();
+      } else {
+        this._navigateToOption(this.options[0], 0);
       }
     }
 
@@ -84,6 +132,7 @@ export default class PixDropdown extends Component {
     event.stopPropagation();
     event.preventDefault();
     this.selectedOption = null;
+    this._navigateToOption(this.options[0], 0);
     this.args.onSelect?.();
   }
 
@@ -94,6 +143,7 @@ export default class PixDropdown extends Component {
 
   @action
   filterOptions(event) {
+    this.resetPreviouslyFocused();
     const filterValue = event.target?.value.toLowerCase();
     this.options = filterValue
       ? this.args.options.filter(({ label }) => label.toLowerCase().includes(filterValue))

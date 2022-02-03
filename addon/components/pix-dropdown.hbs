@@ -6,8 +6,9 @@
     <button
       type="button"
       class="pix-dropdown__controller--placeholder{{if this.isExpanded ' expanded'}}"
-      {{on "click" this.toggleDropdown}}
       aria-label={{if this.isExpanded @collapseLabel @expandLabel}}
+      {{on "click" this.toggleDropdown}}
+      {{on "keyup" this.navigateThroughOptions}}
     >
       <p
         title={{this.placeholder}}
@@ -35,11 +36,13 @@
   <div
     role="listbox"
     id={{this.menuId}}
+    tabindex="-1"
     class="pix-dropdown__menu{{if this.isExpanded ' expanded'}}"
     aria-labelledby={{if this.label @id}}
     aria-label={{unless this.label @placeholder}}
     aria-hidden={{if this.isExpanded "false" "true"}}
     aria-activedescendant={{if this.selectedOption this.selectedOption.value}}
+    {{on "keyup" this.navigateThroughOptions}}
   >
     {{#if @isSearchable}}
       <div class="pix-dropdown__menu--search">
@@ -62,13 +65,14 @@
       <div
         role="option"
         id={{opt.value}}
-        tabindex={{if this.isExpanded "0" "-1"}}
+        tabindex="-1"
         class="pix-dropdown__menu--option{{if
             (eq this.selectedOption.value opt.value)
             ' selected'
           }}"
         aria-selected={{if (eq this.selectedOption.value opt.value) "true"}}
         {{on "click" (fn this.selectOption opt)}}
+        {{on "mouseover" this.resetPreviouslyFocused}}
         {{on "keypress" (fn this.onOptionKeyPress opt)}}
       >
         {{opt.label}}
