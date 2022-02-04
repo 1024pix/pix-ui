@@ -1,14 +1,19 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const <%= camelizedModuleName %> = (args) => {
+export const Template = (args) => {
   return {
     template: hbs`
-      <Pix<%= classifiedModuleName %>>
-        TODO
-      </Pix<%= classifiedModuleName %>>
+      <Pix<%= classifiedModuleName %>
+        <!-- TODO -->
+      />
     `,
     context: args,
   };
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  // TODO
 };
 
 // TODO: add component attributes information

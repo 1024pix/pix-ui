@@ -11,9 +11,9 @@ module('Integration | Component | <%= dasherizedModuleName %>', function(hooks) 
   test('it renders the default Pix<%= classifiedModuleName %>', async function(assert) {
     // when
     await render(hbs`
-      <Pix<%= classifiedModuleName %>>
-        content
-      </Pix<%= classifiedModuleName %>>
+      <Pix<%= classifiedModuleName %>
+        <!-- TODO -->
+      />
     `);
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
 
