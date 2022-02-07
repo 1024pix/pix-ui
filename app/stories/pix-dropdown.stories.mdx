@@ -36,7 +36,13 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 ## Searchable
 
 <Canvas>
-  <Story name="SearchableSelect" story={stories.searchableDropdown} height={200} />
+  <Story name="Searchable" story={stories.searchableDropdown} height={200} />
+</Canvas>
+
+## Infinite scroll
+
+<Canvas>
+  <Story name="Paginated" story={stories.paginatedDropdown} height={200} />
 </Canvas>
 
 ## Usage
@@ -54,6 +60,7 @@ Les options sont représentées par un tableau d'objet contenant les propriété
   @clearLabel="Supprimer la sélection"
   @expandLabel="Ouvrir le menu déroulant"
   @collapseLabel="Réduire le menu déroulant"
+  @pageSize={{10}}
 />
 ```
 

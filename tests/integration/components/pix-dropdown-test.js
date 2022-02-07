@@ -271,4 +271,71 @@ module('Integration | Component | dropdown', function (hooks) {
       assert.dom(screen.getByText('1abc')).isFocused();
     });
   });
+
+  module('infinite scroll', () => {
+    test('it should only show as many items as the page size', async function (assert) {
+      // given
+      this.options = [
+        { value: '1', label: '1abc' },
+        { value: '2', label: '2abc' },
+        { value: '3', label: '3abc' },
+        { value: '4', label: '4abc' },
+        { value: '5', label: '5abc' },
+        { value: '6', label: '6abc' },
+      ];
+      const screen = await render(hbs`
+        <PixDropdown
+          @id="pix-dropdown"
+          @options={{this.options}}
+          @placeholder="Choisissez une option"
+          @clearLabel="Supprimer la sélection"
+          @expandLabel="Ouvrir le menu déroulant"
+          @collapseLabel="Réduire le menu déroulant"
+          @pageSize={{2}}
+        />
+      `);
+
+      // when
+      await clickByName('Ouvrir le menu déroulant');
+
+      // then
+      assert.dom(screen.queryByText('3abc')).doesNotExist();
+      assert.dom(screen.queryByText('4abc')).doesNotExist();
+      assert.dom(screen.queryByText('5abc')).doesNotExist();
+      assert.dom(screen.queryByText('6abc')).doesNotExist();
+    });
+
+    test.skip('it should load next elements', async function (assert) {
+      // given
+      this.options = [
+        { value: '1', label: '1abc' },
+        { value: '2', label: '2abc' },
+        { value: '3', label: '3abc' },
+        { value: '4', label: '4abc' },
+        { value: '5', label: '5abc' },
+        { value: '6', label: '6abc' },
+      ];
+      const screen = await render(hbs`
+        <PixDropdown
+          @id="pix-dropdown"
+          @options={{this.options}}
+          @placeholder="Choisissez une option"
+          @clearLabel="Supprimer la sélection"
+          @expandLabel="Ouvrir le menu déroulant"
+          @collapseLabel="Réduire le menu déroulant"
+          @pageSize={{2}}
+        />
+      `);
+
+      // when
+      await clickByName('Ouvrir le menu déroulant');
+      await triggerEvent('.pix-dropdown__menu', 'scroll');
+
+      // then
+      assert.dom(screen.getByText('3abc')).exists();
+      assert.dom(screen.getByText('4abc')).exists();
+      assert.dom(screen.queryByText('5abc')).doesNotExist();
+      assert.dom(screen.queryByText('6abc')).doesNotExist();
+    });
+  });
 });

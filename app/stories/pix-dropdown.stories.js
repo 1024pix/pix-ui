@@ -17,6 +17,7 @@ export const Template = (args) => {
           @clearLabel={{clearLabel}}
           @expandLabel={{expandLabel}}
           @collapseLabel={{collapseLabel}}
+          @pageSize={{pageSize}}
         />
       </div>
     `,
@@ -62,6 +63,20 @@ searchableDropdown.args = {
   id: 'searchable-dropdown',
   placeholder: 'Fraises, Mangues...',
   searchPlaceholder: 'Rechercher',
+};
+
+export const paginatedDropdown = Template.bind({});
+paginatedDropdown.args = {
+  ...Default.args,
+  id: 'paginated-dropdown',
+  placeholder: 'Quel est ton fruit préféré ?',
+  pageSize: 10,
+  isSearchable: true,
+  searchPlaceholder: 'Rechercher',
+  options: Array.from({ length: 100 }, (_, index) => ({
+    value: `${index}`,
+    label: `${index}abc`,
+  })),
 };
 
 export const argTypes = {
@@ -128,7 +143,14 @@ export const argTypes = {
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: null },
+    },
+  },
+  pageSize: {
+    name: 'pageSize',
+    description: "Le nombre d'élément à afficher dans la liste.",
+    type: { name: 'number', required: false },
+    table: {
+      type: { summary: 'number' },
     },
   },
   clearLabel: {

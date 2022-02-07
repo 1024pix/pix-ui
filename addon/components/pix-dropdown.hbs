@@ -43,6 +43,7 @@
     aria-hidden={{if this.isExpanded "false" "true"}}
     aria-activedescendant={{if this.selectedOption this.selectedOption.value}}
     {{on "keyup" this.navigateThroughOptions}}
+    {{on "scroll" this.incrementPage}}
   >
     {{#if @isSearchable}}
       <div class="pix-dropdown__menu--search">
@@ -61,22 +62,24 @@
         />
       </div>
     {{/if}}
-    {{#each this.options as |opt|}}
-      <div
-        role="option"
-        id={{opt.value}}
-        tabindex="-1"
-        class="pix-dropdown__menu--option{{if
-            (eq this.selectedOption.value opt.value)
-            ' selected'
-          }}"
-        aria-selected={{if (eq this.selectedOption.value opt.value) "true"}}
-        {{on "click" (fn this.selectOption opt)}}
-        {{on "mouseover" this.resetPreviouslyFocused}}
-        {{on "keypress" (fn this.onOptionKeyPress opt)}}
-      >
-        {{opt.label}}
-      </div>
+    {{#each this.options as |opt index|}}
+      {{#if (lt index this.showLimit)}}
+        <div
+          role="option"
+          id={{opt.value}}
+          tabindex="-1"
+          class="pix-dropdown__menu--option{{if
+              (eq this.selectedOption.value opt.value)
+              ' selected'
+            }}"
+          aria-selected={{if (eq this.selectedOption.value opt.value) "true"}}
+          {{on "click" (fn this.selectOption opt)}}
+          {{on "mouseover" this.resetPreviouslyFocused}}
+          {{on "keypress" (fn this.onOptionKeyPress opt)}}
+        >
+          {{opt.label}}
+        </div>
+      {{/if}}
     {{/each}}
   </div>
 </div>
