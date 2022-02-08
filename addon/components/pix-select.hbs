@@ -10,7 +10,7 @@
       id={{@id}}
       list="{{this.datalistId}}"
       {{on "input" this.onChange}}
-      class="{{if this.isValid "pix-select--is-valid"}} {{if this.isBig "pix-select--big"}}"
+      class="{{if this.isValid 'pix-select--is-valid'}} {{if this.isBig 'pix-select--big'}}"
       ...attributes
       autocomplete="off"
     />
@@ -25,7 +25,7 @@
 
     <select
       id={{@id}}
-      class="{{if this.isBig "pix-select--big"}}"
+      class="{{if this.isBig 'pix-select--big'}}"
       {{on "change" this.onChange}}
       ...attributes
     >

@@ -8,7 +8,7 @@
     id={{@id}}
     @value={{@value}}
     maxlength={{if @maxlength @maxlength}}
-    class="{{if @errorMessage "pix-textarea--error"}}"
+    class="{{if @errorMessage 'pix-textarea--error'}}"
     ...attributes
   />
   {{#if @maxlength}}
