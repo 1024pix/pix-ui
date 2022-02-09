@@ -169,7 +169,7 @@ module('Integration | Component | button', function (hooks) {
       this.set('isLoading', true);
 
       // when
-      await render(hbs`<PixButton @isLoading={{isLoading}} />`);
+      await render(hbs`<PixButton @isLoading={{this.isLoading}} />`);
 
       // then
       const loadingComponent = this.element.querySelector('.loader');

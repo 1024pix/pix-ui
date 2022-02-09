@@ -51,7 +51,7 @@ module('Integration | Component | filter-banner', function (hooks) {
 
     // when
     await render(hbs`
-      <PixFilterBanner @clearFiltersLabel={{clearFiltersLabel}} @onClearFilters={{onClearFilters}}>
+      <PixFilterBanner @clearFiltersLabel={{this.clearFiltersLabel}} @onClearFilters={{this.onClearFilters}}>
         content
       </PixFilterBanner>
     `);
@@ -68,8 +68,8 @@ module('Integration | Component | filter-banner', function (hooks) {
     //when
     await render(hbs`
       <PixFilterBanner
-        @clearFiltersLabel={{clearFiltersLabel}}
-        @onClearFilters={{onClearFilters}}
+        @clearFiltersLabel={{this.clearFiltersLabel}}
+        @onClearFilters={{this.onClearFilters}}
       >
         content
       </PixFilterBanner>

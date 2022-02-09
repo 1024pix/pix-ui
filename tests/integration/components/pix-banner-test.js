@@ -58,7 +58,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     //when
     await render(hbs`
-      <PixBanner @color={{this.color}} @type={{type}} />
+      <PixBanner @color={{this.color}} @type={{this.type}} />
     `);
 
     // then
@@ -72,7 +72,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     //when
     await render(hbs`
-      <PixBanner @color={{this.color}} @type={{type}} />
+      <PixBanner @color={{this.color}} @type={{this.type}} />
     `);
 
     // then
@@ -86,7 +86,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     //when
     await render(hbs`
-      <PixBanner @color={{this.color}} @type={{type}} />
+      <PixBanner @color={{this.color}} @type={{this.type}} />
     `);
 
     // then

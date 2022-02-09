@@ -34,8 +34,8 @@ module('Integration | Component | textarea', function (hooks) {
     // when
     await render(hbs`
       <PixTextarea
-        @value={{value}}
-        @maxlength={{maxlength}}
+        @value={{this.value}}
+        @maxlength={{this.maxlength}}
         @id="textarea-id"
         @label="label"
       />`);
@@ -53,7 +53,7 @@ module('Integration | Component | textarea', function (hooks) {
     this.set('value', defaultValue);
 
     // when
-    await render(hbs`<PixTextarea @value={{value}} required="true" />`);
+    await render(hbs`<PixTextarea @value={{this.value}} required="true" />`);
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
