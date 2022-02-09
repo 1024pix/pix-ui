@@ -26,8 +26,8 @@ module('Integration | Component | select', function (hooks) {
     // when
     await render(hbs`
       <PixSelect
-        @options={{options}}
-        @onChange={{onChange}}
+        @options={{this.options}}
+        @onChange={{this.onChange}}
       />
     `);
 
@@ -47,8 +47,8 @@ module('Integration | Component | select', function (hooks) {
     // when
     await render(hbs`
       <PixSelect
-        @options={{options}}
-        @onChange={{onChange}}
+        @options={{this.options}}
+        @onChange={{this.onChange}}
         @emptyOptionLabel="Empty label"
       />
     `);
@@ -68,8 +68,8 @@ module('Integration | Component | select', function (hooks) {
     // when
     await render(hbs`
       <PixSelect
-        @options={{options}}
-        @onChange={{onChange}}
+        @options={{this.options}}
+        @onChange={{this.onChange}}
         @selectedOption="2"
       />
     `);
@@ -89,8 +89,8 @@ module('Integration | Component | select', function (hooks) {
     await render(hbs`
       <PixSelect
         @id="an-id"
-        @options={{options}}
-        @onChange={{onChange}}
+        @options={{this.options}}
+        @onChange={{this.onChange}}
         @label="Mon select"
       />
     `);
@@ -109,7 +109,9 @@ module('Integration | Component | select', function (hooks) {
       this.isSearchable = true;
 
       // when
-      await render(hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} />`);
+      await render(
+        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} />`
+      );
 
       // then
       const input = this.element.querySelector(SEARCHABLE_SELECT_SELECTOR);
@@ -124,7 +126,9 @@ module('Integration | Component | select', function (hooks) {
       this.isSearchable = true;
 
       // when
-      await render(hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} />`);
+      await render(
+        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} />`
+      );
 
       // then
       const options = this.element.querySelectorAll('option');
@@ -139,7 +143,7 @@ module('Integration | Component | select', function (hooks) {
 
       // when
       await render(
-        hbs`<PixSelect @options={{options}} @isSearchable={{isSearchable}} autocomplete="on"/>`
+        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} autocomplete="on"/>`
       );
 
       // then
@@ -156,8 +160,8 @@ module('Integration | Component | select', function (hooks) {
         // when
         await render(hbs`<PixSelect
           @id="an-id"
-          @options={{options}}
-          @isSearchable={{isSearchable}}
+          @options={{this.options}}
+          @isSearchable={{this.isSearchable}}
           @label="Mon select"
         />`);
         await fillInByLabel('Mon select', 'tomate');
@@ -175,9 +179,9 @@ module('Integration | Component | select', function (hooks) {
         // when
         await render(hbs`
           <PixSelect
-            @options={{options}}
-            @isSearchable={{isSearchable}}
-            @isValidationActive={{isValidationActive}}
+            @options={{this.options}}
+            @isSearchable={{this.isSearchable}}
+            @isValidationActive={{this.isValidationActive}}
             @id="select-id"
             @label="Mon select"
           />`);
@@ -197,8 +201,8 @@ module('Integration | Component | select', function (hooks) {
       <PixSelect
         @id="pix-select-with-label"
         @label="Votre ville"
-        @options={{options}}
-        @onChange={{onChange}}
+        @options={{this.options}}
+        @onChange={{this.onChange}}
       />
     `);
 

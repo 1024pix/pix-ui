@@ -29,12 +29,12 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     await render(hbs`
       <PixMultiSelect
-        @selected={{selected}}
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
-        @emptyMessage={{emptyMessage}}
-        @options={{options}} as |option|>
+        @selected={{this.selected}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
+        @emptyMessage={{this.emptyMessage}}
+        @options={{this.options}} as |option|>
         {{option.label}}
       </PixMultiSelect>
     `);
@@ -57,13 +57,13 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     await render(hbs`
       <PixMultiSelect
-        @selected={{selected}}
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
+        @selected={{this.selected}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
         @label="label"
-        @emptyMessage={{emptyMessage}}
-        @options={{options}} as |option|
+        @emptyMessage={{this.emptyMessage}}
+        @options={{this.options}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
@@ -91,13 +91,13 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     await render(hbs`
       <PixMultiSelect
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
-        @selected={{selected}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
+        @selected={{this.selected}}
         @label="label"
-        @emptyMessage={{emptyMessage}}
-        @options={{options}} as |option|
+        @emptyMessage={{this.emptyMessage}}
+        @options={{this.options}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
@@ -125,15 +125,15 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     await render(hbs`
       <PixMultiSelect
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
-        @selected={{selected}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
+        @selected={{this.selected}}
         @label="label"
-        @emptyMessage={{emptyMessage}}
+        @emptyMessage={{this.emptyMessage}}
         @placeholder="Yo"
         @isSearchable={{true}}
-        @options={{options}} as |option|
+        @options={{this.options}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
@@ -155,13 +155,13 @@ module('Integration | Component | multi-select', function (hooks) {
 
     await render(hbs`
       <PixMultiSelect
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
-        @selected={{selected}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
+        @selected={{this.selected}}
         @label="label"
-        @emptyMessage={{emptyMessage}}
-        @options={{options}} as |option|>
+        @emptyMessage={{this.emptyMessage}}
+        @options={{this.options}} as |option|>
         {{option.label}}
       </PixMultiSelect>
     `);
@@ -188,12 +188,12 @@ module('Integration | Component | multi-select', function (hooks) {
 
     await render(hbs`
     <PixMultiSelect
-      @onSelect={{onSelect}}
-      @title={{title}}
-      @id={{id}}
+      @onSelect={{this.onSelect}}
+      @title={{this.title}}
+      @id={{this.id}}
       @label="label"
-      @emptyMessage={{emptyMessage}}
-      @options={{options}} as |option|>
+      @emptyMessage={{this.emptyMessage}}
+      @options={{this.options}} as |option|>
       {{option.label}}
     </PixMultiSelect>
   `);
@@ -221,12 +221,12 @@ module('Integration | Component | multi-select', function (hooks) {
 
     await render(hbs`
       <PixMultiSelect
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
         @label="label"
-        @emptyMessage={{emptyMessage}}
-        @options={{options}} as |option|>
+        @emptyMessage={{this.emptyMessage}}
+        @options={{this.options}} as |option|>
         {{option.label}}
       </PixMultiSelect>
     `);
@@ -254,15 +254,15 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @label="label"
-          @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
       `);
@@ -288,16 +288,16 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @label="label"
-          @emptyMessage={{emptyMessage}}
+          @emptyMessage={{this.emptyMessage}}
           @label="Mon multi select"
-          @options={{options}} as |option|
+          @options={{this.options}} as |option|
         >
           {{option.label}}
         </PixMultiSelect>
@@ -326,16 +326,16 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @strictSearch={{strictSearch}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
+          @isSearchable={{this.isSearchable}}
+          @strictSearch={{this.strictSearch}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
           @label="Mon multi select"
-          @options={{options}} as |option|
+          @options={{this.options}} as |option|
         >
           {{option.label}}
         </PixMultiSelect>
@@ -364,15 +364,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @showOptionsOnInput={{showOptionsOnInput}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @isSearchable={{this.isSearchable}}
+          @showOptionsOnInput={{this.showOptionsOnInput}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
       `);
@@ -399,15 +399,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @showOptionsOnInput={{showOptionsOnInput}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @isSearchable={{this.isSearchable}}
+          @showOptionsOnInput={{this.showOptionsOnInput}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
       `);
@@ -434,15 +434,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
           @selected={{defaultSelected}}
-          @options={{options}} as |option|>
+          @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
       `);
@@ -471,15 +471,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
           @label="label"
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
-          @options={{options}} as |option|>
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
       `);
@@ -509,15 +509,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
           @label="Mon multi select"
-          @options={{options}} as |option|
+          @options={{this.options}} as |option|
         >
           {{option.label}}
         </PixMultiSelect>
@@ -548,15 +548,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
           @label="Mon multi select"
-          @options={{options}} as |option|
+          @options={{this.options}} as |option|
         >
           {{option.label}}
         </PixMultiSelect>
@@ -588,16 +588,16 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @label="label"
-          @emptyMessage={{emptyMessage}}
+          @emptyMessage={{this.emptyMessage}}
           @showOptionsOnInput={{true}}
-          @options={{options}} as |option|>
+          @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
       `);
@@ -630,15 +630,15 @@ module('Integration | Component | multi-select', function (hooks) {
 
       await render(hbs`
         <PixMultiSelect
-          @isSearchable={{isSearchable}}
-          @selected={{selected}}
-          @onSelect={{onSelect}}
-          @title={{title}}
-          @placeholder={{placeholder}}
-          @id={{id}}
-          @emptyMessage={{emptyMessage}}
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @title={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
           @label="Mon multi select"
-          @options={{options}} as |option|
+          @options={{this.options}} as |option|
         >
           {{option.label}}
         </PixMultiSelect>
@@ -670,8 +670,8 @@ module('Integration | Component | multi-select', function (hooks) {
       <PixMultiSelect
         @id="pix-select-with-label"
         @label="Votre choix:"
-        @options={{options}}
-        @onChange={{onChange}}
+        @options={{this.options}}
+        @onChange={{this.onSelect}}
       />
     `);
 
@@ -706,12 +706,12 @@ module('Integration | Component | multi-select', function (hooks) {
     // when
     await render(hbs`
       <PixMultiSelect
-        @selected={{selected}}
-        @onSelect={{onSelect}}
-        @title={{title}}
-        @id={{id}}
-        @emptyMessage={{emptyMessage}}
-        @onLoadOptions={{onLoadOptions}} as |option|>
+        @selected={{this.selected}}
+        @onSelect={{this.onSelect}}
+        @title={{this.title}}
+        @id={{this.id}}
+        @emptyMessage={{this.emptyMessage}}
+        @onLoadOptions={{this.onLoadOptions}} as |option|>
         {{option.label}}
       </PixMultiSelect>
     `);
