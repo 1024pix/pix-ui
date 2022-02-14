@@ -13,7 +13,7 @@
 - [#94](https://github.com/1024pix/pix-ui/pull/94) [FEATURE] Ajout du composant PixModal
 
 ### :bug: Bug fix
-- [#186](https://github.com/1024pix/pix-ui/pull/186) [BUGFIX] Désactiver l'autocomplete sur le composant Pix Select (PIX-4158)
+- [#186](https://github.com/1024pix/pix-ui/pull/186) [BREAKING_CHANGES] Désactiver l'autocomplete sur le composant Pix Select (PIX-4158)
 - [#187](https://github.com/1024pix/pix-ui/pull/187) [BUGFIX] Rendre tout le tag sélectionnable (PIX-4179)
 
 ## v11.2.0 (14/01/2022)
@@ -32,7 +32,7 @@
 
 
 ### :building_construction: Tech
-- [#175](https://github.com/1024pix/pix-ui/pull/175) [TECH] Faire en sorte que le message d'erreur soit situé à l'intérieur de l'élément qui le compose (PIX-3829)
+- [#175](https://github.com/1024pix/pix-ui/pull/175) [BREAKING_CHANGES] Faire en sorte que le message d'erreur soit situé à l'intérieur de l'élément qui le compose (PIX-3829)
 
 ## v11.0.1 (08/12/2021)
 
@@ -50,12 +50,12 @@
 - [#177](https://github.com/1024pix/pix-ui/pull/177) [FEATURE] Création du composant Tag sélectionnable  dans Pix UI (PIX-3757)
 
 ### :building_construction: Tech
-- [#180](https://github.com/1024pix/pix-ui/pull/180) [TECH] Ajouter la possibilité d'utiliser des composants Ember à l'intérieur de la tooltip (Pix-3925)
+- [#180](https://github.com/1024pix/pix-ui/pull/180) [BREAKING_CHANGES] Ajouter la possibilité d'utiliser des composants Ember à l'intérieur de la tooltip (Pix-3925)
 - [#179](https://github.com/1024pix/pix-ui/pull/179) [TECH] Mise à jour du template de pull request pour faire apparaître plus clairement les BREAKING_CHANGES
 - [#148](https://github.com/1024pix/pix-ui/pull/148) [TECH] Formatter les fichiers avec prettier (PIX-3469)
 
 ### :bug: Bug fix
-- [#147](https://github.com/1024pix/pix-ui/pull/147) [BUGFIX] Ajout de l'évènement onChange afin de supprimer le message d'erreur lorsque l'utilisateur modifie sa saisie (PIX-3476)
+- [#147](https://github.com/1024pix/pix-ui/pull/147) [BREAKING_CHANGES] Ajout de l'évènement onChange afin de supprimer le message d'erreur lorsque l'utilisateur modifie sa saisie (PIX-3476)
 
 ### :coffee: Various
 - [#178](https://github.com/1024pix/pix-ui/pull/178) [DOC] Améliorer l'information sur les breaking changes dans Pix UI
