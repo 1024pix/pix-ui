@@ -14,4 +14,8 @@ export default class PixTooltip extends Component {
     ];
     return correctsPosition.includes(this.args.position) ? this.args.position : 'top';
   }
+
+  get display() {
+    return typeof this.args.hide === 'undefined' || !this.args.hide;
+  }
 }

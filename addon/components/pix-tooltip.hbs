@@ -4,15 +4,17 @@
   {{/if}}
 
   {{#if (has-block "tooltip")}}
-    <span
-      id={{@id}}
-      role="tooltip"
-      class="pix-tooltip__content pix-tooltip__content--{{this.position}}
-        {{if @isInline 'pix-tooltip__content--inline'}}
-        {{if @isLight 'pix-tooltip__content--light'}}
-        {{if @isWide 'pix-tooltip__content--wide'}}"
-    >
-      {{yield to="tooltip"}}
-    </span>
+    {{#if this.display}}
+      <span
+        id={{@id}}
+        role="tooltip"
+        class="pix-tooltip__content pix-tooltip__content--{{this.position}}
+          {{if @isInline 'pix-tooltip__content--inline'}}
+          {{if @isLight 'pix-tooltip__content--light'}}
+          {{if @isWide 'pix-tooltip__content--wide'}}"
+      >
+        {{yield to="tooltip"}}
+      </span>
+    {{/if}}
   {{/if}}
 </span>
