@@ -1,5 +1,17 @@
 # Pix-UI Changelog
 
+## v13.1.0 (16/02/2022)
+
+
+### :building_construction: Tech
+- [#194](https://github.com/1024pix/pix-ui/pull/194) [TECH] Mise a jour du package-lock.
+- [#192](https://github.com/1024pix/pix-ui/pull/192) [TECH] Améliorer le blueprint pour auto-générer les nouveaux composants.
+
+### :coffee: Various
+- [#198](https://github.com/1024pix/pix-ui/pull/198) [FEAT] Permettre à la tooltip de ne pas s'afficher (PIX-4375)
+- [#196](https://github.com/1024pix/pix-ui/pull/196) [FIX] Corriger les tests qui bloquent la pipeline.
+- [#183](https://github.com/1024pix/pix-ui/pull/183) [DOC] Utiliser les champs de saisie natifs HTML plutôt que ceux d'Ember.
+
 ## v13.0.0 (27/01/2022)
 
 
