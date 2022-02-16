@@ -46,6 +46,23 @@ module('Integration | Component | pix-tooltip', function (hooks) {
     assert.notOk(tooltipContentElement);
   });
 
+  test('it renders only the inner data if hide is true', async function (assert) {
+    // when
+    await render(hbs`
+      <PixTooltip @hide={{true}}>
+        <:triggerElement>
+          template block text
+        </:triggerElement>
+        <:tooltip></:tooltip>
+      </PixTooltip>
+    `);
+
+    // then
+    const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
+    assert.contains('template block text');
+    assert.notOk(tooltipContentElement);
+  });
+
   module('tooltip position', function () {
     const TOOLTIP_POSITION_SELECTOR = 'pix-tooltip__content--';
 

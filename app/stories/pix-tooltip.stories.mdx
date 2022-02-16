@@ -61,6 +61,13 @@ Les tooltips doivent prendre un `@id` et être référencées par leur élément
 </PixTooltip>
 ```
 
+## Hide
+
+Cache la tooltip (par exemple si le contenu est vide).
+
+<Canvas>
+  <Story name="Hide" story={stories.hide} height={200} />
+</Canvas>
 
 ## Default
 
@@ -158,6 +165,18 @@ Infobulle contenant des éléments HTML
   >
   <:triggerElement>
     <button>Tooltip apparaissant en bas</button>
+  </:triggerElement>
+
+  <:tooltip>
+    Hey
+  </:tooltip>
+</PixTooltip>
+
+<PixTooltip
+  @hide={{true}}
+  >
+  <:triggerElement>
+    <button>Tooltip n'apparaissant pas</button>
   </:triggerElement>
 
   <:tooltip>

@@ -8,7 +8,8 @@ const Template = (args) => {
         @position={{this.position}}
         @isLight={{this.isLight}}
         @isInline={{this.isInline}}
-        @isWide={{this.isWide}}>
+        @isWide={{this.isWide}}
+        @hide={{this.hide}}>
         <:triggerElement>
           <PixButton aria-describedby={{this.id}}>
             {{this.label}}
@@ -100,6 +101,13 @@ bottom.args = {
   position: 'bottom',
 };
 
+export const hide = Template.bind({});
+hide.args = {
+  label: 'À survoler pour voir la tooltip',
+  text: "Ne devrait pas s'afficher",
+  hide: true,
+};
+
 export const WithHTML = TemplateWithHTMLElement.bind({});
 WithHTML.args = {
   label: 'À survoler pour voir la tooltip',
@@ -151,6 +159,12 @@ export const argTypes = {
   isWide: {
     name: 'isWide',
     description: 'Affichage large',
+    type: { name: 'boolean', required: false },
+    table: { defaultValue: { summary: false } },
+  },
+  hide: {
+    name: 'hide',
+    description: 'Masquer la tooltip',
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
   },
