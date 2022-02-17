@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.2.0 (17/02/2022)
+
+
+### :rocket: Enhancement
+- [#193](https://github.com/1024pix/pix-ui/pull/193) [FEATURE] Ajouter le composant dropdown (PIX-4295).
+
 ## v13.1.0 (16/02/2022)
 
 
