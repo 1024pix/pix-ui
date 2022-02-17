@@ -33,6 +33,19 @@ export const form = (args) => {
       />
       <br>
 
+      <PixDropdown
+        @id="form__searchable-pix-dropdown"
+        @options={{selectOptions}}
+        @placeholder="Choisir votre fruit"
+        @isSearchable={{true}}
+        @searchPlaceholder="Rechercher"
+        @label="Votre fruit préféré est : "
+        @clearLabel="Supprimer la sélection"
+        @expandLabel="Ouvrir la liste"
+        @collapseLabel="Réduire la liste"
+      />
+      <br>
+
       <PixTextarea
         @id="form__pix-textarea"
         @value=""
