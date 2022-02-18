@@ -18,6 +18,7 @@ export const Template = (args) => {
           @expandLabel={{expandLabel}}
           @collapseLabel={{collapseLabel}}
           @pageSize={{pageSize}}
+          @requiredLabel={{requiredLabel}}
         />
       </div>
     `,
@@ -54,6 +55,7 @@ withLabel.args = {
   ...Default.args,
   id: 'dropdown-with-label',
   label: 'Ton fruit préféré: ',
+  requiredLabel: 'Champ requis',
 };
 
 export const searchableDropdown = Template.bind({});
@@ -132,6 +134,15 @@ export const argTypes = {
   label: {
     name: 'label',
     description: 'Label du menu déroulant, le paramètre @id devient obligatoire avec ce paramètre.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  requiredLabel: {
+    name: 'requiredLabel',
+    description:
+      'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
