@@ -37,10 +37,14 @@
       </button>
     {{/if}}
 
-    <FaIcon
+    <button
+      tabindex="-1"
+      type="button"
       class="pix-dropdown__controller--chevron"
-      @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
-    />
+      {{on "click" this.toggleDropdown}}
+    >
+      <FaIcon @icon={{if this.isExpanded "chevron-up" "chevron-down"}} />
+    </button>
   </div>
 
   <div

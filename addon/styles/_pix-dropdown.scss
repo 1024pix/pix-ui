@@ -4,7 +4,6 @@
   position: relative;
 
   button {
-    background: transparent;
     margin: 0;
     text-align: left;
     cursor: pointer;
@@ -27,7 +26,7 @@
       border: 1px solid $grey-40;
       border-radius: $spacing-xxs;
       padding: 0;
-      background: white;
+      background: $white;
 
       &.expanded {
         border-bottom-left-radius: 0;
@@ -50,6 +49,7 @@
     }
 
     &--clear {
+      background: transparent;
       font-size: 1rem;
       color: $grey-50;
       position: absolute;
@@ -66,11 +66,18 @@
     }
 
     &--chevron {
+      background: transparent;
+      border: none;
+      padding: 0;
       position: absolute;
-      z-index: -1;
-      top: 9px;
+      top: 9.5px;
       right: 12px;
       color: $grey-50;
+      font-size: 1rem;
+
+      &:hover {
+        color: $grey-70;
+      }
     }
   }
 
