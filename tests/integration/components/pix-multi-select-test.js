@@ -15,7 +15,6 @@ module('Integration | Component | multi-select', function (hooks) {
     { value: '2', label: 'Tomate' },
     { value: '3', label: 'Oignon' },
   ];
-  const LABEL_SELECTOR = '.pix-multi-select__label';
 
   test('it renders PixMultiSelect with list', async function (assert) {
     // given
@@ -23,15 +22,16 @@ module('Integration | Component | multi-select', function (hooks) {
     this.selected = [];
     this.onSelect = (selected) => this.set('selected', selected);
     this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.id = 'id-MultiSelectTest';
 
     // when
     await render(hbs`
       <PixMultiSelect
+        @selected={{selected}}
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|>
@@ -51,7 +51,7 @@ module('Integration | Component | multi-select', function (hooks) {
     this.selected = [];
     this.onSelect = (selected) => this.set('selected', selected);
     this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.id = 'id-MultiSelectTest';
 
     // when
@@ -59,17 +59,15 @@ module('Integration | Component | multi-select', function (hooks) {
       <PixMultiSelect
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
-        @label="label"
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
     `);
-
-    await clickByLabel('label');
+    await clickByLabel('MultiSelectTest');
 
     // then
     const listElement = this.element.querySelectorAll('li');
@@ -85,17 +83,16 @@ module('Integration | Component | multi-select', function (hooks) {
     this.onSelect = (selected) => this.set('selected', selected);
     this.selected = ['2'];
     this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.id = 'id-MultiSelectTest';
 
     // when
     await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
         @selected={{this.selected}}
-        @label="label"
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|
       >
@@ -103,7 +100,7 @@ module('Integration | Component | multi-select', function (hooks) {
       </PixMultiSelect>
     `);
 
-    await clickByLabel('label');
+    await clickByLabel('MultiSelectTest');
 
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
@@ -119,14 +116,14 @@ module('Integration | Component | multi-select', function (hooks) {
     this.onSelect = (selected) => this.set('selected', selected);
     this.selected = ['2', '3'];
     this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.id = 'id-MultiSelectTest';
 
     // when
     await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
         @selected={{this.selected}}
         @label="label"
@@ -150,16 +147,15 @@ module('Integration | Component | multi-select', function (hooks) {
     this.selected = ['2'];
     this.onSelect = (selected) => this.set('selected', selected);
     this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.id = 'id-MultiSelectTest';
 
     await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
         @selected={{this.selected}}
-        @label="label"
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|>
         {{option.label}}
@@ -168,7 +164,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     // when
     this.set('selected', []);
-    await clickByLabel('label');
+    await clickByLabel('MultiSelectTest');
 
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
@@ -181,7 +177,7 @@ module('Integration | Component | multi-select', function (hooks) {
     // given
     this.options = DEFAULT_OPTIONS;
 
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.emptyMessage = 'no result';
     this.id = 'id-MultiSelectTest';
     this.onSelect = sinon.spy();
@@ -189,9 +185,8 @@ module('Integration | Component | multi-select', function (hooks) {
     await render(hbs`
     <PixMultiSelect
       @onSelect={{this.onSelect}}
-      @title={{this.title}}
+      @label={{this.label}}
       @id={{this.id}}
-      @label="label"
       @emptyMessage={{this.emptyMessage}}
       @options={{this.options}} as |option|>
       {{option.label}}
@@ -199,7 +194,7 @@ module('Integration | Component | multi-select', function (hooks) {
   `);
 
     // when
-    await clickByLabel('label');
+    await clickByLabel('MultiSelectTest');
     await clickByLabel('Salade');
 
     // then
@@ -213,7 +208,7 @@ module('Integration | Component | multi-select', function (hooks) {
     // given
     this.options = DEFAULT_OPTIONS;
 
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.emptyMessage = 'no result';
     this.selected = ['1', '2'];
     this.id = 'id-MultiSelectTest';
@@ -222,9 +217,8 @@ module('Integration | Component | multi-select', function (hooks) {
     await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
-        @label="label"
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|>
         {{option.label}}
@@ -232,7 +226,7 @@ module('Integration | Component | multi-select', function (hooks) {
     `);
 
     // when
-    await clickByLabel('label');
+    await clickByLabel('MultiSelectTest');
     await clickByLabel('Salade');
 
     // then
@@ -246,7 +240,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -257,10 +251,9 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @label="label"
           @emptyMessage={{this.emptyMessage}}
           @options={{this.options}} as |option|>
           {{option.label}}
@@ -281,7 +274,6 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -291,10 +283,8 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @label="label"
           @emptyMessage={{this.emptyMessage}}
           @label="Mon multi select"
           @options={{this.options}} as |option|
@@ -318,7 +308,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.strictSearch = true;
@@ -330,7 +320,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @strictSearch={{this.strictSearch}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -356,7 +346,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.showOptionsOnInput = true;
@@ -368,7 +358,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @showOptionsOnInput={{this.showOptionsOnInput}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -391,7 +381,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.showOptionsOnInput = false;
@@ -403,7 +393,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @showOptionsOnInput={{this.showOptionsOnInput}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -426,7 +416,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -437,7 +427,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -464,7 +454,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -474,9 +464,8 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
-          @label="label"
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
           @options={{this.options}} as |option|>
@@ -485,7 +474,7 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
 
       // when
-      await clickByLabel('label');
+      await clickByLabel('MultiSelectTest');
       await clickByLabel(DEFAULT_OPTIONS[1].label);
 
       // then
@@ -502,7 +491,6 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -512,7 +500,6 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -541,7 +528,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -551,7 +538,6 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -581,7 +567,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = ['2'];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -591,10 +577,9 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
+          @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @label="label"
           @emptyMessage={{this.emptyMessage}}
           @showOptionsOnInput={{true}}
           @options={{this.options}} as |option|>
@@ -603,7 +588,7 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
 
       // when
-      await clickByLabel('label');
+      await clickByLabel('MultiSelectTest');
 
       const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
       assert.equal(listElement.item(0).textContent.trim(), 'Tomate');
@@ -623,7 +608,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.label = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -633,7 +618,6 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @title={{this.title}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -661,25 +645,6 @@ module('Integration | Component | multi-select', function (hooks) {
     });
   });
 
-  test('it should be possible to give a label', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.selected = [];
-    this.onSelect = (selected) => this.set('selected', selected);
-    await render(hbs`
-      <PixMultiSelect
-        @id="pix-select-with-label"
-        @label="Votre choix:"
-        @options={{this.options}}
-        @onChange={{this.onSelect}}
-      />
-    `);
-
-    // when & then
-    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
-    assert.equal(selectorElement.innerHTML, 'Votre choix:');
-  });
-
   test('it should throw an error if no id is provided when there is a label', async function (assert) {
     // given
     const componentParams = { id: '   ', label: 'Votre choix: ', options: DEFAULT_OPTIONS };
@@ -700,7 +665,7 @@ module('Integration | Component | multi-select', function (hooks) {
     this.selected = [];
     this.onSelect = (selected) => this.set('selected', selected);
     this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
+    this.label = 'MultiSelectTest';
     this.id = 'id-MultiSelectTest';
 
     // when
@@ -708,7 +673,7 @@ module('Integration | Component | multi-select', function (hooks) {
       <PixMultiSelect
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @label={{this.label}}
         @id={{this.id}}
         @emptyMessage={{this.emptyMessage}}
         @onLoadOptions={{this.onLoadOptions}} as |option|>

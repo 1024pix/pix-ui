@@ -20,7 +20,6 @@ export const multiSelectWithChildComponent = (args) => {
     template: hbs`
       <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
-        @title={{titleStars}}
         @id={{id}}
         @onSelect={{onSelect}}
         @emptyMessage={{emptyMessage}}
@@ -38,7 +37,7 @@ export const multiSelectWithChildComponent = (args) => {
 };
 
 multiSelectWithChildComponent.args = {
-  titleStars: 'Sélectionner le niveau souhaité',
+  label: 'Sélectionner le niveau souhaité',
   options: [
     { value: '1', total: 3 },
     { value: '2', total: 3 },
@@ -53,7 +52,7 @@ export const multiSelectSearchable = (args) => {
       <PixMultiSelect
         style="width:350px"
         @id={{id}}
-        @title={{title}}
+        @label="Sélectionner une herbe aromatique"
         @placeholder={{placeholder}}
         @isSearchable={{isSearchable}}
         @showOptionsOnInput={{showOptionsOnInput}}
@@ -78,7 +77,7 @@ export const multiSelectAsyncOptions = (args) => {
       <PixMultiSelect
         style="width:350px"
         @id={{id}}
-        @title={{title}}
+        @label={{label}}
         @placeholder={{placeholder}}
         @isSearchable={{isSearchable}}
         @showOptionsOnInput={{showOptionsOnInput}}

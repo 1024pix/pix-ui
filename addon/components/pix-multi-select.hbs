@@ -1,12 +1,10 @@
 <div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown capture=true}}>
-
-  {{#if this.label}}
-    <label for={{@id}} class="pix-multi-select__label">{{this.label}}</label>
-  {{/if}}
-
   {{#if @isSearchable}}
-    <label class="pix-multi-select-header">
+    {{#if this.label}}
+      <label for={{@id}} class="pix-multi-select__label">{{this.label}}</label>
+    {{/if}}
 
+    <span class="pix-multi-select-header">
       <span class="pix-multi-select-header__title">{{@title}}</span>
       <FaIcon @icon="search" class="pix-multi-select-header__search-icon" />
 
@@ -20,8 +18,7 @@
         {{on "focus" this.focusDropdown}}
         class="pix-multi-select-header__search-input"
       />
-
-    </label>
+    </span>
   {{else}}
     <button
       id={{@id}}
@@ -29,7 +26,7 @@
       class="pix-multi-select-header {{if this.isBig "pix-multi-select-header--big"}}"
       {{on "click" this.toggleDropDown}}
     >
-      {{@title}}
+      {{@label}}
       <FaIcon
         class="pix-multi-select-header__dropdown-icon
           {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
