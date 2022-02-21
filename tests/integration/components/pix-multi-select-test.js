@@ -23,6 +23,7 @@ module('Integration | Component | multi-select', function (hooks) {
     this.onSelect = (selected) => this.set('selected', selected);
     this.emptyMessage = 'no result';
     this.label = 'MultiSelectTest';
+    this.ariaLabel = 'This label is for accessibility';
     this.id = 'id-MultiSelectTest';
 
     // when
@@ -32,6 +33,7 @@ module('Integration | Component | multi-select', function (hooks) {
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
         @label={{this.label}}
+        @ariaLabel={{ariaLabel}}
         @id={{this.id}}
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|>
@@ -43,6 +45,7 @@ module('Integration | Component | multi-select', function (hooks) {
     const listElement = this.element.querySelectorAll('li');
     assert.contains('MultiSelectTest');
     assert.equal(listElement.length, 3);
+    assert.dom('button[aria-label="This label is for accessibility"]').exists();
   });
 
   test('it renders the PixMultiSelect with empty message', async function (assert) {
@@ -241,6 +244,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
       this.label = 'MultiSelectTest';
+      this.ariaLabel = 'This label is for accessibility';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -252,6 +256,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
           @label={{this.label}}
+          @ariaLabel={{ariaLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -266,6 +271,7 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.contains('MultiSelectTest');
       assert.equal(inputElement.placeholder, this.placeholder);
       assert.equal(listElement.length, 3);
+      assert.dom('input[aria-label="This label is for accessibility"]').exists();
     });
 
     test('it should renders filtered given case insensitive', async function (assert) {

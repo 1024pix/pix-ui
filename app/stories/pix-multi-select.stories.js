@@ -24,6 +24,7 @@ export const multiSelectWithChildComponent = (args) => {
         @onSelect={{onSelect}}
         @emptyMessage={{emptyMessage}}
         @label={{label}}
+        @ariaLabel={{ariaLabel}}
         @options={{options}} as |star|
       >
         <PixStars
@@ -52,7 +53,8 @@ export const multiSelectSearchable = (args) => {
       <PixMultiSelect
         style="width:350px"
         @id={{id}}
-        @label="Sélectionner une herbe aromatique"
+        @label={{label}}
+        @ariaLabel={{ariaLabel}}
         @placeholder={{placeholder}}
         @isSearchable={{isSearchable}}
         @showOptionsOnInput={{showOptionsOnInput}}
@@ -78,6 +80,7 @@ export const multiSelectAsyncOptions = (args) => {
         style="width:350px"
         @id={{id}}
         @label={{label}}
+        @ariaLabel={{ariaLabel}}
         @placeholder={{placeholder}}
         @isSearchable={{isSearchable}}
         @showOptionsOnInput={{showOptionsOnInput}}
@@ -104,6 +107,15 @@ export const argTypes = {
   label: {
     name: 'label',
     description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    },
+  },
+  ariaLabel: {
+    name: 'ariaLabel',
+    description: 'Permet de donner un label accessible au champ (attribut aria-label).',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },

@@ -7,10 +7,13 @@
     <span class="pix-multi-select-header">
       <FaIcon @icon="search" class="pix-multi-select-header__search-icon" />
 
+      {{! template-lint-disable require-input-label }}
+      {{! https://github.com/ember-template-lint/ember-template-lint/issues/2141 }}
       <input
         id={{@id}}
         type="text"
         name={{@id}}
+        aria-label={{@ariaLabel}}
         placeholder={{this.placeholder}}
         autocomplete="off"
         {{on "input" this.updateSearch}}
@@ -22,7 +25,8 @@
     <button
       id={{@id}}
       type="button"
-      class="pix-multi-select-header {{if this.isBig "pix-multi-select-header--big"}}"
+      class="pix-multi-select-header {{if this.isBig 'pix-multi-select-header--big'}}"
+      aria-label={{@ariaLabel}}
       {{on "click" this.toggleDropDown}}
     >
       {{@label}}
