@@ -28,6 +28,12 @@ export default class PixMultiSelect extends Component {
     super(...args);
     const { onLoadOptions, selected } = this.args;
 
+    if (this.args.size) {
+      throw new Error(
+        'ERROR in PixMultiSelect component: @size argument has been removed and must not be used anymore.'
+      );
+    }
+
     if (onLoadOptions) {
       this.isLoadingOptions = true;
       onLoadOptions().then((options = []) => {
@@ -51,10 +57,6 @@ export default class PixMultiSelect extends Component {
       );
     }
     return this.args.label || null;
-  }
-
-  get isBig() {
-    return this.args.size === 'big';
   }
 
   get results() {

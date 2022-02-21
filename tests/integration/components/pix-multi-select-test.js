@@ -721,4 +721,20 @@ module('Integration | Component | multi-select', function (hooks) {
     assert.contains('MultiSelectTest');
     assert.equal(listElement.length, 3);
   });
+
+  test('it should throw an error if removed argument size is used', async function (assert) {
+    // given
+    const componentParams = { size: 'big', options: DEFAULT_OPTIONS };
+
+    // when
+    const renderComponent = function () {
+      createGlimmerComponent('component:pix-multi-select', componentParams);
+    };
+
+    // then
+    const expectedError = new Error(
+      'ERROR in PixMultiSelect component: @size argument has been removed and must not be used anymore.'
+    );
+    assert.throws(renderComponent, expectedError);
+  });
 });

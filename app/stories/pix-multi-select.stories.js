@@ -60,7 +60,6 @@ export const multiSelectSearchable = (args) => {
         @strictSearch={{strictSearch}}
         @onSelect={{doSomething}}
         @emptyMessage={{emptyMessage}}
-        @size={{size}}
         @selected={{selected}}
         @options={{options}} as |option|
       >
@@ -86,7 +85,6 @@ export const multiSelectAsyncOptions = (args) => {
         @strictSearch={{strictSearch}}
         @onSelect={{doSomething}}
         @emptyMessage={{emptyMessage}}
-        @size={{size}}
         @selected={{selected}}
         @onLoadOptions={{onLoadOptions}} as |option|
       >
@@ -184,16 +182,5 @@ export const argTypes = {
       'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
     defaultValue: false,
-  },
-  size: {
-    name: 'size',
-    description:
-      '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
-    options: ['big', 'small'],
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'small' },
-    },
   },
 };
