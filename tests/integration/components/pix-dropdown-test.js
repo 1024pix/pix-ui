@@ -34,6 +34,24 @@ module('Integration | Component | dropdown', function (hooks) {
     assert.dom(screen.queryByLabelText('Supprimer la sélection')).doesNotExist();
   });
 
+  test('it should be possible to make pix dropdown required', async function (assert) {
+    // given & when
+    const screen = await render(hbs`
+      <PixDropdown
+        @id="pix-dropdown"
+        @options={{this.options}}
+        @label="Mon menu déroulant"
+        @clearLabel="Supprimer la sélection"
+        @expandLabel="Ouvrir le menu déroulant"
+        @collapseLabel="Réduire le menu déroulant"
+        @requiredLabel="Champ obligatoire"
+      />
+    `);
+
+    // then
+    assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
+  });
+
   module('selection', () => {
     test('it allows to select an option and renders a clear button', async function (assert) {
       // given

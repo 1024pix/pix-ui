@@ -1,7 +1,14 @@
 <div class="pix-dropdown">
+
   {{#if this.label}}
-    <label id={{@id}} class="pix-dropdown__label">{{this.label}}</label>
+    <label id={{@id}} class="pix-dropdown__label">
+      {{#if @requiredLabel}}
+        <abbr title={{@requiredLabel}} class="mandatory-mark" aria-hidden="true">*</abbr>
+      {{/if}}
+      {{this.label}}
+    </label>
   {{/if}}
+
   <div class="pix-dropdown__controller">
     <button
       type="button"
@@ -9,15 +16,16 @@
       aria-label={{if this.isExpanded @collapseLabel @expandLabel}}
       {{on "click" this.toggleDropdown}}
       {{on "keyup" this.navigateThroughOptions}}
+      ...attributes
     >
       <p
         title={{this.placeholder}}
-        class="pix-dropdown__controller--placeholder-text{{unless
-            this.hasSelectedOption
-            ' default'
-          }}"
+        class="pix-dropdown__controller--placeholder-text
+          {{unless this.hasSelectedOption ' default'}}"
+        aria-required={{if this.requiredLabel true false}}
       >{{this.placeholder}}</p>
     </button>
+
     {{#if this.hasSelectedOption}}
       <button
         type="button"
@@ -28,11 +36,17 @@
         <FaIcon @icon="times" />
       </button>
     {{/if}}
-    <FaIcon
+
+    <button
+      tabindex="-1"
+      type="button"
       class="pix-dropdown__controller--chevron"
-      @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
-    />
+      {{on "click" this.toggleDropdown}}
+    >
+      <FaIcon @icon={{if this.isExpanded "chevron-up" "chevron-down"}} />
+    </button>
   </div>
+
   <div
     role="listbox"
     id={{this.menuId}}
@@ -45,6 +59,7 @@
     {{on "keyup" this.navigateThroughOptions}}
     {{on "scroll" this.incrementPage}}
   >
+
     {{#if @isSearchable}}
       <div class="pix-dropdown__menu--search">
         <FaIcon class="pix-dropdown__menu--search-icon" @icon="search" />
@@ -62,6 +77,7 @@
         />
       </div>
     {{/if}}
+
     {{#each this.options as |opt index|}}
       {{#if (lt index this.showLimit)}}
         <div
@@ -82,4 +98,5 @@
       {{/if}}
     {{/each}}
   </div>
+
 </div>
