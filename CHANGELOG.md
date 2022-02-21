@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.3.0 (21/02/2022)
+
+
+### :rocket: Enhancement
+- [#199](https://github.com/1024pix/pix-ui/pull/199) [FEATURE] Permettre de rendre obligatoire le PixDropdown
+
 ## v13.2.0 (17/02/2022)
 
 
