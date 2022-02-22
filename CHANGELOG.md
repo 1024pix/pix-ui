@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.3.1 (22/02/2022)
+
+
+### :bug: Bug fix
+- [#201](https://github.com/1024pix/pix-ui/pull/201) [BUGFIX] Corriger la couleur de la sélection et l'erreur d'accessibilité.
+
 ## v13.3.0 (21/02/2022)
 
 
