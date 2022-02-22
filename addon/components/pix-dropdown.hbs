@@ -30,21 +30,21 @@
       <button
         type="button"
         class="pix-dropdown__controller--clear"
-        {{on "click" this.clearSelection}}
         aria-label={{@clearLabel}}
+        {{on "click" this.clearSelection}}
       >
         <FaIcon @icon="times" />
       </button>
     {{/if}}
 
-    <button
+    <div
+      role="button"
       tabindex="-1"
-      type="button"
       class="pix-dropdown__controller--chevron"
       {{on "click" this.toggleDropdown}}
     >
       <FaIcon @icon={{if this.isExpanded "chevron-up" "chevron-down"}} />
-    </button>
+    </div>
   </div>
 
   <div
