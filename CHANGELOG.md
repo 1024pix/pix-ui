@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.3.3 (23/02/2022)
+
+
+### :bug: Correction
+- [#203](https://github.com/1024pix/pix-ui/pull/203) [BUGFIX] Aligner la modal dans le centre de la fenêtre.
+
 ## v13.3.2 (23/02/2022)
 
 
