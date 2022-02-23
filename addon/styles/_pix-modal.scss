@@ -27,14 +27,13 @@ $button-margin: 16px;
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     padding: $modal-padding;
-    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
 
   &__close-button {
     flex-shrink: 0;
-    right: $modal-padding;
-    position: absolute;
-    top: $modal-padding;
 
     @include device-is('tablet') {
       height: $tablet-close-button-size;
