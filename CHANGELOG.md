@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.3.2 (23/02/2022)
+
+
+### :bug: Bug fix
+- [#202](https://github.com/1024pix/pix-ui/pull/202) [BUGFIX] Corriger l'alignement dans le header de la Pix Modal.
+
 ## v13.3.1 (22/02/2022)
 
 
