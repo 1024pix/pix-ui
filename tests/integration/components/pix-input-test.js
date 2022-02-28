@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { render } from '@1024pix/ember-testing-library';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
@@ -100,5 +100,16 @@ module('Integration | Component | input', function (hooks) {
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
     assert.equal(selectorElement.autocomplete, 'on');
+  });
+
+  test('it should be possible to make pix input required', async function (assert) {
+    // given & when
+    const screen = await render(
+      hbs`<PixInput @label="Prénom" @id="firstName" @requiredLabel="Champ obligatoire" />`
+    );
+
+    // then
+    const requiredInput = screen.getByLabelText('* Prénom');
+    assert.dom(requiredInput).isRequired();
   });
 });
