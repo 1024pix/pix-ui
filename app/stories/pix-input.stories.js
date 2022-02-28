@@ -10,7 +10,9 @@ export const Template = (args) => {
         @errorMessage={{errorMessage}}
         @icon={{icon}}
         @isIconLeft={{isIconLeft}}
-        placeholder='Jeanne, Pierre ...' />
+        placeholder='Jeanne, Pierre ...'
+        @requiredLabel={{requiredLabel}}
+      />
     `,
     context: args,
   };
@@ -41,6 +43,13 @@ withIcon.args = {
   id: 'firstName',
   label: 'Prénom',
   icon: 'eye',
+};
+
+export const withRequiredLabel = Template.bind({});
+withRequiredLabel.args = {
+  id: 'firstName',
+  label: 'Prénom',
+  requiredLabel: 'Champ obligatoire',
 };
 
 export const argTypes = {
@@ -89,6 +98,15 @@ export const argTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: 'false' },
+    },
+  },
+  requiredLabel: {
+    name: 'requiredLabel',
+    description:
+      'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
     },
   },
 };
