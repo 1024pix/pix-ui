@@ -5,7 +5,7 @@ export const form = (args) => {
   return {
     template: hbs`
     <form>
-      <PixInput @id='firstName' @label='Prénom' @errorMessage={{genericErrorMessage}} />
+      <PixInput @id='firstName' @label='Prénom' @errorMessage={{genericErrorMessage}} @requiredLabel='champ obligatoire'/>
       <br>
       <PixInputPassword @id='password' @label='Mot de passe' @errorMessage={{genericErrorMessage}} />
       <br>
