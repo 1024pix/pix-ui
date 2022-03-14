@@ -1,0 +1,29 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-pagination.stories.js';
+
+<Meta
+  title='Others/Pagination'
+  component='PixPagination'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# PixPagination
+
+PixPagination est un élément permettant de trigger le changement de page dans l'élément parent.
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={60} />
+</Canvas>
+
+## Usage
+
+```html
+<PixPagination/>
+```
+
+## Arguments
+
+<ArgsTable story="Default" />
