@@ -1,8 +1,8 @@
 <footer class="pagination-control">
   <section class="page-size">
-    <p class="page-size__label">{{@beforeResultsPerPage}}</p>
+    <p class="page-size__label">{{this.beforeResultsPerPage}}</p>
     <PixSelect
-      aria-label= {{@selectPageSizeLabel}}
+      aria-label={{this.selectPageSizeLabel}}
       class="page-size__choice"
       @selectedOption={{this.pageSize}}
       @onChange={{this.changePageSize}}
@@ -12,14 +12,14 @@
   <section class="page-navigation">
     <p>
       {{#if (eq this.pageCount 1)}}
-        {{@pageResults}}
+        {{this.pageResults}}
       {{else}}
-        {{@pageInfo}}
+        {{this.pageInfo}}
       {{/if}}
     </p>
     <PixIconButton
       @icon="arrow-left"
-      aria-label={{@previousPageLabel}}
+      aria-label={{this.previousPageLabel}}
       @triggerAction={{this.goToPreviousPage}}
       @withBackground={{false}}
       @size="small"
@@ -29,11 +29,11 @@
       class="page-navigation__arrow page-navigation__arrow--previous"
     />
     <p>
-      {{@pageNumber}}
+      {{this.pageNumber}}
     </p>
     <PixIconButton
       @icon="arrow-right"
-      aria-label={{@nextPageLabel}}
+      aria-label={{this.nextPageLabel}}
       @triggerAction={{this.goToNextPage}}
       @withBackground={{false}}
       @size="small"
