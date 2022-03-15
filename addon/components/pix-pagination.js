@@ -1,11 +1,80 @@
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
+import { createIntl } from '@formatjs/intl';
 
 const DEFAULT_PAGE_SIZE = 10;
 
 export default class PixPagination extends Component {
   @service router;
+
+  static messages = {
+    fr: createIntl({
+      locale: 'fr',
+      messages: {
+        beforeResultsPerPage: 'Voir',
+        selectPageSizeLabel: "Nombre d'élément à afficher par page",
+        pageResults:
+          '{total, plural, =0 {0 élément} =1 {1 élément} other {{total, number} éléments}}',
+        pageInfo:
+          '{start, number}-{end, number} sur {total, plural, =0 {0 élément} =1 {1 élément} other {{total, number} éléments}}',
+        previousPageLabel: 'Aller à la page précédente',
+        pageNumber: 'Page {current, number} / {total, number}',
+        nextPageLabel: 'Aller à la page suivante',
+      },
+    }),
+    en: createIntl({
+      locale: 'en',
+      messages: {
+        beforeResultsPerPage: 'See',
+        selectPageSizeLabel: 'Select the number of items by page',
+        pageResults: '{total, plural, =0 {0 items} =1 {1 item} other {{total, number} items}}',
+        pageInfo:
+          '{start, number}-{end, number} of {total, plural, =0 {0 items} =1 {1 item} other {{total, number} items}}',
+        previousPageLabel: 'Go to previous page',
+        pageNumber: 'Page {current, number} / {total, number}',
+        nextPageLabel: 'Go to next page',
+      },
+    }),
+  };
+
+  get beforeResultsPerPage() {
+    return this.formatMessage('beforeResultsPerPage');
+  }
+
+  get previousPageLabel() {
+    return this.formatMessage('previousPageLabel');
+  }
+
+  get nextPageLabel() {
+    return this.formatMessage('nextPageLabel');
+  }
+
+  get pageNumber() {
+    return this.formatMessage('pageNumber', {
+      total: this.pageCount,
+      current: this.currentPage,
+    });
+  }
+  get pageInfo() {
+    return this.formatMessage('pageInfo', {
+      total: this.resultsCount,
+      start: this.firstItemPosition,
+      end: this.lastItemPosition,
+    });
+  }
+
+  get selectPageSizeLabel() {
+    return this.formatMessage('selectPageSizeLabel');
+  }
+
+  get pageResults() {
+    return this.formatMessage('pageResults', { total: this.args.pagination.rowCount });
+  }
+
+  formatMessage(message, values) {
+    return PixPagination.messages[this.args.locale ?? 'fr'].formatMessage({ id: message }, values);
+  }
 
   get currentPage() {
     return this.args.pagination ? this.args.pagination.page : 1;
