@@ -1,61 +1,78 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | pagination', function (hooks) {
   setupRenderingTest(hooks);
 
-  const COMPONENT_SELECTOR = '.pagination-control';
-  const paginationData = {
-    page: 1,
-    pageSize: 10,
-    rowCount: 2,
-    pageCount: 1,
-  };
-
-  test('it renders the default PixPagination', async function (assert) {
-    // when
-    await render(hbs`
-      <PixPagination/>
-    `);
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-
-    // then
-    assert.equal(componentElement.textContent.trim(), 'content');
-  });
-
-  test('Use locale params to translate component', async function (assert) {
-    // given
-    this.locale = 'en';
-    const COMPONENT_SELECTOR = '.page-size__label';
-    this.set('pagination', paginationData);
-
-    // when
-    await render(hbs`
-      <PixPagination
-        @locale={{this.locale}}
-        @pagination={{pagination}}
-      />
-    `);
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-
-    // then
-    assert.equal(componentElement.textContent.trim(), 'See');
-  });
   test('Use PixPagination without locale params', async function (assert) {
     // given
-    const COMPONENT_SELECTOR = '.page-size__label';
+    const paginationData = {
+      page: 1,
+      pageSize: 10,
+      rowCount: 2,
+      pageCount: 1,
+    };
     this.set('pagination', paginationData);
     // when
-    await render(hbs`
+    const screen = await render(hbs`
       <PixPagination
          @pagination={{pagination}}
       />
     `);
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
 
     // then
-    assert.equal(componentElement.textContent.trim(), 'Voir');
+    assert.dom(screen.getByText('Voir')).exists();
+    assert.dom(screen.getByText('2 éléments')).exists();
+    assert.dom(screen.getByText('Page 1 / 1')).exists();
+  });
+
+  test('Use locale params to translate component', async function (assert) {
+    // given
+    const paginationData = {
+      page: 1,
+      pageSize: 10,
+      rowCount: 2,
+      pageCount: 1,
+    };
+    this.set('locale', 'en');
+    this.set('pagination', paginationData);
+
+    // when
+    const screen = await render(hbs`
+      <PixPagination
+        @pagination={{pagination}}
+        @locale={{this.locale}}
+      />
+    `);
+
+    // then
+    assert.dom(screen.getByText('See')).exists();
+    assert.dom(screen.getByText('2 items')).exists();
+    assert.dom(screen.getByText('Page 1 / 1')).exists();
+  });
+
+  test('When pagination params have options to display several pages', async function (assert) {
+    // given
+    const paginationData = {
+      page: 2,
+      pageSize: 10,
+      rowCount: 12,
+      pageCount: 2,
+    };
+    this.set('pagination', paginationData);
+
+    // when
+    const screen = await render(hbs`
+      <PixPagination
+        @pagination={{pagination}}
+      />
+    `);
+
+    // then
+    assert.dom(screen.getByText('Voir')).exists();
+    assert.dom(screen.getByText('11-12 sur 12 éléments')).exists();
+    assert.dom(screen.getByText('Page 2 / 2')).exists();
   });
 });
