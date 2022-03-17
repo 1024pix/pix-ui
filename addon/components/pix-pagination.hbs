@@ -1,15 +1,15 @@
-<footer class="pagination-control">
-  <section class="page-size">
-    <p class="page-size__label">{{this.beforeResultsPerPage}}</p>
+<footer class="pix-pagination">
+  <section class="pix-pagination__size">
+    <p class="pagination-size__label">{{this.beforeResultsPerPage}}</p>
     <PixSelect
       aria-label={{this.selectPageSizeLabel}}
-      class="page-size__choice"
+      class="pagination-size__choice"
       @selectedOption={{this.pageSize}}
       @onChange={{this.changePageSize}}
       @options={{this.pageOptions}}
     />
   </section>
-  <section class="page-navigation">
+  <section class="pix-pagination__navigation">
     <p>
       {{#if (eq this.pageCount 1)}}
         {{this.pageResults}}
@@ -22,11 +22,11 @@
       aria-label={{this.previousPageLabel}}
       @triggerAction={{this.goToPreviousPage}}
       @withBackground={{false}}
-      @size="small"
+      @size="big"
       @color="dark-grey"
       disabled={{this.isPreviousPageDisabled}}
       aria-disabled="{{this.isPreviousPageDisabled}}"
-      class="page-navigation__arrow page-navigation__arrow--previous"
+      class="arrow arrow--previous"
     />
     <p>
       {{this.pageNumber}}
@@ -36,11 +36,11 @@
       aria-label={{this.nextPageLabel}}
       @triggerAction={{this.goToNextPage}}
       @withBackground={{false}}
-      @size="small"
+      @size="big"
       @color="dark-grey"
       disabled={{this.isNextPageDisabled}}
       aria-disabled="{{this.isNextPageDisabled}}"
-      class="page-navigation__arrow page-navigation__arrow--next"
+      class="arrow arrow--next"
     />
   </section>
 </footer>
