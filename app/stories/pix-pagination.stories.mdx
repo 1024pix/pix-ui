@@ -13,6 +13,15 @@ import * as stories from './pix-pagination.stories.js';
 
 PixPagination est un élément permettant de trigger le changement de page dans l'élément parent.
 
+> ** ⚠️ Pour utiliser ce composant, il est recommandé d'ajouter cette config dans les routes où tu l'utiliseras.**
+>
+> ** Cela permettra de reload le `model` si les queryParams `pageNumber` & `pageSize` ont été modifiés.**
+> ```javascript
+>  queryParams = { pageNumber: { refreshModel: true }, pageSize: { refreshModel: true }, };
+>```
+>
+>** Installer la dépendance `@formatjs/intl` sur votre projet.**
+
 PixPagination en français
 <Canvas>
   <Story name='French' story={stories.French} height={110}/>

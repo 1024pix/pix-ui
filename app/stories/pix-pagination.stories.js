@@ -6,6 +6,7 @@ export const Template = (args) => {
       <PixPagination
         @pagination={{pagination}}
         @locale = {{locale}}
+        @pageOptions= {{pageOptions}}
             />
     `,
     context: args,
@@ -16,10 +17,16 @@ export const French = Template.bind({});
 French.args = {
   pagination: {
     page: 1,
-    pageSize: 10,
+    pageSize: 5,
     rowCount: 12,
-    pageCount: 2,
+    pageCount: 3,
   },
+  pageOptions: [
+    { label: '5', value: 5 },
+    { label: '20', value: 20 },
+    { label: '50', value: 50 },
+    { label: '100', value: 100 },
+  ],
   locale: 'fr',
 };
 
@@ -31,6 +38,12 @@ English.args = {
     rowCount: 12,
     pageCount: 2,
   },
+  pageOptions: [
+    { label: '10', value: 10 },
+    { label: '20', value: 20 },
+    { label: '50', value: 50 },
+    { label: '100', value: 100 },
+  ],
   locale: 'en',
 };
 
@@ -42,6 +55,12 @@ OnePage.args = {
     rowCount: 2,
     pageCount: 1,
   },
+  pageOptions: [
+    { label: '10', value: 10 },
+    { label: '20', value: 20 },
+    { label: '50', value: 50 },
+    { label: '100', value: 100 },
+  ],
   locale: 'fr',
 };
 
@@ -49,12 +68,23 @@ OnePage.args = {
 export const argTypes = {
   pagination: {
     name: 'pagination',
-    description: 'object including pagination informations',
-    type: { name: 'object', required: false },
+    description:
+      "Un objet de pagination tel que l'on en trouve au retour de `knex-utils.fetchPage`",
+    type: { name: 'object', required: true },
+  },
+  pageOptions: {
+    name: 'pageOptions',
+    description: "Un tableau d'objet `options` pour configurer le select",
+    type: { name: 'array', required: true },
   },
   locale: {
     name: 'locale',
-    description: 'Selected locale',
+    description: "La langue de l'utilisateur",
     type: { name: 'string', required: false },
+    control: { type: 'select', options: ['fr', 'en'] },
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: 'fr' },
+    },
   },
 };
