@@ -55,12 +55,6 @@ OnePage.args = {
     rowCount: 2,
     pageCount: 1,
   },
-  pageOptions: [
-    { label: '10', value: 10 },
-    { label: '20', value: 20 },
-    { label: '50', value: 50 },
-    { label: '100', value: 100 },
-  ],
   locale: 'fr',
 };
 
@@ -75,7 +69,7 @@ export const argTypes = {
   pageOptions: {
     name: 'pageOptions',
     description: "Un tableau d'objet `options` pour configurer le select",
-    type: { name: 'array', required: true },
+    type: { name: 'array', required: false },
   },
   locale: {
     name: 'locale',

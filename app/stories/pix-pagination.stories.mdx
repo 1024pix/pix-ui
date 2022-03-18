@@ -22,6 +22,18 @@ PixPagination est un élément permettant de trigger le changement de page dans 
 >
 >** Installer la dépendance `@formatjs/intl` sur votre projet.**
 
+Le paramètre `pageOptions` n'est pas  requis et  a une valeur par défaut :
+
+>[
+>  { label: '10', value: 10 },
+>  { label: '20', value: 20 },
+>  { label: '50', value: 50 },
+>  { label: '100', value: 100 },
+>]
+
+** ⚠ Si vous voulez utiliser des options différentes, il ne faut pas oublier que l'API fait le premier call avec un pageSize
+ à 10 par défaut.**
+
 PixPagination en français
 <Canvas>
   <Story name='French' story={stories.French} height={110}/>
@@ -43,6 +55,7 @@ PixPagination comprenant qu'une seule page
 <PixPagination
    @pagination={{pagination}}
    @locale = {{locale}}
+   @pageOptions = {{pageOptions}
 />
 ```
 
