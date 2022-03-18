@@ -3,8 +3,12 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { createIntl } from '@formatjs/intl';
 
-const DEFAULT_PAGE_SIZE = 10;
-
+const DEFAULT_PAGE_OPTIONS = [
+  { label: '10', value: 10 },
+  { label: '20', value: 20 },
+  { label: '50', value: 50 },
+  { label: '100', value: 100 },
+];
 export default class PixPagination extends Component {
   @service router;
 
@@ -64,6 +68,10 @@ export default class PixPagination extends Component {
     });
   }
 
+  get pageOptions() {
+    return this.args.pageOptions ? this.args.pageOptions : DEFAULT_PAGE_OPTIONS;
+  }
+
   get selectPageSizeLabel() {
     return this.formatMessage('selectPageSizeLabel');
   }
@@ -87,7 +95,7 @@ export default class PixPagination extends Component {
   }
 
   get pageSize() {
-    return this.args.pagination ? this.args.pagination.pageSize : DEFAULT_PAGE_SIZE;
+    return this.args.pagination ? this.args.pagination.pageSize : this.args.pageOptions[0];
   }
 
   get isNextPageDisabled() {
