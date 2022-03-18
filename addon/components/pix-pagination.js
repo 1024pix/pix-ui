@@ -121,15 +121,6 @@ export default class PixPagination extends Component {
     return Math.min(rowCount, this.firstItemPosition + this.pageSize - 1);
   }
 
-  get pageOptions() {
-    return [
-      { label: '10', value: 10 },
-      { label: '20', value: 20 },
-      { label: '50', value: 50 },
-      { label: '100', value: 100 },
-    ];
-  }
-
   @action
   changePageSize(event) {
     this.router.replaceWith({ queryParams: { pageSize: event.target.value, pageNumber: 1 } });
