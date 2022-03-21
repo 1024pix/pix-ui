@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.3.4 (21/03/2022)
+
+
+### :bug: Correction
+- [#205](https://github.com/1024pix/pix-ui/pull/205) [BUGFIX] Augmenter la priorité d'affichage de la modal
+
 ## v13.3.3 (23/02/2022)
 
 
