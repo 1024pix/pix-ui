@@ -1,12 +1,11 @@
 .pix-pagination{
   display: flex;
-  justify-content: space-between;
+  justify-content: end;
   margin: 16px 0;
   color: $grey-60;
   font-size: 0.875rem;
-
   &__size {
-    display: flex;
+    display: none;
     align-items: center;
     padding: 0;
 
@@ -36,6 +35,15 @@
       &--next {
         margin-left: 8px;
       }
+    }
+  }
+}
+
+@include device-is('tablet') {
+  .pix-pagination {
+    justify-content: space-between;
+    &__size{
+      display: flex;
     }
   }
 }
