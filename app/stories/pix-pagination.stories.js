@@ -21,12 +21,6 @@ French.args = {
     rowCount: 12,
     pageCount: 3,
   },
-  pageOptions: [
-    { label: '5', value: 5 },
-    { label: '20', value: 20 },
-    { label: '50', value: 50 },
-    { label: '100', value: 100 },
-  ],
   locale: 'fr',
 };
 
@@ -70,6 +64,50 @@ export const argTypes = {
     name: 'pageOptions',
     description: "Un tableau d'objet `options` pour configurer le select",
     type: { name: 'array', required: false },
+    control: {
+      type: 'array',
+      value: [
+        {
+          label: '10',
+          value: 10,
+        },
+        {
+          label: '25',
+          value: 25,
+        },
+        {
+          label: '50',
+          value: 50,
+        },
+        {
+          label: '100',
+          value: 100,
+        },
+      ],
+    },
+    table: {
+      type: { summary: 'array' },
+      defaultValue: {
+        summary: JSON.stringify([
+          {
+            label: '10',
+            value: 10,
+          },
+          {
+            label: '25',
+            value: 25,
+          },
+          {
+            label: '50',
+            value: 50,
+          },
+          {
+            label: '100',
+            value: 100,
+          },
+        ]),
+      },
+    },
   },
   locale: {
     name: 'locale',
