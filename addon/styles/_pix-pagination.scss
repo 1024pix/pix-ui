@@ -1,6 +1,6 @@
 .pix-pagination{
   display: flex;
-  justify-content: end;
+  justify-content: center;
   margin: 16px 0;
   color: $grey-60;
   font-size: 0.875rem;
@@ -25,16 +25,11 @@
     display: flex;
     align-items: center;
     padding: 0;
-
-    .arrow {
-
-      &--previous {
-        margin: 0 8px;
-      }
-
-      &--next {
-        margin-left: 8px;
-      }
+    gap: 12px;
+    flex-direction: column-reverse;
+    &-action {
+      display: flex;
+      align-items: center;
     }
   }
 }
@@ -44,6 +39,10 @@
     justify-content: space-between;
     &__size{
       display: flex;
+    }
+    &__navigation{
+      gap: initial;
+      flex-direction:initial ;
     }
   }
 }
