@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.4.0 (25/03/2022)
+
+
+### :rocket: Amélioration
+- [#206](https://github.com/1024pix/pix-ui/pull/206) [FEATURE] Composant de pagination (PIX-4511)
+
 ## v13.3.4 (21/03/2022)
 
 
