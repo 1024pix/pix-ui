@@ -1,0 +1,46 @@
+<footer class="pix-pagination">
+  <section class="pix-pagination__size">
+    <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
+    <PixSelect
+      aria-label={{this.selectPageSizeLabel}}
+      class="pagination-size__choice"
+      @selectedOption={{this.pageSize}}
+      @onChange={{this.changePageSize}}
+      @options={{this.pageOptions}}
+    />
+  </section>
+  <section class="pix-pagination__navigation">
+    <span>
+      {{#if (eq this.pageCount 1)}}
+        {{this.pageResults}}
+      {{else}}
+        {{this.pageInfo}}
+      {{/if}}
+    </span>
+    <div class="pix-pagination__navigation-action">
+      <PixIconButton
+        @icon="arrow-left"
+        aria-label={{this.previousPageLabel}}
+        @triggerAction={{this.goToPreviousPage}}
+        @withBackground={{false}}
+        @size="big"
+        @color="dark-grey"
+        disabled={{this.isPreviousPageDisabled}}
+        aria-disabled="{{this.isPreviousPageDisabled}}"
+      />
+      <span>
+        {{this.pageNumber}}
+      </span>
+      <PixIconButton
+        @icon="arrow-right"
+        aria-label={{this.nextPageLabel}}
+        @triggerAction={{this.goToNextPage}}
+        @withBackground={{false}}
+        @size="big"
+        @color="dark-grey"
+        disabled={{this.isNextPageDisabled}}
+        aria-disabled="{{this.isNextPageDisabled}}"
+      />
+    </div>
+  </section>
+</footer>
