@@ -1,9 +1,10 @@
-.pix-pagination{
+.pix-pagination, .pix-pagination-condensed {
   display: flex;
   justify-content: center;
   margin: 16px 0;
   color: $grey-60;
   font-size: 0.875rem;
+
   &__size {
     display: none;
     align-items: center;
@@ -21,15 +22,22 @@
     }
   }
 
-  &__navigation{
+  &__navigation {
     display: flex;
     align-items: center;
     padding: 0;
     gap: 12px;
     flex-direction: column-reverse;
-    &-action {
-      display: flex;
-      align-items: center;
+  }
+}
+
+.pix-pagination-navigation {
+  &__action {
+    display: flex;
+    align-items: center;
+
+    &-button {
+      margin: 0 8px;
     }
   }
 }
@@ -37,12 +45,15 @@
 @include device-is('tablet') {
   .pix-pagination {
     justify-content: space-between;
-    &__size{
+  }
+  .pix-pagination > .pix-pagination {
+    &__size {
       display: flex;
     }
-    &__navigation{
+
+    &__navigation {
       gap: initial;
-      flex-direction:initial ;
+      flex-direction: initial;
     }
   }
 }
