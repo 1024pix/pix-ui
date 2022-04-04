@@ -7,6 +7,7 @@ export const Template = (args) => {
         @pagination={{pagination}}
         @locale = {{locale}}
         @pageOptions= {{pageOptions}}
+        @isCondensed= {{isCondensed}}
             />
     `,
     context: args,
@@ -50,6 +51,18 @@ OnePage.args = {
     pageCount: 1,
   },
   locale: 'fr',
+};
+
+export const Condensed = Template.bind({});
+Condensed.args = {
+  pagination: {
+    page: 1,
+    pageSize: 10,
+    rowCount: 2,
+    pageCount: 1,
+  },
+  locale: 'fr',
+  isCondensed: true,
 };
 
 // select attribute data type from https://storybook.js.org/docs/react/essentials/controls
@@ -117,6 +130,17 @@ export const argTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'fr' },
+    },
+  },
+  isCondensed: {
+    name: 'isCondensed',
+    description:
+      "En desktop, retire le contrôle du nombre d'élèments par page pour simplifier l'usage",
+    type: { name: 'boolean', required: false },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: 'false' },
     },
   },
 };
