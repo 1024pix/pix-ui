@@ -9,8 +9,13 @@ const DEFAULT_PAGE_OPTIONS = [
   { label: '50', value: 50 },
   { label: '100', value: 100 },
 ];
+
 export default class PixPagination extends Component {
   @service router;
+
+  get isCondensed() {
+    return this.args.isCondensed ? 'pix-pagination-condensed' : 'pix-pagination';
+  }
 
   get beforeResultsPerPage() {
     return this.formatMessage('beforeResultsPerPage');
