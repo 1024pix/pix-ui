@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.4.1 (05/04/2022)
+
+
+### :rocket: Amélioration
+- [#207](https://github.com/1024pix/pix-ui/pull/207) [FEATURE] Permettre à pix-pagination d'avoir une version condensée (PIX-4715)
+
 ## v13.4.0 (25/03/2022)
 
 
