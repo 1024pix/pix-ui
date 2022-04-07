@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.4.2 (07/04/2022)
+
+
+### :building_construction: Tech
+- [#208](https://github.com/1024pix/pix-ui/pull/208) [TECH] Suppression de la margin dans Pix-Pagination (PIX-4733)
+
 ## v13.4.1 (05/04/2022)
 
 
