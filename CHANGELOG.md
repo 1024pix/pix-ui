@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.4.4 (11/04/2022)
+
+
+### :bug: Correction
+- [#209](https://github.com/1024pix/pix-ui/pull/209) [BUGFIX]  Remplace la page courante si elle n'existe plus
+
 ## v13.4.2 (07/04/2022)
 
 
