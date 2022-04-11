@@ -1,13 +1,25 @@
 <div class="pix-input">
   {{#if @label}}
-    <label for={{this.id}} class="pix-input__label">{{@label}}</label>
+    <label for={{this.id}} class="pix-input__label">
+      {{#if @requiredLabel}}
+        <abbr title={{@requiredLabel}} class="mandatory-mark" aria-hidden="true">*</abbr>
+      {{/if}}
+      {{@label}}
+    </label>
   {{/if}}
   {{#if @information}}
     <label for={{this.id}} class="pix-input__information">{{@information}}</label>
   {{/if}}
 
   <div class="pix-input__container">
-    <input id={{this.id}} class={{this.className}} value={{@value}} ...attributes />
+    <input
+      id={{this.id}}
+      class={{this.className}}
+      value={{@value}}
+      aria-required="{{if @requiredLabel true false}}"
+      required={{if @requiredLabel true false}}
+      ...attributes
+    />
 
     {{#if @errorMessage}}
       <FaIcon @icon="times" class="pix-input__error-icon" />

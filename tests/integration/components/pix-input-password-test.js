@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
 
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
@@ -103,5 +103,16 @@ module('Integration | Component | pix-input-password', function (hooks) {
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
     assert.equal(selectorElement.value, 'pix123');
+  });
+
+  test('it should be possible to make pix input password required', async function (assert) {
+    // given & when
+    const screen = await render(
+      hbs`<PixInputPassword @id="password" @label="Mot de passe" @requiredLabel="Champ obligatoire" />`
+    );
+
+    // then
+    const requiredPasswordInput = screen.getByLabelText('* Mot de passe');
+    assert.dom(requiredPasswordInput).isRequired();
   });
 });

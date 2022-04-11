@@ -10,6 +10,7 @@ export const Template = (args) => {
         @information={{information}}
         @errorMessage={{errorMessage}}
         @prefix={{prefix}}
+        @requiredLabel={{requiredLabel}}
       />
     `,
     context: args,
@@ -41,6 +42,13 @@ withPrefix.args = {
   id: 'password',
   label: 'Mot de passe',
   prefix: 'C -',
+};
+
+export const withRequiredLabel = Template.bind({});
+withRequiredLabel.args = {
+  id: 'password',
+  label: 'Mot de passe',
+  requiredLabel: 'Champ obligatoire',
 };
 
 export const argTypes = {
@@ -85,5 +93,14 @@ export const argTypes = {
     description: 'Affiche un préfixe avant la zone de saisie du champ',
     type: { name: 'string', required: false },
     defaultValue: null,
+  },
+  requiredLabel: {
+    name: 'requiredLabel',
+    description:
+      'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
   },
 };
