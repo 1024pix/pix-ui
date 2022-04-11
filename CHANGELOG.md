@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.5.0 (11/04/2022)
+
+
+### :rocket: Amélioration
+- [#204](https://github.com/1024pix/pix-ui/pull/204) [FEATURE] Permettre de rendre Pix Input et Pix Input Password obligatoires (PIX-4138).
+
 ## v13.4.4 (11/04/2022)
 
 
