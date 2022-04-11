@@ -6,14 +6,19 @@
   position: relative;
 
   &__label {
-    @include label();
+    font-family: $font-roboto;
+    font-size: 0.875rem;
+    color: $grey-70;
+    margin-bottom: 4px;
   }
 
   &__information {
     font-family: $font-roboto;
     font-size: 0.75rem;
+    margin-top: 4px;
     color: $blue-zodiac;
-    margin-bottom: 4px;
+
+    display: block;
   }
 
   &__container {
@@ -54,8 +59,12 @@
 
   &__error-message {
     @include errorMessage();
-    margin-top: 4px;
+    margin-bottom: 0;
     bottom: calc(-4px - 1px - 0.75rem);
+
+    &.pix-input__error-message {
+      margin-top:4px;
+    }
   }
 
   input {

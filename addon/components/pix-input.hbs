@@ -4,11 +4,13 @@
       {{#if @requiredLabel}}
         <abbr title={{@requiredLabel}} class="mandatory-mark" aria-hidden="true">*</abbr>
       {{/if}}
+
       {{@label}}
+
+      {{#if @information}}
+        <span class="pix-input__information">{{@information}}</span>
+      {{/if}}
     </label>
-  {{/if}}
-  {{#if @information}}
-    <label for={{this.id}} class="pix-input__information">{{@information}}</label>
   {{/if}}
 
   <div class="pix-input__container">
@@ -18,6 +20,7 @@
       value={{@value}}
       aria-required="{{if @requiredLabel true false}}"
       required={{if @requiredLabel true false}}
+      aria-describedby={{if @errorMessage "text-input-error"}}
       ...attributes
     />
 
@@ -31,6 +34,6 @@
   </div>
 
   {{#if @errorMessage}}
-    <label for={{this.id}} class="pix-input__error-message">{{@errorMessage}}</label>
+    <p id="text-input-error" class="pix-input__error-message">{{@errorMessage}}</p>
   {{/if}}
 </div>
