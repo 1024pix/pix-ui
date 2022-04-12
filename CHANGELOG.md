@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.0.0 (12/04/2022)
+
+
+### :coffee: Autre
+- [#212](https://github.com/1024pix/pix-ui/pull/212) [BREAKING_CHANGES][BUGFIX] Ajouter un aria-label au Pix Input (PIX-4759).
+
 ## v13.5.1 (12/04/2022)
 
 
