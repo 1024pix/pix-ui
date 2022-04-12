@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.1.0 (12/04/2022)
+
+
+### :rocket: Amélioration
+- [#213](https://github.com/1024pix/pix-ui/pull/213) [FEATURE] Retirer l'option d'ajouter une icône dans le composant Pix Input (PIX-4766).
+
 ## v14.0.0 (12/04/2022)
 
 
