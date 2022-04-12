@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v13.5.1 (12/04/2022)
+
+
+### :bug: Correction
+- [#211](https://github.com/1024pix/pix-ui/pull/211) [BUGFIX] Ne permettre qu'un label dans les composants Pix Input et Input Password (PIX-4125).
+
 ## v13.5.0 (11/04/2022)
 
 
