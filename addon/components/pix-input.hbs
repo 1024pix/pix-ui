@@ -16,7 +16,7 @@
   <div class="pix-input__container">
     <input
       id={{this.id}}
-      class={{this.className}}
+      class={{if @errorMessage "pix-input__input--error"}}
       value={{@value}}
       aria-label={{this.ariaLabel}}
       aria-required="{{if @requiredLabel true false}}"
@@ -27,10 +27,6 @@
 
     {{#if @errorMessage}}
       <FaIcon @icon="times" class="pix-input__error-icon" />
-    {{/if}}
-
-    {{#if @icon}}
-      <FaIcon @icon={{@icon}} class="pix-input__icon {{if @isIconLeft 'pix-input__icon--left'}}" />
     {{/if}}
   </div>
 

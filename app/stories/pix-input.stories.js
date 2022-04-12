@@ -8,8 +8,6 @@ export const Template = (args) => {
         @label={{label}}
         @information={{information}}
         @errorMessage={{errorMessage}}
-        @icon={{icon}}
-        @isIconLeft={{isIconLeft}}
         placeholder='Jeanne, Pierre ...'
         @requiredLabel={{requiredLabel}}
         @ariaLabel={{ariaLabel}}
@@ -38,13 +36,6 @@ withErrorMessage.args = {
   label: 'Prénom',
   information: 'a small information',
   errorMessage: "un message d'erreur",
-};
-
-export const withIcon = Template.bind({});
-withIcon.args = {
-  id: 'firstName',
-  label: 'Prénom',
-  icon: 'eye',
 };
 
 export const withRequiredLabel = Template.bind({});
@@ -90,23 +81,6 @@ export const argTypes = {
     description: "Affiche le message d'erreur donné et encadre en rouge le champ",
     type: { name: 'string', required: false },
     defaultValue: null,
-  },
-  icon: {
-    name: 'icon',
-    description: "Affiche l'icône choisie à la fin de l'input",
-    type: { name: 'string', required: false },
-    defaultValue: null,
-  },
-  isIconLeft: {
-    name: 'isIconLeft',
-    description: "Permet d'afficher l'icône choisie sur la gauche",
-    type: { name: 'boolean', required: false },
-    control: { type: 'boolean' },
-    defaultValue: false,
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: 'false' },
-    },
   },
   requiredLabel: {
     name: 'requiredLabel',
