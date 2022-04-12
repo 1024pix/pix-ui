@@ -12,6 +12,7 @@ export const Template = (args) => {
         @isIconLeft={{isIconLeft}}
         placeholder='Jeanne, Pierre ...'
         @requiredLabel={{requiredLabel}}
+        @ariaLabel={{ariaLabel}}
       />
     `,
     context: args,
@@ -21,6 +22,7 @@ export const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   id: 'firstName',
+  ariaLabel: 'Prénom',
 };
 
 export const withLabel = Template.bind({});
@@ -53,6 +55,12 @@ withRequiredLabel.args = {
 };
 
 export const argTypes = {
+  ariaLabel: {
+    name: 'ariaLabel',
+    description: "L'action du champ, pour l'accessibilité. Requis si label n'est pas définit.",
+    type: { name: 'string', required: true },
+    defaultValue: null,
+  },
   id: {
     name: 'id',
     description: 'Identifiant du champ permettant de lui attacher un label',

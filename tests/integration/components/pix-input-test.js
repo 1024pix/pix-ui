@@ -33,7 +33,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give a number as id', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @id={{123}} />`);
+    await render(hbs`<PixInput @id={{123}} @label="Prénom" />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -61,7 +61,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to give an error message to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInput @id="firstName" @errorMessage="Seul les caractères alphanumériques sont autorisés" />`
+      hbs`<PixInput @id="firstName" @label="Prénom" @errorMessage="Seul les caractères alphanumériques sont autorisés" />`
     );
 
     // then
@@ -70,7 +70,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give an icon to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @id="firstName" @icon="times" />`);
+    await render(hbs`<PixInput @id="firstName" @label="Prénom" @icon="times" />`);
 
     // then
     assert.dom('.pix-input__icon').exists();
@@ -78,7 +78,9 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to put an icon to the left of input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @id="firstName" @icon="times" @isIconLeft={{true}} />`);
+    await render(
+      hbs`<PixInput @id="firstName" @label="Prénom" @icon="times" @isIconLeft={{true}} />`
+    );
 
     // then
     assert.dom('.pix-input__icon.pix-input__icon--left').exists();
@@ -111,5 +113,22 @@ module('Integration | Component | input', function (hooks) {
     // then
     const requiredInput = screen.getByLabelText('* Prénom');
     assert.dom(requiredInput).isRequired();
+  });
+
+  test('it should throw an error if pix input has neither a label nor an ariaLabel param', async function (assert) {
+    // given & when
+    const componentParams = { label: null, ariaLabel: null };
+    const component = createGlimmerComponent('component:pix-input', componentParams);
+
+    // then
+    const expectedError = new Error(
+      'ERROR in PixInput component, you must provide @label or @ariaLabel params'
+    );
+    assert.throws(function () {
+      component.label;
+    }, expectedError);
+    assert.throws(function () {
+      component.ariaLabel;
+    }, expectedError);
   });
 });
