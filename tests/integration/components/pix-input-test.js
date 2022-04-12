@@ -68,24 +68,6 @@ module('Integration | Component | input', function (hooks) {
     assert.contains('Seul les caractères alphanumériques sont autorisés');
   });
 
-  test('it should be possible to give an icon to input', async function (assert) {
-    // given & when
-    await render(hbs`<PixInput @id="firstName" @label="Prénom" @icon="times" />`);
-
-    // then
-    assert.dom('.pix-input__icon').exists();
-  });
-
-  test('it should be possible to put an icon to the left of input', async function (assert) {
-    // given & when
-    await render(
-      hbs`<PixInput @id="firstName" @label="Prénom" @icon="times" @isIconLeft={{true}} />`
-    );
-
-    // then
-    assert.dom('.pix-input__icon.pix-input__icon--left').exists();
-  });
-
   test('it should be possible to track value from input', async function (assert) {
     // given & when
     await render(hbs`<PixInput @label="Prénom" @id="firstName" @value='Jeanne' />`);

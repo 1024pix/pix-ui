@@ -25,25 +25,6 @@
     position: relative;
   }
 
-  svg.pix-input__icon {
-    position: absolute;
-    bottom: 9px;
-    right: 6px;
-    color: $grey-25;
-    font-size: 1.125rem;
-    width: 18px;
-    height: 18px;
-
-    &--left {
-      left: 6px;
-    }
-  }
-
-  svg ~ svg.pix-input__icon {
-    right: calc(6px + 12px + 2px);
-    margin-right: 8px;
-  }
-
   svg.pix-input__error-icon {
     position: absolute;
     bottom: 10px;
@@ -83,18 +64,6 @@
     &.pix-input__input--error {
       padding-right: 32px;
       @include formElementInError();
-    }
-
-    &.pix-input__input--icon {
-      padding-right: 32px;
-    }
-
-    &.pix-input__input--icon.pix-input__input--icon-left {
-      padding-left: 32px;
-    }
-
-    &.pix-input__input--error.pix-input__input--icon:not(.pix-input__input--icon-left) {
-      padding-right: 32px;
     }
   }
 }
