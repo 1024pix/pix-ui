@@ -1,0 +1,255 @@
+// See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24%3A8
+
+// Mixin pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
+@mixin display1() {
+  font-family: $font-open-sans;
+  font-weight: $font-light;
+  font-size: 4.5rem;
+  line-height: 5.5rem;
+  letter-spacing: -0.04em;
+}
+
+@mixin display2() {
+  font-family: $font-open-sans;
+  font-weight: $font-light;
+  font-size: 3.75rem;
+  line-height: 4.5rem;
+  letter-spacing: -0.04em;
+}
+
+@mixin display3() {
+  font-family: $font-open-sans;
+  font-weight: $font-light;
+  font-size: 3rem;
+  line-height: 3.75rem;
+  letter-spacing: -0.04em;
+
+  @include device-is('mobile') {
+    font-weight: $font-medium;
+    font-size: 2.25rem;
+    line-height: 2.75rem;
+  }
+}
+
+@mixin h1() {
+  font-family: $font-open-sans;
+  font-weight: $font-light;
+  font-size: 2.5rem;
+  line-height: 3rem;
+  letter-spacing: -0.04em;
+
+  @include device-is('mobile') {
+    font-weight: $font-medium;
+    font-size: 2rem;
+    line-height: 2.5rem;
+  }
+}
+
+@mixin h2() {
+  font-family: $font-open-sans;
+  font-weight: $font-medium;
+  font-size: 2rem;
+  line-height: 2.5rem;
+  letter-spacing: -0.04em;
+
+  @include device-is('mobile') {
+    font-size: 1.75rem;
+    line-height: 2.25rem;
+  }
+}
+
+@mixin h3() {
+  font-family: $font-open-sans;
+  font-weight: $font-medium;
+  font-size: 1.75rem;
+  line-height: 2.25rem;
+  letter-spacing: -0.04em;
+
+  @include device-is('mobile') {
+    font-size: 1.5rem;
+    line-height: 2rem;
+  }
+}
+
+@mixin h4() {
+  font-family: $font-open-sans;
+  font-weight: $font-medium;
+  font-size: 1.5rem;
+  line-height: 2rem;
+  letter-spacing: -0.02em;
+}
+
+@mixin subheading() {
+  font-family: $font-open-sans;
+  font-weight: $font-semi-bold;
+  font-size: 1.25rem;
+  line-height: 1.75rem;
+
+  @include device-is('mobile') {
+    font-size: 1.125rem;
+    line-height: 1.575rem;
+  }
+}
+
+@mixin text() {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  font-size: 1rem;
+  line-height: 1.375rem;
+
+  b,
+  strong {
+    font-weight: $font-medium;
+  }
+
+  a {
+    font-weight: $font-medium;
+    color: $blue;
+  }
+}
+
+@mixin text-bold() {
+  @include text;
+  font-weight: $font-medium;
+}
+
+@mixin text-link() {
+  @include text;
+  font-weight: $font-medium;
+  color: $blue;
+}
+
+@mixin text-small() {
+  @include text;
+  font-size: 0.875rem;
+  line-height: 1.25rem;
+}
+
+@mixin text-large() {
+  @include text;
+  font-size: 1.125rem;
+  line-height: 1.625rem;
+}
+
+@mixin caption() {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  font-size: 0.75rem;
+  line-height: 1.125rem;
+
+  b,
+  strong {
+    font-weight: $font-bold;
+  }
+}
+
+@mixin caption-bold() {
+  @include caption;
+  font-weight: $font-bold;
+}
+
+@mixin caption-uppercase() {
+  @include caption;
+  text-transform: uppercase;
+}
+
+@mixin footer() {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  font-size: 0.625rem;
+  line-height: 0.875rem;
+  letter-spacing: 0.02em;
+
+  b,
+  strong {
+    font-weight: $font-bold;
+  }
+}
+
+@mixin footer-bold() {
+  @include footer;
+  font-weight: $font-bold;
+}
+
+@mixin footer-uppercase() {
+  @include footer;
+  font-weight: $font-bold;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.pix-display1 {
+  @include display1;
+}
+
+.pix-display2 {
+  @include display2;
+}
+
+.pix-display3 {
+  @include display3;
+}
+
+.pix-h1 {
+  @include h1;
+}
+
+.pix-h2 {
+  @include h2;
+}
+
+.pix-h3 {
+  @include h3;
+}
+
+.pix-h4 {
+  @include h4;
+}
+
+.pix-subheading {
+  @include subheading;
+}
+
+.pix-text {
+  @include text;
+
+  &--bold {
+    @include text-bold;
+  }
+
+  &--link {
+    @include text-link;
+  }
+
+  &--small {
+    @include text-small;
+  }
+
+  &--large {
+    @include text-large;
+  }
+}
+
+.pix-caption {
+  @include caption;
+
+  &--bold {
+    @include caption-bold;
+  }
+
+  &--uppercase {
+    @include caption-uppercase;
+  }
+}
+
+.pix-footer {
+  @include footer;
+
+  &--bold {
+    @include footer-bold;
+  }
+
+  &--uppercase {
+    @include footer-uppercase;
+  }
+}
