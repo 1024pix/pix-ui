@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.1.1 (15/04/2022)
+
+
+### :bug: Correction
+- [#214](https://github.com/1024pix/pix-ui/pull/214) [BUGFIX] Ajouter  params à la méthode triggerAction à PixIconButton (PIX-4790)
+
 ## v14.1.0 (12/04/2022)
 
 
