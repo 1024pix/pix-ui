@@ -25,9 +25,9 @@ export default class PixIconButton extends Component {
   }
 
   @action
-  triggerAction() {
+  triggerAction(params) {
     if (this.args.triggerAction) {
-      this.args.triggerAction();
+      this.args.triggerAction(params);
     }
   }
 }
