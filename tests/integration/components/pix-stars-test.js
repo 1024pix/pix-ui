@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | stars', function (hooks) {
@@ -35,13 +35,11 @@ module('Integration | Component | stars', function (hooks) {
     assert.equal(unacquiredStars.length, 2);
   });
 
-  test('it renders alternative message', async function (assert) {
+  test('it renders aria-label message', async function (assert) {
     // when
-    await render(hbs`<PixStars @total={{3}} @alt="message"/>`);
-    const srOnly = this.element.querySelector('.sr-only');
-
+    const screen = await render(hbs`<PixStars @total={{3}} @alt="message"/>`);
     // then
-    assert.equal(srOnly.textContent.trim(), 'message');
+    assert.dom(screen.getByLabelText('message')).exists();
   });
 
   test('it renders the acquired start but hide unacquired', async function (assert) {
