@@ -1,7 +1,6 @@
-<div class={{this.pixStarsClass}} ...attributes>
-  <span class="sr-only">{{@alt}}</span>
+<div class={{this.pixStarsClass}} ...attributes role="img" aria-label={{@alt}}>
   {{#each this.stars as |star|}}
-    <svg class="pix-stars__{{star}}" data-test-status={{star}} viewBox="0 0 36 36">
+    <svg class="pix-stars__{{star}}" data-test-status={{star}} viewBox="0 0 36 36" role="img">
       <defs>
         <linearGradient id="pix-stars-default" x1="68.643%" y1="0%" x2="68.643%" y2="100%">
           <stop stop-color="#FEDC41" offset="0%"></stop>
