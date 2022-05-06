@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.2.0 (06/05/2022)
+
+
+### :coffee: Autre
+- [#216](https://github.com/1024pix/pix-ui/pull/216) A11Y: add role=img on the stars container + add aria-label
+
 ## v14.1.1 (15/04/2022)
 
 
