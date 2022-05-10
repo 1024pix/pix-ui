@@ -1,0 +1,40 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Développement/Design Tokens" />
+
+# Design Tokens
+
+> Les design tokens contiennent plusieurs éléments de base de la charte graphique (les couleurs, la typographie, les icones, etc.)
+
+## Rajouter des design tokens dans Pix UI
+
+Quand vous êtes amenés à ajouter ou à modifier des éléments des design tokens, faites le dans le scss associé,
+par example `addon/styles/_typography.scss` ou `addon/styles/_colors.scss` et s'il n'est pas déjà importé, rajoutez l'import dans `addon/styles/design-tokens.scss`.
+Ceci nous permettra d'utiliser les mixin dans nos applications par la suite.
+
+Le standard d'équipe est de créer un mixin et une classe et de préfixer la classe avec `pix-`.
+
+Par example :
+
+```
+@mixin text() {
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  font-size: 1rem;
+  line-height: 1.375rem;
+
+  b,
+  strong {
+    font-weight: $font-medium;
+  }
+
+  a {
+    font-weight: $font-medium;
+    color: $blue;
+  }
+}
+
+.pix-text {
+  @include text;
+}
+```
