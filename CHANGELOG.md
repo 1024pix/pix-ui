@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.3.0 (10/05/2022)
+
+
+### :building_construction: Tech
+- [#215](https://github.com/1024pix/pix-ui/pull/215) [TECH] Rajouter les classes de typographie et les mixins de box-shadow du design system
+
 ## v14.2.0 (06/05/2022)
 
 
