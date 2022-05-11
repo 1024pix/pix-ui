@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.3.1 (11/05/2022)
+
+
+### :building_construction: Tech
+- [#218](https://github.com/1024pix/pix-ui/pull/218) [TECH] Ajouter la notion de Pix dans le nom du fichier des design tokens (PIX-4936).
+
 ## v14.3.0 (10/05/2022)
 
 
