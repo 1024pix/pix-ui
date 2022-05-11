@@ -1,5 +1,175 @@
-// See https://zeroheight.com/8dd127da7/p/839645-couleurs/b/21317a
+// See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=16%3A2
 
+//// SOLID
+// Primary
+$pix-primary: #3D68FF;
+$pix-primary-80: #000E87;
+$pix-primary-70: #0D25B3;
+$pix-primary-60: #2044DC;
+$pix-primary-40: #5B94FF;
+$pix-primary-30: #88BEFF;
+$pix-primary-20: #C4E6FF;
+$pix-primary-10: #DCF1FF;
+$pix-primary-5: #F2F9FF;
+
+// Secondary
+$pix-secondary: #FFD235;
+$pix-secondary-80: #874D00;
+$pix-secondary-70: #A95800;
+$pix-secondary-60: #CE8900;
+$pix-secondary-50: #EAA600;
+$pix-secondary-40: #EAA600;
+$pix-secondary-20: #FFE381;
+$pix-secondary-10: #FFEEB3;
+$pix-secondary-5: #FFF9E6;
+
+// Secondary Pix Certif
+$pix-secondary-certif: #20B4AF;
+$pix-secondary-certif-80: #093432 ;
+$pix-secondary-certif-70: #0E4D4C ;
+$pix-secondary-certif-60: #126765;
+$pix-secondary-certif-50: #17817E;
+$pix-secondary-certif-30: #34DBD6;
+$pix-secondary-certif-20: #67E4E0;
+$pix-secondary-certif-10: #9AEDEB;
+$pix-secondary-certif-5: #CCF6F5;
+
+// Secondary Pix Orga
+$pix-secondary-orga: #00DDFF;
+$pix-secondary-orga-80: #006E80 ;
+$pix-secondary-orga-70: #008A9F ;
+$pix-secondary-orga-60: #00A6BF;
+$pix-secondary-orga-50: #00C1DF;
+$pix-secondary-orga-30: #55E8FF;
+$pix-secondary-orga-20: #80EEFF;
+$pix-secondary-orga-10: #AAF4FF;
+$pix-secondary-orga-5: #D5F9FF;
+
+// Tertiary
+$pix-tertiary: #9D67FF;
+$pix-tertiary-80: #3B00A4;
+$pix-tertiary-70: #4E00DB;
+$pix-tertiary-60: #6712FF;
+$pix-tertiary-50: #8A49FF;
+$pix-tertiary-30: #B186FF;
+$pix-tertiary-20: #C4A4FF;
+$pix-tertiary-10: #D8C2FF;
+$pix-tertiary-5: #EBE1FF;
+
+// Success
+$pix-success: #34D399;
+$pix-success-80: #104834;
+$pix-success-70: #176C4D;
+$pix-success-60: #14865D;
+$pix-success-50: #27B481;
+$pix-success-30: #6EE7B7;
+$pix-success-20: #A7F3D0;
+$pix-success-10: #D1FAE5;
+$pix-success-5: #ECFDF5;
+
+// Warning
+$pix-warning-80: #874D00;
+$pix-warning-70: #AC6A00;
+$pix-warning-60: #CE8900;
+$pix-warning-50: #EAA600;
+$pix-warning-40: #FFBE00;
+$pix-warning-30: #FFD235;
+$pix-warning-20: #FFE381;
+$pix-warning-10: #FFF1C5;
+$pix-warning-5: #FFF9E6;
+
+// Error
+$pix-error-80: #991B1B;
+$pix-error-70: #B91C1C;
+$pix-error-60: #DC2626;
+$pix-error-50: #EF4444;
+$pix-error-40: #F87171;
+$pix-error-30: #FCA5A5;
+$pix-error-20: #FECACA;
+$pix-error-10: #FEE2E2;
+$pix-error-5: #FEF2F2;
+
+// Neutral
+// Dark
+$pix-neutral-110: #07142E;
+$pix-neutral-100: #091E42;
+$pix-neutral-90: #172B4D;
+$pix-neutral-80: #253858;
+$pix-neutral-70: #344563;
+
+// Medium
+$pix-neutral-60: #505F79;
+$pix-neutral-50: #5E6C84;
+$pix-neutral-45: #6B778C;
+$pix-neutral-40: #7A869A;
+$pix-neutral-35: #8993A4;
+$pix-neutral-30: #97A0AF;
+
+// Light
+$pix-neutral-25: #A5ADBA;
+$pix-neutral-22: #C1C7D0;
+$pix-neutral-20: #DFE1E6;
+$pix-neutral-15: #EAECF0;
+$pix-neutral-10: #F4F5F7;
+$pix-neutral-5: #FAFBFC;
+$pix-neutral-0: #FFFFFF;
+
+// Shades
+$pix-shades-100: #000000;
+
+/// Domain
+// Information
+$pix-information-dark: #F24645;
+$pix-information-light: #F1A141;
+
+// Content
+$pix-content-dark: #1A8C89;
+$pix-content-light: #52D987;
+
+// Communication
+$pix-communication-dark: #3D68FF;
+$pix-communication-light: #12A3FF;
+
+// Security
+$pix-security-dark: #AC008D;
+$pix-security-light: #FF3F94;
+
+// Environment
+$pix-environment-dark: #5E2563;
+$pix-environment-light: #564DA6;
+
+////GRADIENT
+
+// Primary Pix App
+$pix-primary-app-gradient : linear-gradient(91.59deg, $pix-communication-dark 0%, #8845FF 100%);
+
+// Secondary Pix App
+$pix-secondary-app-gradient: linear-gradient(91.59deg, #FEDC41 0%, #FF9F00 100%);
+
+// Primary Certif
+$pix-primary-certif-gradient: linear-gradient(91.59deg, $pix-content-light 0%, $pix-content-dark 100%);
+
+// Primary Orga
+$pix-primary-orga-gradient: linear-gradient(91.59deg, $pix-secondary-orga 0%, #0095C0 100%);
+
+// Secondary Orga
+$pix-secondary-orga-gradient: linear-gradient(91.59deg, #0D7DC4 0%, #213371 100%);
+
+/// Domain
+// Information
+$pix-information-gradient: linear-gradient(180deg, $pix-information-dark 0%, $pix-information-light 100%);
+$pix-content-gradient: linear-gradient(180deg, #1A8C89 0%, #52D987 100%);
+
+// Communication
+$pix-communication-gradient: linear-gradient(180deg, $pix-primary 0%, #12A3FF 100%);
+
+// Security
+$pix-security-gradient: linear-gradient(180deg, #AC008D 0%, #FF3F94 100%);
+
+// Environment
+$pix-environment-gradient: linear-gradient(180deg, #5E2563 0%, #564DA6 100%);
+
+////DEPRECATED
 // primary
 $blue: #3D68FF;
 $yellow: #FFBE00;
@@ -23,7 +193,6 @@ $purple: #8845FF;
 }
 
 // gradients
-$pix-gradient: linear-gradient(135deg, $blue 0%, $purple 100%);
 $pix-blue-gradient: linear-gradient(135deg, #12A3FF 0%, #3D68FF 100%);
 $pix-certif-gradient: linear-gradient(0deg, #52D987 0%, #1A8C89 100%);
 $pix-certif-old-gradient: linear-gradient(135deg, #FF3F93 0%, #AC008D 100%);
@@ -32,8 +201,8 @@ $pix-orga-gradient: linear-gradient(134deg, #00DDFF 0%, #0095C0 100%);
 $pix-orga-old-gradient: linear-gradient(0deg, #0D7DC4 0%, #213371 100%);
 $pix-pink-gradient: linear-gradient(0deg, #FF3F93 0%, #AC008D 100%);
 $pix-purple-gradient: linear-gradient(180deg, #5E2563 0%, #564DA6 100%);
-$pix-yellow-gradient: linear-gradient(135deg, #FFBE00 0%, #FF9F00 100%);
-$pix-yellow-gradient-right: linear-gradient(to right, #FFBE00, #FF9F00);
+$pix-yellow-gradient: linear-gradient(135deg,$pix-primary-60 0%, #FF9F00 100%);
+$pix-yellow-gradient-right: linear-gradient(to right,$pix-primary-60, #FF9F00);
 // light
 $grey-5: #FAFBFC;
 $grey-10: #F4F5F7;
@@ -80,7 +249,6 @@ $green-alert-light: #EFFFD8;
 $green-alert-dark: #006134;
 $yellow-alert-light: #FFF1C5;
 $yellow-alert-dark: #A95800;
-
 
 // status
 $error: #FF4B00;
