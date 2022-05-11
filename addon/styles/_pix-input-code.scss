@@ -57,7 +57,7 @@
     &:active,
     &:focus {
       border-color: $pix-primary;
-      background-color: $white;
+      background-color: $pix-neutral-0;
 
       &::placeholder {
         opacity: 0;
@@ -65,7 +65,7 @@
     }
 
     &.filled {
-      background-color: $white;
+      background-color: $pix-neutral-0;
     }
   }
 }

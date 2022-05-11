@@ -52,16 +52,16 @@
 
   &--communication {
     background-color: $pix-primary;
-    color: $white;
+    color: $pix-neutral-0;
 
     &-orga {
       background-color: $dark-orga;
-      color: $white;
+      color: $pix-neutral-0;
     }
 
     &-certif {
-      background-color: $dark-green-certif;
-      color: $white;
+      background-color: $pix-secondary-certif-50;
+      color: $pix-neutral-0;
     }
   }
 }

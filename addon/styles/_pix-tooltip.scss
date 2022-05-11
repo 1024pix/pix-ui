@@ -22,7 +22,7 @@
   z-index: 100;
   padding: 8px 16px;
   left: auto;
-  color: $white;
+  color: $pix-neutral-0;
   font-family: $font-roboto;
   font-size: 0.875rem;
   border-radius: 6px;
@@ -46,7 +46,7 @@
 
   &--light {
     font-weight: $font-medium;
-    background-color: $white;
+    background-color: $pix-neutral-0;
     color: $pix-neutral-60;
     box-shadow: 0px 6px 24px 0px rgba($pix-neutral-70, 0.14);
 
@@ -54,7 +54,7 @@
       border-width: 0px;
       height: 8px;
       width: 8px;
-      background-color: $white;
+      background-color: $pix-neutral-0;
     }
   }
 }

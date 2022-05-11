@@ -27,7 +27,7 @@
     }
 
     &:focus-visible {
-      box-shadow: $white 0 0 0 2px, $blue 0 0 0 4px;
+      box-shadow: $pix-neutral-0 0 0 0 2px, $pix-primary 0 0 0 4px;
       outline: none;
     }
 

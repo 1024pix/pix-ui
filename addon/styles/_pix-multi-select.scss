@@ -20,7 +20,7 @@
   height: 36px;
   padding: 0px 32px 0px 16px;
   width: 100%;
-  background-color: $white;
+  background-color: $pix-neutral-0;
   border-radius: 4px;
   outline: none;
   font-size: 0.875rem;
@@ -77,7 +77,7 @@
   width: 100%;
   margin: 0px;
   z-index: 200;
-  background-color: $white;
+  background-color: $pix-neutral-0;
   position: absolute;
   border-top: none;
   border-radius: 0 0 4px 4px;
@@ -97,7 +97,7 @@
   &::-webkit-scrollbar-track {
     border-radius: 4px;
     border: 1px solid $pix-neutral-20;
-    background: $white;
+    background: $pix-neutral-0;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
@@ -146,7 +146,7 @@
       min-width: 16px;
       min-height: 16px;
       border-radius: 4px;
-      background: $white;
+      background: $pix-neutral-0;
       border: 1px solid $pix-neutral-20;
     }
 
@@ -162,7 +162,7 @@
       width: 7px;
       height: 5px;
       background: transparent;
-      border: 2px solid $white;
+      border: 2px solid $pix-neutral-0;
       border-top: none;
       border-right: none;
       transform: rotate(-45deg);

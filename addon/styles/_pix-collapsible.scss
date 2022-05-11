@@ -9,7 +9,7 @@
   border: 1px solid $pix-neutral-20;
   padding: 0;
   cursor: pointer;
-  background-color: $white;
+  background-color: $pix-neutral-0;
 
   &__title {
     padding: 14px 10px 14px 16px;
@@ -64,7 +64,7 @@
 .pix-collapsible--uncollapsed {
   margin-top: 10px;
   margin-bottom: 10px;
-  box-shadow: 0 2px 5px 0 rgba($black, 0.05);
+  box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
   border-radius: 4px;
 }
 

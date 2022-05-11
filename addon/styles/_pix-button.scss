@@ -10,14 +10,14 @@
   .loader > div {
     width: 10px;
     height: 10px;
-    background-color: $white;
+    background-color: $pix-neutral-0;
     border-radius: 100%;
     display: inline-block;
     animation: sk-bouncedelay 1.4s infinite ease-in-out both;
   }
 
   .loader--white > div {
-    background-color: $white;
+    background-color: $pix-neutral-0;
   }
   .loader--grey > div {
     background-color: $pix-neutral-80;

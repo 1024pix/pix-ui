@@ -1,7 +1,7 @@
 .pix-button {
   @import 'reset-css';
 
-  color: $white;
+  color: $pix-neutral-0;
   font-family: $font-roboto;
   font-size: 0.875rem;
   font-weight: 500;
@@ -48,7 +48,7 @@
       &:hover, &:focus, &:focus-visible {
         background-color: darken($backgroundColor, 8%);
         box-shadow: 0 0 0 2px darken($outlineColor, 8%);
-        border-color: $white;
+        border-color: $pix-neutral-0;
         outline: none;
       }
 
@@ -68,12 +68,12 @@
 
   &--background-yellow {
     color: $pix-neutral-100;
-    @include colorizeBackground($yellow, $yellow);
+    @include colorizeBackground($pix-warning-40, $pix-warning-40);
   }
 
   &--background-red {
-    color: $white;
-    @include colorizeBackground($red, $red);
+    color: $pix-neutral-0;
+    @include colorizeBackground($pix-error-70, $pix-error-70);
   }
 
   &--background-grey {
@@ -94,12 +94,12 @@
 
     &:not(.pix-button--disabled) {
       &:hover, &:focus, &:focus-visible {
-        background-color: rgba($black, 0.1);
+        background-color: rgba($pix-neutral-110, 0.1);
         outline: none;
       }
 
       &:active {
-        background-color: rgba($black, 0.2);
+        background-color: rgba($pix-neutral-110, 0.2);
       }
     }
 
@@ -117,21 +117,21 @@
   &--background-transparent-dark {
     background-color: transparent;
     border-color: transparent;
-    color: $white;
+    color: $pix-neutral-0;
 
     &:not(.pix-button--disabled) {
       &:hover, &:focus, &:focus-visible {
-        background-color: rgba($black, 0.1);
+        background-color: rgba($pix-neutral-110, 0.1);
         outline: none;
       }
 
       &:active {
-        background-color: rgba($black, 0.2);
+        background-color: rgba($pix-neutral-110, 0.2);
       }
     }
 
     &.pix-button--border {
-      border-color: $white;
+      border-color: $pix-neutral-0;
     }
   }
 }
