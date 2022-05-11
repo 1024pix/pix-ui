@@ -56,7 +56,7 @@
 
     &:active,
     &:focus {
-      border-color: $blue;
+      border-color: $pix-primary;
       background-color: $white;
 
       &::placeholder {

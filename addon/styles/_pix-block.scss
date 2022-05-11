@@ -6,9 +6,9 @@
   margin-bottom: 32px;
   background-color: $white;
   border-radius: 5px;
-  
+
   &--shadow-light {
-    box-shadow: 0 10px 20px 0 rgba($blue, .06);
+    box-shadow: 0 10px 20px 0 rgba($pix-primary, .06);
   }
   &--shadow-heavy {
     box-shadow: 0 50px 54px -40px rgba($grey-200, .4),

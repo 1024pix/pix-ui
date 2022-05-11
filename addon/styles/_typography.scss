@@ -104,7 +104,7 @@
 
   a {
     font-weight: $font-medium;
-    color: $blue;
+    color: $pix-primary;
   }
 }
 
@@ -116,7 +116,7 @@
 @mixin text-link() {
   @include text;
   font-weight: $font-medium;
-  color: $blue;
+  color: $pix-primary;
 }
 
 @mixin text-small() {

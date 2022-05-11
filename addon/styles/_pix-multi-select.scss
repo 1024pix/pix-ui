@@ -67,7 +67,7 @@
     pointer-events: none;
 
     &--expand {
-      color: $blue;
+      color: $pix-primary;
     }
   }
 }
@@ -89,7 +89,7 @@
 
   &--hidden {
     display: none;
-  }  
+  }
 
   &::-webkit-scrollbar {
     width: 11px;
@@ -114,22 +114,22 @@
     list-style: none;
     font-size: 0.9rem;
 
-    @include hoverFormElement();  
+    @include hoverFormElement();
 
     &--no-result {
       text-align: center;
       padding: 12px 0;
     }
-  
+
     &:last-of-type {
       border-bottom: none;
     }
   }
-  
+
   &__checkbox {
     position: absolute;
     opacity: 0;
-  
+
     & + label {
       position: relative;
       display: flex;
@@ -137,7 +137,7 @@
       padding: 11px 16px;
       cursor: pointer;
     }
-  
+
     & + label:before {
       content: '';
       margin-right: 12px;
@@ -149,12 +149,12 @@
       background: $white;
       border: 1px solid $grey-20;
     }
-        
+
     &:checked + label:before {
-      background: $blue;
-      border-color: $blue;
+      background: $pix-primary;
+      border-color: $pix-primary;
     }
-      
+
     &:checked + label:after {
       position: absolute;
       top: calc(50% - 5px);
@@ -173,7 +173,7 @@
       & + label {
         padding: 11px 36px;
       }
-      
+
       &:checked + label:after {
         left: 41px;
       }

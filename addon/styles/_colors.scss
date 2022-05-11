@@ -139,8 +139,7 @@ $pix-environment-dark: #5E2563;
 $pix-environment-light: #564DA6;
 
 ////GRADIENT
-
-// Primary Pix App
+// Primary Pix APP
 $pix-primary-app-gradient : linear-gradient(91.59deg, $pix-communication-dark 0%, #8845FF 100%);
 
 // Secondary Pix App
@@ -158,6 +157,7 @@ $pix-secondary-orga-gradient: linear-gradient(91.59deg, #0D7DC4 0%, #213371 100%
 /// Domain
 // Information
 $pix-information-gradient: linear-gradient(180deg, $pix-information-dark 0%, $pix-information-light 100%);
+// Content
 $pix-content-gradient: linear-gradient(180deg, #1A8C89 0%, #52D987 100%);
 
 // Communication

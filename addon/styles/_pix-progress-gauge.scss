@@ -54,7 +54,7 @@
 
   &--white {
     & .progress-gauge__referrer {
-      background-color: lighten($blue, 15%);
+      background-color: lighten($pix-primary, 15%);
     }
 
     & .progress-gauge__marker {
@@ -63,7 +63,7 @@
 
     & .progress-gauge__tooltip {
       background: $white;
-      color: $blue;
+      color: $pix-primary;
 
       &::before {
         color: $white;

@@ -15,11 +15,11 @@
   border-radius: 0.75rem;
 
   color: $white;
-  background-color: $blue;
+  background-color: $pix-primary;
 
   &--blue-light {
-    color: darken($blue, 10%);
-    background-color: lighten($blue, 30%);
+    color: darken($pix-primary, 10%);
+    background-color: lighten($pix-primary, 30%);
   }
 
   &--green {

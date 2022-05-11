@@ -32,16 +32,16 @@
     }
 
     &:active {
-      border-color: $blue;
+      border-color: $pix-primary;
       background-color: transparent;
       box-shadow: none;
     }
 
     &:checked {
-      border-color: $blue;
+      border-color: $pix-primary;
 
       &:after {
-        background-color: $blue;
+        background-color: $pix-primary;
         border-radius: 50%;
         content: "";
         height: 12px;

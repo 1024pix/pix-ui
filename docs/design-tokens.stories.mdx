@@ -1,0 +1,32 @@
+import { Meta } from '@storybook/addon-docs/blocks';
+
+<Meta title="Utiliser Pix UI/Design Tokens" />
+
+# Design Tokens
+
+> Les design tokens contiennent plusieurs éléments de base de la charte graphique (les couleurs, la typographie, les icônes, etc.)
+
+## Utiliser les classes, mixins et variables dans votre css
+
+En ajoutant la dépendance dans votre application avec `npm install`, vous avez déjà accès aux classes, mais pour avoir accès aux mixins et variables,
+il faut ajouter le code ci-dessous dans le `new EmberApp()` de votre `ember-cli.build.js` qui se trouve à la racine du projet :
+
+```
+sassOptions: {
+  includePaths: ['node_modules/@1024pix/pix-ui/addon/styles'],
+},
+```
+
+Par la suite vous aurez accès à toutes les variables des design tokens avec le `$`, par exemple `border: 1px solid $pix-primary;`.
+
+Et pour les mixins, dans le scss voulu, il faudra importer (avec `@use`) les design tokens en haut du fichier pour les utiliser
+
+Par exemple :
+
+```
+@use 'design-tokens`;
+
+.organization-title {
+  @include design-tokens.text-bold;
+}
+```

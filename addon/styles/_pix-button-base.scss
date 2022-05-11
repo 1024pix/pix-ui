@@ -8,7 +8,7 @@
   white-space: nowrap;
   letter-spacing: .028rem;
   cursor: pointer;
-  background-color: $blue;
+  background-color: $pix-primary;
   border: 2px solid transparent;
   display: flex;
   justify-content: center;
@@ -59,7 +59,7 @@
   }
 
   &--background-blue {
-    @include colorizeBackground($blue, $blue);
+    @include colorizeBackground($pix-primary, $pix-primary);
   }
 
   &--background-green {
