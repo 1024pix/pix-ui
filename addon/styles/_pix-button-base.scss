@@ -77,7 +77,7 @@
   }
 
   &--background-grey {
-    @include colorizeBackground($blue-zodiac, $blue-zodiac);
+    @include colorizeBackground($pix-neutral-60, $pix-neutral-60);
   }
 
   /* deprecated in favor of --background-transparent-light + --border */

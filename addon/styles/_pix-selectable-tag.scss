@@ -74,9 +74,9 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
   &:focus-within {
     @include checkmarkColor($white);
-    background-color: $blue-zodiac;
+    background-color: $pix-neutral-60;
     color: $white;
-    box-shadow: 0 0 0 1px $blue-zodiac;
+    box-shadow: 0 0 0 1px $pix-neutral-60;
     border-color: $white;
     outline: none;
 
