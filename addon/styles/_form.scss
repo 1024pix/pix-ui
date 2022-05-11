@@ -1,6 +1,6 @@
 @mixin hoverFormElement(){
   &:hover {
-    box-shadow: inset 0px 0px 0px 0.6px $grey-40;
+    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-40;
   }
 }
 
@@ -24,7 +24,7 @@
   display: block;
   font-family: $font-roboto;
   font-size: 0.875rem;
-  color: $grey-70;
+  color: $pix-neutral-70;
   margin-bottom: 4px;
 }
 
@@ -43,7 +43,7 @@
   font-family: $font-roboto;
   font-size: 0.875rem;
   font-weight: 400;
-  color: $grey-90;
+  color: $pix-neutral-90;
   border-radius: $spacing-xxs;
   padding: 0 $spacing-s 0 $spacing-s;
 }

@@ -5,9 +5,9 @@
 
   @mixin pixSelect {
     appearance: none;
-    border: 1px $grey-40 solid;
+    border: 1px $pix-neutral-40 solid;
     border-radius: 4px;
-    color: $grey-90;
+    color: $pix-neutral-90;
     font-family: $font-roboto;
     font-size: 0.875rem;
     height: 36px;
@@ -53,7 +53,7 @@
 
   &__icon {
     font-size: 11px;
-    color: $grey-30;
+    color: $pix-neutral-30;
     right: 10px;
     top: calc(50% - 6px);
     padding: 0 0 2px;

@@ -6,7 +6,7 @@
   flex-direction: column;
   font-family: $font-roboto;
   font-size: 1rem;
-  border: 1px solid $grey-20;
+  border: 1px solid $pix-neutral-20;
   padding: 0;
   cursor: pointer;
   background-color: $white;
@@ -19,28 +19,28 @@
     justify-content: space-between;
     background: transparent;
     border: none;
-    color: $grey-60;
+    color: $pix-neutral-60;
     font-size: 1rem;
     font-weight: 500;
 
     .pix-collapsible-title__icon {
-      color: $grey-45;
+      color: $pix-neutral-45;
       margin-right: 6px;
     }
 
     &:hover {
-      background-color: $grey-10;
+      background-color: $pix-neutral-10;
     }
 
     &:focus {
-      background-color: $grey-10;
+      background-color: $pix-neutral-10;
     }
 
     &--uncollapsed {
-      background-color: $grey-10;
+      background-color: $pix-neutral-10;
     }
   }
-  
+
   &__content {
     padding: 16px 20px;
     display: none;

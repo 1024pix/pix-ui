@@ -2,7 +2,7 @@
   cursor: pointer;
   font-family: $font-roboto;
   font-size: 0.875rem;
-  color: $grey-70;
+  color: $pix-neutral-70;
 
   label {
     display: flex;
@@ -16,13 +16,13 @@
     width: 18px;
     height: 18px;
     margin: 0 10px 0 0;
-    border: 1px solid $grey-70;
+    border: 1px solid $pix-neutral-70;
     cursor: pointer;
     background-color: transparent;
 
     &:hover {
-      background-color: $grey-15;
-      box-shadow: 0 0 0 8px $grey-15;
+      background-color: $pix-neutral-15;
+      box-shadow: 0 0 0 8px $pix-neutral-15;
       transition: all 0.3s ease;
     }
 
@@ -54,19 +54,19 @@
     }
 
     &:disabled {
-      border: 1px solid $grey-45;
+      border: 1px solid $pix-neutral-45;
       background-color: transparent;
       box-shadow: none;
       cursor: not-allowed;
 
       &:checked:after {
-        background-color: $grey-25;
+        background-color: $pix-neutral-25;
       }
     }
   }
 
   &--disabled {
     cursor: not-allowed;
-    color: $grey-45;
+    color: $pix-neutral-45;
   }
 }

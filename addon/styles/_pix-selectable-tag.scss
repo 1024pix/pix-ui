@@ -1,7 +1,7 @@
 $checkmark-width: 0.625rem;
 $checkmark-width-with-space: $checkmark-width + 0.438rem;
 @mixin checkmarkColor($borderColor) {
-  
+
   input[type="checkbox"]:checked + label::before {
     position: absolute;
     top: 6px;
@@ -25,8 +25,8 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
   padding: 3px calc(8px + #{$checkmark-width-with-space} / 2);
   letter-spacing: 0.009rem;
   border-radius: 0.75rem;
-  border: $grey-30 solid 1px;
-  color: $grey-60;
+  border: $pix-neutral-30 solid 1px;
+  color: $pix-neutral-60;
   background-color: $white;
   font-family: $font-roboto;
   font-size: 0.8125rem;
@@ -48,23 +48,23 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
   }
 
   &:hover {
-    background-color: $grey-22;
-    border: $grey-25 solid 1px;
-    color: $grey-70;
+    background-color:$pix-neutral-22;
+    border: $pix-neutral-25 solid 1px;
+    color: $pix-neutral-70;
   }
-  
+
   &--checked {
-    @include checkmarkColor($grey-70);
-    border: $grey-22 solid 1px;
-    background-color: $grey-20;
-    color: $grey-70;
+    @include checkmarkColor($pix-neutral-70);
+    border: $pix-neutral-22 solid 1px;
+    background-color: $pix-neutral-20;
+    color: $pix-neutral-70;
     padding: 3px 8px;
 
     &:hover {
-      @include checkmarkColor($grey-70);
-      background-color: $grey-22;
-      border: $grey-25 solid 1px;
-      color: $grey-70;
+      @include checkmarkColor($pix-neutral-70);
+      background-color: $pix-neutral-22;
+      border: $pix-neutral-25 solid 1px;
+      color: $pix-neutral-70;
     }
 
     & label {
@@ -81,10 +81,10 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
     outline: none;
 
     &:hover {
-      @include checkmarkColor($grey-70);
-      color: $grey-70;
-      background-color: $grey-22;
-      border: $grey-25 solid 1px;
+      @include checkmarkColor($pix-neutral-70);
+      color: $pix-neutral-70;
+      background-color: $pix-neutral-22;
+      border: $pix-neutral-25 solid 1px;
     }
   }
 }

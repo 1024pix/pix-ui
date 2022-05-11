@@ -8,7 +8,7 @@
   &__label {
     font-family: $font-roboto;
     font-size: 0.875rem;
-    color: $grey-70;
+    color: $pix-neutral-70;
     margin-bottom: 4px;
   }
 
@@ -51,14 +51,14 @@
   input {
     width: 100%;
     height: 36px;
-    border: 1px solid $grey-40;
+    border: 1px solid $pix-neutral-40;
 
     @include input();
     @include hoverFormElement();
     @include focusFormElement();
 
     &::placeholder {
-      color: $grey-30;
+      color: $pix-neutral-30;
     }
 
     &.pix-input__input--error {

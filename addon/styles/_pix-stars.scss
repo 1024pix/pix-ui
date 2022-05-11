@@ -15,11 +15,11 @@
   }
 
   &--grey > &__acquired {
-    fill: $grey-40;
+    fill: $pix-neutral-40;
   }
   &--grey > &__unacquired {
     fill: white;
-    stroke: $grey-40;
+    stroke: $pix-neutral-40;
   }
 
   &__acquired {

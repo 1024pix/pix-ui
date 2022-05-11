@@ -6,7 +6,7 @@
       visibility: hidden;
     }
   }
-  
+
   .loader > div {
     width: 10px;
     height: 10px;
@@ -20,7 +20,7 @@
     background-color: $white;
   }
   .loader--grey > div {
-    background-color: $grey-80;
+    background-color: $pix-neutral-80;
   }
   .loader .bounce1 {
     animation-delay: -0.32s;

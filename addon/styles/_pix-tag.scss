@@ -41,7 +41,7 @@
   }
 
   &--yellow {
-    color: $grey-90;
+    color: $pix-neutral-90;
     background-color: $yellow;
   }
 
@@ -60,13 +60,13 @@
   }
 
   &--grey {
-    color: $grey-15;
-    background-color: $grey-60;
+    color: $pix-neutral-15;
+    background-color: $pix-neutral-60;
   }
 
   &--grey-light {
-    color: $grey-60;
-    background-color: $grey-15;
+    color: $pix-neutral-60;
+    background-color: $pix-neutral-15;
   }
 
   &--compact {
