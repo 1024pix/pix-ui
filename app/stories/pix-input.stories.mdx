@@ -20,6 +20,33 @@ Si vous utilisez le `PixInput` sans label alors il faut renseigner le paramètre
 
 > Si vous renseignez les paramètres label et ariaLabel ensemble, ariaLabel sera nullifié.
 
+Pour acceder à l'élément via son label/aria-label avec testing-library:
+
+```html
+<PixInput
+  @id='firstName'
+  @label='Prénom'
+/>
+```
+
+```javascript
+screen.getByLabelText('Prénom')
+````
+
+Si le paramètre @information est utilisé, il faudra concatener les valeurs de `@label`/`@ariaLabel` et `@information`
+
+```html
+<PixInput
+  @id='firstName'
+  @label='Prénom'
+  @information='exemple: Barry'
+/>
+```
+
+```javascript
+screen.getByLabelText('Prénom exemple: Barry')
+````
+
 
 ## Default
 
