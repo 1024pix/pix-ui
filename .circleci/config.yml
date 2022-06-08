@@ -12,6 +12,13 @@ workflows:
             branches:
               ignore:
                 - gh-pages
+  chromatic-deployment:
+    jobs:
+      - chromatic-deployment:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
 
 jobs:
   build-and-test:
@@ -28,3 +35,12 @@ jobs:
       - run: npm run lint:scss
       - run: npm test
       - run: npx ember try:one embroider-safe
+      - store_artifacts:
+          path: ~/node_modules
+  chromatic-deployment:
+    docker:
+      - image: cimg/node:16.19.1-browsers
+    steps:
+      - checkout
+      - run: npm ci
+      - run: npm run chromatic

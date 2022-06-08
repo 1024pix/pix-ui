@@ -44,7 +44,8 @@
     "storybook": "npm-run-all --parallel serve-ember serve-storybook",
     "test": "ember test",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each"
+    "test:ember-compatibility": "ember try:each",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN"
   },
   "dependencies": {
     "@formatjs/intl": "^2.5.1",
@@ -85,6 +86,7 @@
     "@storybook/theming": "^6.5.13",
     "@testing-library/dom": "^8.20.0",
     "@testing-library/user-event": "^14.4.3",
+    "chromatic": "^6.17.3",
     "core-js": "^3.26.1",
     "ember-cli": "^4.8.0",
     "ember-cli-dependency-checker": "^3.3.1",
