@@ -42,12 +42,12 @@
 
   &--yellow {
     color: $pix-neutral-90;
-    background-color: $yellow;
+    background-color: $pix-warning-40;
   }
 
   &--yellow-light {
-    color: darken($yellow, 25%);
-    background-color: lighten($yellow, 35%);
+    color: darken($pix-warning-40, 25%);
+    background-color: lighten($pix-warning-40, 35%);
   }
 
   &--orange {

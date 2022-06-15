@@ -7,7 +7,7 @@
   &__sub-title {
     font-size: 0.813rem;
     font-weight: $font-light;
-    color: $yellow;
+    color: $pix-warning-40;
     margin: 6px 0;
     letter-spacing: 0.4px;
     text-transform: uppercase;
@@ -90,13 +90,13 @@
       color: $pix-neutral-0;
 
       &::before {
-        color: $yellow;
-        border-top-color: $yellow;
+        color: $pix-warning-40;
+        border-top-color: $pix-warning-40;
       }
     }
 
     & .progress-gauge__sub-title {
-      color: $yellow;
+      color: $pix-warning-40;
     }
   }
 

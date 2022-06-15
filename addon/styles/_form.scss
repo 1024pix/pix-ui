@@ -31,12 +31,12 @@
 @mixin errorMessage() {
   font-family: $font-roboto;
   font-size: 0.75rem;
-  color: $red;
+  color: $pix-error-70;
 }
 
 @mixin formElementInError() {
-  border-color: $red;
-  box-shadow: inset 0px 0px 0px 0.6px $red;
+  border-color: $pix-error-70;
+  box-shadow: inset 0px 0px 0px 0.6px $pix-error-70;
 }
 
 @mixin input() {
