@@ -1,10 +1,10 @@
-@mixin hoverFormElement(){
+@mixin hoverFormElement() {
   &:hover {
     box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-40;
   }
 }
 
-@mixin focusFormElement(){
+@mixin focusFormElement() {
   &:focus {
     border-color: $pix-primary;
     box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
@@ -12,7 +12,7 @@
   }
 }
 
-@mixin focusWithinFormElement(){
+@mixin focusWithinFormElement() {
   &:focus {
     border-color: $pix-primary;
     box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
@@ -56,7 +56,6 @@
 .pix-radio-button {
   padding: $spacing-xs 0 $spacing-xs 0;
 }
-
 
 .pix-form__actions {
   display: flex;

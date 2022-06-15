@@ -1,8 +1,7 @@
 $checkmark-width: 0.625rem;
 $checkmark-width-with-space: $checkmark-width + 0.438rem;
 @mixin checkmarkColor($borderColor) {
-
-  input[type="checkbox"]:checked + label::before {
+  input[type='checkbox']:checked + label::before {
     position: absolute;
     top: 6px;
     left: 8px;
@@ -13,7 +12,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
     border-top: none;
     border-right: none;
     transform: rotate(-45deg);
-    content: "";
+    content: '';
   }
 }
 
@@ -48,7 +47,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
   }
 
   &:hover {
-    background-color:$pix-neutral-22;
+    background-color: $pix-neutral-22;
     border: $pix-neutral-25 solid 1px;
     color: $pix-neutral-70;
   }

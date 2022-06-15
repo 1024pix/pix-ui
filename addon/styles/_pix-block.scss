@@ -8,11 +8,11 @@
   border-radius: 5px;
 
   &--shadow-light {
-    box-shadow: 0 10px 20px 0 rgba($pix-primary, .06);
+    box-shadow: 0 10px 20px 0 rgba($pix-primary, 0.06);
   }
   &--shadow-heavy {
-    box-shadow: 0 50px 54px -40px rgba($pix-neutral-110, .4),
-                0 7px 14px 0 rgba($pix-neutral-100, .1);
+    box-shadow: 0 50px 54px -40px rgba($pix-neutral-110, 0.4),
+      0 7px 14px 0 rgba($pix-neutral-100, 0.1);
   }
 }
 

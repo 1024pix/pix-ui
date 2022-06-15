@@ -11,7 +11,7 @@
   }
 
   &--blue > &__unacquired {
-    fill:$pix-neutral-15;
+    fill: $pix-neutral-15;
   }
 
   &--grey > &__acquired {
@@ -38,6 +38,6 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }

@@ -12,11 +12,12 @@
   background-color: transparent;
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
     cursor: default;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     transition: background-color 0.2s ease;
     background-color: $pix-neutral-15;
     &:disabled {
@@ -31,7 +32,9 @@
 
   &--background {
     background-color: $pix-neutral-10;
-    &:hover, &:focus, &:active {
+    &:hover,
+    &:focus,
+    &:active {
       &:disabled {
         background-color: $pix-neutral-15;
       }

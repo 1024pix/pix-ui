@@ -6,7 +6,7 @@
   font-size: 0.875rem;
   font-weight: 500;
   white-space: nowrap;
-  letter-spacing: .028rem;
+  letter-spacing: 0.028rem;
   cursor: pointer;
   background-color: $pix-primary;
   border: 2px solid transparent;
@@ -36,7 +36,7 @@
   }
 
   &--disabled {
-    opacity: .5;
+    opacity: 0.5;
     cursor: not-allowed;
   }
 
@@ -45,7 +45,9 @@
     border-color: $backgroundColor;
 
     &:not(.pix-button--disabled) {
-      &:hover, &:focus, &:focus-visible {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         background-color: darken($backgroundColor, 8%);
         box-shadow: 0 0 0 2px darken($outlineColor, 8%);
         border-color: $pix-neutral-0;
@@ -93,7 +95,9 @@
     color: $pix-neutral-90;
 
     &:not(.pix-button--disabled) {
-      &:hover, &:focus, &:focus-visible {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         background-color: rgba($pix-neutral-110, 0.1);
         outline: none;
       }
@@ -107,7 +111,8 @@
       border-color: $pix-neutral-50;
 
       &:not(.pix-button--disabled) {
-        &:hover, &:active {
+        &:hover,
+        &:active {
           border-color: $pix-neutral-80;
         }
       }
@@ -120,7 +125,9 @@
     color: $pix-neutral-0;
 
     &:not(.pix-button--disabled) {
-      &:hover, &:focus, &:focus-visible {
+      &:hover,
+      &:focus,
+      &:focus-visible {
         background-color: rgba($pix-neutral-110, 0.1);
         outline: none;
       }

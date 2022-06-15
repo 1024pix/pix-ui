@@ -13,7 +13,8 @@
     text-transform: uppercase;
   }
 
-  &__marker, &__referrer {
+  &__marker,
+  &__referrer {
     height: 4px;
     border-radius: 5px;
     text-align: right;

@@ -3,7 +3,7 @@
   display: flex;
 
   // hide up/down cursors
-  input[type=number] {
+  input[type='number'] {
     // Firefox
     -moz-appearance: textfield;
 
@@ -22,7 +22,7 @@
     display: none;
   }
 
-  input:nth-of-type(3n+4) {
+  input:nth-of-type(3n + 4) {
     margin-left: 12px;
   }
 

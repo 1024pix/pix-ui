@@ -7,7 +7,7 @@
   align-items: center;
 
   & > *:first-child:hover + .pix-tooltip__content,
-  & > *:first-child:focus + .pix-tooltip__content{
+  & > *:first-child:focus + .pix-tooltip__content {
     display: block;
     opacity: 1;
   }
@@ -34,7 +34,7 @@
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     border-width: 5px;
     border-style: solid;
@@ -100,7 +100,7 @@
   &::before {
     top: 100%;
     left: calc(100% - 27px);
-    border-color:$pix-neutral-100 transparent transparent transparent;
+    border-color: $pix-neutral-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
