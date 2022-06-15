@@ -11,7 +11,7 @@
   }
 
   &--blue > &__unacquired {
-    fill: #e9eafc;
+    fill:$pix-neutral-15;
   }
 
   &--grey > &__acquired {
@@ -27,7 +27,7 @@
   }
 
   &__unacquired {
-    fill: #e9eafc;
+    fill: $pix-neutral-15;
   }
 }
 
