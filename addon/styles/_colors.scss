@@ -90,7 +90,6 @@ $pix-error-70: #b91c1c;
 $pix-error-80: #991b1b;
 
 // Neutral
-// Light
 $pix-neutral-0: #ffffff;
 $pix-neutral-5: #fafbfc;
 $pix-neutral-10: #f4f5f7;
@@ -98,16 +97,12 @@ $pix-neutral-15: #eaecf0;
 $pix-neutral-20: #dfe1e6;
 $pix-neutral-22: #c1c7d0;
 $pix-neutral-25: #a5adba;
-
-// Medium
 $pix-neutral-30: #97a0af;
 $pix-neutral-35: #8993a4;
 $pix-neutral-40: #7a869a;
 $pix-neutral-45: #6b778c;
 $pix-neutral-50: #5e6c84;
 $pix-neutral-60: #505f79;
-
-// Dark
 $pix-neutral-70: #344563;
 $pix-neutral-80: #253858;
 $pix-neutral-90: #172b4d;
@@ -117,59 +112,37 @@ $pix-neutral-110: #07142e;
 // Shades
 $pix-shades-100: #000000;
 
-/// Domain
-// Information
+// Domain
 $pix-information-dark: #f24645;
 $pix-information-light: #f1a141;
 
-// Content
 $pix-content-dark: #1a8c89;
 $pix-content-light: #52d987;
 
-// Communication
 $pix-communication-dark: #3d68ff;
 $pix-communication-light: #12a3ff;
 
-// Security
 $pix-security-dark: #ac008d;
 $pix-security-light: #ff3f94;
 
-// Environment
 $pix-environment-dark: #5e2563;
 $pix-environment-light: #564da6;
 
-////GRADIENT
-// Primary Pix APP
+//// GRADIENT
 $pix-primary-app-gradient: linear-gradient(91.59deg, #3d68ff 0%, #8845ff 100%);
-
-// Secondary Pix App
 $pix-secondary-app-gradient: linear-gradient(91.59deg, #fedc41 0%, #ff9f00 100%);
-
-// Primary Certif
 $pix-primary-certif-gradient: linear-gradient(91.59deg, #52d987 0%, #1a8c89 100%);
-
-// Primary Orga
 $pix-primary-orga-gradient: linear-gradient(91.59deg, #00ddff 0%, #0095c0 100%);
-
-// Secondary Orga
 $pix-secondary-orga-gradient: linear-gradient(91.59deg, #0d7dc4 0%, #213371 100%);
 
-/// Domain
-// Information
+// Domain
 $pix-information-gradient: linear-gradient(180deg, #3d68ff 0%, #f1a141 100%);
-// Content
 $pix-content-gradient: linear-gradient(180deg, #1a8c89 0%, #52d987 100%);
-
-// Communication
 $pix-communication-gradient: linear-gradient(180deg, #3d68ff 0%, #12a3ff 100%);
-
-// Security
 $pix-security-gradient: linear-gradient(180deg, #ac008d 0%, #ff3f94 100%);
-
-// Environment
 $pix-environment-gradient: linear-gradient(180deg, #5e2563 0%, #564da6 100%);
 
-////DEPRECATED
+//// DEPRECATED
 // primary
 /**
  * @deprecated Please use '$pix-primary' instead!
