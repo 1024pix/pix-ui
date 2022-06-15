@@ -140,36 +140,28 @@ $pix-environment-light: #564da6;
 
 ////GRADIENT
 // Primary Pix APP
-$pix-primary-app-gradient: linear-gradient(91.59deg, $pix-communication-dark 0%, #8845ff 100%);
+$pix-primary-app-gradient: linear-gradient(91.59deg, #3d68ff 0%, #8845ff 100%);
 
 // Secondary Pix App
 $pix-secondary-app-gradient: linear-gradient(91.59deg, #fedc41 0%, #ff9f00 100%);
 
 // Primary Certif
-$pix-primary-certif-gradient: linear-gradient(
-  91.59deg,
-  $pix-content-light 0%,
-  $pix-content-dark 100%
-);
+$pix-primary-certif-gradient: linear-gradient(91.59deg, #52d987 0%, #1a8c89 100%);
 
 // Primary Orga
-$pix-primary-orga-gradient: linear-gradient(91.59deg, $pix-secondary-orga 0%, #0095c0 100%);
+$pix-primary-orga-gradient: linear-gradient(91.59deg, #00ddff 0%, #0095c0 100%);
 
 // Secondary Orga
 $pix-secondary-orga-gradient: linear-gradient(91.59deg, #0d7dc4 0%, #213371 100%);
 
 /// Domain
 // Information
-$pix-information-gradient: linear-gradient(
-  180deg,
-  $pix-information-dark 0%,
-  $pix-information-light 100%
-);
+$pix-information-gradient: linear-gradient(180deg, #3d68ff 0%, #f1a141 100%);
 // Content
 $pix-content-gradient: linear-gradient(180deg, #1a8c89 0%, #52d987 100%);
 
 // Communication
-$pix-communication-gradient: linear-gradient(180deg, $pix-primary 0%, #12a3ff 100%);
+$pix-communication-gradient: linear-gradient(180deg, #3d68ff 0%, #12a3ff 100%);
 
 // Security
 $pix-security-gradient: linear-gradient(180deg, #ac008d 0%, #ff3f94 100%);
@@ -209,8 +201,8 @@ $pix-orga-gradient: linear-gradient(134deg, #00ddff 0%, #0095c0 100%);
 $pix-orga-old-gradient: linear-gradient(0deg, #0d7dc4 0%, #213371 100%);
 $pix-pink-gradient: linear-gradient(0deg, #ff3f93 0%, #ac008d 100%);
 $pix-purple-gradient: linear-gradient(180deg, #5e2563 0%, #564da6 100%);
-$pix-yellow-gradient: linear-gradient(135deg, $pix-primary-60 0%, #ff9f00 100%);
-$pix-yellow-gradient-right: linear-gradient(to right, $pix-primary-60, #ff9f00);
+$pix-yellow-gradient: linear-gradient(135deg, #ffbe00 0%, #ff9f00 100%);
+$pix-yellow-gradient-right: linear-gradient(to right, #ffbe00, #ff9f00);
 // light
 $grey-5: #fafbfc;
 $grey-10: #f4f5f7;
