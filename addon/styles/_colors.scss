@@ -136,7 +136,7 @@ $pix-primary-orga-gradient: linear-gradient(91.59deg, #00ddff 0%, #0095c0 100%);
 $pix-secondary-orga-gradient: linear-gradient(91.59deg, #0d7dc4 0%, #213371 100%);
 
 // Domain
-$pix-information-gradient: linear-gradient(180deg, #3d68ff 0%, #f1a141 100%);
+$pix-information-gradient: linear-gradient(180deg, #f24645 0%, #f1a141 100%);
 $pix-content-gradient: linear-gradient(180deg, #1a8c89 0%, #52d987 100%);
 $pix-communication-gradient: linear-gradient(180deg, #3d68ff 0%, #12a3ff 100%);
 $pix-security-gradient: linear-gradient(180deg, #ac008d 0%, #ff3f94 100%);
@@ -222,15 +222,54 @@ $purple: #8845ff;
 }
 
 // gradients
+/**
+ * @deprecated Please use '$pix-primary-app-gradient' instead!
+ */
 $pix-blue-gradient: linear-gradient(135deg, #12a3ff 0%, #3d68ff 100%);
+
+/**
+ * @deprecated Please use '$pix-primary-certif-gradient' instead!
+ */
 $pix-certif-gradient: linear-gradient(0deg, #52d987 0%, #1a8c89 100%);
+
+/**
+ * @deprecated Please use '$pix-security-gradient' instead!
+ */
 $pix-certif-old-gradient: linear-gradient(135deg, #ff3f93 0%, #ac008d 100%);
+
+/**
+ * @deprecated Please use '$pix-information-gradient' instead!
+ */
 $pix-orange-gradient: linear-gradient(180deg, #f24645 0%, #f1a141 100%);
+
+/**
+ * @deprecated Please use '$pix-primary-orga-gradient' instead!
+ */
 $pix-orga-gradient: linear-gradient(134deg, #00ddff 0%, #0095c0 100%);
+
+/**
+ * @deprecated Please use '$pix-primary-orga-gradient' instead!
+ */
 $pix-orga-old-gradient: linear-gradient(0deg, #0d7dc4 0%, #213371 100%);
+
+/**
+ * @deprecated Please use '$pix-security-gradient' instead!
+ */
 $pix-pink-gradient: linear-gradient(0deg, #ff3f93 0%, #ac008d 100%);
+
+/**
+ * @deprecated Please use '$pix-environment-gradient' instead!
+ */
 $pix-purple-gradient: linear-gradient(180deg, #5e2563 0%, #564da6 100%);
+
+/**
+ * Still in use for PixProgressGauge, may be removed in the future.
+ */
 $pix-yellow-gradient: linear-gradient(135deg, #ffbe00 0%, #ff9f00 100%);
+
+/**
+ * Still in use for PixProgressGauge, may be removed in the future.
+ */
 $pix-yellow-gradient-right: linear-gradient(to right, #ffbe00, #ff9f00);
 
 // light
@@ -326,12 +365,33 @@ $grey-150: #0c163a;
  * @deprecated Please use '$pix-neutral-200' instead!
  */
 $grey-200: #07142e;
+
 // gradients domain
+/**
+ * @deprecated Please use '$pix-information-gradient' instead!
+ */
 $information-gradient: linear-gradient(180deg, #f24645 0%, #f1a141 100%);
+
+/**
+ * @deprecated Please use '$pix-content-gradient' instead!
+ */
 $content-gradient: linear-gradient(0deg, #52d987 0%, #1a8c89 100%);
+
+/**
+ * @deprecated Please use '$pix-communication-gradient' instead!
+ */
 $communication-gradient: linear-gradient(0deg, #12a3ff 0%, #3d68ff 100%);
+
+/**
+ * @deprecated Please use '$pix-security-gradient' instead!
+ */
 $security-gradient: linear-gradient(0deg, #ff3f93 0%, #ac008d 100%);
+
+/**
+ * @deprecated Please use '$pix-environment-gradient' instead!
+ */
 $environment-gradient: linear-gradient(180deg, #5e2563 0%, #564da6 100%);
+
 // solids
 
 /**
