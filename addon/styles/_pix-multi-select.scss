@@ -16,16 +16,16 @@
   font-family: $font-roboto;
   font-weight: $font-normal;
   position: relative;
-  border: 1px $grey-40 solid;
+  border: 1px $pix-neutral-40 solid;
   height: 36px;
   padding: 0px 32px 0px 16px;
   width: 100%;
-  background-color: $white;
+  background-color: $pix-neutral-0;
   border-radius: 4px;
   outline: none;
   font-size: 0.875rem;
   cursor: pointer;
-  color: $grey-90;
+  color: $pix-neutral-90;
 
   @include hoverFormElement();
   @include focusWithinFormElement();
@@ -35,7 +35,7 @@
   }
 
   &__search-icon {
-    color: $grey-30;
+    color: $pix-neutral-30;
   }
 
   &__title {
@@ -53,13 +53,13 @@
     padding: 0 10px;
     border-radius: 3px;
     font-size: 0.875rem;
-    color: $grey-90;
+    color: $pix-neutral-90;
     background: transparent;
   }
 
   &__dropdown-icon {
     font-size: 11px;
-    color: $grey-30;
+    color: $pix-neutral-30;
     right: 10px;
     top: calc(50% - 6px);
     padding: 0 0 2px;
@@ -67,17 +67,16 @@
     pointer-events: none;
 
     &--expand {
-      color: $blue;
+      color: $pix-primary;
     }
   }
 }
-
 
 .pix-multi-select-list {
   width: 100%;
   margin: 0px;
   z-index: 200;
-  background-color: $white;
+  background-color: $pix-neutral-0;
   position: absolute;
   border-top: none;
   border-radius: 0 0 4px 4px;
@@ -89,47 +88,47 @@
 
   &--hidden {
     display: none;
-  }  
+  }
 
   &::-webkit-scrollbar {
     width: 11px;
   }
   &::-webkit-scrollbar-track {
     border-radius: 4px;
-    border: 1px solid $grey-20;
-    background: $white;
+    border: 1px solid $pix-neutral-20;
+    background: $pix-neutral-0;
   }
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
-    background: $grey-30;
+    background: $pix-neutral-30;
   }
   &::-webkit-scrollbar-thumb:hover {
-    background: $grey-35;
+    background: $pix-neutral-35;
   }
 
   li.pix-multi-select-list__item {
     font-family: $font-roboto;
     position: relative;
-    border-bottom: 1px solid $grey-15;
+    border-bottom: 1px solid $pix-neutral-15;
     list-style: none;
     font-size: 0.9rem;
 
-    @include hoverFormElement();  
+    @include hoverFormElement();
 
     &--no-result {
       text-align: center;
       padding: 12px 0;
     }
-  
+
     &:last-of-type {
       border-bottom: none;
     }
   }
-  
+
   &__checkbox {
     position: absolute;
     opacity: 0;
-  
+
     & + label {
       position: relative;
       display: flex;
@@ -137,7 +136,7 @@
       padding: 11px 16px;
       cursor: pointer;
     }
-  
+
     & + label:before {
       content: '';
       margin-right: 12px;
@@ -146,15 +145,15 @@
       min-width: 16px;
       min-height: 16px;
       border-radius: 4px;
-      background: $white;
-      border: 1px solid $grey-20;
+      background: $pix-neutral-0;
+      border: 1px solid $pix-neutral-20;
     }
-        
+
     &:checked + label:before {
-      background: $blue;
-      border-color: $blue;
+      background: $pix-primary;
+      border-color: $pix-primary;
     }
-      
+
     &:checked + label:after {
       position: absolute;
       top: calc(50% - 5px);
@@ -162,7 +161,7 @@
       width: 7px;
       height: 5px;
       background: transparent;
-      border: 2px solid $white;
+      border: 2px solid $pix-neutral-0;
       border-top: none;
       border-right: none;
       transform: rotate(-45deg);
@@ -173,7 +172,7 @@
       & + label {
         padding: 11px 36px;
       }
-      
+
       &:checked + label:after {
         left: 41px;
       }

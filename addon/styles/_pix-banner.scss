@@ -36,32 +36,32 @@
   }
 
   &--information {
-    background-color: $blue-alert-light;
-    color: $blue-alert-dark;
+    background-color: $pix-primary-10;
+    color: $pix-primary-70;
   }
 
   &--warning {
-    background-color: $yellow-alert-light;
-    color: $yellow-alert-dark;
+    background-color: $pix-warning-10;
+    color: $pix-warning-60;
   }
 
   &--error {
-    background-color: $pink-alert-light;
-    color: $pink-alert-dark;
+    background-color: $pix-error-10;
+    color: $pix-error-70;
   }
 
   &--communication {
-    background-color: $blue;
-    color: $white;
+    background-color: $pix-primary;
+    color: $pix-neutral-0;
 
     &-orga {
       background-color: $dark-orga;
-      color: $white;
+      color: $pix-neutral-0;
     }
 
     &-certif {
-      background-color: $dark-green-certif;
-      color: $white;
+      background-color: $pix-secondary-certif-50;
+      color: $pix-neutral-0;
     }
   }
 }

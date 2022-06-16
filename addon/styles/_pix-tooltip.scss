@@ -7,7 +7,7 @@
   align-items: center;
 
   & > *:first-child:hover + .pix-tooltip__content,
-  & > *:first-child:focus + .pix-tooltip__content{
+  & > *:first-child:focus + .pix-tooltip__content {
     display: block;
     opacity: 1;
   }
@@ -17,12 +17,12 @@
   display: none;
   opacity: 0;
   pointer-events: none;
-  background-color: $grey-100;
+  background-color: $pix-neutral-100;
   position: absolute;
   z-index: 100;
   padding: 8px 16px;
   left: auto;
-  color: $white;
+  color: $pix-neutral-0;
   font-family: $font-roboto;
   font-size: 0.875rem;
   border-radius: 6px;
@@ -34,7 +34,7 @@
   }
 
   &::before {
-    content: "";
+    content: '';
     position: absolute;
     border-width: 5px;
     border-style: solid;
@@ -46,15 +46,15 @@
 
   &--light {
     font-weight: $font-medium;
-    background-color: $white;
-    color: $grey-60;
-    box-shadow: 0px 6px 24px 0px rgba($grey-70, 0.14);
+    background-color: $pix-neutral-0;
+    color: $pix-neutral-60;
+    box-shadow: 0px 6px 24px 0px rgba($pix-neutral-70, 0.14);
 
     &::before {
       border-width: 0px;
       height: 8px;
       width: 8px;
-      background-color: $white;
+      background-color: $pix-neutral-0;
     }
   }
 }
@@ -65,13 +65,13 @@
   &::before {
     top: calc(50% - 5px); // 50% is the height of the parent and 5px the height of the triangle
     left: -10px; // 10px is width of the ::before elmt
-    border-color: transparent $grey-100 transparent transparent;
+    border-color: transparent $pix-neutral-100 transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     left: -5px;
     transform: rotate(315deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -83,13 +83,13 @@
   &::before {
     top: 100%;
     left: calc(50% - 5px);
-    border-color: $grey-100 transparent transparent transparent;
+    border-color: $pix-neutral-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
     transform: rotate(225deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -100,14 +100,14 @@
   &::before {
     top: 100%;
     left: calc(100% - 27px);
-    border-color: $grey-100 transparent transparent transparent;
+    border-color: $pix-neutral-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
     left: calc(100% - 26px);
     transform: rotate(225deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -117,13 +117,13 @@
 
   &::before {
     top: 100%;
-    border-color: $grey-100 transparent transparent transparent;
+    border-color: $pix-neutral-100 transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
     transform: rotate(225deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -135,13 +135,13 @@
   &::before {
     top: -10px;
     left: calc(50% - 5px);
-    border-color: transparent transparent $grey-100 transparent;
+    border-color: transparent transparent $pix-neutral-100 transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: -5px;
     transform: rotate(45deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -152,14 +152,14 @@
   &::before {
     top: -10px;
     left: calc(100% - 27px);
-    border-color: transparent transparent $grey-100 transparent;
+    border-color: transparent transparent $pix-neutral-100 transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: -5px;
     left: calc(100% - 26px);
     transform: rotate(45deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -169,13 +169,13 @@
 
   &::before {
     top: -10px;
-    border-color: transparent transparent $grey-100 transparent;
+    border-color: transparent transparent $pix-neutral-100 transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: -5px;
     transform: rotate(45deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }
 
@@ -185,12 +185,12 @@
   &::before {
     top: calc(50% - 5px);
     right: -10px;
-    border-color: transparent transparent transparent $grey-100;
+    border-color: transparent transparent transparent $pix-neutral-100;
   }
 
   &.pix-tooltip__content--light::before {
     right: -5px;
     transform: rotate(135deg);
-    border-color: $grey-40 transparent transparent $grey-40;
+    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
   }
 }

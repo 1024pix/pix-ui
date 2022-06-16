@@ -7,13 +7,14 @@
   &__sub-title {
     font-size: 0.813rem;
     font-weight: $font-light;
-    color: $yellow;
+    color: $pix-warning-40;
     margin: 6px 0;
     letter-spacing: 0.4px;
     text-transform: uppercase;
   }
 
-  &__marker, &__referrer {
+  &__marker,
+  &__referrer {
     height: 4px;
     border-radius: 5px;
     text-align: right;
@@ -54,31 +55,31 @@
 
   &--white {
     & .progress-gauge__referrer {
-      background-color: lighten($blue, 15%);
+      background-color: lighten($pix-primary, 15%);
     }
 
     & .progress-gauge__marker {
-      background: $white;
+      background: $pix-neutral-0;
     }
 
     & .progress-gauge__tooltip {
-      background: $white;
-      color: $blue;
+      background: $pix-neutral-0;
+      color: $pix-primary;
 
       &::before {
-        color: $white;
-        border-top-color: $white;
+        color: $pix-neutral-0;
+        border-top-color: $pix-neutral-0;
       }
     }
 
     & .progress-gauge__sub-title {
-      color: $white;
+      color: $pix-neutral-0;
     }
   }
 
   &--yellow {
     & .progress-gauge__referrer {
-      background-color: $grey-20;
+      background-color: $pix-neutral-20;
     }
 
     & .progress-gauge__marker {
@@ -87,16 +88,16 @@
 
     & .progress-gauge__tooltip {
       background: $pix-yellow-gradient;
-      color: $white;
+      color: $pix-neutral-0;
 
       &::before {
-        color: $yellow;
-        border-top-color: $yellow;
+        color: $pix-warning-40;
+        border-top-color: $pix-warning-40;
       }
     }
 
     & .progress-gauge__sub-title {
-      color: $yellow;
+      color: $pix-warning-40;
     }
   }
 

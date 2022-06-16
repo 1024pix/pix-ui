@@ -8,38 +8,45 @@
   align-items: center;
   border-bottom: transparent solid 2px;
   text-decoration: none;
-  
+
   &__icon {
     position: relative;
     z-index: 3;
     padding: 4px 7px;
     font-size: 1rem;
   }
-  
+
   &__icon::before {
     content: '';
     position: absolute;
     z-index: -1;
-    width: 100%; height: 100%;
-    top: 0; left: 0;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     opacity: 0;
     border-radius: 50%;
     transition: 0.3s ease opacity;
   }
 
-  &__text { margin-left: 4px; }
+  &__text {
+    margin-left: 4px;
+  }
 
-  &:hover, &:active {
+  &:hover,
+  &:active {
     cursor: pointer;
     background-color: transparent;
     border-bottom-color: transparent;
 
-    ::before { opacity: 0.2; }
+    ::before {
+      opacity: 0.2;
+    }
   }
 
   &:focus-visible {
-    background-color: $yellow;
-    border-bottom: $grey-100 solid 2px;
+    background-color: $pix-warning-40;
+    border-bottom: $pix-neutral-100 solid 2px;
 
     .pix-return-to__text {
       padding-right: 6px;
@@ -49,16 +56,27 @@
   @mixin coloriseLink($textColor, $textHoverColor, $arrowColor) {
     color: $textColor;
 
-    .pix-return-to__icon { color: $arrowColor; }
+    .pix-return-to__icon {
+      color: $arrowColor;
+    }
 
-    &:hover, &:active {
+    &:hover,
+    &:active {
       color: $textHoverColor;
 
-      ::before { background-color: $arrowColor; }
+      ::before {
+        background-color: $arrowColor;
+      }
     }
   }
 
-  &--white { @include coloriseLink($grey-10, $white, $white); }
-  &--black { @include coloriseLink($grey-80, $grey-200, $grey-60); }
-  &--blue { @include coloriseLink($communication-dark, $blue-hover, $communication-dark); }
+  &--white {
+    @include coloriseLink($pix-neutral-10, $pix-neutral-0, $pix-neutral-0);
+  }
+  &--black {
+    @include coloriseLink($pix-neutral-80, $pix-neutral-110, $pix-neutral-60);
+  }
+  &--blue {
+    @include coloriseLink($pix-communication-dark, $pix-primary-60, $pix-communication-dark);
+  }
 }

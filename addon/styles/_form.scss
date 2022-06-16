@@ -1,21 +1,21 @@
-@mixin hoverFormElement(){
+@mixin hoverFormElement() {
   &:hover {
-    box-shadow: inset 0px 0px 0px 0.6px $grey-40;
+    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-40;
   }
 }
 
-@mixin focusFormElement(){
+@mixin focusFormElement() {
   &:focus {
-    border-color: $blue;
-    box-shadow: inset 0px 0px 0px 0.6px $blue;
+    border-color: $pix-primary;
+    box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
     outline: none;
   }
 }
 
-@mixin focusWithinFormElement(){
+@mixin focusWithinFormElement() {
   &:focus {
-    border-color: $blue;
-    box-shadow: inset 0px 0px 0px 0.6px $blue;
+    border-color: $pix-primary;
+    box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
     outline: none;
   }
 }
@@ -24,26 +24,26 @@
   display: block;
   font-family: $font-roboto;
   font-size: 0.875rem;
-  color: $grey-70;
+  color: $pix-neutral-70;
   margin-bottom: 4px;
 }
 
 @mixin errorMessage() {
   font-family: $font-roboto;
   font-size: 0.75rem;
-  color: $red;
+  color: $pix-error-70;
 }
 
 @mixin formElementInError() {
-  border-color: $red;
-  box-shadow: inset 0px 0px 0px 0.6px $red;
+  border-color: $pix-error-70;
+  box-shadow: inset 0px 0px 0px 0.6px $pix-error-70;
 }
 
 @mixin input() {
   font-family: $font-roboto;
   font-size: 0.875rem;
   font-weight: 400;
-  color: $grey-90;
+  color: $pix-neutral-90;
   border-radius: $spacing-xxs;
   padding: 0 $spacing-s 0 $spacing-s;
 }
@@ -57,7 +57,6 @@
   padding: $spacing-xs 0 $spacing-xs 0;
 }
 
-
 .pix-form__actions {
   display: flex;
   justify-content: center;
@@ -69,7 +68,7 @@
 
 abbr.mandatory-mark {
   cursor: help;
-  color: $pink-alert-dark;
+  color: $pix-error-70;
   text-decoration: none;
   border: none;
 }

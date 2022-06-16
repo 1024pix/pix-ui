@@ -3,7 +3,7 @@
   display: flex;
 
   // hide up/down cursors
-  input[type=number] {
+  input[type='number'] {
     // Firefox
     -moz-appearance: textfield;
 
@@ -22,7 +22,7 @@
     display: none;
   }
 
-  input:nth-of-type(3n+4) {
+  input:nth-of-type(3n + 4) {
     margin-left: 12px;
   }
 
@@ -31,11 +31,11 @@
     height: 44px;
     width: 38px;
     padding: 10px 12px 8px;
-    background-color: $grey-10;
-    border: 1.4px solid $grey-50;
+    background-color: $pix-neutral-10;
+    border: 1.4px solid $pix-neutral-50;
     font-family: $font-roboto;
     font-size: 1.25rem;
-    color: $grey-90;
+    color: $pix-neutral-90;
     border-radius: 4px;
     text-align: center;
     outline: none;
@@ -47,17 +47,17 @@
     }
 
     &::placeholder {
-      color: $grey-50;
+      color: $pix-neutral-50;
     }
 
     &:hover {
-      border-color: $grey-70;
+      border-color: $pix-neutral-70;
     }
 
     &:active,
     &:focus {
-      border-color: $blue;
-      background-color: $white;
+      border-color: $pix-primary;
+      background-color: $pix-neutral-0;
 
       &::placeholder {
         opacity: 0;
@@ -65,7 +65,7 @@
     }
 
     &.filled {
-      background-color: $white;
+      background-color: $pix-neutral-0;
     }
   }
 }

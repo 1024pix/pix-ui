@@ -12,13 +12,14 @@
   background-color: transparent;
 
   &:disabled {
-    opacity: .5;
+    opacity: 0.5;
     cursor: default;
   }
 
-  &:hover, &:focus {
+  &:hover,
+  &:focus {
     transition: background-color 0.2s ease;
-    background-color: $grey-15;
+    background-color: $pix-neutral-15;
     &:disabled {
       background-color: transparent;
     }
@@ -26,14 +27,16 @@
 
   &:active {
     transition: background-color 0.2s ease;
-    background-color: $grey-20;
+    background-color: $pix-neutral-20;
   }
 
   &--background {
-    background-color: $grey-10;
-    &:hover, &:focus, &:active {
+    background-color: $pix-neutral-10;
+    &:hover,
+    &:focus,
+    &:active {
       &:disabled {
-        background-color: $grey-15;
+        background-color: $pix-neutral-15;
       }
     }
   }
@@ -51,10 +54,10 @@
   }
 
   &--dark-grey {
-    color: $grey-60;
+    color: $pix-neutral-60;
   }
 
   &--light-grey {
-    color: $grey-60;
+    color: $pix-neutral-60;
   }
 }

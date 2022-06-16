@@ -7,19 +7,19 @@
   }
 
   &--blue > &__acquired {
-    fill: $blue;
+    fill: $pix-primary;
   }
 
   &--blue > &__unacquired {
-    fill: #e9eafc;
+    fill: $pix-neutral-15;
   }
 
   &--grey > &__acquired {
-    fill: $grey-40;
+    fill: $pix-neutral-40;
   }
   &--grey > &__unacquired {
-    fill: white;
-    stroke: $grey-40;
+    fill: $pix-neutral-0;
+    stroke: $pix-neutral-40;
   }
 
   &__acquired {
@@ -27,7 +27,7 @@
   }
 
   &__unacquired {
-    fill: #e9eafc;
+    fill: $pix-neutral-15;
   }
 }
 
@@ -38,6 +38,6 @@
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0,0,0,0);
+  clip: rect(0, 0, 0, 0);
   border: 0;
 }
