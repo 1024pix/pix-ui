@@ -445,12 +445,12 @@ $security-dark: #ac008d;
 $security-light: #ff3f94;
 
 /**
- * @deprecated
+ * @deprecated Please use '$pix-error-10' instead!
  */
 $pink-alert-light: #ffe1e1;
 
 /**
- * @deprecated
+ * @deprecated Please use '$pix-error-70' instead!
  */
 $pink-alert-dark: #a71e1a;
 
@@ -465,12 +465,12 @@ $blue-alert-light: #dcf1ff;
 $blue-alert-dark: #0d25b3;
 
 /**
- * @deprecated
+ * @deprecated Please use '$pix-success-10' instead!
  */
 $green-alert-light: #efffd8;
 
 /**
- * @deprecated
+ * @deprecated Please use '$pix-success-70' instead!
  */
 $green-alert-dark: #006134;
 
@@ -480,7 +480,7 @@ $green-alert-dark: #006134;
 $yellow-alert-light: #fff1c5;
 
 /**
- * @deprecated Please use '$pix-secondary-70' instead!
+ * @deprecated Please use '$pix-secondary-60' instead!
  */
 $yellow-alert-dark: #a95800;
 
@@ -488,15 +488,21 @@ $yellow-alert-dark: #a95800;
 
 /**
  * @deprecated
+ *-To style text or border : $pix-error-70
+ *-To style background : $pix-error-10
  */
 $error: #ff4b00;
 
 /**
  * @deprecated
+ *-To style text or border : $pix-success-70
+ *-To style background : $pix-success-10
  */
 $success: #57c884;
 
 /**
- * @deprecated Please use '$pix-warning-40' instead!
+ * @deprecated
+ *-To style text or border : $pix-warning-60
+ *-To style background : $pix-warning-10
  */
 $warning: #ffbe00;

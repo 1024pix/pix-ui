@@ -9,24 +9,24 @@
   display: flex;
 
   &.pix-message--info {
-    color: $blue-alert-dark;
-    background-color: $blue-alert-light;
+    color: $pix-primary-70;
+    background-color: $pix-primary-10;
   }
   &.pix-message--alert {
-    color: $pink-alert-dark;
-    background-color: $pink-alert-light;
+    color: $pix-error-70;
+    background-color: $pix-error-10;
   }
   &.pix-message--error {
-    color: $pink-alert-dark;
-    background-color: $pink-alert-light;
+    color: $pix-error-70;
+    background-color: $pix-error-10;
   }
   &.pix-message--success {
-    color: $green-alert-dark;
-    background-color: $green-alert-light;
+    color: $pix-success-70;
+    background-color: $pix-success-10;
   }
   &.pix-message--warning {
-    color: $yellow-alert-dark;
-    background-color: $yellow-alert-light;
+    color: $pix-warning-60;
+    background-color: $pix-warning-10;
   }
 
   svg {
