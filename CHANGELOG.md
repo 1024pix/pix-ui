@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v14.4.0 (17/06/2022)
+
+
+### :building_construction: Tech
+- [#219](https://github.com/1024pix/pix-ui/pull/219) [TECH] Ajouter les variables du design system dans Pix-UI.(PIX-2307)
+
+### :coffee: Autre
+- [#221](https://github.com/1024pix/pix-ui/pull/221) [A11Y] Ajouter un aria hidden aux étoiles des paliers (PIX-5076)
+- [#220](https://github.com/1024pix/pix-ui/pull/220) Mise à jour de la doc pour tester pixInput via testing-library
+
 ## v14.3.1 (11/05/2022)
 
 
