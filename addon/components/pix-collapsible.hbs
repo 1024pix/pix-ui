@@ -24,6 +24,8 @@
     class="pix-collapsible__content
       {{if this.isUnCollapsed ' pix-collapsible__content--uncollapse'}}"
   >
-    {{yield}}
+    {{#if this.isContentRendered}}
+      {{yield}}
+    {{/if}}
   </div>
 </div>

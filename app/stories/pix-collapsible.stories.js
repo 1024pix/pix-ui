@@ -31,7 +31,8 @@ export const multipleCollapsible = (args) => {
 
       <PixCollapsible
         @title="Titre C"
-        @titleIcon={{titleIcon}}>
+        @titleIcon={{titleIcon}}
+        @lazyRender={{true}}>
           <div>Contenu C</div>
       </PixCollapsible>
     </div>
@@ -52,5 +53,12 @@ export const argTypes = {
     description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
     type: { name: 'string', required: false },
     defaultValue: 'user',
+  },
+  lazyRender: {
+    name: 'lazyRender',
+    description:
+      'Rendre le contenu dans le DOM uniquement quand le composant est déroulé pour la 1ère fois',
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
   },
 };

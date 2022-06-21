@@ -8,9 +8,14 @@ export default class PixCollapsible extends Component {
   contentId = 'pix-collapsible-' + guidFor(this);
 
   @tracked isCollapsed = true;
+  @tracked hasUnCollapsedOnce = false;
 
   get isUnCollapsed() {
     return !this.isCollapsed;
+  }
+
+  get isContentRendered() {
+    return !this.args.lazyRender || this.hasUnCollapsedOnce;
   }
 
   get title() {
@@ -23,5 +28,6 @@ export default class PixCollapsible extends Component {
   @action
   toggleCollapsible() {
     this.isCollapsed = !this.isCollapsed;
+    this.hasUnCollapsedOnce = true;
   }
 }
