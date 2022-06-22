@@ -1,25 +1,23 @@
-.pix-tag {
-  @import 'reset-css';
+@use 'sass:color';
+@import 'reset-css';
 
+.pix-tag {
   display: inline-block;
   text-align: center;
   vertical-align: baseline;
   white-space: nowrap;
   padding: 4px 16px;
-
   font-family: $font-roboto;
   font-size: 0.8125rem;
   font-weight: $font-normal;
-
   border: 1px solid transparent;
   border-radius: 0.75rem;
-
   color: $pix-neutral-0;
   background-color: $pix-primary;
 
   &--blue-light {
-    color: darken($pix-primary, 10%);
-    background-color: lighten($pix-primary, 30%);
+    color: color.adjust($pix-primary, $lightness: -10%);
+    background-color: color.adjust($pix-primary, $lightness: 30%);
   }
 
   &--green {
@@ -28,7 +26,7 @@
 
   &--green-light {
     color: $green;
-    background-color: lighten($green, 65%);
+    background-color: color.adjust($green, $lightness: 65%);
   }
 
   &--purple {
@@ -36,8 +34,8 @@
   }
 
   &--purple-light {
-    color: darken($purple, 10%);
-    background-color: lighten($purple, 30%);
+    color: color.adjust($purple, $lightness: -10%);
+    background-color: color.adjust($purple, $lightness: 30%);
   }
 
   &--yellow {
@@ -46,8 +44,8 @@
   }
 
   &--yellow-light {
-    color: darken($pix-warning-40, 25%);
-    background-color: lighten($pix-warning-40, 35%);
+    color: color.adjust($pix-warning-40, $lightness: -25%);
+    background-color: color.adjust($pix-warning-40, $lightness: 35%);
   }
 
   &--orange {
@@ -55,8 +53,8 @@
   }
 
   &--orange-light {
-    color: darken($orange, 25%);
-    background-color: lighten($orange, 35%);
+    color: color.adjust($orange, $lightness: -25%);
+    background-color: color.adjust($orange, $lightness: 35%);
   }
 
   &--grey {

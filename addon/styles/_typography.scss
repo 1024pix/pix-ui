@@ -110,23 +110,27 @@
 
 @mixin text-bold() {
   @include text;
+
   font-weight: $font-medium;
 }
 
 @mixin text-link() {
   @include text;
+
   font-weight: $font-medium;
   color: $pix-primary;
 }
 
 @mixin text-small() {
   @include text;
+
   font-size: 0.875rem;
   line-height: 1.25rem;
 }
 
 @mixin text-large() {
   @include text;
+
   font-size: 1.125rem;
   line-height: 1.625rem;
 }
@@ -145,11 +149,13 @@
 
 @mixin caption-bold() {
   @include caption;
+
   font-weight: $font-bold;
 }
 
 @mixin caption-uppercase() {
   @include caption;
+
   text-transform: uppercase;
 }
 
@@ -168,11 +174,13 @@
 
 @mixin footer-bold() {
   @include footer;
+
   font-weight: $font-bold;
 }
 
 @mixin footer-uppercase() {
   @include footer;
+
   font-weight: $font-bold;
   letter-spacing: 0.08em;
   text-transform: uppercase;

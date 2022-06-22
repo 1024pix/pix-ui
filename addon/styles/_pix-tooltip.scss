@@ -1,16 +1,10 @@
-.pix-tooltip {
-  @import 'reset-css';
+@import 'reset-css';
 
+.pix-tooltip {
   position: relative;
   display: flex;
   justify-content: center;
   align-items: center;
-
-  & > *:first-child:hover + .pix-tooltip__content,
-  & > *:first-child:focus + .pix-tooltip__content {
-    display: block;
-    opacity: 1;
-  }
 }
 
 .pix-tooltip__content {
@@ -48,15 +42,21 @@
     font-weight: $font-medium;
     background-color: $pix-neutral-0;
     color: $pix-neutral-60;
-    box-shadow: 0px 6px 24px 0px rgba($pix-neutral-70, 0.14);
+    box-shadow: 0 6px 24px 0 rgba($pix-neutral-70, 0.14);
 
     &::before {
-      border-width: 0px;
+      border-width: 0;
       height: 8px;
       width: 8px;
       background-color: $pix-neutral-0;
     }
   }
+}
+
+.pix-tooltip > *:first-child:hover + .pix-tooltip__content,
+.pix-tooltip > *:first-child:focus + .pix-tooltip__content {
+  display: block;
+  opacity: 1;
 }
 
 .pix-tooltip__content--right {

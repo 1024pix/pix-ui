@@ -32,6 +32,7 @@
 }
 
 .pix-pagination-navigation {
+
   &__action {
     display: flex;
     align-items: center;
@@ -43,10 +44,13 @@
 }
 
 @include device-is('tablet') {
+
   .pix-pagination {
     justify-content: space-between;
   }
+
   .pix-pagination > .pix-pagination {
+
     &__size {
       display: flex;
     }

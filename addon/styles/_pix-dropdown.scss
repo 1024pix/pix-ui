@@ -1,5 +1,6 @@
+@import 'reset-css';
+
 .pix-dropdown {
-  @import 'reset-css';
   width: 100%;
   position: relative;
 
@@ -10,7 +11,7 @@
   }
 
   &__label {
-    @include label();
+    @include label;
   }
 
   &__controller {
@@ -18,8 +19,9 @@
     position: relative;
 
     &--placeholder {
-      @include hoverFormElement();
-      @include focusFormElement();
+      @include hoverFormElement;
+      @include focusFormElement;
+
       width: 100%;
       min-width: 250px;
       min-height: 34px;

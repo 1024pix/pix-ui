@@ -1,6 +1,6 @@
-.pix-message {
-  @import 'reset-css';
+@import 'reset-css';
 
+.pix-message {
   margin: 0;
   padding: 0.75rem 1rem;
   font-size: 0.875rem;
@@ -12,18 +12,22 @@
     color: $pix-primary-70;
     background-color: $pix-primary-10;
   }
+
   &.pix-message--alert {
     color: $pix-error-70;
     background-color: $pix-error-10;
   }
+
   &.pix-message--error {
     color: $pix-error-70;
     background-color: $pix-error-10;
   }
+
   &.pix-message--success {
     color: $pix-success-70;
     background-color: $pix-success-10;
   }
+
   &.pix-message--warning {
     color: $pix-warning-60;
     background-color: $pix-warning-10;

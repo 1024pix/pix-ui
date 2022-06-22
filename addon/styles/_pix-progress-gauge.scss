@@ -1,3 +1,5 @@
+@use 'sass:color';
+
 .progress-gauge {
   position: relative;
   min-width: 200px;
@@ -54,8 +56,9 @@
   }
 
   &--white {
+
     & .progress-gauge__referrer {
-      background-color: lighten($pix-primary, 15%);
+      background-color: color.adjust($pix-primary, $lightness: 15%);
     }
 
     & .progress-gauge__marker {
@@ -78,6 +81,7 @@
   }
 
   &--yellow {
+
     & .progress-gauge__referrer {
       background-color: $pix-neutral-20;
     }
@@ -102,6 +106,7 @@
   }
 
   &--tooltip-left {
+
     & .progress-gauge__tooltip {
       border-bottom-left-radius: 0;
       bottom: calc(100% + 14px);

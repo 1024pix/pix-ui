@@ -1,5 +1,6 @@
+@import 'reset-css';
+
 .pix-banner {
-  @import 'reset-css';
   font-family: $font-roboto;
   font-weight: $font-normal;
   padding: 10px 16px;
@@ -16,6 +17,7 @@
     text-decoration: underline;
     letter-spacing: 0.028rem;
     color: inherit;
+
     .external-link {
       margin-left: 3px;
       font-size: 0.75rem;

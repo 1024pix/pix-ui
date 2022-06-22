@@ -1,6 +1,6 @@
-.pix-icon-button {
-  @import 'reset-css';
+@import 'reset-css';
 
+.pix-icon-button {
   border-radius: 50%;
   cursor: pointer;
   border: none;
@@ -11,6 +11,11 @@
   justify-content: center;
   background-color: transparent;
 
+  &:active {
+    transition: background-color 0.2s ease;
+    background-color: $pix-neutral-20;
+  }
+
   &:disabled {
     opacity: 0.5;
     cursor: default;
@@ -20,21 +25,19 @@
   &:focus {
     transition: background-color 0.2s ease;
     background-color: $pix-neutral-15;
+
     &:disabled {
       background-color: transparent;
     }
   }
 
-  &:active {
-    transition: background-color 0.2s ease;
-    background-color: $pix-neutral-20;
-  }
-
   &--background {
     background-color: $pix-neutral-10;
+
     &:hover,
     &:focus,
     &:active {
+
       &:disabled {
         background-color: $pix-neutral-15;
       }

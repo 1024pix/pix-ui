@@ -5,7 +5,7 @@
   width: 100%;
 
   &__label {
-    @include label();
+    @include label;
   }
 }
 
@@ -18,7 +18,7 @@
   position: relative;
   border: 1px $pix-neutral-40 solid;
   height: 36px;
-  padding: 0px 32px 0px 16px;
+  padding: 0 32px 0 16px;
   width: 100%;
   background-color: $pix-neutral-0;
   border-radius: 4px;
@@ -27,8 +27,8 @@
   cursor: pointer;
   color: $pix-neutral-90;
 
-  @include hoverFormElement();
-  @include focusWithinFormElement();
+  @include hoverFormElement;
+  @include focusWithinFormElement;
 
   &--big {
     height: 44px;
@@ -74,7 +74,7 @@
 
 .pix-multi-select-list {
   width: 100%;
-  margin: 0px;
+  margin: 0;
   z-index: 200;
   background-color: $pix-neutral-0;
   position: absolute;
@@ -84,7 +84,7 @@
   max-height: 200px;
   list-style-type: none;
   padding: 0;
-  box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
+  box-shadow: 0 8px 24px 0 rgb(23 43 77 / 10%);
 
   &--hidden {
     display: none;
@@ -93,15 +93,18 @@
   &::-webkit-scrollbar {
     width: 11px;
   }
+
   &::-webkit-scrollbar-track {
     border-radius: 4px;
     border: 1px solid $pix-neutral-20;
     background: $pix-neutral-0;
   }
+
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background: $pix-neutral-30;
   }
+
   &::-webkit-scrollbar-thumb:hover {
     background: $pix-neutral-35;
   }
@@ -113,7 +116,7 @@
     list-style: none;
     font-size: 0.9rem;
 
-    @include hoverFormElement();
+    @include hoverFormElement;
 
     &--no-result {
       text-align: center;
@@ -137,7 +140,7 @@
       cursor: pointer;
     }
 
-    & + label:before {
+    & + label::before {
       content: '';
       margin-right: 12px;
       display: inline-block;
@@ -149,12 +152,12 @@
       border: 1px solid $pix-neutral-20;
     }
 
-    &:checked + label:before {
+    &:checked + label::before {
       background: $pix-primary;
       border-color: $pix-primary;
     }
 
-    &:checked + label:after {
+    &:checked + label::after {
       position: absolute;
       top: calc(50% - 5px);
       left: 21px;
@@ -169,11 +172,12 @@
     }
 
     &--searchable {
+
       & + label {
         padding: 11px 36px;
       }
 
-      &:checked + label:after {
+      &:checked + label::after {
         left: 41px;
       }
     }

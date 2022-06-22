@@ -1,12 +1,11 @@
-.pix-filter-banner {
-  @import 'reset-css';
+@import 'reset-css';
 
+.pix-filter-banner {
   position: relative;
   display: flex;
   flex-direction: column;
   gap: 6px;
   width: 100%;
-
   background-color: $pix-neutral-0;
   box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
   min-height: 64px;
@@ -54,6 +53,7 @@
 }
 
 @include device-is('tablet') {
+
   .pix-filter-banner {
     flex-direction: row;
     justify-content: space-between;
@@ -73,6 +73,7 @@
     }
 
     &__content {
+
       > * {
         margin-right: 16px;
       }

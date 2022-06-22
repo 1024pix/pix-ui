@@ -1,6 +1,6 @@
-.pix-collapsible {
-  @import 'reset-css';
+@import 'reset-css';
 
+.pix-collapsible {
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -78,6 +78,6 @@
 
 // Pour le deuxième élément d'affilé qui est refermé, on enlève la bordure-top
 .pix-collapsible:not(.pix-collapsible--uncollapsed)
-  + .pix-collapsible:not(.pix-collapsible--uncollapsed) {
++ .pix-collapsible:not(.pix-collapsible--uncollapsed) {
   border-top: none;
 }

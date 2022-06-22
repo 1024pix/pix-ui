@@ -1,6 +1,7 @@
-.pix-button {
-  @import 'reset-css';
+@use 'sass:color';
+@import 'reset-css';
 
+.pix-button {
   color: $pix-neutral-0;
   font-family: $font-roboto;
   font-size: 0.875rem;
@@ -27,7 +28,7 @@
     padding: 12px 24px;
   }
 
-  &--size-small.pix-button--shape-rounded {
+  &--size-small[class="pix-button--shape-rounded"]{
     padding: 8px 24px;
   }
 
@@ -45,17 +46,18 @@
     border-color: $backgroundColor;
 
     &:not(.pix-button--disabled) {
+
       &:hover,
       &:focus,
       &:focus-visible {
-        background-color: darken($backgroundColor, 8%);
-        box-shadow: 0 0 0 2px darken($outlineColor, 8%);
+        background-color: color.adjust($backgroundColor, $lightness: -8%);
+        box-shadow: 0 0 0 2px color.adjust($outlineColor, $lightness: -8%);
         border-color: $pix-neutral-0;
         outline: none;
       }
 
       &:active {
-        background-color: darken($backgroundColor, 12%);
+        background-color: color.adjust($backgroundColor, $lightness: -12%);
       }
     }
   }
@@ -95,6 +97,7 @@
     color: $pix-neutral-90;
 
     &:not(.pix-button--disabled) {
+
       &:hover,
       &:focus,
       &:focus-visible {
@@ -111,6 +114,7 @@
       border-color: $pix-neutral-50;
 
       &:not(.pix-button--disabled) {
+
         &:hover,
         &:active {
           border-color: $pix-neutral-80;
@@ -125,6 +129,7 @@
     color: $pix-neutral-0;
 
     &:not(.pix-button--disabled) {
+
       &:hover,
       &:focus,
       &:focus-visible {
