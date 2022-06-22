@@ -15,7 +15,7 @@ export default class PixCollapsible extends Component {
   }
 
   get isContentRendered() {
-    return !this.args.lazyRender || this.hasUnCollapsedOnce;
+    return this.hasUnCollapsedOnce;
   }
 
   get title() {
