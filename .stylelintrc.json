@@ -1,0 +1,20 @@
+{
+  "extends": ["stylelint-config-standard-scss", "stylelint-config-prettier-scss"],
+  "rules": {
+    "at-rule-no-unknown": [
+      true,
+      { "ignoreAtRules": ["else", "extend", "if", "include", "mixin", "warn", "use"] }
+    ],
+    "color-hex-case": "upper",
+    "color-hex-length": "long",
+    "indentation": [2, { "indentInsideParens": "once-at-root-twice-in-block" }],
+    "rule-empty-line-before": ["always-multi-line", { "ignore": ["after-comment"] }],
+    "value-keyword-case": ["lower", { "ignoreKeywords": ["Arial"] }],
+    "selector-class-pattern": null,
+    "selector-id-pattern": [
+      "^([a-z][a-z0-9]*)(-[a-z0-9]+)*$",
+      { "severity": "warning", "message": "Expected id selector to be kebab-case" }
+    ],
+    "scss/at-mixin-pattern": null
+  }
+}
