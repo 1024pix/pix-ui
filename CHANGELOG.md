@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.5.0 (22/06/2022)
+
+
+### :coffee: Autre
+- [#223](https://github.com/1024pix/pix-ui/pull/223) [DOC] Ajouter  la palette des couleurs & la documentation pour les couleurs (PIX-5181) .
+
 ## v14.4.0 (17/06/2022)
 
 
