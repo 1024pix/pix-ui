@@ -1,28 +1,28 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, clickByText } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
-import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | collapsible', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it show only PixCollapsible title by default', async function (assert) {
+  test('it should only render PixCollapsible title by default', async function (assert) {
     // when
-    await render(hbs`
+    const screen = await render(hbs`
       <PixCollapsible @title="Titre de mon élément déroulable">
         <p>Contenu de mon élément</p>
       </PixCollapsible>
     `);
 
     // then
-    assert.contains('Titre de mon élément déroulable');
+    assert.dom(screen.queryByText('Titre de mon élément déroulable')).isVisible();
+    assert.dom(screen.queryByText('Contenu de mon élément')).doesNotExist();
   });
 
-  test('it shows content on click on PixCollapsible title', async function (assert) {
+  test('it should render and show content on click on PixCollapsible title', async function (assert) {
     // when
-    await render(hbs`
+    const screen = await render(hbs`
       <PixCollapsible
         @title="Titre de mon élément déroulable"
         aria-label="collapsible label"
@@ -30,11 +30,11 @@ module('Integration | Component | collapsible', function (hooks) {
         <p>Contenu de mon élément</p>
       </PixCollapsible>
     `);
-    await clickByLabel('collapsible label');
+    await clickByText('Titre de mon élément déroulable');
 
     // then
-    assert.contains('Titre de mon élément déroulable');
-    assert.contains('Contenu de mon élément');
+    assert.dom(screen.queryByText('Titre de mon élément déroulable')).isVisible();
+    assert.dom(screen.queryByText('Contenu de mon élément')).isVisible();
   });
 
   test('it should not show PixCollapsible if title is not provided', async function (assert) {
@@ -49,5 +49,24 @@ module('Integration | Component | collapsible', function (hooks) {
     assert.throws(function () {
       component.title;
     }, expectedError);
+  });
+
+  test('it should not destroy content when uncollapsed then collapsed again', async function (assert) {
+    // when
+    const screen = await render(hbs`
+      <PixCollapsible
+        @title="Titre de mon élément déroulable"
+        aria-label="collapsible label"
+      >
+        <p>Contenu de mon élément</p>
+      </PixCollapsible>
+    `);
+    await clickByText('Titre de mon élément déroulable');
+    await clickByText('Titre de mon élément déroulable');
+
+    // then
+    assert.dom(screen.queryByText('Titre de mon élément déroulable')).isVisible();
+    assert.dom(screen.queryByText('Contenu de mon élément')).isNotVisible();
+    assert.dom(screen.queryByText('Contenu de mon élément')).exists();
   });
 });
