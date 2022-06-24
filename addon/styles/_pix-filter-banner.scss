@@ -1,31 +1,14 @@
 .pix-filter-banner {
   @import 'reset-css';
-
-  position: relative;
   display: flex;
   flex-direction: column;
-  gap: 6px;
+  position: relative;
+  gap: $spacing-xs;
   width: 100%;
-
   background-color: $pix-neutral-0;
   box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
   min-height: 64px;
-  padding: 14px 24px;
-
-  &__container-left {
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-
-    > * > * {
-      width: 100%;
-    }
-  }
-
-  &__container-right {
-    display: flex;
-    flex-direction: column;
-  }
+  padding: $spacing-s $spacing-m;
 
   &__title {
     color: $pix-neutral-60;
@@ -34,14 +17,20 @@
     margin: 0;
   }
 
-  p.pix-filter-banner__details {
+  &__container-filter {
+    display: flex;
+    flex-direction: column;
+    gap: $spacing-s;
+  }
+
+  &__details {
     color: $pix-neutral-60;
     font-family: $font-roboto;
     font-weight: $font-medium;
+    padding: $spacing-xs 0 $spacing-xs 0;
+    margin: 0;
     font-size: 0.875rem;
-    margin-top: 10px;
-    padding-top: 10px;
-    border-top: 1px solid$pix-neutral-15;
+    border-top: 1px solid $pix-neutral-15;
   }
 
   &__button {
@@ -50,55 +39,41 @@
 }
 
 .pix-filter-banner-button__icon {
-  padding-right: 4px;
+  padding-right: $spacing-xxs;
 }
 
 @include device-is('tablet') {
   .pix-filter-banner {
-    flex-direction: row;
     justify-content: space-between;
     align-items: center;
+    flex-direction: row;
+    gap: $spacing-m;
 
-    &__container-left {
-      flex-direction: row;
-      height: 36px;
+    &__container-title {
+      display: flex;
       align-items: center;
     }
 
-    &__container-right {
+    &__container-filter {
       flex-direction: row;
-      height: 36px;
+      flex-wrap: wrap;
+    }
+
+    &__container-action {
+      display: flex;
       align-items: center;
       justify-content: flex-end;
     }
 
-    &__content {
-      > * {
-        margin-right: 16px;
-      }
-
-      > *:last-child {
-        margin-right: 0;
-      }
-    }
-
-    &__title {
-      padding-right: 24px;
-      margin: 0;
-    }
-
-    p.pix-filter-banner__details {
-      margin: 0;
-      margin-right: 16px;
-      padding-left: 16px;
-      padding-top: 4px;
+    &__details {
+      padding: 0 $spacing-s 0 0;
       text-align: center;
       border: none;
     }
 
     &__button-container {
       border-left: 1px solid $pix-neutral-15;
-      padding-left: 16px;
+      padding-left: $spacing-s;
     }
   }
 }
