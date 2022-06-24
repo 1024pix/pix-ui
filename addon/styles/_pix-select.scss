@@ -11,7 +11,7 @@
     font-family: $font-roboto;
     font-size: 0.875rem;
     height: 36px;
-    max-width: 100%;
+    width: 100%;
     text-overflow: ellipsis;
 
     @include hoverFormElement();
@@ -55,7 +55,7 @@
     font-size: 11px;
     color: $pix-neutral-30;
     right: 10px;
-    top: calc(50% - 6px);
+    top: calc(50% - 4px);
     padding: 0 0 2px;
     position: absolute;
     pointer-events: none;
