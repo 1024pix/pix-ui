@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v14.6.0 (27/06/2022)
+
+
+### :rocket: Amélioration
+- [#225](https://github.com/1024pix/pix-ui/pull/225) [FEATURE] Rendre le contenu de PixCollapsible en lazy
+
+### :coffee: Autre
+- [#167](https://github.com/1024pix/pix-ui/pull/167) Bump axios from 0.21.1 to 0.21.2
+
 ## v14.5.0 (22/06/2022)
 
 
