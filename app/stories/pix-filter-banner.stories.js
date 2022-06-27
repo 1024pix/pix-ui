@@ -7,6 +7,8 @@ export const filterBanner = (args) => {
       <PixFilterBanner @title={{title}} @details={{details}} @clearFiltersLabel={{clearFiltersLabel}} @onClearFilters={{onClearFilters}}>
         <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
         <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
       </PixFilterBanner>
     `,
     context: args,
