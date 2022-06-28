@@ -23,6 +23,10 @@
 
 ## v14.4.0 (17/06/2022)
 
+### :warning: Breaking Change
+La variable `$pix-gradient` a été supprimée par erreur, elle doit être remplacée par `$pix-primary-app-gradient`.
+
+La totalité des couleurs du Design System ont été apportées dans cette version. Les remplacements nécessaires sont documentés dans [cette PR](https://github.com/1024pix/pix-ui/pull/219). Une version majeure suivra lorsque tous les fronts Pix auront migré.
 
 ### :building_construction: Tech
 - [#219](https://github.com/1024pix/pix-ui/pull/219) [TECH] Ajouter les variables du design system dans Pix-UI.(PIX-2307)
