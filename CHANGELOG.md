@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.7.0 (28/06/2022)
+
+
+### :building_construction: Tech
+- [#226](https://github.com/1024pix/pix-ui/pull/226) [TECH] Permettre le passage en multi ligne du bandeau (PIX-5213)
+
 ## v14.6.0 (27/06/2022)
 
 
