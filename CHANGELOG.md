@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.7.1 (28/06/2022)
+
+
+### :coffee: Autre
+- [#227](https://github.com/1024pix/pix-ui/pull/227) [DOCS] Ajoute des infos de breaking change sur la v14.4.0
+
 ## v14.7.0 (28/06/2022)
 
 
