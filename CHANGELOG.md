@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v14.8.1 (30/06/2022)
+
+
+### :building_construction: Tech
+- [#228](https://github.com/1024pix/pix-ui/pull/228) [TECH] Import et utilisation des polices Google Fonts dans le projet
+
 ## v14.7.1 (28/06/2022)
 
 
