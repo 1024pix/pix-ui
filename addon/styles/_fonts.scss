@@ -1,3 +1,45 @@
+@font-face {
+  font-family: "Open Sans";
+  src: url("../@1024pix/pix-ui/fonts/OpenSans/OpenSans-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../@1024pix/pix-ui/fonts/OpenSans/OpenSans-SemiBold.ttf");
+  font-weight: 600;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Open Sans";
+  src: url("../@1024pix/pix-ui/fonts/OpenSans/OpenSans-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../@1024pix/pix-ui/fonts/Roboto/Roboto-Regular.ttf");
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../@1024pix/pix-ui/fonts/Roboto/Roboto-Medium.ttf");
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Roboto";
+  src: url("../@1024pix/pix-ui/fonts/Roboto/Roboto-Light.ttf");
+  font-weight: 300;
+  font-style: normal;
+}
+
 $font-open-sans: 'Open Sans', Arial, sans-serif;
 $font-roboto: 'Roboto', Arial, sans-serif;
 
