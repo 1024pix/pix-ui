@@ -8,7 +8,8 @@
   "license": "MIT",
   "author": "GIP Pix",
   "engines": {
-    "node": "^16.13.0"
+    "node": "16.14.0",
+    "npm": "8.13.2"
   },
   "ember": {
     "edition": "octane"
@@ -33,6 +34,7 @@
     "lint:hbs:fix": "npm run lint:hbs -- --fix",
     "lint:js": "eslint .",
     "lint:js:fix": "npm run lint:js -- --fix",
+    "preinstall": "npx check-engine",
     "start": "ember serve",
     "storybook": "ember build && ember serve & start-storybook -p 9001 -s dist",
     "test": "ember test",
