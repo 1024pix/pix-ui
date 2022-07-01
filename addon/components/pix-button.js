@@ -33,22 +33,17 @@ export default class PixButton extends PixButtonBase {
     return super.baseClassNames.join(' ');
   }
 
-  get enableTriggerAction() {
-    return !(this.type === 'submit' && !this.args.triggerAction);
-  }
-
   @action
   async triggerAction(params) {
+    if (this.type === 'submit' && !this.args.triggerAction) return;
+    if (!this.args.triggerAction) {
+      throw new Error('@triggerAction params is required for PixButton !');
+    }
     try {
       this.isTriggering = true;
       await this.args.triggerAction(params);
+    } finally {
       this.isTriggering = false;
-    } catch (e) {
-      this.isTriggering = false;
-      if (!this.args.triggerAction) {
-        throw new Error('@triggerAction params is required for PixButton !');
-      }
-      throw new Error(e);
     }
   }
 }

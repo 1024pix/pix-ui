@@ -8,36 +8,23 @@
     {{yield}}
   </LinkTo>
 {{else}}
-  {{#if this.enableTriggerAction}}
-    <button
-      type={{this.type}}
-      class={{this.className}}
-      {{on "click" this.triggerAction}}
-      ...attributes
-      disabled={{this.isButtonLoadingOrDisabled}}
-      aria-disabled="{{this.ariaDisabled}}"
-    >
-      {{#if this.isLoading}}
-        <div class="loader loader--{{this.loadingColor}}">
-          <div class="bounce1"></div>
-          <div class="bounce2"></div>
-          <div class="bounce3"></div>
-        </div>
-        <span class="loader__not-visible-text">{{yield}}</span>
-      {{else}}
-        {{yield}}
-      {{/if}}
-    </button>
-  {{else}}
-    <button
-      type={{this.type}}
-      class={{this.className}}
-      ...attributes
-      disabled={{this.isButtonLoadingOrDisabled}}
-      aria-disabled="{{this.ariaDisabled}}"
-    >
+  <button
+    type={{this.type}}
+    class={{this.className}}
+    {{on "click" this.triggerAction}}
+    ...attributes
+    disabled={{this.isButtonLoadingOrDisabled}}
+    aria-disabled="{{this.ariaDisabled}}"
+  >
+    {{#if this.isLoading}}
+      <div class="loader loader--{{this.loadingColor}}">
+        <div class="bounce1"></div>
+        <div class="bounce2"></div>
+        <div class="bounce3"></div>
+      </div>
+      <span class="loader__not-visible-text">{{yield}}</span>
+    {{else}}
       {{yield}}
-    </button>
-  {{/if}}
-
+    {{/if}}
+  </button>
 {{/if}}
