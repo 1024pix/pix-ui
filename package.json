@@ -43,6 +43,8 @@
     "signal-github": "./scripts/signal-deploy-to-pr.sh"
   },
   "dependencies": {
+    "broccoli-funnel": "^3.0.8",
+    "broccoli-merge-trees": "^4.2.0",
     "ember-cli-babel": "^7.26.6",
     "ember-cli-htmlbars": "^5.6.2",
     "ember-cli-sass": "^10.0.1",
