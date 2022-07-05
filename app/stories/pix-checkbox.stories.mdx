@@ -1,0 +1,32 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-checkbox.stories.js';
+
+<Meta
+  title='Form/Checkbox'
+  component='PixCheckbox'
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# PixCheckbox
+
+TODO: insert component description
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={60} />
+</Canvas>
+
+## Usage
+
+```html
+<PixCheckbox
+  @id="superId"
+  @label="Recevoir la newsletter"
+/>
+```
+
+## Arguments
+
+<ArgsTable story="Default" />
