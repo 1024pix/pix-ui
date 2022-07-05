@@ -12,10 +12,15 @@ import * as stories from './pix-checkbox.stories.js';
 
 # PixCheckbox
 
-TODO: insert component description
+La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (checkbox servant d'indicateur lors d'une sélection mutliple).
 
 <Canvas>
   <Story name='Default' story={stories.Default} height={60} />
+</Canvas>
+
+## Checkbox indeterminée
+<Canvas>
+  <Story name='Indeterminate' story={stories.isIndeterminateCheckbox} height={60} />
 </Canvas>
 
 ## Usage
@@ -24,6 +29,8 @@ TODO: insert component description
 <PixCheckbox
   @id="superId"
   @label="Recevoir la newsletter"
+  @isLabelAtRightSide={{false}}
+  @isIndeterminate={{false}}
 />
 ```
 

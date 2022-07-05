@@ -42,5 +42,25 @@
         width: 16px;
       }
     }
+
+    &.pix-checkbox__input--indeterminate {
+      &:checked {
+        background: $pix-neutral-60 border-box;
+        border-color: $pix-neutral-60;
+
+        &::after {
+          content: '-';
+          color: $white;
+          font-size: 1.25rem;
+          display: block;
+          position: relative;
+          left: 2px;
+          top: -7px;
+          font-weight: bold;
+          height: 16px;
+          width: 16px;
+        }
+      }
+    }
   }
 }
