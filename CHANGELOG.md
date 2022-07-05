@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v15.0.0 (05/07/2022)
+
+
+### :building_construction: Tech
+- [#229](https://github.com/1024pix/pix-ui/pull/229) [TECH] Retirer la taille par defaut du composant PixMultiSelect
+- [#224](https://github.com/1024pix/pix-ui/pull/224) [TECH] Fixer la version NodeJS à 16.14.0
+
 ## v14.8.1 (30/06/2022)
 
 
