@@ -165,7 +165,6 @@ module('Integration | Component | button', function (hooks) {
   module('when the button has isLoading to true', function () {
     test('should display a loading state', async function (assert) {
       // given
-      this.set('triggerAction', () => {});
       this.set('isLoading', true);
 
       // when

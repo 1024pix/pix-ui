@@ -42,13 +42,6 @@ Default.args = {
   size: 'big',
   backgroundColor: 'blue',
   label: 'Bouton',
-  triggerAction: () => {
-    return new Promise((resolve) => {
-      setTimeout(() => {
-        resolve();
-      }, 2000);
-    });
-  },
 };
 
 export const borders = Template.bind({});
@@ -124,10 +117,16 @@ loader.args = {
   label: 'Bouton avec loader au clic',
   backgroundColor: 'yellow',
   loadingColor: 'grey',
+  triggerAction: () => {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve();
+      }, 2000);
+    });
+  },
   extraButtons: [
     {
       ...Default.args,
-      triggerAction: () => {},
       isLoading: true,
     },
   ],
