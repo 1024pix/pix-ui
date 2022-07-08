@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v15.0.1 (08/07/2022)
+
+
+### :bug: Correction
+- [#234](https://github.com/1024pix/pix-ui/pull/234) [BUGFIX] Laisser les filtres à côté du label dans le FilterBanner (PIX-5301)
+- [#231](https://github.com/1024pix/pix-ui/pull/231) [BUGFIX] PixButton de type submit affiche un loader si @isLoading=true
+
 ## v15.0.0 (05/07/2022)
 
 
