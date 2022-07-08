@@ -23,6 +23,14 @@
     gap: $spacing-s;
   }
 
+  &__container-action {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-top: 1px solid $pix-neutral-15;
+  }
+
+
   &__details {
     color: $pix-neutral-60;
     font-family: $font-roboto;
@@ -30,7 +38,6 @@
     padding: $spacing-xs 0 $spacing-xs 0;
     margin: 0;
     font-size: 0.875rem;
-    border-top: 1px solid $pix-neutral-15;
   }
 
   &__button {
@@ -44,7 +51,6 @@
 
 @include device-is('tablet') {
   .pix-filter-banner {
-    justify-content: space-between;
     align-items: center;
     flex-direction: row;
     gap: $spacing-m;
@@ -57,12 +63,13 @@
     &__container-filter {
       flex-direction: row;
       flex-wrap: wrap;
+      align-items: center;
+      flex-grow: 2;
     }
 
     &__container-action {
-      display: flex;
-      align-items: center;
-      justify-content: flex-end;
+      flex-direction: row;
+      border: none;
     }
 
     &__details {
