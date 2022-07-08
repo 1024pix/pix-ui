@@ -8,14 +8,22 @@
     aria-expanded={{if this.isUnCollapsed "true" "false"}}
     ...attributes
   >
-    <span>
+    <span class="pix-collapsible-title__container">
       {{#if @titleIcon}}
         <FaIcon @icon={{@titleIcon}} class="pix-collapsible-title__icon" />
       {{/if}}
-      {{this.title}}
+
+      {{#if (has-block "title")}}
+        {{yield to="title"}}
+      {{else}}
+        {{this.title}}
+      {{/if}}
     </span>
 
-    <FaIcon @icon="{{if this.isCollapsed 'plus' 'minus'}}" class="pix-collapsible-title__icon" />
+    <FaIcon
+      @icon="{{if this.isCollapsed 'plus' 'minus'}}"
+      class="pix-collapsible-title__toggle-icon"
+    />
   </button>
 
   <div
