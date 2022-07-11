@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v15.0.2 (11/07/2022)
+
+
+### :building_construction: Tech
+- [#237](https://github.com/1024pix/pix-ui/pull/237) [TECH] Changer les pré-requis engine du package.json (PIX-5319)
+
+### :bug: Correction
+- [#236](https://github.com/1024pix/pix-ui/pull/236) [BUGFIX] Correction du déploiement de Storybook
+
 ## v15.0.1 (08/07/2022)
 
 
