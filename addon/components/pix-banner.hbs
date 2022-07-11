@@ -6,7 +6,7 @@
       {{#if this.isExternalLink}}
         <a class="pix-banner__action" href={{@actionUrl}} target="_blank" rel="noopener noreferrer">
           {{@actionLabel}}
-          <FaIcon class="external-link" @icon="external-link-alt" />
+          <FaIcon class="external-link" @icon="up-right-from-square" />
         </a>
       {{else}}
         <LinkTo class="pix-banner__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>

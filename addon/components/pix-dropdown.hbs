@@ -33,7 +33,7 @@
         aria-label={{@clearLabel}}
         {{on "click" this.clearSelection}}
       >
-        <FaIcon @icon="times" />
+        <FaIcon @icon="xmark" />
       </button>
     {{/if}}
 
@@ -62,7 +62,7 @@
 
     {{#if @isSearchable}}
       <div class="pix-dropdown__menu--search">
-        <FaIcon class="pix-dropdown__menu--search-icon" @icon="search" />
+        <FaIcon class="pix-dropdown__menu--search-icon" @icon="magnifying-glass" />
         <label
           class="pix-dropdown__menu--search-input-label"
           for={{this.searchInputId}}

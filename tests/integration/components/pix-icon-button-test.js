@@ -25,12 +25,12 @@ module('Integration | Component | icon-button', function (hooks) {
   test('it renders PixIconButton with the specified FaIcon', async function (assert) {
     // when
     await render(hbs`
-      <PixIconButton @icon='times' @ariaLabel="action du bouton" />
+      <PixIconButton @icon='xmark' @ariaLabel="action du bouton" />
     `);
     const iconElement = this.element.querySelector(iconClass);
 
     // then
-    assert.ok(iconElement.classList.contains('fa-times'));
+    assert.ok(iconElement.classList.contains('fa-xmark'));
     assert.notOk(iconElement.classList.contains('fa-plus'));
   });
 
