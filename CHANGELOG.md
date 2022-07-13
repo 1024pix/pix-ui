@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v16.0.0 (13/07/2022)
+
+
+### :building_construction: Tech
+- [#238](https://github.com/1024pix/pix-ui/pull/238) [TECH] Monter de version fontawesome (PIX-5325)
+
 ## v15.0.2 (11/07/2022)
 
 
