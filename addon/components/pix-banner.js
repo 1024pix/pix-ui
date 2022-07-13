@@ -16,9 +16,9 @@ const types = [
 ];
 
 const icons = {
-  [TYPE_INFO]: 'info-circle',
-  [TYPE_ERROR]: 'exclamation-triangle',
-  [TYPE_WARNING]: 'exclamation-circle',
+  [TYPE_INFO]: 'circle-info',
+  [TYPE_ERROR]: 'triangle-exclamation',
+  [TYPE_WARNING]: 'circle-exclamation',
   [TYPE_COMMUNICATION]: 'bullhorn',
   [TYPE_COMMUNICATION_ORGA]: 'bullhorn',
   [TYPE_COMMUNICATION_CERTIF]: 'bullhorn',

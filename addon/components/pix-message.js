@@ -19,11 +19,11 @@ export default class PixMessage extends Component {
 
   get iconClass() {
     const classes = {
-      [TYPE_INFO]: 'info-circle',
-      [TYPE_SUCCESS]: 'check-circle',
-      [TYPE_WARNING]: 'exclamation-circle',
-      [TYPE_ALERT]: 'exclamation-triangle',
-      [TYPE_ERROR]: 'exclamation-triangle',
+      [TYPE_INFO]: 'circle-info',
+      [TYPE_SUCCESS]: 'circle-check',
+      [TYPE_WARNING]: 'circle-exclamation',
+      [TYPE_ALERT]: 'triangle-exclamation',
+      [TYPE_ERROR]: 'triangle-exclamation',
     };
     return classes[this.type];
   }

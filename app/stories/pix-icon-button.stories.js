@@ -20,7 +20,7 @@ const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   ariaLabel: 'Action du bouton',
-  icon: 'times',
+  icon: 'xmark',
   triggerAction: () => {
     return new Promise().resolves();
   },
@@ -43,13 +43,12 @@ export const argTypes = {
     name: 'ariaLabel',
     description: "l'action du bouton, pour l'accessibilité",
     type: { name: 'string', required: true },
-    table: { defaultValue: { summary: 'times' } },
   },
   icon: {
     name: 'icon',
     description: 'Icône font-awesome',
     type: { name: 'string', required: true },
-    table: { defaultValue: { summary: 'times' } },
+    table: { defaultValue: { summary: 'plus' } },
   },
   iconPrefix: {
     name: 'iconPrefix',

@@ -38,7 +38,7 @@ const TemplateWithHTMLElement = (args) => {
         </:triggerElement>
 
         <:tooltip>
-          <FaIcon @icon="external-link-alt" /> <strong>HTML/Ember</strong>
+          <FaIcon @icon="up-right-from-square" /> <strong>HTML/Ember</strong>
         </:tooltip>
       </PixTooltip>
     `,
