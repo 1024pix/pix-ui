@@ -4,8 +4,8 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-modal.stories.js';
 
 <Meta
-  title='Basics/Modal'
-  component='PixModal'
+  title="Basics/Modal"
+  component="PixModal"
   decorators={[centered]}
   argTypes={stories.argTypes}
 />
@@ -15,13 +15,14 @@ import * as stories from './pix-modal.stories.js';
 Une fenêtre modale responsive et scrollable avec un overlay.
 
 Ce composant possède deux `yield` :
+
 - `:content` est destiné à accueillir le contenu principal de la fenêtre modale. Il peut accueillir tout type de
   contenu HTML (simple texte, image, formulaire, etc.)
 - `:footer` peut également accueillir tout type de contenu HTML, mais est destiné aux boutons permettant d'interagir
   avec la modale, ce qui permettra de les positionner correctement dans tous les cas de figure.
 
 <Canvas>
-  <Story name='PixModal' story={stories.modal} height={500} />
+  <Story name="Default" story={stories.Default} height={500} />
 </Canvas>
 
 ## Usage

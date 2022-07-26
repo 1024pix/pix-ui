@@ -1,10 +1,15 @@
-<div class="pix-modal__overlay" {{trap-focus}}>
+<div
+  class="pix-modal__overlay"
+  {{action "onCloseButtonClick"}}
+  {{trap-focus}}
+>
   <div
     class="pix-modal"
     role="dialog"
     aria-labelledby="modal-title"
     aria-describedby="modal-content"
     aria-modal="true"
+    onclick={{action "stopPropagation"}}
     ...attributes
   >
     <header class="pix-modal__header">

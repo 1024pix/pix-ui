@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class PixModal extends Component {
   constructor(...args) {
@@ -7,5 +8,10 @@ export default class PixModal extends Component {
     if (!this.args.title) {
       throw new Error('ERROR in PixModal component: @title argument is required.');
     }
+  }
+
+  @action
+  stopPropagation(event) {
+    event.stopPropagation();
   }
 }
