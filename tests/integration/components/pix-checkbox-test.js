@@ -65,4 +65,14 @@ module('Integration | Component | checkbox', function (hooks) {
     // then
     assert.dom('.pix-checkbox__label--small').exists();
   });
+
+  test('it should be possible to insert html in label', async function (assert) {
+    // given & when
+    const labelWithHtml = 'Accepter les cgu, <a href="https://cgu.example.net">voir ici</a>';
+    this.set('label', labelWithHtml);
+    const screen = await render(hbs`<PixCheckbox @id="checkboxId" @label={{label}} />`);
+
+    // then
+    assert.dom(screen.getByLabelText('Accepter les cgu, voir ici')).exists();
+  });
 });

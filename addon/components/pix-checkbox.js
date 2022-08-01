@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { htmlSafe } from '@ember/string';
 
 const ERROR_MESSAGE =
   'ERROR in PixCheckbox component, you must provide @label or @ariaLabel params';
@@ -21,7 +22,7 @@ export default class PixCheckbox extends Component {
     if (!this.args.label && !this.args.ariaLabel) {
       throw new Error(ERROR_MESSAGE);
     }
-    return this.args.label;
+    return htmlSafe(this.args.label);
   }
 
   get ariaLabel() {
