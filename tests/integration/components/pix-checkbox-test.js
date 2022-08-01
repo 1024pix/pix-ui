@@ -57,4 +57,12 @@ module('Integration | Component | checkbox', function (hooks) {
     const checkbox = this.element.querySelector(CHECKBOX_INPUT_SELECTOR);
     assert.true(checkbox.checked);
   });
+
+  test('it should be possible to make label small', async function (assert) {
+    // when
+    await render(hbs`<PixCheckbox @id="checkboxId" @label="Mini label" @labelSize="small" />`);
+
+    // then
+    assert.dom('.pix-checkbox__label--small').exists();
+  });
 });

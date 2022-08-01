@@ -20,7 +20,17 @@ La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (c
 
 ## Checkbox indeterminée
 <Canvas>
-  <Story name='Indeterminate' story={stories.isIndeterminateCheckbox} height={60} />
+  <Story name='Indeterminate' story={stories.indeterminateCheckbox} height={60} />
+</Canvas>
+
+## Checkbox avec un petit label
+<Canvas>
+  <Story name='SmallLabel' story={stories.checkboxWithSmallLabel} height={60} />
+</Canvas>
+
+## Checkbox avec un grand label
+<Canvas>
+  <Story name='LargeLabel' story={stories.checkboxWithLargeLabel} height={60} />
 </Canvas>
 
 ## Usage
@@ -31,6 +41,7 @@ La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (c
   @label="Recevoir la newsletter"
   @isLabelAtRightSide={{false}}
   @isIndeterminate={{false}}
+  @labelSize="small"
 />
 ```
 

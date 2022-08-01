@@ -7,6 +7,7 @@ export const Template = (args) => {
         @id={{id}}
         @label={{label}}
         @isIndeterminate={{isIndeterminate}}
+        @labelSize={{labelSize}}
       />
     `,
     context: args,
@@ -19,11 +20,25 @@ Default.args = {
   label: 'Recevoir la newsletter',
 };
 
-export const isIndeterminateCheckbox = Template.bind({});
-isIndeterminateCheckbox.args = {
+export const indeterminateCheckbox = Template.bind({});
+indeterminateCheckbox.args = {
   id: 'acceptNewsletter2',
   label: 'Recevoir la newsletter',
   isIndeterminate: true,
+};
+
+export const checkboxWithSmallLabel = Template.bind({});
+checkboxWithSmallLabel.args = {
+  id: 'acceptNewsletter2',
+  label: 'Recevoir la newsletter',
+  labelSize: 'small',
+};
+
+export const checkboxWithLargeLabel = Template.bind({});
+checkboxWithLargeLabel.args = {
+  id: 'acceptNewsletter2',
+  label: 'Recevoir la newsletter',
+  labelSize: 'large',
 };
 
 export const argTypes = {
@@ -53,6 +68,16 @@ export const argTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
+    },
+  },
+  labelSize: {
+    name: 'labelSize',
+    description: 'Correspond à la taille de la police du label.',
+    type: { name: 'string', required: false },
+    defaultValue: { summary: 'default' },
+    control: {
+      type: 'select',
+      options: ['small', 'default', 'large'],
     },
   },
 };
