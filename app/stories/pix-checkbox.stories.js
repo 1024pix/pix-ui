@@ -6,6 +6,7 @@ export const Template = (args) => {
       <PixCheckbox
         @id={{id}}
         @label={{label}}
+        @screenReaderOnly={{screenReaderOnly}}
         @isIndeterminate={{isIndeterminate}}
         @labelSize={{labelSize}}
       />
@@ -54,16 +55,20 @@ export const argTypes = {
     type: { name: 'string', required: false },
     defaultValue: null,
   },
-  ariaLabel: {
-    name: 'ariaLabel',
-    description: "L'action du champ, pour l'accessibilité. Requis si label n'est pas définit.",
-    type: { name: 'string', required: true },
-    defaultValue: null,
+  screenReaderOnly: {
+    name: 'screenReaderOnly',
+    description:
+      "Permet de ne pas afficher le label à l'écran. Sert à garder un label qui sera lisible par les lecteurs d'écran.",
+    type: { name: 'boolean', required: true },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
   },
   isIndeterminate: {
     name: 'isIndeterminate',
     description:
-      "Rendre la checkbox indeterminée, état indiquant que la/les case(s) n'est ni cochée(s) ni décochée(s) (exemple: une checkbox parent indiquant la sélection partielle de plusieurs checkbox enfants)",
+      "Rendre la checkbox indéterminée, état indiquant que la/les case(s) n'est/ne sont ni cochée(s) ni décochée(s) (exemple: une checkbox parente indiquant la sélection partielle de plusieurs checkbox enfants)",
     type: { name: 'boolean', required: true },
     table: {
       type: { summary: 'boolean' },
