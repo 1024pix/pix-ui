@@ -1,0 +1,14 @@
+<div class="pix-checkbox">
+  <label
+    class="pix-checkbox__label {{this.labelSizeClass}} {{if @screenReaderOnly 'sr-only'}}"
+    for={{this.id}}
+  >
+    {{this.label}}
+  </label>
+  <input
+    id={{this.id}}
+    type="checkbox"
+    class="pix-checkbox__input {{if @isIndeterminate ' pix-checkbox__input--indeterminate'}}"
+    ...attributes
+  />
+</div>

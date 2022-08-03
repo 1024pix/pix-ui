@@ -67,6 +67,10 @@ export const form = (args) => {
       />
       <br>
 
+      <PixCheckbox @id="spam-pub" @labelSize="small" @label="Acceptez-vous de vous faire spammer de PUB ?" />
+
+      <br><br>
+
       <div class="pix-form__actions">
         <PixButton @triggerAction={{cancel}} @backgroundColor="transparent-light" @isBorderVisible={{true}}>
           Annuler
