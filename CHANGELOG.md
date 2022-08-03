@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v16.1.0 (03/08/2022)
+
+
+### :rocket: Amélioration
+- [#232](https://github.com/1024pix/pix-ui/pull/232) [FEATURE] Ajout du composant checkbox (PIX-3030)
+
 ## v16.0.0 (13/07/2022)
 
 
