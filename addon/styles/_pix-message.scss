@@ -10,23 +10,23 @@
 
   &.pix-message--info {
     color: $pix-primary-70;
-    background-color: $pix-primary-10;
+    background-color: $pix-primary-5;
   }
   &.pix-message--alert {
     color: $pix-error-70;
-    background-color: $pix-error-10;
+    background-color: $pix-error-5;
   }
   &.pix-message--error {
     color: $pix-error-70;
-    background-color: $pix-error-10;
+    background-color: $pix-error-5;
   }
   &.pix-message--success {
     color: $pix-success-70;
-    background-color: $pix-success-10;
+    background-color: $pix-success-5;
   }
   &.pix-message--warning {
-    color: $pix-warning-60;
-    background-color: $pix-warning-10;
+    color: $pix-warning-70;
+    background-color: $pix-warning-5;
   }
 
   svg {
