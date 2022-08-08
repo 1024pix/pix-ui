@@ -14,7 +14,7 @@ $pix-primary-80: #000e87;
 
 // Secondary
 $pix-secondary-5: #fff9e6;
-$pix-secondary-10: #ffeeb3;
+$pix-secondary-10: #fff1c5;
 $pix-secondary-20: #ffe381;
 $pix-secondary: #ffd235;
 $pix-secondary-40: #ffbe00;
@@ -75,7 +75,7 @@ $pix-warning-30: #ffd235;
 $pix-warning-40: #ffbe00;
 $pix-warning-50: #eaa600;
 $pix-warning-60: #ce8900;
-$pix-warning-70: #ac6a00;
+$pix-warning-70: #a95800;
 $pix-warning-80: #874d00;
 
 // Error
@@ -489,20 +489,20 @@ $yellow-alert-dark: #a95800;
 /**
  * @deprecated
  *-To style text or border : $pix-error-70
- *-To style background : $pix-error-10
+ *-To style background : $pix-error-5
  */
 $error: #ff4b00;
 
 /**
  * @deprecated
  *-To style text or border : $pix-success-70
- *-To style background : $pix-success-10
+ *-To style background : $pix-success-5
  */
 $success: #57c884;
 
 /**
  * @deprecated
- *-To style text or border : $pix-warning-60
- *-To style background : $pix-warning-10
+ *-To style text or border : $pix-warning-70
+ *-To style background : $pix-warning-5
  */
 $warning: #ffbe00;
