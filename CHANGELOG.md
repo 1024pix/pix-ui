@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v17.0.0 (09/08/2022)
+
+
+### :coffee: Autre
+- [#239](https://github.com/1024pix/pix-ui/pull/239) [BREAKING_CHANGES][BUGFIX] Correction des couleurs du design system par rapport à Figma (PIX-5331).
+
 ## v16.1.0 (03/08/2022)
 
 
