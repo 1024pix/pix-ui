@@ -67,6 +67,14 @@ Bannière contenant un lien externe.
   <Story name="With external link" story={stories.withExternalLink} height={100} />
 </Canvas>
 
+## With Close Icon
+
+Bannière contenant un bouton qui permet de fermer la bannière.
+
+<Canvas>
+  <Story name="With close icon" story={stories.withCloseIcon} height={100} />
+</Canvas>
+
 ## Usage
 
 ```html
@@ -98,6 +106,13 @@ Bannière Info par défaut
   @actionUrl='https://orga.pix.fr/eleves'
 >
   Bannière avec une route externe
+</PixBanner>
+
+<PixBanner
+  @type='warning'
+  @canCloseBanner=true
+>
+  Bannière posséndant un bouton de fermeture
 </PixBanner>
 
 ```
