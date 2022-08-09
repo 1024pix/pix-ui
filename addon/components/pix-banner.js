@@ -1,4 +1,6 @@
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { action } from '@ember/object';
 const TYPE_INFO = 'information';
 const TYPE_ERROR = 'error';
 const TYPE_WARNING = 'warning';
@@ -25,6 +27,7 @@ const icons = {
 };
 
 export default class PixBanner extends Component {
+  @tracked isBannerVisible = true;
   get type() {
     return types.includes(this.args.type) ? this.args.type : TYPE_INFO;
   }
@@ -39,5 +42,18 @@ export default class PixBanner extends Component {
 
   get isExternalLink() {
     return this.args.actionUrl.includes('/');
+  }
+
+  get canCloseBanner() {
+    return this.args.canCloseBanner;
+  }
+
+  get displayBanner() {
+    return this.isBannerVisible;
+  }
+
+  @action
+  closeBanner() {
+    this.isBannerVisible = false;
   }
 }
