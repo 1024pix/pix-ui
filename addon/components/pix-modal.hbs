@@ -2,6 +2,7 @@
   class="pix-modal__overlay"
   {{on "click" this.closeAction}}
   {{trap-focus}}
+  {{on-escape-action this.closeAction}}
 >
   <div
     class="pix-modal"
