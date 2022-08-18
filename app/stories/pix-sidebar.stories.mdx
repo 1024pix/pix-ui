@@ -1,0 +1,61 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+
+import * as stories from './pix-modal.stories.js';
+
+<Meta
+  title="Basics/Modal"
+  component="PixModal"
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# PixModal
+
+Une fenêtre modale responsive et scrollable avec un overlay.
+
+Ce composant possède deux `yield` :
+
+- `:content` est destiné à accueillir le contenu principal de la fenêtre modale. Il peut accueillir tout type de
+  contenu HTML (simple texte, image, formulaire, etc.)
+- `:footer` peut également accueillir tout type de contenu HTML, mais est destiné aux boutons permettant d'interagir
+  avec la modale, ce qui permettra de les positionner correctement dans tous les cas de figure.
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={500} />
+</Canvas>
+
+## Usage
+
+```html
+<PixSidebar
+  @showSidebar={{true}}
+  @title="Filtrer"
+  @onClose={{this.closeSidebar}}
+>
+ <:content>
+  <p>
+    Une fenêtre modale est, dans une interface graphique, une fenêtre qui prend le contrôle total du clavier et
+    de l'écran. Elle est en général associée à une question à laquelle il est impératif que l'utilisateur
+    réponde avant de poursuivre, ou de modifier quoi que ce soit. La fenêtre modale a pour propos : d'obtenir
+    des informations de l'utilisateur (ces informations sont nécessaires pour réaliser une opération) ; de
+    fournir une information à l'utilisateur (ce dernier doit en prendre connaissance avant de pouvoir continuer
+    à utiliser l'application).
+  </p>
+ </:content>
+ <:footer>
+  <PixButton
+    @backgroundColor="transparent-light"
+    @isBorderVisible={{true}}
+    @triggerAction={{this.closeModal}}
+  >
+    Annuler
+  </PixButton>
+  <PixButton>Valider</PixButton>
+ </:footer>
+</PixModal>
+```
+
+## Arguments
+
+<ArgsTable story="PixModal" />
