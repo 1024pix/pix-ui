@@ -1,9 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const modal = (args) => {
+export const Template = (args) => {
   return {
     template: hbs`
-      <PixModal @title={{this.title}}>
+      <PixModal @title={{this.title}} @onCloseButtonClick={{onCloseButtonClick}}>
         <:content>
           <p>
             Une fenêtre modale est, dans une interface graphique, une fenêtre qui prend le contrôle total du clavier et
@@ -24,16 +24,24 @@ export const modal = (args) => {
   };
 };
 
+export const Default = Template.bind({});
+Default.args = {
+  title: "Qu'est-ce qu'une modale ?",
+  onCloseButtonClick: () => {
+    alert('Action : fermer modale');
+  },
+};
+
 export const argTypes = {
   title: {
     name: 'title',
     description: 'Titre de la modale',
-    type: { name: 'string', required: false },
-    defaultValue: "Qu'est-ce qu'une modale ?",
+    type: { name: 'string', required: true },
+    defaultValue: null,
   },
   onCloseButtonClick: {
     name: 'onCloseButtonClick',
-    description: 'Fonction à executer lors du clic sur le bouton de fermeture de la modale',
+    description: 'Fonction à exécuter à la fermeture de la modale',
     type: { name: 'function', required: true },
     defaultValue: null,
   },
