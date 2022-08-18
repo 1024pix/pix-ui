@@ -14,4 +14,11 @@ export default class PixModal extends Component {
   stopPropagation(event) {
     event.stopPropagation();
   }
+
+  @action
+  closeAction(params) {
+    if (this.args.onCloseButtonClick) {
+      this.args.onCloseButtonClick(params);
+    }
+  }
 }

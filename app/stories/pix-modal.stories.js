@@ -41,7 +41,7 @@ export const argTypes = {
   },
   onCloseButtonClick: {
     name: 'onCloseButtonClick',
-    description: 'Fonction à executer lors du clic sur le bouton de fermeture de la modale',
+    description: 'Fonction à exécuter à la fermeture de la modale',
     type: { name: 'function', required: true },
     defaultValue: null,
   },
