@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v17.1.0 (22/08/2022)
+
+
+### :rocket: Amélioration
+- [#243](https://github.com/1024pix/pix-ui/pull/243) [FEATURE] Ajout d'un icone pour fermer Pix-Banner (PIX-5379)
+- [#244](https://github.com/1024pix/pix-ui/pull/244) [FEATURE] PixModal : ajouter des modifiers trap-focus et action au echap (PIX-5157)
+
 ## v17.0.0 (09/08/2022)
 
 
