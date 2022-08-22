@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { click, render } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | Pix Banner', function (hooks) {
@@ -121,5 +121,22 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     // then
     assert.contains('Explorer');
+  });
+  test('it renders the PixBanner with close icon', async function (assert) {
+    // given
+    this.set('canCloseBanner', true);
+
+    //when
+    await render(hbs`
+      <PixBanner @type='warning' @canCloseBanner={{this.canCloseBanner}}>
+        Mon texte
+      </PixBanner>
+    `);
+
+    // then
+    assert.dom('.pix-banner__close').exists();
+    assert.dom('[aria-label="Fermer"]').exists();
+    await click('[aria-label="Fermer"]');
+    assert.dom('.pix-banner').doesNotExist();
   });
 });

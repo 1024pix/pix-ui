@@ -7,6 +7,7 @@ const Template = (args) => {
         @type={{type}}
         @actionLabel={{actionLabel}}
         @actionUrl={{actionUrl}}
+        @canCloseBanner={{canCloseBanner}}
       >
         Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les diffuser aux élèves avant la Toussaint.
       </PixBanner>
@@ -56,6 +57,12 @@ withInternalLink.args = {
   actionUrl: 'campaign.list',
 };
 
+export const withCloseIcon = Template.bind({});
+withCloseIcon.args = {
+  type: 'info',
+  canCloseBanner: true,
+};
+
 export const argsTypes = {
   actionLabel: {
     name: 'actionLabel',
@@ -84,6 +91,15 @@ export const argsTypes = {
         'communication-orga',
         'communication-certif',
       ],
+    },
+  },
+  canCloseBanner: {
+    name: 'canCloseBanner',
+    description: 'Afficher la croix pour fermer la bannière',
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
     },
   },
 };
