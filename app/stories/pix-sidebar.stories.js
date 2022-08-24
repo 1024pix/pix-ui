@@ -3,8 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 export const Template = (args) => {
   return {
     template: hbs`
-      <PixButton @triggerAction={{fn (mut showSidebar) (not showSidebar)}}>Ouvrir la sidebar</PixButton>
-      <PixSidebar @showSidebar={{showSidebar}} @title={{title}} @onClose={{fn (mut showSidebar) (not showSidebar)}}>
+      <PixSidebar @showSidebar={{this.showSidebar}} @title={{this.title}} @onClose={{fn (mut this.showSidebar) (not this.showSidebar)}}>
         <:content>
           <p>
             Une sidebar est, dans une interface graphique, une fenêtre qui prend le contrôle total du clavier et
@@ -18,6 +17,7 @@ export const Template = (args) => {
           </div>
         </:footer>
       </PixSidebar>
+      <PixButton @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}>Ouvrir la sidebar</PixButton>
     `,
     context: args,
   };
