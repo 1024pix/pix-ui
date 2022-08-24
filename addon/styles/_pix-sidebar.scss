@@ -1,0 +1,80 @@
+.pix-sidebar__overlay {
+  position: fixed;
+  z-index: 1000;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  overflow-y: scroll;
+  background-color: rgba(52, 69, 99, 0.7);
+  transition: all .3s ease-in-out;
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+$sidebar-padding: 16px;
+$mobile-close-button-size: 32px;
+$tablet-close-button-size: 40px;
+$space-between-title-and-close-button: 8px;
+$button-margin: 16px;
+
+.pix-sidebar {
+  @import 'reset-css';
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  max-width: 320px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  background: $pix-neutral-0;
+  transform: translate(0);
+  transition: transform .3s ease-in-out;
+
+  &--hidden {
+    transform: translate(-100%);
+  }
+
+  &__header {
+    border-bottom: 1px solid $pix-neutral-20;
+    padding: $sidebar-padding;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  &__close-button {
+    flex-shrink: 0;
+
+    @include device-is('tablet') {
+      height: $tablet-close-button-size;
+      width: $tablet-close-button-size;
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    overflow: auto;
+  }
+
+  &__title {
+    @include h4;
+    margin-bottom: 0;
+    color: $pix-neutral-90;
+    padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
+
+    @include device-is('tablet') {
+      padding-right: $tablet-close-button-size + $space-between-title-and-close-button;
+    }
+  }
+
+  &__content {
+    padding: $sidebar-padding 0;
+  }
+
+  &__footer {
+    padding: $sidebar-padding;
+    border-top: 1px solid $pix-neutral-20;
+  }
+}
