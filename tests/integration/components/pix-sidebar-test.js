@@ -30,6 +30,8 @@ module('Integration | Component | Sidebar', function (hooks) {
       assert.contains("It's a sidebar!");
       assert.contains('content');
       assert.contains('footer');
+      assert.dom('.pix-sidebar--hidden').doesNotExist();
+      assert.dom('.pix-sidebar__overlay--hidden').doesNotExist();
     });
 
     module('when close button is clicked', function () {
@@ -100,7 +102,8 @@ module('Integration | Component | Sidebar', function (hooks) {
       `);
 
       // then
-      assert.dom('.pix-sidebar').doesNotExist();
+      assert.dom('.pix-sidebar--hidden').exists();
+      assert.dom('.pix-sidebar__overlay--hidden').exists();
     });
   });
 

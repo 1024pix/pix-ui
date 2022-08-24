@@ -1,37 +1,34 @@
-{{#if @showSidebar}}
+<div
+  class="pix-sidebar__overlay {{unless @showSidebar ' pix-sidebar__overlay--hidden'}}"
+  {{on "click" this.closeAction}}
+  {{trap-focus}}
+  {{on-escape-action this.closeAction}}
+>
   <div
-    class="pix-sidebar__overlay"
-    {{on "click" this.closeAction}}
-    {{trap-focus}}
-    {{on-escape-action this.closeAction}}
+    class="pix-sidebar {{unless @showSidebar ' pix-sidebar--hidden'}}"
+    role="dialog"
+    aria-labelledby="sidebar-title"
+    aria-describedby="sidebar-content"
+    aria-modal="true"
+    {{on "click" this.stopPropagation}}
+    ...attributes
   >
-    <div
-      class="pix-sidebar
-        {{if @showSidebar 'pix-sidebar--visible'}}"
-      role="dialog"
-      aria-labelledby="sidebar-title"
-      aria-describedby="sidebar-content"
-      aria-modal="true"
-      {{on "click" this.stopPropagation}}
-      ...attributes
-    >
-      <header class="pix-sidebar__header">
-        <h1 id="sidebar-title" class="pix-sidebar__title">{{@title}}</h1>
-        <PixIconButton
-          @icon="xmark"
-          @triggerAction={{this.closeAction}}
-          @ariaLabel="Fermer"
-          @size="small"
-          @withBackground={{true}}
-          class="pix-sidebar__close-button"
-        />
-      </header>
-      <main id="sidebar-content" class="pix-sidebar__content">
-        {{yield to="content"}}
-      </main>
-      <footer class="pix-sidebar__footer">
-        {{yield to="footer"}}
-      </footer>
-    </div>
+    <header class="pix-sidebar__header">
+      <h1 id="sidebar-title" class="pix-sidebar__title">{{@title}}</h1>
+      <PixIconButton
+        @icon="xmark"
+        @triggerAction={{this.closeAction}}
+        @ariaLabel="Fermer"
+        @size="small"
+        @withBackground={{true}}
+        class="pix-sidebar__close-button"
+      />
+    </header>
+    <main id="sidebar-content" class="pix-sidebar__content">
+      {{yield to="content"}}
+    </main>
+    <footer class="pix-sidebar__footer">
+      {{yield to="footer"}}
+    </footer>
   </div>
-{{/if}}
+</div>
