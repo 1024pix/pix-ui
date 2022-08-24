@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v17.2.0 (24/08/2022)
+
+
+### :rocket: Amélioration
+- [#245](https://github.com/1024pix/pix-ui/pull/245) [FEATURE] Ajouter un composant Sidebar (PIX-4298)
+
 ## v17.1.0 (22/08/2022)
 
 
