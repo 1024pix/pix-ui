@@ -1,45 +1,25 @@
 import { modifier } from 'ember-modifier';
 
-export default modifier(function trapFocus(element) {
+let sourceActiveElement = null;
+
+export default modifier(function trapFocus(element, [isOpen]) {
   const [firstFocusableElement] = findFocusableElements(element);
 
-  firstFocusableElement.focus();
-
-  function handleKeyDown(event) {
-    const TAB_KEY = 9;
-    const focusableElements = findFocusableElements(element);
-    const [firstFocusableElement] = focusableElements;
-    const lastFocusableElement = focusableElements[focusableElements.length - 1];
-
-    if (event.keyCode !== TAB_KEY) {
-      return;
-    }
-
-    function handleBackwardTab() {
-      if (document.activeElement === firstFocusableElement) {
-        event.preventDefault();
-        lastFocusableElement.focus();
-      }
-    }
-
-    function handleForwardTab() {
-      if (document.activeElement === lastFocusableElement) {
-        event.preventDefault();
-        firstFocusableElement.focus();
-      }
-    }
-
-    if (event.shiftKey) {
-      handleBackwardTab();
-    } else {
-      handleForwardTab();
-    }
+  if (isOpen) {
+    sourceActiveElement = document.activeElement;
+    focusElement(firstFocusableElement, element);
+  } else {
+    focusElement(sourceActiveElement, element);
   }
 
-  element.addEventListener('keydown', handleKeyDown);
+  element.addEventListener('keydown', (event) => {
+    handleKeyDown(event, element);
+  });
 
   return () => {
-    element.removeEventListener('keydown', handleKeyDown);
+    element.removeEventListener('keydown', (event) => {
+      handleKeyDown(event, element);
+    });
   };
 });
 
@@ -49,4 +29,70 @@ function findFocusableElements(element) {
       'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
     ),
   ].filter((el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
+}
+
+function focusElement(elementToFocus, element) {
+  let focusOnce = false;
+
+  const hasTransition = hasTransitionDuration(element) || hasAnimationDuration(element);
+
+  const handleTransitionEnd = () => {
+    if (!focusOnce) {
+      elementToFocus.focus();
+      focusOnce = true;
+    }
+  };
+
+  if (hasTransition) {
+    element.addEventListener('transitionend', handleTransitionEnd);
+  } else {
+    elementToFocus.focus();
+  }
+
+  return () => {
+    element.removeEventListener('transitionend', handleTransitionEnd);
+  };
+}
+
+function hasTransitionDuration(element) {
+  return hasDurationByKey(element, 'transition-duration');
+}
+
+function hasAnimationDuration(element) {
+  return hasDurationByKey(element, 'animation-duration');
+}
+
+function hasDurationByKey(element, key) {
+  return !['', '0s'].includes(getComputedStyle(element, null).getPropertyValue(key));
+}
+
+function handleKeyDown(event, element) {
+  const TAB_KEY = 9;
+  const focusableElements = findFocusableElements(element);
+  const [firstFocusableElement] = focusableElements;
+  const lastFocusableElement = focusableElements[focusableElements.length - 1];
+
+  if (event.keyCode !== TAB_KEY) {
+    return;
+  }
+
+  const handleBackwardTab = () => {
+    if (document.activeElement === firstFocusableElement) {
+      event.preventDefault();
+      lastFocusableElement.focus();
+    }
+  };
+
+  const handleForwardTab = () => {
+    if (document.activeElement === lastFocusableElement) {
+      event.preventDefault();
+      firstFocusableElement.focus();
+    }
+  };
+
+  if (event.shiftKey) {
+    handleBackwardTab();
+  } else {
+    handleForwardTab();
+  }
 }

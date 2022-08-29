@@ -1,7 +1,7 @@
 <div
   class="pix-sidebar__overlay {{unless @showSidebar ' pix-sidebar__overlay--hidden'}}"
   {{on "click" this.closeAction}}
-  {{trap-focus}}
+  {{trap-focus @showSidebar}}
   {{on-escape-action this.closeAction}}
 >
   <div
