@@ -34,8 +34,6 @@ function findFocusableElements(element) {
 function focusElement(elementToFocus, element) {
   let focusOnce = false;
 
-  const hasTransition = hasTransitionDuration(element) || hasAnimationDuration(element);
-
   const handleTransitionEnd = () => {
     if (!focusOnce) {
       elementToFocus.focus();
@@ -43,14 +41,20 @@ function focusElement(elementToFocus, element) {
     }
   };
 
-  if (hasTransition) {
+  if (hasTransitionDuration(element)) {
     element.addEventListener('transitionend', handleTransitionEnd);
+  } else if (hasAnimationDuration(element)) {
+    element.addEventListener('animationend', handleTransitionEnd);
   } else {
     elementToFocus.focus();
   }
 
   return () => {
-    element.removeEventListener('transitionend', handleTransitionEnd);
+    if (hasTransitionDuration(element)) {
+      element.removeEventListener('transitionend', handleTransitionEnd);
+    } else if (hasAnimationDuration(element)) {
+      element.removeEventListener('animationend', handleTransitionEnd);
+    }
   };
 }
 
