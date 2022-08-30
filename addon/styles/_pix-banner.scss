@@ -32,9 +32,9 @@
     .pix-icon-button {
       background-color: $pix-primary-5;
       color: $pix-primary-70;
-      &:hover,
-      &:focus,
-      &:active {
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
         background-color: $pix-primary-10;
         color: $pix-primary-70;
       }
@@ -47,9 +47,9 @@
     .pix-icon-button {
       background-color: $pix-warning-5;
       color: $pix-warning-70;
-      &:hover,
-      &:focus,
-      &:active {
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
         background-color: $pix-warning-10;
         color: $pix-warning-70;
       }
@@ -62,9 +62,9 @@
     .pix-icon-button {
       background-color: $pix-error-5;
       color: $pix-error-70;
-      &:hover,
-      &:focus,
-      &:active {
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
         background-color: $pix-error-10;
         color: $pix-error-70;
       }
