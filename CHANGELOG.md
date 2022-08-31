@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v17.2.1 (31/08/2022)
+
+
+### :rocket: Amélioration
+- [#247](https://github.com/1024pix/pix-ui/pull/247) [FEATURE] Amélioration couleurs `PixIconButton`
+
 ## v17.2.0 (24/08/2022)
 
 
