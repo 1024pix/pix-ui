@@ -3,8 +3,8 @@ import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-icon-button.stories.js';
 
 <Meta
-  title='Basics/Icon button'
-  component='PixIconButton'
+  title="Basics/Icon button"
+  component="PixIconButton"
   decorators={[centered]}
   argTypes={stories.argTypes}
 />
@@ -37,6 +37,14 @@ Le bouton avec le fond grisé.
   <Story name="With Background" story={stories.withBackground} height={60} />
 </Canvas>
 
+## Disabled
+
+Exemple avec le bouton disabled
+
+<Canvas>
+  <Story name="Disabled" story={stories.disabled} height={60} />
+</Canvas>
+
 ## Accessibilité / aria-label
 
 L'attribut `aria-label` étant indispensable pour l'accessibilité de ce composant, la propriété `ariaLabel` a été ajouté.
@@ -48,42 +56,42 @@ L'attribut `aria-label` étant indispensable pour l'accessibilité de ce composa
 ## Usage
 
 Par défaut
+
 ```html
-<PixIconButton
-    @ariaLabel="L'action du bouton"
-    @icon="icon"
-    @triggerAction={{triggerAction}}
-/>
+<PixIconButton @ariaLabel="L'action du bouton" @icon="icon" @triggerAction="{{triggerAction}}" />
 ```
 
 Bouton de fermeture
+
 ```html
 <PixIconButton
-    @ariaLabel="L'action du bouton"
-    @icon="times"
-    @triggerAction={{triggerAction}}
-    @withBackground={{true}}
+  @ariaLabel="L'action du bouton"
+  @icon="times"
+  @triggerAction="{{triggerAction}}"
+  @withBackground="{{true}}"
 />
 ```
 
 Bouton d'action
+
 ```html
 <PixIconButton
-    @ariaLabel="L'action du bouton"
-    @icon="arrow-left"
-    @triggerAction={{triggerAction}}
-    @size="small"
-    @withBackground={{true}}
+  @ariaLabel="L'action du bouton"
+  @icon="arrow-left"
+  @triggerAction="{{triggerAction}}"
+  @size="small"
+  @withBackground="{{true}}"
 />
 ```
 
 État disabled
+
 ```html
 <PixIconButton
-    @ariaLabel="L'action du bouton"
-    @icon="xmark"
-    disabled={{true}}
-    aria-disabled={{true}}
+  @ariaLabel="L'action du bouton"
+  @icon="xmark"
+  disabled="{{true}}"
+  aria-disabled="{{true}}"
 />
 ```
 

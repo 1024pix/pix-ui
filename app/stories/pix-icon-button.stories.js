@@ -11,31 +11,42 @@ const Template = (args) => {
         @triggerAction={{triggerAction}}
         @withBackground={{withBackground}}
         @size={{size}}
+        disabled={{disabled}}
+        aria-disabled={{disabled}}
         />
     `,
     context: args,
   };
 };
 
+const triggerAction = () => Promise.resolve();
+
 export const Default = Template.bind({});
 Default.args = {
   ariaLabel: 'Action du bouton',
   icon: 'xmark',
-  triggerAction: () => {
-    return new Promise().resolves();
-  },
+  triggerAction,
 };
 
 export const small = Template.bind({});
 small.args = {
   ...Default.args,
   size: 'small',
+  triggerAction,
 };
 
 export const withBackground = Template.bind({});
 withBackground.args = {
   ...Default.args,
   withBackground: true,
+  triggerAction,
+};
+
+export const disabled = Template.bind({});
+disabled.args = {
+  ...Default.args,
+  disabled: true,
+  triggerAction,
 };
 
 export const argTypes = {
