@@ -8,7 +8,7 @@ export default modifier(function trapFocus(element, [isOpen]) {
   if (isOpen) {
     sourceActiveElement = document.activeElement;
     focusElement(firstFocusableElement, element);
-  } else {
+  } else if (sourceActiveElement) {
     focusElement(sourceActiveElement, element);
   }
 
