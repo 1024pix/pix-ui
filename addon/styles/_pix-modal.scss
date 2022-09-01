@@ -7,6 +7,12 @@
   right: 0;
   top: 0;
   z-index: 1000;
+  transition: all .3s ease-in-out;
+
+  &--hidden {
+    visibility: hidden;
+    opacity: 0;
+  }
 }
 
 $modal-padding: 24px;

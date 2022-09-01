@@ -3,7 +3,6 @@ import { hbs } from 'ember-cli-htmlbars';
 export const Template = (args) => {
   return {
     template: hbs`
-      <PixButton @triggerAction={{fn (mut showSidebar) (not showSidebar)}}>Ouvrir la sidebar</PixButton>
       <PixSidebar @showSidebar={{showSidebar}} @title={{title}} @onClose={{fn (mut showSidebar) (not showSidebar)}}>
         <:content>
           <p>
@@ -18,6 +17,7 @@ export const Template = (args) => {
           </div>
         </:footer>
       </PixSidebar>
+      <PixButton @triggerAction={{fn (mut showSidebar) (not showSidebar)}}>Ouvrir la sidebar</PixButton>
     `,
     context: args,
   };
