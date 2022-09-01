@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v18.0.0 (01/09/2022)
+
+
+### :bug: Correction
+- [#246](https://github.com/1024pix/pix-ui/pull/246) [BUGFIX] Mettre le focus sur le premier élement où est utiliser le `trap-focus`.
+
 ## v17.2.1 (31/08/2022)
 
 
