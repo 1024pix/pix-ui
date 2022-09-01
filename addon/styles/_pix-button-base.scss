@@ -40,46 +40,106 @@
     cursor: not-allowed;
   }
 
-  @mixin colorizeBackground($backgroundColor, $outlineColor) {
-    background-color: $backgroundColor;
-    border-color: $backgroundColor;
+  &--background-blue {
+    background-color: $pix-primary;
+    border-color: $pix-primary;
 
     &:not(.pix-button--disabled) {
       &:hover,
       &:focus,
       &:focus-visible {
-        background-color: darken($backgroundColor, 8%);
-        box-shadow: 0 0 0 2px darken($outlineColor, 8%);
+        background-color: darken($pix-primary, 8%);
+        box-shadow: 0 0 0 2px darken($pix-primary, 8%);
         border-color: $pix-neutral-0;
         outline: none;
       }
 
       &:active {
-        background-color: darken($backgroundColor, 12%);
+        background-color: darken($pix-primary, 12%);
       }
     }
   }
 
-  &--background-blue {
-    @include colorizeBackground($pix-primary, $pix-primary);
-  }
-
   &--background-green {
-    @include colorizeBackground($green, $green);
+    background-color: $green;
+    border-color: $green;
+
+    &:not(.pix-button--disabled) {
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background-color: darken($green, 8%);
+        box-shadow: 0 0 0 2px darken($green, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
+      &:active {
+        background-color: darken($green, 12%);
+      }
+    }
   }
 
   &--background-yellow {
     color: $pix-neutral-100;
-    @include colorizeBackground($pix-warning-40, $pix-warning-40);
+    background-color: $pix-warning-40;
+    border-color: $pix-warning-40;
+
+    &:not(.pix-button--disabled) {
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background-color: darken($pix-warning-40, 8%);
+        box-shadow: 0 0 0 2px darken($pix-warning-40, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
+      &:active {
+        background-color: darken($pix-warning-40, 12%);
+      }
+    }
   }
 
   &--background-red {
     color: $pix-neutral-0;
-    @include colorizeBackground($pix-error-70, $pix-error-70);
+    background-color: $pix-error-70;
+    border-color: $pix-error-70;
+
+    &:not(.pix-button--disabled) {
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background-color: darken($pix-error-70, 8%);
+        box-shadow: 0 0 0 2px darken($pix-error-70, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
+      &:active {
+        background-color: darken($pix-error-70, 12%);
+      }
+    }
   }
 
   &--background-grey {
-    @include colorizeBackground($pix-neutral-60, $pix-neutral-60);
+    background-color: $pix-neutral-60;
+    border-color: $pix-neutral-60;
+
+    &:not(.pix-button--disabled) {
+      &:hover,
+      &:focus,
+      &:focus-visible {
+        background-color: darken($pix-neutral-60, 8%);
+        box-shadow: 0 0 0 2px darken($pix-neutral-60, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
+      &:active {
+        background-color: darken($pix-neutral-60, 12%);
+      }
+    }
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
