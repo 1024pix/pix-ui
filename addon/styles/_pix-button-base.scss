@@ -45,7 +45,13 @@
     border-color: $pix-primary;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: darken($pix-primary, 8%);
+        box-shadow: 0 0 0 2px darken($pix-primary, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: darken($pix-primary, 8%);
@@ -65,7 +71,13 @@
     border-color: $green;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: darken($green, 8%);
+        box-shadow: 0 0 0 2px darken($green, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: darken($green, 8%);
@@ -86,7 +98,13 @@
     border-color: $pix-warning-40;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: darken($pix-warning-40, 8%);
+        box-shadow: 0 0 0 2px darken($pix-warning-40, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: darken($pix-warning-40, 8%);
@@ -107,7 +125,13 @@
     border-color: $pix-error-70;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: darken($pix-error-70, 8%);
+        box-shadow: 0 0 0 2px darken($pix-error-70, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: darken($pix-error-70, 8%);
@@ -127,7 +151,13 @@
     border-color: $pix-neutral-60;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: darken($pix-neutral-60, 8%);
+        box-shadow: 0 0 0 2px darken($pix-neutral-60, 8%);
+        border-color: $pix-neutral-0;
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: darken($pix-neutral-60, 8%);
@@ -155,7 +185,11 @@
     color: $pix-neutral-90;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: rgba($pix-neutral-110, 0.1);
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: rgba($pix-neutral-110, 0.1);
@@ -185,7 +219,11 @@
     color: $pix-neutral-0;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: rgba($pix-neutral-110, 0.1);
+        outline: none;
+      }
+
       &:focus,
       &:focus-visible {
         background-color: rgba($pix-neutral-110, 0.1);
