@@ -10,6 +10,7 @@
   cursor: pointer;
   background-color: $pix-primary;
   border: 2px solid transparent;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -42,52 +43,50 @@
 
   &--background-blue {
     background-color: $pix-primary;
-    border-color: $pix-primary;
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: darken($pix-primary, 8%);
-        box-shadow: 0 0 0 2px darken($pix-primary, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-primary-60;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: darken($pix-primary, 8%);
-        box-shadow: 0 0 0 2px darken($pix-primary, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-primary-60;
+        box-shadow: 0 0 0 2px $pix-primary-60;
+        border: 2px solid $pix-neutral-0;
       }
 
       &:active {
-        background-color: darken($pix-primary, 12%);
+        background-color: $pix-primary-70;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
     }
   }
 
   &--background-green {
-    background-color: $green;
-    border-color: $green;
+    background-color: $pix-success-60;
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: darken($green, 8%);
-        box-shadow: 0 0 0 2px darken($green, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-success-70;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: darken($green, 8%);
-        box-shadow: 0 0 0 2px darken($green, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-success-70;
+        box-shadow: 0 0 0 2px $pix-success-70;
+        border: 2px solid $pix-neutral-0;
       }
 
       &:active {
-        background-color: darken($green, 12%);
+        background-color: $pix-success-80;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
     }
   }
@@ -95,26 +94,26 @@
   &--background-yellow {
     color: $pix-neutral-100;
     background-color: $pix-warning-40;
-    border-color: $pix-warning-40;
+    border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: darken($pix-warning-40, 8%);
-        box-shadow: 0 0 0 2px darken($pix-warning-40, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-warning-50;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: darken($pix-warning-40, 8%);
-        box-shadow: 0 0 0 2px darken($pix-warning-40, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-warning-50;
+        box-shadow: 0 0 0 2px $pix-warning-50;
+        border: 2px solid $pix-neutral-0;
       }
 
       &:active {
-        background-color: darken($pix-warning-40, 12%);
+        background-color: $pix-warning-60;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
     }
   }
@@ -122,33 +121,33 @@
   &--background-red {
     color: $pix-neutral-0;
     background-color: $pix-error-70;
-    border-color: $pix-error-70;
+    border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: darken($pix-error-70, 8%);
-        box-shadow: 0 0 0 2px darken($pix-error-70, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-error-80;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: darken($pix-error-70, 8%);
-        box-shadow: 0 0 0 2px darken($pix-error-70, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-error-70;
+        box-shadow: 0 0 0 2px $pix-error-70;
+        border: 2px solid $pix-neutral-0;
       }
 
       &:active {
-        background-color: darken($pix-error-70, 12%);
+        background-color: #861212;
+        box-shadow: none;
+        border: 2px solid transparent;
       }
     }
   }
 
   &--background-grey {
     background-color: $pix-neutral-60;
-    border-color: $pix-neutral-60;
+    border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
