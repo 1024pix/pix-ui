@@ -54,8 +54,8 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-primary-60;
-        box-shadow: 0 0 0 2px $pix-primary-60;
-        border: 2px solid $pix-neutral-0;
+        box-shadow: inset 0 0 0 2px $pix-neutral-0;
+        border: 2px solid $pix-primary-60;
       }
 
       &:active {
@@ -79,8 +79,8 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-success-70;
-        box-shadow: 0 0 0 2px $pix-success-70;
-        border: 2px solid $pix-neutral-0;
+        box-shadow: inset 0 0 0 2px $pix-neutral-0;
+        border: 2px solid $pix-success-70;
       }
 
       &:active {
@@ -106,8 +106,8 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-warning-50;
-        box-shadow: 0 0 0 2px $pix-warning-50;
-        border: 2px solid $pix-neutral-0;
+        box-shadow: inset 0 0 0 2px $pix-neutral-0;
+        border: 2px solid $pix-warning-50;
       }
 
       &:active {
@@ -133,8 +133,8 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-error-70;
-        box-shadow: 0 0 0 2px $pix-error-70;
-        border: 2px solid $pix-neutral-0;
+        box-shadow: inset 0 0 0 2px $pix-neutral-0;
+        border: 2px solid $pix-error-70;
       }
 
       &:active {
