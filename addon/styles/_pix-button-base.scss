@@ -47,21 +47,18 @@
     &:not(.pix-button--disabled) {
       &:hover {
         background-color: $pix-primary-60;
-        box-shadow: none;
-        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
         background-color: $pix-primary-60;
-        box-shadow: inset 0 0 0 2px $pix-neutral-0;
-        border: 2px solid $pix-primary-60;
+        outline: 2px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
         background-color: $pix-primary-70;
-        box-shadow: none;
-        border: 2px solid transparent;
+        outline: none;
       }
     }
   }
@@ -72,21 +69,18 @@
     &:not(.pix-button--disabled) {
       &:hover {
         background-color: $pix-success-70;
-        box-shadow: none;
-        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
         background-color: $pix-success-70;
-        box-shadow: inset 0 0 0 2px $pix-neutral-0;
-        border: 2px solid $pix-success-70;
+        outline: 2px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
         background-color: $pix-success-80;
-        box-shadow: none;
-        border: 2px solid transparent;
+        outline: none;
       }
     }
   }
@@ -99,21 +93,18 @@
     &:not(.pix-button--disabled) {
       &:hover {
         background-color: $pix-warning-50;
-        box-shadow: none;
-        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
         background-color: $pix-warning-50;
-        box-shadow: inset 0 0 0 2px $pix-neutral-0;
-        border: 2px solid $pix-warning-50;
+        outline: 2px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
         background-color: $pix-warning-60;
-        box-shadow: none;
-        border: 2px solid transparent;
+        outline: none;
       }
     }
   }
@@ -126,21 +117,18 @@
     &:not(.pix-button--disabled) {
       &:hover {
         background-color: $pix-error-80;
-        box-shadow: none;
-        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
         background-color: $pix-error-70;
-        box-shadow: inset 0 0 0 2px $pix-neutral-0;
-        border: 2px solid $pix-error-70;
+        outline: 2px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
         background-color: #861212;
-        box-shadow: none;
-        border: 2px solid transparent;
+        outline: none;
       }
     }
   }
