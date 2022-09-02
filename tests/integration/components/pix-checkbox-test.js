@@ -61,4 +61,20 @@ module('Integration | Component | checkbox', function (hooks) {
     // then
     assert.dom(screen.getByLabelText('Accepter les cgu, voir ici')).exists();
   });
+
+  test('it should be possible to control state', async function (assert) {
+    // given
+    this.set('checked', false);
+    await render(
+      hbs`<PixCheckbox @id="checkboxId" @label="Recevoir la newsletter" @checked={{checked}} />`
+    );
+    const checkbox = this.element.querySelector(CHECKBOX_INPUT_SELECTOR);
+    assert.false(checkbox.checked);
+
+    // when
+    this.set('checked', true);
+
+    // then
+    assert.true(checkbox.checked);
+  });
 });
