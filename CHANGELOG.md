@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v18.0.1 (02/09/2022)
+
+
+### :bug: Correction
+- [#249](https://github.com/1024pix/pix-ui/pull/249) [BUGFIX] Permettre le controle des checkboxs
+- [#248](https://github.com/1024pix/pix-ui/pull/248) [BUGFIX] Prévenir des erreurs à la première ouverture de la sidebar/modal
+
 ## v18.0.0 (01/09/2022)
 
 
