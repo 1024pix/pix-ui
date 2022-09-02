@@ -9,6 +9,7 @@ export const Template = (args) => {
         @screenReaderOnly={{screenReaderOnly}}
         @isIndeterminate={{isIndeterminate}}
         @labelSize={{labelSize}}
+        @checked={{checked}}
       />
     `,
     context: args,
@@ -83,6 +84,15 @@ export const argTypes = {
     control: {
       type: 'select',
       options: ['small', 'default', 'large'],
+    },
+  },
+  checked: {
+    name: 'checked',
+    description: 'Permet de cocher la checkbox',
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
     },
   },
 };
