@@ -4,9 +4,13 @@ on:
   pull_request:
     types:
       - labeled
+      - unlabeled
   check_suite:
     types:
       - completed
+  status:
+    types:
+      - success
 
 permissions: write-all
 
@@ -14,13 +18,6 @@ jobs:
   automerge:
     runs-on: ubuntu-latest
     steps:
-      - name: automerge
-        uses: "pascalgn/automerge-action@v0.14.3"
-        env:
-          GITHUB_TOKEN: "${{ github.token }}"
-          MERGE_LABELS: ":rocket: Ready to Merge"
-          MERGE_COMMIT_MESSAGE: "pull-request-title"
-          UPDATE_LABELS: ":rocket: Ready to Merge"
-          UPDATE_METHOD: "rebase"
-          MERGE_FORKS: "false"
-          LOG: "TRACE"
+      - uses: 1024pix/pix-actions/auto-merge@v0
+        with:
+          auto_merge_token: "${{ github.token }}"
