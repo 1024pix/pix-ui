@@ -2,7 +2,7 @@
   class="pix-modal__overlay {{unless @showModal ' pix-modal__overlay--hidden'}}"
   {{on "click" this.closeAction}}
   {{trap-focus @showModal}}
-  {{on-escape-action this.closeAction}}
+  {{on-escape-action @onCloseButtonClick}}
 >
   <div
     class="pix-modal"
