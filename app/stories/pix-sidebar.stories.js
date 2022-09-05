@@ -12,8 +12,8 @@ export const Template = (args) => {
         </:content>
         <:footer>
         <div style="display: flex; gap: 8px">
-          <PixButton @backgroundColor="transparent-light" @isBorderVisible="true">Annuler</PixButton>
-          <PixButton>Valider</PixButton>
+          <PixButton @backgroundColor="transparent-light" @isBorderVisible="true" @triggerAction={{fn (mut showSidebar) (not showSidebar)}}>Annuler</PixButton>
+          <PixButton @triggerAction={{fn (mut showSidebar) (not showSidebar)}}>Valider</PixButton>
           </div>
         </:footer>
       </PixSidebar>
