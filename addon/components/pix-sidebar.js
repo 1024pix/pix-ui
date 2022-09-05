@@ -11,14 +11,13 @@ export default class PixSidebar extends Component {
   }
 
   @action
-  stopPropagation(event) {
-    event.stopPropagation();
+  closeAction(event) {
+    if (this.args.onClose && this.isClickOnOverlay(event)) {
+      this.args.onClose(event);
+    }
   }
 
-  @action
-  closeAction(params) {
-    if (this.args.onClose) {
-      this.args.onClose(params);
-    }
+  isClickOnOverlay(event) {
+    return event.target.classList.contains('pix-sidebar__overlay');
   }
 }

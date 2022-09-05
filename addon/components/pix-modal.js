@@ -11,14 +11,13 @@ export default class PixModal extends Component {
   }
 
   @action
-  stopPropagation(event) {
-    event.stopPropagation();
+  closeAction(event) {
+    if (this.args.onCloseButtonClick && this.isClickOnOverlay(event)) {
+      this.args.onCloseButtonClick(event);
+    }
   }
 
-  @action
-  closeAction(params) {
-    if (this.args.onCloseButtonClick) {
-      this.args.onCloseButtonClick(params);
-    }
+  isClickOnOverlay(event) {
+    return event.target.classList.contains('pix-modal__overlay');
   }
 }
