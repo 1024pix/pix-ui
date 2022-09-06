@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v18.0.2 (06/09/2022)
+
+
+### :bug: Correction
+- [#251](https://github.com/1024pix/pix-ui/pull/251) [BUGFIX] Évite de casser les tests d'acceptance des applis (PIX-5619)
+
+### :coffee: Autre
+- [#250](https://github.com/1024pix/pix-ui/pull/250) [CLEANUP] Utilise l'action commune d'automerge
+
 ## v18.0.1 (02/09/2022)
 
 
