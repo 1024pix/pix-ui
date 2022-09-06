@@ -1,0 +1,19 @@
+<PixModal
+  @showModal={{this.showModal}}
+  @title={{this.title}}
+  @onCloseButtonClick={{fn (mut this.showModal) (not this.showModal)}}
+>
+  <:content>
+    <LinkTo @route="hello" class="internal-link">My link</LinkTo>
+  </:content>
+  <:footer>
+    <PixButton
+      @backgroundColor="transparent-light"
+      @isBorderVisible="true"
+      @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
+    >Annuler</PixButton>
+    <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Valider</PixButton>
+  </:footer>
+</PixModal>
+
+<PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Ouvrir la modale</PixButton>

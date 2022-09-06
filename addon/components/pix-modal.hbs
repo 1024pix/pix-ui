@@ -2,7 +2,7 @@
   class="pix-modal__overlay {{unless @showModal ' pix-modal__overlay--hidden'}}"
   {{on "click" this.closeAction}}
   {{trap-focus @showModal}}
-  {{on-escape-action this.closeAction}}
+  {{on-escape-action @onCloseButtonClick}}
 >
   <div
     class="pix-modal"
@@ -10,14 +10,13 @@
     aria-labelledby="modal-title"
     aria-describedby="modal-content"
     aria-modal="true"
-    {{on "click" this.stopPropagation}}
     ...attributes
   >
     <header class="pix-modal__header">
       <h1 id="modal-title" class="pix-modal__title">{{@title}}</h1>
       <PixIconButton
         @icon="xmark"
-        @triggerAction={{this.closeAction}}
+        @triggerAction={{@onCloseButtonClick}}
         @ariaLabel="Fermer"
         @size="small"
         @withBackground={{true}}

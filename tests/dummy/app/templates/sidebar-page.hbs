@@ -1,0 +1,23 @@
+<PixSidebar
+  @showSidebar={{this.showSidebar}}
+  @title={{this.title}}
+  @onClose={{fn (mut this.showSidebar) (not this.showSidebar)}}
+>
+  <:content>
+    <LinkTo @route="hello" class="internal-link">My link</LinkTo>
+  </:content>
+  <:footer>
+    <PixButton
+      @backgroundColor="transparent-light"
+      @isBorderVisible="true"
+      @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
+    >
+      Annuler
+    </PixButton>
+    <PixButton
+      @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
+    >Valider</PixButton>
+  </:footer>
+</PixSidebar>
+
+<PixButton @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}>Ouvrir la sidebar</PixButton>

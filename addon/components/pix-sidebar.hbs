@@ -2,7 +2,7 @@
   class="pix-sidebar__overlay {{unless @showSidebar ' pix-sidebar__overlay--hidden'}}"
   {{on "click" this.closeAction}}
   {{trap-focus @showSidebar}}
-  {{on-escape-action this.closeAction}}
+  {{on-escape-action @onClose}}
 >
   <div
     class="pix-sidebar {{unless @showSidebar ' pix-sidebar--hidden'}}"
@@ -10,14 +10,13 @@
     aria-labelledby="sidebar-title"
     aria-describedby="sidebar-content"
     aria-modal="true"
-    {{on "click" this.stopPropagation}}
     ...attributes
   >
     <header class="pix-sidebar__header">
       <h1 id="sidebar-title" class="pix-sidebar__title">{{@title}}</h1>
       <PixIconButton
         @icon="xmark"
-        @triggerAction={{this.closeAction}}
+        @triggerAction={{@onClose}}
         @ariaLabel="Fermer"
         @size="small"
         @withBackground={{true}}
