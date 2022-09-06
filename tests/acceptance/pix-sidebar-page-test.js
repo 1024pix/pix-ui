@@ -4,13 +4,13 @@ import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import { waitForDialog } from '../helpers/wait-for';
 
-module('Acceptance | PixModalPageTest', function (hooks) {
+module('Acceptance | PixSidebarPageTest', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Should redirect to link', async function (assert) {
     // given
-    const screen = await visit('/modal');
-    await click(screen.getByRole('button', { name: 'Ouvrir la modale' }));
+    const screen = await visit('/sidebar');
+    await click(screen.getByRole('button', { name: 'Ouvrir la sidebar' }));
     await waitForDialog();
 
     // when
