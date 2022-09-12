@@ -11,7 +11,7 @@ export const form = (args) => {
       <br>
 
       <PixMultiSelect
-        @title="Votre notation en étoiles..."
+        @innerText="Votre notation en étoiles..."
         @id="form__pix-mutli-select"
         @label="A quel point aimez vous Pix UI ?"
         @onSelect={{onSelect}}
@@ -19,6 +19,19 @@ export const form = (args) => {
         @options={{options}} as |star|
       >
         <PixStars @count={{star.value}} @total={{star.total}} />
+      </PixMultiSelect>
+      <br><br>
+
+      <PixMultiSelect
+        @innerText="Mes condiements"
+        @id="form__pix-mutli-select-searchable"
+        @label="Choississez vos condiments"
+        @onSelect={{onSelect}}
+        @selected={{selected}}
+        @isSearchable={{true}}
+        @options={{optionsSearch}} as |condiment|
+      >
+        {{condiment.label}}
       </PixMultiSelect>
       <br><br>
 
@@ -89,6 +102,13 @@ form.args = {
     { value: '1', total: 3 },
     { value: '2', total: 3 },
     { value: '3', total: 3 },
+  ],
+  optionsSearch: [
+    { value: 'Cornichon', label: 'Cornichon' },
+    { value: 'Ail', label: 'Ail' },
+    { value: 'Oignon', label: 'Oignon' },
+    { value: 'Aigre-Doux', label: 'Aigre-douc' },
+    { value: 'Soja sucré', label: 'Soja sucré' },
   ],
   cancel: action('cancel'),
   onSelect: action('onSelect'),

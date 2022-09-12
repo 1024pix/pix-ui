@@ -71,7 +71,7 @@
 
 .pix-multi-select-list {
   width: 100%;
-  margin: 0px;
+  margin: 0;
   z-index: 200;
   background-color: $pix-neutral-0;
   position: absolute;
@@ -82,9 +82,11 @@
   list-style-type: none;
   padding: 0;
   box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
+  transition: all .1s ease-in-out;
 
   &--hidden {
-    display: none;
+    visibility: hidden;
+    opacity: 0;
   }
 
   &::-webkit-scrollbar {
@@ -109,9 +111,10 @@
     border-bottom: 1px solid $pix-neutral-15;
     list-style: none;
     font-size: 0.9rem;
+    padding: 8px;
 
     @include hoverFormElement();
-
+    
     &--no-result {
       text-align: center;
       padding: 12px 0;
@@ -119,60 +122,6 @@
 
     &:last-of-type {
       border-bottom: none;
-    }
-  }
-
-  &__checkbox {
-    position: absolute;
-    opacity: 0;
-
-    & + label {
-      position: relative;
-      display: flex;
-      align-items: center;
-      padding: 11px 16px;
-      cursor: pointer;
-    }
-
-    & + label:before {
-      content: '';
-      margin-right: 12px;
-      display: inline-block;
-      vertical-align: text-top;
-      min-width: 16px;
-      min-height: 16px;
-      border-radius: 4px;
-      background: $pix-neutral-0;
-      border: 1px solid $pix-neutral-20;
-    }
-
-    &:checked + label:before {
-      background: $pix-primary;
-      border-color: $pix-primary;
-    }
-
-    &:checked + label:after {
-      position: absolute;
-      top: calc(50% - 5px);
-      left: 21px;
-      width: 7px;
-      height: 5px;
-      background: transparent;
-      border: 2px solid $pix-neutral-0;
-      border-top: none;
-      border-right: none;
-      transform: rotate(-45deg);
-      content: '';
-    }
-
-    &--searchable {
-      & + label {
-        padding: 11px 36px;
-      }
-
-      &:checked + label:after {
-        left: 41px;
-      }
     }
   }
 }

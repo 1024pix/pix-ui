@@ -20,14 +20,18 @@ export const multiSelectWithChildComponent = (args) => {
     template: hbs`
       <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
-        @title={{titleStars}}
-        @id={{id}}
-        @onSelect={{onSelect}}
-        @emptyMessage={{emptyMessage}}
-        @label={{label}}
-        @options={{options}} as |star|
+        @id={{this.id}}
+        @label={{this.label}}
+        @innerText={{this.titleStars}}
+        @screenReaderOnly={{this.screenReaderOnly}}
+        
+        @onSelect={{this.onSelect}}
+        @emptyMessage={{this.emptyMessage}}
+        
+        @options={{this.options}} as |star|
       >
         <PixStars
+          @alt={{concat "Étoiles " star.value " sur " star.total}}
           @count={{star.value}}
           @total={{star.total}}
         />
@@ -39,7 +43,9 @@ export const multiSelectWithChildComponent = (args) => {
 
 multiSelectWithChildComponent.args = {
   titleStars: 'Sélectionner le niveau souhaité',
+  label: 'Résultat évaluation',
   options: [
+    { value: '0', total: 3 },
     { value: '1', total: 3 },
     { value: '2', total: 3 },
     { value: '3', total: 3 },
@@ -52,17 +58,19 @@ export const multiSelectSearchable = (args) => {
       <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
         style="width:350px"
-        @id={{id}}
-        @title={{title}}
-        @placeholder={{placeholder}}
-        @isSearchable={{isSearchable}}
-        @showOptionsOnInput={{showOptionsOnInput}}
-        @strictSearch={{strictSearch}}
-        @onSelect={{doSomething}}
-        @emptyMessage={{emptyMessage}}
-        @size={{size}}
-        @selected={{selected}}
-        @options={{options}} as |option|
+        @id={{this.id}}
+        @label={{this.label}}
+        @screenReaderOnly={{this.screenReaderOnly}}
+        @innerText={{this.innerText}}
+
+        @isSearchable={{this.isSearchable}}
+        @strictSearch={{this.strictSearch}}
+
+        @onSelect={{this.doSomething}}
+        @selected={{this.selected}}
+
+        @emptyMessage={{this.emptyMessage}}
+        @options={{this.options}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
@@ -78,17 +86,19 @@ export const multiSelectAsyncOptions = (args) => {
       <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
         style="width:350px"
-        @id={{id}}
-        @title={{title}}
-        @placeholder={{placeholder}}
-        @isSearchable={{isSearchable}}
-        @showOptionsOnInput={{showOptionsOnInput}}
-        @strictSearch={{strictSearch}}
-        @onSelect={{doSomething}}
-        @emptyMessage={{emptyMessage}}
-        @size={{size}}
-        @selected={{selected}}
-        @onLoadOptions={{onLoadOptions}} as |option|
+        @id={{this.id}}
+        @label={{this.label}}
+        @screenReaderOnly={{this.screenReaderOnly}}
+        @innerText={{this.innerText}}
+
+        @isSearchable={{this.isSearchable}}
+        @strictSearch={{this.strictSearch}}
+
+        @onSelect={{this.doSomething}}
+        @selected={{this.selected}}
+
+        @emptyMessage={{this.emptyMessage}}
+        @onLoadOptions={{this.onLoadOptions}} as |option|
       >
         {{option.label}}
       </PixMultiSelect>
@@ -104,20 +114,18 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: 'aromate',
   },
-  title: {
-    name: 'title',
-    description: 'Donne un titre à sa liste de choix multiple.',
+  innerText: {
+    name: 'innerText',
+    description:
+      'Donne un titre à sa liste de choix multiple, utilisé comme placeholder lorsque ``isSearchable`` à ``true``',
     type: { name: 'string', required: true },
     defaultValue: 'Rechercher un condiment',
   },
   label: {
     name: 'label',
-    description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: null },
-    },
+    description: 'Donne un label au champ',
+    type: { name: 'string', required: true },
+    defaultValue: 'Label du champ',
   },
   emptyMessage: {
     name: 'emptyMessage',
@@ -132,13 +140,6 @@ export const argTypes = {
       "Message qui apparaît dans les options quand celles-ci sont en train d'être chargées via onLoadOptions",
     type: { name: 'string', required: false },
     defaultValue: 'Chargement...',
-  },
-  placeholder: {
-    name: 'placeholder',
-    description:
-      'Donner une liste d‘exemple pour la recherche utilisateur dans le cas ``isSearchable`` à ``true``',
-    type: { name: 'string', required: true },
-    defaultValue: 'Curcuma, Thym, ...',
   },
   options: {
     name: 'options',
@@ -165,13 +166,6 @@ export const argTypes = {
     type: { name: 'array', required: false },
     defaultValue: ['1', '4'],
   },
-  showOptionsOnInput: {
-    name: 'showOptionsOnInput',
-    description:
-      'Afficher la liste au focus du champs de saisie lorsque ``isSearchable`` à ``true``',
-    type: { name: 'boolean', required: false },
-    defaultValue: true,
-  },
   isSearchable: {
     name: 'isSearchable',
     description: 'Permet de rajouter une saisie utilisateur pour faciliter la recherche',
@@ -185,15 +179,10 @@ export const argTypes = {
     type: { name: 'boolean', required: false },
     defaultValue: false,
   },
-  size: {
-    name: 'size',
-    description:
-      '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
-    options: ['big', 'small'],
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'small' },
-    },
+  screenReaderOnly: {
+    name: 'screenReaderOnly',
+    description: "Permet de cacher à l'écran le label tout en restant vocalisable",
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
   },
 };

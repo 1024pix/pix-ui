@@ -1,11 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, focus, blur } from '@ember/test-helpers';
+import { render, fillByLabel, clickByName } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
-import fillInByLabel from '../../helpers/fill-in-by-label';
-import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | multi-select', function (hooks) {
   setupRenderingTest(hooks);
@@ -31,7 +29,7 @@ module('Integration | Component | multi-select', function (hooks) {
       <PixMultiSelect
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|>
@@ -59,7 +57,7 @@ module('Integration | Component | multi-select', function (hooks) {
       <PixMultiSelect
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
         @label="label"
         @emptyMessage={{this.emptyMessage}}
@@ -69,7 +67,7 @@ module('Integration | Component | multi-select', function (hooks) {
       </PixMultiSelect>
     `);
 
-    await clickByLabel('label');
+    await clickByName('label');
 
     // then
     const listElement = this.element.querySelectorAll('li');
@@ -92,7 +90,7 @@ module('Integration | Component | multi-select', function (hooks) {
     await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
         @selected={{this.selected}}
         @label="label"
@@ -103,7 +101,7 @@ module('Integration | Component | multi-select', function (hooks) {
       </PixMultiSelect>
     `);
 
-    await clickByLabel('label');
+    await clickByName('label');
 
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
@@ -123,15 +121,14 @@ module('Integration | Component | multi-select', function (hooks) {
     this.id = 'id-MultiSelectTest';
 
     // when
-    await render(hbs`
+    const screen = await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
         @selected={{this.selected}}
         @label="label"
         @emptyMessage={{this.emptyMessage}}
-        @placeholder="Yo"
         @isSearchable={{true}}
         @options={{this.options}} as |option|
       >
@@ -140,7 +137,7 @@ module('Integration | Component | multi-select', function (hooks) {
     `);
 
     // then
-    const inputElement = this.element.querySelector('.pix-multi-select-header__search-input');
+    const inputElement = screen.getByLabelText('label');
     assert.equal(inputElement.placeholder, 'Tomate, Oignon');
   });
 
@@ -156,7 +153,7 @@ module('Integration | Component | multi-select', function (hooks) {
     await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
         @selected={{this.selected}}
         @label="label"
@@ -168,7 +165,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     // when
     this.set('selected', []);
-    await clickByLabel('label');
+    await clickByName('label');
 
     // then
     const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
@@ -186,12 +183,11 @@ module('Integration | Component | multi-select', function (hooks) {
     this.id = 'id-MultiSelectTest';
     this.onSelect = sinon.spy();
 
-    await render(hbs`
+    const screen = await render(hbs`
     <PixMultiSelect
       @onSelect={{this.onSelect}}
-      @title={{this.title}}
+      @innerText={{this.title}}
       @id={{this.id}}
-      @label="label"
       @emptyMessage={{this.emptyMessage}}
       @options={{this.options}} as |option|>
       {{option.label}}
@@ -199,12 +195,14 @@ module('Integration | Component | multi-select', function (hooks) {
   `);
 
     // when
-    await clickByLabel('label');
-    await clickByLabel('Salade');
+    await clickByName(this.title);
+
+    await screen.findByRole('menu');
+
+    await clickByName('Salade');
 
     // then
-    const firstCheckbox = this.element.querySelectorAll('input[type=checkbox]').item(0);
-    assert.true(firstCheckbox.checked);
+    assert.true(screen.getByLabelText('Salade').checked);
     assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
     assert.ok(this.onSelect.calledWith, ['1']);
   });
@@ -219,12 +217,11 @@ module('Integration | Component | multi-select', function (hooks) {
     this.id = 'id-MultiSelectTest';
     this.onSelect = sinon.spy();
 
-    await render(hbs`
+    const screen = await render(hbs`
       <PixMultiSelect
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
-        @label="label"
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|>
         {{option.label}}
@@ -232,433 +229,14 @@ module('Integration | Component | multi-select', function (hooks) {
     `);
 
     // when
-    await clickByLabel('label');
-    await clickByLabel('Salade');
+    await clickByName(this.title);
+
+    await screen.findByRole('menu');
+
+    await clickByName('Salade');
 
     // then
     assert.ok(this.onSelect.calledWith, ['2']);
-  });
-
-  module('When it is a searchable multiselect', function () {
-    test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      // when
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="label"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // then
-      const inputElement = this.element.querySelector('.pix-multi-select-header__search-input');
-      const listElement = this.element.querySelectorAll('li');
-      assert.contains('MultiSelectTest');
-      assert.equal(inputElement.placeholder, this.placeholder);
-      assert.equal(listElement.length, 3);
-    });
-
-    test('it should renders filtered given case insensitive', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="label"
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await fillInByLabel('Mon multi select', 'tomate');
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 1);
-      assert.contains('Tomate');
-    });
-
-    test('it should renders no result given case sensitive', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.strictSearch = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @strictSearch={{this.strictSearch}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await fillInByLabel('Mon multi select', 'tomate');
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 1);
-      assert.contains('no result');
-    });
-
-    test('it should display list PixMultiSelect on focus', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.showOptionsOnInput = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @showOptionsOnInput={{this.showOptionsOnInput}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await focus('input');
-
-      // then
-      const listElement = this.element.querySelector('ul');
-      assert.equal(listElement.className.trim(), 'pix-multi-select-list');
-    });
-
-    test('it should not display list PixMultiSelect on focus', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.showOptionsOnInput = false;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @showOptionsOnInput={{this.showOptionsOnInput}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await focus('input');
-
-      // then
-      const listElement = this.element.querySelector('ul');
-      assert.equal(listElement.className, 'pix-multi-select-list pix-multi-select-list--hidden');
-    });
-
-    test('it should sort default selected items when focused', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-      this.defaultSelected = ['3'];
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @selected={{defaultSelected}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await focus('input');
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 3);
-      assert.equal(listElement.item(0).textContent.trim(), 'Oignon');
-      assert.equal(listElement.item(1).textContent.trim(), 'Salade');
-      assert.equal(listElement.item(2).textContent.trim(), 'Tomate');
-    });
-
-    test('it should not sort when user select item', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @label="label"
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await clickByLabel('label');
-      await clickByLabel(DEFAULT_OPTIONS[1].label);
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 3);
-      assert.equal(listElement.item(0).textContent.trim(), 'Salade');
-      assert.equal(listElement.item(1).textContent.trim(), 'Tomate');
-      assert.equal(listElement.item(2).textContent.trim(), 'Oignon');
-    });
-
-    test('it should not sort when user search and select item', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await fillInByLabel('Mon multi select', 'Oi');
-      await clickByLabel('Oignon');
-      await fillInByLabel('Mon multi select', 'o');
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 2);
-      assert.equal(listElement.item(0).textContent.trim(), 'Tomate');
-      assert.equal(listElement.item(1).textContent.trim(), 'Oignon');
-    });
-
-    test('it should sort items when search is cleaned', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await fillInByLabel('Mon multi select', 'Oi');
-      await clickByLabel('Oignon');
-      await fillInByLabel('Mon multi select', '');
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 3);
-      assert.equal(listElement.item(0).textContent.trim(), 'Oignon');
-      assert.equal(listElement.item(1).textContent.trim(), 'Salade');
-      assert.equal(listElement.item(2).textContent.trim(), 'Tomate');
-    });
-
-    test('should not sort when there are default items selected and a new selected item', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = ['2'];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="label"
-          @emptyMessage={{this.emptyMessage}}
-          @showOptionsOnInput={{true}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await clickByLabel('label');
-
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.item(0).textContent.trim(), 'Tomate');
-
-      await clickByLabel('Oignon');
-
-      // then
-      const listElement2 = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement2.item(0).textContent.trim(), 'Tomate');
-      assert.equal(listElement2.item(1).textContent.trim(), 'Salade');
-      assert.equal(listElement2.item(2).textContent.trim(), 'Oignon');
-    });
-
-    test('it should sort items when search is unfocus', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
-      this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @title={{this.title}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      // when
-      await fillInByLabel('Mon multi select', 'Oi');
-      await clickByLabel('Oignon');
-
-      await blur('input');
-
-      await fillInByLabel('Mon multi select', '');
-
-      // then
-      const listElement = this.element.querySelectorAll('.pix-multi-select-list__item');
-      assert.equal(listElement.length, 3);
-      assert.equal(listElement.item(0).textContent.trim(), 'Oignon');
-      assert.equal(listElement.item(1).textContent.trim(), 'Salade');
-      assert.equal(listElement.item(2).textContent.trim(), 'Tomate');
-    });
   });
 
   test('it should be possible to give a label', async function (assert) {
@@ -682,16 +260,14 @@ module('Integration | Component | multi-select', function (hooks) {
 
   test('it should throw an error if no id is provided when there is a label', async function (assert) {
     // given
-    const componentParams = { id: '   ', label: 'Votre choix: ', options: DEFAULT_OPTIONS };
-    const component = createGlimmerComponent('component:pix-multi-select', componentParams);
+    const componentParams = { id: '   ', options: DEFAULT_OPTIONS };
+    const renderComponent = function () {
+      createGlimmerComponent('component:pix-multi-select', componentParams);
+    };
 
     // when & then
-    const expectedError = new Error(
-      'ERROR in PixMultiSelect component, @id param is necessary when giving @label'
-    );
-    assert.throws(function () {
-      component.label;
-    }, expectedError);
+    const expectedError = new Error('ERROR in PixMultiSelect component, @id param is necessary');
+    assert.throws(renderComponent, expectedError);
   });
 
   test('it should asynchronously load options', async function (assert) {
@@ -708,7 +284,7 @@ module('Integration | Component | multi-select', function (hooks) {
       <PixMultiSelect
         @selected={{this.selected}}
         @onSelect={{this.onSelect}}
-        @title={{this.title}}
+        @innerText={{this.title}}
         @id={{this.id}}
         @emptyMessage={{this.emptyMessage}}
         @onLoadOptions={{this.onLoadOptions}} as |option|>
@@ -720,5 +296,367 @@ module('Integration | Component | multi-select', function (hooks) {
     const listElement = this.element.querySelectorAll('li');
     assert.contains('MultiSelectTest');
     assert.equal(listElement.length, 3);
+  });
+
+  module('When it is a searchable multiselect', function () {
+    test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
+      // given
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.innerText = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+
+      // when
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="label"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      await fillByLabel('label', '');
+
+      await screen.findByRole('menu');
+
+      // then
+
+      assert.equal(screen.getByLabelText('label').placeholder, this.innerText);
+      assert.equal(screen.getAllByRole('checkbox').length, 3);
+    });
+
+    test('it should renders filtered given case insensitive', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @label="Mon multi select"
+          @options={{this.options}} as |option|
+        >
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('Mon multi select', 'tomate');
+
+      await screen.findByRole('menu');
+
+      // then
+
+      assert.equal(screen.getAllByRole('checkbox').length, 1);
+      assert.contains('Tomate');
+    });
+
+    test('it should renders no result given case sensitive', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.strictSearch = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @strictSearch={{this.strictSearch}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @label="Mon multi select"
+          @options={{this.options}} as |option|
+        >
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('Mon multi select', 'tomate');
+
+      await screen.findByRole('menu');
+
+      // then
+      assert.contains('no result');
+    });
+
+    test('it should display list PixMultiSelect on focus', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.label = 'label';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @label={{this.label}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('label', '');
+
+      await screen.findByRole('menu');
+
+      // then
+      assert.equal(screen.getByRole('menu').className.trim(), 'pix-multi-select-list');
+    });
+
+    test('it should sort default selected items when focused', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+      this.defaultSelected = ['3'];
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @label="label"
+          @emptyMessage={{this.emptyMessage}}
+          @selected={{defaultSelected}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('label', '');
+
+      await screen.findByRole('menu');
+
+      // then
+      const listElement = screen.getAllByRole('checkbox');
+      assert.equal(listElement.length, 3);
+      assert.equal(listElement[0].labels[0].innerText.trim(), 'Oignon');
+      assert.equal(listElement[1].labels[0].innerText.trim(), 'Salade');
+      assert.equal(listElement[2].labels[0].innerText.trim(), 'Tomate');
+    });
+
+    test('it should not sort when user select item', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @label="label"
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('label', '');
+
+      await screen.findByRole('menu');
+
+      await clickByName(DEFAULT_OPTIONS[1].label);
+
+      // then
+      const listElement = screen.getAllByRole('checkbox');
+      assert.equal(listElement.length, 3);
+      assert.equal(listElement[0].labels[0].innerText.trim(), 'Salade');
+      assert.equal(listElement[1].labels[0].innerText.trim(), 'Tomate');
+      assert.equal(listElement[2].labels[0].innerText.trim(), 'Oignon');
+    });
+
+    test('it should not sort when user search and select item', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @label="Mon multi select"
+          @options={{this.options}} as |option|
+        >
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('Mon multi select', 'Oi');
+
+      await screen.findByRole('menu');
+
+      await clickByName('Oignon');
+      await fillByLabel('Mon multi select', 'o');
+      // then
+      const listElement = screen.getAllByRole('checkbox');
+      assert.equal(listElement.length, 2);
+      assert.equal(listElement[0].labels[0].innerText.trim(), 'Tomate');
+      assert.equal(listElement[1].labels[0].innerText.trim(), 'Oignon');
+    });
+
+    test('it should sort items when search is cleaned', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @emptyMessage={{this.emptyMessage}}
+          @label="Mon multi select"
+          @options={{this.options}} as |option|
+        >
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('Mon multi select', 'Oi');
+
+      await screen.findByRole('menu');
+
+      await clickByName('Oignon');
+
+      await fillByLabel('Mon multi select', '');
+
+      // then
+      const listElement = screen.getAllByRole('checkbox');
+      assert.equal(listElement.length, 3);
+      assert.equal(listElement[0].labels[0].innerText.trim(), 'Oignon');
+      assert.equal(listElement[1].labels[0].innerText.trim(), 'Salade');
+      assert.equal(listElement[2].labels[0].innerText.trim(), 'Tomate');
+    });
+
+    test('should not sort when there are default items selected and a new selected item', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = ['2'];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.title = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @isSearchable={{this.isSearchable}}
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.title}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @label="label"
+          @emptyMessage={{this.emptyMessage}}
+          @showOptionsOnInput={{true}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+
+      // when
+      await fillByLabel('label', '');
+
+      await screen.findByRole('menu');
+
+      const listElement = screen.getAllByRole('checkbox');
+
+      assert.equal(listElement[0].labels[0].innerText.trim(), 'Tomate');
+
+      await clickByName('Oignon');
+
+      // then
+      const listElement2 = screen.getAllByRole('checkbox');
+
+      assert.equal(listElement2[0].labels[0].innerText.trim(), 'Tomate');
+      assert.equal(listElement2[2].labels[0].innerText.trim(), 'Oignon');
+    });
   });
 });

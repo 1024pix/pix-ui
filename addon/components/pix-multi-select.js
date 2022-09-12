@@ -26,35 +26,47 @@ export default class PixMultiSelect extends Component {
 
   constructor(...args) {
     super(...args);
-    const { onLoadOptions, selected } = this.args;
+    const { onLoadOptions, id, label, innerText } = this.args;
+
+    const idIsNotDefined = !id || !id.trim();
+    const labelIsNotDefined = !label || !label.trim();
+    const innerTextIsNotDefined = !innerText || !innerText.trim();
+
+    if (idIsNotDefined || labelIsNotDefined || innerTextIsNotDefined) {
+      const missingParams = [];
+
+      if (idIsNotDefined) missingParams.push('@id');
+      if (labelIsNotDefined) missingParams.push('@label');
+      if (innerTextIsNotDefined) missingParams.push('@innerText');
+
+      throw new Error(
+        `ERROR in PixMultiSelect component, ${missingParams.join(', ')} ${
+          missingParams.length > 1 ? 'params are' : 'param is'
+        } necessary`
+      );
+    }
 
     if (onLoadOptions) {
       this.isLoadingOptions = true;
       onLoadOptions().then((options = []) => {
         this.options = options;
-        this._setDisplayedOptions(selected, true);
         this.isLoadingOptions = false;
       });
     } else {
       this.options = [...(this.args.options || [])];
-      this._setDisplayedOptions(selected, true);
     }
   }
 
-  get label() {
-    const labelIsDefined = this.args.label && this.args.label.trim();
-    const idIsNotDefined = this.args.id && !this.args.id.trim();
-
-    if (labelIsDefined && idIsNotDefined) {
-      throw new Error(
-        'ERROR in PixMultiSelect component, @id param is necessary when giving @label'
-      );
-    }
-    return this.args.label || null;
+  get listId() {
+    return `list-${this.args.id}`;
   }
 
-  get isBig() {
-    return this.args.size === 'big';
+  get labelId() {
+    return `label-${this.args.id}`;
+  }
+
+  get isAriaExpanded() {
+    return this.isExpanded ? 'true' : 'false';
   }
 
   get results() {
@@ -64,8 +76,8 @@ export default class PixMultiSelect extends Component {
     return this.options;
   }
 
-  get placeholder() {
-    const { selected, placeholder } = this.args;
+  get innerText() {
+    const { selected, innerText } = this.args;
     if (selected?.length > 0) {
       const selectedOptionLabels = this.options
         .filter(({ value, label }) => {
@@ -76,7 +88,7 @@ export default class PixMultiSelect extends Component {
         .join(', ');
       return selectedOptionLabels;
     }
-    return placeholder;
+    return innerText;
   }
 
   _setDisplayedOptions(selected, shouldSort) {
@@ -108,8 +120,6 @@ export default class PixMultiSelect extends Component {
       selected = selected.filter((value) => value !== event.target.value);
     }
 
-    this._setDisplayedOptions(selected, false);
-
     if (this.args.onSelect) {
       this.args.onSelect(selected);
     }
@@ -140,13 +150,6 @@ export default class PixMultiSelect extends Component {
       event.preventDefault();
     }
     this.isExpanded = false;
-  }
-
-  @action
-  focusDropdown() {
-    if (this.args.isSearchable && this.args.showOptionsOnInput) {
-      this.showDropDown();
-    }
   }
 
   @action
