@@ -13,7 +13,7 @@
 }
 
 @mixin focusWithinFormElement() {
-  &:focus {
+  &:focus-within {
     border-color: $pix-primary;
     box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
     outline: none;
