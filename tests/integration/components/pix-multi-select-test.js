@@ -13,289 +13,376 @@ module('Integration | Component | multi-select', function (hooks) {
     { value: '2', label: 'Tomate' },
     { value: '3', label: 'Oignon' },
   ];
-  const LABEL_SELECTOR = '.pix-multi-select__label';
 
-  test('it renders PixMultiSelect with list', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.selected = [];
-    this.onSelect = (selected) => this.set('selected', selected);
-    this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
-    this.id = 'id-MultiSelectTest';
+  module('common cases', function () {
+    test('it renders PixMultiSelect with hidden list', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.innerText = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
 
-    // when
-    await render(hbs`
-      <PixMultiSelect
-        @selected={{this.selected}}
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|>
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+      // when
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="multiSelectLabel"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
 
-    // then
-    const listElement = this.element.querySelectorAll('li');
-    assert.contains('MultiSelectTest');
-    assert.equal(listElement.length, 3);
-  });
+      // then
+      assert.equal(screen.queryAllByRole('checkbox').length, 0);
+    });
 
-  test('it renders the PixMultiSelect with empty message', async function (assert) {
-    // given
-    this.options = [];
-    this.selected = [];
-    this.onSelect = (selected) => this.set('selected', selected);
-    this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
-    this.id = 'id-MultiSelectTest';
+    test('it should asynchronously load options', async function (assert) {
+      // given
+      this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
+      this.selected = [];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.innerText = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
 
-    // when
-    await render(hbs`
-      <PixMultiSelect
-        @selected={{this.selected}}
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @label="label"
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+      // when
+      const screen = await render(hbs`
+        <PixMultiSelect
+          @selected={{this.selected}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @onLoadOptions={{this.onLoadOptions}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
 
-    await clickByName('label');
+      await clickByName('labelMultiSelect');
 
-    // then
-    const listElement = this.element.querySelectorAll('li');
-    assert.contains('MultiSelectTest');
+      await screen.findByRole('menu');
 
-    assert.equal(listElement.length, 1);
-    assert.contains('no result');
-  });
+      // then
+      assert.equal(screen.getAllByRole('checkbox').length, 3);
+    });
 
-  test('it renders the PixMultiSelect with default checked', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onSelect = (selected) => this.set('selected', selected);
-    this.selected = ['2'];
-    this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
-    this.id = 'id-MultiSelectTest';
+    test('it should updates selected items when @selected is reset', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.selected = ['2'];
+      this.onSelect = (selected) => this.set('selected', selected);
+      this.emptyMessage = 'no result';
+      this.innerText = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
 
-    // when
-    await render(hbs`
-      <PixMultiSelect
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @selected={{this.selected}}
-        @label="label"
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+      await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @selected={{this.selected}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
 
-    await clickByName('label');
+      // when
+      this.set('selected', []);
+      await clickByName('labelMultiSelect');
 
-    // then
-    const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
-    assert.equal(checkboxElement.length, 3);
-    assert.false(checkboxElement.item(0).checked);
-    assert.true(checkboxElement.item(1).checked);
-    assert.false(checkboxElement.item(2).checked);
-  });
+      // then
+      const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
+      assert.false(checkboxElement.item(0).checked);
+      assert.false(checkboxElement.item(1).checked);
+      assert.false(checkboxElement.item(2).checked);
+    });
 
-  test('it should display selected labels when the multiselect is searchable', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onSelect = (selected) => this.set('selected', selected);
-    this.selected = ['2', '3'];
-    this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
-    this.id = 'id-MultiSelectTest';
+    module('onClick', function () {
+      test('it renders PixMultiSelect list', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+        this.selected = [];
+        this.onSelect = (selected) => this.set('selected', selected);
+        this.emptyMessage = 'no result';
+        this.innerText = 'MultiSelectTest';
+        this.id = 'id-MultiSelectTest';
 
-    // when
-    const screen = await render(hbs`
-      <PixMultiSelect
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @selected={{this.selected}}
-        @label="label"
-        @emptyMessage={{this.emptyMessage}}
-        @isSearchable={{true}}
-        @options={{this.options}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+        // when
+        const screen = await render(hbs`
+          <PixMultiSelect
+            @selected={{this.selected}}
+            @onSelect={{this.onSelect}}
+            @innerText={{this.innerText}}
+            @id={{this.id}}
+            @label="labelMultiSelect"
+            @emptyMessage={{this.emptyMessage}}
+            @options={{this.options}} as |option|>
+            {{option.label}}
+          </PixMultiSelect>
+        `);
 
-    // then
-    const inputElement = screen.getByLabelText('label');
-    assert.equal(inputElement.placeholder, 'Tomate, Oignon');
-  });
+        await clickByName('labelMultiSelect');
 
-  test('it should updates selected items when @selected is changed', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.selected = ['2'];
-    this.onSelect = (selected) => this.set('selected', selected);
-    this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
-    this.id = 'id-MultiSelectTest';
+        await screen.findByRole('menu');
 
-    await render(hbs`
-      <PixMultiSelect
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @selected={{this.selected}}
-        @label="label"
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|>
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+        // then
+        assert.equal(screen.queryAllByRole('checkbox').length, 3);
+      });
 
-    // when
-    this.set('selected', []);
-    await clickByName('label');
+      test('it renders the PixMultiSelect with empty message', async function (assert) {
+        // given
+        this.options = [];
+        this.selected = [];
+        this.onSelect = (selected) => this.set('selected', selected);
+        this.emptyMessage = 'no result';
+        this.innerText = 'MultiSelectTest';
+        this.id = 'id-MultiSelectTest';
 
-    // then
-    const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
-    assert.false(checkboxElement.item(0).checked);
-    assert.false(checkboxElement.item(1).checked);
-    assert.false(checkboxElement.item(2).checked);
-  });
+        // when
+        const screen = await render(hbs`
+          <PixMultiSelect
+            @selected={{this.selected}}
+            @onSelect={{this.onSelect}}
+            @innerText={{this.innerText}}
+            @label="labelMultiSelect"
+            @id={{this.id}}
+            @emptyMessage={{this.emptyMessage}}
+            @options={{this.options}} as |option|
+          >
+            {{option.label}}
+          </PixMultiSelect>
+        `);
 
-  test('it should trigger onSelect function when an item is selected', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
+        await clickByName('labelMultiSelect');
 
-    this.title = 'MultiSelectTest';
-    this.emptyMessage = 'no result';
-    this.id = 'id-MultiSelectTest';
-    this.onSelect = sinon.spy();
+        await screen.findByRole('menu');
+        // then
+        assert.equal(screen.queryAllByRole('checkbox').length, 0);
+        assert.contains('no result');
+      });
 
-    const screen = await render(hbs`
-    <PixMultiSelect
-      @onSelect={{this.onSelect}}
-      @innerText={{this.title}}
-      @id={{this.id}}
-      @emptyMessage={{this.emptyMessage}}
-      @options={{this.options}} as |option|>
-      {{option.label}}
-    </PixMultiSelect>
-  `);
+      test('it renders the PixMultiSelect with default checked', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+        this.onSelect = (selected) => this.set('selected', selected);
+        this.selected = ['2'];
+        this.emptyMessage = 'no result';
+        this.innerText = 'MultiSelectTest';
+        this.id = 'id-MultiSelectTest';
 
-    // when
-    await clickByName(this.title);
+        // when
+        await render(hbs`
+          <PixMultiSelect
+            @onSelect={{this.onSelect}}
+            @innerText={{this.innerText}}
+            @id={{this.id}}
+            @selected={{this.selected}}
+            @label="labelMultiSelect"
+            @emptyMessage={{this.emptyMessage}}
+            @options={{this.options}} as |option|
+          >
+            {{option.label}}
+          </PixMultiSelect>
+        `);
 
-    await screen.findByRole('menu');
+        await clickByName('labelMultiSelect');
 
-    await clickByName('Salade');
+        // then
+        const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
+        assert.equal(checkboxElement.length, 3);
+        assert.false(checkboxElement.item(0).checked);
+        assert.true(checkboxElement.item(1).checked);
+        assert.false(checkboxElement.item(2).checked);
+      });
+    });
 
-    // then
-    assert.true(screen.getByLabelText('Salade').checked);
-    assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
-    assert.ok(this.onSelect.calledWith, ['1']);
-  });
+    module('display main text', function () {
+      test('it should display selected labels on MultiSelect', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+        this.onSelect = (selected) => this.set('selected', selected);
+        this.selected = ['2', '3'];
+        this.emptyMessage = 'no result';
+        this.innerText = 'MultiSelectTest';
+        this.id = 'id-MultiSelectTest';
 
-  test('it should unselect item and return selected item of the updated list', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
+        // when
+        const screen = await render(hbs`
+          <PixMultiSelect
+            @onSelect={{this.onSelect}}
+            @innerText={{this.innerText}}
+            @id={{this.id}}
+            @selected={{this.selected}}
+            @label="labelMultiSelect"
+            @emptyMessage={{this.emptyMessage}}
+            @isSearchable={{true}}
+            @options={{this.options}} as |option|
+          >
+            {{option.label}}
+          </PixMultiSelect>
+        `);
 
-    this.title = 'MultiSelectTest';
-    this.emptyMessage = 'no result';
-    this.selected = ['1', '2'];
-    this.id = 'id-MultiSelectTest';
-    this.onSelect = sinon.spy();
+        // then
+        const inputElement = screen.getByLabelText('labelMultiSelect');
+        assert.equal(inputElement.placeholder, 'Tomate, Oignon');
+      });
+    });
 
-    const screen = await render(hbs`
-      <PixMultiSelect
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|>
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+    module('a11y', function () {
+      test('it should throw an error if no id is provided', async function (assert) {
+        // given
+        const componentParams = {
+          id: '   ',
+          label: 'toto',
+          innerText: 'coucou',
+          options: DEFAULT_OPTIONS,
+        };
+        const renderComponent = function () {
+          createGlimmerComponent('component:pix-multi-select', componentParams);
+        };
 
-    // when
-    await clickByName(this.title);
+        // when & then
+        const expectedError = new Error(
+          'ERROR in PixMultiSelect component, @id param is necessary'
+        );
+        assert.throws(renderComponent, expectedError);
+      });
 
-    await screen.findByRole('menu');
+      test('it should throw an error if no label is provided', async function (assert) {
+        // given
+        const componentParams = {
+          id: 'toto',
+          label: ' ',
+          innerText: 'coucou',
+          options: DEFAULT_OPTIONS,
+        };
+        const renderComponent = function () {
+          createGlimmerComponent('component:pix-multi-select', componentParams);
+        };
 
-    await clickByName('Salade');
+        // when & then
+        const expectedError = new Error(
+          'ERROR in PixMultiSelect component, @label param is necessary'
+        );
+        assert.throws(renderComponent, expectedError);
+      });
 
-    // then
-    assert.ok(this.onSelect.calledWith, ['2']);
-  });
+      test('it should throw an error if no innerText is provided', async function (assert) {
+        // given
+        const componentParams = {
+          id: 'toto',
+          label: 'coucou',
+          innerText: ' ',
+          options: DEFAULT_OPTIONS,
+        };
+        const renderComponent = function () {
+          createGlimmerComponent('component:pix-multi-select', componentParams);
+        };
 
-  test('it should be possible to give a label', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.selected = [];
-    this.onSelect = (selected) => this.set('selected', selected);
-    await render(hbs`
-      <PixMultiSelect
-        @id="pix-select-with-label"
-        @label="Votre choix:"
-        @options={{this.options}}
-        @onChange={{this.onSelect}}
-      />
-    `);
+        // when & then
+        const expectedError = new Error(
+          'ERROR in PixMultiSelect component, @innerText param is necessary'
+        );
+        assert.throws(renderComponent, expectedError);
+      });
 
-    // when & then
-    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
-    assert.equal(selectorElement.innerHTML, 'Votre choix:');
-  });
+      test('it should throw a combined error if no innerText, label is provided', async function (assert) {
+        // given
+        const componentParams = {
+          id: 'toto',
+          label: ' ',
+          innerText: ' ',
+          options: DEFAULT_OPTIONS,
+        };
+        const renderComponent = function () {
+          createGlimmerComponent('component:pix-multi-select', componentParams);
+        };
 
-  test('it should throw an error if no id is provided when there is a label', async function (assert) {
-    // given
-    const componentParams = { id: '   ', options: DEFAULT_OPTIONS };
-    const renderComponent = function () {
-      createGlimmerComponent('component:pix-multi-select', componentParams);
-    };
+        // when & then
+        const expectedError = new Error(
+          'ERROR in PixMultiSelect component, @label, @innerText params are necessary'
+        );
+        assert.throws(renderComponent, expectedError);
+      });
+    });
 
-    // when & then
-    const expectedError = new Error('ERROR in PixMultiSelect component, @id param is necessary');
-    assert.throws(renderComponent, expectedError);
-  });
+    module('onSelect', function () {
+      test('it should trigger onSelect function when an item is selected', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
 
-  test('it should asynchronously load options', async function (assert) {
-    // given
-    this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
-    this.selected = [];
-    this.onSelect = (selected) => this.set('selected', selected);
-    this.emptyMessage = 'no result';
-    this.title = 'MultiSelectTest';
-    this.id = 'id-MultiSelectTest';
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
 
-    // when
-    await render(hbs`
-      <PixMultiSelect
-        @selected={{this.selected}}
-        @onSelect={{this.onSelect}}
-        @innerText={{this.title}}
-        @id={{this.id}}
-        @emptyMessage={{this.emptyMessage}}
-        @onLoadOptions={{this.onLoadOptions}} as |option|>
-        {{option.label}}
-      </PixMultiSelect>
-    `);
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+      `);
 
-    // then
-    const listElement = this.element.querySelectorAll('li');
-    assert.contains('MultiSelectTest');
-    assert.equal(listElement.length, 3);
+        // when
+        await clickByName('labelMultiSelect');
+
+        await screen.findByRole('menu');
+
+        await clickByName('Salade');
+
+        // then
+        assert.true(screen.getByLabelText('Salade').checked);
+        assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
+        assert.ok(this.onSelect.calledWith, ['1']);
+      });
+
+      test('it should unselect item and return selected item of the updated list', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.selected = ['1', '2'];
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+          <PixMultiSelect
+            @onSelect={{this.onSelect}}
+            @innerText={{this.innerText}}
+            @id={{this.id}}
+            @label="labelMultiSelect"
+            @emptyMessage={{this.emptyMessage}}
+            @options={{this.options}} as |option|>
+            {{option.label}}
+          </PixMultiSelect>
+        `);
+
+        // when
+        await clickByName('labelMultiSelect');
+
+        await screen.findByRole('menu');
+
+        await clickByName('Salade');
+
+        // then
+        assert.ok(this.onSelect.calledWith, ['2']);
+      });
+    });
   });
 
   module('When it is a searchable multiselect', function () {
@@ -341,7 +428,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -351,7 +438,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -379,7 +466,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.strictSearch = true;
@@ -391,7 +478,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @strictSearch={{this.strictSearch}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -417,7 +504,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.label = 'label';
       this.isSearchable = true;
@@ -428,7 +515,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @label={{this.label}}
           @id={{this.id}}
@@ -453,7 +540,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -464,7 +551,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="label"
@@ -494,7 +581,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -504,9 +591,9 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
-          @label="label"
+          @label="labelMultiSelect"
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
           @options={{this.options}} as |option|>
@@ -515,7 +602,7 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
 
       // when
-      await fillByLabel('label', '');
+      await fillByLabel('labelMultiSelect', '');
 
       await screen.findByRole('menu');
 
@@ -535,7 +622,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -545,7 +632,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -576,7 +663,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = [];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -586,7 +673,7 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -620,7 +707,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.selected = ['2'];
       this.onSelect = (selected) => this.set('selected', selected);
       this.emptyMessage = 'no result';
-      this.title = 'MultiSelectTest';
+      this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -630,10 +717,10 @@ module('Integration | Component | multi-select', function (hooks) {
           @isSearchable={{this.isSearchable}}
           @selected={{this.selected}}
           @onSelect={{this.onSelect}}
-          @innerText={{this.title}}
+          @innerText={{this.innerText}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @label="label"
+          @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
           @showOptionsOnInput={{true}}
           @options={{this.options}} as |option|>
@@ -642,7 +729,7 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
 
       // when
-      await fillByLabel('label', '');
+      await fillByLabel('labelMultiSelect', '');
 
       await screen.findByRole('menu');
 
