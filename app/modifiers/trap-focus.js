@@ -81,12 +81,12 @@ function hasDurationByKey(element, key) {
 }
 
 function handleKeyDown(event, element) {
-  const TAB_KEY = 9;
+  const TAB_KEY = 'Tab';
   const focusableElements = findFocusableElements(element);
   const [firstFocusableElement] = focusableElements;
   const lastFocusableElement = focusableElements[focusableElements.length - 1];
 
-  if (event.keyCode !== TAB_KEY) {
+  if (event.key !== TAB_KEY) {
     return;
   }
 
