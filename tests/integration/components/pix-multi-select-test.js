@@ -1,6 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, fillByLabel, clickByName } from '@1024pix/ember-testing-library';
+import userEvent from '@testing-library/user-event';
+import { fireEvent } from '@testing-library/dom';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
@@ -82,7 +84,7 @@ module('Integration | Component | multi-select', function (hooks) {
       this.innerText = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
 
-      await render(hbs`
+      const screen = await render(hbs`
         <PixMultiSelect
           @onSelect={{this.onSelect}}
           @innerText={{this.innerText}}
@@ -99,11 +101,12 @@ module('Integration | Component | multi-select', function (hooks) {
       this.set('selected', []);
       await clickByName('labelMultiSelect');
 
+      await screen.findByRole('menu');
       // then
-      const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
-      assert.false(checkboxElement.item(0).checked);
-      assert.false(checkboxElement.item(1).checked);
-      assert.false(checkboxElement.item(2).checked);
+      const checkboxElement = screen.queryAllByRole('checkbox');
+      assert.false(checkboxElement[0].checked);
+      assert.false(checkboxElement[1].checked);
+      assert.false(checkboxElement[2].checked);
     });
 
     module('onClick', function () {
@@ -180,7 +183,7 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
 
         // when
-        await render(hbs`
+        const screen = await render(hbs`
           <PixMultiSelect
             @onSelect={{this.onSelect}}
             @innerText={{this.innerText}}
@@ -196,12 +199,16 @@ module('Integration | Component | multi-select', function (hooks) {
 
         await clickByName('labelMultiSelect');
 
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('menu');
+
         // then
-        const checkboxElement = this.element.querySelectorAll('input[type=checkbox]');
+        const checkboxElement = screen.queryAllByRole('checkbox');
         assert.equal(checkboxElement.length, 3);
-        assert.false(checkboxElement.item(0).checked);
-        assert.true(checkboxElement.item(1).checked);
-        assert.false(checkboxElement.item(2).checked);
+        assert.false(checkboxElement[0].checked);
+        assert.true(checkboxElement[1].checked);
+        assert.false(checkboxElement[2].checked);
       });
     });
 
@@ -237,7 +244,7 @@ module('Integration | Component | multi-select', function (hooks) {
       });
     });
 
-    module('a11y', function () {
+    module('mandatory element', function () {
       test('it should throw an error if no id is provided', async function (assert) {
         // given
         const componentParams = {
@@ -347,7 +354,7 @@ module('Integration | Component | multi-select', function (hooks) {
         // then
         assert.true(screen.getByLabelText('Salade').checked);
         assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
-        assert.ok(this.onSelect.calledWith, ['1']);
+        sinon.assert.calledWithMatch(this.onSelect, ['1']);
       });
 
       test('it should unselect item and return selected item of the updated list', async function (assert) {
@@ -380,14 +387,231 @@ module('Integration | Component | multi-select', function (hooks) {
         await clickByName('Salade');
 
         // then
-        assert.ok(this.onSelect.calledWith, ['2']);
+        sinon.assert.calledWithMatch(this.onSelect, ['1']);
+        assert.ok(true);
+      });
+    });
+
+    module('a11y', function () {
+      test('it should display list, focus first element on arrow down press', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+        `);
+
+        // when
+        await screen.getByLabelText('labelMultiSelect').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('menu');
+
+        fireEvent(screen.getByRole('menu'), new Event('transitionend'));
+
+        const checkboxes = screen.queryAllByRole('checkbox');
+        // then
+        assert.equal(checkboxes.length, 3);
+        assert.equal(document.activeElement, checkboxes[0]);
+      });
+
+      test('it should display list, focus last element on arrow up press', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+        `);
+
+        // when
+        await screen.getByLabelText('labelMultiSelect').focus();
+
+        await userEvent.keyboard('[ArrowUp]');
+
+        await screen.findByRole('menu');
+
+        fireEvent(screen.getByRole('menu'), new Event('transitionend'));
+
+        const checkboxes = screen.queryAllByRole('checkbox');
+        // then
+        assert.equal(checkboxes.length, 3);
+        assert.equal(document.activeElement, checkboxes[2]);
+      });
+
+      test('it should focus first element on arrow down press', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+        `);
+
+        // when
+        await screen.getByLabelText('labelMultiSelect').focus();
+
+        await userEvent.keyboard('[Enter]');
+
+        await screen.findByRole('menu');
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        const checkboxes = screen.queryAllByRole('checkbox');
+        // then
+        assert.equal(document.activeElement, checkboxes[0]);
+      });
+
+      test('it should focus last element on arrow up press', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+        `);
+
+        // when
+        await screen.getByLabelText('labelMultiSelect').focus();
+
+        await userEvent.keyboard('[Enter]');
+
+        await screen.findByRole('menu');
+
+        await userEvent.keyboard('[ArrowUp]');
+
+        const checkboxes = screen.queryAllByRole('checkbox');
+        // then
+        assert.equal(document.activeElement, checkboxes[2]);
+      });
+
+      test('it should call on select on enter press', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+        `);
+
+        // when
+        await screen.getByLabelText('labelMultiSelect').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('menu');
+
+        fireEvent(screen.getByRole('menu'), new Event('transitionend'));
+
+        await userEvent.keyboard('[Enter]');
+
+        // then
+        assert.throws(screen.getByRole('menu'));
+        assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
+        assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
+      });
+
+      test('it should close menu on escape press, focus multiselect element', async function (assert) {
+        // given
+        this.options = DEFAULT_OPTIONS;
+
+        this.innerText = 'MultiSelectTest';
+        this.emptyMessage = 'no result';
+        this.id = 'id-MultiSelectTest';
+        this.onSelect = sinon.spy();
+
+        const screen = await render(hbs`
+        <PixMultiSelect
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @id={{this.id}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @options={{this.options}} as |option|>
+          {{option.label}}
+        </PixMultiSelect>
+        `);
+
+        // when
+        screen.getByLabelText('labelMultiSelect').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('menu');
+
+        await userEvent.keyboard('[Escape]');
+
+        // then
+        assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
+        assert.throws(screen.getByRole('menu'));
       });
     });
   });
 
   module('When it is a searchable multiselect', function () {
     test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
-      // given
       // given
       this.options = DEFAULT_OPTIONS;
       this.selected = [];
