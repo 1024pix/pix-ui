@@ -7,13 +7,13 @@
   <div
     class="pix-sidebar {{unless @showSidebar ' pix-sidebar--hidden'}}"
     role="dialog"
-    aria-labelledby="sidebar-title"
-    aria-describedby="sidebar-content"
+    aria-labelledby="sidebar-title--{{this.id}}"
+    aria-describedby="sidebar-content--{{this.id}}"
     aria-modal="true"
     ...attributes
   >
     <header class="pix-sidebar__header">
-      <h1 id="sidebar-title" class="pix-sidebar__title">{{@title}}</h1>
+      <h1 id="sidebar-title--{{this.id}}" class="pix-sidebar__title">{{@title}}</h1>
       <PixIconButton
         @icon="xmark"
         @triggerAction={{@onClose}}
@@ -23,7 +23,7 @@
         class="pix-sidebar__close-button"
       />
     </header>
-    <main id="sidebar-content" class="pix-sidebar__content">
+    <main id="sidebar-content--{{this.id}}" class="pix-sidebar__content">
       {{yield to="content"}}
     </main>
     <footer class="pix-sidebar__footer">
