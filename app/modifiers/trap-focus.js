@@ -6,9 +6,11 @@ export default modifier(function trapFocus(element, [isOpen]) {
   const [firstFocusableElement] = findFocusableElements(element);
 
   if (isOpen) {
+    preventPageScrolling();
     sourceActiveElement = document.activeElement;
     focusElement(firstFocusableElement, element);
   } else if (sourceActiveElement) {
+    allowPageScrolling();
     focusElement(sourceActiveElement, element);
   }
 
@@ -56,6 +58,14 @@ function focusElement(elementToFocus, element) {
       element.removeEventListener('animationend', handleTransitionEnd);
     }
   };
+}
+
+function preventPageScrolling() {
+  document.body.classList.add('body__trap-focus');
+}
+
+function allowPageScrolling() {
+  document.body.classList.remove('body__trap-focus');
 }
 
 function hasTransitionDuration(element) {

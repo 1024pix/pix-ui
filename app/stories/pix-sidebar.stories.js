@@ -17,7 +17,9 @@ export const Template = (args) => {
           </div>
         </:footer>
       </PixSidebar>
-      <PixButton @triggerAction={{fn (mut showSidebar) (not showSidebar)}}>Ouvrir la sidebar</PixButton>
+      <div style="display:flex; justify-content:center; align-items:center; height:105vh;">
+        <PixButton @triggerAction={{fn (mut showSidebar) (not showSidebar)}} style="height:45px">Ouvrir la sidebar</PixButton>
+      </div>
     `,
     context: args,
   };
