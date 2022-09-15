@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v18.1.0 (15/09/2022)
+
+
+### :rocket: Amélioration
+- [#253](https://github.com/1024pix/pix-ui/pull/253) [FEATURE] Améliorer de l'accessibilité de Pix-Sidebar.
+
 ## v18.0.2 (06/09/2022)
 
 
