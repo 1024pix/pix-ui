@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import uniqueId from '@1024pix/pix-ui/utils/unique-id';
 
 export default class PixModal extends Component {
   constructor(...args) {
@@ -19,5 +20,9 @@ export default class PixModal extends Component {
 
   isClickOnOverlay(event) {
     return event.target.classList.contains('pix-modal__overlay');
+  }
+
+  get id() {
+    return uniqueId();
   }
 }
