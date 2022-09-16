@@ -1,35 +1,51 @@
-<div class="pix-multi-select" ...attributes {{on-click-outside this.hideDropDown capture=true}}>
-
-  {{#if this.label}}
-    <label for={{@id}} class="pix-multi-select__label">{{this.label}}</label>
-  {{/if}}
+<div
+  class="pix-multi-select"
+  {{on-click-outside this.hideDropDown}}
+  {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
+  {{on-escape-action this.hideDropDown @id}}
+>
 
   {{#if @isSearchable}}
-    <label class="pix-multi-select-header {{if this.isBig 'pix-multi-select-header--big'}}">
-
-      <span class="pix-multi-select-header__title">{{@title}}</span>
+    <label
+      for={{@id}}
+      class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
+    >{{@label}}</label>
+    <span class="pix-multi-select-header">
       <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
 
       <input
+        class="pix-multi-select-header__search-input"
         id={{@id}}
         type="text"
         name={{@id}}
-        placeholder={{this.placeholder}}
+        placeholder={{this.innerText}}
         autocomplete="off"
         {{on "input" this.updateSearch}}
-        {{on "focus" this.focusDropdown}}
-        class="pix-multi-select-header__search-input"
+        {{on "click" this.toggleDropDown}}
+        aria-expanded={{this.isAriaExpanded}}
+        aria-controls={{this.listId}}
+        aria-haspopup="menu"
+        ...attributes
       />
-
-    </label>
+    </span>
   {{else}}
+    <span
+      id={{this.labelId}}
+      class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
+    >{{@label}}</span>
+
     <button
+      aria-labelledby={{this.labelId}}
       id={{@id}}
       type="button"
-      class="pix-multi-select-header {{if this.isBig 'pix-multi-select-header--big'}}"
+      aria-expanded={{this.isAriaExpanded}}
+      aria-controls={{this.listId}}
+      aria-haspopup="menu"
+      class="pix-multi-select-header"
       {{on "click" this.toggleDropDown}}
+      ...attributes
     >
-      {{@title}}
+      {{this.innerText}}
       <FaIcon
         class="pix-multi-select-header__dropdown-icon
           {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
@@ -38,23 +54,25 @@
     </button>
   {{/if}}
 
-  <ul class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}">
+  <ul
+    class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
+    id={{this.listId}}
+    aria-multiselectable="true"
+    role="menu"
+  >
     {{#if (gt this.results.length 0)}}
       {{#each this.results as |option|}}
-        <li class="pix-multi-select-list__item">
-          <input
-            class="pix-multi-select-list__checkbox
-              {{if @isSearchable ' pix-multi-select-list__checkbox--searchable'}}"
-            type="checkbox"
-            checked={{option.checked}}
-            id={{concat @id "-" option.value}}
-            name={{option.label}}
+        <li class="pix-multi-select-list__item" role="menuitem">
+          <PixCheckbox
+            @id={{concat @id "-" option.value}}
+            @checked={{option.checked}}
             value={{option.value}}
             {{on "change" this.onSelect}}
-          />
-          <label for={{concat @id "-" option.value}}>
+            {{on-enter-action this.hideDropDown @id}}
+            tabindex={{if this.isExpanded "0" "-1"}}
+          >
             {{yield option}}
-          </label>
+          </PixCheckbox>
         </li>
       {{/each}}
     {{else if this.isLoadingOptions}}

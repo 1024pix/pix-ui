@@ -5,12 +5,12 @@ export const Template = (args) => {
     template: hbs`
       <PixCheckbox
         @id={{id}}
-        @label={{label}}
         @screenReaderOnly={{screenReaderOnly}}
         @isIndeterminate={{isIndeterminate}}
         @labelSize={{labelSize}}
-        @checked={{checked}}
-      />
+        @checked={{checked}}>
+        {{label}}
+      </PixCheckbox>
     `,
     context: args,
   };
@@ -53,7 +53,6 @@ export const argTypes = {
   label: {
     name: 'label',
     description: "Le label de l'input",
-    type: { name: 'string', required: false },
     defaultValue: null,
   },
   screenReaderOnly: {

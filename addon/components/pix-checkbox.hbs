@@ -1,15 +1,20 @@
 <div class="pix-checkbox">
-  <label
-    class="pix-checkbox__label {{this.labelSizeClass}} {{if @screenReaderOnly 'sr-only'}}"
-    for={{this.id}}
-  >
-    {{this.label}}
-  </label>
   <input
-    id={{this.id}}
+    id={{@id}}
     type="checkbox"
     class="pix-checkbox__input {{if @isIndeterminate ' pix-checkbox__input--indeterminate'}}"
     checked={{@checked}}
     ...attributes
   />
+  <label
+    class="pix-checkbox__label {{this.labelSizeClass}} {{if @screenReaderOnly 'sr-only'}}"
+    for={{@id}}
+  >
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      yield required to give a label for PixCheckBox
+      {{@id}}.
+    {{/if}}
+  </label>
 </div>
