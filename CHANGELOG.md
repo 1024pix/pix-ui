@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v19.0.0 (16/09/2022)
+
+
+### :rocket: Amélioration
+- [#252](https://github.com/1024pix/pix-ui/pull/252) [FEATURE] Rendre accessible (a11y) le composant PixMultiSelect (PIX-5555)
+
 ## v18.2.0 (16/09/2022)
 
 
