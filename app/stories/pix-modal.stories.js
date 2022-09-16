@@ -19,8 +19,9 @@ export const Template = (args) => {
         <PixButton @triggerAction={{fn (mut showModal) (not showModal)}}>Valider</PixButton>
       </:footer>
     </PixModal>
-    <PixButton @triggerAction={{fn (mut showModal) (not showModal)}}>Ouvrir la modale</PixButton>
-    `,
+    <div style="display:flex; justify-content:center; align-items:center; height:105vh;">
+      <PixButton @triggerAction={{fn (mut showModal) (not showModal)}}>Ouvrir la modale</PixButton>
+    </div>`,
     context: args,
   };
 };
