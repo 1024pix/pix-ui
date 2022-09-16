@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v18.2.0 (16/09/2022)
+
+
+### :rocket: Amélioration
+- [#255](https://github.com/1024pix/pix-ui/pull/255) [FEATURE] Améliorer l'accessibilité de Pix-Modal.
+
 ## v18.1.0 (15/09/2022)
 
 
