@@ -49,7 +49,7 @@ export const argTypes = {
   showModal: {
     name: 'showModal',
     description: "Gérer l'ouverture de la modale",
-    type: { name: 'boolean', required: false },
+    type: { name: 'boolean', required: true },
     control: { type: 'boolean' },
     table: {
       type: { summary: 'boolean' },
