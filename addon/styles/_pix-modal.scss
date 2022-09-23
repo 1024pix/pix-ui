@@ -1,13 +1,18 @@
 .pix-modal__overlay {
-  background-color: rgba(52, 69, 99, 0.7);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
   bottom: 0;
   left: 0;
-  overflow-y: scroll;
-  position: fixed;
   right: 0;
-  top: 0;
-  z-index: 1000;
+  overflow-y: scroll;
+  padding: $spacing-xs;
+  background-color: rgba(52, 69, 99, 0.7);
   transition: all 0.3s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 
   &--hidden {
     visibility: hidden;
@@ -23,10 +28,10 @@ $button-margin: 16px;
 
 .pix-modal {
   @import 'reset-css';
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  margin: 20vh auto;
+  width: 100%;
   max-width: 512px;
-  width: calc(100% - 24px);
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  min-height: 0;
 
   &__header {
     background: $pix-neutral-0;
