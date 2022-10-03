@@ -5,14 +5,22 @@
   bottom: 0;
   left: 0;
   right: 0;
-  overflow-y: scroll;
-  padding: $spacing-xs;
+  overflow-y: auto;
+  text-align: center; // Used to center horizontally the inline-block modal content
+  padding: $spacing-xs 0;
   background-color: rgba(52, 69, 99, 0.7);
   transition: all 0.3s ease-in-out;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
+
+  // This block is used to center vertically the modal
+  // if the content is less than 100vh
+  // Inspired by https://mui.com/material-ui/react-dialog/#scrolling-long-content
+  &::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0px;
+  }
 
   &--hidden {
     visibility: hidden;
@@ -28,10 +36,12 @@ $button-margin: 16px;
 
 .pix-modal {
   @import 'reset-css';
-  width: 100%;
-  max-width: 512px;
+  display: inline-block;
+  vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
+  width: 512px;
+  max-width: calc(100% - #{2 * $spacing-xs}); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
+  text-align: initial;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  min-height: 0;
 
   &__header {
     background: $pix-neutral-0;
