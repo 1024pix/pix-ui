@@ -1,13 +1,26 @@
 .pix-modal__overlay {
-  background-color: rgba(52, 69, 99, 0.7);
+  position: fixed;
+  z-index: 1000;
+  top: 0;
   bottom: 0;
   left: 0;
-  overflow-y: scroll;
-  position: fixed;
   right: 0;
-  top: 0;
-  z-index: 1000;
+  overflow-y: auto;
+  text-align: center; // Used to center horizontally the inline-block modal content
+  padding: $spacing-xs 0;
+  background-color: rgba(52, 69, 99, 0.7);
   transition: all 0.3s ease-in-out;
+
+  // This block is used to center vertically the modal
+  // if the content is less than 100vh
+  // Inspired by https://mui.com/material-ui/react-dialog/#scrolling-long-content
+  &::after {
+    content: "";
+    display: inline-block;
+    vertical-align: middle;
+    height: 100%;
+    width: 0px;
+  }
 
   &--hidden {
     visibility: hidden;
@@ -23,16 +36,19 @@ $button-margin: 16px;
 
 .pix-modal {
   @import 'reset-css';
+  display: inline-block;
+  vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
+  width: 512px;
+  max-width: calc(100% - #{2 * $spacing-xs}); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
+  text-align: initial; 
+  background-color: $pix-neutral-10;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  margin: 20vh auto;
-  max-width: 512px;
-  width: calc(100% - 24px);
+  border-radius: 4px;
+  overflow: hidden;
 
   &__header {
     background: $pix-neutral-0;
     border-bottom: 1px solid $pix-neutral-20;
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
     padding: $modal-padding;
     display: flex;
     align-items: flex-start;
@@ -64,7 +80,6 @@ $button-margin: 16px;
   }
 
   &__content {
-    background-color: $pix-neutral-10;
     padding: $modal-padding;
     font-size: 0.875rem;
     color: $pix-neutral-90;
@@ -78,10 +93,7 @@ $button-margin: 16px;
   }
 
   &__footer {
-    background-color: $pix-neutral-10;
     padding: 0 $modal-padding $modal-padding - $button-margin;
-    border-bottom-left-radius: 4px;
-    border-bottom-right-radius: 4px;
 
     @include device-is('tablet') {
       display: flex;
