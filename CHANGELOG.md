@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v19.0.1 (04/10/2022)
+
+
+### :rocket: Amélioration
+- [#258](https://github.com/1024pix/pix-ui/pull/258) [FEATURE] Centre la PixModal en hauteur
+- [#257](https://github.com/1024pix/pix-ui/pull/257) [FEATURE] Suppression du `padding` de la Sidebar pour permettre de mieux customiser
+
+### :coffee: Autre
+- [#256](https://github.com/1024pix/pix-ui/pull/256) [BUFGIX] Mettre à jour la page d'utilisation de la PixModal (PIX-5735)
+
 ## v19.0.0 (16/09/2022)
 
 
