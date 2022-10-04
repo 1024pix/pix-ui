@@ -2,9 +2,9 @@
 
 ## v19.0.1 (04/10/2022)
 
-
 ### :rocket: Amélioration
 - [#258](https://github.com/1024pix/pix-ui/pull/258) [FEATURE] Centre la PixModal en hauteur
+  * ⚠️ Le scroll est géré par l'overlay, conteneur de la modale. Si vous avez fait du code spécifique pour que ce soit la modale qui contienne son scroll, cela peut entraîner du contenu non visible dans le viewport.
 - [#257](https://github.com/1024pix/pix-ui/pull/257) [FEATURE] Suppression du `padding` de la Sidebar pour permettre de mieux customiser
 
 ### :coffee: Autre
@@ -12,9 +12,20 @@
 
 ## v19.0.0 (16/09/2022)
 
+### :warning: Breaking Change
+
+**PixCheckBox** :
+* L'argument `label` n'est plus disponible en tant qu'argument, est doit être instancier de cette manière `<PixCheckBox>label</PixCheckBox>`
+
+**PixMultiSelect** :
+* L'argument `title` a été supprimé et ne doit plus être utilisé. Utilisez à la place l'argument `label`, ce label est présent pour définir le champ input ou le bouton.
+* L'argument `placeholder` a été remplacé. Utilisez à la place l'argument `innerText`, il fait office de placeholder pour le multiselect searchable ou de contenu pour le bouton.
+* L'argument `size` a été supprimé. Ce composant a désormais une taille unique (correspondant à l'ancien small).
+* L'argument `showOnInput` a été supprimé, pour un comportement non a11y compliant.
+* L'argument `screenReaderOnly` a été ajouté afin de caché de manière accessible le `label` à l'écran
 
 ### :rocket: Amélioration
-- [#252](https://github.com/1024pix/pix-ui/pull/252) [FEATURE] Rendre accessible (a11y) le composant PixMultiSelect (PIX-5555)
+- [#252](https://github.com/1024pix/pix-ui/pull/252) [FEATURE] Rendre accessible (a11y) le composant PixMultiSelect et PixCheckbox (PIX-5555)
 
 ## v18.2.0 (16/09/2022)
 
@@ -46,6 +57,10 @@
 
 ## v18.0.0 (01/09/2022)
 
+### :warning: Breaking Change
+
+**PixModal** :
+* Le composant PixModal gère maintenant lui-même son état de visibilité. Pour le contrôler, il suffit d'utiliser la propriété `@showModal` qui est un booléen obligatoire.
 
 ### :bug: Correction
 - [#246](https://github.com/1024pix/pix-ui/pull/246) [BUGFIX] Mettre le focus sur le premier élement où est utiliser le `trap-focus`.
