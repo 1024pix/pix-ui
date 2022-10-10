@@ -117,15 +117,21 @@ export const argTypes = {
   innerText: {
     name: 'innerText',
     description:
-      'Donne un titre à sa liste de choix multiple, utilisé comme placeholder lorsque ``isSearchable`` à ``true``',
+      'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
     type: { name: 'string', required: true },
     defaultValue: 'Rechercher un condiment',
   },
   label: {
     name: 'label',
-    description: 'Donne un label au champ',
+    description: "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran",
     type: { name: 'string', required: true },
     defaultValue: 'Label du champ',
+  },
+  screenReaderOnly: {
+    name: 'screenReaderOnly',
+    description: "Permet de cacher à l'écran le label tout en restant vocalisable",
+    type: { name: 'boolean', required: false },
+    defaultValue: false,
   },
   emptyMessage: {
     name: 'emptyMessage',
@@ -134,18 +140,11 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: 'pas de résultat',
   },
-  loadingMessage: {
-    name: 'loadingMessage',
-    description:
-      "Message qui apparaît dans les options quand celles-ci sont en train d'être chargées via onLoadOptions",
-    type: { name: 'string', required: false },
-    defaultValue: 'Chargement...',
-  },
   options: {
     name: 'options',
     description:
       'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
-    type: { name: 'array', required: true },
+    type: { name: 'array', required: false },
     defaultValue: DEFAULT_OPTIONS,
   },
   onLoadOptions: {
@@ -153,6 +152,13 @@ export const argTypes = {
     description:
       'Charge de manière asynchrone les options. Doit renvoyer une promesse avec la liste des options. Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
     type: { required: false },
+  },
+  loadingMessage: {
+    name: 'loadingMessage',
+    description:
+      "Message qui apparaît dans les options quand celles-ci sont en train d'être chargées via onLoadOptions",
+    type: { name: 'string', required: false },
+    defaultValue: 'Chargement...',
   },
   onSelect: {
     name: 'onSelect',
@@ -176,12 +182,6 @@ export const argTypes = {
     name: 'strictSearch',
     description:
       'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
-    type: { name: 'boolean', required: false },
-    defaultValue: false,
-  },
-  screenReaderOnly: {
-    name: 'screenReaderOnly',
-    description: "Permet de cacher à l'écran le label tout en restant vocalisable",
     type: { name: 'boolean', required: false },
     defaultValue: false,
   },
