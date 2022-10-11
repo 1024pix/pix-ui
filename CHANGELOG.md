@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v20.0.0 (11/10/2022)
+
+
+### :building_construction: Tech
+- [#259](https://github.com/1024pix/pix-ui/pull/259) [TECH] Mettre à jour la doc PixMultiSelect, pour la rendre plus lisible (PIX-5806)
+
+### :coffee: Autre
+- [#261](https://github.com/1024pix/pix-ui/pull/261) [BREAKING CHANGES][FEATURE] Suppression du padding dans le composant `PixBlock` (PIX-5971).
+
 ## v19.0.1 (04/10/2022)
 
 ### :rocket: Amélioration
