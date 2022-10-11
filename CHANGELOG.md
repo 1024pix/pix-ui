@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v20.0.1 (11/10/2022)
+
+
+### :bug: Correction
+- [#262](https://github.com/1024pix/pix-ui/pull/262) [BUGFIX] suppression d'un display flex inutile sur le conteneur principal de PixBackgroundHeader
+
 ## v20.0.0 (11/10/2022)
 
 
