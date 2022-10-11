@@ -8,6 +8,7 @@ module('Integration | Component | pix-background-header', function (hooks) {
 
   const BACKGROUND_HEADER_SELECTOR = '.pix-background-header';
   const BACKGROUND_SELECTOR = `${BACKGROUND_HEADER_SELECTOR} .pix-background-header__background`;
+  const BACKGROUND_CONTENT_SELECTOR = `${BACKGROUND_HEADER_SELECTOR} .pix-background-header__content`;
 
   test('it renders the default PixBackgroundHeader', async function (assert) {
     // when
@@ -37,8 +38,8 @@ module('Integration | Component | pix-background-header', function (hooks) {
           <PixBlock>Je suis un deuxième bloc</PixBlock>
         </PixBackgroundHeader>
       `);
-      const firstBlockElement = this.element.querySelector(BACKGROUND_HEADER_SELECTOR).children[1];
-      const lastBlockElement = this.element.querySelector(BACKGROUND_HEADER_SELECTOR).children[2];
+      const firstBlockElement = this.element.querySelector(BACKGROUND_CONTENT_SELECTOR).children[0];
+      const lastBlockElement = this.element.querySelector(BACKGROUND_CONTENT_SELECTOR).children[1];
 
       // then
       assert.equal(firstBlockElement.className, 'pix-block pix-block--shadow-heavy');
