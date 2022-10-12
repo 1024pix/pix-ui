@@ -12,7 +12,7 @@
   background-color: $pix-neutral-0;
 
   &__title {
-    padding: 14px 10px 14px 16px;
+    padding: 14px 16px;
     min-width: 100%;
     cursor: pointer;
     display: flex;
@@ -22,11 +22,7 @@
     color: $pix-neutral-60;
     font-size: 1rem;
     font-weight: 500;
-
-    .pix-collapsible-title__icon {
-      color: $pix-neutral-45;
-      margin-right: 6px;
-    }
+    align-items: center;
 
     &:hover {
       background-color: $pix-neutral-10;
@@ -38,6 +34,25 @@
 
     &--uncollapsed {
       background-color: $pix-neutral-10;
+    }
+  }
+
+  &-title {
+
+    &__container {
+      align-items: center;
+      display: flex;
+      flex-grow: 1;
+    }
+
+    &__icon{
+      color: $pix-neutral-45;
+      margin-right: 6px;
+    }
+
+    &__toggle-icon{
+      color: $pix-neutral-45;
+      margin-left: 16px;
     }
   }
 

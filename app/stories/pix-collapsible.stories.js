@@ -13,6 +13,23 @@ export const collapsible = (args) => {
   };
 };
 
+export const collapsibleWithBlockTitle = (args) => {
+  return {
+    template: hbs`
+    <PixCollapsible
+      @titleIcon={{titleIcon}}>
+      <:title>
+        <span>Titre avec <em>contenu de type block</em></span>
+      </:title>
+      <:default>
+        <div>Contenu du PixCollapsible</div>
+      </:default>
+      </PixCollapsible>
+    `,
+    context: args,
+  };
+};
+
 export const multipleCollapsible = (args) => {
   return {
     template: hbs`
