@@ -22,6 +22,7 @@ export default modifier(function trapFocus(element, [isOpen]) {
     element.removeEventListener('keydown', (event) => {
       handleKeyDown(event, element);
     });
+    allowPageScrolling();
   };
 });
 
