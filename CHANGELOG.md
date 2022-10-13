@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v20.1.0 (13/10/2022)
+
+
+### :rocket: Amélioration
+- [#241](https://github.com/1024pix/pix-ui/pull/241) [FEATURE] PixCollapsible : Autoriser l'utilisation d'un Block Content pour le titre
+
+### :bug: Correction
+- [#264](https://github.com/1024pix/pix-ui/pull/264) [BUGFIX] Réparer l'ombre du compsant Pix Block.
+- [#263](https://github.com/1024pix/pix-ui/pull/263) [BUGFIX] Permettre le scroll quand la modale est détruite
+
 ## v20.0.1 (11/10/2022)
 
 
