@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 
 const Template = (args) => ({
   template: hbs`
-      <PixSelect
+      <PixSelectDeprecated
         @id={{id}}
         @options={{options}}
         @onChange={{onChange}}

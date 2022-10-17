@@ -6,7 +6,7 @@ import sinon from 'sinon';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
-module('Integration | Component | select', function (hooks) {
+module('Integration | Component | PixSelectDeprecated', function (hooks) {
   setupRenderingTest(hooks);
 
   const DEFAULT_OPTIONS = [
@@ -18,14 +18,14 @@ module('Integration | Component | select', function (hooks) {
   const SEARCHABLE_SELECT_SELECTOR = '.pix-select input';
   const LABEL_SELECTOR = '.pix-select label';
 
-  test('it renders the PixSelect with given options', async function (assert) {
+  test('it renders the PixSelectDeprecated with given options', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
 
     // when
     await render(hbs`
-      <PixSelect
+      <PixSelectDeprecated
         @options={{this.options}}
         @onChange={{this.onChange}}
       />
@@ -39,14 +39,14 @@ module('Integration | Component | select', function (hooks) {
     assert.equal(options.item(0).text, 'Salade');
   });
 
-  test('it renders the PixSelect with empty label option', async function (assert) {
+  test('it renders the PixSelectDeprecated with empty label option', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
 
     // when
     await render(hbs`
-      <PixSelect
+      <PixSelectDeprecated
         @options={{this.options}}
         @onChange={{this.onChange}}
         @emptyOptionLabel="Empty label"
@@ -60,14 +60,14 @@ module('Integration | Component | select', function (hooks) {
     assert.equal(options.item(0).text, 'Empty label');
   });
 
-  test('it renders the PixSelect with default value selected', async function (assert) {
+  test('it renders the PixSelectDeprecated with default value selected', async function (assert) {
     // given
     this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
 
     // when
     await render(hbs`
-      <PixSelect
+      <PixSelectDeprecated
         @options={{this.options}}
         @onChange={{this.onChange}}
         @selectedOption="2"
@@ -87,7 +87,7 @@ module('Integration | Component | select', function (hooks) {
     this.onChange = sinon.spy();
 
     await render(hbs`
-      <PixSelect
+      <PixSelectDeprecated
         @id="an-id"
         @options={{this.options}}
         @onChange={{this.onChange}}
@@ -102,7 +102,7 @@ module('Integration | Component | select', function (hooks) {
     assert.ok(this.onChange.calledOnce, 'the callback should be called once');
   });
 
-  module('searchable PixSelect', function () {
+  module('searchable PixSelectDeprecated', function () {
     test('it should be binded datalist element', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
@@ -110,7 +110,7 @@ module('Integration | Component | select', function (hooks) {
 
       // when
       await render(
-        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} />`
+        hbs`<PixSelectDeprecated @options={{this.options}} @isSearchable={{this.isSearchable}} />`
       );
 
       // then
@@ -127,7 +127,7 @@ module('Integration | Component | select', function (hooks) {
 
       // when
       await render(
-        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} />`
+        hbs`<PixSelectDeprecated @options={{this.options}} @isSearchable={{this.isSearchable}} />`
       );
 
       // then
@@ -143,7 +143,7 @@ module('Integration | Component | select', function (hooks) {
 
       // when
       await render(
-        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} autocomplete="on"/>`
+        hbs`<PixSelectDeprecated @options={{this.options}} @isSearchable={{this.isSearchable}} autocomplete="on"/>`
       );
 
       // then
@@ -158,7 +158,7 @@ module('Integration | Component | select', function (hooks) {
         this.isSearchable = true;
 
         // when
-        await render(hbs`<PixSelect
+        await render(hbs`<PixSelectDeprecated
           @id="an-id"
           @options={{this.options}}
           @isSearchable={{this.isSearchable}}
@@ -178,7 +178,7 @@ module('Integration | Component | select', function (hooks) {
 
         // when
         await render(hbs`
-          <PixSelect
+          <PixSelectDeprecated
             @options={{this.options}}
             @isSearchable={{this.isSearchable}}
             @isValidationActive={{this.isValidationActive}}
@@ -198,7 +198,7 @@ module('Integration | Component | select', function (hooks) {
     this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
     await render(hbs`
-      <PixSelect
+      <PixSelectDeprecated
         @id="pix-select-with-label"
         @label="Votre ville"
         @options={{this.options}}
@@ -218,7 +218,7 @@ module('Integration | Component | select', function (hooks) {
 
     // when & then
     const expectedError = new Error(
-      'ERROR in PixSelect component, @id param is necessary when giving @label'
+      'ERROR in PixSelectDeprecated component, @id param is necessary when giving @label'
     );
     assert.throws(function () {
       component.label;

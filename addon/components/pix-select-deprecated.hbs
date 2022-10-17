@@ -1,16 +1,17 @@
-<div class="pix-select">
+<div class="pix-select-deprecated">
 
   {{#if this.label}}
-    <label for={{@id}} class="pix-select__label">{{this.label}}</label>
+    <label for={{@id}} class="pix-select-deprecated__label">{{this.label}}</label>
   {{/if}}
 
   {{#if @isSearchable}}
-
+    ²
     <input
       id={{@id}}
       list="{{this.datalistId}}"
       {{on "input" this.onChange}}
-      class="{{if this.isValid 'pix-select--is-valid'}} {{if this.isBig 'pix-select--big'}}"
+      class="{{if this.isValid 'pix-select-deprecated--is-valid'}}
+        {{if this.isBig 'pix-select-deprecated--big'}}"
       ...attributes
       autocomplete="off"
     />
@@ -25,7 +26,7 @@
 
     <select
       id={{@id}}
-      class="{{if this.isBig 'pix-select--big'}}"
+      class="{{if this.isBig 'pix-select-deprecated--big'}}"
       {{on "change" this.onChange}}
       ...attributes
     >
@@ -50,7 +51,7 @@
         {{/if}}
       {{/each}}
     </select>
-    <FaIcon class="pix-select__icon" @icon="chevron-down" />
+    <FaIcon class="pix-select-deprecated__icon" @icon="chevron-down" />
 
   {{/if}}
 </div>

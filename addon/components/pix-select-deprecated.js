@@ -3,7 +3,7 @@ import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 
-export default class PixSelect extends Component {
+export default class PixSelectDeprecated extends Component {
   @tracked isValueAValidOption = false;
 
   constructor() {

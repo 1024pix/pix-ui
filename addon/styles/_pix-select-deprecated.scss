@@ -1,4 +1,4 @@
-.pix-select {
+.pix-select-deprecated {
   @import 'reset-css';
 
   position: relative;
@@ -23,7 +23,7 @@
     @include pixSelect;
     padding: 0 32px 0 16px;
 
-    &.pix-select--big {
+    &.pix-select-deprecated--big {
       height: 44px;
     }
 
@@ -36,7 +36,7 @@
     @include pixSelect;
     padding: 0 8px 0 16px;
 
-    &.pix-select--big {
+    &.pix-select-deprecated--big {
       height: 44px;
     }
 
@@ -45,8 +45,8 @@
       display: none;
     }
 
-    &.pix-select--is-valid:focus,
-    &.pix-select--is-valid:focus-within {
+    &.pix-select-deprecated--is-valid:focus,
+    &.pix-select-deprecated--is-valid:focus-within {
       border-color: $green;
     }
   }
