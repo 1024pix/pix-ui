@@ -1,0 +1,24 @@
+<div class="pix-select">
+  <label for={{@id}} class="pix-select__label">
+    {{@label}}
+  </label>
+
+  {{#if @subLabel}}
+    <span class="pix-select__sub-label">{{@subLabel}}</span>
+  {{/if}}
+
+  <button
+    type="button"
+    id={{@id}}
+    class="pix-select__button"
+    {{on "click" this.toggleDropdown}}
+    aria-expanded={{this.isAriaExpanded}}
+  >
+    {{@innerText}}
+
+    <FaIcon
+      class="pix-select__button__dropdown-icon"
+      @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+    />
+  </button>
+</div>

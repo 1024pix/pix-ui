@@ -1,0 +1,45 @@
+.pix-select {
+  @import 'reset-css';
+  display: inline-block;
+
+  &__label {
+    @include label();
+  }
+
+  &__sub-label {
+    @include subLabel();
+  }
+
+  &__button {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    font-family: $font-roboto;
+    font-weight: $font-normal;
+    position: relative;
+    border: 1px $pix-neutral-45 solid;
+    padding: 0px $spacing-l 0px $spacing-s;
+    width: 100%;
+    background-color: $pix-neutral-0;
+    border-radius: 4px;
+    outline: none;
+    height: 36px;
+    font-size: 0.875rem;
+    cursor: pointer;
+    color: $pix-neutral-90;
+
+    @include hoverFormElement();
+    @include focusWithinFormElement();
+
+    &__dropdown-icon {
+      font-size: 0.875rem;
+      line-height: 1.25rem;
+      font-weight: $font-heavy;
+      color: $pix-neutral-60;
+      right: 10px;
+      top: calc(50% - 0.4375rem);
+      position: absolute;
+      pointer-events: none;
+    }
+  }
+}
