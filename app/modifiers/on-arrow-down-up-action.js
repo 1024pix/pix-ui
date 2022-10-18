@@ -34,7 +34,7 @@ export default modifier((element, [elementId, callback, isExpanded]) => {
           document.activeElement === lastFocusableElement ||
           activeIndexElement === -1
         ) {
-          firstFocusableElement.focus();
+          firstFocusableElement?.focus();
         } else {
           focusableElements[activeIndexElement + 1].focus();
         }
@@ -46,7 +46,7 @@ export default modifier((element, [elementId, callback, isExpanded]) => {
           document.activeElement === firstFocusableElement ||
           activeIndexElement === -1
         ) {
-          lastFocusableElement.focus();
+          lastFocusableElement?.focus();
         } else {
           focusableElements[activeIndexElement - 1].focus();
         }
@@ -62,7 +62,7 @@ export default modifier((element, [elementId, callback, isExpanded]) => {
     if (!isExpanded) {
       elementToTarget.addEventListener('transitionend', focusElement);
 
-      callback();
+      callback(event);
 
       return () => {
         elementToTarget.removeEventListener('transitionend', focusElement);

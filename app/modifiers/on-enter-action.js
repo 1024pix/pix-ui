@@ -1,6 +1,6 @@
 import { modifier } from 'ember-modifier';
 
-export default modifier((element, [callback, focusId = null]) => {
+export default modifier((element, [callback = null, focusId = null]) => {
   function handleKeyUp(event) {
     const ENTER_KEY = 'Enter';
 
@@ -17,7 +17,7 @@ export default modifier((element, [callback, focusId = null]) => {
       document.getElementById(focusId).focus();
     }
 
-    callback(event);
+    if (callback) callback(event);
   }
 
   element.addEventListener('keydown', handleKeyUp);

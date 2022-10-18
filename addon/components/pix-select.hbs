@@ -1,4 +1,9 @@
-<div class="pix-select">
+<div
+  class="pix-select"
+  {{on-click-outside this.hideDropdown}}
+  {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
+  {{on-escape-action this.hideDropdown @id}}
+>
   <label for={{@id}} class="pix-select__label">
     {{@label}}
   </label>
@@ -13,12 +18,32 @@
     class="pix-select__button"
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
+    aria-controls={{concat "listbox-" @id}}
   >
-    {{@innerText}}
+    {{this.innerText}}
 
     <FaIcon
       class="pix-select__button__dropdown-icon"
       @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
     />
   </button>
+  <div
+    role="listbox"
+    id={{this.listId}}
+    class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+  >
+    <ul class="pix-select__list" role="group">
+      {{#each @options as |option|}}
+        <li
+          class="pix-select__list__item"
+          role="option"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          {{on "click" (fn this.onSelect option)}}
+          {{on-enter-action (fn this.onSelect option) @id}}
+        >
+          {{option.label}}
+        </li>
+      {{/each}}
+    </ul>
+  </div>
 </div>

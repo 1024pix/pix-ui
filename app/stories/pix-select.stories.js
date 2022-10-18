@@ -6,14 +6,14 @@ export const Template = (args) => {
     template: hbs`
       <div style="width: 300px;">
         <PixSelect
-          @id={{id}}
-          @options={{options}}
-          @onSelect={{onSelect}}
-          @innerText={{innerText}}
-          @selectedOption={{selectedOption}}
-          @isSearchable={{isSearchable}}
-          @label={{label}}
-          @subLabel={{subLabel}}
+          @id={{this.id}}
+          @options={{this.options}}
+          @onSelect={{this.onSelect}}
+          @innerText={{this.innerText}}
+          @selectedOption={{this.selectedOption}}
+          @isSearchable={{this.isSearchable}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
         />
       </div>
     `,
