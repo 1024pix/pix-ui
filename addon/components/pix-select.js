@@ -5,6 +5,13 @@ export default class PixSelect extends Component {
   @tracked isExpanded = false;
   @tracked selectedOption = null;
 
+  constructor(...args) {
+    super(...args);
+
+    this.flattenOptions = this.args.options.flatMap((element) => element.options, []);
+    this.displayCategory = this.args.options.length > 1;
+  }
+
   get isAriaExpanded() {
     return this.isExpanded ? 'true' : 'false';
   }
@@ -15,7 +22,8 @@ export default class PixSelect extends Component {
 
   get innerText() {
     if (this.selectedOption) {
-      const { label } = this.args.options.find((option) => option.value === this.selectedOption);
+      const { label } = this.flattenOptions.find((option) => option.value === this.selectedOption);
+
       return label || this.args.innerText;
     } else {
       return this.args.innerText;

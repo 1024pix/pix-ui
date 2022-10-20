@@ -27,23 +27,42 @@
       @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
     />
   </button>
+
   <div
     role="listbox"
     id={{this.listId}}
     class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
   >
-    <ul class="pix-select__list" role="group">
-      {{#each @options as |option|}}
-        <li
-          class="pix-select__list__item"
-          role="option"
-          tabindex={{if this.isExpanded "0" "-1"}}
-          {{on "click" (fn this.onSelect option)}}
-          {{on-enter-action (fn this.onSelect option) @id}}
-        >
-          {{option.label}}
-        </li>
-      {{/each}}
-    </ul>
+    {{#each @options as |element index|}}
+      <ul
+        class="pix-select__list"
+        role="group"
+        aria-labelledby={{if this.displayCategory (concat "cat-" @id "-" index)}}
+      >
+        {{#if this.displayCategory}}
+          {{! template-lint-disable no-invalid-role }}
+          <li
+            class="pix-select__list__item-name"
+            role="presentation"
+            id={{concat "cat-" @id "-" index}}
+          >
+            {{element.category}}
+          </li>
+        {{/if}}
+
+        {{#each element.options as |option|}}
+          <li
+            class="pix-select__list__item"
+            role="option"
+            tabindex={{if this.isExpanded "0" "-1"}}
+            aria-selected={{if (eq option.value this.selectedOption) "true" "false"}}
+            {{on "click" (fn this.onSelect option)}}
+            {{on-enter-action (fn this.onSelect option)}}
+          >
+            {{option.label}}
+          </li>
+        {{/each}}
+      </ul>
+    {{/each}}
   </div>
 </div>

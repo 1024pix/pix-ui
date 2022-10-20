@@ -24,18 +24,33 @@ export const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   options: [
-    { value: '1', label: 'Figues' },
-    { value: '2', label: 'Bananes' },
-    { value: '3', label: 'Noix' },
-    { value: '4', label: 'Papayes' },
-    { value: '5', label: 'Fèves de chocolat' },
-    { value: '6', label: 'Dattes' },
-    { value: '7', label: 'Mangues' },
-    { value: '8', label: 'Jujube' },
-    { value: '9', label: 'Avocat' },
-    { value: '10', label: 'Fraises' },
-    { value: '11', label: 'Kaki' },
-    { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
+    {
+      category: 'Fruit Rouge',
+      options: [
+        { value: '1', label: 'Figues' },
+        { value: '10', label: 'Fraises' },
+      ],
+    },
+    {
+      category: 'Fruit Jaune',
+      options: [
+        { value: '2', label: 'Bananes' },
+        { value: '7', label: 'Mangues' },
+        { value: '11', label: 'Kaki' },
+      ],
+    },
+    {
+      category: 'Autres',
+      options: [
+        { value: '3', label: 'Noix' },
+        { value: '4', label: 'Papayes' },
+        { value: '5', label: 'Fèves de chocolat' },
+        { value: '6', label: 'Dattes' },
+        { value: '8', label: 'Jujube' },
+        { value: '9', label: 'Avocat' },
+        { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
+      ],
+    },
   ],
   onSelect: action('onSelect'),
   id: 'default-select',

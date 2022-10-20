@@ -97,5 +97,12 @@
         background-color: $pix-neutral-10;
       }
     }
+
+    &__item-name {
+      font-family: $font-roboto;
+      font-size: 0.875rem;
+      color: $pix-neutral-45;
+      padding: $spacing-xs 0 $spacing-xs $spacing-s;
+    }
   }
 }
