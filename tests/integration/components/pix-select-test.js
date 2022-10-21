@@ -11,14 +11,9 @@ module('Integration | Component | PixSelect', function (hooks) {
   setupRenderingTest(hooks);
 
   this.options = [
-    {
-      category: 'Kebab',
-      options: [
-        { value: '1', label: 'Salade' },
-        { value: '2', label: 'Tomate' },
-        { value: '3', label: 'Oignon' },
-      ],
-    },
+    { value: '1', label: 'Salade', category: 'Kebab' },
+    { value: '2', label: 'Tomate', category: 'Kebab' },
+    { value: '3', label: 'Oignon', category: 'Kebab' },
   ];
   this.labels = {
     select: {
@@ -102,17 +97,9 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it render category when at least 2 category available', async function (assert) {
       // given
       this.options = [
-        {
-          category: 'Fruit',
-          options: [{ value: '2', label: 'Tomate' }],
-        },
-        {
-          category: 'Autre',
-          options: [
-            { value: '1', label: 'Salade' },
-            { value: '3', label: 'Oignon' },
-          ],
-        },
+        { value: '2', label: 'Tomate', category: 'Fruit' },
+        { value: '1', label: 'Salade', category: 'Autre' },
+        { value: '3', label: 'Oignon', category: 'Autre' },
       ];
       const screen = await render(hbs`
         <PixSelect
@@ -196,7 +183,6 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       await userEvent.keyboard('[ArrowDown]');
-
       const options = screen.queryAllByRole('option');
       // then
       assert.equal(document.activeElement, options[0]);
@@ -340,7 +326,43 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       // when
       await clickByName('Mon menu déroulant');
+      await fillByLabel('Rechercher', 'Sal');
+
+      await screen.findByRole('listbox');
+      assert.equal(screen.queryAllByRole('option').length, 1);
+    });
+
+    test('should filter without taking care of the case', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @labels={{this.labels}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
       await fillByLabel('Rechercher', 'sal');
+
+      await screen.findByRole('listbox');
+      assert.equal(screen.queryAllByRole('option').length, 1);
+    });
+
+    test('should trim empty space before and after searched value', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @labels={{this.labels}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await fillByLabel('Rechercher', ' sal ');
 
       await screen.findByRole('listbox');
       assert.equal(screen.queryAllByRole('option').length, 1);

@@ -20,32 +20,21 @@ export const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   options: [
+    { value: '1', label: 'Figues', category: 'Fruit Rouge' },
+    { value: '10', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '2', label: 'Bananes', category: 'Fruit Jaune' },
+    { value: '7', label: 'Mangues', category: 'Fruit Jaune' },
+    { value: '11', label: 'Kaki', category: 'Fruit Jaune' },
+    { value: '3', label: 'Noix', category: 'Autres' },
+    { value: '4', label: 'Papayes', category: 'Autres' },
+    { value: '5', label: 'Fèves de chocolat', category: 'Autres' },
+    { value: '6', label: 'Dattes', category: 'Autres' },
+    { value: '8', label: 'Jujube', category: 'Autres' },
+    { value: '9', label: 'Avocat', category: 'Autres' },
     {
-      category: 'Fruit Rouge',
-      options: [
-        { value: '1', label: 'Figues' },
-        { value: '10', label: 'Fraises' },
-      ],
-    },
-    {
-      category: 'Fruit Jaune',
-      options: [
-        { value: '2', label: 'Bananes' },
-        { value: '7', label: 'Mangues' },
-        { value: '11', label: 'Kaki' },
-      ],
-    },
-    {
+      value: '12',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
       category: 'Autres',
-      options: [
-        { value: '3', label: 'Noix' },
-        { value: '4', label: 'Papayes' },
-        { value: '5', label: 'Fèves de chocolat' },
-        { value: '6', label: 'Dattes' },
-        { value: '8', label: 'Jujube' },
-        { value: '9', label: 'Avocat' },
-        { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
-      ],
     },
   ],
   labels: {

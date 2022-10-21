@@ -9,8 +9,14 @@ export default class PixSelect extends Component {
   constructor(...args) {
     super(...args);
 
-    this.flattenOptions = this.args.options.flatMap((element) => element.options, []);
-    this.displayCategory = this.args.options.length > 1;
+    const categories = [];
+    this.args.options.forEach((element) => {
+      if (!categories.find((category) => element.category === category)) {
+        categories.push(element.category);
+      }
+    });
+
+    this.displayCategory = categories.length > 1;
   }
 
   get isAriaExpanded() {
@@ -23,7 +29,7 @@ export default class PixSelect extends Component {
 
   get innerText() {
     if (this.selectedOption) {
-      const { label } = this.flattenOptions.find((option) => option.value === this.selectedOption);
+      const { label } = this.args.options.find((option) => option.value === this.selectedOption);
 
       return label || this.args.labels.select.innerText;
     } else {
@@ -32,10 +38,16 @@ export default class PixSelect extends Component {
   }
 
   get results() {
-    console.log('flat', this.flattenOptions);
-    if (!this.searchData) return this.args.options;
-    const options = this.flattenOptions.filter((option) => option.label.includes(this.searchData));
-    const results = [];
+    let results = [];
+    let options;
+    if (this.searchData) {
+      options = this.args.options.filter((option) =>
+        option.label.toLowerCase().includes(this.searchData.toLowerCase())
+      );
+    } else {
+      options = this.args.options;
+    }
+
     options.forEach(({ category, value, label }) => {
       const categoryIndex = results.findIndex((result) => result.category === category);
       if (categoryIndex !== -1) {
@@ -44,6 +56,7 @@ export default class PixSelect extends Component {
         results.push({ category, options: [{ label, value }] });
       }
     });
+    return results;
   }
 
   @action
@@ -91,6 +104,6 @@ export default class PixSelect extends Component {
 
   @action
   filterOptions(event) {
-    this.searchData = event.target.value;
+    this.searchData = event.target.value.trim();
   }
 }

@@ -27,59 +27,53 @@
       @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
     />
   </button>
-
-  <div
-    role="listbox"
-    id={{this.listId}}
-    class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
-  >
+  <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}">
     {{#if @isSearchable}}
       <div class="pix-select__search">
         <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
-        <label
-          class="screen-reader-only"
-          for={{@labels.search.id}}
-        >{{@labels.search.label}}</label>
+        <label class="screen-reader-only" for={{@labels.search.id}}>{{@labels.search.label}}</label>
         <input
           class="pix-select__search__input"
           id={{@labels.search.id}}
           autocomplete="off"
           tabindex={{if this.isExpanded "0" "-1"}}
           placeholder={{@labels.search.label}}
-          {{!-- {{on "input" this.filterOptions}} --}}
+          {{on "input" this.filterOptions}}
         />
       </div>
     {{/if}}
-    {{#each this.results as |element index|}}
-      <ul
-        class="pix-select__list"
-        role="group"
-        aria-labelledby={{if this.displayCategory (concat "cat-" @labels.select.id "-" index)}}
-      >
-        {{#if this.displayCategory}}
-          {{! template-lint-disable no-invalid-role }}
-          <li
-            class="pix-select__list__item-name"
-            role="presentation"
-            id={{concat "cat-" @labels.select.id "-" index}}
-          >
-            {{element.category}}
-          </li>
-        {{/if}}
+    <div role="listbox" id={{this.listId}} class="pix-select__options">
+      {{#each this.results as |element index|}}
+        <ul
+          class="pix-select-options__category"
+          role="group"
+          aria-labelledby={{if this.displayCategory (concat "cat-" @labels.select.id "-" index)}}
+        >
+          {{#if this.displayCategory}}
+            {{! template-lint-disable no-invalid-role }}
+            <li
+              class="pix-select-options-category__name"
+              role="presentation"
+              id={{concat "cat-" @labels.select.id "-" index}}
+            >
+              {{element.category}}
+            </li>
+          {{/if}}
 
-        {{#each element.options as |option|}}
-          <li
-            class="pix-select__list__item"
-            role="option"
-            tabindex={{if this.isExpanded "0" "-1"}}
-            aria-selected={{if (eq option.value this.selectedOption) "true" "false"}}
-            {{on "click" (fn this.onSelect option)}}
-            {{on-enter-action (fn this.onSelect option)}}
-          >
-            {{option.label}}
-          </li>
-        {{/each}}
-      </ul>
-    {{/each}}
+          {{#each element.options as |option|}}
+            <li
+              class="pix-select-options-category__option"
+              role="option"
+              tabindex={{if this.isExpanded "0" "-1"}}
+              aria-selected={{if (eq option.value this.selectedOption) "true" "false"}}
+              {{on "click" (fn this.onSelect option)}}
+              {{on-enter-action (fn this.onSelect option)}}
+            >
+              {{option.label}}
+            </li>
+          {{/each}}
+        </ul>
+      {{/each}}
+    </div>
   </div>
 </div>
