@@ -33,7 +33,24 @@
     id={{this.listId}}
     class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
   >
-    {{#each @options as |element index|}}
+    {{#if @isSearchable}}
+      <div class="pix-select__search">
+        <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
+        <label
+          class="screen-reader-only"
+          for={{@labels.search.id}}
+        >{{@labels.search.label}}</label>
+        <input
+          class="pix-select__search__input"
+          id={{@labels.search.id}}
+          autocomplete="off"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          placeholder={{@labels.search.label}}
+          {{!-- {{on "input" this.filterOptions}} --}}
+        />
+      </div>
+    {{/if}}
+    {{#each this.results as |element index|}}
       <ul
         class="pix-select__list"
         role="group"

@@ -5,15 +5,11 @@ export const Template = (args) => {
   return {
     template: hbs`
       <div style="width: 300px;">
-        <PixSelect
-          @id={{this.id}}
+        <PixSelect        
           @options={{this.options}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
-          @selectedOption={{this.selectedOption}}
           @isSearchable={{this.isSearchable}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
+          @onSelect={{this.onSelect}}
+          @labels={{this.labels}}
         />
       </div>
     `,
@@ -52,11 +48,21 @@ Default.args = {
       ],
     },
   ],
+  labels: {
+    select: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      subLabel: 'Mon sous label',
+      id: 'default-select',
+    },
+    search: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      id: 'default-select-search',
+    },
+  },
+  isSearchable: true,
   onSelect: action('onSelect'),
-  id: 'default-select',
-  label: 'Mon label',
-  innerText: 'Mon innerText',
-  subLabel: 'Mon sous label',
 };
 
 export const argTypes = {

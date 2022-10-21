@@ -4,6 +4,7 @@ import { action } from '@ember/object';
 export default class PixSelect extends Component {
   @tracked isExpanded = false;
   @tracked selectedOption = null;
+  @tracked searchData = null;
 
   constructor(...args) {
     super(...args);
@@ -28,6 +29,21 @@ export default class PixSelect extends Component {
     } else {
       return this.args.labels.select.innerText;
     }
+  }
+
+  get results() {
+    console.log('flat', this.flattenOptions);
+    if (!this.searchData) return this.args.options;
+    const options = this.flattenOptions.filter((option) => option.label.includes(this.searchData));
+    const results = [];
+    options.forEach(({ category, value, label }) => {
+      const categoryIndex = results.findIndex((result) => result.category === category);
+      if (categoryIndex !== -1) {
+        results[categoryIndex].options.push({ value, label });
+      } else {
+        results.push({ category, options: [{ label, value }] });
+      }
+    });
   }
 
   @action
@@ -71,5 +87,10 @@ export default class PixSelect extends Component {
 
     this.hideDropdown(event);
     document.getElementById(this.args.labels.select.id).focus();
+  }
+
+  @action
+  filterOptions(event) {
+    this.searchData = event.target.value;
   }
 }

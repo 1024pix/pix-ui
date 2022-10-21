@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { click } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, clickByName } from '@1024pix/ember-testing-library';
+import { render, clickByName, fillByLabel } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
@@ -129,7 +129,6 @@ module('Integration | Component | PixSelect', function (hooks) {
       // then
       assert.dom(screen.getByRole('group', { name: 'Fruit' })).exists();
     });
-
   });
 
   module('a11y', function () {
@@ -308,12 +307,12 @@ module('Integration | Component | PixSelect', function (hooks) {
       assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
       assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
       sinon.assert.calledWithMatch(this.onSelect, '3');
-
     });
   });
 
   module('#isSearchable', function () {
     test('should display searchable input', async function (assert) {
+      this.isSearchable = true;
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
@@ -326,8 +325,25 @@ module('Integration | Component | PixSelect', function (hooks) {
       await clickByName('Mon menu déroulant');
 
       await screen.findByRole('listbox');
-
       assert.dom(screen.getByLabelText('Rechercher')).exists();
+    });
+
+    test('should filter the option corresponding to the string', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @labels={{this.labels}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await fillByLabel('Rechercher', 'sal');
+
+      await screen.findByRole('listbox');
+      assert.equal(screen.queryAllByRole('option').length, 1);
     });
   });
 });
