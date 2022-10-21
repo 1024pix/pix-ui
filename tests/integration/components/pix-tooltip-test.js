@@ -1,7 +1,8 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import userEvent from '@testing-library/user-event';
 
 module('Integration | Component | pix-tooltip', function (hooks) {
   setupRenderingTest(hooks);
@@ -61,6 +62,27 @@ module('Integration | Component | pix-tooltip', function (hooks) {
     const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
     assert.contains('template block text');
     assert.notOk(tooltipContentElement);
+  });
+
+  test('it dismissed tooltip on escape keyup', async function (assert) {
+    // given
+    const screen = await render(hbs`
+      <PixTooltip>
+        <:triggerElement>
+          template block text
+        </:triggerElement>
+        <:tooltip></:tooltip>
+      </PixTooltip>
+    `);
+
+    // when
+    await screen.getByText('template block text').focus();
+
+    await userEvent.keyboard('[Escape]');
+
+    // then
+    assert.contains('template block text');
+    assert.dom('.pix-tooltip__content').isNotVisible();
   });
 
   module('tooltip position', function () {

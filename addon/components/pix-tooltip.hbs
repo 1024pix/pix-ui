@@ -1,4 +1,12 @@
-<span class="pix-tooltip" ...attributes>
+<span
+  class="pix-tooltip"
+  {{on-escape-action this.hideTooltip}}
+  {{on "mouseover" this.showTooltip}}
+  {{on "mouseout" this.hideTooltipOnMouseOut}}
+  {{on "focusin" this.showTooltip}}
+  {{on "focusout" this.hideTooltip}}
+  ...attributes
+>
   {{#if (has-block "triggerElement")}}
     {{yield to="triggerElement"}}
   {{/if}}
