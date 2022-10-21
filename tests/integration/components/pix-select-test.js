@@ -20,20 +20,26 @@ module('Integration | Component | PixSelect', function (hooks) {
       ],
     },
   ];
-  this.label = 'Mon menu déroulant';
-  this.subLabel = 'Mon sous label';
-  this.innerText = 'Choisissez une option';
-  this.id = 'id-select-test';
+  this.labels = {
+    select: {
+      label: 'Mon menu déroulant',
+      subLabel: 'Mon sous label',
+      innerText: 'Choisissez une option',
+      id: 'id-select-test',
+    },
+    search: {
+      label: 'Rechercher',
+      innerText: 'Un condiment',
+      id: 'id-select-search-test',
+    },
+  };
 
   test('it renders Select', async function (assert) {
     // given & when
     const screen = await render(hbs`
       <PixSelect
-        @id={{this.id}}
         @options={{this.options}}
-        @innerText={{this.innerText}}
-        @label={{this.label}}
-        @subLabel={{this.subLabel}}
+        @labels={{this.labels}}
       />
     `);
 
@@ -47,14 +53,11 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it hide the dropdown unless there is a click on the button', async function (assert) {
       // given & when
       const screen = await render(hbs`
-          <PixSelect
-          @id={{this.id}}
+        <PixSelect
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          />
-        `);
+          @labels={{this.labels}}
+        />
+      `);
 
       // then
       assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
@@ -64,13 +67,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
+          @labels={{this.labels}}
         />
-        `);
+      `);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -81,18 +81,15 @@ module('Integration | Component | PixSelect', function (hooks) {
     });
   });
 
-  module('Category', function () {
+  module('category', function () {
     test('it does not render category when 1 category available', async function (assert) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
+          @labels={{this.labels}}
         />
-        `);
+      `);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -119,13 +116,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       ];
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
+          @labels={{this.labels}}
         />
-        `);
+      `);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -135,40 +129,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       // then
       assert.dom(screen.getByRole('group', { name: 'Fruit' })).exists();
     });
-  });
 
-  module('onSelect', function () {
-    test('it should trigger onSelect function when an item is selected', async function (assert) {
-      // given
-      this.onSelect = sinon.spy();
-
-      const screen = await render(hbs`
-        <PixSelect
-          @id={{this.id}}
-          @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @onSelect={{this.onSelect}}
-        />
-      `);
-
-      // when
-      await clickByName('Mon menu déroulant');
-
-      await screen.findByRole('listbox');
-
-      await click(screen.getByRole('option', { name: 'Oignon' }));
-
-      await clickByName('Mon menu déroulant');
-
-      await screen.findByRole('listbox');
-
-      // then
-      assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
-      assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
-      sinon.assert.calledWithMatch(this.onSelect, '3');
-    });
   });
 
   module('a11y', function () {
@@ -176,10 +137,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
+          @labels={{this.labels}}
         />      
       `);
 
@@ -201,10 +160,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
+          @labels={{this.labels}}
         />      
       `);
 
@@ -227,10 +184,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
+          @labels={{this.labels}}
         />      
       `);
 
@@ -252,10 +207,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
+          @labels={{this.labels}}
         />      
       `);
 
@@ -279,10 +232,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
+          @labels={{this.labels}}
           @onSelect={{this.onSelect}}
         />      
       `);
@@ -308,10 +259,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       const screen = await render(hbs`
         <PixSelect
-          @id={{this.id}}
           @options={{this.options}}
-          @innerText={{this.innerText}}
-          @label={{this.label}}
+          @labels={{this.labels}}
           @onSelect={{this.onSelect}}
         />      
       `);
@@ -328,6 +277,57 @@ module('Integration | Component | PixSelect', function (hooks) {
       // then
       assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
       assert.throws(screen.getByRole('listbox'));
+    });
+  });
+
+  module('#onSelect', function () {
+    test('it should trigger onSelect function when an item is selected', async function (assert) {
+      // given
+      this.onSelect = sinon.spy();
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @labels={{this.labels}}
+          @onSelect={{this.onSelect}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      await click(screen.getByRole('option', { name: 'Oignon' }));
+
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
+      assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
+      sinon.assert.calledWithMatch(this.onSelect, '3');
+
+    });
+  });
+
+  module('#isSearchable', function () {
+    test('should display searchable input', async function (assert) {
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @labels={{this.labels}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      assert.dom(screen.getByLabelText('Rechercher')).exists();
     });
   });
 });

@@ -17,16 +17,16 @@ export default class PixSelect extends Component {
   }
 
   get listId() {
-    return `listbox-${this.args.id}`;
+    return `listbox-${this.args.labels.select.id}`;
   }
 
   get innerText() {
     if (this.selectedOption) {
       const { label } = this.flattenOptions.find((option) => option.value === this.selectedOption);
 
-      return label || this.args.innerText;
+      return label || this.args.labels.select.innerText;
     } else {
-      return this.args.innerText;
+      return this.args.labels.select.innerText;
     }
   }
 
@@ -70,6 +70,6 @@ export default class PixSelect extends Component {
     this.args.onSelect(this.selectedOption);
 
     this.hideDropdown(event);
-    document.getElementById(this.args.id).focus();
+    document.getElementById(this.args.labels.select.id).focus();
   }
 }

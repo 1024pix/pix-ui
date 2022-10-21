@@ -2,23 +2,23 @@
   class="pix-select"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
-  {{on-escape-action this.hideDropdown @id}}
+  {{on-escape-action this.hideDropdown @labels.select.id}}
 >
-  <label for={{@id}} class="pix-select__label">
-    {{@label}}
+  <label for={{@labels.select.id}} class="pix-select__label">
+    {{@labels.select.label}}
   </label>
 
-  {{#if @subLabel}}
-    <span class="pix-select__sub-label">{{@subLabel}}</span>
+  {{#if @labels.select.subLabel}}
+    <span class="pix-select__sub-label">{{@labels.select.subLabel}}</span>
   {{/if}}
 
   <button
     type="button"
-    id={{@id}}
+    id={{@labels.select.id}}
     class="pix-select__button"
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
-    aria-controls={{concat "listbox-" @id}}
+    aria-controls={{concat "listbox-" @labels.select.id}}
   >
     {{this.innerText}}
 
@@ -37,14 +37,14 @@
       <ul
         class="pix-select__list"
         role="group"
-        aria-labelledby={{if this.displayCategory (concat "cat-" @id "-" index)}}
+        aria-labelledby={{if this.displayCategory (concat "cat-" @labels.select.id "-" index)}}
       >
         {{#if this.displayCategory}}
           {{! template-lint-disable no-invalid-role }}
           <li
             class="pix-select__list__item-name"
             role="presentation"
-            id={{concat "cat-" @id "-" index}}
+            id={{concat "cat-" @labels.select.id "-" index}}
           >
             {{element.category}}
           </li>
