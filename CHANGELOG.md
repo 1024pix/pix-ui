@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v20.2.0 (25/10/2022)
+
+
+### :rocket: Amélioration
+- [#267](https://github.com/1024pix/pix-ui/pull/267) [FEATURE] Gérer l'échappement de la tooltip (PIX-6114)
+
 ## v20.1.0 (13/10/2022)
 
 
