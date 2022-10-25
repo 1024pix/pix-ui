@@ -1,7 +1,10 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class PixTooltip extends Component {
+  @tracked isVisible = false;
+
   get position() {
     const correctsPosition = [
       'top',
@@ -21,18 +24,18 @@ export default class PixTooltip extends Component {
   }
 
   @action
-  showTooltip(event) {
-    event.target.classList.add('pix-tooltip--visible');
+  showTooltip() {
+    this.isVisible = true;
   }
 
   @action
-  hideTooltip(event) {
-    event.target.classList.remove('pix-tooltip--visible');
+  hideTooltip() {
+    this.isVisible = false;
   }
 
   @action
   hideTooltipOnMouseOut(event) {
-    const isFocused = document.activeElement === event.target;
+    const isFocused = event.target.contains(document.activeElement);
 
     if (isFocused) {
       return;

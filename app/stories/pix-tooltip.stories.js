@@ -46,6 +46,27 @@ const TemplateWithHTMLElement = (args) => {
   };
 };
 
+const TemplateWithIconElement = (args) => {
+  return {
+    template: hbs`
+      <PixTooltip
+        @id={{this.id}}
+        @isInline=true>
+        <:triggerElement>
+          <button style='padding:0; margin-left:4px; line-height:0;'>
+            <FaIcon class="external-link" @icon="up-right-from-square" />
+          </button>
+        </:triggerElement>
+
+        <:tooltip>
+         {{this.text}}
+        </:tooltip>
+      </PixTooltip>
+    `,
+    context: args,
+  };
+};
+
 export const Default = Template.bind({});
 Default.args = {
   text: 'Hello World',
@@ -110,6 +131,12 @@ hide.args = {
 
 export const WithHTML = TemplateWithHTMLElement.bind({});
 WithHTML.args = {
+  label: 'À survoler pour voir la tooltip',
+};
+
+export const WithIcon = TemplateWithIconElement.bind({});
+Default.args = {
+  text: 'Hello World',
   label: 'À survoler pour voir la tooltip',
 };
 

@@ -2,13 +2,15 @@
   class="pix-tooltip"
   {{on-escape-action this.hideTooltip}}
   {{on "mouseover" this.showTooltip}}
-  {{on "mouseout" this.hideTooltipOnMouseOut}}
+  {{on "mouseleave" this.hideTooltipOnMouseOut}}
   {{on "focusin" this.showTooltip}}
   {{on "focusout" this.hideTooltip}}
   ...attributes
 >
   {{#if (has-block "triggerElement")}}
-    {{yield to="triggerElement"}}
+    <div class={{if this.isVisible "pix-tooltip--visible" ""}}>
+      {{yield to="triggerElement"}}
+    </div>
   {{/if}}
 
   {{#if (has-block "tooltip")}}
