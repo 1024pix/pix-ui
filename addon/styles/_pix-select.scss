@@ -20,24 +20,24 @@
     font-weight: $font-normal;
     position: relative;
     border: 1px $pix-neutral-45 solid;
-    padding: 0px $spacing-l 0px $spacing-s;
+    padding: 0px $spacing-xl 0px $spacing-s;
     width: 100%;
     background-color: $pix-neutral-0;
     border-radius: 4px;
     outline: none;
     height: 36px;
-    font-size: $text-small;
     cursor: pointer;
     color: $pix-neutral-90;
 
+    @include text-small();
     @include hoverFormElement();
     @include focusWithinFormElement();
 
     &__dropdown-icon {
-      font-size: $text-small;
+      @include text-small();
       color: $pix-neutral-60;
       font-weight: $font-heavy;
-      right: 10px;
+      right: $spacing-s;
       top: calc(50% - 0.4375rem);
       position: absolute;
       pointer-events: none;
@@ -75,10 +75,10 @@
     &::-webkit-scrollbar-thumb:hover {
       background: $pix-neutral-35;
     }
-      
+
     &--closed {
       visibility: hidden;
-      opacity: 0;   
+      opacity: 0;
     }
   }
 
@@ -123,22 +123,27 @@
 
 .pix-select-options-category {
   &__name {
+    @include text-small();
     padding: $spacing-s $spacing-m $spacing-xs $spacing-m;
-    font-size: $text-small;
     text-transform: uppercase;
     font-family: $font-roboto;
     color: $pix-neutral-45;
   }
 
   &__option {
-    font-size: $text-small;
+    @include text-small();
     font-family: $font-roboto;
     padding: $spacing-xs $spacing-m;
+    color: $pix-neutral-70;
 
     &:hover, &:focus {
       outline: none;
       cursor: pointer;
       background-color: $pix-neutral-10;
+    }
+
+    &--selected {
+      background-color: $pix-primary-5;
     }
   }
 }

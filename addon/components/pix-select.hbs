@@ -51,6 +51,7 @@
         >
           {{#if this.displayCategory}}
             {{! template-lint-disable no-invalid-role }}
+            {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
             <li
               class="pix-select-options-category__name"
               role="presentation"
@@ -62,7 +63,7 @@
 
           {{#each element.options as |option|}}
             <li
-              class="pix-select-options-category__option"
+              class="pix-select-options-category__option{{if (eq option.value this.selectedOption) " pix-select-options-category__option--selected"}}"
               role="option"
               tabindex={{if this.isExpanded "0" "-1"}}
               aria-selected={{if (eq option.value this.selectedOption) "true" "false"}}
