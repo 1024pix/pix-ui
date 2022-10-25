@@ -5,9 +5,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
+}
 
-  & > *:first-child:hover + .pix-tooltip__content,
-  & > *:first-child:focus + .pix-tooltip__content {
+.pix-tooltip--visible {
+  + .pix-tooltip__content {
     display: block;
     opacity: 1;
   }

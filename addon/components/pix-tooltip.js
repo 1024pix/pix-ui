@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
 
 export default class PixTooltip extends Component {
   get position() {
@@ -17,5 +18,26 @@ export default class PixTooltip extends Component {
 
   get display() {
     return typeof this.args.hide === 'undefined' || !this.args.hide;
+  }
+
+  @action
+  showTooltip(event) {
+    event.target.classList.add('pix-tooltip--visible');
+  }
+
+  @action
+  hideTooltip(event) {
+    event.target.classList.remove('pix-tooltip--visible');
+  }
+
+  @action
+  hideTooltipOnMouseOut(event) {
+    const isFocused = document.activeElement === event.target;
+
+    if (isFocused) {
+      return;
+    }
+
+    this.hideTooltip(event);
   }
 }
