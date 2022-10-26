@@ -7,7 +7,7 @@ import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
 import { fireEvent } from '@testing-library/dom';
 
-module('Integration | Component | PixSelect', function (hooks) {
+module.only('Integration | Component | PixSelect', function (hooks) {
   setupRenderingTest(hooks);
 
   this.options = [

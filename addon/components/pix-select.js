@@ -16,6 +16,7 @@ export default class PixSelect extends Component {
       }
     });
 
+    console.log({ categories });
     this.displayCategory = categories.length > 1;
   }
 
@@ -39,14 +40,15 @@ export default class PixSelect extends Component {
 
   get results() {
     let results = [];
-    let options;
+    let options = this.args.options;
+
     if (this.searchData) {
       options = this.args.options.filter((option) =>
         option.label.toLowerCase().includes(this.searchData.toLowerCase())
       );
-    } else {
-      options = this.args.options;
     }
+
+    if (!this.displayCategory) return options;
 
     options.forEach(({ category, value, label }) => {
       const categoryIndex = results.findIndex((result) => result.category === category);

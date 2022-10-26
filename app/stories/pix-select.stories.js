@@ -54,6 +54,42 @@ Default.args = {
   onSelect: action('onSelect'),
 };
 
+export const WithoutCategories = Template.bind({});
+WithoutCategories.args = {
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '10', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '7', label: 'Mangues' },
+    { value: '11', label: 'Kaki' },
+    { value: '3', label: 'Noix' },
+    { value: '4', label: 'Papayes' },
+    { value: '5', label: 'Fèves de chocolat' },
+    { value: '6', label: 'Dattes' },
+    { value: '8', label: 'Jujube' },
+    { value: '9', label: 'Avocat' },
+    {
+      value: '12',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  labels: {
+    select: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      subLabel: 'Mon sous label',
+      id: 'default-select',
+    },
+    search: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      id: 'default-select-search',
+    },
+  },
+  isSearchable: true,
+  onSelect: action('onSelect'),
+};
+
 export const argTypes = {
   options: {
     name: 'options',
