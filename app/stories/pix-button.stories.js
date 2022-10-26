@@ -84,7 +84,7 @@ colors.args = {
     },
     {
       ...Default.args,
-      label: 'Bouton avec background grey',
+      label: 'Bouton avec background grey tertiary',
       backgroundColor: 'grey',
     },
     {

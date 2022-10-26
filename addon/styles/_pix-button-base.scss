@@ -79,7 +79,8 @@
   }
 
   &--background-grey {
-    @include colorizeBackground($pix-neutral-60, $pix-neutral-60);
+    color: $pix-neutral-90;
+    @include colorizeBackground($pix-neutral-20, $pix-neutral-20);
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
