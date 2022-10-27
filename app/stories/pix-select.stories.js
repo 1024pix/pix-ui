@@ -20,17 +20,35 @@ export const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   options: [
+    { value: '1', label: 'Figues' },
+    { value: '10', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '7', label: 'Mangues' },
+    { value: '11', label: 'Kaki' },
+    {
+      value: '12',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  labels: {
+    select: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      subLabel: 'Mon sous label',
+      id: 'default-select',
+    },
+  },
+  isSearchable: false,
+  onSelect: action('onSelect'),
+};
+
+export const WithCategories = Template.bind({});
+WithCategories.args = {
+  options: [
     { value: '1', label: 'Figues', category: 'Fruit Rouge' },
     { value: '10', label: 'Fraises', category: 'Fruit Rouge' },
-    { value: '2', label: 'Bananes', category: 'Fruit Jaune' },
-    { value: '7', label: 'Mangues', category: 'Fruit Jaune' },
-    { value: '11', label: 'Kaki', category: 'Fruit Jaune' },
     { value: '3', label: 'Noix', category: 'Autres' },
     { value: '4', label: 'Papayes', category: 'Autres' },
-    { value: '5', label: 'Fèves de chocolat', category: 'Autres' },
-    { value: '6', label: 'Dattes', category: 'Autres' },
-    { value: '8', label: 'Jujube', category: 'Autres' },
-    { value: '9', label: 'Avocat', category: 'Autres' },
     {
       value: '12',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
@@ -42,32 +60,21 @@ Default.args = {
       label: 'Mon label',
       innerText: 'Mon innerText',
       subLabel: 'Mon sous label',
-      id: 'default-select',
-    },
-    search: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      id: 'default-select-search',
+      id: 'with-category-select',
     },
   },
-  isSearchable: true,
+  isSearchable: false,
   onSelect: action('onSelect'),
 };
 
-export const WithoutCategories = Template.bind({});
-WithoutCategories.args = {
+export const WithSearch = Template.bind({});
+WithSearch.args = {
   options: [
     { value: '1', label: 'Figues' },
     { value: '10', label: 'Fraises' },
     { value: '2', label: 'Bananes' },
     { value: '7', label: 'Mangues' },
     { value: '11', label: 'Kaki' },
-    { value: '3', label: 'Noix' },
-    { value: '4', label: 'Papayes' },
-    { value: '5', label: 'Fèves de chocolat' },
-    { value: '6', label: 'Dattes' },
-    { value: '8', label: 'Jujube' },
-    { value: '9', label: 'Avocat' },
     {
       value: '12',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
@@ -78,12 +85,42 @@ WithoutCategories.args = {
       label: 'Mon label',
       innerText: 'Mon innerText',
       subLabel: 'Mon sous label',
-      id: 'default-select',
+      id: 'with-search-select',
     },
     search: {
       label: 'Mon label',
       innerText: 'Mon innerText',
-      id: 'default-select-search',
+      id: 'with-search-select',
+    },
+  },
+  isSearchable: true,
+  onSelect: action('onSelect'),
+};
+
+export const WithCategoriesAndSearch = Template.bind({});
+WithCategoriesAndSearch.args = {
+  options: [
+    { value: '1', label: 'Figues', category: 'Fruit Rouge' },
+    { value: '10', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '5', label: 'Fèves de chocolat', category: 'Autres' },
+    { value: '6', label: 'Dattes', category: 'Autres' },
+    {
+      value: '12',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+      category: 'Autres',
+    },
+  ],
+  labels: {
+    select: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      subLabel: 'Mon sous label',
+      id: 'with-category-and-search-select',
+    },
+    search: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      id: 'with-category-and-search-select',
     },
   },
   isSearchable: true,
@@ -94,7 +131,7 @@ export const argTypes = {
   options: {
     name: 'options',
     description:
-      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``.',
+      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
     type: { name: 'array', required: true },
   },
   selectedOption: {
@@ -123,36 +160,66 @@ export const argTypes = {
       defaultValue: { summary: false },
     },
   },
-  label: {
-    name: 'label',
-    description: 'Label du menu déroulant',
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
+  labels: {
+    select: {
+      label: {
+        name: 'label',
+        description: 'Label du menu déroulant',
+        type: { name: 'string', required: true },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
+      subLabel: {
+        name: 'subLabel',
+        description: 'Sous Label explicatif du menu déroulant',
+        type: { name: 'string', required: false },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
+      innerText: {
+        name: 'innerText',
+        description: 'InnerText/Placeholder du menu déroulant',
+        type: { name: 'string', required: true },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
+      id: {
+        name: 'id',
+        description: "L'id du label",
+        type: { name: 'string', required: true },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
     },
-  },
-  subLabel: {
-    name: 'subLabel',
-    description: 'Sous Label explicatif du menu déroulant',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  id: {
-    name: 'id',
-    description: "L'id du label",
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  innerText: {
-    name: 'label',
-    description: 'Label du menu déroulant',
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
+    search: {
+      label: {
+        name: 'label',
+        description: 'Label de la recherche dans le menu déroulant',
+        type: { name: 'string', required: true },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
+      innerText: {
+        name: 'innerText',
+        description: 'innerText/Placeholder de la recherche dans le menu déroulant',
+        type: { name: 'string', required: true },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
+      id: {
+        name: 'id',
+        description: "L'id du label de la recherche dans le menu déroulant",
+        type: { name: 'string', required: true },
+        table: {
+          type: { summary: 'string' },
+        },
+      },
     },
   },
 };

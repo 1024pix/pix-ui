@@ -11,12 +11,15 @@ export default class PixSelect extends Component {
 
     const categories = [];
     this.args.options.forEach((element) => {
-      if (!categories.find((category) => element.category === category)) {
+      if (
+        !categories.find((category) => element.category === category) &&
+        element.category !== undefined
+      ) {
         categories.push(element.category);
+        console.log();
       }
     });
 
-    console.log({ categories });
     this.displayCategory = categories.length > 1;
   }
 
