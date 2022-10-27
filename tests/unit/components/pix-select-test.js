@@ -8,7 +8,11 @@ module('Unit | Component | pix-select', function (hooks) {
   module('#label', function () {
     test('it should return the label if id is defined', function (assert) {
       // given
-      const componentParams = { id: 'Textearea id', label: 'Select label' };
+      const componentParams = {
+        selectId: 'Textearea id',
+        selectLabel: 'Select label',
+        options: [],
+      };
       const component = createGlimmerComponent('component:pix-select', componentParams);
 
       // when

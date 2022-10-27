@@ -2,23 +2,23 @@
   class="pix-select"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
-  {{on-escape-action this.hideDropdown @labels.select.id}}
+  {{on-escape-action this.hideDropdown @selectId}}
 >
-  <label for={{@labels.select.id}} class="pix-select__label">
-    {{@labels.select.label}}
+  <label for={{@selectId}} class="pix-select__label">
+    {{@selectLabel}}
   </label>
 
-  {{#if @labels.select.subLabel}}
-    <span class="pix-select__sub-label">{{@labels.select.subLabel}}</span>
+  {{#if @selectSubLabel}}
+    <span class="pix-select__sub-label">{{@selectSubLabel}}</span>
   {{/if}}
 
   <button
     type="button"
-    id={{@labels.select.id}}
+    id={{@selectId}}
     class="pix-select__button{{this.className}}"
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
-    aria-controls={{concat "listbox-" @labels.select.id}}
+    aria-controls={{concat "listbox-" @selectId}}
   >
     {{this.innerText}}
 
@@ -31,13 +31,13 @@
     {{#if @isSearchable}}
       <div class="pix-select__search">
         <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
-        <label class="screen-reader-only" for={{@labels.search.id}}>{{@labels.search.label}}</label>
+        <label class="screen-reader-only" for={{this.searchInputId}}>{{@searchLabel}}</label>
         <input
           class="pix-select__search__input"
-          id={{@labels.search.id}}
+          id={{this.searchInputId}}
           autocomplete="off"
           tabindex={{if this.isExpanded "0" "-1"}}
-          placeholder={{@labels.search.label}}
+          placeholder={{@searchLabel}}
           {{on "input" this.filterOptions}}
         />
       </div>
@@ -48,7 +48,7 @@
           <ul
             class="pix-select-options__category"
             role="group"
-            aria-labelledby={{if this.displayCategory (concat "cat-" @labels.select.id "-" index)}}
+            aria-labelledby={{if this.displayCategory (concat "cat-" @selectId "-" index)}}
           >
             {{#if this.displayCategory}}
               {{! template-lint-disable no-invalid-role }}
@@ -56,7 +56,7 @@
               <li
                 class="pix-select-options-category__name"
                 role="presentation"
-                id={{concat "cat-" @labels.select.id "-" index}}
+                id={{concat "cat-" @selectId "-" index}}
               >
                 {{element.category}}
               </li>

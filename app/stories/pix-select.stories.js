@@ -18,7 +18,12 @@ export const Template = (args) => {
           @options={{this.options}}
           @isSearchable={{this.isSearchable}}
           @onSelect={{this.onSelect}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectId={{this.selectId}}
+          @searchLabel={{this.searchLabel}}
+          @searchInnerText={{this.searchInnerText}}
         />
       </div>
     `,
@@ -40,14 +45,10 @@ WithCustomClass.args = {
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
-  labels: {
-    select: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      subLabel: 'Mon sous label',
-      id: 'default-select',
-    },
-  },
+  selectLabel: 'Mon label',
+  selectInnerText: 'Mon innerText',
+  selectSubLabel: 'Mon sous label',
+  selectId: 'default-select',
   isSearchable: false,
   onSelect: action('onSelect'),
 };
@@ -65,14 +66,10 @@ Default.args = {
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
-  labels: {
-    select: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      subLabel: 'Mon sous label',
-      id: 'default-select',
-    },
-  },
+  selectLabel: 'Mon label',
+  selectInnerText: 'Mon innerText',
+  selectSubLabel: 'Mon sous label',
+  selectId: 'default-select',
   isSearchable: false,
   onSelect: action('onSelect'),
 };
@@ -90,14 +87,10 @@ WithCategories.args = {
       category: 'Autres',
     },
   ],
-  labels: {
-    select: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      subLabel: 'Mon sous label',
-      id: 'with-category-select',
-    },
-  },
+  selectLabel: 'Mon label',
+  selectInnerText: 'Mon innerText',
+  selectSubLabel: 'Mon sous label',
+  selectId: 'with-category-select',
   isSearchable: false,
   onSelect: action('onSelect'),
 };
@@ -115,19 +108,12 @@ WithSearch.args = {
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
-  labels: {
-    select: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      subLabel: 'Mon sous label',
-      id: 'with-search-select',
-    },
-    search: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      id: 'with-search-select',
-    },
-  },
+  selectLabel: 'Mon label',
+  selectInnerText: 'Mon innerText',
+  selectSubLabel: 'Mon sous label',
+  selectId: 'with-search-select',
+  searchLabel: 'Mon label',
+  searchInnerText: 'Mon innerText',
   isSearchable: true,
   onSelect: action('onSelect'),
 };
@@ -145,19 +131,12 @@ WithCategoriesAndSearch.args = {
       category: 'Autres',
     },
   ],
-  labels: {
-    select: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      subLabel: 'Mon sous label',
-      id: 'with-category-and-search-select',
-    },
-    search: {
-      label: 'Mon label',
-      innerText: 'Mon innerText',
-      id: 'with-category-and-search-select',
-    },
-  },
+  selectLabel: 'Mon label',
+  selectInnerText: 'Mon innerText',
+  selectSubLabel: 'Mon sous label',
+  selectId: 'with-category-and-search-select',
+  searchLabel: 'Mon label',
+  searchInnerText: 'Mon innerText',
   isSearchable: true,
   onSelect: action('onSelect'),
 };
@@ -195,66 +174,52 @@ export const argTypes = {
       defaultValue: { summary: false },
     },
   },
-  labels: {
-    select: {
-      label: {
-        name: 'label',
-        description: 'Label du menu déroulant',
-        type: { name: 'string', required: true },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
-      subLabel: {
-        name: 'subLabel',
-        description: 'Sous Label explicatif du menu déroulant',
-        type: { name: 'string', required: false },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
-      innerText: {
-        name: 'innerText',
-        description: 'InnerText/Placeholder du menu déroulant',
-        type: { name: 'string', required: true },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
-      id: {
-        name: 'id',
-        description: "L'id du label",
-        type: { name: 'string', required: true },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
+  selectLabel: {
+    name: 'label',
+    description: 'Label du menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
     },
-    search: {
-      label: {
-        name: 'label',
-        description: 'Label de la recherche dans le menu déroulant',
-        type: { name: 'string', required: true },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
-      innerText: {
-        name: 'innerText',
-        description: 'innerText/Placeholder de la recherche dans le menu déroulant',
-        type: { name: 'string', required: true },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
-      id: {
-        name: 'id',
-        description: "L'id du label de la recherche dans le menu déroulant",
-        type: { name: 'string', required: true },
-        table: {
-          type: { summary: 'string' },
-        },
-      },
+  },
+  selectSubLabel: {
+    name: 'subLabel',
+    description: 'Sous Label explicatif du menu déroulant',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  selectInnerText: {
+    name: 'innerText',
+    description: 'InnerText/Placeholder du menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  selectId: {
+    name: 'id',
+    description: "L'id du label",
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  searchLabel: {
+    name: 'label',
+    description: 'Label de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  searchInnerText: {
+    name: 'innerText',
+    description: 'innerText/Placeholder de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
     },
   },
 };

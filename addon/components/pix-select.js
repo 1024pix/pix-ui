@@ -1,11 +1,15 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+
 export default class PixSelect extends Component {
   @tracked isExpanded = false;
   @tracked selectedOption = null;
   @tracked searchData = null;
+  searchInputId = 'search-input-' + guidFor(this);
 
+  
   constructor(...args) {
     super(...args);
 
@@ -33,16 +37,16 @@ export default class PixSelect extends Component {
   }
 
   get listId() {
-    return `listbox-${this.args.labels.select.id}`;
+    return `listbox-${this.args.selectId}`;
   }
 
   get innerText() {
     if (this.selectedOption) {
       const { label } = this.args.options.find((option) => option.value === this.selectedOption);
 
-      return label || this.args.labels.select.innerText;
+      return label || this.args.selectInnerText;
     } else {
-      return this.args.labels.select.innerText;
+      return this.args.selectInnerText;
     }
   }
 
@@ -109,7 +113,7 @@ export default class PixSelect extends Component {
     this.args.onSelect(this.selectedOption);
 
     this.hideDropdown(event);
-    document.getElementById(this.args.labels.select.id).focus();
+    document.getElementById(this.args.selectId).focus();
   }
 
   @action
