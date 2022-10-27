@@ -4,8 +4,17 @@ import { action } from '@storybook/addon-actions';
 export const Template = (args) => {
   return {
     template: hbs`
+      <style>
+        .custom {
+          border: 0;
+        }
+        .custom:hover {
+          border: 0;
+        }
+      </style>
       <div style="width: 300px;">
         <PixSelect        
+          @className={{this.className}}
           @options={{this.options}}
           @isSearchable={{this.isSearchable}}
           @onSelect={{this.onSelect}}
@@ -15,6 +24,32 @@ export const Template = (args) => {
     `,
     context: args,
   };
+};
+
+export const WithCustomClass = Template.bind({});
+WithCustomClass.args = {
+  className: 'custom',
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '10', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '7', label: 'Mangues' },
+    { value: '11', label: 'Kaki' },
+    {
+      value: '12',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  labels: {
+    select: {
+      label: 'Mon label',
+      innerText: 'Mon innerText',
+      subLabel: 'Mon sous label',
+      id: 'default-select',
+    },
+  },
+  isSearchable: false,
+  onSelect: action('onSelect'),
 };
 
 export const Default = Template.bind({});

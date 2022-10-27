@@ -23,6 +23,11 @@ export default class PixSelect extends Component {
     this.displayCategory = categories.length > 1;
   }
 
+  get className() {
+    if (!this.args.className) return undefined;
+    return ` ${this.args.className}`;
+  }
+
   get isAriaExpanded() {
     return this.isExpanded ? 'true' : 'false';
   }

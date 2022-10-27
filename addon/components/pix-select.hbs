@@ -15,7 +15,7 @@
   <button
     type="button"
     id={{@labels.select.id}}
-    class="pix-select__button"
+    class="pix-select__button{{this.className}}"
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
     aria-controls={{concat "listbox-" @labels.select.id}}

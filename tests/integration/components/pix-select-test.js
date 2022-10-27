@@ -368,4 +368,20 @@ module.only('Integration | Component | PixSelect', function (hooks) {
       assert.equal(screen.queryAllByRole('option').length, 1);
     });
   });
+
+  module('#className', function () {
+    test('it adds a custom class', async function (assert) {
+      // given & when
+      await render(hbs`
+        <PixSelect
+          @className="some-custom-class"
+          @options={{this.options}}
+          @labels={{this.labels}}
+        />
+      `);
+
+      // then
+      assert.dom('.some-custom-class').exists();
+    });
+  });
 });
