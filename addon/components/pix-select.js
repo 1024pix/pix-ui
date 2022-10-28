@@ -9,7 +9,6 @@ export default class PixSelect extends Component {
   @tracked searchData = null;
   searchInputId = 'search-input-' + guidFor(this);
 
-  
   constructor(...args) {
     super(...args);
 
@@ -37,16 +36,16 @@ export default class PixSelect extends Component {
   }
 
   get listId() {
-    return `listbox-${this.args.selectId}`;
+    return `listbox-${this.args.id}`;
   }
 
-  get innerText() {
+  get placeholder() {
     if (this.selectedOption) {
       const { label } = this.args.options.find((option) => option.value === this.selectedOption);
 
-      return label || this.args.selectInnerText;
+      return label || this.args.placeholder;
     } else {
-      return this.args.selectInnerText;
+      return this.args.placeholder;
     }
   }
 
@@ -113,7 +112,7 @@ export default class PixSelect extends Component {
     this.args.onSelect(this.selectedOption);
 
     this.hideDropdown(event);
-    document.getElementById(this.args.selectId).focus();
+    document.getElementById(this.args.id).focus();
   }
 
   @action

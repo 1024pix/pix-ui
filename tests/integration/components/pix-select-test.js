@@ -16,10 +16,10 @@ module('Integration | Component | PixSelect', function (hooks) {
     { value: '3', label: 'Oignon', category: 'Kebab' },
   ];
 
-  this.selectLabel = 'Mon menu déroulant';
-  this.selectSubLabel = 'Mon sous label';
-  this.selectInnerText = 'Choisissez une option';
-  this.selectId = 'id-select-test';
+  this.label = 'Mon menu déroulant';
+  this.subLabel = 'Mon sous label';
+  this.placeholder = 'Choisissez une option';
+  this.id = 'id-select-test';
   this.searchLabel = 'Rechercher';
   this.searchInnerText = 'Un condiment';
   this.searchId = 'id-select-search-test';
@@ -29,10 +29,10 @@ module('Integration | Component | PixSelect', function (hooks) {
     const screen = await render(hbs`
     <PixSelect
       @options={{this.options}}
-      @selectLabel={{this.selectLabel}}
-      @selectSubLabel={{this.selectSubLabel}}
-      @selectInnerText={{this.selectInnerText}}
-      @selectId={{this.selectId}}
+      @label={{this.label}}
+      @subLabel={{this.subLabel}}
+      @placeholder={{this.placeholder}}
+      @id={{this.id}}
     />
   `);
 
@@ -48,10 +48,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
       <PixSelect
         @options={{this.options}}
-        @selectLabel={{this.selectLabel}}
-        @selectSubLabel={{this.selectSubLabel}}
-        @selectInnerText={{this.selectInnerText}}
-        @selectId={{this.selectId}}
+        @label={{this.label}}
+        @subLabel={{this.subLabel}}
+        @placeholder={{this.placeholder}}
+        @id={{this.id}}
       />
       `);
 
@@ -64,10 +64,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />
       `);
 
@@ -86,10 +86,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />
       `);
 
@@ -111,10 +111,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />
       `);
 
@@ -134,10 +134,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />      
       `);
 
@@ -160,10 +160,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />      
       `);
 
@@ -187,10 +187,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />      
       `);
 
@@ -212,10 +212,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />      
       `);
 
@@ -240,10 +240,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @onSelect={{this.onSelect}}
         />      
       `);
@@ -270,10 +270,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
         />      
       `);
 
@@ -300,10 +300,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @onSelect={{this.onSelect}}
         />
       `);
@@ -332,10 +332,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchInnerText={{this.searchInnerText}}
           @searchId={{this.searchId}}
@@ -355,10 +355,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchInnerText={{this.searchInnerText}}
           @searchId={{this.searchId}}
@@ -379,10 +379,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchInnerText={{this.searchInnerText}}
           @searchId={{this.searchId}}
@@ -403,10 +403,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @selectLabel={{this.selectLabel}}
-          @selectSubLabel={{this.selectSubLabel}}
-          @selectInnerText={{this.selectInnerText}}
-          @selectId={{this.selectId}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchInnerText={{this.searchInnerText}}
           @searchId={{this.searchId}}
