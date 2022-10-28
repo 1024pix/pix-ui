@@ -1,8 +1,10 @@
+{{! template-lint-disable no-down-event-binding }}
 <div
   class="pix-select"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
   {{on-escape-action this.hideDropdown}}
+  {{on "keydown" this.lockTab}}
 >
   <label for={{@id}} class="pix-select__label">
     {{@label}}

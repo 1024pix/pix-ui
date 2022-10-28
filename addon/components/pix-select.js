@@ -19,7 +19,6 @@ export default class PixSelect extends Component {
         element.category !== undefined
       ) {
         categories.push(element.category);
-        console.log();
       }
     });
 
@@ -118,5 +117,12 @@ export default class PixSelect extends Component {
   @action
   filterOptions(event) {
     this.searchData = event.target.value.trim();
+  }
+
+  @action
+  lockTab(event) {
+    if (event.code === 'Tab' && this.isExpanded) {
+      event.preventDefault();
+    }
   }
 }
