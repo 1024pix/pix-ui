@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v20.2.1 (28/10/2022)
+
+
+### :bug: Correction
+- [#268](https://github.com/1024pix/pix-ui/pull/268) [BUGFIX] Empêcher la propagation des événements dans tous les enfants sur la Tooltip (PIX-6149)
+
 ## v20.2.0 (25/10/2022)
 
 
