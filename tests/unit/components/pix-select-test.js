@@ -6,31 +6,17 @@ module('Unit | Component | pix-select', function (hooks) {
   setupTest(hooks);
 
   module('#label', function () {
-    test('it should return the label if id is defined', function (assert) {
+
+    test.only('it should throw an error if id is undefined', function (assert) {
       // given
-      const componentParams = {
-        id: 'Textearea id',
-        label: 'Select label',
-        options: [],
-      };
-      const component = createGlimmerComponent('component:pix-select', componentParams);
-
-      // when
-      const result = component.label;
-
-      // then
-      assert.equal(result, 'Select label');
-    });
-
-    test('it should throw an error if id is undefined', function (assert) {
-      // given
-      const componentParams = { label: 'Select label' };
+      const componentParams = { label: 'Select label', options: [] };
       const component = createGlimmerComponent('component:pix-select', componentParams);
 
       // when & then
       const expectedError = new Error(
         'ERROR in PixSelect component, @id param is necessary when giving @label'
       );
+      console.log(component, 'component');
       assert.throws(function () {
         component.label;
       }, expectedError);
