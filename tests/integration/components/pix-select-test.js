@@ -15,28 +15,26 @@ module('Integration | Component | PixSelect', function (hooks) {
     { value: '2', label: 'Tomate', category: 'Kebab' },
     { value: '3', label: 'Oignon', category: 'Kebab' },
   ];
-  this.labels = {
-    select: {
-      label: 'Mon menu déroulant',
-      subLabel: 'Mon sous label',
-      innerText: 'Choisissez une option',
-      id: 'id-select-test',
-    },
-    search: {
-      label: 'Rechercher',
-      innerText: 'Un condiment',
-      id: 'id-select-search-test',
-    },
-  };
+
+  this.selectLabel = 'Mon menu déroulant';
+  this.selectSubLabel = 'Mon sous label';
+  this.selectInnerText = 'Choisissez une option';
+  this.selectId = 'id-select-test';
+  this.searchLabel = 'Rechercher';
+  this.searchInnerText = 'Un condiment';
+  this.searchId = 'id-select-search-test';
 
   test('it renders Select', async function (assert) {
     // given & when
     const screen = await render(hbs`
-      <PixSelect
-        @options={{this.options}}
-        @labels={{this.labels}}
-      />
-    `);
+    <PixSelect
+      @options={{this.options}}
+      @selectLabel={{this.selectLabel}}
+      @selectSubLabel={{this.selectSubLabel}}
+      @selectInnerText={{this.selectInnerText}}
+      @selectId={{this.selectId}}
+    />
+  `);
 
     // then
     assert.dom(screen.getByText('Choisissez une option')).exists();
@@ -48,10 +46,13 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it hide the dropdown unless there is a click on the button', async function (assert) {
       // given & when
       const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @labels={{this.labels}}
-        />
+      <PixSelect
+        @options={{this.options}}
+        @selectLabel={{this.selectLabel}}
+        @selectSubLabel={{this.selectSubLabel}}
+        @selectInnerText={{this.selectInnerText}}
+        @selectId={{this.selectId}}
+      />
       `);
 
       // then
@@ -63,7 +64,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />
       `);
 
@@ -82,7 +86,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />
       `);
 
@@ -104,7 +111,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />
       `);
 
@@ -124,7 +134,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />      
       `);
 
@@ -147,7 +160,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />      
       `);
 
@@ -171,7 +187,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />      
       `);
 
@@ -193,7 +212,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />      
       `);
 
@@ -218,7 +240,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
           @onSelect={{this.onSelect}}
         />      
       `);
@@ -245,8 +270,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
-          @onSelect={{this.onSelect}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
         />      
       `);
 
@@ -273,7 +300,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
           @onSelect={{this.onSelect}}
         />
       `);
@@ -302,7 +332,13 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
+          @searchLabel={{this.searchLabel}}
+          @searchInnerText={{this.searchInnerText}}
+          @searchId={{this.searchId}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -319,7 +355,13 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
+          @searchLabel={{this.searchLabel}}
+          @searchInnerText={{this.searchInnerText}}
+          @searchId={{this.searchId}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -337,7 +379,13 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
+          @searchLabel={{this.searchLabel}}
+          @searchInnerText={{this.searchInnerText}}
+          @searchId={{this.searchId}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -355,7 +403,13 @@ module('Integration | Component | PixSelect', function (hooks) {
       const screen = await render(hbs`
         <PixSelect
           @options={{this.options}}
-          @labels={{this.labels}}
+          @selectLabel={{this.selectLabel}}
+          @selectSubLabel={{this.selectSubLabel}}
+          @selectInnerText={{this.selectInnerText}}
+          @selectId={{this.selectId}}
+          @searchLabel={{this.searchLabel}}
+          @searchInnerText={{this.searchInnerText}}
+          @searchId={{this.searchId}}
           @isSearchable={{this.isSearchable}}
         />
       `);
