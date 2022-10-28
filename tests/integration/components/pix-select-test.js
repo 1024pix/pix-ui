@@ -138,7 +138,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-        />      
+        />
       `);
 
       // when
@@ -155,6 +155,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       assert.equal(options.length, 3);
       assert.equal(document.activeElement, options[0]);
     });
+
     test('it should display list, focus last element on arrow up press', async function (assert) {
       // given
       const screen = await render(hbs`
@@ -164,7 +165,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-        />      
+        />
       `);
 
       // when
@@ -191,7 +192,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-        />      
+        />
       `);
 
       // when
@@ -216,7 +217,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-        />      
+        />
       `);
 
       // when
@@ -245,7 +246,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @onSelect={{this.onSelect}}
-        />      
+        />
       `);
 
       // when
@@ -274,7 +275,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-        />      
+        />
       `);
 
       // when
@@ -289,6 +290,24 @@ module('Integration | Component | PixSelect', function (hooks) {
       // then
       assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
       assert.throws(screen.getByRole('listbox'));
+    });
+  });
+
+  module('when there is no label', function () {
+    test('it does not display a label', async function (assert) {
+      // given
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
+
+      // when
+      assert.throws(() => {
+        screen.getByText(this.label);
+      });
     });
   });
 
