@@ -134,27 +134,27 @@
   }
 
   &--background-grey {
-    background-color: $pix-neutral-60;
+    color: $pix-neutral-90;
+    background-color: $pix-neutral-20;
     border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: darken($pix-neutral-60, 8%);
-        box-shadow: 0 0 0 2px darken($pix-neutral-60, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-neutral-22;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: darken($pix-neutral-60, 8%);
-        box-shadow: 0 0 0 2px darken($pix-neutral-60, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-neutral-90;
+        color: $pix-neutral-0;
+        outline: 2px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
-        background-color: darken($pix-neutral-60, 12%);
+        background-color: $pix-neutral-25;
+        color: $pix-neutral-90;
+        outline: none;
       }
     }
   }
