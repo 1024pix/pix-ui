@@ -9,7 +9,7 @@
   letter-spacing: 0.028rem;
   cursor: pointer;
   background-color: $pix-primary;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
   outline: none;
   display: flex;
   justify-content: center;
@@ -52,7 +52,7 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-primary-60;
-        outline: 2px solid $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
@@ -74,7 +74,7 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-success-70;
-        outline: 2px solid $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
@@ -88,7 +88,6 @@
   &--background-yellow {
     color: $pix-neutral-100;
     background-color: $pix-warning-40;
-    border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
@@ -98,7 +97,7 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-warning-50;
-        outline: 2px solid $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
@@ -112,7 +111,6 @@
   &--background-red {
     color: $pix-neutral-0;
     background-color: $pix-error-70;
-    border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
@@ -122,7 +120,7 @@
       &:focus,
       &:focus-visible {
         background-color: $pix-error-70;
-        outline: 2px solid $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
@@ -136,7 +134,6 @@
   &--background-grey {
     color: $pix-neutral-90;
     background-color: $pix-neutral-20;
-    border: 2px solid transparent;
 
     &:not(.pix-button--disabled) {
       &:hover {
@@ -147,7 +144,7 @@
       &:focus-visible {
         background-color: $pix-neutral-90;
         color: $pix-neutral-0;
-        outline: 2px solid $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
@@ -163,30 +160,29 @@
   &--background-transparent {
     background-color: transparent;
     color: $pix-neutral-50;
-    border: 2px solid $pix-neutral-50;
+    border: 1px solid $pix-neutral-50;
   }
 
   &--background-transparent-light {
     color: $pix-neutral-90;
     background-color: transparent;
-    border: 2px solid transparent;
 
     &.pix-button--border {
-      border: 2px solid $pix-neutral-50;
+      border: 1px solid $pix-neutral-50;
     }
 
     &:not(.pix-button--disabled) {
       &:hover {
         background-color: $pix-neutral-60;
         color: $pix-neutral-0;
-        border: 2px solid transparent;
+        border: 1px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
         background-color: $pix-neutral-90;
         color: $pix-neutral-0;
-        outline: 2px solid $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
@@ -200,24 +196,23 @@
   &--background-transparent-dark {
     color: $pix-neutral-0;
     background-color: transparent;
-    border: 2px solid transparent;
 
     &.pix-button--border {
-      border: 2px solid $pix-neutral-0;
+      border: 1px solid $pix-neutral-0;
     }
 
     &:not(.pix-button--disabled) {
       &:hover {
         background-color: $pix-neutral-10;
         color: $pix-neutral-90;
-        border: 2px solid transparent;
+        border: 1px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
         background-color: $pix-neutral-10;
         color: $pix-neutral-90;
-        outline: 2px solid $pix-neutral-90;
+        outline: 1px solid $pix-neutral-90;
         outline-offset: -4px;
       }
 
