@@ -44,6 +44,12 @@ export default class PixSelect extends Component {
     return option ? option.label : this.args.placeholder;
   }
 
+  get defaultOption() {
+    return {
+      value: '',
+    };
+  }
+
   get results() {
     let results = [];
     let options = this.args.options;

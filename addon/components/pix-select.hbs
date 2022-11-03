@@ -45,6 +45,21 @@
       </div>
     {{/if}}
     <div role="listbox" id={{this.listId}} class="pix-select__options">
+      {{#unless this.searchData}}
+        <li
+          class="pix-select-options-category__option{{unless
+              @value
+              ' pix-select-options-category__option--selected'
+            }}"
+          role="option"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          aria-selected={{if @value "false" "true"}}
+          {{on "click" (fn this.onChange this.defaultOption)}}
+          {{on-enter-action (fn this.onChange this.defaultOption)}}
+        >
+          {{@placeholder}}
+        </li>
+      {{/unless}}
       {{#if this.displayCategory}}
         {{#each this.results as |element index|}}
           <ul

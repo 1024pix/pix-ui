@@ -24,7 +24,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   this.searchPlaceholder = 'Un condiment';
   this.searchId = 'id-select-search-test';
 
-  test('it renders Select', async function (assert) {
+  test.only('it renders Select', async function (assert) {
     // given & when
     const screen = await render(hbs`
     <PixSelect
@@ -37,9 +37,8 @@ module('Integration | Component | PixSelect', function (hooks) {
   `);
 
     // then
-    assert.dom(screen.getByText('Choisissez une option')).exists();
     assert.dom(screen.getByText('Mon sous label')).exists();
-    assert.dom(screen.getByLabelText('Mon menu déroulant')).exists();
+    assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
   });
 
   module('listbox', function () {
@@ -363,6 +362,35 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       // then
       assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
+    });
+  });
+
+  module('#defaultOption', function () {
+    test('should display searchable input', async function (assert) {
+      this.onChange = sinon.spy();
+      this.isSearchable = false;
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @onChange={{this.onChange}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      await click(screen.getByRole('option', { name: 'Choisissez une option' }));
+
+      // then
+      sinon.assert.calledWithMatch(this.onChange, '');
+      assert.ok(this.onChange.called);
     });
   });
 

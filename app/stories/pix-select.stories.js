@@ -194,7 +194,7 @@ export const argTypes = {
     },
   },
   searchLabel: {
-    name: 'label',
+    name: 'searchLabel',
     description: 'Label de la recherche dans le menu déroulant',
     type: { name: 'string', required: true },
     table: {
