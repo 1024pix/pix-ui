@@ -167,63 +167,64 @@
   }
 
   &--background-transparent-light {
-    background-color: transparent;
-    border-color: transparent;
     color: $pix-neutral-90;
+    background-color: transparent;
+    border: 2px solid transparent;
+
+    &.pix-button--border {
+      border: 2px solid $pix-neutral-50;
+    }
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: rgba($pix-neutral-110, 0.1);
-        outline: none;
+        background-color: $pix-neutral-60;
+        color: $pix-neutral-0;
+        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: rgba($pix-neutral-110, 0.1);
-        outline: none;
+        background-color: $pix-neutral-90;
+        color: $pix-neutral-0;
+        outline: 2px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
-        background-color: rgba($pix-neutral-110, 0.2);
-      }
-    }
-
-    &.pix-button--border {
-      border-color: $pix-neutral-50;
-
-      &:not(.pix-button--disabled) {
-        &:hover,
-        &:active {
-          border-color: $pix-neutral-80;
-        }
+        background-color: $pix-neutral-70;
+        outline: none;
       }
     }
   }
 
   &--background-transparent-dark {
-    background-color: transparent;
-    border-color: transparent;
     color: $pix-neutral-0;
+    background-color: transparent;
+    border: 2px solid transparent;
+
+    &.pix-button--border {
+      border: 2px solid $pix-neutral-0;
+    }
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: rgba($pix-neutral-110, 0.1);
-        outline: none;
+        background-color: $pix-neutral-10;
+        color: $pix-neutral-90;
+        border: 2px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: rgba($pix-neutral-110, 0.1);
-        outline: none;
+        background-color: $pix-neutral-10;
+        color: $pix-neutral-90;
+        outline: 2px solid $pix-neutral-90;
+        outline-offset: -4px;
       }
 
       &:active {
-        background-color: rgba($pix-neutral-110, 0.2);
+        background-color: $pix-neutral-20;
+        outline: none;
       }
-    }
-
-    &.pix-button--border {
-      border-color: $pix-neutral-0;
     }
   }
 }
