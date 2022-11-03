@@ -17,7 +17,7 @@ export const Template = (args) => {
           @className={{this.className}}
           @options={{this.options}}
           @isSearchable={{this.isSearchable}}
-          @onSelect={{this.onSelect}}
+          @onChange={{this.onChange}}
           @label={{this.label}}
           @placeholder={{this.placeholder}}
           @subLabel={{this.subLabel}}
@@ -49,7 +49,7 @@ WithCustomClass.args = {
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
   isSearchable: false,
-  onSelect: action('onSelect'),
+  onChange: action('onChange'),
 };
 
 export const Default = Template.bind({});
@@ -69,7 +69,7 @@ Default.args = {
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
   isSearchable: false,
-  onSelect: action('onSelect'),
+  onChange: action('onChange'),
 };
 
 export const WithCategories = Template.bind({});
@@ -89,7 +89,7 @@ WithCategories.args = {
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
   isSearchable: false,
-  onSelect: action('onSelect'),
+  onChange: action('onChange'),
 };
 
 export const WithSearch = Template.bind({});
@@ -111,7 +111,7 @@ WithSearch.args = {
   searchLabel: 'Mon label',
   searchPlaceholder: 'Mon innerText',
   isSearchable: true,
-  onSelect: action('onSelect'),
+  onChange: action('onChange'),
 };
 
 export const WithCategoriesAndSearch = Template.bind({});
@@ -133,7 +133,7 @@ WithCategoriesAndSearch.args = {
   searchLabel: 'Mon label',
   searchPlaceholder: 'Mon innerText',
   isSearchable: true,
-  onSelect: action('onSelect'),
+  onChange: action('onChange'),
 };
 
 export const argTypes = {
@@ -153,8 +153,8 @@ export const argTypes = {
       type: { summary: 'string' },
     },
   },
-  onSelect: {
-    name: 'onSelect',
+  onChange: {
+    name: 'onChange',
     description: 'Fonction à appeler quand une option est sélectionnée.',
     type: { required: true },
     control: { disable: true },

@@ -236,7 +236,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('it should call on select on enter press', async function (assert) {
       // given
-      this.onSelect = sinon.spy();
+      this.onChange = sinon.spy();
 
       const screen = await render(hbs`
         <PixSelect
@@ -245,7 +245,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @onSelect={{this.onSelect}}
+          @onChange={{this.onChange}}
         />
       `);
 
@@ -261,7 +261,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await userEvent.keyboard('[Enter]');
 
       // then
-      assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
+      assert.ok(this.onChange.calledOnce, 'the callback should be called once');
       assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
       assert.throws(screen.getByRole('listbox'));
     });
@@ -311,10 +311,10 @@ module('Integration | Component | PixSelect', function (hooks) {
     });
   });
 
-  module('#onSelect', function () {
-    test('it should trigger onSelect function when an item is selected', async function (assert) {
+  module('#onChange', function () {
+    test('it should trigger onChange function when an item is selected', async function (assert) {
       // given
-      this.onSelect = sinon.spy();
+      this.onChange = sinon.spy();
 
       const screen = await render(hbs`
         <PixSelect
@@ -322,7 +322,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @onSelect={{this.onSelect}}
+          @onChange={{this.onChange}}
         />
       `);
 
@@ -334,15 +334,15 @@ module('Integration | Component | PixSelect', function (hooks) {
       await click(screen.getByRole('option', { name: 'Oignon' }));
 
       // then
-      sinon.assert.calledWithMatch(this.onSelect, '3');
-      assert.ok(this.onSelect.called);
+      sinon.assert.calledWithMatch(this.onChange, '3');
+      assert.ok(this.onChange.called);
     });
   });
 
   module('#value', function () {
     test('it should mark the item as selected when there is a value', async function (assert) {
       // given
-      this.onSelect = sinon.spy();
+      this.onChange = sinon.spy();
       this.value = '3';
 
       const screen = await render(hbs`
@@ -351,7 +351,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @onSelect={{this.onSelect}}
+          @onChange={{this.onChange}}
           @value={{this.value}}
         />
       `);

@@ -102,8 +102,8 @@ export default class PixSelect extends Component {
   }
 
   @action
-  onSelect(option, event) {
-    this.args.onSelect(option.value);
+  onChange(option, event) {
+    this.args.onChange(option.value);
 
     this.hideDropdown(event);
     document.getElementById(this.selectId).focus();
