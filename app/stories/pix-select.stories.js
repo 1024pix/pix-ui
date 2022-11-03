@@ -24,7 +24,7 @@ export const Template = (args) => {
           @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @value={{this.value}}
-          @searchInnerText={{this.searchInnerText}}
+          @searchPlaceholder={{this.searchPlaceholder}}
         />
       </div>
     `,
@@ -114,7 +114,7 @@ WithSearch.args = {
   subLabel: 'Mon sous label',
   id: 'with-search-select',
   searchLabel: 'Mon label',
-  searchplaceholder: 'Mon innerText',
+  searchPlaceholder: 'Mon innerText',
   isSearchable: true,
   onSelect: action('onSelect'),
 };
@@ -137,7 +137,7 @@ WithCategoriesAndSearch.args = {
   subLabel: 'Mon sous label',
   id: 'with-category-and-search-select',
   searchLabel: 'Mon label',
-  searchplaceholder: 'Mon innerText',
+  searchPlaceholder: 'Mon innerText',
   isSearchable: true,
   onSelect: action('onSelect'),
 };
@@ -215,9 +215,9 @@ export const argTypes = {
       type: { summary: 'string' },
     },
   },
-  searchInnerText: {
-    name: 'searchInnerText',
-    description: 'searchInnerText de la recherche dans le menu déroulant',
+  searchPlaceholder: {
+    name: 'searchPlaceholder',
+    description: 'Placeholder de la recherche dans le menu déroulant',
     type: { name: 'string', required: true },
     table: {
       type: { summary: 'string' },

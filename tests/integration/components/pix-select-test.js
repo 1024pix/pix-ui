@@ -21,7 +21,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   this.placeholder = 'Choisissez une option';
   this.id = 'id-select-test';
   this.searchLabel = 'Rechercher';
-  this.searchInnerText = 'Un condiment';
+  this.searchPlaceholder = 'Un condiment';
   this.searchId = 'id-select-search-test';
 
   test('it renders Select', async function (assert) {
@@ -364,7 +364,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       // then
       assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
     });
-  })
+  });
 
   module('#isSearchable', function () {
     test('should display searchable input', async function (assert) {
@@ -377,8 +377,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @searchLabel={{this.searchLabel}}
-          @searchInnerText={{this.searchInnerText}}
-          @searchId={{this.searchId}}
+          @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -400,8 +399,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @searchLabel={{this.searchLabel}}
-          @searchInnerText={{this.searchInnerText}}
-          @searchId={{this.searchId}}
+          @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -424,8 +422,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @searchLabel={{this.searchLabel}}
-          @searchInnerText={{this.searchInnerText}}
-          @searchId={{this.searchId}}
+          @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -448,8 +445,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @searchLabel={{this.searchLabel}}
-          @searchInnerText={{this.searchInnerText}}
-          @searchId={{this.searchId}}
+          @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
         />
       `);
@@ -460,6 +456,28 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await screen.findByRole('listbox');
       assert.equal(screen.queryAllByRole('option').length, 1);
+    });
+
+    test('should display placeholder text', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+      assert.dom(screen.getByPlaceholderText('Un condiment')).exists();
     });
   });
 
