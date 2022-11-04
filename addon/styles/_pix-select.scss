@@ -13,8 +13,6 @@
   }
 
   &__dropdown {
-    width: 100%;
-    margin: 0;
     z-index: 200;
     background-color: $pix-neutral-0;
     position: absolute;
@@ -26,9 +24,10 @@
     padding: 0;
     box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
     transition: all .1s ease-in-out;
+    white-space: nowrap;
 
     &::-webkit-scrollbar {
-      width: 8px;
+      width: 0.5rem;
     }
     &::-webkit-scrollbar-track {
       border-radius: 4px;
@@ -37,7 +36,7 @@
     }
     &::-webkit-scrollbar-thumb {
       border-radius: 4px;
-      width: 6px;
+      width: 0.375rem;
       background: $pix-neutral-30;
     }
     &::-webkit-scrollbar-thumb:hover {
@@ -105,7 +104,7 @@
   background-color: $pix-neutral-0;
   border-radius: 4px;
   outline: none;
-  height: 36px;
+  height: 2.25rem;
   cursor: pointer;
   color: $pix-neutral-90;
   justify-content: space-between;

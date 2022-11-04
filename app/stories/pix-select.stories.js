@@ -12,7 +12,6 @@ export const Template = (args) => {
           border: 0;
         }
       </style>
-      <div style="width: 300px;">
         <PixSelect
           @className={{this.className}}
           @options={{this.options}}
@@ -29,7 +28,6 @@ export const Template = (args) => {
           @requiredLabel={{this.requiredLabel}}
           @errorMessage={{this.errorMessage}}
         />
-      </div>
     `,
     context: args,
   };

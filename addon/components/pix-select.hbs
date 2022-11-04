@@ -1,6 +1,11 @@
 {{! template-lint-disable no-down-event-binding }}
-<div class="pix-select" {{on-click-outside this.hideDropdown}} {{on-arrow-down-up-action this.listId this.showDropdown
-  this.isExpanded}} {{on-escape-action this.hideDropdown}} {{on "keydown" this.lockTab}}>
+<div
+  class="pix-select"
+  {{on-click-outside this.hideDropdown}}
+  {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
+  {{on-escape-action this.hideDropdown}}
+  {{on "keydown" this.lockTab}}
+>
   <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
     <label for={{this.selectId}} class="pix-select__label">
       {{#if @requiredLabel}}
@@ -10,7 +15,7 @@
     </label>
 
     {{#if @subLabel}}
-    <span class="pix-select__sub-label">{{@subLabel}}</span>
+      <span class="pix-select__sub-label">{{@subLabel}}</span>
     {{/if}}
   </div>
 
@@ -25,70 +30,103 @@
   >
     {{this.placeholder}}
 
-    <FaIcon class="pix-select-button__dropdown-icon" @icon={{if this.isExpanded "chevron-up" "chevron-down" }} />
+    <FaIcon
+      class="pix-select-button__dropdown-icon"
+      @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+    />
   </button>
-  <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}">
+  <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+      {{did-insert this.setButtonWidth}}>
     {{#if @isSearchable}}
-    <div class="pix-select__search">
-      <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
-      <label class="screen-reader-only" for={{this.searchInputId}}>{{@searchLabel}}</label>
-      <input class="pix-select__search__input" id={{this.searchInputId}} autocomplete="off" tabindex={{if
-        this.isExpanded "0" "-1" }} placeholder={{@searchPlaceholder}} {{on "input" this.filterOptions}} />
-    </div>
+      <div class="pix-select__search">
+        <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
+        <label class="screen-reader-only" for={{this.searchInputId}}>{{@searchLabel}}</label>
+        <input
+          class="pix-select__search__input"
+          id={{this.searchInputId}}
+          autocomplete="off"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          placeholder={{@searchPlaceholder}}
+          {{on "input" this.filterOptions}}
+        />
+      </div>
     {{/if}}
     <div role="listbox" id={{this.listId}} class="pix-select__options">
       {{#unless this.searchData}}
-      <li class="pix-select-options-category__option{{unless
+        <li
+          class="pix-select-options-category__option{{unless
               @value
               ' pix-select-options-category__option--selected'
-            }}" role="option" tabindex={{if this.isExpanded "0" "-1" }} aria-selected={{if @value "false" "true" }}
-        {{on "click" (fn this.onChange this.defaultOption)}} {{on-enter-action (fn this.onChange this.defaultOption)}}>
-        {{@placeholder}}
-      </li>
+            }}"
+          role="option"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          aria-selected={{if @value "false" "true"}}
+          {{on "click" (fn this.onChange this.defaultOption)}}
+          {{on-enter-action (fn this.onChange this.defaultOption)}}
+        >
+          {{@placeholder}}
+        </li>
       {{/unless}}
       {{#if this.results}}
         {{#if this.displayCategory}}
           {{#each this.results as |element index|}}
-            <ul class="pix-select-options__category" role="group" aria-labelledby={{if this.displayCategory (concat "cat-"
-              this.selectId "-" index)}}>
+            <ul
+              class="pix-select-options__category"
+              role="group"
+              aria-labelledby={{if this.displayCategory (concat "cat-" this.selectId "-" index)}}
+            >
               {{#if this.displayCategory}}
-              {{! template-lint-disable no-invalid-role }}
-              {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
-              <li class="pix-select-options-category__name" role="presentation" id={{concat "cat-" this.selectId "-" index}}>
-                {{element.category}}
-              </li>
+                {{! template-lint-disable no-invalid-role }}
+                {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
+                <li
+                  class="pix-select-options-category__name"
+                  role="presentation"
+                  id={{concat "cat-" this.selectId "-" index}}
+                >
+                  {{element.category}}
+                </li>
               {{/if}}
 
               {{#each element.options as |option|}}
-              <li class="pix-select-options-category__option{{if
-                          (eq option.value @value)
-                          ' pix-select-options-category__option--selected'
-                        }}" role="option" tabindex={{if this.isExpanded "0" "-1" }} aria-selected={{if (eq option.value
-                @value) "true" "false" }} {{on "click" (fn this.onChange option)}} {{on-enter-action (fn this.onChange
-                option)}}>
-                {{option.label}}
+                <li
+                  class="pix-select-options-category__option{{if
+                      (eq option.value @value)
+                      ' pix-select-options-category__option--selected'
+                    }}"
+                  role="option"
+                  tabindex={{if this.isExpanded "0" "-1"}}
+                  aria-selected={{if (eq option.value @value) "true" "false"}}
+                  {{on "click" (fn this.onChange option)}}
+                  {{on-enter-action (fn this.onChange option)}}
+                >
+                  {{option.label}}
 
-                {{#if (eq option.value @value)}}
-                <FaIcon @icon="check" />
-                {{/if}}
-              </li>
+                  {{#if (eq option.value @value)}}
+                    <FaIcon @icon="check" />
+                  {{/if}}
+                </li>
               {{/each}}
-          </ul>
-        {{/each}}
+            </ul>
+          {{/each}}
         {{else}}
           {{#each this.results as |option|}}
-          <li class="pix-select-options-category__option{{if
-                    (eq option.value @value)
-                    ' pix-select-options-category__option--selected'
-                  }}" role="option" tabindex={{if this.isExpanded "0" "-1" }} aria-selected={{if (eq option.value
-            @value) "true" "false" }} {{on "click" (fn this.onChange option)}} {{on-enter-action (fn this.onChange
-            option)}}>
-            {{option.label}}
+            <li
+              class="pix-select-options-category__option{{if
+                  (eq option.value @value)
+                  ' pix-select-options-category__option--selected'
+                }}"
+              role="option"
+              tabindex={{if this.isExpanded "0" "-1"}}
+              aria-selected={{if (eq option.value @value) "true" "false"}}
+              {{on "click" (fn this.onChange option)}}
+              {{on-enter-action (fn this.onChange option)}}
+            >
+              {{option.label}}
 
-            {{#if (eq option.value @value)}}
-            <FaIcon @icon="check" />
-            {{/if}}
-          </li>
+              {{#if (eq option.value @value)}}
+                <FaIcon @icon="check" />
+              {{/if}}
+            </li>
           {{/each}}
         {{/if}}
       {{else}}
