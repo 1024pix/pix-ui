@@ -12,36 +12,6 @@
     @include subLabel();
   }
 
-  &__button {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    font-family: $font-roboto;
-    font-weight: $font-normal;
-    position: relative;
-    border: 1px $pix-neutral-45 solid;
-    padding: 0px $spacing-s 0px $spacing-s;
-    width: 100%;
-    background-color: $pix-neutral-0;
-    border-radius: 4px;
-    outline: none;
-    height: 36px;
-    cursor: pointer;
-    color: $pix-neutral-90;
-    justify-content: space-between;
-
-    @include text-small();
-    @include hoverFormElement();
-    @include focusWithinFormElement();
-
-    &__dropdown-icon {
-      @include text-small();
-      color: $pix-neutral-60;
-      font-weight: $font-heavy;
-      pointer-events: none;
-    }
-  }
-
   &__dropdown {
     width: 100%;
     margin: 0;
@@ -110,6 +80,36 @@
 
   &__options {
     border-top: 1px solid $pix-neutral-20
+  }
+}
+
+.pix-select-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  position: relative;
+  border: 1px $pix-neutral-45 solid;
+  padding: 0px $spacing-s 0px $spacing-s;
+  width: 100%;
+  background-color: $pix-neutral-0;
+  border-radius: 4px;
+  outline: none;
+  height: 36px;
+  cursor: pointer;
+  color: $pix-neutral-90;
+  justify-content: space-between;
+
+  @include text-small();
+  @include hoverFormElement();
+  @include focusWithinFormElement();
+
+  &__dropdown-icon {
+    @include text-small();
+    color: $pix-neutral-60;
+    font-weight: $font-heavy;
+    pointer-events: none;
   }
 }
 

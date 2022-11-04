@@ -19,7 +19,7 @@
   <button
     type="button"
     id={{this.selectId}}
-    class="pix-select__button{{this.className}}"
+    class="pix-select-button{{this.className}}"
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
     aria-controls={{this.listId}}
@@ -27,7 +27,7 @@
     {{this.placeholder}}
 
     <FaIcon
-      class="pix-select__button__dropdown-icon"
+      class="pix-select-button__dropdown-icon"
       @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
     />
   </button>
