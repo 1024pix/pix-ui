@@ -94,6 +94,10 @@
                 {{on-enter-action (fn this.onChange option)}}
               >
                 {{option.label}}
+
+                {{#if (eq option.value @value)}}
+                  <FaIcon @icon="check" />
+                {{/if}}
               </li>
             {{/each}}
           </ul>
@@ -112,6 +116,10 @@
             {{on-enter-action (fn this.onChange option)}}
           >
             {{option.label}}
+            
+            {{#if (eq option.value @value)}}
+              <FaIcon @icon="check" />
+            {{/if}}
           </li>
         {{/each}}
       {{/if}}

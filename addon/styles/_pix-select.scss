@@ -20,7 +20,7 @@
     font-weight: $font-normal;
     position: relative;
     border: 1px $pix-neutral-45 solid;
-    padding: 0px $spacing-xl 0px $spacing-s;
+    padding: 0px $spacing-s 0px $spacing-s;
     width: 100%;
     background-color: $pix-neutral-0;
     border-radius: 4px;
@@ -28,6 +28,7 @@
     height: 36px;
     cursor: pointer;
     color: $pix-neutral-90;
+    justify-content: space-between;
 
     @include text-small();
     @include hoverFormElement();
@@ -37,9 +38,6 @@
       @include text-small();
       color: $pix-neutral-60;
       font-weight: $font-heavy;
-      right: $spacing-s;
-      top: calc(50% - 0.4375rem);
-      position: absolute;
       pointer-events: none;
     }
   }
@@ -132,6 +130,8 @@
 
   &__option {
     @include text-small();
+    display: flex;
+    justify-content: space-between;
     font-family: $font-roboto;
     padding: $spacing-xs $spacing-m;
     color: $pix-neutral-70;
