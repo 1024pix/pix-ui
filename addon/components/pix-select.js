@@ -28,8 +28,14 @@ export default class PixSelect extends Component {
   }
 
   get className() {
-    if (!this.args.className) return undefined;
-    return ` ${this.args.className}`;
+    const classes = [];
+    if (this.args.className) {
+      classes.push(` ${this.args.className}`);
+    }
+    if (this.args.errorMessage) {
+      classes.push(' pix-select-button--error');
+    }
+    return classes.join(' ');
   }
 
   get isAriaExpanded() {

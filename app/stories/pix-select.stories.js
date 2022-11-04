@@ -27,6 +27,7 @@ export const Template = (args) => {
           @screenReaderOnly={{this.screenReaderOnly}}
           @emptySearchMessage={{this.emptySearchMessage}}
           @requiredLabel={{this.requiredLabel}}
+          @errorMessage={{this.errorMessage}}
         />
       </div>
     `,
@@ -235,6 +236,14 @@ export const argTypes = {
   requiredLabel: {
     name: 'requiredLabel',
     description: "Affiche l'asterix au label et ajoute sa signification",
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  errorMessage: {
+    name: 'errorMessage',
+    description: 'Message affiché si une erreur survient',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },

@@ -86,6 +86,10 @@
   &__options {
     border-top: 1px solid $pix-neutral-20
   }
+
+  &__error-message {
+    @include errorMessage();
+  }
 }
 
 .pix-select-button {
@@ -109,6 +113,10 @@
   @include text-small();
   @include hoverFormElement();
   @include focusWithinFormElement();
+
+  &--error {
+    @include formElementInError();
+  }
 
   &__dropdown-icon {
     @include text-small();
@@ -152,3 +160,4 @@
     }
   }
 }
+
