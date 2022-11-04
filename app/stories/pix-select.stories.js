@@ -25,6 +25,7 @@ export const Template = (args) => {
           @value={{this.value}}
           @searchPlaceholder={{this.searchPlaceholder}}
           @screenReaderOnly={{this.screenReaderOnly}}
+          @emptySearchMessage={{this.emptySearchMessage}}
         />
       </div>
     `,
@@ -112,6 +113,7 @@ WithSearch.args = {
   searchLabel: 'Mon label',
   searchPlaceholder: 'Mon innerText',
   isSearchable: true,
+  emptySearchMessage: 'Aucune option',
   onChange: action('onChange'),
 };
 
@@ -134,6 +136,7 @@ WithCategoriesAndSearch.args = {
   searchLabel: 'Mon label',
   searchPlaceholder: 'Mon innerText',
   isSearchable: true,
+  emptySearchMessage: 'Aucune option',
   onChange: action('onChange'),
 };
 
@@ -215,6 +218,14 @@ export const argTypes = {
   searchPlaceholder: {
     name: 'searchPlaceholder',
     description: 'Placeholder de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  emptySearchMessage: {
+    name: 'emptySearchMessage',
+    description: "Message affiché si la recherche ne retourne pas d'options",
     type: { name: 'string', required: true },
     table: {
       type: { summary: 'string' },

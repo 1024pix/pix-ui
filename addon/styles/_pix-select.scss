@@ -50,6 +50,11 @@
     }
   }
 
+  &__empty-search-message{
+    color: $pix-neutral-70;
+    text-align: center;
+  }
+
   &__search {
     display: flex;
     border-bottom: 2px solid $pix-neutral-22;

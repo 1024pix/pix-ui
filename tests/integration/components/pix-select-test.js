@@ -194,7 +194,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await userEvent.keyboard('[ArrowDown]');
 
-      const option = screen.getByRole('option', { name : 'Choisissez une option'});
+      const option = screen.getByRole('option', { name: 'Choisissez une option' });
       // then
       assert.equal(document.activeElement, option);
     });
@@ -219,7 +219,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await userEvent.keyboard('[ArrowUp]');
 
-      const option = screen.getByRole('option', { name : 'Oignon'});
+      const option = screen.getByRole('option', { name: 'Oignon' });
       // then
       assert.equal(document.activeElement, option);
     });
@@ -469,6 +469,29 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await screen.findByRole('listbox');
       assert.dom(screen.getByPlaceholderText('Un condiment')).exists();
+    });
+
+    test('when there is no options found it displays the empty search result message', async function (assert) {
+      this.isSearchable = true;
+      this.emptySearchMessage = 'Aucune option';
+      await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+          @emptySearchMessage={{this.emptySearchMessage}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await fillByLabel('Rechercher', 'Cheddar');
+      assert.contains('Aucune option');
     });
   });
 
