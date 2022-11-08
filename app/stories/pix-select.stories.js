@@ -13,7 +13,7 @@ export const Template = (args) => {
         }
       </style>
       <div style="width: 300px;">
-        <PixSelect        
+        <PixSelect
           @className={{this.className}}
           @options={{this.options}}
           @isSearchable={{this.isSearchable}}
@@ -26,6 +26,7 @@ export const Template = (args) => {
           @searchPlaceholder={{this.searchPlaceholder}}
           @screenReaderOnly={{this.screenReaderOnly}}
           @emptySearchMessage={{this.emptySearchMessage}}
+          @requiredLabel={{this.requiredLabel}}
         />
       </div>
     `,
@@ -227,6 +228,14 @@ export const argTypes = {
     name: 'emptySearchMessage',
     description: "Message affiché si la recherche ne retourne pas d'options",
     type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  requiredLabel: {
+    name: 'requiredLabel',
+    description: "Affiche l'asterix au label et ajoute sa signification",
+    type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
     },

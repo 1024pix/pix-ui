@@ -3,6 +3,9 @@
   this.isExpanded}} {{on-escape-action this.hideDropdown}} {{on "keydown" this.lockTab}}>
   <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
     <label for={{this.selectId}} class="pix-select__label">
+      {{#if @requiredLabel}}
+        <abbr class="mandatory-mark" title="{{@requiredLabel}}" aria-hidden="true">*</abbr>
+      {{/if}}
       {{@label}}
     </label>
 
@@ -11,8 +14,15 @@
     {{/if}}
   </div>
 
-  <button type="button" id={{this.selectId}} class="pix-select-button{{this.className}}" {{on "click"
-    this.toggleDropdown}} aria-expanded={{this.isAriaExpanded}} aria-controls={{this.listId}}>
+  <button
+    type="button"
+    id={{this.selectId}}
+    class="pix-select-button{{this.className}}"
+    {{on "click" this.toggleDropdown}}
+    aria-expanded={{this.isAriaExpanded}}
+    aria-controls={{this.listId}}
+    aria-required="{{if @requiredLabel 'true' 'false'}}"
+  >
     {{this.placeholder}}
 
     <FaIcon class="pix-select-button__dropdown-icon" @icon={{if this.isExpanded "chevron-up" "chevron-down" }} />
@@ -82,7 +92,7 @@
           {{/each}}
         {{/if}}
       {{else}}
-      <p class="pix-select__empty-search-message">{{@emptySearchMessage}}</p>
+        <p class="pix-select__empty-search-message">{{@emptySearchMessage}}</p>
       {{/if}}
     </div>
   </div>

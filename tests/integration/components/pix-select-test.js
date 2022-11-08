@@ -495,6 +495,23 @@ module('Integration | Component | PixSelect', function (hooks) {
     });
   });
 
+  module('#required', function () {
+    test('it displays the asterix', async function (assert) {
+      this.requiredLabel = 'Title requis';
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @requiredLabel={{this.requiredLabel}}
+        />
+      `);
+      assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
+    });
+  });
+
   module('#className', function () {
     test('it adds a custom class', async function (assert) {
       // given & when
