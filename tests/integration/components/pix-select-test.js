@@ -21,10 +21,11 @@ module('Integration | Component | PixSelect', function (hooks) {
   this.placeholder = 'Choisissez une option';
   this.id = 'id-select-test';
   this.searchLabel = 'Rechercher';
+  this.screenReaderOnly = 'Rechercher';
   this.searchPlaceholder = 'Un condiment';
   this.searchId = 'id-select-search-test';
 
-  test.only('it renders Select', async function (assert) {
+  test('it renders Select', async function (assert) {
     // given & when
     const screen = await render(hbs`
     <PixSelect
@@ -150,8 +151,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
 
       const options = screen.queryAllByRole('option');
+
       // then
-      assert.equal(options.length, 3);
       assert.equal(document.activeElement, options[0]);
     });
 
@@ -178,8 +179,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       const options = screen.queryAllByRole('option');
       // then
-      assert.equal(options.length, 3);
-      assert.equal(document.activeElement, options[2]);
+      assert.equal(document.activeElement, options[options.length - 1]);
     });
 
     test('it should focus first element on arrow down press', async function (assert) {
@@ -202,9 +202,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       await userEvent.keyboard('[ArrowDown]');
-      const options = screen.queryAllByRole('option');
+
+      const option = screen.getByRole('option', { name : 'Choisissez une option'});
       // then
-      assert.equal(document.activeElement, options[0]);
+      assert.equal(document.activeElement, option);
     });
 
     test('it should focus last element on arrow up press', async function (assert) {
@@ -228,9 +229,9 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await userEvent.keyboard('[ArrowUp]');
 
-      const options = screen.queryAllByRole('option');
+      const option = screen.getByRole('option', { name : 'Oignon'});
       // then
-      assert.equal(document.activeElement, options[2]);
+      assert.equal(document.activeElement, option);
     });
 
     test('it should call on select on enter press', async function (assert) {

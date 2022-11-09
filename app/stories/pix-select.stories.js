@@ -24,6 +24,7 @@ export const Template = (args) => {
           @searchLabel={{this.searchLabel}}
           @value={{this.value}}
           @searchPlaceholder={{this.searchPlaceholder}}
+          @screenReaderOnly={{this.screenReaderOnly}}
         />
       </div>
     `,
@@ -162,6 +163,16 @@ export const argTypes = {
   isSearchable: {
     name: 'isSearchable',
     description: 'Rend le champ cherchable',
+    control: { type: 'boolean' },
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  screenReaderOnly: {
+    name: 'screenReaderOnly',
+    description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
     control: { type: 'boolean' },
     type: { name: 'boolean', required: false },
     table: {
