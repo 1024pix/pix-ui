@@ -23,6 +23,7 @@ export const Template = (args) => {
           @subLabel={{this.subLabel}}
           @id={{this.id}}
           @searchLabel={{this.searchLabel}}
+          @value={{this.value}}
           @searchInnerText={{this.searchInnerText}}
         />
       </div>
@@ -36,12 +37,12 @@ WithCustomClass.args = {
   className: 'custom',
   options: [
     { value: '1', label: 'Figues' },
-    { value: '10', label: 'Fraises' },
+    { value: '3', label: 'Fraises' },
     { value: '2', label: 'Bananes' },
-    { value: '7', label: 'Mangues' },
-    { value: '11', label: 'Kaki' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
     {
-      value: '12',
+      value: '6',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
@@ -57,12 +58,12 @@ export const Default = Template.bind({});
 Default.args = {
   options: [
     { value: '1', label: 'Figues' },
-    { value: '10', label: 'Fraises' },
+    { value: '3', label: 'Fraises' },
     { value: '2', label: 'Bananes' },
-    { value: '7', label: 'Mangues' },
-    { value: '11', label: 'Kaki' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
     {
-      value: '12',
+      value: '6',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
@@ -78,11 +79,11 @@ export const WithCategories = Template.bind({});
 WithCategories.args = {
   options: [
     { value: '1', label: 'Figues', category: 'Fruit Rouge' },
-    { value: '10', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fraises', category: 'Fruit Rouge' },
     { value: '3', label: 'Noix', category: 'Autres' },
     { value: '4', label: 'Papayes', category: 'Autres' },
     {
-      value: '12',
+      value: '6',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
       category: 'Autres',
     },
@@ -99,12 +100,12 @@ export const WithSearch = Template.bind({});
 WithSearch.args = {
   options: [
     { value: '1', label: 'Figues' },
-    { value: '10', label: 'Fraises' },
+    { value: '3', label: 'Fraises' },
     { value: '2', label: 'Bananes' },
-    { value: '7', label: 'Mangues' },
-    { value: '11', label: 'Kaki' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
     {
-      value: '12',
+      value: '6',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
@@ -122,11 +123,11 @@ export const WithCategoriesAndSearch = Template.bind({});
 WithCategoriesAndSearch.args = {
   options: [
     { value: '1', label: 'Figues', category: 'Fruit Rouge' },
-    { value: '10', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fraises', category: 'Fruit Rouge' },
     { value: '5', label: 'Fèves de chocolat', category: 'Autres' },
     { value: '6', label: 'Dattes', category: 'Autres' },
     {
-      value: '12',
+      value: '6',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
       category: 'Autres',
     },
@@ -148,10 +149,10 @@ export const argTypes = {
       'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
     type: { name: 'array', required: true },
   },
-  selectedOption: {
-    name: 'selectedOption',
+  value: {
+    name: 'value',
     description: 'Option sélectionnée',
-    options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    options: ['1', '2', '3', '4', '5', '6'],
     control: { type: 'select' },
     type: { name: 'string', required: false },
     table: {

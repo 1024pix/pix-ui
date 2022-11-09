@@ -67,12 +67,12 @@
             {{#each element.options as |option|}}
               <li
                 class="pix-select-options-category__option{{if
-                    (eq option.value this.selectedOption)
+                    (eq option.value @value)
                     ' pix-select-options-category__option--selected'
                   }}"
                 role="option"
                 tabindex={{if this.isExpanded "0" "-1"}}
-                aria-selected={{if (eq option.value this.selectedOption) "true" "false"}}
+                aria-selected={{if (eq option.value @value) "true" "false"}}
                 {{on "click" (fn this.onSelect option)}}
                 {{on-enter-action (fn this.onSelect option)}}
               >
@@ -85,12 +85,12 @@
         {{#each this.results as |option|}}
           <li
             class="pix-select-options-category__option{{if
-                (eq option.value this.selectedOption)
+                (eq option.value @value)
                 ' pix-select-options-category__option--selected'
               }}"
             role="option"
             tabindex={{if this.isExpanded "0" "-1"}}
-            aria-selected={{if (eq option.value this.selectedOption) "true" "false"}}
+            aria-selected={{if (eq option.value @value) "true" "false"}}
             {{on "click" (fn this.onSelect option)}}
             {{on-enter-action (fn this.onSelect option)}}
           >

@@ -5,7 +5,6 @@ import { guidFor } from '@ember/object/internals';
 
 export default class PixSelect extends Component {
   @tracked isExpanded = false;
-  @tracked selectedOption = null;
   @tracked searchData = null;
   searchInputId = 'search-input-' + guidFor(this);
 
@@ -39,13 +38,9 @@ export default class PixSelect extends Component {
   }
 
   get placeholder() {
-    if (this.selectedOption) {
-      const { label } = this.args.options.find((option) => option.value === this.selectedOption);
-
-      return label || this.args.placeholder;
-    } else {
-      return this.args.placeholder;
-    }
+    if (!this.args.value) return this.args.placeholder;
+    const option = this.args.options.find((option) => option.value === this.args.value);
+    return option ? option.label : this.args.placeholder;
   }
 
   get results() {
@@ -107,8 +102,7 @@ export default class PixSelect extends Component {
 
   @action
   onSelect(option, event) {
-    this.selectedOption = option.value;
-    this.args.onSelect(this.selectedOption);
+    this.args.onSelect(option.value);
 
     this.hideDropdown(event);
     document.getElementById(this.args.id).focus();

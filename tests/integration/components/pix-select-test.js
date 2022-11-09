@@ -320,7 +320,6 @@ module('Integration | Component | PixSelect', function (hooks) {
         <PixSelect
           @options={{this.options}}
           @label={{this.label}}
-          @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @onSelect={{this.onSelect}}
@@ -334,16 +333,38 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await click(screen.getByRole('option', { name: 'Oignon' }));
 
+      // then
+      sinon.assert.calledWithMatch(this.onSelect, '3');
+      assert.ok(this.onSelect.called);
+    });
+  });
+
+  module('#value', function () {
+    test('it should mark the item as selected when there is a value', async function (assert) {
+      // given
+      this.onSelect = sinon.spy();
+      this.value = '3';
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @onSelect={{this.onSelect}}
+          @value={{this.value}}
+        />
+      `);
+
+      // when
       await clickByName('Mon menu déroulant');
 
       await screen.findByRole('listbox');
 
       // then
       assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
-      assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
-      sinon.assert.calledWithMatch(this.onSelect, '3');
     });
-  });
+  })
 
   module('#isSearchable', function () {
     test('should display searchable input', async function (assert) {
