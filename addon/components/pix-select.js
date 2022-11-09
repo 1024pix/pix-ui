@@ -7,6 +7,7 @@ export default class PixSelect extends Component {
   @tracked isExpanded = false;
   @tracked searchData = null;
   searchInputId = 'search-input-' + guidFor(this);
+  selectId = 'select-' + guidFor(this);
 
   constructor(...args) {
     super(...args);
@@ -34,7 +35,7 @@ export default class PixSelect extends Component {
   }
 
   get listId() {
-    return `listbox-${this.args.id}`;
+    return `listbox-${this.selectId}`;
   }
 
   get placeholder() {
@@ -105,7 +106,7 @@ export default class PixSelect extends Component {
     this.args.onSelect(option.value);
 
     this.hideDropdown(event);
-    document.getElementById(this.args.id).focus();
+    document.getElementById(this.selectId).focus();
   }
 
   @action

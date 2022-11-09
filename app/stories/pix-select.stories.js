@@ -21,7 +21,6 @@ export const Template = (args) => {
           @label={{this.label}}
           @placeholder={{this.placeholder}}
           @subLabel={{this.subLabel}}
-          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @value={{this.value}}
           @searchPlaceholder={{this.searchPlaceholder}}
@@ -49,7 +48,6 @@ WithCustomClass.args = {
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
-  id: 'default-select',
   isSearchable: false,
   onSelect: action('onSelect'),
 };
@@ -70,7 +68,6 @@ Default.args = {
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
-  id: 'default-select',
   isSearchable: false,
   onSelect: action('onSelect'),
 };
@@ -91,7 +88,6 @@ WithCategories.args = {
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
-  id: 'with-category-select',
   isSearchable: false,
   onSelect: action('onSelect'),
 };
@@ -112,7 +108,6 @@ WithSearch.args = {
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
-  id: 'with-search-select',
   searchLabel: 'Mon label',
   searchPlaceholder: 'Mon innerText',
   isSearchable: true,
@@ -135,7 +130,6 @@ WithCategoriesAndSearch.args = {
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
-  id: 'with-category-and-search-select',
   searchLabel: 'Mon label',
   searchPlaceholder: 'Mon innerText',
   isSearchable: true,
@@ -194,14 +188,6 @@ export const argTypes = {
   placeholder: {
     name: 'placeholder',
     description: 'Placeholder du menu déroulant',
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  id: {
-    name: 'id',
-    description: "L'id du label",
     type: { name: 'string', required: true },
     table: {
       type: { summary: 'string' },

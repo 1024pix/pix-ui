@@ -6,7 +6,7 @@
   {{on-escape-action this.hideDropdown}}
   {{on "keydown" this.lockTab}}
 >
-  <label for={{@id}} class="pix-select__label">
+  <label for={{this.selectId}} class="pix-select__label">
     {{@label}}
   </label>
 
@@ -16,11 +16,11 @@
 
   <button
     type="button"
-    id={{@id}}
+    id={{this.selectId}}
     class="pix-select__button{{this.className}}"
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
-    aria-controls={{concat "listbox-" @id}}
+    aria-controls={{this.listId}}
   >
     {{this.placeholder}}
 
@@ -50,7 +50,7 @@
           <ul
             class="pix-select-options__category"
             role="group"
-            aria-labelledby={{if this.displayCategory (concat "cat-" @id "-" index)}}
+            aria-labelledby={{if this.displayCategory (concat "cat-" this.selectId "-" index)}}
           >
             {{#if this.displayCategory}}
               {{! template-lint-disable no-invalid-role }}
@@ -58,7 +58,7 @@
               <li
                 class="pix-select-options-category__name"
                 role="presentation"
-                id={{concat "cat-" @id "-" index}}
+                id={{concat "cat-" this.selectId "-" index}}
               >
                 {{element.category}}
               </li>
