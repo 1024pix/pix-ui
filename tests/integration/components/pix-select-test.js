@@ -19,7 +19,6 @@ module('Integration | Component | PixSelect', function (hooks) {
   this.label = 'Mon menu déroulant';
   this.subLabel = 'Mon sous label';
   this.placeholder = 'Choisissez une option';
-  this.id = 'id-select-test';
   this.searchLabel = 'Rechercher';
   this.screenReaderOnly = 'Rechercher';
   this.searchPlaceholder = 'Un condiment';
@@ -33,7 +32,6 @@ module('Integration | Component | PixSelect', function (hooks) {
       @label={{this.label}}
       @subLabel={{this.subLabel}}
       @placeholder={{this.placeholder}}
-      @id={{this.id}}
     />
   `);
 
@@ -43,7 +41,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   });
 
   module('listbox', function () {
-    test('it hide the dropdown unless there is a click on the button', async function (assert) {
+    test('it hides the dropdown unless there is a click on the button', async function (assert) {
       // given & when
       const screen = await render(hbs`
       <PixSelect
@@ -51,7 +49,6 @@ module('Integration | Component | PixSelect', function (hooks) {
         @label={{this.label}}
         @subLabel={{this.subLabel}}
         @placeholder={{this.placeholder}}
-        @id={{this.id}}
       />
       `);
 
@@ -67,7 +64,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -89,7 +85,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -114,7 +109,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -137,7 +131,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -164,7 +157,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -190,7 +182,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -216,7 +207,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -244,7 +234,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @onChange={{this.onChange}}
         />
       `);
@@ -274,7 +263,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
         />
       `);
 
@@ -293,24 +281,6 @@ module('Integration | Component | PixSelect', function (hooks) {
     });
   });
 
-  module('when there is no label', function () {
-    test('it does not display a label', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
-
-      // when
-      assert.throws(() => {
-        screen.getByText(this.label);
-      });
-    });
-  });
-
   module('#onChange', function () {
     test('it should trigger onChange function when an item is selected', async function (assert) {
       // given
@@ -321,7 +291,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @options={{this.options}}
           @label={{this.label}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @onChange={{this.onChange}}
         />
       `);
@@ -350,7 +319,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @options={{this.options}}
           @label={{this.label}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @onChange={{this.onChange}}
           @value={{this.value}}
         />
@@ -376,7 +344,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @options={{this.options}}
           @label={{this.label}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @onChange={{this.onChange}}
           @isSearchable={{this.isSearchable}}
         />
@@ -404,7 +371,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
@@ -426,7 +392,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
@@ -449,7 +414,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
@@ -472,7 +436,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
@@ -495,7 +458,6 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @id={{this.id}}
           @searchLabel={{this.searchLabel}}
           @searchPlaceholder={{this.searchPlaceholder}}
           @isSearchable={{this.isSearchable}}
@@ -517,7 +479,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         <PixSelect
           @className="some-custom-class"
           @options={{this.options}}
-          @labels={{this.labels}}
+          @label={{this.label}}
         />
       `);
 

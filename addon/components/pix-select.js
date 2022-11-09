@@ -12,6 +12,8 @@ export default class PixSelect extends Component {
   constructor(...args) {
     super(...args);
 
+    if (!this.args.label) throw new Error('ERROR in PixSelect, a label is required');
+
     const categories = [];
     this.args.options.forEach((element) => {
       if (
