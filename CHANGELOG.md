@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v20.2.2 (09/11/2022)
+
+
+### :building_construction: Tech
+- [#273](https://github.com/1024pix/pix-ui/pull/273) [TECH] Remplacer l'import d'`htmlSafe` depuis `ember/string` en `ember/template`
+
 ## v20.2.1 (28/10/2022)
 
 
