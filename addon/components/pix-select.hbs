@@ -36,6 +36,7 @@
     />
   </button>
   <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+    {{did-insert this.setButtonWidth}}>
     {{#if @isSearchable}}
       <div class="pix-select__search">
         <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />

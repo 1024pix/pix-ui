@@ -134,4 +134,11 @@ export default class PixSelect extends Component {
       event.preventDefault();
     }
   }
+
+  @action
+  setButtonWidth() {
+    const baseFontRemRatio = 16;
+    const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
+    document.getElementById(this.selectId).style.width = `${(1 / baseFontRemRatio) * listWidth}rem`;
+  }
 }
