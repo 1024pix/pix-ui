@@ -13,6 +13,18 @@ export default class PixSelect extends Component {
     super(...args);
 
     if (!this.args.label) throw new Error('ERROR in PixSelect, a label is required');
+
+    const categories = [];
+    this.args.options.forEach((element) => {
+      if (
+        !categories.find((category) => element.category === category) &&
+        element.category !== undefined
+      ) {
+        categories.push(element.category);
+      }
+    });
+
+    this.displayCategory = categories.length > 1;
   }
 
   get className() {

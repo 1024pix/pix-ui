@@ -66,6 +66,26 @@ Default.args = {
   onChange: action('onChange'),
 };
 
+export const WithCategories = Template.bind({});
+WithCategories.args = {
+  options: [
+    { value: '1', label: 'Figues', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '3', label: 'Noix', category: 'Autres' },
+    { value: '4', label: 'Papayes', category: 'Autres' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+      category: 'Autres',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  isSearchable: false,
+  onChange: action('onChange'),
+};
+
 export const WithSearch = Template.bind({});
 WithSearch.args = {
   options: [
@@ -77,6 +97,29 @@ WithSearch.args = {
     {
       value: '6',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  searchLabel: 'Mon label',
+  searchPlaceholder: 'Mon innerText',
+  isSearchable: true,
+  emptySearchMessage: 'Aucune option',
+  onChange: action('onChange'),
+};
+
+export const WithCategoriesAndSearch = Template.bind({});
+WithCategoriesAndSearch.args = {
+  options: [
+    { value: '1', label: 'Figues', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '5', label: 'Fèves de chocolat', category: 'Autres' },
+    { value: '6', label: 'Dattes', category: 'Autres' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+      category: 'Autres',
     },
   ],
   label: 'Mon label',

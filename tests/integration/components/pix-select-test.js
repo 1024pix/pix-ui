@@ -74,6 +74,52 @@ module('Integration | Component | PixSelect', function (hooks) {
     });
   });
 
+  module('category', function () {
+    test('it does not render category when 1 category available', async function (assert) {
+      // given
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+      // then
+      assert.dom(screen.queryByRole('group', { name: 'Kebab' })).doesNotExist();
+    });
+
+    test('it render category when at least 2 category available', async function (assert) {
+      // given
+      this.options = [
+        { value: '2', label: 'Tomate', category: 'Fruit' },
+        { value: '1', label: 'Salade', category: 'Autre' },
+        { value: '3', label: 'Oignon', category: 'Autre' },
+      ];
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.dom(screen.getByRole('group', { name: 'Fruit' })).exists();
+    });
+  });
+
   module('#onChange', function () {
     test('it should trigger onChange function when an item is selected', async function (assert) {
       // given
