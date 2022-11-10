@@ -1,70 +1,159 @@
 .pix-select {
-  @import 'reset-css';
-
+  display: inline-block;
   position: relative;
-
-  @mixin pixSelect {
-    appearance: none;
-    border: 1px $pix-neutral-40 solid;
-    border-radius: 4px;
-    color: $pix-neutral-90;
-    font-family: $font-roboto;
-    font-size: 0.875rem;
-    height: 36px;
-    width: 100%;
-    text-overflow: ellipsis;
-
-    @include hoverFormElement();
-    @include focusFormElement();
-    @include focusWithinFormElement();
-  }
-
-  select {
-    @include pixSelect;
-    padding: 0 32px 0 16px;
-
-    &.pix-select--big {
-      height: 44px;
-    }
-
-    &::-ms-expand {
-      display: none;
-    }
-  }
-
-  input {
-    @include pixSelect;
-    padding: 0 8px 0 16px;
-
-    &.pix-select--big {
-      height: 44px;
-    }
-
-    // Remove arrow for Chrome
-    &::-webkit-calendar-picker-indicator {
-      display: none;
-    }
-
-    &.pix-select--is-valid:focus,
-    &.pix-select--is-valid:focus-within {
-      border-color: $green;
-    }
-  }
-
-  &__icon {
-    font-size: 11px;
-    color: $pix-neutral-30;
-    right: 10px;
-    top: calc(50% - 6px);
-    position: absolute;
-    pointer-events: none;
-  }
 
   &__label {
     @include label();
   }
 
-  .pix-select__label ~ .pix-select__icon {
-    top: calc(50% + 6px);
+  &__sub-label {
+    @include subLabel();
+  }
+
+  &__dropdown {
+    z-index: 200;
+    background-color: $pix-neutral-0;
+    position: absolute;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
+    overflow-y: auto;
+    max-height: 200px;
+    list-style-type: none;
+    padding: 0;
+    box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
+    transition: all .1s ease-in-out;
+    white-space: nowrap;
+
+    &::-webkit-scrollbar {
+      width: 0.5rem;
+    }
+    &::-webkit-scrollbar-track {
+      border-radius: 4px;
+      border: 1px solid $pix-neutral-20;
+      background: $pix-neutral-20;
+    }
+    &::-webkit-scrollbar-thumb {
+      border-radius: 4px;
+      width: 0.375rem;
+      background: $pix-neutral-30;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: $pix-neutral-35;
+    }
+
+    &--closed {
+      visibility: hidden;
+      opacity: 0;
+    }
+  }
+
+  &__empty-search-message{
+    color: $pix-neutral-70;
+    text-align: center;
+  }
+
+  &__search {
+    display: flex;
+    border-bottom: 2px solid $pix-neutral-22;
+    font-size: 1rem;
+    margin: $spacing-s $spacing-m;
+    color: $pix-neutral-30;
+    border-radius: 4px 4px 0 0;
+
+    &:focus-within {
+      background: $pix-neutral-10;
+      border-bottom: 2px solid $pix-primary;
+    }
+
+    &__input {
+      border: none;
+      padding-left: $spacing-xs;
+      margin: $spacing-xxs $spacing-xxs;
+      &:focus {
+        outline: none;
+        background: $pix-neutral-10;
+      }
+    }
+
+    &__icon {
+      margin: $spacing-xxs $spacing-xxs;
+    }
+  }
+
+  &__options {
+    border-top: 1px solid $pix-neutral-20
+  }
+
+  &__error-message {
+    @include errorMessage();
+  }
+}
+
+.pix-select-button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: $font-roboto;
+  font-weight: $font-normal;
+  position: relative;
+  border: 1px $pix-neutral-45 solid;
+  padding: 0px $spacing-s 0px $spacing-s;
+  width: 100%;
+  background-color: $pix-neutral-0;
+  border-radius: 4px;
+  outline: none;
+  height: 2.25rem;
+  cursor: pointer;
+  color: $pix-neutral-90;
+  justify-content: space-between;
+
+  @include text-small();
+  @include hoverFormElement();
+  @include focusWithinFormElement();
+
+  &--error {
+    @include formElementInError();
+  }
+
+  &__dropdown-icon {
+    @include text-small();
+    color: $pix-neutral-60;
+    font-weight: $font-heavy;
+    pointer-events: none;
+  }
+}
+
+.pix-select-options__category {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.pix-select-options-category {
+  &__name {
+    @include text-small();
+    padding: $spacing-s $spacing-m $spacing-xs $spacing-m;
+    text-transform: uppercase;
+    font-family: $font-roboto;
+    color: $pix-neutral-45;
+  }
+
+  &__option {
+    @include text-small();
+    display: flex;
+    justify-content: space-between;
+    font-family: $font-roboto;
+    padding: $spacing-xs $spacing-m;
+    color: $pix-neutral-70;
+
+    &:hover, &:focus {
+      outline: none;
+      cursor: pointer;
+      background-color: $pix-neutral-10;
+    }
+
+    &--selected {
+      background-color: $pix-primary-5;
+    }
   }
 }

@@ -1,6 +1,7 @@
 @mixin hoverFormElement() {
   &:hover {
-    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-40;
+    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-70;
+    background-color: $pix-neutral-5;
   }
 }
 
@@ -24,14 +25,26 @@
   display: block;
   font-family: $font-roboto;
   font-size: 0.875rem;
-  color: $pix-neutral-70;
-  margin-bottom: 4px;
+  line-height: 1.375rem;
+  color: $pix-neutral-90;
+  margin-bottom: $spacing-xxs;
+  font-weight: $font-medium;
+}
+
+@mixin subLabel() {
+  @include label();
+
+  font-size: 0.813rem;
+  line-height: 1rem;
+  color: $pix-neutral-60;
+  font-weight: $font-normal;
 }
 
 @mixin errorMessage() {
   font-family: $font-roboto;
   font-size: 0.75rem;
   color: $pix-error-70;
+  margin-top: $spacing-xxs;
 }
 
 @mixin formElementInError() {
