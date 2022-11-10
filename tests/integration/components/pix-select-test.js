@@ -1,47 +1,56 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | select', function (hooks) {
   setupRenderingTest(hooks);
 
-  const DEFAULT_OPTIONS = [
+  this.options = [
     { value: '1', label: 'Salade' },
     { value: '2', label: 'Tomate' },
     { value: '3', label: 'Oignon' },
   ];
   const DEFAULT_ON_CHANGE = () => {};
   const SEARCHABLE_SELECT_SELECTOR = '.pix-select input';
-  const LABEL_SELECTOR = '.pix-select label';
 
-  test('it renders the PixSelect with given options', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = DEFAULT_ON_CHANGE;
-
-    // when
-    await render(hbs`
-      <PixSelect
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-      />
-    `);
+  test('it renders Select', async function (assert) {
+    // given & when
+    const screen = await render(hbs`
+    <PixSelect
+      @options={{this.options}}
+      @label={{this.label}}
+      @subLabel={{this.subLabel}}
+      @placeholder={{this.placeholder}}
+    />
+  `);
 
     // then
-    const options = this.element.querySelectorAll('option');
+    assert.dom(screen.getByText('Mon sous label')).exists();
+    assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
+  });
 
-    assert.equal(options.length, 3);
-    assert.equal(options.item(0).value, '1');
-    assert.equal(options.item(0).text, 'Salade');
+  module('#required', function () {
+    test('it displays the asterix', async function (assert) {
+      this.requiredLabel = 'Title requis';
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @requiredLabel={{this.requiredLabel}}
+        />
+      `);
+      assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
+    });
   });
 
   test('it renders the PixSelect with empty label option', async function (assert) {
     // given
-    this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
 
     // when
@@ -62,7 +71,6 @@ module('Integration | Component | select', function (hooks) {
 
   test('it renders the PixSelect with default value selected', async function (assert) {
     // given
-    this.options = DEFAULT_OPTIONS;
     this.onChange = DEFAULT_ON_CHANGE;
 
     // when
@@ -83,7 +91,6 @@ module('Integration | Component | select', function (hooks) {
 
   test('it should trigger onChange function when an item is selected', async function (assert) {
     // given
-    this.options = DEFAULT_OPTIONS;
     this.onChange = sinon.spy();
 
     await render(hbs`
@@ -105,7 +112,6 @@ module('Integration | Component | select', function (hooks) {
   module('searchable PixSelect', function () {
     test('it should be binded datalist element', async function (assert) {
       // given
-      this.options = DEFAULT_OPTIONS;
       this.isSearchable = true;
 
       // when
@@ -122,7 +128,6 @@ module('Integration | Component | select', function (hooks) {
 
     test('it should be searchable with given options', async function (assert) {
       // given
-      this.options = DEFAULT_OPTIONS;
       this.isSearchable = true;
 
       // when
@@ -138,7 +143,6 @@ module('Integration | Component | select', function (hooks) {
 
     test('it should keep autocomplete off even if pix select receive the "auto-complete=on" attribute', async function (assert) {
       // given
-      this.options = DEFAULT_OPTIONS;
       this.isSearchable = true;
 
       // when
@@ -154,7 +158,6 @@ module('Integration | Component | select', function (hooks) {
     module('green validation', function () {
       test('it should not have a green border', async function (assert) {
         // given
-        this.options = DEFAULT_OPTIONS;
         this.isSearchable = true;
 
         // when
@@ -172,7 +175,6 @@ module('Integration | Component | select', function (hooks) {
 
       test('it should have a green border when a valid option is selected and isGreenValidationActive argument is given', async function (assert) {
         // given
-        this.options = DEFAULT_OPTIONS;
         this.isSearchable = true;
         this.isValidationActive = true;
 
@@ -191,37 +193,5 @@ module('Integration | Component | select', function (hooks) {
         assert.dom('.pix-select--is-valid').exists();
       });
     });
-  });
-
-  test('it should be possible to give a label', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = DEFAULT_ON_CHANGE;
-    await render(hbs`
-      <PixSelect
-        @id="pix-select-with-label"
-        @label="Votre ville"
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-      />
-    `);
-
-    // when & then
-    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
-    assert.equal(selectorElement.innerHTML, 'Votre ville');
-  });
-
-  test('it should throw an error if no id is provided when there is a label', async function (assert) {
-    // given
-    const componentParams = { id: '   ', label: 'Votre ville', options: DEFAULT_OPTIONS };
-    const component = createGlimmerComponent('component:pix-select', componentParams);
-
-    // when & then
-    const expectedError = new Error(
-      'ERROR in PixSelect component, @id param is necessary when giving @label'
-    );
-    assert.throws(function () {
-      component.label;
-    }, expectedError);
   });
 });

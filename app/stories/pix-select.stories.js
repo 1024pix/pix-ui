@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 const Template = (args) => ({
   template: hbs`
       <PixSelect
-        @id={{id}}
         @options={{options}}
         @onChange={{onChange}}
         @selectedOption={{selectedOption}}
@@ -12,7 +11,10 @@ const Template = (args) => ({
         @emptyOptionNotSelectable={{emptyOptionNotSelectable}}
         @isSearchable={{isSearchable}}
         @isValidationActive={{isValidationActive}}
-        @label={{label}}
+        @label={{this.label}}
+        @subLabel={{this.subLabel}}
+        @requiredLabel={{this.requiredLabel}}
+        @screenReaderOnly={{this.screenReaderOnly}}
       />
     `,
   context: args,
@@ -34,14 +36,17 @@ Default.args = {
     { value: '11', label: 'Kaki' },
     { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
   ],
+  label: 'Mon label',
+  subLabel: 'Mon sous label',
   onChange: action('onChange'),
 };
 
 export const withLabel = Template.bind({});
 withLabel.args = {
   ...Default.args,
-  id: 'pix-select-with-label',
-  label: 'Ton fruit préféré: ',
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
 };
 
 export const searchableSelect = Template.bind({});
@@ -51,6 +56,8 @@ searchableSelect.args = {
   isSearchable: true,
   isValidationActive: true,
   placeholder: 'Fraises, Mangues...',
+  label: 'Mon label',
+  subLabel: 'Mon sous label',
 };
 
 export const argTypes = {
@@ -128,13 +135,38 @@ export const argTypes = {
       defaultValue: { summary: 'small' },
     },
   },
+  screenReaderOnly: {
+    name: 'screenReaderOnly',
+    description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+    control: { type: 'boolean' },
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
   label: {
     name: 'label',
-    description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',
+    description: 'Label du menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  subLabel: {
+    name: 'subLabel',
+    description: 'Sous Label explicatif du menu déroulant',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: null },
+    },
+  },
+  requiredLabel: {
+    name: 'requiredLabel',
+    description: "Affiche l'asterix au label et ajoute sa signification",
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
     },
   },
 };

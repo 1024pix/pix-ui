@@ -1,27 +1,20 @@
 import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class PixSelect extends Component {
+  selectId = 'select-' + guidFor(this);
   @tracked isValueAValidOption = false;
 
   constructor() {
     super(...arguments);
 
+    if (!this.args.label) throw new Error('ERROR in PixSelect, a label is required');
+
     if (this.args.isSearchable) {
       this.datalistId = 'pix-select-list-' + guidFor(this);
     }
-  }
-
-  get label() {
-    const labelIsDefined = this.args.label?.trim();
-    const idIsNotDefined = !this.args.id?.trim();
-
-    if (labelIsDefined && idIsNotDefined) {
-      throw new Error('ERROR in PixSelect component, @id param is necessary when giving @label');
-    }
-    return this.args.label || null;
   }
 
   get isBig() {

@@ -23,7 +23,7 @@ A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'in
 ## Default
 
 <Canvas>
-  <Story name="Select" story={stories.Default} height={100} />
+  <Story name='Default' story={stories.Default} height={200} />
 </Canvas>
 
 ## With label
@@ -49,9 +49,13 @@ A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'in
   @isSearchable={{false}}
   @isValidationActive={{false}}
   @emptyOptionNotSelectable={{false}}
+  @label={{label}}
+  @subLabel={{subLabel}}
+  @screenReaderOnly={{screenReaderOnly}}
+  @requiredLabel={{requiredLabel}}
 />
 ```
 
 ## Arguments
 
-<ArgsTable story="Select" />
+<ArgsTable story="Default" />
