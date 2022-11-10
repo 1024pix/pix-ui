@@ -5,17 +5,14 @@ import { guidFor } from '@ember/object/internals';
 
 export default class PixSelect extends Component {
   @tracked isExpanded = false;
+  @tracked searchData = null;
+  searchInputId = 'search-input-' + guidFor(this);
   selectId = 'select-' + guidFor(this);
-  @tracked isValueAValidOption = false;
 
   constructor(...args) {
     super(...args);
 
     if (!this.args.label) throw new Error('ERROR in PixSelect, a label is required');
-
-    if (this.args.isSearchable) {
-      this.datalistId = 'pix-select-list-' + guidFor(this);
-    }
   }
 
   get className() {
@@ -47,6 +44,29 @@ export default class PixSelect extends Component {
     return {
       value: '',
     };
+  }
+
+  get results() {
+    let results = [];
+    let options = this.args.options;
+
+    if (this.searchData) {
+      options = this.args.options.filter((option) =>
+        option.label.toLowerCase().includes(this.searchData.toLowerCase())
+      );
+    }
+
+    if (!this.displayCategory) return options;
+
+    options.forEach(({ category, value, label }) => {
+      const categoryIndex = results.findIndex((result) => result.category === category);
+      if (categoryIndex !== -1) {
+        results[categoryIndex].options.push({ value, label });
+      } else {
+        results.push({ category, options: [{ label, value }] });
+      }
+    });
+    return results;
   }
 
   @action
@@ -92,41 +112,14 @@ export default class PixSelect extends Component {
   }
 
   @action
+  filterOptions(event) {
+    this.searchData = event.target.value.trim();
+  }
+
+  @action
   lockTab(event) {
     if (event.code === 'Tab' && this.isExpanded) {
       event.preventDefault();
     }
   }
-
-  get isBig() {
-    return this.args.size === 'big';
-  }
-
-  get isValid() {
-    return this.args.isValidationActive && this.isValueAValidOption;
-  }
-
-  @action
-  onChangeOld(event) {
-    if (this.args.onChange) {
-      this.args.onChange(event);
-    }
-
-    if (!this.args.isSearchable || !this.args.options) {
-      return;
-    }
-
-    if (this.args.isValidationActive) {
-      this.isValueAValidOption = _checkIfValueIsAValidOption({
-        value: event.target.value,
-        options: this.args.options,
-      });
-    }
-  }
-}
-
-function _checkIfValueIsAValidOption({ value, options }) {
-  return value
-    ? options.some((option) => option.label.toLowerCase() === value.toLowerCase())
-    : false;
 }

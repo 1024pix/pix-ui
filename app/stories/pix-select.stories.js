@@ -4,18 +4,22 @@ import { action } from '@storybook/addon-actions';
 export const Template = (args) => {
   return {
     template: hbs`
-      <PixSelect
-        @className={{this.className}}
-        @options={{this.options}}
-        @isSearchable={{this.isSearchable}}
-        @onChange={{this.onChange}}
-        @label={{this.label}}
-        @placeholder={{this.placeholder}}
-        @subLabel={{this.subLabel}}
-        @value={{this.value}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @requiredLabel={{this.requiredLabel}}
-      />
+      </style>
+        <PixSelect
+          @className={{this.className}}
+          @options={{this.options}}
+          @isSearchable={{this.isSearchable}}
+          @onChange={{this.onChange}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @subLabel={{this.subLabel}}
+          @searchLabel={{this.searchLabel}}
+          @value={{this.value}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @screenReaderOnly={{this.screenReaderOnly}}
+          @emptySearchMessage={{this.emptySearchMessage}}
+          @requiredLabel={{this.requiredLabel}}
+        />
     `,
     context: args,
   };
@@ -62,15 +66,26 @@ Default.args = {
   onChange: action('onChange'),
 };
 
-export const searchableSelect = Template.bind({});
-searchableSelect.args = {
-  ...Default.args,
-  emptyOptionNotSelectable: false,
-  isSearchable: true,
-  isValidationActive: true,
+export const WithSearch = Template.bind({});
+WithSearch.args = {
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
+  searchLabel: 'Mon label',
+  searchPlaceholder: 'Mon innerText',
+  isSearchable: true,
+  emptySearchMessage: 'Aucune option',
   onChange: action('onChange'),
 };
 
@@ -78,8 +93,8 @@ export const argTypes = {
   options: {
     name: 'options',
     description:
-      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être que le champ puisse être cherchable',
-    type: { name: 'object', required: true },
+      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
+    type: { name: 'array', required: true },
   },
   value: {
     name: 'value',
@@ -105,38 +120,6 @@ export const argTypes = {
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
-    },
-  },
-  isValidationActive: {
-    name: 'isValidationActive',
-    description:
-      "Rend la bordure du champ vert au focus si la valeur de recherche match une option (c'est à dire si l'utilisateur a selectionné une option valable",
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  emptyOptionNotSelectable: {
-    name: 'emptyOptionNotSelectable',
-    description: 'Rend le premier champ qui est vide non visible une fois sélectionné',
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  size: {
-    name: 'size',
-    description:
-      '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
-    options: ['big', 'small'],
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'small' },
     },
   },
   screenReaderOnly: {

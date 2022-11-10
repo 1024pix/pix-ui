@@ -16,7 +16,9 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 
 > **⚠️** __Il est nécessaire d'avoir au moins un label ou un placeholder !__
 
-> Pour aider l'utilisateur avec le PixSelect cherchable, rajoutez un placeholder cohérent !
+> **⚠️** __N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !__
+
+> Pour aider l'utilisateur, rajoutez un placeholder cohérent !
 
 ## Default
 
@@ -30,10 +32,10 @@ Les options sont représentées par un tableau d'objet contenant les propriété
   <Story name='WithCustomClass' story={stories.WithCustomClass} height={200} />
 </Canvas>
 
-## Searchable
+## WithSearch
 
 <Canvas>
-  <Story name="SearchableSelect" story={stories.searchableSelect} height={110} />
+  <Story name='Select with search' story={stories.WithSearch} height={200} />
 </Canvas>
 
 ## Usage
@@ -48,7 +50,9 @@ Les options sont représentées par un tableau d'objet contenant les propriété
     @onChange={{onChange}}
     @value={{value}}
     @isSearchable={{isSearchable}}
-    @isValidationActive={{false}}
+    @searchLabel={{searchLabel}}
+    @searchPlaceholder={{searchPlaceholder}}
+    @emptySearchMessage={{emptySearchMessage}}
     @screenReaderOnly={{screenReaderOnly}}
     @requiredLabel={{requiredLabel}}
   />

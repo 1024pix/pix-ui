@@ -37,24 +37,21 @@
   </button>
   <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
     {{#if @isSearchable}}
-
-      <input
-        id={{this.selectId}}
-        list="{{this.datalistId}}"
-        {{on "input" this.onChangeOld}}
-        class="{{if this.isValid 'pix-select--is-valid'}} {{if this.isBig 'pix-select--big'}}"
-        ...attributes
-        autocomplete="off"
-      />
-
-      <datalist id={{this.datalistId}}>
-        {{#each @options as |opt|}}
-          <option label={{opt.label}}>{{opt.label}}</option>
-        {{/each}}
-      </datalist>
-
-    {{else}}
-      <div role="listbox" id={{this.listId}} class="pix-select__options">
+      <div class="pix-select__search">
+        <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
+        <label class="screen-reader-only" for={{this.searchInputId}}>{{@searchLabel}}</label>
+        <input
+          class="pix-select__search__input"
+          id={{this.searchInputId}}
+          autocomplete="off"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          placeholder={{@searchPlaceholder}}
+          {{on "input" this.filterOptions}}
+        />
+      </div>
+    {{/if}}
+    <div role="listbox" id={{this.listId}} class="pix-select__options">
+      {{#unless this.searchData}}
         <li
           class="pix-select-options-category__option{{unless
             @value
@@ -68,7 +65,30 @@
         >
           {{@placeholder}}
         </li>
-      </div>
-    {{/if}}
+      {{/unless}}
+      {{#if this.results}}
+        {{#each this.results as |option|}}
+          <li
+            class="pix-select-options-category__option{{if
+              (eq option.value @value)
+              ' pix-select-options-category__option--selected'
+            }}"
+            role="option"
+            tabindex={{if this.isExpanded "0" "-1"}}
+            aria-selected={{if (eq option.value @value) "true" "false"}}
+            {{on "click" (fn this.onChange option)}}
+            {{on-enter-action (fn this.onChange option)}}
+          >
+            {{option.label}}
+
+            {{#if (eq option.value @value)}}
+              <FaIcon @icon="check" />
+            {{/if}}
+          </li>
+        {{/each}}
+      {{else}}
+        <p class="pix-select__empty-search-message">{{@emptySearchMessage}}</p>
+      {{/if}}
+    </div>
   </div>
 </div>
