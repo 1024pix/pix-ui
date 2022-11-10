@@ -4,7 +4,6 @@ import { action } from '@storybook/addon-actions';
 export const Template = (args) => {
   return {
     template: hbs`
-      </style>
         <PixSelect
           @className={{this.className}}
           @options={{this.options}}
@@ -19,6 +18,7 @@ export const Template = (args) => {
           @screenReaderOnly={{this.screenReaderOnly}}
           @emptySearchMessage={{this.emptySearchMessage}}
           @requiredLabel={{this.requiredLabel}}
+          @errorMessage={{this.errorMessage}}
         />
     `,
     context: args,
@@ -234,6 +234,14 @@ export const argTypes = {
   requiredLabel: {
     name: 'requiredLabel',
     description: "Affiche l'asterix au label et ajoute sa signification",
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  errorMessage: {
+    name: 'errorMessage',
+    description: 'Message affiché si une erreur survient',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },

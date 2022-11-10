@@ -351,6 +351,23 @@ module('Integration | Component | PixSelect', function (hooks) {
     });
   });
 
+  module('#errorMesssage', function () {
+    test('it displays the error message', async function (assert) {
+      this.errorMessage = "Tu t'es trompé !";
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @errorMessage={{this.errorMessage}}
+        />
+      `);
+      assert.dom(screen.getByText("Tu t'es trompé !")).exists();
+    });
+  });
+
   module('#className', function () {
     test('it adds a custom class', async function (assert) {
       // given & when
