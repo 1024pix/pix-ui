@@ -1,52 +1,65 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
-const Template = (args) => ({
-  template: hbs`
+export const Template = (args) => {
+  return {
+    template: hbs`
       <PixSelect
-        @options={{options}}
-        @onChange={{onChange}}
-        @selectedOption={{selectedOption}}
-        @emptyOptionLabel={{emptyOptionLabel}}
-        @emptyOptionNotSelectable={{emptyOptionNotSelectable}}
-        @isSearchable={{isSearchable}}
-        @isValidationActive={{isValidationActive}}
+        @className={{this.className}}
+        @options={{this.options}}
+        @isSearchable={{this.isSearchable}}
+        @onChange={{this.onChange}}
         @label={{this.label}}
+        @placeholder={{this.placeholder}}
         @subLabel={{this.subLabel}}
-        @requiredLabel={{this.requiredLabel}}
+        @value={{this.value}}
         @screenReaderOnly={{this.screenReaderOnly}}
+        @requiredLabel={{this.requiredLabel}}
       />
     `,
-  context: args,
-});
+    context: args,
+  };
+};
+
+export const WithCustomClass = Template.bind({});
+WithCustomClass.args = {
+  className: 'custom',
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  isSearchable: false,
+  onChange: action('onChange'),
+};
 
 export const Default = Template.bind({});
 Default.args = {
   options: [
     { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
     { value: '2', label: 'Bananes' },
-    { value: '3', label: 'Noix' },
-    { value: '4', label: 'Papayes' },
-    { value: '5', label: 'Fèves de chocolat' },
-    { value: '6', label: 'Dattes' },
-    { value: '7', label: 'Mangues' },
-    { value: '8', label: 'Jujube' },
-    { value: '9', label: 'Avocat' },
-    { value: '10', label: 'Fraises' },
-    { value: '11', label: 'Kaki' },
-    { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
   ],
-  label: 'Mon label',
-  subLabel: 'Mon sous label',
-  onChange: action('onChange'),
-};
-
-export const withLabel = Template.bind({});
-withLabel.args = {
-  ...Default.args,
   label: 'Mon label',
   placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
+  isSearchable: false,
+  onChange: action('onChange'),
 };
 
 export const searchableSelect = Template.bind({});
@@ -55,9 +68,10 @@ searchableSelect.args = {
   emptyOptionNotSelectable: false,
   isSearchable: true,
   isValidationActive: true,
-  placeholder: 'Fraises, Mangues...',
   label: 'Mon label',
+  placeholder: 'Mon innerText',
   subLabel: 'Mon sous label',
+  onChange: action('onChange'),
 };
 
 export const argTypes = {
@@ -67,31 +81,21 @@ export const argTypes = {
       'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être que le champ puisse être cherchable',
     type: { name: 'object', required: true },
   },
-  onChange: {
-    name: 'onChange',
-    description: 'Fonction à appeler si une option est sélectionnée',
-    type: { required: true },
-    control: { disable: true },
-  },
-  selectedOption: {
-    name: 'selectedOption',
+  value: {
+    name: 'value',
     description: 'Option sélectionnée',
-    options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    options: ['1', '2', '3', '4', '5', '6'],
     control: { type: 'select' },
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: null },
     },
   },
-  emptyOptionLabel: {
-    name: 'emptyOptionLabel',
-    description: 'Texte à afficher si aucune option n‘est sélectionnée',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: null },
-    },
+  onChange: {
+    name: 'onChange',
+    description: 'Fonction à appeler quand une option est sélectionnée.',
+    type: { required: true },
+    control: { disable: true },
   },
   isSearchable: {
     name: 'isSearchable',
@@ -157,6 +161,46 @@ export const argTypes = {
     name: 'subLabel',
     description: 'Sous Label explicatif du menu déroulant',
     type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  placeholder: {
+    name: 'placeholder',
+    description: 'Placeholder du menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  className: {
+    name: 'className',
+    description: 'Cette classe css permet de surcharger le css par défaut du composant.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  searchLabel: {
+    name: 'searchLabel',
+    description: 'Label de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  searchPlaceholder: {
+    name: 'searchPlaceholder',
+    description: 'Placeholder de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  emptySearchMessage: {
+    name: 'emptySearchMessage',
+    description: "Message affiché si la recherche ne retourne pas d'options",
+    type: { name: 'string', required: true },
     table: {
       type: { summary: 'string' },
     },

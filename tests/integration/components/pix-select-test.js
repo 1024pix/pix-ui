@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
+import { click } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@1024pix/ember-testing-library';
+import { render, clickByName } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import fillInByLabel from '../../helpers/fill-in-by-label';
@@ -30,6 +31,95 @@ module('Integration | Component | select', function (hooks) {
     // then
     assert.dom(screen.getByText('Mon sous label')).exists();
     assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
+  });
+
+  module('listbox', function () {
+    test('it hides the dropdown unless there is a click on the button', async function (assert) {
+      // given & when
+      const screen = await render(hbs`
+      <PixSelect
+        @options={{this.options}}
+        @label={{this.label}}
+        @subLabel={{this.subLabel}}
+        @placeholder={{this.placeholder}}
+      />
+      `);
+
+      // then
+      assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
+    });
+
+    test('it opens the dropdown', async function (assert) {
+      // given
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+      // then
+      assert.dom(screen.getByRole('option', { name: 'Oignon' })).exists();
+    });
+  });
+
+  module('#onChange', function () {
+    test('it should trigger onChange function when an item is selected', async function (assert) {
+      // given
+      this.onChange = sinon.spy();
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @onChange={{this.onChange}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      await click(screen.getByRole('option', { name: 'Oignon' }));
+
+      // then
+      sinon.assert.calledWithMatch(this.onChange, '3');
+      assert.ok(this.onChange.called);
+    });
+  });
+
+  module('#value', function () {
+    test('it should mark the item as selected when there is a value', async function (assert) {
+      // given
+      this.onChange = sinon.spy();
+      this.value = '3';
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @onChange={{this.onChange}}
+          @value={{this.value}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
+    });
   });
 
   module('#required', function () {
@@ -67,46 +157,6 @@ module('Integration | Component | select', function (hooks) {
     assert.equal(options.length, 4);
     assert.equal(options.item(0).value, '');
     assert.equal(options.item(0).text, 'Empty label');
-  });
-
-  test('it renders the PixSelect with default value selected', async function (assert) {
-    // given
-    this.onChange = DEFAULT_ON_CHANGE;
-
-    // when
-    await render(hbs`
-      <PixSelect
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-        @selectedOption="2"
-      />
-    `);
-
-    // then
-    const options = this.element.querySelectorAll('option');
-    assert.true(options.item(1).selected);
-    assert.false(options.item(0).selected);
-    assert.false(options.item(2).selected);
-  });
-
-  test('it should trigger onChange function when an item is selected', async function (assert) {
-    // given
-    this.onChange = sinon.spy();
-
-    await render(hbs`
-      <PixSelect
-        @id="an-id"
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-        @label="Mon select"
-      />
-    `);
-
-    // when
-    await fillInByLabel('Mon select', '2');
-
-    // then
-    assert.ok(this.onChange.calledOnce, 'the callback should be called once');
   });
 
   module('searchable PixSelect', function () {
@@ -192,6 +242,22 @@ module('Integration | Component | select', function (hooks) {
         // then
         assert.dom('.pix-select--is-valid').exists();
       });
+    });
+  });
+
+  module('#className', function () {
+    test('it adds a custom class', async function (assert) {
+      // given & when
+      await render(hbs`
+        <PixSelect
+          @className="some-custom-class"
+          @options={{this.options}}
+          @label={{this.label}}
+        />
+      `);
+
+      // then
+      assert.dom('.some-custom-class').exists();
     });
   });
 });

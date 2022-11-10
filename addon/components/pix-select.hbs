@@ -1,5 +1,11 @@
 {{! template-lint-disable no-down-event-binding }}
-<div class="pix-select">
+<div
+  class="pix-select"
+  {{on-click-outside this.hideDropdown}}
+  {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
+  {{on-escape-action this.hideDropdown}}
+  {{on "keydown" this.lockTab}}
+>
   <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
     <label for={{this.selectId}} class="pix-select__label">
       {{#if @requiredLabel}}
@@ -13,53 +19,56 @@
     {{/if}}
   </div>
 
-  {{#if @isSearchable}}
+  <button
+    type="button"
+    id={{this.selectId}}
+    class="pix-select-button{{this.className}}"
+    {{on "click" this.toggleDropdown}}
+    aria-expanded={{this.isAriaExpanded}}
+    aria-controls={{this.listId}}
+    aria-required="{{if @requiredLabel 'true' 'false'}}"
+  >
+    {{this.placeholder}}
 
-    <input
-      id={{this.selectId}}
-      list="{{this.datalistId}}"
-      {{on "input" this.onChange}}
-      class="{{if this.isValid 'pix-select--is-valid'}} {{if this.isBig 'pix-select--big'}}"
-      ...attributes
-      autocomplete="off"
+    <FaIcon
+      class="pix-select-button__dropdown-icon"
+      @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
     />
+  </button>
+  <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+    {{#if @isSearchable}}
 
-    <datalist id={{this.datalistId}}>
-      {{#each @options as |opt|}}
-        <option label={{opt.label}}>{{opt.label}}</option>
-      {{/each}}
-    </datalist>
+      <input
+        id={{this.selectId}}
+        list="{{this.datalistId}}"
+        {{on "input" this.onChangeOld}}
+        class="{{if this.isValid 'pix-select--is-valid'}} {{if this.isBig 'pix-select--big'}}"
+        ...attributes
+        autocomplete="off"
+      />
 
-  {{else}}
+      <datalist id={{this.datalistId}}>
+        {{#each @options as |opt|}}
+          <option label={{opt.label}}>{{opt.label}}</option>
+        {{/each}}
+      </datalist>
 
-    <select
-      id={{@id}}
-      class="{{if this.isBig 'pix-select--big'}}"
-      {{on "change" this.onChange}}
-      ...attributes
-    >
-      {{#if (not-eq @emptyOptionLabel undefined)}}
-        {{#if @emptyOptionNotSelectable}}
-          <option value="" hidden>{{@emptyOptionLabel}}</option>
-        {{else}}
-          <option value="">{{@emptyOptionLabel}}</option>
-        {{/if}}
-      {{/if}}
-      {{#each @options as |opt|}}
-        {{#if (eq @selectedOption opt.value)}}
-          {{! https://github.com/emberjs/ember.js/issues/15484
-                ember-prop-modifier let us fix a bug about selected attribute in FireFox }}
-          <option value={{opt.value}} {{prop selected="true"}}>
-            {{opt.label}}
-          </option>
-        {{else}}
-          <option value={{opt.value}}>
-            {{opt.label}}
-          </option>
-        {{/if}}
-      {{/each}}
-    </select>
-    <FaIcon class="pix-select__icon" @icon="chevron-down" />
-
-  {{/if}}
+    {{else}}
+      <div role="listbox" id={{this.listId}} class="pix-select__options">
+        <li
+          class="pix-select-options-category__option{{unless
+            @value
+            ' pix-select-options-category__option--selected'
+          }}"
+          role="option"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          aria-selected={{if @value "false" "true"}}
+          {{on "click" (fn this.onChange this.defaultOption)}}
+          {{on-enter-action (fn this.onChange this.defaultOption)}}
+        >
+          {{@placeholder}}
+        </li>
+      </div>
+    {{/if}}
+  </div>
 </div>

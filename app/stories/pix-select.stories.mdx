@@ -5,18 +5,16 @@ import * as stories from './pix-select.stories.js';
 <Meta
   title='Form/Select'
   component='PixSelect'
-  decorators={[centered]}
   argTypes={stories.argTypes}
 />
 
 # Pix Select
 
-Affiche un champ Select avec la liste des options fournie.
+Affiche un menu déroulant avec la liste des options fournies.
 
 Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
 
-> **⚠️** __N'oubliez pas de rajouter un id et un label rattaché à l'input pour le rendre accessible !
-A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'input.__
+> **⚠️** __Il est nécessaire d'avoir au moins un label ou un placeholder !__
 
 > Pour aider l'utilisateur avec le PixSelect cherchable, rajoutez un placeholder cohérent !
 
@@ -26,10 +24,10 @@ A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'in
   <Story name='Default' story={stories.Default} height={200} />
 </Canvas>
 
-## With label
+## WithCustomClass
 
 <Canvas>
-  <Story story={stories.withLabel} height={100} />
+  <Story name='WithCustomClass' story={stories.WithCustomClass} height={200} />
 </Canvas>
 
 ## Searchable
@@ -41,19 +39,19 @@ A défaut d'avoir un label, vous pouvez rajouter l'attribut `aria-label` à l'in
 ## Usage
 
 ```html
-<PixSelect
-  @options={{options}}
-  @onChange={{onChange}}
-  @selectedOption="1"
-  @emptyOptionLabel="Empty option"
-  @isSearchable={{false}}
-  @isValidationActive={{false}}
-  @emptyOptionNotSelectable={{false}}
-  @label={{label}}
-  @subLabel={{subLabel}}
-  @screenReaderOnly={{screenReaderOnly}}
-  @requiredLabel={{requiredLabel}}
-/>
+  <PixSelect
+    @className={{className}}
+    @label={{label}}
+    @subLabel={{subLabel}}
+    @placeholder={{placeholder}}
+    @options={{options}}
+    @onChange={{onChange}}
+    @value={{value}}
+    @isSearchable={{isSearchable}}
+    @isValidationActive={{false}}
+    @screenReaderOnly={{screenReaderOnly}}
+    @requiredLabel={{requiredLabel}}
+  />
 ```
 
 ## Arguments
