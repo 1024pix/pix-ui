@@ -4,6 +4,14 @@ import { action } from '@storybook/addon-actions';
 export const Template = (args) => {
   return {
     template: hbs`
+      <style>
+        .custom {
+          border: 0;
+        }
+        .custom:hover {
+          border: 0;
+        }
+      </style>
         <PixSelect
           @className={{this.className}}
           @options={{this.options}}
