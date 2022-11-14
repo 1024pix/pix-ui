@@ -6,12 +6,9 @@
   justify-content: center;
   align-items: center;
 
-}
-
-.pix-tooltip--visible {
-  + .pix-tooltip__content {
+  &__trigger-element {
     display: block;
-    opacity: 1;
+    width: 100%;
   }
 }
 
@@ -30,6 +27,11 @@
   border-radius: 6px;
   line-height: 1.4rem;
   transition: opacity 0.3s;
+
+  &--visible {
+    display: block;
+    opacity: 1;
+  }
 
   &--inline {
     white-space: nowrap;

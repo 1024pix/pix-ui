@@ -7,7 +7,7 @@ import userEvent from '@testing-library/user-event';
 module('Integration | Component | pix-tooltip', function (hooks) {
   setupRenderingTest(hooks);
 
-  const TOOLTIP_SELECTOR = '.pix-tooltip span';
+  const TOOLTIP_SELECTOR = '.pix-tooltip__content';
   const text = 'Un texte à afficher au survol du contenu de la tooltip';
 
   test('it renders the tooltip text', async function (assert) {
