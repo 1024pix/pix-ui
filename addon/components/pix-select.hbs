@@ -35,8 +35,10 @@
       @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
     />
   </button>
-  <div class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
-    {{did-insert this.setButtonWidth}}>
+  <div
+    class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+    {{did-insert this.setButtonWidth}}
+  >
     {{#if @isSearchable}}
       <div class="pix-select__search">
         <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
@@ -55,9 +57,9 @@
       {{#unless this.searchData}}
         <li
           class="pix-select-options-category__option{{unless
-            @value
-            ' pix-select-options-category__option--selected'
-          }}"
+              @value
+              ' pix-select-options-category__option--selected'
+            }}"
           role="option"
           tabindex={{if this.isExpanded "0" "-1"}}
           aria-selected={{if @value "false" "true"}}
@@ -76,8 +78,8 @@
               aria-labelledby={{if this.displayCategory (concat "cat-" this.selectId "-" index)}}
             >
               {{#if this.displayCategory}}
-              {{! template-lint-disable no-invalid-role }}
-              {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
+                {{! template-lint-disable no-invalid-role }}
+                {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
                 <li
                   class="pix-select-options-category__name"
                   role="presentation"
@@ -90,9 +92,9 @@
               {{#each element.options as |option|}}
                 <li
                   class="pix-select-options-category__option{{if
-                    (eq option.value @value)
-                    ' pix-select-options-category__option--selected'
-                  }}"
+                      (eq option.value @value)
+                      ' pix-select-options-category__option--selected'
+                    }}"
                   role="option"
                   tabindex={{if this.isExpanded "0" "-1"}}
                   aria-selected={{if (eq option.value @value) "true" "false"}}
@@ -112,9 +114,9 @@
           {{#each this.results as |option|}}
             <li
               class="pix-select-options-category__option{{if
-                (eq option.value @value)
-                ' pix-select-options-category__option--selected'
-              }}"
+                  (eq option.value @value)
+                  ' pix-select-options-category__option--selected'
+                }}"
               role="option"
               tabindex={{if this.isExpanded "0" "-1"}}
               aria-selected={{if (eq option.value @value) "true" "false"}}
