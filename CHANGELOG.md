@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v20.2.3 (15/11/2022)
+
+
+### :bug: Correction
+- [#276](https://github.com/1024pix/pix-ui/pull/276) [BUGFIX] Corriger le rendu du composant tootltip dans des contextes flex (PIX-6314)
+
 ## v20.2.2 (09/11/2022)
 
 
