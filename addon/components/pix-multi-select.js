@@ -26,18 +26,18 @@ export default class PixMultiSelect extends Component {
 
   constructor(...args) {
     super(...args);
-    const { onLoadOptions, id, label, innerText } = this.args;
+    const { onLoadOptions, id, label, placeholder } = this.args;
 
     const idIsNotDefined = !id || !id.trim();
     const labelIsNotDefined = !label || !label.trim();
-    const innerTextIsNotDefined = !innerText || !innerText.trim();
+    const innerTextIsNotDefined = !placeholder || !placeholder.trim();
 
     if (idIsNotDefined || labelIsNotDefined || innerTextIsNotDefined) {
       const missingParams = [];
 
       if (idIsNotDefined) missingParams.push('@id');
       if (labelIsNotDefined) missingParams.push('@label');
-      if (innerTextIsNotDefined) missingParams.push('@innerText');
+      if (innerTextIsNotDefined) missingParams.push('@placeholder');
 
       throw new Error(
         `ERROR in PixMultiSelect component, ${missingParams.join(', ')} ${
@@ -76,8 +76,8 @@ export default class PixMultiSelect extends Component {
     return this.options;
   }
 
-  get innerText() {
-    const { values, innerText } = this.args;
+  get placeholder() {
+    const { values, placeholder } = this.args;
     if (values?.length > 0) {
       const selectedOptionLabels = this.options
         .filter((option) => {
@@ -88,7 +88,7 @@ export default class PixMultiSelect extends Component {
         .join(', ');
       return selectedOptionLabels;
     }
-    return innerText;
+    return placeholder;
   }
 
   _setDisplayedOptions(selected, shouldSort) {

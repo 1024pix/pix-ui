@@ -22,7 +22,7 @@ export const multiSelectWithChildComponent = (args) => {
       <PixMultiSelect
         @id={{this.id}}
         @label={{this.label}}
-        @innerText={{this.titleStars}}
+        @placeholder={{this.titleStars}}
         @screenReaderOnly={{this.screenReaderOnly}}
         
         @onChange={{this.onChange}}
@@ -61,7 +61,7 @@ export const multiSelectSearchable = (args) => {
         @id={{this.id}}
         @label={{this.label}}
         @screenReaderOnly={{this.screenReaderOnly}}
-        @innerText={{this.innerText}}
+        @placeholder={{this.placeholder}}
 
         @isSearchable={{this.isSearchable}}
         @strictSearch={{this.strictSearch}}
@@ -89,7 +89,7 @@ export const multiSelectAsyncOptions = (args) => {
         @id={{this.id}}
         @label={{this.label}}
         @screenReaderOnly={{this.screenReaderOnly}}
-        @innerText={{this.innerText}}
+        @placeholder={{this.placeholder}}
 
         @isSearchable={{this.isSearchable}}
         @strictSearch={{this.strictSearch}}
@@ -114,8 +114,8 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: 'aromate',
   },
-  innerText: {
-    name: 'innerText',
+  placeholder: {
+    name: 'placeholder',
     description:
       'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
     type: { name: 'string', required: true },
