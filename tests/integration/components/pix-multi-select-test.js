@@ -959,4 +959,36 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.equal(listElement2[2].labels[0].innerText.trim(), 'Oignon');
     });
   });
+
+  module('custom class name', function () {
+    test('it should use the added class name', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.onChange = () => {};
+      this.values = ['2', '3'];
+      this.emptyMessage = 'no result';
+      this.placeholder = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.className = 'custom';
+
+      // when
+      await render(hbs`
+        <PixMultiSelect
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @values={{this.values}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @isSearchable={{true}}
+          @className = {{this.className}}
+          @options={{this.options}} as |option|
+        >
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+      // then
+      assert.dom('.custom').exists();
+    });
+  });
 });

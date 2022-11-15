@@ -162,4 +162,9 @@ export default class PixMultiSelect extends Component {
       this._setDisplayedOptions(this.args.values, true);
     }
   }
+
+  get className() {
+    const { className } = this.args;
+    return ' ' + className;
+  }
 }

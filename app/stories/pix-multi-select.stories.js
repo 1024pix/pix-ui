@@ -24,10 +24,9 @@ export const multiSelectWithChildComponent = (args) => {
         @label={{this.label}}
         @placeholder={{this.titleStars}}
         @screenReaderOnly={{this.screenReaderOnly}}
-        
         @onChange={{this.onChange}}
         @emptyMessage={{this.emptyMessage}}
-        
+        @className={{this.className}}
         @options={{this.options}} as |star|
       >
         <PixStars
@@ -62,13 +61,11 @@ export const multiSelectSearchable = (args) => {
         @label={{this.label}}
         @screenReaderOnly={{this.screenReaderOnly}}
         @placeholder={{this.placeholder}}
-
         @isSearchable={{this.isSearchable}}
         @strictSearch={{this.strictSearch}}
-
         @onChange={{this.doSomething}}
         @values={{this.values}}
-
+        @className={{this.className}}
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|
       >
@@ -90,13 +87,42 @@ export const multiSelectAsyncOptions = (args) => {
         @label={{this.label}}
         @screenReaderOnly={{this.screenReaderOnly}}
         @placeholder={{this.placeholder}}
-
         @isSearchable={{this.isSearchable}}
         @strictSearch={{this.strictSearch}}
-
         @onChange={{this.doSomething}}
         @values={{this.values}}
+        @className={{this.className}}
+        @emptyMessage={{this.emptyMessage}}
+        @onLoadOptions={{this.onLoadOptions}} as |option|
+      >
+        {{option.label}}
+      </PixMultiSelect>
+    `,
+    context: args,
+  };
+};
 
+export const multiSelectWithCustomClass = (args) => {
+  args.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
+  return {
+    template: hbs`
+      <style>
+        .custom {
+          border : none;
+        }
+      </style>
+      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+      <PixMultiSelect
+        style="width:350px"
+        @id={{this.id}}
+        @label={{this.label}}
+        @screenReaderOnly={{this.screenReaderOnly}}
+        @placeholder={{this.placeholder}}
+        @isSearchable={{this.isSearchable}}
+        @strictSearch={{this.strictSearch}}
+        @onChange={{this.doSomething}}
+        @values={{this.values}}
+        @className="custom"
         @emptyMessage={{this.emptyMessage}}
         @onLoadOptions={{this.onLoadOptions}} as |option|
       >
@@ -184,5 +210,13 @@ export const argTypes = {
       'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
     defaultValue: false,
+  },
+  className: {
+    name: 'className',
+    description: 'Cette classe css permet de surcharger le css par défaut du composant.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
   },
 };
