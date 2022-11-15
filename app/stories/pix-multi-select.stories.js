@@ -67,7 +67,7 @@ export const multiSelectSearchable = (args) => {
         @strictSearch={{this.strictSearch}}
 
         @onChange={{this.doSomething}}
-        @selected={{this.selected}}
+        @values={{this.values}}
 
         @emptyMessage={{this.emptyMessage}}
         @options={{this.options}} as |option|
@@ -95,7 +95,7 @@ export const multiSelectAsyncOptions = (args) => {
         @strictSearch={{this.strictSearch}}
 
         @onChange={{this.doSomething}}
-        @selected={{this.selected}}
+        @values={{this.values}}
 
         @emptyMessage={{this.emptyMessage}}
         @onLoadOptions={{this.onLoadOptions}} as |option|
@@ -166,8 +166,8 @@ export const argTypes = {
     type: { required: true },
     defaultValue: action('onChange'),
   },
-  selected: {
-    name: 'selected',
+  values: {
+    name: 'values',
     description: 'Une pré-sélection peut être donnée au composant',
     type: { name: 'array', required: false },
     defaultValue: ['1', '4'],

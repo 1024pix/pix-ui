@@ -77,12 +77,12 @@ export default class PixMultiSelect extends Component {
   }
 
   get innerText() {
-    const { selected, innerText } = this.args;
-    if (selected?.length > 0) {
+    const { values, innerText } = this.args;
+    if (values?.length > 0) {
       const selectedOptionLabels = this.options
-        .filter(({ value, label }) => {
-          const hasOption = selected.includes(value);
-          return hasOption && Boolean(label);
+        .filter((option) => {
+          const hasOption = values.includes(option.value);
+          return hasOption && Boolean(option.label);
         })
         .map(({ label }) => label)
         .join(', ');
@@ -113,7 +113,7 @@ export default class PixMultiSelect extends Component {
 
   @action
   onSelect(event) {
-    let selected = [...(this.args.selected || [])];
+    let selected = [...(this.args.values || [])];
     if (event.target.checked) {
       selected.push(event.target.value);
     } else {
@@ -138,7 +138,7 @@ export default class PixMultiSelect extends Component {
   showDropDown() {
     if (this.isExpanded) return;
     this.isExpanded = true;
-    this._setDisplayedOptions(this.args.selected, true);
+    this._setDisplayedOptions(this.args.values, true);
   }
 
   @action
@@ -159,7 +159,7 @@ export default class PixMultiSelect extends Component {
       : removeCapitalizeAndDiacritics(event.target.value);
     this.isExpanded = true;
     if (!event.target.value) {
-      this._setDisplayedOptions(this.args.selected, true);
+      this._setDisplayedOptions(this.args.values, true);
     }
   }
 }
