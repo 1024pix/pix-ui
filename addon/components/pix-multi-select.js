@@ -120,8 +120,8 @@ export default class PixMultiSelect extends Component {
       selected = selected.filter((value) => value !== event.target.value);
     }
 
-    if (this.args.onSelect) {
-      this.args.onSelect(selected);
+    if (this.args.onChange) {
+      this.args.onChange(selected);
     }
   }
 

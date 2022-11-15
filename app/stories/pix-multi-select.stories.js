@@ -25,7 +25,7 @@ export const multiSelectWithChildComponent = (args) => {
         @innerText={{this.titleStars}}
         @screenReaderOnly={{this.screenReaderOnly}}
         
-        @onSelect={{this.onSelect}}
+        @onChange={{this.onChange}}
         @emptyMessage={{this.emptyMessage}}
         
         @options={{this.options}} as |star|
@@ -66,7 +66,7 @@ export const multiSelectSearchable = (args) => {
         @isSearchable={{this.isSearchable}}
         @strictSearch={{this.strictSearch}}
 
-        @onSelect={{this.doSomething}}
+        @onChange={{this.doSomething}}
         @selected={{this.selected}}
 
         @emptyMessage={{this.emptyMessage}}
@@ -94,7 +94,7 @@ export const multiSelectAsyncOptions = (args) => {
         @isSearchable={{this.isSearchable}}
         @strictSearch={{this.strictSearch}}
 
-        @onSelect={{this.doSomething}}
+        @onChange={{this.doSomething}}
         @selected={{this.selected}}
 
         @emptyMessage={{this.emptyMessage}}
@@ -160,11 +160,11 @@ export const argTypes = {
     type: { name: 'string', required: false },
     defaultValue: 'Chargement...',
   },
-  onSelect: {
-    name: 'onSelect',
+  onChange: {
+    name: 'onChange',
     description: "Une fonction permettant d'effectuer une action à chaque sélection",
     type: { required: true },
-    defaultValue: action('onSelect'),
+    defaultValue: action('onChange'),
   },
   selected: {
     name: 'selected',
