@@ -21,7 +21,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   this.placeholder = 'Choisissez une option';
   this.searchLabel = 'Rechercher';
   this.screenReaderOnly = 'Rechercher';
-  this.searchPlaceholder = 'Un condiment';
+  this.searchPlaceholder = 'Placeholder de la recherche';
   this.searchId = 'id-select-search-test';
 
   test('it renders Select', async function (assert) {
@@ -498,7 +498,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await clickByName('Mon menu déroulant');
 
       await screen.findByRole('listbox');
-      assert.dom(screen.getByPlaceholderText('Un condiment')).exists();
+      assert.dom(screen.getByPlaceholderText('Placeholder de la recherche')).exists();
     });
 
     test('when there is no options found it displays the empty search result message', async function (assert) {
