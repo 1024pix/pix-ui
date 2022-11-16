@@ -64,20 +64,6 @@
       background: $pix-neutral-10;
       border-bottom: 2px solid $pix-primary;
     }
-
-    &__input {
-      border: none;
-      padding-left: $spacing-xs;
-      margin: $spacing-xxs $spacing-xxs;
-      &:focus {
-        outline: none;
-        background: $pix-neutral-10;
-      }
-    }
-
-    &__icon {
-      margin: $spacing-xxs $spacing-xxs;
-    }
   }
 
   &__options {
@@ -155,5 +141,22 @@
     &--selected {
       background-color: $pix-primary-5;
     }
+  }
+}
+
+.pix-select-search {
+  &__input {
+    width: 100%;
+    border: none;
+    padding-left: $spacing-xs;
+    margin: $spacing-xxs $spacing-xxs;
+    &:focus {
+      outline: none;
+      background: $pix-neutral-10;
+    }
+  }
+
+  &__icon {
+    margin: $spacing-xxs $spacing-xxs;
   }
 }

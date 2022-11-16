@@ -41,10 +41,10 @@
   >
     {{#if @isSearchable}}
       <div class="pix-select__search">
-        <FaIcon class="pix-select__search__icon" @icon="magnifying-glass" />
+        <FaIcon class="pix-select-search__icon" @icon="magnifying-glass" />
         <label class="screen-reader-only" for={{this.searchInputId}}>{{@searchLabel}}</label>
         <input
-          class="pix-select__search__input"
+          class="pix-select-search__input"
           id={{this.searchInputId}}
           autocomplete="off"
           tabindex={{if this.isExpanded "0" "-1"}}
