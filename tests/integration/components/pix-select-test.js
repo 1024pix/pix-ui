@@ -279,6 +279,33 @@ module('Integration | Component | PixSelect', function (hooks) {
       assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
       assert.throws(screen.getByRole('listbox'));
     });
+
+    test('it should focus on the search input when tab is pressed', async function (assert) {
+      // given
+      this.searchLabel = 'Label du search';
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @isSearchable={{true}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+        />
+      `);
+
+      // when
+      screen.getByLabelText('Mon menu déroulant').focus();
+
+      await userEvent.keyboard('[ArrowDown]');
+
+      await screen.findByRole('listbox');
+
+      await userEvent.keyboard('[Tab]');
+
+      // then
+      assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
+    });
   });
 
   module('#onChange', function () {
