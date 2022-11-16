@@ -22,7 +22,7 @@
   <button
     type="button"
     id={{this.selectId}}
-    class="pix-select-button{{this.className}}"
+    class={{this.className}}
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
     aria-controls={{this.listId}}

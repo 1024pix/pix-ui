@@ -28,12 +28,12 @@ export default class PixSelect extends Component {
   }
 
   get className() {
-    const classes = [];
+    const classes = ['pix-select-button'];
     if (this.args.className) {
-      classes.push(` ${this.args.className}`);
+      classes.push(this.args.className);
     }
     if (this.args.errorMessage) {
-      classes.push(' pix-select-button--error');
+      classes.push('pix-select-button--error');
     }
     return classes.join(' ');
   }
