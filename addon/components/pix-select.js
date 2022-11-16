@@ -6,7 +6,7 @@ import { guidFor } from '@ember/object/internals';
 export default class PixSelect extends Component {
   @tracked isExpanded = false;
   @tracked searchValue = null;
-  searchInputId = 'search-input-' + guidFor(this);
+  searchId = 'search-input-' + guidFor(this);
   selectId = 'select-' + guidFor(this);
 
   constructor(...args) {
@@ -123,7 +123,7 @@ export default class PixSelect extends Component {
   lockTab(event) {
     if (event.code === 'Tab' && this.isExpanded) {
       event.preventDefault();
-      document.getElementById(this.searchInputId).focus();
+      document.getElementById(this.searchId).focus();
     }
   }
 
