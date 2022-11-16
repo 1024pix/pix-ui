@@ -16,10 +16,7 @@ export default class PixSelect extends Component {
 
     const categories = [];
     this.args.options.forEach((element) => {
-      if (
-        !categories.find((category) => element.category === category) &&
-        element.category !== undefined
-      ) {
+      if (!categories.includes(element.category) && element.category !== undefined) {
         categories.push(element.category);
       }
     });
