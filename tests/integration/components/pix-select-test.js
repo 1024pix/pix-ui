@@ -497,7 +497,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
   module('#required', function () {
     test('it displays the asterix', async function (assert) {
-      this.requiredLabel = 'Title requis';
+      this.requiredText = 'Title requis';
 
       const screen = await render(hbs`
         <PixSelect
@@ -505,7 +505,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           @label={{this.label}}
           @subLabel={{this.subLabel}}
           @placeholder={{this.placeholder}}
-          @requiredLabel={{this.requiredLabel}}
+          @requiredText={{this.requiredText}}
         />
       `);
       assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();

@@ -25,7 +25,7 @@ export const Template = (args) => {
           @searchPlaceholder={{this.searchPlaceholder}}
           @screenReaderOnly={{this.screenReaderOnly}}
           @emptySearchMessage={{this.emptySearchMessage}}
-          @requiredLabel={{this.requiredLabel}}
+          @requiredText={{this.requiredText}}
           @errorMessage={{this.errorMessage}}
         />
     `,
@@ -239,8 +239,8 @@ export const argTypes = {
       type: { summary: 'string' },
     },
   },
-  requiredLabel: {
-    name: 'requiredLabel',
+  requiredText: {
+    name: 'requiredText',
     description: "Affiche l'asterix au label et ajoute sa signification",
     type: { name: 'string', required: false },
     table: {
