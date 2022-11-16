@@ -83,34 +83,25 @@ export default class PixSelect extends Component {
 
   @action
   toggleDropdown(event) {
-    if (event) {
-      event.stopPropagation();
-      event.preventDefault();
+    if (this.isExpanded) {
+      this.hideDropdown(event);
+    } else {
+      this.showDropdown(event);
     }
-
-    this.isExpanded = !this.isExpanded;
   }
 
   @action
   showDropdown(event) {
-    if (this.isExpanded) return;
-
-    if (event) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
+    event.stopPropagation();
+    event.preventDefault();
 
     this.isExpanded = true;
   }
 
   @action
   hideDropdown(event) {
-    if (!this.isExpanded) return;
-
-    if (event) {
-      event.stopPropagation();
-      event.preventDefault();
-    }
+    event.stopPropagation();
+    event.preventDefault();
 
     this.isExpanded = false;
   }

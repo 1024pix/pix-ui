@@ -26,7 +26,7 @@
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
     aria-controls={{this.listId}}
-    aria-required="{{if @requiredText 'true' 'false'}}"
+    aria-required={{if @requiredText "true" "false"}}
   >
     {{this.placeholder}}
 
