@@ -21,7 +21,7 @@ export default class PixSelect extends Component {
       }
     });
 
-    this.displayCategory = categories.length > 1;
+    this.displayCategory = categories.length > 0;
   }
 
   get className() {

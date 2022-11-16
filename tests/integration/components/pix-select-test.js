@@ -77,26 +77,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   });
 
   module('category', function () {
-    test('it does not render category when 1 category available', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
-
-      // when
-      await clickByName('Mon menu déroulant');
-
-      await screen.findByRole('listbox');
-      // then
-      assert.dom(screen.queryByRole('group', { name: 'Kebab' })).doesNotExist();
-    });
-
-    test('it render category when at least 2 category available', async function (assert) {
+    test('it render categories when there are categories', async function (assert) {
       // given
       this.options = [
         { value: '2', label: 'Tomate', category: 'Fruit' },
