@@ -49,7 +49,7 @@
           autocomplete="off"
           tabindex={{if this.isExpanded "0" "-1"}}
           placeholder={{@searchPlaceholder}}
-          {{on "input" this.filterOptions}}
+          {{on "input" this.setSearchValue}}
         />
       </div>
     {{/if}}

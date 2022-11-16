@@ -115,7 +115,7 @@ export default class PixSelect extends Component {
   }
 
   @action
-  filterOptions(event) {
+  setSearchValue(event) {
     this.searchValue = event.target.value.trim();
   }
 
