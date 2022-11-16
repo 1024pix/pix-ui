@@ -430,7 +430,10 @@ module('Integration | Component | PixSelect', function (hooks) {
       await fillByLabel('Rechercher', 'Sal');
 
       await screen.findByRole('listbox');
-      assert.equal(screen.queryAllByRole('option').length, 1);
+
+      const filteredOptions = screen.queryAllByRole('option');
+      assert.equal(filteredOptions.length, 1);
+      assert.equal(filteredOptions[0].innerText, 'Salade');
     });
 
     test('should filter without taking care of the case', async function (assert) {
