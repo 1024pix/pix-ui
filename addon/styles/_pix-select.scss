@@ -12,7 +12,6 @@
 
   &__dropdown {
     z-index: 200;
-    background-color: $pix-neutral-0;
     position: absolute;
     border-top: none;
     border-radius: 0 0 4px 4px;
@@ -20,8 +19,9 @@
     max-height: 200px;
     list-style-type: none;
     padding: 0;
+    background-color: $pix-neutral-0;
     box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
-    transition: all 0.1s ease-in-out;
+    transition: all .1s ease-in-out;
     white-space: nowrap;
 
     &::-webkit-scrollbar {
@@ -155,7 +155,7 @@
     width: 100%;
     border: none;
     padding-left: $spacing-xs;
-    margin: $spacing-xxs $spacing-xxs;
+    margin: $spacing-xxs;
     &:focus {
       outline: none;
       background: $pix-neutral-10;
@@ -163,6 +163,6 @@
   }
 
   &__icon {
-    margin: $spacing-xxs $spacing-xxs;
+    margin: $spacing-xxs;
   }
 }
