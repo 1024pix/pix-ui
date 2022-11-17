@@ -6,7 +6,6 @@ import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
 import { fireEvent } from '@testing-library/dom';
-import { AddContext } from '@storybook/addon-docs';
 
 module('Integration | Component | PixSelect', function (hooks) {
   setupRenderingTest(hooks);
@@ -252,18 +251,17 @@ module('Integration | Component | PixSelect', function (hooks) {
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
 
-        await userEvent.keyboard('[ArrowDown]');
+        await userEvent.keyboard('[Space]');
 
         await screen.findByRole('listbox');
 
-        fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
+        await screen.getByText('Tomate').focus();
 
         await userEvent.keyboard('[Enter]');
 
         // then
-        assert.ok(this.onChange.calledOnce, 'the callback should be called once');
+        sinon.assert.calledWith(this.onChange, '2');
         assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
-        assert.throws(screen.getByRole('listbox'));
       });
 
       test('it should focus on the search input when tab is pressed', async function (assert) {
