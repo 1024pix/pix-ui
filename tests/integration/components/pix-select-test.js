@@ -74,6 +74,27 @@ module('Integration | Component | PixSelect', function (hooks) {
       // then
       assert.dom(screen.getByRole('option', { name: 'Oignon' })).exists();
     });
+
+    test('it hides default option', async function (assert) {
+      // given
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @hideDefaultOption={{true}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.equal(screen.queryByRole('option', { name: this.placeholder }), null);
+    });
   });
 
   module('category', function () {

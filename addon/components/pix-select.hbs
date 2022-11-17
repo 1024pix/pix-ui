@@ -54,7 +54,7 @@
       </div>
     {{/if}}
     <div role="listbox" id={{this.listId}} class="pix-select__options">
-      {{#unless this.searchValue}}
+      {{#if this.displayDefaultOption}}
         <li
           class="pix-select-options-category__option{{unless
               @value
@@ -68,7 +68,7 @@
         >
           {{@placeholder}}
         </li>
-      {{/unless}}
+      {{/if}}
       {{#if this.results}}
         {{#if this.displayCategory}}
           {{#each this.results as |element index|}}

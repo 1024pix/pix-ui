@@ -19,6 +19,7 @@ export const Template = (args) => {
           @onChange={{this.onChange}}
           @label={{this.label}}
           @placeholder={{this.placeholder}}
+          @hideDefaultOption={{this.hideDefaultOption}}
           @subLabel={{this.subLabel}}
           @searchLabel={{this.searchLabel}}
           @value={{this.value}}
@@ -201,10 +202,19 @@ export const argTypes = {
   },
   placeholder: {
     name: 'placeholder',
-    description: 'Placeholder du menu déroulant',
+    description: "Placeholder du menu déroulant. Il sert aussi de label pour l'option par défaut",
     type: { name: 'string', required: true },
     table: {
       type: { summary: 'string' },
+    },
+  },
+  hideDefaultOption: {
+    name: 'hideDefaultOption',
+    description: "Cache l'option par défaut",
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
     },
   },
   className: {

@@ -24,6 +24,10 @@ export default class PixSelect extends Component {
     this.displayCategory = categories.length > 0;
   }
 
+  get displayDefaultOption() {
+    return !this.searchValue && !this.args.hideDefaultOption;
+  }
+
   get className() {
     const classes = ['pix-select-button'];
     if (this.args.className) {
