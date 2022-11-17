@@ -100,6 +100,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       // then
       assert.dom(screen.getByRole('group', { name: 'Fruit' })).exists();
+      assert.dom(screen.getByRole('group', { name: 'Autre' })).exists();
     });
   });
 
