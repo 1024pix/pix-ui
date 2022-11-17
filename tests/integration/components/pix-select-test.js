@@ -6,6 +6,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
 import { fireEvent } from '@testing-library/dom';
+import { AddContext } from '@storybook/addon-docs';
 
 module('Integration | Component | PixSelect', function (hooks) {
   setupRenderingTest(hooks);
@@ -105,188 +106,192 @@ module('Integration | Component | PixSelect', function (hooks) {
   });
 
   module('a11y', function () {
-    test('it should display list, focus first element on arrow down press', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+    module('closed dropdown', function () {
+      test('it should display list, focus first element on arrow down press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
 
-      // when
-      await screen.getByLabelText('Mon menu déroulant').focus();
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
 
-      await userEvent.keyboard('[ArrowDown]');
+        await userEvent.keyboard('[ArrowDown]');
 
-      await screen.findByRole('listbox');
+        await screen.findByRole('listbox');
 
-      fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
+        fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
 
-      const options = screen.queryAllByRole('option');
+        const options = screen.queryAllByRole('option');
 
-      // then
-      assert.equal(document.activeElement, options[0]);
+        // then
+        assert.equal(document.activeElement, options[0]);
+      });
+
+      test('it should display list, focus last element on arrow up press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowUp]');
+
+        await screen.findByRole('listbox');
+
+        fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
+
+        const options = screen.queryAllByRole('option');
+        // then
+        assert.equal(document.activeElement, options[options.length - 1]);
+      });
     });
 
-    test('it should display list, focus last element on arrow up press', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+    module('opened dropdown', function () {
+      test('it should focus first element on arrow down press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
 
-      // when
-      await screen.getByLabelText('Mon menu déroulant').focus();
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
 
-      await userEvent.keyboard('[ArrowUp]');
+        await userEvent.keyboard('[Enter]');
 
-      await screen.findByRole('listbox');
+        await screen.findByRole('listbox');
 
-      fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
+        await userEvent.keyboard('[ArrowDown]');
 
-      const options = screen.queryAllByRole('option');
-      // then
-      assert.equal(document.activeElement, options[options.length - 1]);
-    });
+        const option = screen.getByRole('option', { name: 'Choisissez une option' });
+        // then
+        assert.equal(document.activeElement, option);
+      });
 
-    test('it should focus first element on arrow down press', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+      test('it should focus last element on arrow up press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
 
-      // when
-      await screen.getByLabelText('Mon menu déroulant').focus();
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
 
-      await userEvent.keyboard('[Enter]');
+        await userEvent.keyboard('[Enter]');
 
-      await screen.findByRole('listbox');
+        await screen.findByRole('listbox');
 
-      await userEvent.keyboard('[ArrowDown]');
+        await userEvent.keyboard('[ArrowUp]');
 
-      const option = screen.getByRole('option', { name: 'Choisissez une option' });
-      // then
-      assert.equal(document.activeElement, option);
-    });
+        const option = screen.getByRole('option', { name: 'Oignon' });
+        // then
+        assert.equal(document.activeElement, option);
+      });
 
-    test('it should focus last element on arrow up press', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+      test('it should close menu on escape press, focus select element', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
 
-      // when
-      await screen.getByLabelText('Mon menu déroulant').focus();
+        // when
+        screen.getByLabelText('Mon menu déroulant').focus();
 
-      await userEvent.keyboard('[Enter]');
+        await userEvent.keyboard('[ArrowDown]');
 
-      await screen.findByRole('listbox');
+        await screen.findByRole('listbox');
 
-      await userEvent.keyboard('[ArrowUp]');
+        await userEvent.keyboard('[Escape]');
 
-      const option = screen.getByRole('option', { name: 'Oignon' });
-      // then
-      assert.equal(document.activeElement, option);
-    });
+        // then
+        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        assert.throws(screen.getByRole('listbox'));
+      });
 
-    test('it should call on select on enter press', async function (assert) {
-      // given
-      this.onChange = sinon.spy();
+      test('it should call on select on enter press', async function (assert) {
+        // given
+        this.onChange = sinon.spy();
 
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @onChange={{this.onChange}}
-        />
-      `);
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @onChange={{this.onChange}}
+          />
+        `);
 
-      // when
-      await screen.getByLabelText('Mon menu déroulant').focus();
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
 
-      await userEvent.keyboard('[ArrowDown]');
+        await userEvent.keyboard('[ArrowDown]');
 
-      await screen.findByRole('listbox');
+        await screen.findByRole('listbox');
 
-      fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
+        fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
 
-      await userEvent.keyboard('[Enter]');
+        await userEvent.keyboard('[Enter]');
 
-      // then
-      assert.ok(this.onChange.calledOnce, 'the callback should be called once');
-      assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
-      assert.throws(screen.getByRole('listbox'));
-    });
+        // then
+        assert.ok(this.onChange.calledOnce, 'the callback should be called once');
+        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        assert.throws(screen.getByRole('listbox'));
+      });
 
-    test('it should close menu on escape press, focus select element', async function (assert) {
-      // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+      test('it should focus on the search input when tab is pressed', async function (assert) {
+        // given
+        this.searchLabel = 'Label du search';
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @isSearchable={{true}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @searchLabel={{this.searchLabel}}
+          />
+        `);
 
-      // when
-      screen.getByLabelText('Mon menu déroulant').focus();
+        // when
+        screen.getByLabelText('Mon menu déroulant').focus();
 
-      await userEvent.keyboard('[ArrowDown]');
+        await userEvent.keyboard('[ArrowDown]');
 
-      await screen.findByRole('listbox');
+        await screen.findByRole('listbox');
 
-      await userEvent.keyboard('[Escape]');
+        await userEvent.keyboard('[Tab]');
 
-      // then
-      assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
-      assert.throws(screen.getByRole('listbox'));
-    });
-
-    test('it should focus on the search input when tab is pressed', async function (assert) {
-      // given
-      this.searchLabel = 'Label du search';
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @isSearchable={{true}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-        />
-      `);
-
-      // when
-      screen.getByLabelText('Mon menu déroulant').focus();
-
-      await userEvent.keyboard('[ArrowDown]');
-
-      await screen.findByRole('listbox');
-
-      await userEvent.keyboard('[Tab]');
-
-      // then
-      assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
+        // then
+        assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
+      });
     });
   });
 
