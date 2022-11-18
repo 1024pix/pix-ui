@@ -38,6 +38,7 @@
   <div
     class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
     {{did-insert this.setButtonWidth}}
+    id={{this.dropDownId}}
   >
     {{#if @isSearchable}}
       <div class="pix-select__search">

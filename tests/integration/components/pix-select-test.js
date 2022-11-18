@@ -22,7 +22,6 @@ module('Integration | Component | PixSelect', function (hooks) {
   this.searchLabel = 'Rechercher';
   this.screenReaderOnly = 'Rechercher';
   this.searchPlaceholder = 'Placeholder de la recherche';
-  this.searchId = 'id-select-search-test';
 
   test('it renders Select', async function (assert) {
     // given & when
@@ -415,6 +414,27 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       await screen.findByRole('listbox');
       assert.dom(screen.getByLabelText('Rechercher')).exists();
+    });
+
+    test('should focus on search input', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await screen.findByRole('listbox');
+      fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+      assert.dom(screen.getByLabelText('Rechercher')).isFocused();
     });
 
     test('should filter the option corresponding to the string', async function (assert) {

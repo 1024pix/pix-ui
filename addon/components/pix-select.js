@@ -47,6 +47,10 @@ export default class PixSelect extends Component {
     return `listbox-${this.selectId}`;
   }
 
+  get dropDownId() {
+    return `dropdown-${this.selectId}`;
+  }
+
   get placeholder() {
     if (!this.args.value) return this.args.placeholder;
     const option = this.args.options.find((option) => option.value === this.args.value);
@@ -91,14 +95,31 @@ export default class PixSelect extends Component {
     }
   }
 
+  focusOnSearch() {
+    return () => {
+      document.getElementById(this.searchId).focus();
+    };
+  }
+
+  manageFocusAfterTransition() {
+    const elementById = document.getElementById(this.dropDownId);
+
+    elementById.addEventListener('transitionend', this.focusOnSearch());
+
+    return () => elementById.removeEventListener('transitionend', this.focusOnSearch());
+  }
+
   @action
   showDropdown(event) {
     event.stopPropagation();
     event.preventDefault();
 
+    if (this.args.isSearchable) {
+      this.manageFocusAfterTransition();
+    }
+
     this.isExpanded = true;
   }
-
   @action
   hideDropdown(event) {
     event.stopPropagation();
