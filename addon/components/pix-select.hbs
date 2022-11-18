@@ -1,9 +1,11 @@
 {{! template-lint-disable no-down-event-binding }}
 <div
   class="pix-select"
+  id="container-{{selectId}}"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
   {{on-escape-action this.hideDropdown}}
+  {{did-insert this.setButtonWidth}}
   {{on "keydown" this.lockTab}}
 >
   <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
@@ -37,7 +39,6 @@
   </button>
   <div
     class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
-    {{did-insert this.setButtonWidth}}
     id={{this.dropDownId}}
   >
     {{#if @isSearchable}}
