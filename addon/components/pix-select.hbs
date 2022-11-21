@@ -1,56 +1,144 @@
-<div class="pix-select">
-
-  {{#if this.label}}
-    <label for={{@id}} class="pix-select__label">{{this.label}}</label>
-  {{/if}}
-
-  {{#if @isSearchable}}
-
-    <input
-      id={{@id}}
-      list="{{this.datalistId}}"
-      {{on "input" this.onChange}}
-      class="{{if this.isValid 'pix-select--is-valid'}} {{if this.isBig 'pix-select--big'}}"
-      ...attributes
-      autocomplete="off"
-    />
-
-    <datalist id={{this.datalistId}}>
-      {{#each @options as |opt|}}
-        <option label={{opt.label}}>{{opt.label}}</option>
-      {{/each}}
-    </datalist>
-
-  {{else}}
-
-    <select
-      id={{@id}}
-      class="{{if this.isBig 'pix-select--big'}}"
-      {{on "change" this.onChange}}
-      ...attributes
-    >
-      {{#if (not-eq @emptyOptionLabel undefined)}}
-        {{#if @emptyOptionNotSelectable}}
-          <option value="" hidden>{{@emptyOptionLabel}}</option>
-        {{else}}
-          <option value="">{{@emptyOptionLabel}}</option>
-        {{/if}}
+{{! template-lint-disable no-down-event-binding }}
+<div
+  class="pix-select"
+  id="container-{{this.selectId}}"
+  {{on-click-outside this.hideDropdown}}
+  {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
+  {{on-escape-action this.hideDropdown}}
+  {{did-insert this.setSelectWidth}}
+  {{on "keydown" this.lockTab}}
+>
+  <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
+    <label for={{this.selectId}} class="pix-select__label">
+      {{#if @requiredText}}
+        <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
       {{/if}}
-      {{#each @options as |opt|}}
-        {{#if (eq @selectedOption opt.value)}}
-          {{! https://github.com/emberjs/ember.js/issues/15484
-                ember-prop-modifier let us fix a bug about selected attribute in FireFox }}
-          <option value={{opt.value}} {{prop selected="true"}}>
-            {{opt.label}}
-          </option>
-        {{else}}
-          <option value={{opt.value}}>
-            {{opt.label}}
-          </option>
-        {{/if}}
-      {{/each}}
-    </select>
-    <FaIcon class="pix-select__icon" @icon="chevron-down" />
+      {{@label}}
+    </label>
 
+    {{#if @subLabel}}
+      <span class="pix-select__sub-label">{{@subLabel}}</span>
+    {{/if}}
+  </div>
+
+  <button
+    type="button"
+    id={{this.selectId}}
+    class={{this.className}}
+    {{on "click" this.toggleDropdown}}
+    aria-expanded={{this.isAriaExpanded}}
+    aria-controls={{this.listId}}
+    aria-required={{if @requiredText "true" "false"}}
+  >
+    {{this.placeholder}}
+
+    <FaIcon
+      class="pix-select-button__dropdown-icon"
+      @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+    />
+  </button>
+  <div
+    class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+    id={{this.dropDownId}}
+    {{on "transitionend" this.focus}}
+  >
+    {{#if @isSearchable}}
+      <div class="pix-select__search">
+        <FaIcon class="pix-select-search__icon" @icon="magnifying-glass" />
+        <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
+        <input
+          class="pix-select-search__input"
+          id={{this.searchId}}
+          autocomplete="off"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          placeholder={{@searchPlaceholder}}
+          {{on "input" this.setSearchValue}}
+        />
+      </div>
+    {{/if}}
+    <div role="listbox" id={{this.listId}} class="pix-select__options">
+      {{#if this.displayDefaultOption}}
+        <li
+          class="pix-select-options-category__option{{unless
+              @value
+              ' pix-select-options-category__option--selected'
+            }}"
+          role="option"
+          tabindex={{if this.isExpanded "0" "-1"}}
+          aria-selected={{if @value "false" "true"}}
+          {{on "click" (fn this.onChange this.defaultOption)}}
+          {{on-enter-action (fn this.onChange this.defaultOption)}}
+          {{on-space-action (fn this.onChange this.defaultOption)}}
+        >
+          {{@placeholder}}
+        </li>
+      {{/if}}
+      {{#if this.results}}
+        {{#if this.displayCategory}}
+          {{#each this.results as |element index|}}
+            <ul
+              class="pix-select-options__category"
+              role="group"
+              aria-labelledby={{if this.displayCategory (concat "cat-" this.selectId "-" index)}}
+            >
+              {{#if this.displayCategory}}
+                {{! template-lint-disable no-invalid-role }}
+                {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
+                <li
+                  class="pix-select-options-category__name"
+                  role="presentation"
+                  id={{concat "cat-" this.selectId "-" index}}
+                >
+                  {{element.category}}
+                </li>
+              {{/if}}
+
+              {{#each element.options as |option|}}
+                <li
+                  class="pix-select-options-category__option{{if
+                      (eq option.value @value)
+                      ' pix-select-options-category__option--selected'
+                    }}"
+                  role="option"
+                  tabindex={{if this.isExpanded "0" "-1"}}
+                  aria-selected={{if (eq option.value @value) "true" "false"}}
+                  {{on "click" (fn this.onChange option)}}
+                  {{on-enter-action (fn this.onChange option)}}
+                  {{on-space-action (fn this.onChange option)}}
+                >
+                  {{option.label}}
+
+                  <FaIcon @icon="check" />
+                </li>
+              {{/each}}
+            </ul>
+          {{/each}}
+        {{else}}
+          {{#each this.results as |option|}}
+            <li
+              class="pix-select-options-category__option{{if
+                  (eq option.value @value)
+                  ' pix-select-options-category__option--selected'
+                }}"
+              role="option"
+              tabindex={{if this.isExpanded "0" "-1"}}
+              aria-selected={{if (eq option.value @value) "true" "false"}}
+              {{on "click" (fn this.onChange option)}}
+              {{on-enter-action (fn this.onChange option)}}
+              {{on-space-action (fn this.onChange this.defaultOption)}}
+            >
+              {{option.label}}
+
+              <FaIcon @icon="check" />
+            </li>
+          {{/each}}
+        {{/if}}
+      {{else}}
+        <p class="pix-select__empty-search-message">{{@emptySearchMessage}}</p>
+      {{/if}}
+    </div>
+  </div>
+  {{#if @errorMessage}}
+    <p class="pix-select__error-message">{{@errorMessage}}</p>
   {{/if}}
 </div>

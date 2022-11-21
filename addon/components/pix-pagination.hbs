@@ -2,7 +2,8 @@
   <section class="pix-pagination__size">
     <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
     <PixSelect
-      aria-label={{this.selectPageSizeLabel}}
+      @label={{this.selectPageSizeLabel}}
+      @screenReaderOnly={{true}}
       class="pagination-size__choice"
       @selectedOption={{this.pageSize}}
       @onChange={{this.changePageSize}}

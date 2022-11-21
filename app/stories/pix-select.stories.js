@@ -1,90 +1,168 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
-const Template = (args) => ({
-  template: hbs`
-      <PixSelect
-        @id={{id}}
-        @options={{options}}
-        @onChange={{onChange}}
-        @selectedOption={{selectedOption}}
-        @emptyOptionLabel={{emptyOptionLabel}}
-        @emptyOptionNotSelectable={{emptyOptionNotSelectable}}
-        @isSearchable={{isSearchable}}
-        @isValidationActive={{isValidationActive}}
-        @label={{label}}
-      />
+export const Template = (args) => {
+  return {
+    template: hbs`
+      <style>
+        .custom {
+          border: 0;
+        }
+        .custom:hover {
+          border: 0;
+        }
+      </style>
+        <PixSelect
+          @className={{this.className}}
+          @options={{this.options}}
+          @isSearchable={{this.isSearchable}}
+          @onChange={{this.onChange}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @hideDefaultOption={{this.hideDefaultOption}}
+          @subLabel={{this.subLabel}}
+          @searchLabel={{this.searchLabel}}
+          @value={{this.value}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @screenReaderOnly={{this.screenReaderOnly}}
+          @emptySearchMessage={{this.emptySearchMessage}}
+          @requiredText={{this.requiredText}}
+          @errorMessage={{this.errorMessage}}
+        />
     `,
-  context: args,
-});
+    context: args,
+  };
+};
+
+export const WithCustomClass = Template.bind({});
+WithCustomClass.args = {
+  className: 'custom',
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  isSearchable: false,
+  onChange: action('onChange'),
+};
 
 export const Default = Template.bind({});
 Default.args = {
   options: [
     { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
     { value: '2', label: 'Bananes' },
-    { value: '3', label: 'Noix' },
-    { value: '4', label: 'Papayes' },
-    { value: '5', label: 'Fèves de chocolat' },
-    { value: '6', label: 'Dattes' },
-    { value: '7', label: 'Mangues' },
-    { value: '8', label: 'Jujube' },
-    { value: '9', label: 'Avocat' },
-    { value: '10', label: 'Fraises' },
-    { value: '11', label: 'Kaki' },
-    { value: '12', label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
   ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  isSearchable: false,
   onChange: action('onChange'),
 };
 
-export const withLabel = Template.bind({});
-withLabel.args = {
-  ...Default.args,
-  id: 'pix-select-with-label',
-  label: 'Ton fruit préféré: ',
+export const WithCategories = Template.bind({});
+WithCategories.args = {
+  options: [
+    { value: '1', label: 'Figues', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '3', label: 'Noix', category: 'Autres' },
+    { value: '4', label: 'Papayes', category: 'Autres' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+      category: 'Autres',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  isSearchable: false,
+  onChange: action('onChange'),
 };
 
-export const searchableSelect = Template.bind({});
-searchableSelect.args = {
-  ...Default.args,
-  emptyOptionNotSelectable: false,
+export const WithSearch = Template.bind({});
+WithSearch.args = {
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  searchLabel: 'Mon label',
+  searchPlaceholder: 'Mon innerText',
   isSearchable: true,
-  isValidationActive: true,
-  placeholder: 'Fraises, Mangues...',
+  emptySearchMessage: 'Aucune option',
+  onChange: action('onChange'),
+};
+
+export const WithCategoriesAndSearch = Template.bind({});
+WithCategoriesAndSearch.args = {
+  options: [
+    { value: '1', label: 'Figues', category: 'Fruit Rouge' },
+    { value: '2', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fèves de chocolat', category: 'Autres' },
+    { value: '5', label: 'Dattes', category: 'Autres' },
+    {
+      value: '4',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+      category: 'Autres',
+    },
+  ],
+  label: 'Mon label',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  searchLabel: 'Mon label',
+  searchPlaceholder: 'Mon innerText',
+  isSearchable: true,
+  emptySearchMessage: 'Aucune option',
+  onChange: action('onChange'),
 };
 
 export const argTypes = {
   options: {
     name: 'options',
     description:
-      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être que le champ puisse être cherchable',
-    type: { name: 'object', required: true },
+      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
+    type: { name: 'array', required: true },
   },
-  onChange: {
-    name: 'onChange',
-    description: 'Fonction à appeler si une option est sélectionnée',
-    type: { required: true },
-    control: { disable: true },
-  },
-  selectedOption: {
-    name: 'selectedOption',
+  value: {
+    name: 'value',
     description: 'Option sélectionnée',
-    options: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
+    options: ['1', '2', '3', '4', '5', '6'],
     control: { type: 'select' },
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: null },
     },
   },
-  emptyOptionLabel: {
-    name: 'emptyOptionLabel',
-    description: 'Texte à afficher si aucune option n‘est sélectionnée',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: null },
-    },
+  onChange: {
+    name: 'onChange',
+    description: 'Fonction à appeler quand une option est sélectionnée.',
+    type: { required: true },
+    control: { disable: true },
   },
   isSearchable: {
     name: 'isSearchable',
@@ -96,45 +174,95 @@ export const argTypes = {
       defaultValue: { summary: false },
     },
   },
-  isValidationActive: {
-    name: 'isValidationActive',
-    description:
-      "Rend la bordure du champ vert au focus si la valeur de recherche match une option (c'est à dire si l'utilisateur a selectionné une option valable",
+  screenReaderOnly: {
+    name: 'screenReaderOnly',
+    description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
     control: { type: 'boolean' },
     type: { name: 'boolean', required: false },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
-    },
-  },
-  emptyOptionNotSelectable: {
-    name: 'emptyOptionNotSelectable',
-    description: 'Rend le premier champ qui est vide non visible une fois sélectionné',
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  size: {
-    name: 'size',
-    description:
-      '⚠️ **Propriété dépréciée** ⚠️ , désormais tous les éléments de formulaires feront 36px de hauteur.',
-    options: ['big', 'small'],
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: 'small' },
     },
   },
   label: {
     name: 'label',
-    description: 'Donne un label au champ, le paramètre @id devient obligatoire avec ce paramètre.',
+    description: 'Label du menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  subLabel: {
+    name: 'subLabel',
+    description: 'Sous Label explicatif du menu déroulant',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
-      defaultValue: { summary: null },
+    },
+  },
+  placeholder: {
+    name: 'placeholder',
+    description: "Placeholder du menu déroulant. Il sert aussi de label pour l'option par défaut",
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  hideDefaultOption: {
+    name: 'hideDefaultOption',
+    description: "Cache l'option par défaut",
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  className: {
+    name: 'className',
+    description: 'Cette classe css permet de surcharger le css par défaut du composant.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  searchLabel: {
+    name: 'searchLabel',
+    description: 'Label de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  searchPlaceholder: {
+    name: 'searchPlaceholder',
+    description: 'Placeholder de la recherche dans le menu déroulant',
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  emptySearchMessage: {
+    name: 'emptySearchMessage',
+    description: "Message affiché si la recherche ne retourne pas d'options",
+    type: { name: 'string', required: true },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  requiredText: {
+    name: 'requiredText',
+    description: "Affiche l'asterix au label et ajoute sa signification",
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
+  errorMessage: {
+    name: 'errorMessage',
+    description: 'Message affiché si une erreur survient',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
     },
   },
 };

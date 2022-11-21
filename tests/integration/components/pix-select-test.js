@@ -1,227 +1,689 @@
 import { module, test } from 'qunit';
+import { click } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, clickByName, fillByLabel } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
-import fillInByLabel from '../../helpers/fill-in-by-label';
+import userEvent from '@testing-library/user-event';
+import { fireEvent } from '@testing-library/dom';
 
-module('Integration | Component | select', function (hooks) {
+module('Integration | Component | PixSelect', function (hooks) {
   setupRenderingTest(hooks);
 
-  const DEFAULT_OPTIONS = [
-    { value: '1', label: 'Salade' },
-    { value: '2', label: 'Tomate' },
-    { value: '3', label: 'Oignon' },
+  this.options = [
+    { value: '1', label: 'Salade', category: 'Kebab' },
+    { value: '2', label: 'Tomate', category: 'Kebab' },
+    { value: '3', label: 'Oignon', category: 'Kebab' },
   ];
-  const DEFAULT_ON_CHANGE = () => {};
-  const SEARCHABLE_SELECT_SELECTOR = '.pix-select input';
-  const LABEL_SELECTOR = '.pix-select label';
 
-  test('it renders the PixSelect with given options', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = DEFAULT_ON_CHANGE;
+  this.label = 'Mon menu déroulant';
+  this.subLabel = 'Mon sous label';
+  this.placeholder = 'Choisissez une option';
+  this.searchLabel = 'Rechercher';
+  this.screenReaderOnly = 'Rechercher';
+  this.searchPlaceholder = 'Placeholder de la recherche';
 
-    // when
-    await render(hbs`
-      <PixSelect
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-      />
-    `);
-
-    // then
-    const options = this.element.querySelectorAll('option');
-
-    assert.equal(options.length, 3);
-    assert.equal(options.item(0).value, '1');
-    assert.equal(options.item(0).text, 'Salade');
-  });
-
-  test('it renders the PixSelect with empty label option', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = DEFAULT_ON_CHANGE;
-
-    // when
-    await render(hbs`
-      <PixSelect
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-        @emptyOptionLabel="Empty label"
-      />
-    `);
+  test('it renders Select', async function (assert) {
+    // given & when
+    const screen = await render(hbs`
+    <PixSelect
+      @options={{this.options}}
+      @label={{this.label}}
+      @subLabel={{this.subLabel}}
+      @placeholder={{this.placeholder}}
+    />
+  `);
 
     // then
-    const options = this.element.querySelectorAll('option');
-    assert.equal(options.length, 4);
-    assert.equal(options.item(0).value, '');
-    assert.equal(options.item(0).text, 'Empty label');
+    assert.dom(screen.getByText('Mon sous label')).exists();
+    assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
   });
 
-  test('it renders the PixSelect with default value selected', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = DEFAULT_ON_CHANGE;
-
-    // when
-    await render(hbs`
+  module('listbox', function () {
+    test('it hides the dropdown unless there is a click on the button', async function (assert) {
+      // given & when
+      const screen = await render(hbs`
       <PixSelect
         @options={{this.options}}
-        @onChange={{this.onChange}}
-        @selectedOption="2"
+        @label={{this.label}}
+        @subLabel={{this.subLabel}}
+        @placeholder={{this.placeholder}}
       />
-    `);
-
-    // then
-    const options = this.element.querySelectorAll('option');
-    assert.true(options.item(1).selected);
-    assert.false(options.item(0).selected);
-    assert.false(options.item(2).selected);
-  });
-
-  test('it should trigger onChange function when an item is selected', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = sinon.spy();
-
-    await render(hbs`
-      <PixSelect
-        @id="an-id"
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-        @label="Mon select"
-      />
-    `);
-
-    // when
-    await fillInByLabel('Mon select', '2');
-
-    // then
-    assert.ok(this.onChange.calledOnce, 'the callback should be called once');
-  });
-
-  module('searchable PixSelect', function () {
-    test('it should be binded datalist element', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.isSearchable = true;
-
-      // when
-      await render(
-        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} />`
-      );
+      `);
 
       // then
-      const input = this.element.querySelector(SEARCHABLE_SELECT_SELECTOR);
-      const datalist = this.element.querySelector('datalist');
-      const inputDefaultListAttribute = input.attributes.getNamedItem('list').value;
-      assert.equal(datalist.id, inputDefaultListAttribute);
+      assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
     });
 
-    test('it should be searchable with given options', async function (assert) {
+    test('it opens the dropdown', async function (assert) {
       // given
-      this.options = DEFAULT_OPTIONS;
-      this.isSearchable = true;
-
-      // when
-      await render(
-        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} />`
-      );
-
-      // then
-      const options = this.element.querySelectorAll('option');
-      assert.equal(options.length, 3);
-      assert.equal(options.item(1).label, 'Tomate');
-    });
-
-    test('it should keep autocomplete off even if pix select receive the "auto-complete=on" attribute', async function (assert) {
-      // given
-      this.options = DEFAULT_OPTIONS;
-      this.isSearchable = true;
-
-      // when
-      await render(
-        hbs`<PixSelect @options={{this.options}} @isSearchable={{this.isSearchable}} autocomplete="on"/>`
-      );
-
-      // then
-      const input = this.element.querySelector(SEARCHABLE_SELECT_SELECTOR);
-      assert.equal(input.autocomplete, 'off');
-    });
-
-    module('green validation', function () {
-      test('it should not have a green border', async function (assert) {
-        // given
-        this.options = DEFAULT_OPTIONS;
-        this.isSearchable = true;
-
-        // when
-        await render(hbs`<PixSelect
-          @id="an-id"
+      const screen = await render(hbs`
+        <PixSelect
           @options={{this.options}}
-          @isSearchable={{this.isSearchable}}
-          @label="Mon select"
-        />`);
-        await fillInByLabel('Mon select', 'tomate');
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
 
-        // then
-        assert.dom('.pix-select--is-valid').doesNotExist();
-      });
+      // when
+      await clickByName('Mon menu déroulant');
 
-      test('it should have a green border when a valid option is selected and isGreenValidationActive argument is given', async function (assert) {
+      await screen.findByRole('listbox');
+      // then
+      assert.dom(screen.getByRole('option', { name: 'Oignon' })).exists();
+    });
+
+    test('it hides default option', async function (assert) {
+      // given
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @hideDefaultOption={{true}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.equal(screen.queryByRole('option', { name: this.placeholder }), null);
+    });
+  });
+
+  module('category', function () {
+    test('it render categories when there are categories', async function (assert) {
+      // given
+      this.options = [
+        { value: '2', label: 'Tomate', category: 'Fruit' },
+        { value: '1', label: 'Salade', category: 'Autre' },
+        { value: '3', label: 'Oignon', category: 'Autre' },
+      ];
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.dom(screen.getByRole('group', { name: 'Fruit' })).exists();
+      assert.dom(screen.getByRole('group', { name: 'Autre' })).exists();
+    });
+  });
+
+  module('a11y', function () {
+    module('closed dropdown', function () {
+      test('it should display list, focus selected element on arrow up press', async function (assert) {
         // given
-        this.options = DEFAULT_OPTIONS;
-        this.isSearchable = true;
-        this.isValidationActive = true;
-
-        // when
-        await render(hbs`
+        const screen = await render(hbs`
           <PixSelect
             @options={{this.options}}
-            @isSearchable={{this.isSearchable}}
-            @isValidationActive={{this.isValidationActive}}
-            @id="select-id"
-            @label="Mon select"
-          />`);
-        await fillInByLabel('Mon select', 'tomate');
+            @value={{'3'}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowUp]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        const selectedOption = screen.getByRole('option', { name: 'Oignon' });
 
         // then
-        assert.dom('.pix-select--is-valid').exists();
+        assert.dom(selectedOption).isFocused();
+      });
+
+      test('it should display list, focus selected element on arrow down press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @value={{'2'}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        const selectedOption = screen.getByRole('option', { name: 'Tomate' });
+
+        // then
+        assert.dom(selectedOption).isFocused();
+      });
+
+      test('it should display list, focus selected element on space press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @value={{'1'}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        const selectedOption = screen.getByRole('option', { name: 'Salade' });
+
+        // then
+        assert.dom(selectedOption).isFocused();
+      });
+    });
+
+    module('opened dropdown', function () {
+      test('it should focus first element on arrow down press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Enter]');
+
+        await screen.findByRole('listbox');
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        const option = screen.getByRole('option', { name: 'Choisissez une option' });
+        // then
+        assert.equal(document.activeElement, option);
+      });
+
+      test('it should focus last element on arrow up press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Enter]');
+
+        await screen.findByRole('listbox');
+
+        await userEvent.keyboard('[ArrowUp]');
+
+        const option = screen.getByRole('option', { name: 'Oignon' });
+        // then
+        assert.equal(document.activeElement, option);
+      });
+
+      test('it should close menu on escape press, focus select element', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+
+        await userEvent.keyboard('[Escape]');
+
+        // then
+        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        assert.throws(screen.getByRole('listbox'));
+      });
+
+      test('it should call on select on enter press', async function (assert) {
+        // given
+        this.onChange = sinon.spy();
+
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @onChange={{this.onChange}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        await screen.findByRole('listbox');
+
+        await screen.getByText('Tomate').focus();
+
+        await userEvent.keyboard('[Enter]');
+
+        // then
+        sinon.assert.calledWith(this.onChange, '2');
+        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+      });
+
+      test('it should call on select on space press', async function (assert) {
+        // given
+        this.onChange = sinon.spy();
+
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @onChange={{this.onChange}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        await screen.findByRole('listbox');
+
+        await screen.getByText('Tomate').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        // then
+        sinon.assert.calledWith(this.onChange, '2');
+        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+      });
+
+      test('it should focus on the search input when tab is pressed', async function (assert) {
+        // given
+        this.searchLabel = 'Label du search';
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @isSearchable={{true}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @searchLabel={{this.searchLabel}}
+          />
+        `);
+
+        // when
+        screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+
+        await userEvent.keyboard('[Tab]');
+
+        // then
+        assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
+      });
+
+      test('it should focus on the input when escape is pressed', async function (assert) {
+        // given
+        this.searchLabel = 'Label du search';
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @isSearchable={{true}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @searchLabel={{this.searchLabel}}
+          />
+        `);
+
+        // when
+        screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        await userEvent.keyboard('[Escape]');
+
+        const select = await screen.getByLabelText(this.label);
+        // then
+        assert.dom(select).isFocused();
       });
     });
   });
 
-  test('it should be possible to give a label', async function (assert) {
-    // given
-    this.options = DEFAULT_OPTIONS;
-    this.onChange = DEFAULT_ON_CHANGE;
-    await render(hbs`
-      <PixSelect
-        @id="pix-select-with-label"
-        @label="Votre ville"
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-      />
-    `);
+  module('#onChange', function () {
+    test('it should trigger onChange function when an item is selected', async function (assert) {
+      // given
+      this.onChange = sinon.spy();
 
-    // when & then
-    const selectorElement = this.element.querySelector(LABEL_SELECTOR);
-    assert.equal(selectorElement.innerHTML, 'Votre ville');
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @onChange={{this.onChange}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      await click(screen.getByRole('option', { name: 'Oignon' }));
+
+      // then
+      sinon.assert.calledWithMatch(this.onChange, '3');
+      assert.ok(this.onChange.called);
+    });
   });
 
-  test('it should throw an error if no id is provided when there is a label', async function (assert) {
-    // given
-    const componentParams = { id: '   ', label: 'Votre ville', options: DEFAULT_OPTIONS };
-    const component = createGlimmerComponent('component:pix-select', componentParams);
+  module('#value', function () {
+    test('it should mark the item as selected when there is a value', async function (assert) {
+      // given
+      this.onChange = sinon.spy();
+      this.value = '3';
 
-    // when & then
-    const expectedError = new Error(
-      'ERROR in PixSelect component, @id param is necessary when giving @label'
-    );
-    assert.throws(function () {
-      component.label;
-    }, expectedError);
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @onChange={{this.onChange}}
+          @value={{this.value}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      // then
+      assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
+    });
+  });
+
+  module('#defaultOption', function () {
+    test('should display searchable input', async function (assert) {
+      this.onChange = sinon.spy();
+      this.isSearchable = false;
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @onChange={{this.onChange}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+
+      await click(screen.getByRole('option', { name: 'Choisissez une option' }));
+
+      // then
+      sinon.assert.calledWithMatch(this.onChange, '');
+      assert.ok(this.onChange.called);
+    });
+  });
+
+  module('#isSearchable', function () {
+    test('should display searchable input', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+      assert.dom(screen.getByLabelText('Rechercher')).exists();
+    });
+
+    test('should focus on search input', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await screen.findByRole('listbox');
+      fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+      assert.dom(screen.getByLabelText('Rechercher')).isFocused();
+    });
+
+    test('should filter the option corresponding to the string', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await fillByLabel('Rechercher', 'Sal');
+
+      await screen.findByRole('listbox');
+
+      const filteredOptions = screen.queryAllByRole('option');
+      assert.equal(filteredOptions.length, 1);
+      assert.equal(filteredOptions[0].innerText, 'Salade');
+    });
+
+    test('should filter without taking care of the case', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await fillByLabel('Rechercher', 'sal');
+
+      await screen.findByRole('listbox');
+      assert.equal(screen.queryAllByRole('option').length, 1);
+    });
+
+    test('should trim empty space before and after searched value', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+      await fillByLabel('Rechercher', ' sal ');
+
+      await screen.findByRole('listbox');
+      assert.equal(screen.queryAllByRole('option').length, 1);
+    });
+
+    test('should display placeholder text', async function (assert) {
+      this.isSearchable = true;
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await screen.findByRole('listbox');
+      assert.dom(screen.getByPlaceholderText('Placeholder de la recherche')).exists();
+    });
+
+    test('when there is no options found it displays the empty search result message', async function (assert) {
+      this.isSearchable = true;
+      this.emptySearchMessage = 'Aucune option';
+      await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @searchLabel={{this.searchLabel}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @isSearchable={{this.isSearchable}}
+          @emptySearchMessage={{this.emptySearchMessage}}
+        />
+      `);
+
+      // when
+      await clickByName('Mon menu déroulant');
+
+      await fillByLabel('Rechercher', 'Cheddar');
+      assert.contains('Aucune option');
+    });
+  });
+
+  module('#required', function () {
+    test('it displays the asterix', async function (assert) {
+      this.requiredText = 'Title requis';
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @requiredText={{this.requiredText}}
+        />
+      `);
+      assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
+    });
+  });
+
+  module('#errorMesssage', function () {
+    test('it displays the error message', async function (assert) {
+      this.errorMessage = "Tu t'es trompé !";
+
+      const screen = await render(hbs`
+        <PixSelect
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+          @errorMessage={{this.errorMessage}}
+        />
+      `);
+      assert.dom(screen.getByText("Tu t'es trompé !")).exists();
+    });
+  });
+
+  module('#className', function () {
+    test('it adds a custom class', async function (assert) {
+      // given & when
+      await render(hbs`
+        <PixSelect
+          @className="some-custom-class"
+          @options={{this.options}}
+          @label={{this.label}}
+        />
+      `);
+
+      // then
+      assert.dom('.some-custom-class').exists();
+    });
   });
 });

@@ -5,31 +5,44 @@ import createGlimmerComponent from '../../helpers/create-glimmer-component';
 module('Unit | Component | pix-select', function (hooks) {
   setupTest(hooks);
 
-  module('#label', function () {
-    test('it should return the label if id is defined', function (assert) {
-      // given
-      const componentParams = { id: 'Textearea id', label: 'Select label' };
-      const component = createGlimmerComponent('component:pix-select', componentParams);
+  test('its should return the default className', function (assert) {
+    // given
+    const componentParams = { label: 'Un label', options: [] };
+    const component = createGlimmerComponent('component:pix-select', componentParams);
 
-      // when
-      const result = component.label;
+    // when & then
+    assert.equal(component.className, 'pix-select-button');
+  });
 
-      // then
-      assert.equal(result, 'Select label');
-    });
+  test('it should add a custom class name', function (assert) {
+    // given
+    const componentParams = { label: 'Un label', options: [], className: 'custom-class' };
+    const component = createGlimmerComponent('component:pix-select', componentParams);
 
-    test('it should throw an error if id is undefined', function (assert) {
-      // given
-      const componentParams = { label: 'Select label' };
-      const component = createGlimmerComponent('component:pix-select', componentParams);
+    // when & then
+    assert.equal(component.className, 'pix-select-button custom-class');
+  });
 
-      // when & then
-      const expectedError = new Error(
-        'ERROR in PixSelect component, @id param is necessary when giving @label'
-      );
-      assert.throws(function () {
-        component.label;
-      }, expectedError);
-    });
+  test('it should add an error class name', function (assert) {
+    // given
+    const componentParams = { label: 'Un label', options: [], errorMessage: 'there is an error' };
+    const component = createGlimmerComponent('component:pix-select', componentParams);
+
+    // when & then
+    assert.equal(component.className, 'pix-select-button pix-select-button--error');
+  });
+
+  test('it should add an error class name and a custom class', function (assert) {
+    // given
+    const componentParams = {
+      label: 'Un label',
+      options: [],
+      errorMessage: 'there is an error',
+      className: 'custom-class',
+    };
+    const component = createGlimmerComponent('component:pix-select', componentParams);
+
+    // when & then
+    assert.equal(component.className, 'pix-select-button custom-class pix-select-button--error');
   });
 });
