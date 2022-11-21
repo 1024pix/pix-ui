@@ -102,12 +102,14 @@ export default class PixSelect extends Component {
 
     this.isExpanded = true;
   }
+
   @action
   hideDropdown(event) {
     event.stopPropagation();
     event.preventDefault();
 
     this.isExpanded = false;
+    document.getElementById(this.selectId).focus();
   }
 
   @action

@@ -368,6 +368,35 @@ module('Integration | Component | PixSelect', function (hooks) {
         // then
         assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
       });
+
+      test('it should focus on the input when escape is pressed', async function (assert) {
+        // given
+        this.searchLabel = 'Label du search';
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @isSearchable={{true}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @searchLabel={{this.searchLabel}}
+          />
+        `);
+
+        // when
+        screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        await userEvent.keyboard('[Escape]');
+
+        const select = await screen.getByLabelText(this.label);
+        // then
+        assert.dom(select).isFocused();
+      });
     });
   });
 
