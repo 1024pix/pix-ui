@@ -56,7 +56,6 @@
   &__search {
     display: flex;
     border-bottom: 2px solid $pix-neutral-22;
-    font-size: 1rem;
     margin: $spacing-s $spacing-m;
     color: $pix-neutral-30;
     border-radius: 4px 4px 0 0;
@@ -160,7 +159,7 @@
 
 .pix-select-search {
   &__input {
-    @include text();
+    @include text-small();
     width: 100%;
     border: none;
     padding-left: $spacing-xs;
