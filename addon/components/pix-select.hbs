@@ -108,9 +108,7 @@
                 >
                   {{option.label}}
 
-                  {{#if (eq option.value @value)}}
-                    <FaIcon @icon="check" />
-                  {{/if}}
+                  <FaIcon @icon="check" />
                 </li>
               {{/each}}
             </ul>
@@ -131,9 +129,7 @@
             >
               {{option.label}}
 
-              {{#if (eq option.value @value)}}
-                <FaIcon @icon="check" />
-              {{/if}}
+              <FaIcon @icon="check" />
             </li>
           {{/each}}
         {{/if}}

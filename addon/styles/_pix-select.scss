@@ -22,7 +22,7 @@
     padding: 0;
     background-color: $pix-neutral-0;
     box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
-    transition: all .1s ease-in-out;
+    transition: all 0.1s ease-in-out;
     white-space: nowrap;
 
     &::-webkit-scrollbar {
@@ -140,12 +140,19 @@
       background-color: $pix-neutral-10;
     }
 
+    svg {
+      visibility: hidden;
+      opacity: 0;
+      font-size: 1.125rem;
+    }
+
     &--selected {
       background-color: $pix-primary-5;
       align-items: center;
 
       svg {
-        font-size: 1.125rem;
+        visibility: visible;
+        opacity: 1;
       }
     }
   }
