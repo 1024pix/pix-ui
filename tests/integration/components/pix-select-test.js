@@ -336,7 +336,6 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await userEvent.keyboard('[Space]');
 
-
         // then
         sinon.assert.calledWith(this.onChange, '2');
         assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));

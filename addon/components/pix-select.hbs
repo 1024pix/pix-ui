@@ -1,7 +1,7 @@
 {{! template-lint-disable no-down-event-binding }}
 <div
   class="pix-select"
-  id="container-{{selectId}}"
+  id="container-{{this.selectId}}"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
   {{on-escape-action this.hideDropdown}}
@@ -40,7 +40,7 @@
   <div
     class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
     id={{this.dropDownId}}
-    {{on 'transitionend' this.focus}}
+    {{on "transitionend" this.focus}}
   >
     {{#if @isSearchable}}
       <div class="pix-select__search">
