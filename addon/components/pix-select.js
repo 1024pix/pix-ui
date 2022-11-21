@@ -95,28 +95,10 @@ export default class PixSelect extends Component {
     }
   }
 
-  focusOnSearch() {
-    return () => {
-      document.getElementById(this.searchId).focus();
-    };
-  }
-
-  manageFocusAfterTransition() {
-    const elementById = document.getElementById(this.dropDownId);
-
-    elementById.addEventListener('transitionend', this.focusOnSearch());
-
-    return () => elementById.removeEventListener('transitionend', this.focusOnSearch());
-  }
-
   @action
   showDropdown(event) {
     event.stopPropagation();
     event.preventDefault();
-
-    if (this.args.isSearchable) {
-      this.manageFocusAfterTransition();
-    }
 
     this.isExpanded = true;
   }
@@ -146,6 +128,19 @@ export default class PixSelect extends Component {
     if (event.code === 'Tab' && this.isExpanded) {
       event.preventDefault();
       document.getElementById(this.searchId).focus();
+    }
+  }
+
+  @action
+  focus() {
+    if (this.isExpanded) {
+      if (this.args.value) {
+        document.querySelector("[aria-selected='true']").focus();
+      } else if (this.args.isSearchable) {
+        document.getElementById(this.searchId).focus();
+      } else if (this.displayDefaultOption) {
+        document.querySelector("[aria-selected='true']").focus();
+      }
     }
   }
 

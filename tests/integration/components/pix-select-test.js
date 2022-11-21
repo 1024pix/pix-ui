@@ -126,37 +126,12 @@ module('Integration | Component | PixSelect', function (hooks) {
 
   module('a11y', function () {
     module('closed dropdown', function () {
-      test('it should display list, focus first element on arrow down press', async function (assert) {
+      test('it should display list, focus selected element on arrow up press', async function (assert) {
         // given
         const screen = await render(hbs`
           <PixSelect
             @options={{this.options}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
-
-        // when
-        await screen.getByLabelText('Mon menu déroulant').focus();
-
-        await userEvent.keyboard('[ArrowDown]');
-
-        await screen.findByRole('listbox');
-
-        fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
-
-        const options = screen.queryAllByRole('option');
-
-        // then
-        assert.equal(document.activeElement, options[0]);
-      });
-
-      test('it should display list, focus last element on arrow up press', async function (assert) {
-        // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
+            @value={{'3'}}
             @label={{this.label}}
             @subLabel={{this.subLabel}}
             @placeholder={{this.placeholder}}
@@ -169,12 +144,64 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[ArrowUp]');
 
         await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
 
-        fireEvent(screen.getByRole('listbox'), new Event('transitionend'));
+        const selectedOption = screen.getByRole('option', { name: 'Oignon' });
 
-        const options = screen.queryAllByRole('option');
         // then
-        assert.equal(document.activeElement, options[options.length - 1]);
+        assert.dom(selectedOption).isFocused();
+      });
+
+      test('it should display list, focus selected element on arrow down press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @value={{'2'}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        const selectedOption = screen.getByRole('option', { name: 'Tomate' });
+
+        // then
+        assert.dom(selectedOption).isFocused();
+      });
+
+      test('it should display list, focus selected element on space press', async function (assert) {
+        // given
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @value={{'1'}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        const selectedOption = screen.getByRole('option', { name: 'Salade' });
+
+        // then
+        assert.dom(selectedOption).isFocused();
       });
     });
 
@@ -278,6 +305,37 @@ module('Integration | Component | PixSelect', function (hooks) {
         await screen.getByText('Tomate').focus();
 
         await userEvent.keyboard('[Enter]');
+
+        // then
+        sinon.assert.calledWith(this.onChange, '2');
+        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+      });
+
+      test('it should call on select on space press', async function (assert) {
+        // given
+        this.onChange = sinon.spy();
+
+        const screen = await render(hbs`
+          <PixSelect
+            @options={{this.options}}
+            @label={{this.label}}
+            @subLabel={{this.subLabel}}
+            @placeholder={{this.placeholder}}
+            @onChange={{this.onChange}}
+          />
+        `);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        await screen.findByRole('listbox');
+
+        await screen.getByText('Tomate').focus();
+
+        await userEvent.keyboard('[Space]');
+
 
         // then
         sinon.assert.calledWith(this.onChange, '2');
