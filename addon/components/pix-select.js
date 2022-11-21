@@ -147,11 +147,11 @@ export default class PixSelect extends Component {
   }
 
   @action
-  setButtonWidth() {
+  setSelectWidth() {
     const baseFontRemRatio = 16;
+    const checkIconWidth = 18;
     const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
-    document.getElementById(`container-${this.selectId}`).style.width = `${
-      (1 / baseFontRemRatio) * listWidth
-    }rem`;
+    const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
+    document.getElementById(`container-${this.selectId}`).style.width = `${selectWidth}rem`;
   }
 }

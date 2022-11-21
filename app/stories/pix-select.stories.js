@@ -122,11 +122,11 @@ export const WithCategoriesAndSearch = Template.bind({});
 WithCategoriesAndSearch.args = {
   options: [
     { value: '1', label: 'Figues', category: 'Fruit Rouge' },
-    { value: '3', label: 'Fraises', category: 'Fruit Rouge' },
-    { value: '5', label: 'Fèves de chocolat', category: 'Autres' },
-    { value: '6', label: 'Dattes', category: 'Autres' },
+    { value: '2', label: 'Fraises', category: 'Fruit Rouge' },
+    { value: '3', label: 'Fèves de chocolat', category: 'Autres' },
+    { value: '5', label: 'Dattes', category: 'Autres' },
     {
-      value: '6',
+      value: '4',
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
       category: 'Autres',
     },
