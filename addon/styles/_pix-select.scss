@@ -49,6 +49,7 @@
   }
 
   &__empty-search-message {
+    @include text-small();
     color: $pix-neutral-70;
     text-align: center;
   }
