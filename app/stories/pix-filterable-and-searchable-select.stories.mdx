@@ -1,0 +1,21 @@
+import { Meta, Story, Canvas } from '@storybook/addon-docs/blocks';
+import * as stories from './pix-filterable-and-searchable-select.stories.js';
+
+<Meta
+  title="Form/Filterable and searchable select"
+  component="PixFilterableAndSearchableSelect"
+  decorators={[centered]}
+  argTypes={stories.argTypes}
+/>
+
+# Pix Filterable and searchable select
+
+Le PixFilterableAndSearchableSelect permet de faire un truc compliqué.
+
+## Default
+
+... Oui !
+
+<Canvas>
+  <Story name="Default" story={stories.Default} />
+</Canvas>
