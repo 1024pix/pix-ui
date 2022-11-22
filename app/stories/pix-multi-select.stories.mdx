@@ -25,6 +25,11 @@ L'ajout de ``class`` et d'autres attributs comme ``aria-label`` sont possibles.
   <Story name="Searchable" story={stories.multiSelectSearchable} height={330}/>
 </Canvas>
 
+## withCustomClass
+<Canvas>
+  <Story name="withCustomClass" story={stories.multiSelectWithCustomClass} height={330}/>
+</Canvas>
+
 ## With async options
 
 Via la propriété `onLoadOptions`, le composant peut charger lui-même les options de manière asynchrone.
@@ -43,11 +48,12 @@ Il est possible de donner un message via `loadingMessage` à afficher à la plac
   @id={{id}}
   @label={{label}}
   @screenReaderOnly={{screenReaderOnly}}
-  @innerText={{innerText}}
+  @placeholder={{placeholder}}
 
-  @onSelect={{doSomething}}
-  @selected={{selected}}
+  @onChange={{doSomething}}
+  @values={{values}}
   @emptyMessage={{emptyMessage}}
+  @className={{className}}
   @options={{options}} as |option|>
   {{option.label}}
 </PixMultiSelect>

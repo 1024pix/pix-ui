@@ -1,6 +1,31 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
+const Template = (args) => ({
+  template: hbs`
+  <style>
+    .custom {
+      border : none;
+    }
+  </style>
+  <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+  <PixMultiSelect
+    @id={{id}}
+    @label={{label}}
+    @placeholder={{placeholder}}
+    @screenReaderOnly={{screenReaderOnly}}
+    @onChange={{onChange}}
+    @emptyMessage={{emptyMessage}}
+    @className={{className}}
+    @isSearchable={{isSearchable}}
+    @strictSearch={{strictSearch}}
+    @values={{values}}
+    @onLoadOptions={{onLoadOptions}} 
+    @options={{options}} as |option|
+  >{{option.label}}</PixMultiSelect>
+ `,
+  context: args,
+});
 const DEFAULT_OPTIONS = [
   { label: 'ANETH HERBE AROMATIQUE', value: '1' },
   { label: 'ANIS VERT HERBE AROMATIQUE', value: '2' },
@@ -15,6 +40,13 @@ const DEFAULT_OPTIONS = [
   { label: 'CERFEUIL HERBE AROMATIQUE', value: '11' },
 ];
 
+export const Default = Template.bind({});
+Default.args = {
+  options: DEFAULT_OPTIONS,
+  onChange: action('onChange'),
+  placeholder: 'placeholder',
+};
+
 export const multiSelectWithChildComponent = (args) => {
   return {
     template: hbs`
@@ -22,18 +54,17 @@ export const multiSelectWithChildComponent = (args) => {
       <PixMultiSelect
         @id={{this.id}}
         @label={{this.label}}
-        @innerText={{this.titleStars}}
+        @placeholder={{this.placeholder}}
         @screenReaderOnly={{this.screenReaderOnly}}
-        
-        @onSelect={{this.onSelect}}
+        @onChange={{this.onChange}}
         @emptyMessage={{this.emptyMessage}}
-        
-        @options={{this.options}} as |star|
+        @className={{this.className}}
+        @options={{this.options}} as |option|
       >
         <PixStars
-          @alt={{concat "Étoiles " star.value " sur " star.total}}
-          @count={{star.value}}
-          @total={{star.total}}
+          @alt={{concat "Étoiles " option.value " sur " option.total}}
+          @count={{option.value}}
+          @total={{option.total}}
         />
       </PixMultiSelect>
     `,
@@ -42,7 +73,7 @@ export const multiSelectWithChildComponent = (args) => {
 };
 
 multiSelectWithChildComponent.args = {
-  titleStars: 'Sélectionner le niveau souhaité',
+  placeholder: 'Sélectionner le niveau souhaité',
   label: 'Résultat évaluation',
   options: [
     { value: '0', total: 3 },
@@ -52,59 +83,25 @@ multiSelectWithChildComponent.args = {
   ],
 };
 
-export const multiSelectSearchable = (args) => {
-  return {
-    template: hbs`
-      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
-      <PixMultiSelect
-        style="width:350px"
-        @id={{this.id}}
-        @label={{this.label}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @innerText={{this.innerText}}
-
-        @isSearchable={{this.isSearchable}}
-        @strictSearch={{this.strictSearch}}
-
-        @onSelect={{this.doSomething}}
-        @selected={{this.selected}}
-
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `,
-    context: args,
-  };
+export const multiSelectSearchable = Template.bind({});
+multiSelectSearchable.args = {
+  ...Default.args,
+  isSearchable: true,
+  strictSearch: true,
+  emptyMessage: 'Aucune option trouvée',
 };
 
-export const multiSelectAsyncOptions = (args) => {
-  args.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
-  return {
-    template: hbs`
-      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
-      <PixMultiSelect
-        style="width:350px"
-        @id={{this.id}}
-        @label={{this.label}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @innerText={{this.innerText}}
+export const multiSelectAsyncOptions = Template.bind({});
+multiSelectAsyncOptions.args = {
+  ...Default.args,
+  onLoadOptions: () => Promise.resolve(Default.args.options),
+  loadingMessage: 'Chargement en cours ...',
+};
 
-        @isSearchable={{this.isSearchable}}
-        @strictSearch={{this.strictSearch}}
-
-        @onSelect={{this.doSomething}}
-        @selected={{this.selected}}
-
-        @emptyMessage={{this.emptyMessage}}
-        @onLoadOptions={{this.onLoadOptions}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `,
-    context: args,
-  };
+export const multiSelectWithCustomClass = Template.bind({});
+multiSelectWithCustomClass.args = {
+  ...Default.args,
+  className: 'custom',
 };
 
 export const argTypes = {
@@ -114,8 +111,8 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: 'aromate',
   },
-  innerText: {
-    name: 'innerText',
+  placeholder: {
+    name: 'placeholder',
     description:
       'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
     type: { name: 'string', required: true },
@@ -160,14 +157,14 @@ export const argTypes = {
     type: { name: 'string', required: false },
     defaultValue: 'Chargement...',
   },
-  onSelect: {
-    name: 'onSelect',
+  onChange: {
+    name: 'onChange',
     description: "Une fonction permettant d'effectuer une action à chaque sélection",
     type: { required: true },
-    defaultValue: action('onSelect'),
+    defaultValue: action('onChange'),
   },
-  selected: {
-    name: 'selected',
+  values: {
+    name: 'values',
     description: 'Une pré-sélection peut être donnée au composant',
     type: { name: 'array', required: false },
     defaultValue: ['1', '4'],
@@ -184,5 +181,13 @@ export const argTypes = {
       'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
     defaultValue: false,
+  },
+  className: {
+    name: 'className',
+    description: 'Cette classe css permet de surcharger le css par défaut du composant.',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
   },
 };

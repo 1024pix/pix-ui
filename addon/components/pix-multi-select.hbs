@@ -10,7 +10,7 @@
       for={{@id}}
       class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
     >{{@label}}</label>
-    <span class="pix-multi-select-header">
+    <span class="pix-multi-select-header{{if @className this.className}}">
       <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
 
       <input
@@ -18,7 +18,7 @@
         id={{@id}}
         type="text"
         name={{@id}}
-        placeholder={{this.innerText}}
+        placeholder={{this.placeholder}}
         autocomplete="off"
         {{on "input" this.updateSearch}}
         {{on "click" this.toggleDropDown}}
@@ -41,11 +41,11 @@
       aria-expanded={{this.isAriaExpanded}}
       aria-controls={{this.listId}}
       aria-haspopup="menu"
-      class="pix-multi-select-header"
+      class="pix-multi-select-header{{if @className this.className}}"
       {{on "click" this.toggleDropDown}}
       ...attributes
     >
-      {{this.innerText}}
+      {{this.placeholder}}
       <FaIcon
         class="pix-multi-select-header__dropdown-icon
           {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"

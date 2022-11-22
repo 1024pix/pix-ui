@@ -20,18 +20,18 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it renders PixMultiSelect with hidden list', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
 
       // when
       const screen = await render(hbs`
         <PixMultiSelect
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="multiSelectLabel"
           @emptyMessage={{this.emptyMessage}}
@@ -47,18 +47,18 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should asynchronously load options', async function (assert) {
       // given
       this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
 
       // when
       const screen = await render(hbs`
         <PixMultiSelect
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -75,21 +75,21 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.equal(screen.getAllByRole('checkbox').length, 3);
     });
 
-    test('it should updates selected items when @selected is reset', async function (assert) {
+    test('it should updates selected items when @values is reset', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = ['2'];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = ['2'];
+      this.onChange = (values) => this.set('values', values);
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
 
       const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
-          @selected={{this.selected}}
+          @values={{this.values}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
           @options={{this.options}} as |option|>
@@ -98,7 +98,7 @@ module('Integration | Component | multi-select', function (hooks) {
       `);
 
       // when
-      this.set('selected', []);
+      this.set('values', []);
       await clickByName('labelMultiSelect');
 
       await screen.findByRole('menu');
@@ -113,18 +113,18 @@ module('Integration | Component | multi-select', function (hooks) {
       test('it renders PixMultiSelect list', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
-        this.selected = [];
-        this.onSelect = (selected) => this.set('selected', selected);
+        this.values = [];
+        this.onChange = () => {};
         this.emptyMessage = 'no result';
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`
           <PixMultiSelect
-            @selected={{this.selected}}
-            @onSelect={{this.onSelect}}
-            @innerText={{this.innerText}}
+            @values={{this.values}}
+            @onChange={{this.onChange}}
+            @placeholder={{this.placeholder}}
             @id={{this.id}}
             @label="labelMultiSelect"
             @emptyMessage={{this.emptyMessage}}
@@ -144,18 +144,18 @@ module('Integration | Component | multi-select', function (hooks) {
       test('it renders the PixMultiSelect with empty message', async function (assert) {
         // given
         this.options = [];
-        this.selected = [];
-        this.onSelect = (selected) => this.set('selected', selected);
+        this.values = [];
+        this.onChange = () => {};
         this.emptyMessage = 'no result';
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`
           <PixMultiSelect
-            @selected={{this.selected}}
-            @onSelect={{this.onSelect}}
-            @innerText={{this.innerText}}
+            @values={{this.values}}
+            @onChange={{this.onChange}}
+            @placeholder={{this.placeholder}}
             @label="labelMultiSelect"
             @id={{this.id}}
             @emptyMessage={{this.emptyMessage}}
@@ -176,19 +176,19 @@ module('Integration | Component | multi-select', function (hooks) {
       test('it renders the PixMultiSelect with default checked', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
-        this.onSelect = (selected) => this.set('selected', selected);
-        this.selected = ['2'];
+        this.onChange = () => {};
+        this.values = ['2'];
         this.emptyMessage = 'no result';
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`
           <PixMultiSelect
-            @onSelect={{this.onSelect}}
-            @innerText={{this.innerText}}
+            @onChange={{this.onChange}}
+            @placeholder={{this.placeholder}}
             @id={{this.id}}
-            @selected={{this.selected}}
+            @values={{this.values}}
             @label="labelMultiSelect"
             @emptyMessage={{this.emptyMessage}}
             @options={{this.options}} as |option|
@@ -216,19 +216,19 @@ module('Integration | Component | multi-select', function (hooks) {
       test('it should display selected labels on MultiSelect', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
-        this.onSelect = (selected) => this.set('selected', selected);
-        this.selected = ['2', '3'];
+        this.onChange = () => {};
+        this.values = ['2', '3'];
         this.emptyMessage = 'no result';
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
 
         // when
         const screen = await render(hbs`
           <PixMultiSelect
-            @onSelect={{this.onSelect}}
-            @innerText={{this.innerText}}
+            @onChange={{this.onChange}}
+            @placeholder={{this.placeholder}}
             @id={{this.id}}
-            @selected={{this.selected}}
+            @values={{this.values}}
             @label="labelMultiSelect"
             @emptyMessage={{this.emptyMessage}}
             @isSearchable={{true}}
@@ -237,7 +237,6 @@ module('Integration | Component | multi-select', function (hooks) {
             {{option.label}}
           </PixMultiSelect>
         `);
-
         // then
         const inputElement = screen.getByLabelText('labelMultiSelect');
         assert.equal(inputElement.placeholder, 'Tomate, Oignon');
@@ -250,7 +249,7 @@ module('Integration | Component | multi-select', function (hooks) {
         const componentParams = {
           id: '   ',
           label: 'toto',
-          innerText: 'coucou',
+          placeholder: 'coucou',
           options: DEFAULT_OPTIONS,
         };
         const renderComponent = function () {
@@ -269,7 +268,7 @@ module('Integration | Component | multi-select', function (hooks) {
         const componentParams = {
           id: 'toto',
           label: ' ',
-          innerText: 'coucou',
+          placeholder: 'coucou',
           options: DEFAULT_OPTIONS,
         };
         const renderComponent = function () {
@@ -283,12 +282,12 @@ module('Integration | Component | multi-select', function (hooks) {
         assert.throws(renderComponent, expectedError);
       });
 
-      test('it should throw an error if no innerText is provided', async function (assert) {
+      test('it should throw an error if no placeholder is provided', async function (assert) {
         // given
         const componentParams = {
           id: 'toto',
           label: 'coucou',
-          innerText: ' ',
+          placeholder: ' ',
           options: DEFAULT_OPTIONS,
         };
         const renderComponent = function () {
@@ -297,17 +296,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // when & then
         const expectedError = new Error(
-          'ERROR in PixMultiSelect component, @innerText param is necessary'
+          'ERROR in PixMultiSelect component, @placeholder param is necessary'
         );
         assert.throws(renderComponent, expectedError);
       });
 
-      test('it should throw a combined error if no innerText, label is provided', async function (assert) {
+      test('it should throw a combined error if no placeholder, label is provided', async function (assert) {
         // given
         const componentParams = {
           id: 'toto',
           label: ' ',
-          innerText: ' ',
+          placeholder: ' ',
           options: DEFAULT_OPTIONS,
         };
         const renderComponent = function () {
@@ -316,26 +315,26 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // when & then
         const expectedError = new Error(
-          'ERROR in PixMultiSelect component, @label, @innerText params are necessary'
+          'ERROR in PixMultiSelect component, @label, @placeholder params are necessary'
         );
         assert.throws(renderComponent, expectedError);
       });
     });
 
-    module('onSelect', function () {
-      test('it should trigger onSelect function when an item is selected', async function (assert) {
+    module('onChange', function () {
+      test('it should trigger onChange function when an item is selected', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -353,24 +352,24 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // then
         assert.true(screen.getByLabelText('Salade').checked);
-        assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
-        sinon.assert.calledWithMatch(this.onSelect, ['1']);
+        assert.ok(this.onChange.calledOnce, 'the callback should be called once');
+        sinon.assert.calledWithMatch(this.onChange, ['1']);
       });
 
       test('it should unselect item and return selected item of the updated list', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
-        this.selected = ['1', '2'];
+        this.values = ['1', '2'];
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
           <PixMultiSelect
-            @onSelect={{this.onSelect}}
-            @innerText={{this.innerText}}
+            @onChange={{this.onChange}}
+            @placeholder={{this.placeholder}}
             @id={{this.id}}
             @label="labelMultiSelect"
             @emptyMessage={{this.emptyMessage}}
@@ -387,7 +386,7 @@ module('Integration | Component | multi-select', function (hooks) {
         await clickByName('Salade');
 
         // then
-        sinon.assert.calledWithMatch(this.onSelect, ['1']);
+        sinon.assert.calledWithMatch(this.onChange, ['1']);
         assert.ok(true);
       });
     });
@@ -397,15 +396,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -433,15 +432,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -469,15 +468,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -504,15 +503,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -539,15 +538,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -569,7 +568,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // then
         assert.throws(screen.getByRole('menu'));
-        assert.ok(this.onSelect.calledOnce, 'the callback should be called once');
+        assert.ok(this.onChange.calledOnce, 'the callback should be called once');
         assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
       });
 
@@ -577,15 +576,15 @@ module('Integration | Component | multi-select', function (hooks) {
         // given
         this.options = DEFAULT_OPTIONS;
 
-        this.innerText = 'MultiSelectTest';
+        this.placeholder = 'MultiSelectTest';
         this.emptyMessage = 'no result';
         this.id = 'id-MultiSelectTest';
-        this.onSelect = sinon.spy();
+        this.onChange = sinon.spy();
 
         const screen = await render(hbs`
         <PixMultiSelect
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
           @emptyMessage={{this.emptyMessage}}
@@ -614,10 +613,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
 
@@ -625,9 +624,9 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="label"
           @emptyMessage={{this.emptyMessage}}
@@ -642,17 +641,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
 
-      assert.equal(screen.getByLabelText('label').placeholder, this.innerText);
+      assert.equal(screen.getByLabelText('label').placeholder, this.placeholder);
       assert.equal(screen.getAllByRole('checkbox').length, 3);
     });
 
     test('it should renders filtered given case insensitive', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -660,9 +659,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -687,10 +685,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should renders no result given case sensitive', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.strictSearch = true;
@@ -700,9 +698,8 @@ module('Integration | Component | multi-select', function (hooks) {
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
           @strictSearch={{this.strictSearch}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -725,10 +722,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should display list PixMultiSelect on focus', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.label = 'label';
       this.isSearchable = true;
@@ -737,9 +734,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @label={{this.label}}
           @id={{this.id}}
@@ -761,26 +757,23 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should sort default selected items when focused', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = ['3'];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
-      this.defaultSelected = ['3'];
 
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="label"
           @emptyMessage={{this.emptyMessage}}
-          @selected={{defaultSelected}}
           @options={{this.options}} as |option|>
           {{option.label}}
         </PixMultiSelect>
@@ -802,10 +795,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should not sort when user select item', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -813,9 +806,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @label="labelMultiSelect"
           @id={{this.id}}
@@ -843,10 +835,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should not sort when user search and select item', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -854,9 +846,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -884,10 +875,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('it should sort items when search is cleaned', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = [];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = [];
+      this.onChange = (values) => this.set('values', values);
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -895,9 +886,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @emptyMessage={{this.emptyMessage}}
@@ -928,10 +918,10 @@ module('Integration | Component | multi-select', function (hooks) {
     test('should not sort when there are default items selected and a new selected item', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
-      this.selected = ['2'];
-      this.onSelect = (selected) => this.set('selected', selected);
+      this.values = ['2'];
+      this.onChange = () => {};
       this.emptyMessage = 'no result';
-      this.innerText = 'MultiSelectTest';
+      this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
@@ -939,9 +929,8 @@ module('Integration | Component | multi-select', function (hooks) {
       const screen = await render(hbs`
         <PixMultiSelect
           @isSearchable={{this.isSearchable}}
-          @selected={{this.selected}}
-          @onSelect={{this.onSelect}}
-          @innerText={{this.innerText}}
+          @values={{this.values}}
+          @onChange={{this.onChange}}
           @placeholder={{this.placeholder}}
           @id={{this.id}}
           @label="labelMultiSelect"
@@ -968,6 +957,38 @@ module('Integration | Component | multi-select', function (hooks) {
 
       assert.equal(listElement2[0].labels[0].innerText.trim(), 'Tomate');
       assert.equal(listElement2[2].labels[0].innerText.trim(), 'Oignon');
+    });
+  });
+
+  module('custom class name', function () {
+    test('it should use the added class name', async function (assert) {
+      // given
+      this.options = DEFAULT_OPTIONS;
+      this.onChange = () => {};
+      this.values = ['2', '3'];
+      this.emptyMessage = 'no result';
+      this.placeholder = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.className = 'custom';
+
+      // when
+      await render(hbs`
+        <PixMultiSelect
+          @onChange={{this.onChange}}
+          @placeholder={{this.placeholder}}
+          @id={{this.id}}
+          @values={{this.values}}
+          @label="labelMultiSelect"
+          @emptyMessage={{this.emptyMessage}}
+          @isSearchable={{true}}
+          @className = {{this.className}}
+          @options={{this.options}} as |option|
+        >
+          {{option.label}}
+        </PixMultiSelect>
+      `);
+      // then
+      assert.dom('.custom').exists();
     });
   });
 });

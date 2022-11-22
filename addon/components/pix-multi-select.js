@@ -26,18 +26,18 @@ export default class PixMultiSelect extends Component {
 
   constructor(...args) {
     super(...args);
-    const { onLoadOptions, id, label, innerText } = this.args;
+    const { onLoadOptions, id, label, placeholder } = this.args;
 
     const idIsNotDefined = !id || !id.trim();
     const labelIsNotDefined = !label || !label.trim();
-    const innerTextIsNotDefined = !innerText || !innerText.trim();
+    const innerTextIsNotDefined = !placeholder || !placeholder.trim();
 
     if (idIsNotDefined || labelIsNotDefined || innerTextIsNotDefined) {
       const missingParams = [];
 
       if (idIsNotDefined) missingParams.push('@id');
       if (labelIsNotDefined) missingParams.push('@label');
-      if (innerTextIsNotDefined) missingParams.push('@innerText');
+      if (innerTextIsNotDefined) missingParams.push('@placeholder');
 
       throw new Error(
         `ERROR in PixMultiSelect component, ${missingParams.join(', ')} ${
@@ -76,19 +76,19 @@ export default class PixMultiSelect extends Component {
     return this.options;
   }
 
-  get innerText() {
-    const { selected, innerText } = this.args;
-    if (selected?.length > 0) {
+  get placeholder() {
+    const { values, placeholder } = this.args;
+    if (values?.length > 0) {
       const selectedOptionLabels = this.options
-        .filter(({ value, label }) => {
-          const hasOption = selected.includes(value);
-          return hasOption && Boolean(label);
+        .filter((option) => {
+          const hasOption = values.includes(option.value);
+          return hasOption && Boolean(option.label);
         })
         .map(({ label }) => label)
         .join(', ');
       return selectedOptionLabels;
     }
-    return innerText;
+    return placeholder;
   }
 
   _setDisplayedOptions(selected, shouldSort) {
@@ -113,15 +113,15 @@ export default class PixMultiSelect extends Component {
 
   @action
   onSelect(event) {
-    let selected = [...(this.args.selected || [])];
+    let selected = [...(this.args.values || [])];
     if (event.target.checked) {
       selected.push(event.target.value);
     } else {
       selected = selected.filter((value) => value !== event.target.value);
     }
 
-    if (this.args.onSelect) {
-      this.args.onSelect(selected);
+    if (this.args.onChange) {
+      this.args.onChange(selected);
     }
   }
 
@@ -138,7 +138,7 @@ export default class PixMultiSelect extends Component {
   showDropDown() {
     if (this.isExpanded) return;
     this.isExpanded = true;
-    this._setDisplayedOptions(this.args.selected, true);
+    this._setDisplayedOptions(this.args.values, true);
   }
 
   @action
@@ -159,7 +159,12 @@ export default class PixMultiSelect extends Component {
       : removeCapitalizeAndDiacritics(event.target.value);
     this.isExpanded = true;
     if (!event.target.value) {
-      this._setDisplayedOptions(this.args.selected, true);
+      this._setDisplayedOptions(this.args.values, true);
     }
+  }
+
+  get className() {
+    const { className } = this.args;
+    return ' ' + className;
   }
 }
