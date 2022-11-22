@@ -1,6 +1,31 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
+const Template = (args) => ({
+  template: hbs`
+  <style>
+    .custom {
+      border : none;
+    }
+  </style>
+  <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+  <PixMultiSelect
+    @id={{id}}
+    @label={{label}}
+    @placeholder={{placeholder}}
+    @screenReaderOnly={{screenReaderOnly}}
+    @onChange={{onChange}}
+    @emptyMessage={{emptyMessage}}
+    @className={{className}}
+    @isSearchable={{isSearchable}}
+    @strictSearch={{strictSearch}}
+    @values={{values}}
+    @onLoadOptions={{onLoadOptions}} 
+    @options={{options}} as |option|
+  >{{option.label}}</PixMultiSelect>
+ `,
+  context: args,
+});
 const DEFAULT_OPTIONS = [
   { label: 'ANETH HERBE AROMATIQUE', value: '1' },
   { label: 'ANIS VERT HERBE AROMATIQUE', value: '2' },
@@ -15,6 +40,13 @@ const DEFAULT_OPTIONS = [
   { label: 'CERFEUIL HERBE AROMATIQUE', value: '11' },
 ];
 
+export const Default = Template.bind({});
+Default.args = {
+  options: DEFAULT_OPTIONS,
+  onChange: action('onChange'),
+  placeholder: 'placeholder',
+};
+
 export const multiSelectWithChildComponent = (args) => {
   return {
     template: hbs`
@@ -22,17 +54,17 @@ export const multiSelectWithChildComponent = (args) => {
       <PixMultiSelect
         @id={{this.id}}
         @label={{this.label}}
-        @placeholder={{this.titleStars}}
+        @placeholder={{this.placeholder}}
         @screenReaderOnly={{this.screenReaderOnly}}
         @onChange={{this.onChange}}
         @emptyMessage={{this.emptyMessage}}
         @className={{this.className}}
-        @options={{this.options}} as |star|
+        @options={{this.options}} as |option|
       >
         <PixStars
-          @alt={{concat "Étoiles " star.value " sur " star.total}}
-          @count={{star.value}}
-          @total={{star.total}}
+          @alt={{concat "Étoiles " option.value " sur " option.total}}
+          @count={{option.value}}
+          @total={{option.total}}
         />
       </PixMultiSelect>
     `,
@@ -41,7 +73,7 @@ export const multiSelectWithChildComponent = (args) => {
 };
 
 multiSelectWithChildComponent.args = {
-  titleStars: 'Sélectionner le niveau souhaité',
+  placeholder: 'Sélectionner le niveau souhaité',
   label: 'Résultat évaluation',
   options: [
     { value: '0', total: 3 },
@@ -51,86 +83,25 @@ multiSelectWithChildComponent.args = {
   ],
 };
 
-export const multiSelectSearchable = (args) => {
-  return {
-    template: hbs`
-      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
-      <PixMultiSelect
-        style="width:350px"
-        @id={{this.id}}
-        @label={{this.label}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @placeholder={{this.placeholder}}
-        @isSearchable={{this.isSearchable}}
-        @strictSearch={{this.strictSearch}}
-        @onChange={{this.doSomething}}
-        @values={{this.values}}
-        @className={{this.className}}
-        @emptyMessage={{this.emptyMessage}}
-        @options={{this.options}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `,
-    context: args,
-  };
+export const multiSelectSearchable = Template.bind({});
+multiSelectSearchable.args = {
+  ...Default.args,
+  isSearchable: true,
+  strictSearch: true,
+  emptyMessage: 'Aucune option trouvée',
 };
 
-export const multiSelectAsyncOptions = (args) => {
-  args.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
-  return {
-    template: hbs`
-      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
-      <PixMultiSelect
-        style="width:350px"
-        @id={{this.id}}
-        @label={{this.label}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @placeholder={{this.placeholder}}
-        @isSearchable={{this.isSearchable}}
-        @strictSearch={{this.strictSearch}}
-        @onChange={{this.doSomething}}
-        @values={{this.values}}
-        @className={{this.className}}
-        @emptyMessage={{this.emptyMessage}}
-        @onLoadOptions={{this.onLoadOptions}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `,
-    context: args,
-  };
+export const multiSelectAsyncOptions = Template.bind({});
+multiSelectAsyncOptions.args = {
+  ...Default.args,
+  onLoadOptions: () => Promise.resolve(Default.args.options),
+  loadingMessage: 'Chargement en cours ...',
 };
 
-export const multiSelectWithCustomClass = (args) => {
-  args.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
-  return {
-    template: hbs`
-      <style>
-        .custom {
-          border : none;
-        }
-      </style>
-      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
-      <PixMultiSelect
-        style="width:350px"
-        @id={{this.id}}
-        @label={{this.label}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @placeholder={{this.placeholder}}
-        @isSearchable={{this.isSearchable}}
-        @strictSearch={{this.strictSearch}}
-        @onChange={{this.doSomething}}
-        @values={{this.values}}
-        @className="custom"
-        @emptyMessage={{this.emptyMessage}}
-        @onLoadOptions={{this.onLoadOptions}} as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>
-    `,
-    context: args,
-  };
+export const multiSelectWithCustomClass = Template.bind({});
+multiSelectWithCustomClass.args = {
+  ...Default.args,
+  className: 'custom',
 };
 
 export const argTypes = {
