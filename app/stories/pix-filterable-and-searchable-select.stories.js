@@ -23,11 +23,11 @@ export const Default = Template.bind({});
 Default.args = {
   selectLabel: 'Mon select label',
   selectPlaceholder: 'Mon select placeholder',
-  selectOptions: [],
+  selectOptions: [{ value: 1, label: 'select a jambon' }],
   selectOnChange: () => {},
   multiSelectId: 'multi-select-id',
   multiSelectLabel: 'Mon multi select label',
   multiSelectPlaceholder: 'Mon multi select placeholder',
-  multiSelectOptions: [],
+  multiSelectOptions: [{ value: 1, label: 'jambon' }],
   multiSelectOnChange: () => {},
 };

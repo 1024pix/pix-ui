@@ -1,0 +1,14 @@
+.pix-filterable-and-searchable-select {
+    width: fit-content;
+    border: 1px $pix-neutral-45 solid;
+    border-radius: 4px;
+    overflow: hidden;
+    &__pix-multi-select, &__pix-select {
+      border-radius: 0px;
+      border: none;
+    &:hover{
+      border: none;
+      box-shadow: none;
+    }
+  }
+}

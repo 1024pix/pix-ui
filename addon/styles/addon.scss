@@ -31,6 +31,9 @@
 @import 'pix-checkbox';
 @import 'trap-focus';
 
+// at the end so it can override it's children scss
+@import 'pix-filterable-and-searchable-select';
+
 html {
   font-size: 16px;
 }
