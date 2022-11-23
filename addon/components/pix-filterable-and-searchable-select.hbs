@@ -1,8 +1,17 @@
 <div>
   <PixSelect
-    @label={{@label}}
-    @placeholder={{@placeholder}}
-    @options={{@options}}
-    @onChange={{@onChange}}
+    @label={{@selectLabel}}
+    @placeholder={{@selectPlaceholder}}
+    @options={{@selectOptions}}
+    @onChange={{@selectOnChange}}
+    @screenReaderOnly={{true}}
+  />
+  <PixMultiSelect
+    @id={{@multiSelectId}}
+    @label={{@multiSelectLabel}}
+    @placeholder={{@multiSelectPlaceholder}}
+    @options={{@multiSelectOptions}}
+    @onChange={{@multiSelectOnChange}}
+    @screenReaderOnly={{true}}
   />
 </div>

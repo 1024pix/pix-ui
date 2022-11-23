@@ -4,10 +4,15 @@ const Template = (args) => {
   return {
     template: hbs`
       <PixFilterableAndSearchableSelect
-        @label={{label}}
-        @placeholder={{placeholder}}
-        @options={{options}}
-        @onChange={{onChange}}
+        @selectLabel={{selectLabel}}
+        @selectPlaceholder={{selectPlaceholder}}
+        @selectOptions={{selectOptions}}
+        @selectOnChange={{selectOnChange}}
+        @multiSelectId={{multiSelectId}}
+        @multiSelectLabel={{multiSelectLabel}}
+        @multiSelectPlaceholder={{multiSelectPlaceholder}}
+        @multiSelectOptions={{multiSelectOptions}}
+        @multiSelectOnChange={{multiSelectOnChange}}
       />
     `,
     context: args,
@@ -16,8 +21,13 @@ const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  label: 'Mon label',
-  placeholder: 'Mon placeholder',
-  options: [],
-  onChange: () => {},
+  selectLabel: 'Mon select label',
+  selectPlaceholder: 'Mon select placeholder',
+  selectOptions: [],
+  selectOnChange: () => {},
+  multiSelectId: 'multi-select-id',
+  multiSelectLabel: 'Mon multi select label',
+  multiSelectPlaceholder: 'Mon multi select placeholder',
+  multiSelectOptions: [],
+  multiSelectOnChange: () => {},
 };
