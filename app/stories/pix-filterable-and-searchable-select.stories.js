@@ -11,8 +11,6 @@ const Template = (args) => {
         @multiSelectId={{multiSelectId}}
         @multiSelectLabel={{multiSelectLabel}}
         @multiSelectPlaceholder={{multiSelectPlaceholder}}
-        @multiSelectOptions={{multiSelectOptions}}
-        @multiSelectOnChange={{multiSelectOnChange}}
       />
     `,
     context: args,
@@ -28,6 +26,4 @@ Default.args = {
   multiSelectId: 'multi-select-id',
   multiSelectLabel: 'Mon multi select label',
   multiSelectPlaceholder: 'Mon multi select placeholder',
-  multiSelectOptions: [{ value: 1, label: 'jambon' }],
-  multiSelectOnChange: () => {},
 };
