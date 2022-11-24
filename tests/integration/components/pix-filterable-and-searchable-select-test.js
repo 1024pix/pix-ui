@@ -19,7 +19,65 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   this.multiSelectLabel = 'filterLabel';
   this.multiSelectPlaceholder = 'filter Placeholder';
 
-  test('it renders PixFilterableAndSearchableSelect', async function (assert) {
+  test('it displays the options from the filter', async function (assert) {
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @selectPlaceholder={{this.selectPlaceholder}}
+      @selectOptions={{this.selectOptions}}
+      @selectOnChange={{this.selectOnChange}}
+      @multiSelectId={{this.multiSelectId}}
+      @multiSelectLabel={{this.multiSelectLabel}}
+      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+    />
+  `);
+
+    await click(screen.getByText(this.multiSelectPlaceholder));
+    await screen.findByRole('menu');
+    const items = await screen.queryAllByRole('menuitem');
+
+    const categories = items.map((item) => {
+      return item.innerText;
+    });
+
+    // then
+    assert.deepEqual(categories, ['Kebab', 'Hamburger']);
+  });
+
+  test('it displays once each option', async function (assert) {
+    this.selectOptions = [
+      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '2', label: 'Oignon', category: 'Kebab' },
+    ];
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @selectPlaceholder={{this.selectPlaceholder}}
+      @selectOptions={{this.selectOptions}}
+      @selectOnChange={{this.selectOnChange}}
+      @multiSelectId={{this.multiSelectId}}
+      @multiSelectLabel={{this.multiSelectLabel}}
+      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+    />
+  `);
+
+    await click(screen.getByText(this.multiSelectPlaceholder));
+    await screen.findByRole('menu');
+
+    const items = await screen.queryAllByRole('menuitem');
+
+    const categories = items.map((item) => {
+      return item.innerText;
+    });
+
+    // then
+    assert.deepEqual(categories, ['Kebab']);
+  });
+
+  test.skip('it renders PixFilterableAndSearchableSelect', async function (assert) {
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect

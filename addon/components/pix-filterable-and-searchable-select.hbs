@@ -3,10 +3,10 @@
     @id={{@multiSelectId}}
     @label={{@multiSelectLabel}}
     @placeholder={{@multiSelectPlaceholder}}
-    @options={{@multiSelectOptions}}
+    @options={{this.categories}}
     @onChange={{@multiSelectOnChange}}
     @screenReaderOnly={{true}}
-    @className="pix-filterable-and-searchable-select__pix-multi-select" 
+    @className="pix-filterable-and-searchable-select__pix-multi-select"
     as |option|
   >
     {{option.label}}
