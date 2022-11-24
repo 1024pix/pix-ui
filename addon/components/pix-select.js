@@ -97,7 +97,6 @@ export default class PixSelect extends Component {
 
   @action
   showDropdown(event) {
-    event.stopPropagation();
     event.preventDefault();
 
     this.isExpanded = true;
@@ -106,7 +105,6 @@ export default class PixSelect extends Component {
   @action
   hideDropdown(event) {
     if (this.isExpanded) {
-      event.stopPropagation();
       event.preventDefault();
 
       this.isExpanded = false;
