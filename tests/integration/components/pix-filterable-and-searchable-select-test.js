@@ -103,7 +103,12 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     assert.deepEqual(categories, ['Kebab']);
   });
 
-  test.skip('it renders PixFilterableAndSearchableSelect', async function (assert) {
+  test('it renders PixFilterableAndSearchableSelect', async function (assert) {
+    this.selectOptions = [
+      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
@@ -118,7 +123,9 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByText(this.multiSelectPlaceholder));
-    await click(screen.getByLabelText('Kebab'));
+    await screen.findByRole('menu');
+
+    await click(screen.getByRole('checkbox', { name: 'Kebab' }));
     await click(screen.getByRole('button', { name: this.selectLabel }));
 
     // then

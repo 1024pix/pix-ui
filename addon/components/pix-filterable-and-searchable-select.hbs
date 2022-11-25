@@ -4,7 +4,7 @@
     @label={{@multiSelectLabel}}
     @placeholder={{@multiSelectPlaceholder}}
     @options={{this.categories}}
-    @onChange={{@multiSelectOnChange}}
+    @onChange={{this.selectCategories}}
     @screenReaderOnly={{true}}
     @className="pix-filterable-and-searchable-select__pix-multi-select"
     as |option|
@@ -14,7 +14,7 @@
   <PixSelect
     @label={{@selectLabel}}
     @placeholder={{@selectPlaceholder}}
-    @options={{@selectOptions}}
+    @options={{this.selectableOptions}}
     @onChange={{@selectOnChange}}
     @screenReaderOnly={{true}}
     @className="pix-filterable-and-searchable-select__pix-select"
