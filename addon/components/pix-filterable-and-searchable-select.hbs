@@ -1,9 +1,9 @@
 <div class="pix-filterable-and-searchable-select">
   <PixMultiSelect
-    @id={{@multiSelectId}}
+    @id={{@categoriesId}}
     @values={{this.selectedCategories}}
-    @label={{@multiSelectLabel}}
-    @placeholder={{@multiSelectPlaceholder}}
+    @label={{@categoriesLabel}}
+    @placeholder={{@categoriesPlaceholder}}
     @options={{this.categories}}
     @onChange={{this.selectCategories}}
     @screenReaderOnly={{true}}
@@ -13,10 +13,10 @@
     {{option.label}}
   </PixMultiSelect>
   <PixSelect
-    @label={{@selectLabel}}
-    @placeholder={{@selectPlaceholder}}
+    @label={{@label}}
+    @placeholder={{@placeholder}}
     @options={{this.selectableOptions}}
-    @onChange={{@selectOnChange}}
+    @onChange={{@onChange}}
     @screenReaderOnly={{true}}
     @className="pix-filterable-and-searchable-select__pix-select"
   />

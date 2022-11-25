@@ -8,33 +8,33 @@ import sinon from 'sinon';
 module('Integration | Component | PixFilterableAndSearchableSelect', function (hooks) {
   setupRenderingTest(hooks);
 
-  this.selectOptions = [
+  this.options = [
     { value: '1', label: 'Salade', category: 'Kebab' },
     { value: '2', label: 'Tomate', category: 'Hamburger' },
   ];
 
-  this.selectLabel = 'select Label';
-  this.selectPlaceholder = 'selectPlaceholder';
-  this.multiSelectId = 'filter id';
-  this.multiSelectLabel = 'filterLabel';
-  this.multiSelectPlaceholder = 'filter Placeholder';
-  this.selectOnChange = sinon.stub();
+  this.label = 'select Label';
+  this.placeholder = 'selectPlaceholder';
+  this.categoriesId = 'filter id';
+  this.categoriesLabel = 'filterLabel';
+  this.categoriesPlaceholder = 'filter Placeholder';
+  this.onChange = sinon.stub();
 
   test('it displays the categories', async function (assert) {
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @selectPlaceholder={{this.selectPlaceholder}}
-      @selectOptions={{this.selectOptions}}
-      @selectOnChange={{this.selectOnChange}}
-      @multiSelectId={{this.multiSelectId}}
-      @multiSelectLabel={{this.multiSelectLabel}}
-      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
   `);
 
-    await click(screen.getByText(this.multiSelectPlaceholder));
+    await click(screen.getByText(this.categoriesPlaceholder));
     await screen.findByRole('menu');
     const items = await screen.queryAllByRole('menuitem');
 
@@ -50,17 +50,17 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @selectPlaceholder={{this.selectPlaceholder}}
-      @selectOptions={{this.selectOptions}}
-      @selectOnChange={{this.selectOnChange}}
-      @multiSelectId={{this.multiSelectId}}
-      @multiSelectLabel={{this.multiSelectLabel}}
-      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
   `);
 
-    await clickByName(this.selectLabel);
+    await clickByName(this.label);
     await screen.findByRole('listbox');
     const options = await screen.queryAllByRole('option');
 
@@ -73,7 +73,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   });
 
   test('it displays once each category', async function (assert) {
-    this.selectOptions = [
+    this.options = [
       { value: '1', label: 'Salade', category: 'Kebab' },
       { value: '2', label: 'Oignon', category: 'Kebab' },
     ];
@@ -81,17 +81,17 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @selectPlaceholder={{this.selectPlaceholder}}
-      @selectOptions={{this.selectOptions}}
-      @selectOnChange={{this.selectOnChange}}
-      @multiSelectId={{this.multiSelectId}}
-      @multiSelectLabel={{this.multiSelectLabel}}
-      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
   `);
 
-    await click(screen.getByText(this.multiSelectPlaceholder));
+    await click(screen.getByText(this.categoriesPlaceholder));
     await screen.findByRole('menu');
 
     const items = await screen.queryAllByRole('menuitem');
@@ -105,7 +105,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   });
 
   test('it displays only options with the correct category', async function (assert) {
-    this.selectOptions = [
+    this.options = [
       { value: '1', label: 'Salade', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
@@ -113,21 +113,21 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @selectPlaceholder={{this.selectPlaceholder}}
-      @selectOptions={{this.selectOptions}}
-      @selectOnChange={{this.selectOnChange}}
-      @multiSelectId={{this.multiSelectId}}
-      @multiSelectLabel={{this.multiSelectLabel}}
-      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
   `);
 
-    await click(screen.getByText(this.multiSelectPlaceholder));
+    await click(screen.getByText(this.categoriesPlaceholder));
     await screen.findByRole('menu');
 
     await click(screen.getByRole('checkbox', { name: 'Kebab' }));
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(screen.getByRole('button', { name: this.label }));
 
     // then
     assert.dom(screen.getByText('Salade')).exists();
@@ -135,7 +135,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   });
 
   test('it displays options corresponding to the selected categories', async function (assert) {
-    this.selectOptions = [
+    this.options = [
       { value: '1', label: 'Salade', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
       { value: '3', label: 'Saumon', category: 'Sushi' },
@@ -144,22 +144,22 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @selectPlaceholder={{this.selectPlaceholder}}
-      @selectOptions={{this.selectOptions}}
-      @selectOnChange={{this.selectOnChange}}
-      @multiSelectId={{this.multiSelectId}}
-      @multiSelectLabel={{this.multiSelectLabel}}
-      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
   `);
 
-    await click(screen.getByText(this.multiSelectPlaceholder));
+    await click(screen.getByText(this.categoriesPlaceholder));
     await screen.findByRole('menu');
 
     await click(screen.getByRole('checkbox', { name: 'Hamburger' }));
     await click(screen.getByRole('checkbox', { name: 'Sushi' }));
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(screen.getByRole('button', { name: this.label }));
     await screen.findByRole('listbox');
 
     const options = await screen.queryAllByRole('option');
@@ -173,7 +173,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   });
 
   test('it call onChange when a option is selected', async function (assert) {
-    this.selectOptions = [
+    this.options = [
       { value: '1', label: 'Salade', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
@@ -181,22 +181,22 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @selectPlaceholder={{this.selectPlaceholder}}
-      @selectOptions={{this.selectOptions}}
-      @selectOnChange={{this.selectOnChange}}
-      @multiSelectId={{this.multiSelectId}}
-      @multiSelectLabel={{this.multiSelectLabel}}
-      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
   `);
 
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(screen.getByRole('button', { name: this.label }));
     await screen.findByRole('listbox');
     await click(screen.getByRole('option', { name: 'Tomate' }));
 
     // then
-    sinon.assert.calledWith(this.selectOnChange, '2');
+    sinon.assert.calledWith(this.onChange, '2');
     assert.ok(true);
   });
 });

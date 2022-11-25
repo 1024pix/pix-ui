@@ -12,7 +12,7 @@ export default class PixFilterableAndSearchableSelect extends Component {
 
   get categories() {
     const categoryNames = [];
-    this.args.selectOptions.forEach((option) => {
+    this.args.options.forEach((option) => {
       if (!categoryNames.includes(option.category)) {
         categoryNames.push(option.category);
       }
@@ -30,12 +30,11 @@ export default class PixFilterableAndSearchableSelect extends Component {
         ? this.categories.map(({ value }) => value)
         : this.selectedCategories;
 
-    this.args.selectOptions.forEach((option) => {
+    this.args.options.forEach((option) => {
       if (categories.includes(option.category)) {
         selectableOptions.push(option);
       }
     });
-    console.log(selectableOptions)
 
     return selectableOptions;
   }
