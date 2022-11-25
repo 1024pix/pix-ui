@@ -13,7 +13,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     { value: '2', label: 'Tomate', category: 'Hamburger' },
   ];
 
-  this.label = 'select Label';
+  this.selectLabel = 'select Label';
   this.placeholder = 'selectPlaceholder';
   this.categoriesId = 'filter id';
   this.categoriesLabel = 'filterLabel';
@@ -24,7 +24,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -50,7 +50,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -60,7 +60,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await clickByName(this.label);
+    await clickByName(this.selectLabel);
     await screen.findByRole('listbox');
     const options = await screen.queryAllByRole('option');
 
@@ -81,7 +81,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -113,7 +113,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -127,7 +127,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     await screen.findByRole('menu');
 
     await click(screen.getByRole('checkbox', { name: 'Kebab' }));
-    await click(screen.getByRole('button', { name: this.label }));
+    await click(screen.getByRole('button', { name: this.selectLabel }));
 
     // then
     assert.dom(screen.getByText('Salade')).exists();
@@ -144,7 +144,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -159,7 +159,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     await click(screen.getByRole('checkbox', { name: 'Hamburger' }));
     await click(screen.getByRole('checkbox', { name: 'Sushi' }));
-    await click(screen.getByRole('button', { name: this.label }));
+    await click(screen.getByRole('button', { name: this.selectLabel }));
     await screen.findByRole('listbox');
 
     const options = await screen.queryAllByRole('option');
@@ -181,7 +181,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -191,7 +191,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByRole('button', { name: this.label }));
+    await click(screen.getByRole('button', { name: this.selectLabel }));
     await screen.findByRole('listbox');
     await click(screen.getByRole('option', { name: 'Tomate' }));
 
