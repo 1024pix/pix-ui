@@ -8,7 +8,6 @@ export default class PixFilterableAndSearchableSelect extends Component {
   @action
   selectCategories(categories) {
     this.selectedCategories = categories;
-    console.log(categories);
   }
 
   get categories() {
@@ -36,6 +35,7 @@ export default class PixFilterableAndSearchableSelect extends Component {
         selectableOptions.push(option);
       }
     });
+    console.log(selectableOptions)
 
     return selectableOptions;
   }

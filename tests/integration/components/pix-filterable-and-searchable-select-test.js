@@ -3,6 +3,7 @@ import { setupRenderingTest } from 'ember-qunit';
 import { click } from '@ember/test-helpers';
 import { render, clickByName } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
 
 module('Integration | Component | PixFilterableAndSearchableSelect', function (hooks) {
   setupRenderingTest(hooks);
@@ -14,10 +15,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
   this.selectLabel = 'select Label';
   this.selectPlaceholder = 'selectPlaceholder';
-  this.selectOnChange = 'selectOnChange';
   this.multiSelectId = 'filter id';
   this.multiSelectLabel = 'filterLabel';
   this.multiSelectPlaceholder = 'filter Placeholder';
+  this.selectOnChange = sinon.stub();
 
   test('it displays the categories', async function (assert) {
     // given & when
@@ -103,7 +104,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     assert.deepEqual(categories, ['Kebab']);
   });
 
-  test('it renders PixFilterableAndSearchableSelect', async function (assert) {
+  test('it displays only options with the correct category', async function (assert) {
     this.selectOptions = [
       { value: '1', label: 'Salade', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
@@ -131,5 +132,71 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // then
     assert.dom(screen.getByText('Salade')).exists();
     assert.equal(screen.queryByText('Tomate'), null);
+  });
+
+  test('it displays options corresponding to the selected categories', async function (assert) {
+    this.selectOptions = [
+      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+      { value: '3', label: 'Saumon', category: 'Sushi' },
+    ];
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @selectPlaceholder={{this.selectPlaceholder}}
+      @selectOptions={{this.selectOptions}}
+      @selectOnChange={{this.selectOnChange}}
+      @multiSelectId={{this.multiSelectId}}
+      @multiSelectLabel={{this.multiSelectLabel}}
+      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+    />
+  `);
+
+    await click(screen.getByText(this.multiSelectPlaceholder));
+    await screen.findByRole('menu');
+
+    await click(screen.getByRole('checkbox', { name: 'Hamburger' }));
+    await click(screen.getByRole('checkbox', { name: 'Sushi' }));
+    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await screen.findByRole('listbox');
+
+    const options = await screen.queryAllByRole('option');
+
+    const labels = options.map((option) => {
+      return option.innerText;
+    });
+
+    // then
+    assert.deepEqual(labels, ['selectPlaceholder', 'Tomate', 'Saumon']);
+  });
+
+  test('it call onChange when a option is selected', async function (assert) {
+    this.selectOptions = [
+      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @selectPlaceholder={{this.selectPlaceholder}}
+      @selectOptions={{this.selectOptions}}
+      @selectOnChange={{this.selectOnChange}}
+      @multiSelectId={{this.multiSelectId}}
+      @multiSelectLabel={{this.multiSelectLabel}}
+      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+    />
+  `);
+
+    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await screen.findByRole('listbox');
+    await click(screen.getByRole('option', { name: 'Tomate' }));
+
+    // then
+    sinon.assert.calledWith(this.selectOnChange, '2');
+    assert.ok(true);
   });
 });
