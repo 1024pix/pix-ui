@@ -9,7 +9,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   setupRenderingTest(hooks);
 
   this.options = [
-    { value: '1', label: 'Salade', category: 'Kebab' },
+    { value: '1', label: 'Mache', category: 'Kebab' },
     { value: '2', label: 'Tomate', category: 'Hamburger' },
   ];
 
@@ -69,12 +69,12 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     });
 
     // then
-    assert.deepEqual(labels, ['selectPlaceholder', 'Salade', 'Tomate']);
+    assert.deepEqual(labels, ['selectPlaceholder', 'Mache', 'Tomate']);
   });
 
   test('it displays once each category', async function (assert) {
     this.options = [
-      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Oignon', category: 'Kebab' },
     ];
 
@@ -106,7 +106,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
   test('it displays only options with the correct category', async function (assert) {
     this.options = [
-      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
 
@@ -130,13 +130,13 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     await click(screen.getByRole('button', { name: this.selectLabel }));
 
     // then
-    assert.dom(screen.getByText('Salade')).exists();
+    assert.dom(screen.getByText('Mache')).exists();
     assert.equal(screen.queryByText('Tomate'), null);
   });
 
   test('it displays options corresponding to the selected categories', async function (assert) {
     this.options = [
-      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
       { value: '3', label: 'Saumon', category: 'Sushi' },
     ];
@@ -174,7 +174,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
   test('it call onChange when a option is selected', async function (assert) {
     this.options = [
-      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
 
@@ -202,7 +202,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
   test('it displays options which match the text searched', async function (assert) {
     this.options = [
-      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
     this.searchLabel = 'Recherche';
