@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click } from '@ember/test-helpers';
-import { render, clickByName } from '@1024pix/ember-testing-library';
+import { render, clickByName, fillByLabel } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
@@ -198,5 +198,41 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // then
     sinon.assert.calledWith(this.onChange, '2');
     assert.ok(true);
+  });
+
+  test('it displays options which match the text searched', async function (assert) {
+    this.options = [
+      { value: '1', label: 'Salade', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+    this.searchLabel = 'Recherche';
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
+      @searchLabel={{this.searchLabel}}
+      @isSearchable={{true}}
+    />
+  `);
+
+    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await screen.findByRole('listbox');
+    await fillByLabel(this.searchLabel, 'Tom');
+
+    const items = await screen.queryAllByRole('option');
+
+    const options = items.map((item) => {
+      return item.innerText;
+    });
+
+    // then
+    assert.deepEqual(options, ['Tomate']);
   });
 });

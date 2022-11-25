@@ -11,6 +11,7 @@ const Template = (args) => {
         @categoriesId={{categoriesId}}
         @categoriesLabel={{categoriesLabel}}
         @categoriesPlaceholder={{categoriesPlaceholder}}
+        @isSearchable={{isSearchable}}
         @value={{value}}
       />
     `,
@@ -22,6 +23,24 @@ export const Default = Template.bind({});
 Default.args = {
   selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
+  options: [
+    { value: 1, label: 'Salade', category: 'Kebab' },
+    { value: 1, label: 'Tomate', category: 'Kebab' },
+    { value: 1, label: 'Oignons', category: 'Kebab' },
+    { value: 1, label: 'Steak', category: 'Hamburger' },
+    { value: 1, label: 'Cheddar', category: 'Hamburger' },
+  ],
+  onChange: () => {},
+  categoriesId: 'multi-select-id',
+  categoriesLabel: 'Mon multi select label',
+  categoriesPlaceholder: 'Mon multi select placeholder',
+};
+
+export const Searchable = Template.bind({});
+Searchable.args = {
+  selectLabel: 'Mon select label',
+  placeholder: 'Mon select placeholder',
+  isSearchable: true,
   options: [
     { value: 1, label: 'Salade', category: 'Kebab' },
     { value: 1, label: 'Tomate', category: 'Kebab' },
