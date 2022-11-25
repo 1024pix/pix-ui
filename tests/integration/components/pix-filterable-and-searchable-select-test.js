@@ -1,7 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { click } from '@ember/test-helpers';
-import { render } from '@1024pix/ember-testing-library';
+import { render, clickByName } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | PixFilterableAndSearchableSelect', function (hooks) {
@@ -19,7 +19,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   this.multiSelectLabel = 'filterLabel';
   this.multiSelectPlaceholder = 'filter Placeholder';
 
-  test('it displays the options from the filter', async function (assert) {
+  test('it displays the categories', async function (assert) {
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
@@ -45,7 +45,33 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     assert.deepEqual(categories, ['Kebab', 'Hamburger']);
   });
 
-  test('it displays once each option', async function (assert) {
+  test('it displays the select options', async function (assert) {
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @selectPlaceholder={{this.selectPlaceholder}}
+      @selectOptions={{this.selectOptions}}
+      @selectOnChange={{this.selectOnChange}}
+      @multiSelectId={{this.multiSelectId}}
+      @multiSelectLabel={{this.multiSelectLabel}}
+      @multiSelectPlaceholder={{this.multiSelectPlaceholder}}
+    />
+  `);
+
+    await clickByName(this.selectLabel);
+    await screen.findByRole('listbox');
+    const options = await screen.queryAllByRole('option');
+
+    const labels = options.map((option) => {
+      return option.innerText;
+    });
+
+    // then
+    assert.deepEqual(labels, ['selectPlaceholder', 'Salade', 'Tomate']);
+  });
+
+  test('it displays once each category', async function (assert) {
     this.selectOptions = [
       { value: '1', label: 'Salade', category: 'Kebab' },
       { value: '2', label: 'Oignon', category: 'Kebab' },
