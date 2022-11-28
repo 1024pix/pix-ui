@@ -30,17 +30,6 @@ L'ajout de ``class`` et d'autres attributs comme ``aria-label`` sont possibles.
   <Story name="withCustomClass" story={stories.multiSelectWithCustomClass} height={330}/>
 </Canvas>
 
-## With async options
-
-Via la propriété `onLoadOptions`, le composant peut charger lui-même les options de manière asynchrone.
-Le callback `onLoadOptions` est une promesse renvoyant la liste des options. (eg. `[{ label: 'A', value: '1' }]`).
-
-Il est possible de donner un message via `loadingMessage` à afficher à la place des options pendant que celles-ci soient chargées.
-
-<Canvas>
-  <Story name="With async options" story={stories.multiSelectAsyncOptions} height={330}/>
-</Canvas>
-
 ## Usage
 
 ```html
