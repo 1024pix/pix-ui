@@ -4,6 +4,10 @@
   border: 1px $pix-neutral-45 solid;
   border-radius: 4px;
 
+  &__label {
+    @include label();
+  }
+  
   &__pix-multi-select,
   &__pix-select {
     border: none;

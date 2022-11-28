@@ -1,9 +1,12 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
 
 export default class PixFilterableAndSearchableSelect extends Component {
   @tracked selectedCategories = [];
+
+  id = 'pix-filterable-and-searchable-select' + guidFor(this);
 
   @action
   selectCategories(categories) {

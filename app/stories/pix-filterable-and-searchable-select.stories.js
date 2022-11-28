@@ -4,6 +4,7 @@ const Template = (args) => {
   return {
     template: hbs`
       <PixFilterableAndSearchableSelect
+        @label={{label}}
         @selectLabel={{selectLabel}}
         @placeholder={{placeholder}}
         @options={{options}}
@@ -21,6 +22,7 @@ const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
+  label: 'Are you hungry?',
   selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
   options: [
@@ -38,6 +40,7 @@ Default.args = {
 
 export const Searchable = Template.bind({});
 Searchable.args = {
+  label: 'Are you hungry?',
   selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
   isSearchable: true,

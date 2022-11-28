@@ -267,4 +267,61 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // then
     assert.deepEqual(option.innerText, 'Tomate');
   });
+
+  test('it displays the label', async function (assert) {
+    this.options = [
+      { value: '1', label: 'Mache', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+    this.label = 'Label de mon big composant trop compliqué';
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @value={{'2'}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
+      @label={{this.label}}
+    />
+  `);
+
+    const label = await screen.getByLabelText(this.label);
+
+    // then
+    assert.dom(label).exists();
+  });
+
+  test('it give the focus on the first child when clicking on the label', async function (assert) {
+    this.options = [
+      { value: '1', label: 'Mache', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+    this.label = 'Label de mon big composant trop compliqué';
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @value={{'2'}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
+      @label={{this.label}}
+    />
+  `);
+
+    debugger;
+    const select = await screen.getByLabelText(this.label);
+    click(select);
+    // then
+    assert.dom(select).exists();
+  });
 });

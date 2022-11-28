@@ -1,26 +1,29 @@
-<div class="pix-filterable-and-searchable-select">
-  <PixMultiSelect
-    @id={{@categoriesId}}
-    @values={{this.selectedCategories}}
-    @label={{@categoriesLabel}}
-    @placeholder={{@categoriesPlaceholder}}
-    @options={{this.categories}}
-    @onChange={{this.selectCategories}}
-    @screenReaderOnly={{true}}
-    @className="pix-filterable-and-searchable-select__pix-multi-select"
-    as |option|
-  >
-    {{option.label}}
-  </PixMultiSelect>
-  <PixSelect
-    @label={{@selectLabel}}
-    @placeholder={{@placeholder}}
-    @value={{@value}}
-    @options={{this.selectableOptions}}
-    @onChange={{@onChange}}
-    @isSearchable={{@isSearchable}}
-    @searchLabel={{@searchLabel}}
-    @screenReaderOnly={{true}}
-    @className="pix-filterable-and-searchable-select__pix-select"
-  />
+<div>
+  <label class="pix-filterable-and-searchable-select__label" id={{this.id}}>{{@label}}</label>
+  <div aria-labelledby={{this.id}} class="pix-filterable-and-searchable-select">
+    <PixMultiSelect
+      @id={{@categoriesId}}
+      @values={{this.selectedCategories}}
+      @label={{@categoriesLabel}}
+      @placeholder={{@categoriesPlaceholder}}
+      @options={{this.categories}}
+      @onChange={{this.selectCategories}}
+      @screenReaderOnly={{true}}
+      @className="pix-filterable-and-searchable-select__pix-multi-select"
+      as |option|
+    >
+      {{option.label}}
+    </PixMultiSelect>
+    <PixSelect
+      @label={{@selectLabel}}
+      @placeholder={{@placeholder}}
+      @value={{@value}}
+      @options={{this.selectableOptions}}
+      @onChange={{@onChange}}
+      @isSearchable={{@isSearchable}}
+      @searchLabel={{@searchLabel}}
+      @screenReaderOnly={{true}}
+      @className="pix-filterable-and-searchable-select__pix-select"
+    />
+  </div>
 </div>
