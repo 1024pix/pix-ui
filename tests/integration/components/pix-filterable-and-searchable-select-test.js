@@ -235,4 +235,36 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // then
     assert.deepEqual(options, ['Tomate']);
   });
+
+  test('it displays the selected option', async function (assert) {
+    this.options = [
+      { value: '1', label: 'Mache', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+    this.searchLabel = 'Recherche';
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @value={{'2'}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
+      @searchLabel={{this.searchLabel}}
+      @isSearchable={{true}}
+    />
+  `);
+
+    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await screen.findByRole('listbox');
+
+    const option = await screen.findByRole('option', { selected: true });
+
+    // then
+    assert.deepEqual(option.innerText, 'Tomate');
+  });
 });
