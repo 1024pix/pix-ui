@@ -10,11 +10,9 @@ module('Integration | Component | pix-block', function (hooks) {
 
   test('it renders the default PixBlock', async function (assert) {
     // when
-    await render(hbs`
-      <PixBlock>
-        Je suis un beau bloc avec une ombre légere
-      </PixBlock>
-    `);
+    await render(hbs`<PixBlock>
+  Je suis un beau bloc avec une ombre légere
+</PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
@@ -27,11 +25,9 @@ module('Integration | Component | pix-block', function (hooks) {
     this.set('shadowWeight', 'heavy');
 
     // when
-    await render(hbs`
-      <PixBlock @shadow={{this.shadowWeight}}>
-        Je suis trop d4rk
-      </PixBlock>
-    `);
+    await render(hbs`<PixBlock @shadow={{this.shadowWeight}}>
+  Je suis trop d4rk
+</PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
@@ -44,11 +40,9 @@ module('Integration | Component | pix-block', function (hooks) {
     this.set('shadowWeight', 'normal');
 
     // when
-    await render(hbs`
-      <PixBlock @shadow={{this.shadowWeight}}>
-        Joli bloc quand même
-      </PixBlock>
-    `);
+    await render(hbs`<PixBlock @shadow={{this.shadowWeight}}>
+  Joli bloc quand même
+</PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then

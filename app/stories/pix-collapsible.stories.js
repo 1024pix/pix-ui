@@ -2,57 +2,42 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const collapsible = (args) => {
   return {
-    template: hbs`
-    <PixCollapsible
-      @title={{title}}
-      @titleIcon={{titleIcon}}>
-      <div>Contenu du PixCollapsible</div>
-    </PixCollapsible>
-    `,
+    template: hbs`<PixCollapsible @title={{title}} @titleIcon={{titleIcon}}>
+  <div>Contenu du PixCollapsible</div>
+</PixCollapsible>`,
     context: args,
   };
 };
 
 export const collapsibleWithBlockTitle = (args) => {
   return {
-    template: hbs`
-    <PixCollapsible
-      @titleIcon={{titleIcon}}>
-      <:title>
-        <span>Titre avec <em>contenu de type block</em></span>
-      </:title>
-      <:default>
-        <div>Contenu du PixCollapsible</div>
-      </:default>
-      </PixCollapsible>
-    `,
+    template: hbs`<PixCollapsible @titleIcon={{titleIcon}}>
+  <:title>
+    <span>Titre avec <em>contenu de type block</em></span>
+  </:title>
+  <:default>
+    <div>Contenu du PixCollapsible</div>
+  </:default>
+</PixCollapsible>`,
     context: args,
   };
 };
 
 export const multipleCollapsible = (args) => {
   return {
-    template: hbs`
-    <div>
-      <PixCollapsible
-        @title="Titre A"
-        @titleIcon={{titleIcon}}>
-          <div>Contenu A</div>
-      </PixCollapsible>
+    template: hbs`<div>
+  <PixCollapsible @title='Titre A' @titleIcon={{titleIcon}}>
+    <div>Contenu A</div>
+  </PixCollapsible>
 
-      <PixCollapsible
-        @title="Titre B"
-        @titleIcon={{titleIcon}}>
-          <div>Contenu B</div>
-      </PixCollapsible>
+  <PixCollapsible @title='Titre B' @titleIcon={{titleIcon}}>
+    <div>Contenu B</div>
+  </PixCollapsible>
 
-      <PixCollapsible
-        @title="Titre C"
-        @titleIcon={{titleIcon}}>
-          <div>Contenu C</div>
-      </PixCollapsible>
-    </div>
-    `,
+  <PixCollapsible @title='Titre C' @titleIcon={{titleIcon}}>
+    <div>Contenu C</div>
+  </PixCollapsible>
+</div>`,
     context: args,
   };
 };

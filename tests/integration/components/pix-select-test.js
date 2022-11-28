@@ -25,14 +25,12 @@ module('Integration | Component | PixSelect', function (hooks) {
 
   test('it renders Select', async function (assert) {
     // given & when
-    const screen = await render(hbs`
-    <PixSelect
-      @options={{this.options}}
-      @label={{this.label}}
-      @subLabel={{this.subLabel}}
-      @placeholder={{this.placeholder}}
-    />
-  `);
+    const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
     // then
     assert.dom(screen.getByText('Mon sous label')).exists();
@@ -60,14 +58,12 @@ module('Integration | Component | PixSelect', function (hooks) {
   module('listbox', function () {
     test('it hides the dropdown unless there is a click on the button', async function (assert) {
       // given & when
-      const screen = await render(hbs`
-      <PixSelect
-        @options={{this.options}}
-        @label={{this.label}}
-        @subLabel={{this.subLabel}}
-        @placeholder={{this.placeholder}}
-      />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
       // then
       assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
@@ -75,14 +71,12 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('it opens the dropdown', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -94,15 +88,13 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('it hides default option', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @hideDefaultOption={{true}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @hideDefaultOption={{true}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -122,14 +114,12 @@ module('Integration | Component | PixSelect', function (hooks) {
         { value: '1', label: 'Salade', category: 'Autre' },
         { value: '3', label: 'Oignon', category: 'Autre' },
       ];
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -146,15 +136,13 @@ module('Integration | Component | PixSelect', function (hooks) {
     module('closed dropdown', function () {
       test('it should display list, focus selected element on arrow up press', async function (assert) {
         // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @value={{'3'}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @value={{'3'}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -172,15 +160,13 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should display list, focus selected element on arrow down press', async function (assert) {
         // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @value={{'2'}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @value={{'2'}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -198,15 +184,13 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should display list, focus selected element on space press', async function (assert) {
         // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @value={{'1'}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @value={{'1'}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -226,14 +210,12 @@ module('Integration | Component | PixSelect', function (hooks) {
     module('opened dropdown', function () {
       test('it should focus first element on arrow down press', async function (assert) {
         // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -251,14 +233,12 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should focus last element on arrow up press', async function (assert) {
         // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -276,14 +256,12 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should close menu on escape press, focus select element', async function (assert) {
         // given
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
         // when
         screen.getByLabelText('Mon menu déroulant').focus();
@@ -303,15 +281,13 @@ module('Integration | Component | PixSelect', function (hooks) {
         // given
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-            @onChange={{this.onChange}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @onChange={{this.onChange}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -333,15 +309,13 @@ module('Integration | Component | PixSelect', function (hooks) {
         // given
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-            @onChange={{this.onChange}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @onChange={{this.onChange}}
+/>`);
 
         // when
         await screen.getByLabelText('Mon menu déroulant').focus();
@@ -362,16 +336,14 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should focus on the search input when tab is pressed', async function (assert) {
         // given
         this.searchLabel = 'Label du search';
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @isSearchable={{true}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-            @searchLabel={{this.searchLabel}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @isSearchable={{true}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+/>`);
 
         // when
         screen.getByLabelText('Mon menu déroulant').focus();
@@ -389,16 +361,14 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should focus on the input when escape is pressed', async function (assert) {
         // given
         this.searchLabel = 'Label du search';
-        const screen = await render(hbs`
-          <PixSelect
-            @options={{this.options}}
-            @isSearchable={{true}}
-            @label={{this.label}}
-            @subLabel={{this.subLabel}}
-            @placeholder={{this.placeholder}}
-            @searchLabel={{this.searchLabel}}
-          />
-        `);
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @isSearchable={{true}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+/>`);
 
         // when
         screen.getByLabelText('Mon menu déroulant').focus();
@@ -422,14 +392,12 @@ module('Integration | Component | PixSelect', function (hooks) {
       // given
       this.onChange = sinon.spy();
 
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @placeholder={{this.placeholder}}
-          @onChange={{this.onChange}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @placeholder={{this.placeholder}}
+  @onChange={{this.onChange}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -450,15 +418,13 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.onChange = sinon.spy();
       this.value = '3';
 
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @placeholder={{this.placeholder}}
-          @onChange={{this.onChange}}
-          @value={{this.value}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @placeholder={{this.placeholder}}
+  @onChange={{this.onChange}}
+  @value={{this.value}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -475,15 +441,13 @@ module('Integration | Component | PixSelect', function (hooks) {
       this.onChange = sinon.spy();
       this.isSearchable = false;
 
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @placeholder={{this.placeholder}}
-          @onChange={{this.onChange}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @placeholder={{this.placeholder}}
+  @onChange={{this.onChange}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -501,17 +465,15 @@ module('Integration | Component | PixSelect', function (hooks) {
   module('#isSearchable', function () {
     test('should display searchable input', async function (assert) {
       this.isSearchable = true;
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -522,17 +484,15 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('should focus on search input', async function (assert) {
       this.isSearchable = true;
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -543,17 +503,15 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('should filter the option corresponding to the string', async function (assert) {
       this.isSearchable = true;
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -568,17 +526,15 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('should filter without taking care of the case', async function (assert) {
       this.isSearchable = true;
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -590,17 +546,15 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('should trim empty space before and after searched value', async function (assert) {
       this.isSearchable = true;
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -612,17 +566,15 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     test('should display placeholder text', async function (assert) {
       this.isSearchable = true;
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -634,18 +586,16 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('when there is no options found it displays the empty search result message', async function (assert) {
       this.isSearchable = true;
       this.emptySearchMessage = 'Aucune option';
-      await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @searchLabel={{this.searchLabel}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @isSearchable={{this.isSearchable}}
-          @emptySearchMessage={{this.emptySearchMessage}}
-        />
-      `);
+      await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+  @emptySearchMessage={{this.emptySearchMessage}}
+/>`);
 
       // when
       await clickByName('Mon menu déroulant');
@@ -659,15 +609,13 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it displays the asterix', async function (assert) {
       this.requiredText = 'Title requis';
 
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @requiredText={{this.requiredText}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @requiredText={{this.requiredText}}
+/>`);
       assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
     });
   });
@@ -676,15 +624,13 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it displays the error message', async function (assert) {
       this.errorMessage = "Tu t'es trompé !";
 
-      const screen = await render(hbs`
-        <PixSelect
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-          @errorMessage={{this.errorMessage}}
-        />
-      `);
+      const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @errorMessage={{this.errorMessage}}
+/>`);
       assert.dom(screen.getByText("Tu t'es trompé !")).exists();
     });
   });
@@ -692,13 +638,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   module('#className', function () {
     test('it adds a custom class', async function (assert) {
       // given & when
-      await render(hbs`
-        <PixSelect
-          @className="some-custom-class"
-          @options={{this.options}}
-          @label={{this.label}}
-        />
-      `);
+      await render(hbs`<PixSelect @className='some-custom-class' @options={{this.options}} @label={{this.label}} />`);
 
       // then
       assert.dom('.some-custom-class').exists();

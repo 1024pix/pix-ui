@@ -3,18 +3,16 @@ import { action } from '@storybook/addon-actions';
 
 const Template = (args) => {
   return {
-    template: hbs`
-      <PixIconButton
-        @ariaLabel={{ariaLabel}}
-        @icon={{icon}}
-        @iconPrefix={{iconPrefix}}
-        @triggerAction={{triggerAction}}
-        @withBackground={{withBackground}}
-        @size={{size}}
-        disabled={{disabled}}
-        aria-disabled={{disabled}}
-        />
-    `,
+    template: hbs`<PixIconButton
+  @ariaLabel={{ariaLabel}}
+  @icon={{icon}}
+  @iconPrefix={{iconPrefix}}
+  @triggerAction={{triggerAction}}
+  @withBackground={{withBackground}}
+  @size={{size}}
+  disabled={{disabled}}
+  aria-disabled={{disabled}}
+/>`,
     context: args,
   };
 };

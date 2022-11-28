@@ -16,11 +16,7 @@ module('Integration | Component | pagination', function (hooks) {
     };
     this.set('pagination', paginationData);
     // when
-    await render(hbs`
-      <PixPagination
-         @pagination={{pagination}}
-      />
-    `);
+    await render(hbs`<PixPagination @pagination={{pagination}} />`);
 
     const PixPaginationElement = this.element.querySelector('.pix-pagination');
     //then
@@ -42,12 +38,7 @@ module('Integration | Component | pagination', function (hooks) {
     this.set('pagination', paginationData);
 
     // when
-    await render(hbs`
-      <PixPagination
-        @pagination={{pagination}}
-        @locale={{this.locale}}
-      />
-    `);
+    await render(hbs`<PixPagination @pagination={{pagination}} @locale={{this.locale}} />`);
 
     const PixPaginationElement = this.element.querySelector('.pix-pagination');
     //then
@@ -68,11 +59,7 @@ module('Integration | Component | pagination', function (hooks) {
     this.set('pagination', paginationData);
 
     // when
-    await render(hbs`
-      <PixPagination
-        @pagination={{pagination}}
-      />
-    `);
+    await render(hbs`<PixPagination @pagination={{pagination}} />`);
 
     const PixPaginationElement = this.element.querySelector('.pix-pagination');
     //then
@@ -91,12 +78,7 @@ module('Integration | Component | pagination', function (hooks) {
     };
     this.set('pagination', paginationData);
     // when
-    await render(hbs`
-      <PixPagination
-        @pagination={{pagination}}
-        @isCondensed=true
-      />
-    `);
+    await render(hbs`<PixPagination @pagination={{pagination}} @isCondensed='true' />`);
 
     const PixPaginationCondensedElement = this.element.querySelector('.pix-pagination-condensed');
     //then

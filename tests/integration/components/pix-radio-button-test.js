@@ -10,7 +10,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
 
   test('it renders the default PixRadioButton', async function (assert) {
     // when
-    await render(hbs`<PixRadioButton @label="Abricot" />`);
+    await render(hbs`<PixRadioButton @label='Abricot' />`);
 
     // then
     const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
@@ -20,7 +20,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
 
   test('it renders the PixRadioButton component with isDisabled attribute', async function (assert) {
     // given & when
-    await render(hbs`<PixRadioButton @label="Abricot" @id="abricot" @isDisabled=true />`);
+    await render(hbs`<PixRadioButton @label='Abricot' @id='abricot' @isDisabled='true' />`);
 
     // then
     const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
@@ -29,7 +29,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
 
   test('it should be possible to add more params to PixRadioButton', async function (assert) {
     // given
-    await render(hbs`<PixRadioButton @label="Abricot" @id="abricot" @isDisabled=true checked/>`);
+    await render(hbs`<PixRadioButton @label='Abricot' @id='abricot' @isDisabled='true' checked />`);
 
     // when & then
     const componentInput = this.element.querySelector(INPUT_SELECTOR);

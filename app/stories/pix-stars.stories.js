@@ -2,14 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const stars = (args) => {
   return {
-    template: hbs`
-      <PixStars
-        @count={{count}}
-        @total={{total}}
-        @alt={{alt}}
-        @color={{color}}
-      />
-    `,
+    template: hbs`<PixStars @count={{count}} @total={{total}} @alt={{alt}} @color={{color}} />`,
     context: args,
   };
 };

@@ -13,16 +13,14 @@ module('Integration | Modifier | on-escape-action', function (hooks) {
     this.onCloseButtonClick = sinon.stub();
 
     // when
-    await render(hbs`
-      <PixModal
-        @title={{this.title}}
-        @onCloseButtonClick={{this.onCloseButtonClick}}
-        {{on-escape-action this.onCloseButtonClick}}
-        {{trap-focus}}
-      >
-        content
-      </PixModal>
-    `);
+    await render(hbs`<PixModal
+  @title={{this.title}}
+  @onCloseButtonClick={{this.onCloseButtonClick}}
+  {{on-escape-action this.onCloseButtonClick}}
+  {{trap-focus}}
+>
+  content
+</PixModal>`);
     await triggerKeyEvent('.pix-modal__overlay', 'keyup', 'Escape');
 
     // then

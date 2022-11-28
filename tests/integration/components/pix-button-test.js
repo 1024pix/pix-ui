@@ -12,11 +12,9 @@ module('Integration | Component | button', function (hooks) {
 
   test('it renders the default PixButton', async function (assert) {
     // when
-    await render(hbs`
-      <PixButton>
-        Mon bouton
-      </PixButton>
-    `);
+    await render(hbs`<PixButton>
+  Mon bouton
+</PixButton>`);
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -26,11 +24,9 @@ module('Integration | Component | button', function (hooks) {
 
   test('it renders the PixButton component with the given type', async function (assert) {
     // when
-    await render(hbs`
-      <PixButton @type="submit">
-        Mon bouton
-      </PixButton>
-    `);
+    await render(hbs`<PixButton @type='submit'>
+  Mon bouton
+</PixButton>`);
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -45,15 +41,9 @@ module('Integration | Component | button', function (hooks) {
     });
 
     //when
-    await render(hbs`
-      <PixButton
-        @isDisabled={{true}}
-        @triggerAction={{this.triggerAction}}
-        aria-label="button label"
-      >
-        Mon bouton
-      </PixButton>
-    `);
+    await render(hbs`<PixButton @isDisabled={{true}} @triggerAction={{this.triggerAction}} aria-label='button label'>
+  Mon bouton
+</PixButton>`);
 
     await clickByLabel('button label');
 
@@ -71,9 +61,7 @@ module('Integration | Component | button', function (hooks) {
     });
 
     //when
-    await render(hbs`
-      <PixButton @triggerAction={{this.triggerAction}} aria-label="button label" />
-    `);
+    await render(hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label='button label' />`);
 
     await clickByLabel('button label');
 
@@ -86,9 +74,7 @@ module('Integration | Component | button', function (hooks) {
   module('when type is submit, if no trigger action is defined', () => {
     test('if clicked, it should do nothing', async function (assert) {
       // given
-      await render(hbs`
-      <PixButton @type="submit" aria-label="button label"  />
-      `);
+      await render(hbs`<PixButton @type='submit' aria-label='button label' />`);
 
       //  when
       await clickByLabel('button label');
@@ -101,13 +87,9 @@ module('Integration | Component | button', function (hooks) {
 
   test('it renders the PixButton link component', async function (assert) {
     // when
-    await render(hbs`
-      <PixButton
-        @route='profile'
-        class="very-small">
-          Mon lien
-      </PixButton>
-    `);
+    await render(hbs`<PixButton @route='profile' class='very-small'>
+  Mon lien
+</PixButton>`);
 
     // then
     assert.dom('a.very-small').exists();
@@ -115,14 +97,9 @@ module('Integration | Component | button', function (hooks) {
 
   test('it renders the PixButton link component with model', async function (assert) {
     // when
-    await render(hbs`
-      <PixButton
-        @route='profile'
-        class="smaller"
-        @model={{1}}>
-          Mon lien
-      </PixButton>
-    `);
+    await render(hbs`<PixButton @route='profile' class='smaller' @model={{1}}>
+  Mon lien
+</PixButton>`);
 
     // then
     assert.dom('a.smaller').exists();
@@ -152,7 +129,7 @@ module('Integration | Component | button', function (hooks) {
 
       // when
       await render(
-        hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label="button label"  />`
+        hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label='button label' />`
       );
       await clickByLabel('button label');
 

@@ -3,14 +3,17 @@ import { action } from '@storybook/addon-actions';
 
 export const filterBanner = (args) => {
   return {
-    template: hbs`
-      <PixFilterBanner @title={{title}} @details={{details}} @clearFiltersLabel={{clearFiltersLabel}} @onClearFilters={{onClearFilters}}>
-        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-        <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-      </PixFilterBanner>
-    `,
+    template: hbs`<PixFilterBanner
+  @title={{title}}
+  @details={{details}}
+  @clearFiltersLabel={{clearFiltersLabel}}
+  @onClearFilters={{onClearFilters}}
+>
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+</PixFilterBanner>`,
     context: args,
   };
 };

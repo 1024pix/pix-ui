@@ -2,15 +2,13 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const textarea = (args) => {
   return {
-    template: hbs`
-      <PixTextarea 
-        @id={{id}}
-        @value={{value}}
-        @maxlength={{maxlength}}
-        @label={{label}}
-        @errorMessage={{errorMessage}}
-      />
-    `,
+    template: hbs`<PixTextarea
+  @id={{id}}
+  @value={{value}}
+  @maxlength={{maxlength}}
+  @label={{label}}
+  @errorMessage={{errorMessage}}
+/>`,
     context: args,
   };
 };

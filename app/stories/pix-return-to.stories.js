@@ -2,9 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const returnTo = (args) => {
   return {
-    template: hbs`
-      <PixReturnTo @route='profile' @shade={{shade}} />
-    `,
+    template: hbs`<PixReturnTo @route='profile' @shade={{shade}} />`,
     context: args,
   };
 };
@@ -14,11 +12,9 @@ returnTo.args = {
 
 export const returnToWithText = (args) => {
   return {
-    template: hbs`
-      <PixReturnTo @route='profile' @shade={{shade}}>
-        Retour vers mon profil
-      </PixReturnTo>
-    `,
+    template: hbs`<PixReturnTo @route='profile' @shade={{shade}}>
+  Retour vers mon profil
+</PixReturnTo>`,
     context: args,
   };
 };

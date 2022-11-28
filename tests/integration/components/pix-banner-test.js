@@ -10,11 +10,9 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
   test('it renders the default PixBanner', async function (assert) {
     // when
-    await render(hbs`
-      <PixBanner>
-        Mon texte
-      </PixBanner>
-    `);
+    await render(hbs`<PixBanner>
+  Mon texte
+</PixBanner>`);
 
     // then
     assert.contains('Mon texte');
@@ -27,11 +25,9 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
   test('it renders the PixBanner with type warning', async function (assert) {
     // when
-    await render(hbs`
-      <PixBanner @type='warning'>
-        Mon texte
-      </PixBanner>
-    `);
+    await render(hbs`<PixBanner @type='warning'>
+  Mon texte
+</PixBanner>`);
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -40,11 +36,9 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
   test('it renders the PixBanner with type error', async function (assert) {
     // when
-    await render(hbs`
-      <PixBanner @type='error'>
-        Mon texte
-      </PixBanner>
-    `);
+    await render(hbs`<PixBanner @type='error'>
+  Mon texte
+</PixBanner>`);
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -57,9 +51,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('type', 'communication');
 
     //when
-    await render(hbs`
-      <PixBanner @color={{this.color}} @type={{this.type}} />
-    `);
+    await render(hbs`<PixBanner @color={{this.color}} @type={{this.type}} />`);
 
     // then
     assert.dom('.pix-banner--communication').exists();
@@ -71,9 +63,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('type', 'communication-orga');
 
     //when
-    await render(hbs`
-      <PixBanner @color={{this.color}} @type={{this.type}} />
-    `);
+    await render(hbs`<PixBanner @color={{this.color}} @type={{this.type}} />`);
 
     // then
     assert.dom('.pix-banner--communication-orga').exists();
@@ -85,9 +75,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('type', 'communication-certif');
 
     //when
-    await render(hbs`
-      <PixBanner @color={{this.color}} @type={{this.type}} />
-    `);
+    await render(hbs`<PixBanner @color={{this.color}} @type={{this.type}} />`);
 
     // then
     assert.dom('.pix-banner--communication-certif').exists();
@@ -99,9 +87,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('actionLabel', 'Explorer');
 
     //when
-    await render(hbs`
-      <PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />
-    `);
+    await render(hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`);
 
     // then
     assert.contains('Explorer');
@@ -115,9 +101,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('actionLabel', 'Explorer');
 
     //when
-    await render(hbs`
-      <PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />
-    `);
+    await render(hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`);
 
     // then
     assert.contains('Explorer');
@@ -127,11 +111,9 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('canCloseBanner', true);
 
     //when
-    await render(hbs`
-      <PixBanner @type='warning' @canCloseBanner={{this.canCloseBanner}}>
-        Mon texte
-      </PixBanner>
-    `);
+    await render(hbs`<PixBanner @type='warning' @canCloseBanner={{this.canCloseBanner}}>
+  Mon texte
+</PixBanner>`);
 
     // then
     assert.dom('.pix-banner__close').exists();

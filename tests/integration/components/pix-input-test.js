@@ -12,7 +12,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it renders the default PixInput', async function (assert) {
     // when
-    await render(hbs`<PixInput @id="first-name" @label="Prénom" />`);
+    await render(hbs`<PixInput @id='first-name' @label='Prénom' />`);
     await fillInByLabel('Prénom', 'Jeanne');
 
     // then
@@ -33,7 +33,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give a number as id', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @id={{123}} @label="Prénom" />`);
+    await render(hbs`<PixInput @id={{123}} @label='Prénom' />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -42,7 +42,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give a label to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @label="Prénom" @id="firstName" />`);
+    await render(hbs`<PixInput @label='Prénom' @id='firstName' />`);
 
     // then
     assert.contains('Prénom');
@@ -51,7 +51,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to give an extra information to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInput @id="firstName" @label="Prénom" @information="a small information" />`
+      hbs`<PixInput @id='firstName' @label='Prénom' @information='a small information' />`
     );
 
     // then
@@ -61,7 +61,11 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to give an error message to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInput @id="firstName" @label="Prénom" @errorMessage="Seul les caractères alphanumériques sont autorisés" />`
+      hbs`<PixInput
+  @id='firstName'
+  @label='Prénom'
+  @errorMessage='Seul les caractères alphanumériques sont autorisés'
+/>`
     );
 
     // then
@@ -70,7 +74,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to track value from input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @label="Prénom" @id="firstName" @value='Jeanne' />`);
+    await render(hbs`<PixInput @label='Prénom' @id='firstName' @value='Jeanne' />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -79,7 +83,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give more params to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @label="Prénom" @id="firstName" autocomplete="on" />`);
+    await render(hbs`<PixInput @label='Prénom' @id='firstName' autocomplete='on' />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -89,7 +93,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to make pix input required', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInput @label="Prénom" @id="firstName" @requiredLabel="Champ obligatoire" />`
+      hbs`<PixInput @label='Prénom' @id='firstName' @requiredLabel='Champ obligatoire' />`
     );
 
     // then

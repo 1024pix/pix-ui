@@ -3,25 +3,23 @@ import { action } from '@storybook/addon-actions';
 
 export const Template = (args) => {
   return {
-    template: hbs`
-      <div style="width: 300px;">
-        <PixDropdown
-          @id={{id}}
-          @options={{options}}
-          @onSelect={{onSelect}}
-          @placeholder={{placeholder}}
-          @selectedOption={{selectedOption}}
-          @isSearchable={{isSearchable}}
-          @searchPlaceholder={{searchPlaceholder}}
-          @label={{label}}
-          @clearLabel={{clearLabel}}
-          @expandLabel={{expandLabel}}
-          @collapseLabel={{collapseLabel}}
-          @pageSize={{pageSize}}
-          @requiredLabel={{requiredLabel}}
-        />
-      </div>
-    `,
+    template: hbs`<div style='width: 300px;'>
+  <PixDropdown
+    @id={{id}}
+    @options={{options}}
+    @onSelect={{onSelect}}
+    @placeholder={{placeholder}}
+    @selectedOption={{selectedOption}}
+    @isSearchable={{isSearchable}}
+    @searchPlaceholder={{searchPlaceholder}}
+    @label={{label}}
+    @clearLabel={{clearLabel}}
+    @expandLabel={{expandLabel}}
+    @collapseLabel={{collapseLabel}}
+    @pageSize={{pageSize}}
+    @requiredLabel={{requiredLabel}}
+  />
+</div>`,
     context: args,
   };
 };

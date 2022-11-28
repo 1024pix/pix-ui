@@ -10,7 +10,7 @@ module('Integration | Component | pix-return-to', function (hooks) {
 
   test('it renders the default PixReturnTo', async function (assert) {
     // when
-    await render(hbs`<PixReturnTo @route='home'>Home</PixReturnTo> `);
+    await render(hbs`<PixReturnTo @route='home'>Home</PixReturnTo>`);
 
     // then
     const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
@@ -22,7 +22,7 @@ module('Integration | Component | pix-return-to', function (hooks) {
 
   test('it renders with the given shade', async function (assert) {
     // when
-    await render(hbs`<PixReturnTo @route='home' @shade="white" />`);
+    await render(hbs`<PixReturnTo @route='home' @shade='white' />`);
 
     // then
     const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);

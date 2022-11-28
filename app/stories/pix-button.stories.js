@@ -1,37 +1,36 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 const Template = (args) => ({
-  template: hbs`
-    <section style={{this.style}}>
-      <PixButton
-        @triggerAction={{action triggerAction}}
-        @loadingColor={{loadingColor}}
-        @shape={{shape}}
-        @backgroundColor={{backgroundColor}}
-        @isDisabled={{isDisabled}}
-        @isLoading={{isLoading}}
-        @size={{size}}
-        @isBorderVisible={{isBorderVisible}}
-      >
-        {{this.label}}
-      </PixButton>
-    </section>
-    {{#each extraButtons as |button|}}
-      <section style={{button.style}}>
-        <PixButton
-          @triggerAction={{action triggerAction}}
-          @loadingColor={{button.loadingColor}}
-          @shape={{button.shape}}
-          @backgroundColor={{button.backgroundColor}}
-          @isDisabled={{button.isDisabled}}
-          @isLoading={{button.isLoading}}
-          @size={{button.size}}
-          @isBorderVisible={{button.isBorderVisible}}
-        >
-          {{button.label}}
-        </PixButton>
-      </section>
-    {{/each}}`,
+  template: hbs`<section style={{this.style}}>
+  <PixButton
+    @triggerAction={{action triggerAction}}
+    @loadingColor={{loadingColor}}
+    @shape={{shape}}
+    @backgroundColor={{backgroundColor}}
+    @isDisabled={{isDisabled}}
+    @isLoading={{isLoading}}
+    @size={{size}}
+    @isBorderVisible={{isBorderVisible}}
+  >
+    {{this.label}}
+  </PixButton>
+</section>
+{{#each extraButtons as |button|}}
+  <section style={{button.style}}>
+    <PixButton
+      @triggerAction={{action triggerAction}}
+      @loadingColor={{button.loadingColor}}
+      @shape={{button.shape}}
+      @backgroundColor={{button.backgroundColor}}
+      @isDisabled={{button.isDisabled}}
+      @isLoading={{button.isLoading}}
+      @size={{button.size}}
+      @isBorderVisible={{button.isBorderVisible}}
+    >
+      {{button.label}}
+    </PixButton>
+  </section>
+{{/each}}`,
   context: args,
 });
 

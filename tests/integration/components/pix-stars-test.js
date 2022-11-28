@@ -17,7 +17,7 @@ module('Integration | Component | stars', function (hooks) {
 
   test('it renders a total of 5 empty stars', async function (assert) {
     // when
-    await render(hbs`<PixStars @total={{5}}/>`);
+    await render(hbs`<PixStars @total={{5}} />`);
     const stars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
@@ -26,7 +26,7 @@ module('Integration | Component | stars', function (hooks) {
 
   test('it renders 3 stars acquired on a total of 5', async function (assert) {
     // when
-    await render(hbs`<PixStars @count={{3}} @total={{5}}/>`);
+    await render(hbs`<PixStars @count={{3}} @total={{5}} />`);
     const acquiredStars = this.element.querySelectorAll('[data-test-status="acquired"]');
     const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
@@ -37,7 +37,7 @@ module('Integration | Component | stars', function (hooks) {
 
   test('it renders aria-label message', async function (assert) {
     // when
-    const screen = await render(hbs`<PixStars @total={{3}} @alt="message"/>`);
+    const screen = await render(hbs`<PixStars @total={{3}} @alt='message' />`);
     // then
     assert.dom(screen.getByLabelText('message')).exists();
   });
@@ -55,7 +55,7 @@ module('Integration | Component | stars', function (hooks) {
 
   test('it renders the color', async function (assert) {
     // when
-    await render(hbs`<PixStars @count={{3}} @total={{5}} @color="blue" />`);
+    await render(hbs`<PixStars @count={{3}} @total={{5}} @color='blue' />`);
     const component = this.element.querySelector('.pix-stars--blue');
 
     // then
