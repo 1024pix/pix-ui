@@ -318,10 +318,11 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    debugger;
-    const select = await screen.getByLabelText(this.label);
-    click(select);
+    const label = await screen.getByText(this.label);
+
+    await click(label);
+
     // then
-    assert.dom(select).exists();
+    assert.dom(screen.getByRole('button', { name: this.categoriesPlaceholder })).isFocused();
   });
 });
