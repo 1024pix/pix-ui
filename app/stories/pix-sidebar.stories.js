@@ -34,8 +34,8 @@ export const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  title: 'Filtrer',
   showSidebar: true,
+  title: 'Filtrer',
   onClose: () => {},
 };
 
