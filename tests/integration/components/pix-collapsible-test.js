@@ -20,7 +20,8 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should render and show content on click on PixCollapsible title', async function (assert) {
     // when
-    const screen = await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
+    const screen =
+      await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
   <p>Contenu de mon élément</p>
 </PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
@@ -46,7 +47,8 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should not destroy content when uncollapsed then collapsed again', async function (assert) {
     // when
-    const screen = await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
+    const screen =
+      await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
   <p>Contenu de mon élément</p>
 </PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');

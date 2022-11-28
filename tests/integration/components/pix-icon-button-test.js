@@ -36,7 +36,9 @@ module('Integration | Component | icon-button', function (hooks) {
     this.set('triggerAction', () => {
       this.count = this.count + 1;
     });
-    await render(hbs`<PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel='action du bouton' />`);
+    await render(
+      hbs`<PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel='action du bouton' />`
+    );
     await clickByLabel('action du bouton');
 
     // then

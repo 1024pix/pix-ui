@@ -638,7 +638,9 @@ module('Integration | Component | PixSelect', function (hooks) {
   module('#className', function () {
     test('it adds a custom class', async function (assert) {
       // given & when
-      await render(hbs`<PixSelect @className='some-custom-class' @options={{this.options}} @label={{this.label}} />`);
+      await render(
+        hbs`<PixSelect @className='some-custom-class' @options={{this.options}} @label={{this.label}} />`
+      );
 
       // then
       assert.dom('.some-custom-class').exists();

@@ -61,7 +61,9 @@ module('Integration | Component | button', function (hooks) {
     });
 
     //when
-    await render(hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label='button label' />`);
+    await render(
+      hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label='button label' />`
+    );
 
     await clickByLabel('button label');
 

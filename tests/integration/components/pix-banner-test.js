@@ -87,7 +87,9 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('actionLabel', 'Explorer');
 
     //when
-    await render(hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`);
+    await render(
+      hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`
+    );
 
     // then
     assert.contains('Explorer');
@@ -101,7 +103,9 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('actionLabel', 'Explorer');
 
     //when
-    await render(hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`);
+    await render(
+      hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`
+    );
 
     // then
     assert.contains('Explorer');

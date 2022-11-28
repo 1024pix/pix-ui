@@ -32,7 +32,9 @@ module('Integration | Component | textarea', function (hooks) {
     this.set('maxlength', maxlength);
 
     // when
-    await render(hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id' @label='label' />`);
+    await render(
+      hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id' @label='label' />`
+    );
     await fillInByLabel('label', 'Hello Pix !');
 
     // then
@@ -78,7 +80,9 @@ module('Integration | Component | textarea', function (hooks) {
 
   test('it should be possible to show an error message', async function (assert) {
     // given & when
-    await render(hbs`<PixTextarea @id='pix-textarea-with-error' @errorMessage='Veuillez remplir ce champ.' />`);
+    await render(
+      hbs`<PixTextarea @id='pix-textarea-with-error' @errorMessage='Veuillez remplir ce champ.' />`
+    );
 
     // then
     assert.contains('Veuillez remplir ce champ.');
