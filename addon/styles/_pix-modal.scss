@@ -15,7 +15,7 @@
   // if the content is less than 100vh
   // Inspired by https://mui.com/material-ui/react-dialog/#scrolling-long-content
   &::after {
-    content: "";
+    content: '';
     display: inline-block;
     vertical-align: middle;
     height: 100%;
@@ -39,8 +39,10 @@ $button-margin: 16px;
   display: inline-block;
   vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
   width: 512px;
-  max-width: calc(100% - #{2 * $spacing-xs}); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
-  text-align: initial; 
+  max-width: calc(
+    100% - #{2 * $spacing-xs}
+  ); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
+  text-align: initial;
   background-color: $pix-neutral-10;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   border-radius: 4px;
@@ -94,21 +96,5 @@ $button-margin: 16px;
 
   &__footer {
     padding: 0 $modal-padding $modal-padding - $button-margin;
-
-    @include device-is('tablet') {
-      display: flex;
-      justify-content: flex-end;
-      flex-wrap: wrap;
-    }
-
-    .pix-button {
-      margin-bottom: $button-margin;
-      width: 100%;
-
-      @include device-is('tablet') {
-        margin: 0 0 $button-margin $button-margin;
-        width: auto;
-      }
-    }
   }
 }

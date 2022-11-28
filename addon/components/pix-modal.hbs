@@ -12,7 +12,7 @@
     aria-modal="true"
     ...attributes
   >
-    <header class="pix-modal__header">
+    <div class="pix-modal__header">
       <h1 id="modal-title--{{this.id}}" class="pix-modal__title">{{@title}}</h1>
       <PixIconButton
         @icon="xmark"
@@ -22,12 +22,12 @@
         @withBackground={{true}}
         class="pix-modal__close-button"
       />
-    </header>
-    <main id="modal-content--{{this.id}}" class="pix-modal__content">
+    </div>
+    <div id="modal-content--{{this.id}}" class="pix-modal__content">
       {{yield to="content"}}
-    </main>
-    <footer class="pix-modal__footer">
+    </div>
+    <div class="pix-modal__footer">
       {{yield to="footer"}}
-    </footer>
+    </div>
   </div>
 </div>
