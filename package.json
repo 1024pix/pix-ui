@@ -102,7 +102,7 @@
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-prettier": "^4.2.1",
     "eslint-plugin-qunit": "^6.2.0",
-    "fs-extra": "^10.0.0",
+    "fs-extra": "^10.1.0",
     "loader.js": "^4.7.0",
     "lodash": "^4.17.21",
     "moment": "^2.29.1",
