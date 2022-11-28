@@ -64,7 +64,7 @@ module('Integration | Component | checkbox', function (hooks) {
     // given
     this.set('checked', false);
     await render(
-      hbs`<PixCheckbox @id='checkboxId' @checked={{checked}}>Recevoir la newsletter</PixCheckbox>`
+      hbs`<PixCheckbox @id='checkboxId' @checked={{this.checked}}>Recevoir la newsletter</PixCheckbox>`
     );
     const checkbox = this.element.querySelector(CHECKBOX_INPUT_SELECTOR);
     assert.false(checkbox.checked);
