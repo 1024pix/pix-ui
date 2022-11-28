@@ -20,7 +20,6 @@ const Template = (args) => ({
     @isSearchable={{isSearchable}}
     @strictSearch={{strictSearch}}
     @values={{values}}
-    @onLoadOptions={{onLoadOptions}} 
     @options={{options}} as |option|
   >{{option.label}}</PixMultiSelect>
  `,
@@ -91,13 +90,6 @@ multiSelectSearchable.args = {
   emptyMessage: 'Aucune option trouvée',
 };
 
-export const multiSelectAsyncOptions = Template.bind({});
-multiSelectAsyncOptions.args = {
-  ...Default.args,
-  onLoadOptions: () => Promise.resolve(Default.args.options),
-  loadingMessage: 'Chargement en cours ...',
-};
-
 export const multiSelectWithCustomClass = Template.bind({});
 multiSelectWithCustomClass.args = {
   ...Default.args,
@@ -143,19 +135,6 @@ export const argTypes = {
       'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
     type: { name: 'array', required: false },
     defaultValue: DEFAULT_OPTIONS,
-  },
-  onLoadOptions: {
-    name: 'onLoadOptions',
-    description:
-      'Charge de manière asynchrone les options. Doit renvoyer une promesse avec la liste des options. Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
-    type: { required: false },
-  },
-  loadingMessage: {
-    name: 'loadingMessage',
-    description:
-      "Message qui apparaît dans les options quand celles-ci sont en train d'être chargées via onLoadOptions",
-    type: { name: 'string', required: false },
-    defaultValue: 'Chargement...',
   },
   onChange: {
     name: 'onChange',

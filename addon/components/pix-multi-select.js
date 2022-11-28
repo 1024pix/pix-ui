@@ -22,11 +22,10 @@ export default class PixMultiSelect extends Component {
   @tracked searchData;
 
   @tracked options = [];
-  @tracked isLoadingOptions = false;
 
   constructor(...args) {
     super(...args);
-    const { onLoadOptions, id, label, placeholder } = this.args;
+    const { id, label, placeholder } = this.args;
 
     const idIsNotDefined = !id || !id.trim();
     const labelIsNotDefined = !label || !label.trim();
@@ -46,15 +45,7 @@ export default class PixMultiSelect extends Component {
       );
     }
 
-    if (onLoadOptions) {
-      this.isLoadingOptions = true;
-      onLoadOptions().then((options = []) => {
-        this.options = options;
-        this.isLoadingOptions = false;
-      });
-    } else {
-      this.options = [...(this.args.options || [])];
-    }
+    this.options = [...(this.args.options || [])];
   }
 
   get listId() {

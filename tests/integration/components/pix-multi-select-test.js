@@ -44,37 +44,6 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.equal(screen.queryAllByRole('checkbox').length, 0);
     });
 
-    test('it should asynchronously load options', async function (assert) {
-      // given
-      this.onLoadOptions = () => Promise.resolve(DEFAULT_OPTIONS);
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-
-      // when
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @onLoadOptions={{this.onLoadOptions}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
-
-      await clickByName('labelMultiSelect');
-
-      await screen.findByRole('menu');
-
-      // then
-      assert.equal(screen.getAllByRole('checkbox').length, 3);
-    });
-
     test('it should updates selected items when @values is reset', async function (assert) {
       // given
       this.options = DEFAULT_OPTIONS;
