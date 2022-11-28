@@ -49,7 +49,7 @@
     "ember-cli-string-utils": "^1.1.0",
     "ember-click-outside": "^5.0.1",
     "ember-prop-modifier": "^1.0.1",
-    "ember-truth-helpers": "^3.0.0"
+    "ember-truth-helpers": "^3.1.1"
   },
   "devDependencies": {
     "@1024pix/ember-testing-library": "^0.5.0",
