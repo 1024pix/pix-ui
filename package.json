@@ -60,7 +60,7 @@
     "@fortawesome/ember-fontawesome": "^0.4.1",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
-    "@glimmer/component": "^1.0.4",
+    "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.0.4",
     "@storybook/addon-a11y": "^6.3.7",
     "@storybook/addon-centered": "^5.3.21",
