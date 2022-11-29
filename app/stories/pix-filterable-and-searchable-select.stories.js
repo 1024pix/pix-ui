@@ -6,6 +6,7 @@ const Template = (args) => {
       <PixFilterableAndSearchableSelect
         @label={{label}}
         @subLabel={{subLabel}}
+        @screenReaderOnly={{screenReaderOnly}}
         @selectLabel={{selectLabel}}
         @placeholder={{placeholder}}
         @options={{options}}
@@ -44,6 +45,27 @@ export const Searchable = Template.bind({});
 Searchable.args = {
   label: 'Are you hungry?',
   subLabel: 'To help you choose your food, you can filter on different categories',
+  selectLabel: 'Mon select label',
+  placeholder: 'Mon select placeholder',
+  isSearchable: true,
+  options: [
+    { value: '1', label: 'Salade', category: 'Kebab' },
+    { value: '2', label: 'Tomate', category: 'Kebab' },
+    { value: '3', label: 'Oignons', category: 'Kebab' },
+    { value: '4', label: 'Steak', category: 'Hamburger' },
+    { value: '5', label: 'Cheddar', category: 'Hamburger' },
+  ],
+  onChange: () => {},
+  categoriesId: 'multi-select-id',
+  categoriesLabel: 'Mon multi select label',
+  categoriesPlaceholder: 'Mon multi select placeholder',
+};
+
+export const WithLabelsOnlyForScreenReaders = Template.bind({});
+WithLabelsOnlyForScreenReaders.args = {
+  label: 'Are you hungry?',
+  subLabel: 'To help you choose your food, you can filter on different categories',
+  screenReaderOnly: true,
   selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
   isSearchable: true,
