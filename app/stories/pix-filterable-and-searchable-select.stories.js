@@ -17,6 +17,7 @@ const Template = (args) => {
         @isSearchable={{isSearchable}}
         @value={{value}}
         @requiredText={{requiredText}}
+        @errorMessage={{errorMessage}}
       />
     `,
     context: args,

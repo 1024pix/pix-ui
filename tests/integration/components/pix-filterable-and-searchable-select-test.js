@@ -354,7 +354,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       assert.dom(screen.getByText('Mon subLabel')).exists();
     });
 
-    test.only('should display the asterix when the composant ids required', async function (assert) {
+    test('it displays the asterix when the composant ids required', async function (assert) {
       this.options = [
         { value: '1', label: 'Mache', category: 'Kebab' },
         { value: '2', label: 'Tomate', category: 'Hamburger' },
@@ -384,5 +384,37 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       // then
       assert.dom(screen.getByLabelText('* Label de mon big composant trop compliqué')).exists();
     });
+  });
+  test(' it displays error message', async function (assert) {
+    this.options = [
+      { value: '1', label: 'Mache', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+    ];
+    this.label = 'Label de mon big composant trop compliqué';
+    this.selectLabel = 'Label de mon composant select';
+    this.requiredText = 'Sélectionner un aliment';
+    this.errorMessage = 'Aliment non saisi. Veuillez en renseigner un !';
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @label={{this.label}}
+      @selectLabel={{this.selectLabel}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @value={{'2'}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
+      @searchLabel={{this.searchLabel}}
+      @isSearchable={{true}}
+      @requiredText={{requiredText}}
+      @errorMessage={{errorMessage}}
+    />
+  `);
+
+    // then
+    assert.dom(screen.getByText(this.errorMessage)).exists();
   });
 });

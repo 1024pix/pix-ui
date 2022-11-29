@@ -4,6 +4,10 @@
   border: 1px $pix-neutral-45 solid;
   border-radius: 4px;
 
+  &--error {
+    @include formElementInError();
+  }
+
   &__label {
     @include label();
   }
@@ -21,6 +25,9 @@
     }
   }
 
+  &__error-message {
+    @include errorMessage();
+  }
   .pix-multi-select {
     margin-right: 2px;
   }
