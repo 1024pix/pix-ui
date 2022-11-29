@@ -7,7 +7,11 @@
   &__label {
     @include label();
   }
-  
+
+  &__sub-label {
+    @include subLabel();
+  }
+
   &__pix-multi-select,
   &__pix-select {
     border: none;

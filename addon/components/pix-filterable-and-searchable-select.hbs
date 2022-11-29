@@ -1,5 +1,8 @@
 <div>
   <label class="pix-filterable-and-searchable-select__label" id={{this.id}} {{on "click" this.focusMultiSelect}} >{{@label}}</label>
+    {{#if @subLabel}}
+      <span class="pix-select__sub-label">{{@subLabel}}</span>
+    {{/if}}
   <div aria-labelledby={{this.id}} class="pix-filterable-and-searchable-select">
     <PixMultiSelect
       @id={{@categoriesId}}
