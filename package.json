@@ -115,6 +115,11 @@
     "sass": "^1.56.1",
     "webpack": "^5.75.0"
   },
+  "overrides": {
+    "@storybook/ember": {
+      "ember-source": "^4.0.1"
+    }
+  },
   "bugs": {
     "url": "https://github.com/1024pix/pix-ui/issues"
   },
