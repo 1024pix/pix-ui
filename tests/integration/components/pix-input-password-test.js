@@ -40,6 +40,8 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INFORMATION_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.innerHTML, 'une brève information');
   });
 
@@ -67,6 +69,8 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.autocomplete, 'off');
   });
 
@@ -102,6 +106,8 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.value, 'pix123');
   });
 

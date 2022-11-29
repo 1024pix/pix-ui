@@ -37,6 +37,8 @@ module('Integration | Component | input', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.id, '123');
   });
 
@@ -78,6 +80,8 @@ module('Integration | Component | input', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.value, 'Jeanne');
   });
 
@@ -87,6 +91,8 @@ module('Integration | Component | input', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.autocomplete, 'on');
   });
 

@@ -37,6 +37,8 @@ module('Integration | Component | pix-return-to', function (hooks) {
 
     // then
     const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(pixReturnToElement.textContent.trim(), '');
   });
 });

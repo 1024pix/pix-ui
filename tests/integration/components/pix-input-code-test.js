@@ -19,6 +19,8 @@ module('Integration | Component | pix-input-code', function (hooks) {
     // then
     assert.dom(COMPONENT_SELECTOR).exists();
     const inputElementsFound = this.element.querySelectorAll('input');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(inputElementsFound.length, 6);
   });
 

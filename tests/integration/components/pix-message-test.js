@@ -20,6 +20,8 @@ module('Integration | Component | pix-message', function (hooks) {
 
     // then
     const pixMessageElement = this.element.querySelector('.pix-message');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(pixMessageElement.classList.toString(), 'pix-message pix-message--info');
   });
 
@@ -29,6 +31,8 @@ module('Integration | Component | pix-message', function (hooks) {
 
     // then
     const pixMessageElement = this.element.querySelector('.pix-message');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(pixMessageElement.getAttribute('aria-label'), 'world');
   });
 
@@ -39,6 +43,8 @@ module('Integration | Component | pix-message', function (hooks) {
     // then
     const icon = this.element.querySelector('.pix-message svg');
     assert.dom('.pix-message svg').exists();
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(icon.getAttribute('data-icon'), 'circle-info');
   });
 
@@ -49,6 +55,8 @@ module('Integration | Component | pix-message', function (hooks) {
     // then
     const icon = this.element.querySelector('.pix-message svg');
     assert.dom('.pix-message svg').exists();
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(icon.getAttribute('data-icon'), 'circle-exclamation');
   });
 
@@ -59,6 +67,8 @@ module('Integration | Component | pix-message', function (hooks) {
     // then
     const icon = this.element.querySelector('.pix-message svg');
     assert.dom('.pix-message svg').exists();
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(icon.getAttribute('data-icon'), 'circle-check');
   });
 
@@ -69,6 +79,8 @@ module('Integration | Component | pix-message', function (hooks) {
     // then
     const icon = this.element.querySelector('.pix-message svg');
     assert.dom('.pix-message svg').exists();
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(icon.getAttribute('data-icon'), 'triangle-exclamation');
   });
 });

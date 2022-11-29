@@ -65,6 +65,8 @@ module('Integration | Component | dropdown', function (hooks) {
       await clickByText('4abc');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 2);
       assert.dom(screen.getByLabelText('Supprimer la sélection')).exists();
     });
@@ -80,12 +82,16 @@ module('Integration | Component | dropdown', function (hooks) {
   @expandLabel='Ouvrir le menu déroulant'
   @collapseLabel='Réduire le menu déroulant'
 />`);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 2);
 
       // when
       await clickByName('Supprimer la sélection');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 1);
     });
   });
@@ -198,6 +204,8 @@ module('Integration | Component | dropdown', function (hooks) {
 
       // then
       assert.dom(screen.getByLabelText('Choisissez une option')).doesNotHaveClass('expanded');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 2);
     });
 

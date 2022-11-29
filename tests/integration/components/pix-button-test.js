@@ -19,6 +19,8 @@ module('Integration | Component | button', function (hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.contains('Mon bouton');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(componentElement.type, 'button');
   });
 
@@ -30,6 +32,8 @@ module('Integration | Component | button', function (hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(componentElement.type, 'submit');
   });
 
@@ -49,6 +53,8 @@ module('Integration | Component | button', function (hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(this.count, 1);
     assert.true(componentElement.disabled);
   });
@@ -69,6 +75,8 @@ module('Integration | Component | button', function (hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(this.count, 2);
     assert.false(componentElement.disabled);
   });
@@ -83,6 +91,8 @@ module('Integration | Component | button', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(componentElement.type, 'submit');
     });
   });

@@ -12,6 +12,8 @@ module('Integration | Component | stars', function (hooks) {
     const stars = this.element.querySelectorAll('img');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(stars.length, 0);
   });
 
@@ -21,6 +23,8 @@ module('Integration | Component | stars', function (hooks) {
     const stars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(stars.length, 5);
   });
 
@@ -31,7 +35,11 @@ module('Integration | Component | stars', function (hooks) {
     const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(acquiredStars.length, 3);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(unacquiredStars.length, 2);
   });
 
@@ -49,7 +57,11 @@ module('Integration | Component | stars', function (hooks) {
     const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(acquiredStars.length, 3);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(unacquiredStars.length, 0);
   });
 

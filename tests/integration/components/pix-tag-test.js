@@ -30,6 +30,8 @@ module('Integration | Component | pix-tag', function (hooks) {
     await render(hbs`<PixTag @color='blue' aria-label='world' />`);
 
     const pixTagElement = this.element.querySelector('.pix-tag');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(pixTagElement.getAttribute('aria-label'), 'world');
   });
 });

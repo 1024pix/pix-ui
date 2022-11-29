@@ -16,6 +16,8 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector(MARKER_SELECTOR);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(componentElement.style.width, '50%');
     });
 
@@ -42,6 +44,8 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const markerComponent = this.element.querySelector(MARKER_SELECTOR);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(markerComponent.style.width, '100%');
     });
 
@@ -51,6 +55,8 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const markerComponent = this.element.querySelector(MARKER_SELECTOR);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(markerComponent.style.width, '0%');
     });
   });
@@ -129,6 +135,8 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector('.progress-gauge__sub-title');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(componentElement.textContent.trim(), 'toto');
     });
   });

@@ -21,6 +21,8 @@ module('Integration | Component | textarea', function (hooks) {
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
     assert.contains('Bonjour Pix !');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(textarea.id, 7);
   });
 
@@ -39,6 +41,8 @@ module('Integration | Component | textarea', function (hooks) {
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(textarea.maxLength, maxlength);
     assert.contains('11 / 20');
   });

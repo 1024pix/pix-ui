@@ -15,6 +15,8 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     // then
     const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
     assert.contains('Abricot');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(componentInputElement.type, 'radio');
   });
 

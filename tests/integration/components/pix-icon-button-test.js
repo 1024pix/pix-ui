@@ -42,6 +42,8 @@ module('Integration | Component | icon-button', function (hooks) {
     await clickByLabel('action du bouton');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(this.count, 2);
   });
 

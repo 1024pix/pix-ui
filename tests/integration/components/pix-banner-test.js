@@ -17,6 +17,8 @@ module('Integration | Component | Pix Banner', function (hooks) {
     // then
     assert.contains('Mon texte');
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(
       componentElement.classList.toString().trim(),
       'pix-banner pix-banner--information'
@@ -31,6 +33,8 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--warning');
   });
 
@@ -42,6 +46,8 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(componentElement.classList.toString().trim(), 'pix-banner pix-banner--error');
   });
 
@@ -93,6 +99,8 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     // then
     assert.contains('Explorer');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(this.element.querySelector('a').getAttribute('href'), 'www.test.fr/');
   });
 

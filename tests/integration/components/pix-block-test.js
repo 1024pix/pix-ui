@@ -17,6 +17,8 @@ module('Integration | Component | pix-block', function (hooks) {
 
     // then
     assert.contains('Je suis un beau bloc avec une ombre légere');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 
@@ -32,6 +34,8 @@ module('Integration | Component | pix-block', function (hooks) {
 
     // then
     assert.contains('Je suis trop d4rk');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-heavy');
   });
 
@@ -47,6 +51,8 @@ module('Integration | Component | pix-block', function (hooks) {
 
     // then
     assert.contains('Joli bloc quand même');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 });

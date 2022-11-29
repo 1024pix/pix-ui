@@ -34,6 +34,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     // then
     assert.dom(screen.getByText('Mon sous label')).exists();
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
   });
 
@@ -102,6 +104,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.queryByRole('option', { name: this.placeholder }), null);
     });
   });
@@ -228,6 +232,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         const option = screen.getByRole('option', { name: 'Choisissez une option' });
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, option);
       });
 
@@ -251,6 +257,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         const option = screen.getByRole('option', { name: 'Oignon' });
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, option);
       });
 
@@ -273,6 +281,8 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
         assert.throws(screen.getByRole('listbox'));
       });
@@ -302,6 +312,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         // then
         sinon.assert.calledWith(this.onChange, '2');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
       });
 
@@ -330,6 +342,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         // then
         sinon.assert.calledWith(this.onChange, '2');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
       });
 
@@ -355,6 +369,8 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Tab]');
 
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
       });
 
@@ -432,6 +448,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
     });
   });
@@ -520,7 +538,11 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       const filteredOptions = screen.queryAllByRole('option');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(filteredOptions.length, 1);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(filteredOptions[0].innerText, 'Salade');
     });
 
@@ -541,6 +563,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       await fillByLabel('Rechercher', 'sal');
 
       await screen.findByRole('listbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.queryAllByRole('option').length, 1);
     });
 
@@ -561,6 +585,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       await fillByLabel('Rechercher', ' sal ');
 
       await screen.findByRole('listbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.queryAllByRole('option').length, 1);
     });
 

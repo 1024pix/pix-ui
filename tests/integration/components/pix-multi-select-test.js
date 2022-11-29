@@ -40,6 +40,8 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.queryAllByRole('checkbox').length, 0);
     });
 
@@ -106,6 +108,8 @@ module('Integration | Component | multi-select', function (hooks) {
         await screen.findByRole('menu');
 
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(screen.queryAllByRole('checkbox').length, 3);
       });
 
@@ -136,6 +140,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         await screen.findByRole('menu');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(screen.queryAllByRole('checkbox').length, 0);
         assert.contains('no result');
       });
@@ -171,6 +177,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // then
         const checkboxElement = screen.queryAllByRole('checkbox');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(checkboxElement.length, 3);
         assert.false(checkboxElement[0].checked);
         assert.true(checkboxElement[1].checked);
@@ -204,6 +212,8 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
         // then
         const inputElement = screen.getByLabelText('labelMultiSelect');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(inputElement.placeholder, 'Tomate, Oignon');
       });
     });
@@ -311,7 +321,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(checkboxes.length, 3);
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[0]);
       });
 
@@ -347,7 +361,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(checkboxes.length, 3);
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[2]);
       });
 
@@ -383,6 +401,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[0]);
       });
 
@@ -418,6 +438,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[2]);
       });
 
@@ -456,6 +478,8 @@ module('Integration | Component | multi-select', function (hooks) {
         // then
         assert.throws(screen.getByRole('menu'));
         assert.ok(this.onChange.calledOnce, 'the callback should be called once');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
       });
 
@@ -490,6 +514,8 @@ module('Integration | Component | multi-select', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
         assert.throws(screen.getByRole('menu'));
       });
@@ -528,7 +554,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getByLabelText('label').placeholder, this.placeholder);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByRole('checkbox').length, 3);
     });
 
@@ -564,6 +594,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByRole('checkbox').length, 1);
       assert.contains('Tomate');
     });
@@ -636,6 +668,8 @@ module('Integration | Component | multi-select', function (hooks) {
       await screen.findByRole('menu');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getByRole('menu').className.trim(), 'pix-multi-select-list');
     });
 
@@ -671,9 +705,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 3);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Oignon');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Salade');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[2].labels[0].innerText.trim(), 'Tomate');
     });
 
@@ -711,9 +753,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 3);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Salade');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Tomate');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[2].labels[0].innerText.trim(), 'Oignon');
     });
 
@@ -751,8 +801,14 @@ module('Integration | Component | multi-select', function (hooks) {
       await fillByLabel('Mon multi select', 'o');
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 2);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Tomate');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Oignon');
     });
 
@@ -792,9 +848,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 3);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Oignon');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Salade');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[2].labels[0].innerText.trim(), 'Tomate');
     });
 
@@ -831,6 +895,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
       const listElement = screen.getAllByRole('checkbox');
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Tomate');
 
       await clickByName('Oignon');
@@ -838,7 +904,11 @@ module('Integration | Component | multi-select', function (hooks) {
       // then
       const listElement2 = screen.getAllByRole('checkbox');
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement2[0].labels[0].innerText.trim(), 'Tomate');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement2[2].labels[0].innerText.trim(), 'Oignon');
     });
   });
