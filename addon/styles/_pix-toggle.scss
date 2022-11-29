@@ -1,0 +1,63 @@
+.pix-toggle {
+  display: flex;
+  flex-direction: column;
+
+  &__label {
+    color: $pix-neutral-90;
+
+    @include text;
+  }
+
+  &__button {
+    width: fit-content;
+    background-color: transparent;
+    border: 1px solid $pix-neutral-30;
+    border-radius: 4px;
+    padding: $spacing-xxs;
+    margin-top: $spacing-xxs;
+  }
+
+  &__on,
+  &__off {
+    display: inline-block;
+    border-radius: 4px;
+    padding: $spacing-xs;
+    color: $pix-neutral-70;
+
+    @include text-small;
+  }
+
+  &__off {
+    background-color: $pix-neutral-45;
+    color: $white;
+  }
+
+  &--inline {
+    flex-direction: row;
+    align-items: center;
+    gap: $spacing-xxs;
+  }
+
+  &--inline,
+  &--screen-reader-only {
+    .pix-toggle {
+      &__button {
+        margin-top: 0;
+      }
+    }
+  }
+
+  &--pressed {
+    .pix-toggle {
+      &__on {
+        background-color: $pix-neutral-45;
+        color: $white;
+      }
+
+      &__off {
+        background-color: transparent;
+        color: inherit;
+      }
+    }
+  }
+}
