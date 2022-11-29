@@ -16,6 +16,7 @@ const Template = (args) => {
         @categoriesPlaceholder={{categoriesPlaceholder}}
         @isSearchable={{isSearchable}}
         @value={{value}}
+        @requiredText={{requiredText}}
       />
     `,
     context: args,
@@ -224,7 +225,7 @@ export const argTypes = {
     defaultValue: 'Label du champ',
   },
   categoriesEmptyMessage: {
-    name: 'emptyMessage',
+    name: 'categoriesEmptyMessage',
     description:
       'Un intitulé de choix indisponible (dans le cas ou certains filtres seraient excluant). Si il arrive vraiment dans le cas de ce composant, cela est peut-être parce quil ne doit pas être utilisé dans votre cas de figure',
     type: { name: 'string', required: true },

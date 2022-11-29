@@ -1,6 +1,11 @@
 <div>
   <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
-    <label class="pix-filterable-and-searchable-select__label" id={{this.id}} {{on "click" this.focusMultiSelect}} >{{@label}}</label>
+    <label class="pix-filterable-and-searchable-select__label" id={{this.id}} {{on "click" this.focusMultiSelect}} >
+      {{#if @requiredText}}
+        <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
+      {{/if}}
+      {{@label}}
+    </label>
     {{#if @subLabel}}
       <span class="pix-select__sub-label">{{@subLabel}}</span>
     {{/if}}

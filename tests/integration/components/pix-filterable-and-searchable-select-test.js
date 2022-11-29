@@ -267,90 +267,122 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // then
     assert.deepEqual(option.innerText, 'Tomate');
   });
+  module('Label and subLabel', function () {
+    test('it displays the label', async function (assert) {
+      this.options = [
+        { value: '1', label: 'Mache', category: 'Kebab' },
+        { value: '2', label: 'Tomate', category: 'Hamburger' },
+      ];
+      this.label = 'Label de mon big composant trop compliqué';
 
-  test('it displays the label', async function (assert) {
-    this.options = [
-      { value: '1', label: 'Mache', category: 'Kebab' },
-      { value: '2', label: 'Tomate', category: 'Hamburger' },
-    ];
-    this.label = 'Label de mon big composant trop compliqué';
+      // given & when
+      const screen = await render(hbs`
+      <PixFilterableAndSearchableSelect
+        @selectLabel={{this.selectLabel}}
+        @placeholder={{this.placeholder}}
+        @options={{this.options}}
+        @value={{'2'}}
+        @onChange={{this.onChange}}
+        @categoriesId={{this.categoriesId}}
+        @categoriesLabel={{this.categoriesLabel}}
+        @categoriesPlaceholder={{this.categoriesPlaceholder}}
+        @label={{this.label}}
+      />
+    `);
 
-    // given & when
-    const screen = await render(hbs`
-    <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @placeholder={{this.placeholder}}
-      @options={{this.options}}
-      @value={{'2'}}
-      @onChange={{this.onChange}}
-      @categoriesId={{this.categoriesId}}
-      @categoriesLabel={{this.categoriesLabel}}
-      @categoriesPlaceholder={{this.categoriesPlaceholder}}
-      @label={{this.label}}
-    />
-  `);
+      const label = await screen.getByLabelText(this.label);
 
-    const label = await screen.getByLabelText(this.label);
+      // then
+      assert.dom(label).exists();
+    });
 
-    // then
-    assert.dom(label).exists();
-  });
+    test('it give the focus on the first child when clicking on the label', async function (assert) {
+      this.options = [
+        { value: '1', label: 'Mache', category: 'Kebab' },
+        { value: '2', label: 'Tomate', category: 'Hamburger' },
+      ];
+      this.label = 'Label de mon big composant trop compliqué';
 
-  test('it give the focus on the first child when clicking on the label', async function (assert) {
-    this.options = [
-      { value: '1', label: 'Mache', category: 'Kebab' },
-      { value: '2', label: 'Tomate', category: 'Hamburger' },
-    ];
-    this.label = 'Label de mon big composant trop compliqué';
+      // given & when
+      const screen = await render(hbs`
+      <PixFilterableAndSearchableSelect
+        @selectLabel={{this.selectLabel}}
+        @placeholder={{this.placeholder}}
+        @options={{this.options}}
+        @value={{'2'}}
+        @onChange={{this.onChange}}
+        @categoriesId={{this.categoriesId}}
+        @categoriesLabel={{this.categoriesLabel}}
+        @categoriesPlaceholder={{this.categoriesPlaceholder}}
+        @label={{this.label}}
+      />
+    `);
 
-    // given & when
-    const screen = await render(hbs`
-    <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
-      @placeholder={{this.placeholder}}
-      @options={{this.options}}
-      @value={{'2'}}
-      @onChange={{this.onChange}}
-      @categoriesId={{this.categoriesId}}
-      @categoriesLabel={{this.categoriesLabel}}
-      @categoriesPlaceholder={{this.categoriesPlaceholder}}
-      @label={{this.label}}
-    />
-  `);
+      const label = await screen.getByText(this.label);
 
-    const label = await screen.getByText(this.label);
+      await click(label);
 
-    await click(label);
+      // then
+      assert.dom(screen.getByRole('button', { name: this.categoriesPlaceholder })).isFocused();
+    });
 
-    // then
-    assert.dom(screen.getByRole('button', { name: this.categoriesPlaceholder })).isFocused();
-  });
+    test('it display the subLabel', async function (assert) {
+      this.options = [
+        { value: '1', label: 'Mache', category: 'Kebab' },
+        { value: '2', label: 'Tomate', category: 'Hamburger' },
+      ];
+      this.label = 'Label de mon big composant trop compliqué';
+      this.subLabel = 'Mon subLabel';
 
-  test('it display the subLabel', async function (assert) {
-    this.options = [
-      { value: '1', label: 'Mache', category: 'Kebab' },
-      { value: '2', label: 'Tomate', category: 'Hamburger' },
-    ];
-    this.label = 'Label de mon big composant trop compliqué';
-    this.subLabel = 'Mon subLabel';
+      // given & when
+      const screen = await render(hbs`
+      <PixFilterableAndSearchableSelect
+        @label={{this.label}}
+        @subLabel={{this.subLabel}}
+        @selectLabel={{this.selectLabel}}
+        @placeholder={{this.placeholder}}
+        @options={{this.options}}
+        @value={{'2'}}
+        @onChange={{this.onChange}}
+        @categoriesId={{this.categoriesId}}
+        @categoriesLabel={{this.categoriesLabel}}
+        @categoriesPlaceholder={{this.categoriesPlaceholder}}
+      />
+    `);
 
-    // given & when
-    const screen = await render(hbs`
-    <PixFilterableAndSearchableSelect
-      @label={{this.label}}
-      @subLabel={{this.subLabel}}
-      @selectLabel={{this.selectLabel}}
-      @placeholder={{this.placeholder}}
-      @options={{this.options}}
-      @value={{'2'}}
-      @onChange={{this.onChange}}
-      @categoriesId={{this.categoriesId}}
-      @categoriesLabel={{this.categoriesLabel}}
-      @categoriesPlaceholder={{this.categoriesPlaceholder}}
-    />
-  `);
+      // then
+      assert.dom(screen.getByText('Mon subLabel')).exists();
+    });
 
-    // then
-    assert.dom(screen.getByText('Mon subLabel')).exists();
+    test.only('should display the asterix when the composant ids required', async function (assert) {
+      this.options = [
+        { value: '1', label: 'Mache', category: 'Kebab' },
+        { value: '2', label: 'Tomate', category: 'Hamburger' },
+      ];
+      this.label = 'Label de mon big composant trop compliqué';
+      this.selectLabel = 'Label de mon composant select';
+      this.requiredText = 'Sélectionner un aliment';
+
+      // given & when
+      const screen = await render(hbs`
+      <PixFilterableAndSearchableSelect
+        @label={{this.label}}
+        @selectLabel={{this.selectLabel}}
+        @placeholder={{this.placeholder}}
+        @options={{this.options}}
+        @value={{'2'}}
+        @onChange={{this.onChange}}
+        @categoriesId={{this.categoriesId}}
+        @categoriesLabel={{this.categoriesLabel}}
+        @categoriesPlaceholder={{this.categoriesPlaceholder}}
+        @searchLabel={{this.searchLabel}}
+        @isSearchable={{true}}
+        @requiredText={{requiredText}}
+      />
+    `);
+
+      // then
+      assert.dom(screen.getByLabelText('* Label de mon big composant trop compliqué')).exists();
+    });
   });
 });
