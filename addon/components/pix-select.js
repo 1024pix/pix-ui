@@ -7,12 +7,12 @@ export default class PixSelect extends Component {
   @tracked isExpanded = false;
   @tracked searchValue = null;
   searchId = 'search-input-' + guidFor(this);
-  selectId = 'select-' + guidFor(this);
 
   constructor(...args) {
     super(...args);
 
-    if (!this.args.label) throw new Error('ERROR in PixSelect, a label is required');
+    if (!this.args.label && !this.args.id)
+      throw new Error('ERROR in PixSelect, a @label or an @id was not provided');
 
     const categories = [];
     this.args.options.forEach((element) => {
@@ -22,6 +22,11 @@ export default class PixSelect extends Component {
     });
 
     this.displayCategory = categories.length > 0;
+  }
+
+  get selectId() {
+    if (this.args.id) return this.args.id;
+    return 'select-' + guidFor(this);
   }
 
   get displayDefaultOption() {

@@ -5,6 +5,18 @@ import createGlimmerComponent from '../../helpers/create-glimmer-component';
 module('Unit | Component | pix-select', function (hooks) {
   setupTest(hooks);
 
+  test('it throws an error if there is no id and no label', function (assert) {
+    // given & when
+    const componentParams = { options: [] };
+    const renderComponent = function () {
+      createGlimmerComponent('component:pix-select', componentParams);
+    };
+
+    // then
+    const expectedError = new Error('ERROR in PixSelect, a @label or an @id was not provided');
+    assert.throws(renderComponent, expectedError);
+  });
+
   test('its should return the default className', function (assert) {
     // given
     const componentParams = { label: 'Un label', options: [] };
