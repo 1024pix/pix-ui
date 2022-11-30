@@ -100,7 +100,7 @@ export const argTypes = {
   id: {
     name: 'id',
     description: 'Permet l‘accessibilité du composant attribuant des ``for`` pour chaque entité',
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     defaultValue: 'aromate',
   },
   placeholder: {

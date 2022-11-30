@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+import { guidFor } from '@ember/object/internals';
 
 function sortOptionsByCheckedFirst(a, b) {
   if (a.checked && b.checked) return 0;
@@ -25,27 +26,19 @@ export default class PixMultiSelect extends Component {
 
   constructor(...args) {
     super(...args);
-    const { id, label, placeholder } = this.args;
 
-    const idIsNotDefined = !id || !id.trim();
-    const labelIsNotDefined = !label || !label.trim();
-    const innerTextIsNotDefined = !placeholder || !placeholder.trim();
+    if (!this.args.label && !this.args.id)
+      throw new Error('ERROR in PixMultiSelect, a @label or an @id was not provided');
 
-    if (idIsNotDefined || labelIsNotDefined || innerTextIsNotDefined) {
-      const missingParams = [];
-
-      if (idIsNotDefined) missingParams.push('@id');
-      if (labelIsNotDefined) missingParams.push('@label');
-      if (innerTextIsNotDefined) missingParams.push('@placeholder');
-
-      throw new Error(
-        `ERROR in PixMultiSelect component, ${missingParams.join(', ')} ${
-          missingParams.length > 1 ? 'params are' : 'param is'
-        } necessary`
-      );
-    }
+    if (!this.args.placeholder)
+      throw new Error('ERROR in PixMultiSelect, a @placeholder was not provided');
 
     this.options = [...(this.args.options || [])];
+  }
+
+  get multiSelectId() {
+    if (this.args.id) return this.args.id;
+    return 'select-' + guidFor(this);
   }
 
   get listId() {

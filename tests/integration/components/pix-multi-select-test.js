@@ -4,7 +4,6 @@ import { render, fillByLabel, clickByName } from '@1024pix/ember-testing-library
 import userEvent from '@testing-library/user-event';
 import { fireEvent } from '@testing-library/dom';
 import { hbs } from 'ember-cli-htmlbars';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
 
 module('Integration | Component | multi-select', function (hooks) {
@@ -209,84 +208,6 @@ module('Integration | Component | multi-select', function (hooks) {
         // then
         const inputElement = screen.getByLabelText('labelMultiSelect');
         assert.equal(inputElement.placeholder, 'Tomate, Oignon');
-      });
-    });
-
-    module('mandatory element', function () {
-      test('it should throw an error if no id is provided', async function (assert) {
-        // given
-        const componentParams = {
-          id: '   ',
-          label: 'toto',
-          placeholder: 'coucou',
-          options: DEFAULT_OPTIONS,
-        };
-        const renderComponent = function () {
-          createGlimmerComponent('component:pix-multi-select', componentParams);
-        };
-
-        // when & then
-        const expectedError = new Error(
-          'ERROR in PixMultiSelect component, @id param is necessary'
-        );
-        assert.throws(renderComponent, expectedError);
-      });
-
-      test('it should throw an error if no label is provided', async function (assert) {
-        // given
-        const componentParams = {
-          id: 'toto',
-          label: ' ',
-          placeholder: 'coucou',
-          options: DEFAULT_OPTIONS,
-        };
-        const renderComponent = function () {
-          createGlimmerComponent('component:pix-multi-select', componentParams);
-        };
-
-        // when & then
-        const expectedError = new Error(
-          'ERROR in PixMultiSelect component, @label param is necessary'
-        );
-        assert.throws(renderComponent, expectedError);
-      });
-
-      test('it should throw an error if no placeholder is provided', async function (assert) {
-        // given
-        const componentParams = {
-          id: 'toto',
-          label: 'coucou',
-          placeholder: ' ',
-          options: DEFAULT_OPTIONS,
-        };
-        const renderComponent = function () {
-          createGlimmerComponent('component:pix-multi-select', componentParams);
-        };
-
-        // when & then
-        const expectedError = new Error(
-          'ERROR in PixMultiSelect component, @placeholder param is necessary'
-        );
-        assert.throws(renderComponent, expectedError);
-      });
-
-      test('it should throw a combined error if no placeholder, label is provided', async function (assert) {
-        // given
-        const componentParams = {
-          id: 'toto',
-          label: ' ',
-          placeholder: ' ',
-          options: DEFAULT_OPTIONS,
-        };
-        const renderComponent = function () {
-          createGlimmerComponent('component:pix-multi-select', componentParams);
-        };
-
-        // when & then
-        const expectedError = new Error(
-          'ERROR in PixMultiSelect component, @label, @placeholder params are necessary'
-        );
-        assert.throws(renderComponent, expectedError);
       });
     });
 
