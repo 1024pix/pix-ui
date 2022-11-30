@@ -98,6 +98,7 @@ export const multiSelectWithCustomClass = Template.bind({});
 multiSelectWithCustomClass.args = {
   ...Default.args,
   className: 'custom',
+  isSearchable: false,
 };
 
 export const multiSelectWithId = Template.bind({});
@@ -105,6 +106,35 @@ multiSelectWithId.args = {
   ...Default.args,
   label: undefined,
   id: 'custom',
+  isSearchable: false,
+};
+
+const TemplateWithYield = (args) => ({
+  template: hbs`
+  <PixMultiSelect
+    @id={{this.id}}
+    @label={{this.label}}
+    @screenReaderOnly={{this.screenReaderOnly}}
+    @onChange={{this.onChange}}
+    @emptyMessage={{this.emptyMessage}}
+    @className={{this.className}}
+    @isSearchable={{this.isSearchable}}
+    @strictSearch={{this.strictSearch}}
+    @values={{this.values}}
+    @options={{this.options}}
+  >
+    <:placeholder>filtres (2)</:placeholder>
+    <:default as |option|>{{option.label}}</:default>
+  </PixMultiSelect>
+ `,
+  context: args,
+});
+
+export const multiSelectWithYield = TemplateWithYield.bind({});
+multiSelectWithYield.args = {
+  ...Default.args,
+  placeholder: undefined,
+  isSearchable: false,
 };
 
 export const argTypes = {
@@ -112,7 +142,6 @@ export const argTypes = {
     name: 'id',
     description: 'Permet l‘accessibilité du composant attribuant des ``for`` pour chaque entité',
     type: { name: 'string' },
-    defaultValue: 'aromate',
   },
   placeholder: {
     name: 'placeholder',

@@ -48,7 +48,11 @@
       {{on "click" this.toggleDropDown}}
       ...attributes
     >
-      {{this.placeholder}}
+      {{#if (has-block "placeholder")}}
+        {{yield to="placeholder"}}
+      {{else if @placeholder}}
+        {{this.placeholder}}
+      {{/if}}
       <FaIcon
         class="pix-multi-select-header__dropdown-icon
           {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
@@ -74,7 +78,7 @@
             {{on-enter-action this.hideDropDown this.multiSelectId}}
             tabindex={{if this.isExpanded "0" "-1"}}
           >
-            {{yield option}}
+            {{yield option to="default"}}
           </PixCheckbox>
         </li>
       {{/each}}
