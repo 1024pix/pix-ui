@@ -9,18 +9,23 @@ const Template = (args) => ({
     }
   </style>
   <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+  {{#if this.id}}
+    <div>
+      <label for={{this.id}}>Un label en dehors du composant</label>
+    </div>
+  {{/if}}
   <PixMultiSelect
-    @id={{id}}
-    @label={{label}}
-    @placeholder={{placeholder}}
-    @screenReaderOnly={{screenReaderOnly}}
-    @onChange={{onChange}}
-    @emptyMessage={{emptyMessage}}
-    @className={{className}}
-    @isSearchable={{isSearchable}}
-    @strictSearch={{strictSearch}}
-    @values={{values}}
-    @options={{options}} as |option|
+    @id={{this.id}}
+    @label={{this.label}}
+    @placeholder={{this.placeholder}}
+    @screenReaderOnly={{this.screenReaderOnly}}
+    @onChange={{this.onChange}}
+    @emptyMessage={{this.emptyMessage}}
+    @className={{this.className}}
+    @isSearchable={{this.isSearchable}}
+    @strictSearch={{this.strictSearch}}
+    @values={{this.values}}
+    @options={{this.options}} as |option|
   >{{option.label}}</PixMultiSelect>
  `,
   context: args,
@@ -51,7 +56,6 @@ export const multiSelectWithChildComponent = (args) => {
     template: hbs`
       <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
       <PixMultiSelect
-        @id={{this.id}}
         @label={{this.label}}
         @placeholder={{this.placeholder}}
         @screenReaderOnly={{this.screenReaderOnly}}
@@ -96,6 +100,13 @@ multiSelectWithCustomClass.args = {
   className: 'custom',
 };
 
+export const multiSelectWithId = Template.bind({});
+multiSelectWithId.args = {
+  ...Default.args,
+  label: undefined,
+  id: 'custom',
+};
+
 export const argTypes = {
   id: {
     name: 'id',
@@ -113,7 +124,7 @@ export const argTypes = {
   label: {
     name: 'label',
     description: "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran",
-    type: { name: 'string', required: true },
+    type: { name: 'string' },
     defaultValue: 'Label du champ',
   },
   screenReaderOnly: {
