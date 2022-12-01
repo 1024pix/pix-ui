@@ -2,8 +2,7 @@
   <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
     <label
       class="pix-filterable-and-searchable-select__label"
-      id={{this.id}}
-      {{on "click" this.focusMultiSelect}}
+      for={{this.id}}
     >
       {{#if @requiredText}}
         <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
@@ -15,7 +14,6 @@
     {{/if}}
   </div>
   <div
-    aria-labelledby={{this.id}}
     class="pix-filterable-and-searchable-select{{if
         @errorMessage
         ' pix-filterable-and-searchable-select--error'
@@ -35,6 +33,7 @@
       {{option.label}}
     </PixMultiSelect>
     <PixSelect
+      @id={{this.id}}
       @label={{@selectLabel}}
       @placeholder={{@placeholder}}
       @value={{@value}}

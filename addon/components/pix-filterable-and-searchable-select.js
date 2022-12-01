@@ -41,9 +41,4 @@ export default class PixFilterableAndSearchableSelect extends Component {
 
     return selectableOptions;
   }
-
-  @action
-  focusMultiSelect() {
-    document.querySelector('.pix-filterable-and-searchable-select__pix-multi-select').focus();
-  }
 }
