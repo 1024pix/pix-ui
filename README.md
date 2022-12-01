@@ -15,8 +15,8 @@ Pix-UI c'est l'implémentation des principes du design system de Pix. Cela se ma
 
 ##### Version du projet : 
 
-* Ember CLI v3.25.1
-* Node 14.16.0
+* Ember CLI v3.24 or above
+* Node 12 or above
 
 
 ## Installation de l'addon Pix-UI <a id="Addon"></a>
