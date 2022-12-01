@@ -39,6 +39,24 @@ module('Integration | Component | PixSelect', function (hooks) {
     assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
   });
 
+  module('#id', function () {
+    test('it puts a custom id on pix-select', async function (assert) {
+      // given & when
+      await render(hbs`
+        <PixSelect
+          @id="custom"
+          @options={{this.options}}
+          @label={{this.label}}
+          @subLabel={{this.subLabel}}
+          @placeholder={{this.placeholder}}
+        />
+      `);
+
+      // then
+      assert.dom('#custom').exists();
+    });
+  });
+
   module('listbox', function () {
     test('it hides the dropdown unless there is a click on the button', async function (assert) {
       // given & when

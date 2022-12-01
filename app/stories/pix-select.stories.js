@@ -12,7 +12,13 @@ export const Template = (args) => {
           border: 0;
         }
       </style>
+        {{#if this.id}}
+          <div>
+            <label for={{this.id}}>Un label en dehors du composant</label>
+          </div>
+        {{/if}}
         <PixSelect
+          @id={{this.id}}
           @className={{this.className}}
           @options={{this.options}}
           @isSearchable={{this.isSearchable}}
@@ -32,6 +38,25 @@ export const Template = (args) => {
     `,
     context: args,
   };
+};
+
+export const WithId = Template.bind({});
+WithId.args = {
+  id: 'custom',
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  placeholder: 'Mon innerText',
+  isSearchable: false,
+  onChange: action('onChange'),
 };
 
 export const WithCustomClass = Template.bind({});
@@ -184,10 +209,18 @@ export const argTypes = {
       defaultValue: { summary: false },
     },
   },
+  id: {
+    name: 'id',
+    description: 'Un identifiant unique placé sur le composant',
+    type: { name: 'string', required: false },
+    table: {
+      type: { summary: 'string' },
+    },
+  },
   label: {
     name: 'label',
     description: 'Label du menu déroulant',
-    type: { name: 'string', required: true },
+    type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
     },
