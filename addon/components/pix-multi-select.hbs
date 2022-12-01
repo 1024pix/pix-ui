@@ -2,22 +2,24 @@
   class="pix-multi-select"
   {{on-click-outside this.hideDropDown}}
   {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
-  {{on-escape-action this.hideDropDown @id}}
+  {{on-escape-action this.hideDropDown this.multiSelectId}}
 >
 
   {{#if @isSearchable}}
-    <label
-      for={{@id}}
-      class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
-    >{{@label}}</label>
+    {{#if @label}}
+      <label
+        for={{this.multiSelectId}}
+        class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
+      >{{@label}}</label>
+    {{/if}}
     <span class="pix-multi-select-header{{if @className this.className}}">
       <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
 
       <input
         class="pix-multi-select-header__search-input"
-        id={{@id}}
+        id={{this.multiSelectId}}
         type="text"
-        name={{@id}}
+        name={{this.multiSelectId}}
         placeholder={{this.placeholder}}
         autocomplete="off"
         {{on "input" this.updateSearch}}
@@ -29,14 +31,15 @@
       />
     </span>
   {{else}}
-    <span
-      id={{this.labelId}}
-      class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
-    >{{@label}}</span>
-
+    {{#if @label}}
+      <span
+        id={{this.labelId}}
+        class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
+      >{{@label}}</span>
+    {{/if}}
     <button
       aria-labelledby={{this.labelId}}
-      id={{@id}}
+      id={{this.multiSelectId}}
       type="button"
       aria-expanded={{this.isAriaExpanded}}
       aria-controls={{this.listId}}
@@ -45,7 +48,11 @@
       {{on "click" this.toggleDropDown}}
       ...attributes
     >
-      {{this.placeholder}}
+      {{#if (has-block "placeholder")}}
+        {{yield to="placeholder"}}
+      {{else if @placeholder}}
+        {{this.placeholder}}
+      {{/if}}
       <FaIcon
         class="pix-multi-select-header__dropdown-icon
           {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
@@ -64,14 +71,14 @@
       {{#each this.results as |option|}}
         <li class="pix-multi-select-list__item" role="menuitem">
           <PixCheckbox
-            @id={{concat @id "-" option.value}}
+            @id={{concat this.multiSelectId "-" option.value}}
             @checked={{option.checked}}
             value={{option.value}}
             {{on "change" this.onSelect}}
-            {{on-enter-action this.hideDropDown @id}}
+            {{on-enter-action this.hideDropDown this.multiSelectId}}
             tabindex={{if this.isExpanded "0" "-1"}}
           >
-            {{yield option}}
+            {{yield option to="default"}}
           </PixCheckbox>
         </li>
       {{/each}}
