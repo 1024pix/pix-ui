@@ -17,7 +17,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   this.placeholder = 'selectPlaceholder';
   this.categoriesId = 'filter id';
   this.categoriesLabel = 'filterLabel';
-  this.categoriesPlaceholder = 'filter Placeholder';
+  this.categoriesPlaceholder = 'Filtres';
   this.onChange = sinon.stub();
 
   test('it displays the categories', async function (assert) {
@@ -34,7 +34,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByText(this.categoriesPlaceholder));
+    await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     await screen.findByRole('menu');
     const items = await screen.queryAllByRole('menuitem');
 
@@ -91,7 +91,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByText(this.categoriesPlaceholder));
+    await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     await screen.findByRole('menu');
 
     const items = await screen.queryAllByRole('menuitem');
@@ -102,6 +102,35 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // then
     assert.deepEqual(categories, ['Kebab']);
+  });
+
+  test('it displays the number of category selected', async function (assert) {
+    this.options = [
+      { value: '1', label: 'Mache', category: 'Kebab' },
+      { value: '2', label: 'Tomate', category: 'Hamburger' },
+      { value: '3', label: 'Saumon', category: 'Sushi' },
+    ];
+
+    // given & when
+    const screen = await render(hbs`
+    <PixFilterableAndSearchableSelect
+      @selectLabel={{this.selectLabel}}
+      @placeholder={{this.placeholder}}
+      @options={{this.options}}
+      @onChange={{this.onChange}}
+      @categoriesId={{this.categoriesId}}
+      @categoriesLabel={{this.categoriesLabel}}
+      @categoriesPlaceholder={{this.categoriesPlaceholder}}
+    />
+  `);
+
+    await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
+    await screen.findByRole('menu');
+
+    await click(screen.getByRole('checkbox', { name: 'Hamburger' }));
+    await click(screen.getByRole('checkbox', { name: 'Sushi' }));
+    // then
+    assert.dom(screen.getByRole('button', { name: `${this.categoriesPlaceholder} (2)` })).exists();
   });
 
   test('it displays only options with the correct category', async function (assert) {
@@ -123,7 +152,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByText(this.categoriesPlaceholder));
+    await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     await screen.findByRole('menu');
 
     await click(screen.getByRole('checkbox', { name: 'Kebab' }));
@@ -154,7 +183,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByText(this.categoriesPlaceholder));
+    await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     await screen.findByRole('menu');
 
     await click(screen.getByRole('checkbox', { name: 'Hamburger' }));

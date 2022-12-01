@@ -26,6 +26,10 @@ export default class PixFilterableAndSearchableSelect extends Component {
     });
   }
 
+  get categoriesPlaceholder() {
+    return `${this.args.categoriesPlaceholder} (${this.selectedCategories.length})`;
+  }
+
   get selectableOptions() {
     const selectableOptions = [];
     const categories =

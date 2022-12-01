@@ -23,14 +23,13 @@
       @id={{@categoriesId}}
       @values={{this.selectedCategories}}
       @label={{@categoriesLabel}}
-      @placeholder={{@categoriesPlaceholder}}
       @options={{this.categories}}
       @onChange={{this.selectCategories}}
       @screenReaderOnly={{true}}
       @className="pix-filterable-and-searchable-select__pix-multi-select"
-      as |option|
     >
-      {{option.label}}
+      <:placeholder>{{this.categoriesPlaceholder}}</:placeholder>
+      <:default as |option| >{{option.label}}</:default>
     </PixMultiSelect>
     <PixSelect
       @id={{this.id}}
