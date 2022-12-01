@@ -7,4 +7,7 @@ module.exports = {
     '../docs/**/*.stories.@(mdx)',
     '../app/**/*.stories.@(js|mdx)',
   ],
+  core: {
+    builder: 'webpack5',
+  },
 };
