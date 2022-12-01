@@ -1,7 +1,12 @@
 import { module, test } from 'qunit';
 import { click } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
-import { render, clickByName, fillByLabel } from '@1024pix/ember-testing-library';
+import {
+  render,
+  clickByName,
+  fillByLabel,
+  waitForElementToBeRemoved,
+} from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
@@ -34,9 +39,10 @@ module('Integration | Component | PixSelect', function (hooks) {
 
     // then
     assert.dom(screen.getByText('Mon sous label')).exists();
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(screen.getByLabelText('Mon menu déroulant').innerText, 'Choisissez une option');
+    assert.strictEqual(
+      screen.getByLabelText('Mon menu déroulant').innerText,
+      'Choisissez une option'
+    );
   });
 
   module('#id', function () {
@@ -104,9 +110,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(screen.queryByRole('option', { name: this.placeholder }), null);
+      assert.strictEqual(screen.queryByRole('option', { name: this.placeholder }), null);
     });
   });
 
@@ -277,8 +281,9 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
-        assert.dom(screen.getByLabelText('Mon menu déroulant')).isFocused;
-        assert.throws(screen.getByRole('listbox'));
+        assert.strictEqual(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
+        assert.strictEqual(screen.queryByRole('listbox'), null);
       });
 
       test('it should call on select on enter press', async function (assert) {
@@ -463,9 +468,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
+      assert.strictEqual(screen.getByRole('option', { selected: true }).innerText, 'Oignon');
     });
   });
 
@@ -553,12 +556,8 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       const filteredOptions = screen.queryAllByRole('option');
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(filteredOptions.length, 1);
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(filteredOptions[0].innerText, 'Salade');
+      assert.strictEqual(filteredOptions.length, 1);
+      assert.strictEqual(filteredOptions[0].innerText, 'Salade');
     });
 
     test('should filter without taking care of the case', async function (assert) {
@@ -578,9 +577,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await fillByLabel('Rechercher', 'sal');
 
       await screen.findByRole('listbox');
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(screen.queryAllByRole('option').length, 1);
+      assert.strictEqual(screen.queryAllByRole('option').length, 1);
     });
 
     test('should trim empty space before and after searched value', async function (assert) {
@@ -600,9 +597,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await fillByLabel('Rechercher', ' sal ');
 
       await screen.findByRole('listbox');
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(screen.queryAllByRole('option').length, 1);
+      assert.strictEqual(screen.queryAllByRole('option').length, 1);
     });
 
     test('should display placeholder text', async function (assert) {

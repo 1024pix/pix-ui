@@ -42,9 +42,7 @@ module('Integration | Component | icon-button', function (hooks) {
     await clickByLabel('action du bouton');
 
     // then
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(this.count, 2);
+    assert.strictEqual(this.count, 2);
   });
 
   test('it renders PixIconButton with disabled attribute', async function (assert) {
@@ -57,7 +55,6 @@ module('Integration | Component | icon-button', function (hooks) {
   disabled={{true}}
   @ariaLabel="L'action du bouton"
 />`);
-    await clickByLabel('action du bouton');
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);

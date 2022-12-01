@@ -49,13 +49,8 @@ module('Integration | Component | button', function (hooks) {
   Mon bouton
 </PixButton>`);
 
-    await clickByLabel('button label');
-
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(this.count, 1);
     assert.true(componentElement.disabled);
   });
 
@@ -75,9 +70,7 @@ module('Integration | Component | button', function (hooks) {
 
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(this.count, 2);
+    assert.strictEqual(this.count, 2);
     assert.false(componentElement.disabled);
   });
 
@@ -91,9 +84,7 @@ module('Integration | Component | button', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(componentElement.type, 'submit');
+      assert.strictEqual(componentElement.type, 'submit');
     });
   });
 
