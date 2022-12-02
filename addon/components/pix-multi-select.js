@@ -39,11 +39,7 @@ export default class PixMultiSelect extends Component {
   }
 
   get listId() {
-    return `list-${this.args.id}`;
-  }
-
-  get labelId() {
-    return `label-${this.args.id}`;
+    return `list-${this.multiSelectId}`;
   }
 
   get isAriaExpanded() {
