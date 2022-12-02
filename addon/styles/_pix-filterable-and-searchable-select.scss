@@ -30,6 +30,10 @@
   }
   .pix-multi-select {
     margin-right: 2px;
+
+    [role="menu"] {
+      width: fit-content;
+    }
   }
 
   &__pix-multi-select {
