@@ -35,8 +35,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
-    await screen.findByRole('menu');
-    const items = await screen.queryAllByRole('menuitem');
+    const items = await screen.findAllByRole('menuitem');
 
     const categories = items.map((item) => {
       return item.innerText;
@@ -61,8 +60,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await clickByName(this.selectLabel);
-    await screen.findByRole('listbox');
-    const options = await screen.queryAllByRole('option');
+    const options = await screen.findAllByRole('option');
 
     const labels = options.map((option) => {
       return option.innerText;
@@ -92,9 +90,8 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
-    await screen.findByRole('menu');
 
-    const items = await screen.queryAllByRole('menuitem');
+    const items = await screen.findAllByRole('menuitem');
 
     const categories = items.map((item) => {
       return item.innerText;
@@ -125,10 +122,8 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
-    await screen.findByRole('menu');
-
-    await click(screen.getByRole('checkbox', { name: 'Hamburger' }));
-    await click(screen.getByRole('checkbox', { name: 'Sushi' }));
+    await click(await screen.findByRole('checkbox', { name: 'Hamburger' }));
+    await click(await screen.findByRole('checkbox', { name: 'Sushi' }));
     // then
     assert.dom(screen.getByRole('button', { name: `${this.categoriesPlaceholder} (2)` })).exists();
   });
@@ -153,14 +148,13 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
-    await screen.findByRole('menu');
 
-    await click(screen.getByRole('checkbox', { name: 'Kebab' }));
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(await screen.findByRole('checkbox', { name: 'Kebab' }));
+    await click(await screen.findByRole('button', { name: this.selectLabel }));
 
     // then
     assert.dom(screen.getByText('Mache')).exists();
-    assert.equal(screen.queryByText('Tomate'), null);
+    assert.dom(screen.queryByText('Tomate')).doesNotExist();
   });
 
   test('it displays options corresponding to the selected categories', async function (assert) {
@@ -184,14 +178,12 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
-    await screen.findByRole('menu');
 
-    await click(screen.getByRole('checkbox', { name: 'Hamburger' }));
-    await click(screen.getByRole('checkbox', { name: 'Sushi' }));
-    await click(screen.getByRole('button', { name: this.selectLabel }));
-    await screen.findByRole('listbox');
+    await click(await screen.findByRole('checkbox', { name: 'Hamburger' }));
+    await click(await screen.findByRole('checkbox', { name: 'Sushi' }));
+    await click(await screen.findByRole('button', { name: this.selectLabel }));
 
-    const options = await screen.queryAllByRole('option');
+    const options = await screen.findAllByRole('option');
 
     const labels = options.map((option) => {
       return option.innerText;
@@ -221,8 +213,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByRole('button', { name: this.selectLabel }));
-    await screen.findByRole('listbox');
-    await click(screen.getByRole('option', { name: 'Tomate' }));
+    await click(await screen.findByRole('option', { name: 'Tomate' }));
 
     // then
     sinon.assert.calledWith(this.onChange, '2');
@@ -252,10 +243,9 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByRole('button', { name: this.selectLabel }));
-    await screen.findByRole('listbox');
     await fillByLabel(this.searchLabel, 'Tom');
 
-    const items = await screen.queryAllByRole('option');
+    const items = await screen.findAllByRole('option');
 
     const options = items.map((item) => {
       return item.innerText;
@@ -289,8 +279,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   `);
 
     await click(screen.getByRole('button', { name: this.selectLabel }));
-    await screen.findByRole('listbox');
-
     const option = await screen.findByRole('option', { selected: true });
 
     // then
