@@ -632,7 +632,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   });
 
   module('#required', function () {
-    test('it displays the asterix', async function (assert) {
+    test('it displays the astérisque', async function (assert) {
       this.requiredText = 'Title requis';
 
       const screen = await render(hbs`<PixSelect
