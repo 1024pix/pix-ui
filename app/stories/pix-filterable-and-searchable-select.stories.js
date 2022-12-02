@@ -7,7 +7,6 @@ const Template = (args) => {
         @label={{label}}
         @subLabel={{subLabel}}
         @screenReaderOnly={{screenReaderOnly}}
-        @selectLabel={{selectLabel}}
         @placeholder={{placeholder}}
         @options={{options}}
         @onChange={{onChange}}
@@ -28,7 +27,6 @@ export const Default = Template.bind({});
 Default.args = {
   label: 'Are you hungry?',
   subLabel: 'To help you choose your food, you can filter on different categories',
-  selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
   options: [
     { value: '1', label: 'Salade', category: 'Kebab' },
@@ -47,7 +45,6 @@ export const Searchable = Template.bind({});
 Searchable.args = {
   label: 'Are you hungry?',
   subLabel: 'To help you choose your food, you can filter on different categories',
-  selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
   isSearchable: true,
   options: [
@@ -68,7 +65,6 @@ WithLabelsOnlyForScreenReaders.args = {
   label: 'Are you hungry?',
   subLabel: 'To help you choose your food, you can filter on different categories',
   screenReaderOnly: true,
-  selectLabel: 'Mon select label',
   placeholder: 'Mon select placeholder',
   isSearchable: true,
   options: [
@@ -106,14 +102,6 @@ export const argTypes = {
     description:
       'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
     type: { name: 'array', required: true },
-  },
-  selectLabel: {
-    name: 'label',
-    description: 'Label du menu déroulant du select',
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-    },
   },
   value: {
     name: 'value',
@@ -224,12 +212,5 @@ export const argTypes = {
       "Pour le composant de filtre sur les catégories, cela donne un label au champ qui sera celui vocalisé par le lecteur d'écran",
     type: { name: 'string', required: true },
     defaultValue: 'Label du champ',
-  },
-  categoriesEmptyMessage: {
-    name: 'categoriesEmptyMessage',
-    description:
-      'Un intitulé de choix indisponible (dans le cas ou certains filtres seraient excluant). Si il arrive vraiment dans le cas de ce composant, cela est peut-être parce quil ne doit pas être utilisé dans votre cas de figure',
-    type: { name: 'string', required: true },
-    defaultValue: 'pas de résultat',
   },
 };
