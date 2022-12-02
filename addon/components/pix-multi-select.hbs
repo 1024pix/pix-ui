@@ -65,6 +65,7 @@
           <PixCheckbox
             @id={{concat this.multiSelectId "-" option.value}}
             @checked={{option.checked}}
+            @labelSize="small"
             value={{option.value}}
             {{on "change" this.onSelect}}
             {{on-enter-action this.hideDropDown this.multiSelectId}}
