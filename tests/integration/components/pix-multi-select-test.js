@@ -423,7 +423,7 @@ module('Integration | Component | multi-select', function (hooks) {
         assert.strictEqual(document.activeElement, checkboxes[2]);
       });
 
-      test('it should call on select on enter press', async function (assert) {
+      test.skip('it should call on select on enter press', async function (assert) {
         // given
         this.options = DEFAULT_OPTIONS;
 
