@@ -374,7 +374,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     });
   });
 
-  test(' it displays error message', async function (assert) {
+  test('it displays error message', async function (assert) {
     this.options = [
       { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
