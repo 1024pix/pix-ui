@@ -13,7 +13,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     { value: '2', label: 'Tomate', category: 'Hamburger' },
   ];
 
-  this.selectLabel = 'select Label';
+  this.label = 'select Label';
   this.placeholder = 'selectPlaceholder';
   this.categoriesId = 'filter id';
   this.categoriesLabel = 'filterLabel';
@@ -24,11 +24,11 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
-      @categoriesId={{this.categoriesId}}
       @categoriesLabel={{this.categoriesLabel}}
       @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
@@ -40,7 +40,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     const categories = items.map((item) => {
       return item.innerText;
     });
-
     // then
     assert.deepEqual(categories, ['Kebab', 'Hamburger']);
   });
@@ -49,7 +48,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -59,7 +58,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await clickByName(this.selectLabel);
+    await clickByName(this.label);
     const options = await screen.findAllByRole('option');
 
     const labels = options.map((option) => {
@@ -79,7 +78,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -111,11 +110,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
-      @categoriesId={{this.categoriesId}}
       @categoriesLabel={{this.categoriesLabel}}
       @categoriesPlaceholder={{this.categoriesPlaceholder}}
     />
@@ -124,8 +122,9 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     await click(await screen.findByRole('checkbox', { name: 'Hamburger' }));
     await click(await screen.findByRole('checkbox', { name: 'Sushi' }));
+
     // then
-    assert.dom(screen.getByRole('button', { name: `${this.categoriesPlaceholder} (2)` })).exists();
+    assert.dom(screen.getByText(`${this.categoriesPlaceholder} (2)`)).exists();
   });
 
   test('it displays only options with the correct category', async function (assert) {
@@ -137,7 +136,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -150,7 +149,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
 
     await click(await screen.findByRole('checkbox', { name: 'Kebab' }));
-    await click(await screen.findByRole('button', { name: this.selectLabel }));
+    await click(await screen.findByRole('button', { name: this.label }));
 
     // then
     assert.dom(screen.getByText('Mache')).exists();
@@ -167,7 +166,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -181,7 +180,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     await click(await screen.findByRole('checkbox', { name: 'Hamburger' }));
     await click(await screen.findByRole('checkbox', { name: 'Sushi' }));
-    await click(await screen.findByRole('button', { name: this.selectLabel }));
+    await click(await screen.findByRole('button', { name: this.label }));
 
     const options = await screen.findAllByRole('option');
 
@@ -202,7 +201,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -212,7 +211,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(screen.getByRole('button', { name: this.label }));
     await click(await screen.findByRole('option', { name: 'Tomate' }));
 
     // then
@@ -230,7 +229,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @onChange={{this.onChange}}
@@ -242,7 +241,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(screen.getByRole('button', { name: this.label }));
     await fillByLabel(this.searchLabel, 'Tom');
 
     const items = await screen.findAllByRole('option');
@@ -265,7 +264,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     // given & when
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
-      @selectLabel={{this.selectLabel}}
+      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @value={{'2'}}
@@ -278,7 +277,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     />
   `);
 
-    await click(screen.getByRole('button', { name: this.selectLabel }));
+    await click(screen.getByRole('button', { name: this.label }));
     const option = await screen.findByRole('option', { selected: true });
 
     // then
@@ -296,7 +295,8 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       // given & when
       const screen = await render(hbs`
       <PixFilterableAndSearchableSelect
-        @selectLabel={{this.selectLabel}}
+
+        @label={{this.label}}
         @placeholder={{this.placeholder}}
         @options={{this.options}}
         @value={{'2'}}
@@ -304,7 +304,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
         @categoriesId={{this.categoriesId}}
         @categoriesLabel={{this.categoriesLabel}}
         @categoriesPlaceholder={{this.categoriesPlaceholder}}
-        @label={{this.label}}
       />
     `);
 
@@ -327,7 +326,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       <PixFilterableAndSearchableSelect
         @label={{this.label}}
         @subLabel={{this.subLabel}}
-        @selectLabel={{this.selectLabel}}
         @placeholder={{this.placeholder}}
         @options={{this.options}}
         @value={{'2'}}
@@ -348,14 +346,12 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
         { value: '2', label: 'Tomate', category: 'Hamburger' },
       ];
       this.label = 'Label de mon big composant trop compliqué';
-      this.selectLabel = 'Label de mon composant select';
       this.requiredText = 'Sélectionner un aliment';
 
       // given & when
       const screen = await render(hbs`
       <PixFilterableAndSearchableSelect
         @label={{this.label}}
-        @selectLabel={{this.selectLabel}}
         @placeholder={{this.placeholder}}
         @options={{this.options}}
         @value={{'2'}}
@@ -380,7 +376,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
     this.label = 'Label de mon big composant trop compliqué';
-    this.selectLabel = 'Label de mon composant select';
     this.requiredText = 'Sélectionner un aliment';
     this.errorMessage = 'Aliment non saisi. Veuillez en renseigner un !';
 
@@ -388,7 +383,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     const screen = await render(hbs`
     <PixFilterableAndSearchableSelect
       @label={{this.label}}
-      @selectLabel={{this.selectLabel}}
       @placeholder={{this.placeholder}}
       @options={{this.options}}
       @value={{'2'}}

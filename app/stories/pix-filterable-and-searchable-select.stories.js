@@ -10,7 +10,6 @@ const Template = (args) => {
         @placeholder={{placeholder}}
         @options={{options}}
         @onChange={{onChange}}
-        @categoriesId={{categoriesId}}
         @categoriesLabel={{categoriesLabel}}
         @categoriesPlaceholder={{categoriesPlaceholder}}
         @isSearchable={{isSearchable}}
@@ -36,7 +35,6 @@ Default.args = {
     { value: '5', label: 'Cheddar', category: 'Hamburger' },
   ],
   onChange: () => {},
-  categoriesId: 'multi-select-id',
   categoriesLabel: 'Mon multi select label',
   categoriesPlaceholder: 'Mon multi select placeholder',
 };
@@ -55,7 +53,6 @@ Searchable.args = {
     { value: '5', label: 'Cheddar', category: 'Hamburger' },
   ],
   onChange: () => {},
-  categoriesId: 'multi-select-id',
   categoriesLabel: 'Mon multi select label',
   categoriesPlaceholder: 'Mon multi select placeholder',
 };
@@ -75,7 +72,6 @@ WithLabelsOnlyForScreenReaders.args = {
     { value: '5', label: 'Cheddar', category: 'Hamburger' },
   ],
   onChange: () => {},
-  categoriesId: 'multi-select-id',
   categoriesLabel: 'Mon multi select label',
   categoriesPlaceholder: 'Mon multi select placeholder',
 };
