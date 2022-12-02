@@ -1,4 +1,4 @@
-{{! template-lint-disable no-down-event-binding }}
+{{! template-lint-disable no-down-event-binding require-context-role require-presentational-children }}
 <div
   class="pix-select"
   id="container-{{this.selectId}}"
@@ -30,7 +30,6 @@
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
     aria-controls={{this.listId}}
-    aria-required={{if @requiredText "true" "false"}}
   >
     {{this.placeholder}}
 

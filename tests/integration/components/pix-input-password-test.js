@@ -26,7 +26,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to have an input label', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" />`);
+    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' />`);
 
     // then
     assert.contains('Mot de passe');
@@ -35,18 +35,20 @@ module('Integration | Component | pix-input-password', function (hooks) {
   test('it should be possible to add extra information to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInputPassword @label="Mot de passe" @id="password" @information="une brève information" />`
+      hbs`<PixInputPassword @label='Mot de passe' @id='password' @information='une brève information' />`
     );
 
     // then
     const selectorElement = this.element.querySelector(INFORMATION_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.innerHTML, 'une brève information');
   });
 
   test('it should be possible to associate an error message to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInputPassword @label="Mot de passe" @id="password" @errorMessage="Un message d'erreur." />`
+      hbs`<PixInputPassword @label='Mot de passe' @id='password' @errorMessage="Un message d'erreur." />`
     );
 
     // then
@@ -55,7 +57,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should display an input prefix if necessary', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" @prefix="A prefix" />`);
+    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' @prefix='A prefix' />`);
 
     // then
     assert.contains('A prefix');
@@ -63,16 +65,18 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to add more params to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" autocomplete="off" />`);
+    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' autocomplete='off' />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.autocomplete, 'off');
   });
 
   test('it renders PixInputPassword with password visibility button', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label="Mot de passe" @id="password" />`);
+    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' />`);
 
     // then
     const passwordVisibilityButton = this.element.querySelector(BUTTON_SELECTOR);
@@ -98,17 +102,19 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to track value of input', async function (assert) {
     // given && when
-    await render(hbs`<PixInputPassword @id="password" @label="Mot de passe" @value="pix123" />`);
+    await render(hbs`<PixInputPassword @id='password' @label='Mot de passe' @value='pix123' />`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(selectorElement.value, 'pix123');
   });
 
   test('it should be possible to make pix input password required', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInputPassword @id="password" @label="Mot de passe" @requiredLabel="Champ obligatoire" />`
+      hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`
     );
 
     // then

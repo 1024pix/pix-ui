@@ -37,14 +37,14 @@
       </button>
     {{/if}}
 
-    <div
-      role="button"
+    <button
+      type="button"
       tabindex="-1"
       class="pix-dropdown__controller--chevron"
       {{on "click" this.toggleDropdown}}
     >
       <FaIcon @icon={{if this.isExpanded "chevron-up" "chevron-down"}} />
-    </div>
+    </button>
   </div>
 
   <div
@@ -55,7 +55,6 @@
     aria-labelledby={{if this.label @id}}
     aria-label={{unless this.label @placeholder}}
     aria-hidden={{if this.isExpanded "false" "true"}}
-    aria-activedescendant={{if this.selectedOption this.selectedOption.value}}
     {{on "keyup" this.navigateThroughOptions}}
     {{on "scroll" this.incrementPage}}
   >

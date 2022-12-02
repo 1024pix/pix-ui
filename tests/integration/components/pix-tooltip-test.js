@@ -15,17 +15,15 @@ module('Integration | Component | pix-tooltip', function (hooks) {
     this.set('text', text);
 
     // when
-    await render(hbs`
-      <PixTooltip>
-        <:triggerElement>
-          template block text
-        </:triggerElement>
+    await render(hbs`<PixTooltip>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
 
-        <:tooltip>
-          {{this.text}}
-        </:tooltip>
-      </PixTooltip>
-    `);
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
     // then
     assert.contains(text);
@@ -33,13 +31,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
   test('it renders only the inner data if there is no tooltip text', async function (assert) {
     // when
-    await render(hbs`
-      <PixTooltip>
-        <:triggerElement>
-          template block text
-        </:triggerElement>
-      </PixTooltip>
-    `);
+    await render(hbs`<PixTooltip>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
+</PixTooltip>`);
 
     // then
     const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -49,14 +45,12 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
   test('it renders only the inner data if hide is true', async function (assert) {
     // when
-    await render(hbs`
-      <PixTooltip @hide={{true}}>
-        <:triggerElement>
-          template block text
-        </:triggerElement>
-        <:tooltip></:tooltip>
-      </PixTooltip>
-    `);
+    await render(hbs`<PixTooltip @hide={{true}}>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
+  <:tooltip></:tooltip>
+</PixTooltip>`);
 
     // then
     const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -66,14 +60,12 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
   test('it dismissed tooltip on escape keyup', async function (assert) {
     // given
-    const screen = await render(hbs`
-      <PixTooltip>
-        <:triggerElement>
-          template block text
-        </:triggerElement>
-        <:tooltip></:tooltip>
-      </PixTooltip>
-    `);
+    const screen = await render(hbs`<PixTooltip>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
+  <:tooltip></:tooltip>
+</PixTooltip>`);
 
     // when
     await screen.getByText('template block text').focus();
@@ -104,13 +96,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
         this.set('position', position);
 
         // when
-        await render(hbs`
-          <PixTooltip @position={{this.position}}>
-            <:tooltip>
-              {{this.text}}
-            </:tooltip>
-          </PixTooltip>
-        `);
+        await render(hbs`<PixTooltip @position={{this.position}}>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
         // then
         const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -129,13 +119,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
       this.set('text', text);
 
       // when
-      await render(hbs`
-        <PixTooltip>
-          <:tooltip>
-            {{this.text}}
-          </:tooltip>
-        </PixTooltip>
-      `);
+      await render(hbs`<PixTooltip>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -148,13 +136,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
       this.set('text', text);
 
       // when
-      await render(hbs`
-        <PixTooltip @isLight={{true}}>
-          <:tooltip>
-            {{this.text}}
-          </:tooltip>
-        </PixTooltip>
-      `);
+      await render(hbs`<PixTooltip @isLight={{true}}>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -170,13 +156,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
       this.set('text', text);
 
       // when
-      await render(hbs`
-        <PixTooltip>
-          <:tooltip>
-            {{this.text}}
-          </:tooltip>
-        </PixTooltip>
-      `);
+      await render(hbs`<PixTooltip>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
       const tooltipContentClasses = tooltipContentElement.classList.toString().trim();
 
@@ -189,13 +173,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
       this.set('text', text);
 
       // when
-      await render(hbs`
-        <PixTooltip @isInline={{true}}>
-          <:tooltip>
-           {{this.text}}
-          </:tooltip>
-        </PixTooltip>
-      `);
+      await render(hbs`<PixTooltip @isInline={{true}}>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -211,13 +193,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
       this.set('text', text);
 
       // when
-      await render(hbs`
-        <PixTooltip>
-          <:tooltip>
-            {{this.text}}
-          </:tooltip>
-        </PixTooltip>
-      `);
+      await render(hbs`<PixTooltip>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
@@ -230,13 +210,11 @@ module('Integration | Component | pix-tooltip', function (hooks) {
       this.set('text', text);
 
       // when
-      await render(hbs`
-        <PixTooltip @isWide={{true}}>
-          <:tooltip>
-            {{this.text}}
-          </:tooltip>
-        </PixTooltip>
-      `);
+      await render(hbs`<PixTooltip @isWide={{true}}>
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`);
 
       // then
       const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);

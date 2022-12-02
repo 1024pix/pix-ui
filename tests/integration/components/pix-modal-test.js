@@ -15,16 +15,14 @@ module('Integration | Component | modal', function (hooks) {
       this.showModal = true;
 
       // when
-      await render(hbs`
-        <PixModal @title={{this.title}} @showModal={{this.showModal}}>
-          <:content>
-            content
-          </:content>
-          <:footer>
-            footer
-          </:footer>
-        </PixModal>
-      `);
+      await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixModal>`);
 
       // then
       assert.contains("It's a modal!");
@@ -41,15 +39,13 @@ module('Integration | Component | modal', function (hooks) {
         this.onCloseButtonClick = sinon.stub();
 
         // when
-        await render(hbs`
-          <PixModal
-            @title={{this.title}}
-            @onCloseButtonClick={{this.onCloseButtonClick}}
-            @showModal={{this.showModal}}
-          >
-            content
-          </PixModal>
-        `);
+        await render(hbs`<PixModal
+  @title={{this.title}}
+  @onCloseButtonClick={{this.onCloseButtonClick}}
+  @showModal={{this.showModal}}
+>
+  content
+</PixModal>`);
         await click('[aria-label="Fermer"]');
 
         // then
@@ -65,15 +61,13 @@ module('Integration | Component | modal', function (hooks) {
         this.onCloseButtonClick = sinon.stub();
 
         // when
-        await render(hbs`
-          <PixModal
-            @title={{this.title}}
-            @onCloseButtonClick={{this.onCloseButtonClick}}
-            @showModal={{this.showModal}}
-          >
-            content
-          </PixModal>
-        `);
+        await render(hbs`<PixModal
+  @title={{this.title}}
+  @onCloseButtonClick={{this.onCloseButtonClick}}
+  @showModal={{this.showModal}}
+>
+  content
+</PixModal>`);
         await triggerKeyEvent('.pix-modal__overlay', 'keyup', 'Escape');
 
         // then
@@ -89,16 +83,14 @@ module('Integration | Component | modal', function (hooks) {
       this.showModal = false;
 
       // when
-      await render(hbs`
-        <PixModal @title={{this.title}} @showModal={{this.showModal}}>
-          <:content>
-            content
-          </:content>
-          <:footer>
-            footer
-          </:footer>
-        </PixModal>
-      `);
+      await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixModal>`);
 
       // then
       assert.dom('.pix-modal__overlay--hidden').exists();

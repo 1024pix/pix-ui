@@ -26,20 +26,22 @@ module('Integration | Component | multi-select', function (hooks) {
       this.id = 'id-MultiSelectTest';
 
       // when
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="multiSelectLabel"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='multiSelectLabel'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.queryAllByRole('checkbox').length, 0);
     });
 
@@ -52,18 +54,18 @@ module('Integration | Component | multi-select', function (hooks) {
       this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @values={{this.values}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @values={{this.values}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       this.set('values', []);
@@ -88,24 +90,26 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
 
         // when
-        const screen = await render(hbs`
-          <PixMultiSelect
-            @values={{this.values}}
-            @onChange={{this.onChange}}
-            @placeholder={{this.placeholder}}
-            @id={{this.id}}
-            @label="labelMultiSelect"
-            @emptyMessage={{this.emptyMessage}}
-            @options={{this.options}} as |option|>
-            {{option.label}}
-          </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         await clickByName('labelMultiSelect');
 
         await screen.findByRole('menu');
 
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(screen.queryAllByRole('checkbox').length, 3);
       });
 
@@ -119,24 +123,25 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
 
         // when
-        const screen = await render(hbs`
-          <PixMultiSelect
-            @values={{this.values}}
-            @onChange={{this.onChange}}
-            @placeholder={{this.placeholder}}
-            @label="labelMultiSelect"
-            @id={{this.id}}
-            @emptyMessage={{this.emptyMessage}}
-            @options={{this.options}} as |option|
-          >
-            {{option.label}}
-          </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @label='labelMultiSelect'
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         await clickByName('labelMultiSelect');
 
         await screen.findByRole('menu');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(screen.queryAllByRole('checkbox').length, 0);
         assert.contains('no result');
       });
@@ -151,19 +156,18 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
 
         // when
-        const screen = await render(hbs`
-          <PixMultiSelect
-            @onChange={{this.onChange}}
-            @placeholder={{this.placeholder}}
-            @id={{this.id}}
-            @values={{this.values}}
-            @label="labelMultiSelect"
-            @emptyMessage={{this.emptyMessage}}
-            @options={{this.options}} as |option|
-          >
-            {{option.label}}
-          </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @values={{this.values}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         await clickByName('labelMultiSelect');
 
@@ -173,6 +177,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         // then
         const checkboxElement = screen.queryAllByRole('checkbox');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(checkboxElement.length, 3);
         assert.false(checkboxElement[0].checked);
         assert.true(checkboxElement[1].checked);
@@ -191,22 +197,23 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
 
         // when
-        const screen = await render(hbs`
-          <PixMultiSelect
-            @onChange={{this.onChange}}
-            @placeholder={{this.placeholder}}
-            @id={{this.id}}
-            @values={{this.values}}
-            @label="labelMultiSelect"
-            @emptyMessage={{this.emptyMessage}}
-            @isSearchable={{true}}
-            @options={{this.options}} as |option|
-          >
-            {{option.label}}
-          </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @values={{this.values}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @isSearchable={{true}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
         // then
         const inputElement = screen.getByLabelText('labelMultiSelect');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(inputElement.placeholder, 'Tomate, Oignon');
       });
     });
@@ -221,17 +228,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await clickByName('labelMultiSelect');
@@ -256,17 +263,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-          <PixMultiSelect
-            @onChange={{this.onChange}}
-            @placeholder={{this.placeholder}}
-            @id={{this.id}}
-            @label="labelMultiSelect"
-            @emptyMessage={{this.emptyMessage}}
-            @options={{this.options}} as |option|>
-            {{option.label}}
-          </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await clickByName('labelMultiSelect');
@@ -291,17 +298,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await screen.getByLabelText('labelMultiSelect').focus();
@@ -314,7 +321,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(checkboxes.length, 3);
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[0]);
       });
 
@@ -327,17 +338,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await screen.getByLabelText('labelMultiSelect').focus();
@@ -350,7 +361,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(checkboxes.length, 3);
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[2]);
       });
 
@@ -363,17 +378,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await screen.getByLabelText('labelMultiSelect').focus();
@@ -386,6 +401,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[0]);
       });
 
@@ -398,17 +415,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await screen.getByLabelText('labelMultiSelect').focus();
@@ -421,6 +438,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const checkboxes = screen.queryAllByRole('checkbox');
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, checkboxes[2]);
       });
 
@@ -433,17 +452,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         await screen.getByLabelText('labelMultiSelect').focus();
@@ -459,6 +478,8 @@ module('Integration | Component | multi-select', function (hooks) {
         // then
         assert.throws(screen.getByRole('menu'));
         assert.ok(this.onChange.calledOnce, 'the callback should be called once');
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
       });
 
@@ -471,17 +492,17 @@ module('Integration | Component | multi-select', function (hooks) {
         this.id = 'id-MultiSelectTest';
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-        `);
+        const screen = await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
         // when
         screen.getByLabelText('labelMultiSelect').focus();
@@ -493,6 +514,8 @@ module('Integration | Component | multi-select', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
+        // TODO: Fix this the next time the file is edited.
+        // eslint-disable-next-line qunit/no-assert-equal
         assert.equal(document.activeElement, screen.getByLabelText('labelMultiSelect'));
         assert.throws(screen.getByRole('menu'));
       });
@@ -511,19 +534,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
 
       // when
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="label"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='label'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       await fillByLabel('label', '');
 
@@ -531,7 +554,11 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getByLabelText('label').placeholder, this.placeholder);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByRole('checkbox').length, 3);
     });
 
@@ -546,20 +573,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @label='Mon multi select'
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('Mon multi select', 'tomate');
@@ -568,6 +594,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByRole('checkbox').length, 1);
       assert.contains('Tomate');
     });
@@ -584,21 +612,20 @@ module('Integration | Component | multi-select', function (hooks) {
       this.strictSearch = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @strictSearch={{this.strictSearch}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @strictSearch={{this.strictSearch}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @label='Mon multi select'
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('Mon multi select', 'tomate');
@@ -621,19 +648,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @label={{this.label}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @label={{this.label}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('label', '');
@@ -641,6 +668,8 @@ module('Integration | Component | multi-select', function (hooks) {
       await screen.findByRole('menu');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getByRole('menu').className.trim(), 'pix-multi-select-list');
     });
 
@@ -655,19 +684,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="label"
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='label'
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('label', '');
@@ -676,9 +705,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 3);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Oignon');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Salade');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[2].labels[0].innerText.trim(), 'Tomate');
     });
 
@@ -693,19 +730,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @label="labelMultiSelect"
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @label='labelMultiSelect'
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('labelMultiSelect', '');
@@ -716,9 +753,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 3);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Salade');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Tomate');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[2].labels[0].innerText.trim(), 'Oignon');
     });
 
@@ -733,20 +778,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @label='Mon multi select'
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('Mon multi select', 'Oi');
@@ -757,8 +801,14 @@ module('Integration | Component | multi-select', function (hooks) {
       await fillByLabel('Mon multi select', 'o');
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 2);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Tomate');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Oignon');
     });
 
@@ -773,20 +823,19 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @emptyMessage={{this.emptyMessage}}
-          @label="Mon multi select"
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @label='Mon multi select'
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('Mon multi select', 'Oi');
@@ -799,9 +848,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement.length, 3);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Oignon');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[1].labels[0].innerText.trim(), 'Salade');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[2].labels[0].innerText.trim(), 'Tomate');
     });
 
@@ -816,20 +873,20 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
-      const screen = await render(hbs`
-        <PixMultiSelect
-          @isSearchable={{this.isSearchable}}
-          @values={{this.values}}
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @showOptionsOnInput={{true}}
-          @options={{this.options}} as |option|>
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @showOptionsOnInput={{true}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       // when
       await fillByLabel('labelMultiSelect', '');
@@ -838,6 +895,8 @@ module('Integration | Component | multi-select', function (hooks) {
 
       const listElement = screen.getAllByRole('checkbox');
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement[0].labels[0].innerText.trim(), 'Tomate');
 
       await clickByName('Oignon');
@@ -845,7 +904,11 @@ module('Integration | Component | multi-select', function (hooks) {
       // then
       const listElement2 = screen.getAllByRole('checkbox');
 
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement2[0].labels[0].innerText.trim(), 'Tomate');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(listElement2[2].labels[0].innerText.trim(), 'Oignon');
     });
   });
@@ -862,21 +925,20 @@ module('Integration | Component | multi-select', function (hooks) {
       this.className = 'custom';
 
       // when
-      await render(hbs`
-        <PixMultiSelect
-          @onChange={{this.onChange}}
-          @placeholder={{this.placeholder}}
-          @id={{this.id}}
-          @values={{this.values}}
-          @label="labelMultiSelect"
-          @emptyMessage={{this.emptyMessage}}
-          @isSearchable={{true}}
-          @className = {{this.className}}
-          @options={{this.options}} as |option|
-        >
-          {{option.label}}
-        </PixMultiSelect>
-      `);
+      await render(hbs`<PixMultiSelect
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @values={{this.values}}
+  @label='labelMultiSelect'
+  @emptyMessage={{this.emptyMessage}}
+  @isSearchable={{true}}
+  @className={{this.className}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
       // then
       assert.dom('.custom').exists();
     });

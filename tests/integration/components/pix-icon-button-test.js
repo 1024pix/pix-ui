@@ -13,9 +13,7 @@ module('Integration | Component | icon-button', function (hooks) {
 
   test('it renders PixIconButton with a default fa-icon', async function (assert) {
     // when
-    await render(hbs`
-      <PixIconButton @ariaLabel="action du bouton" />
-    `);
+    await render(hbs`<PixIconButton @ariaLabel='action du bouton' />`);
     const iconElement = this.element.querySelector(iconClass);
 
     // then
@@ -24,9 +22,7 @@ module('Integration | Component | icon-button', function (hooks) {
 
   test('it renders PixIconButton with the specified FaIcon', async function (assert) {
     // when
-    await render(hbs`
-      <PixIconButton @icon='xmark' @ariaLabel="action du bouton" />
-    `);
+    await render(hbs`<PixIconButton @icon='xmark' @ariaLabel='action du bouton' />`);
     const iconElement = this.element.querySelector(iconClass);
 
     // then
@@ -40,12 +36,14 @@ module('Integration | Component | icon-button', function (hooks) {
     this.set('triggerAction', () => {
       this.count = this.count + 1;
     });
-    await render(hbs`
-      <PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel="action du bouton" />
-    `);
+    await render(
+      hbs`<PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel='action du bouton' />`
+    );
     await clickByLabel('action du bouton');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(this.count, 2);
   });
 
@@ -54,9 +52,11 @@ module('Integration | Component | icon-button', function (hooks) {
     this.set('triggerAction', () => {});
 
     //when
-    await render(hbs`
-      <PixIconButton @triggerAction={{this.triggerAction}} disabled={{true}} @ariaLabel="L'action du bouton" />
-    `);
+    await render(hbs`<PixIconButton
+  @triggerAction={{this.triggerAction}}
+  disabled={{true}}
+  @ariaLabel="L'action du bouton"
+/>`);
     await clickByLabel('action du bouton');
 
     // then

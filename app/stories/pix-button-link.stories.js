@@ -2,39 +2,35 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const htmlLinkTemplate = (args) => {
   return {
-    template: hbs`
-      <PixButtonLink 
-        @href="https://pix.fr"
-        target="NEW"
-        @shape={{shape}}
-        @backgroundColor={{backgroundColor}}
-        @size={{size}}
-        @isBorderVisible={{isBorderVisible}}
-        @isDisabled={{isDisabled}}
-      >
-        Lien HTML classique
-      </PixButtonLink>
-    `,
+    template: hbs`<PixButtonLink
+  @href='https://pix.fr'
+  target='NEW'
+  @shape={{shape}}
+  @backgroundColor={{backgroundColor}}
+  @size={{size}}
+  @isBorderVisible={{isBorderVisible}}
+  @isDisabled={{isDisabled}}
+>
+  Lien HTML classique
+</PixButtonLink>`,
     context: args,
   };
 };
 
 export const emberLinkTemplate = (args) => {
   return {
-    template: hbs`
-      <PixButtonLink 
-        @route=""
-        @model=""
-        @query={{query}}
-        @shape={{shape}}
-        @backgroundColor={{backgroundColor}}
-        @size={{size}}
-        @isBorderVisible={{isBorderVisible}}
-        @isDisabled={{isDisabled}}
-      >
-        Lien route Ember (LinkTo)
-      </PixButtonLink>
-    `,
+    template: hbs`<PixButtonLink
+  @route=''
+  @model=''
+  @query={{query}}
+  @shape={{shape}}
+  @backgroundColor={{backgroundColor}}
+  @size={{size}}
+  @isBorderVisible={{isBorderVisible}}
+  @isDisabled={{isDisabled}}
+>
+  Lien route Ember (LinkTo)
+</PixButtonLink>`,
     context: args,
   };
 };

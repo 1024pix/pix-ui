@@ -2,22 +2,18 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const tag = (args) => {
   return {
-    template: hbs`
-      <PixTag @color={{color}} @compact={{compact}}>
-        Contenu du tag
-      </PixTag>
-    `,
+    template: hbs`<PixTag @color={{color}} @compact={{compact}}>
+  Contenu du tag
+</PixTag>`,
     context: args,
   };
 };
 
 export const compactTag = (args) => {
   return {
-    template: hbs`
-      <PixTag @color={{color}} @compact={{compact}}>
-        Contenu du tag
-      </PixTag>
-    `,
+    template: hbs`<PixTag @color={{color}} @compact={{compact}}>
+  Contenu du tag
+</PixTag>`,
     context: args,
   };
 };

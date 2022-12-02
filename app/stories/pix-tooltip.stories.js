@@ -2,67 +2,59 @@ import { hbs } from 'ember-cli-htmlbars';
 
 const Template = (args) => {
   return {
-    template: hbs`
-      <PixTooltip
-        @id={{this.id}}
-        @position={{this.position}}
-        @isLight={{this.isLight}}
-        @isInline={{this.isInline}}
-        @isWide={{this.isWide}}
-        @hide={{this.hide}}>
-        <:triggerElement>
-          <PixButton aria-describedby={{this.id}}>
-            {{this.label}}
-          </PixButton>
-        </:triggerElement>
+    template: hbs`<PixTooltip
+  @id={{this.id}}
+  @position={{this.position}}
+  @isLight={{this.isLight}}
+  @isInline={{this.isInline}}
+  @isWide={{this.isWide}}
+  @hide={{this.hide}}
+>
+  <:triggerElement>
+    <PixButton aria-describedby={{this.id}}>
+      {{this.label}}
+    </PixButton>
+  </:triggerElement>
 
-        <:tooltip>
-          {{this.text}}
-        </:tooltip>
-      </PixTooltip>
-    `,
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`,
     context: args,
   };
 };
 
 const TemplateWithHTMLElement = (args) => {
   return {
-    template: hbs`
-      <PixTooltip
-        @id={{this.id}}
-        @isInline=true>
-        <:triggerElement>
-          <PixButton aria-describedby={{this.id}}>
-            {{this.label}}
-          </PixButton>
-        </:triggerElement>
+    template: hbs`<PixTooltip @id={{this.id}} @isInline='true'>
+  <:triggerElement>
+    <PixButton aria-describedby={{this.id}}>
+      {{this.label}}
+    </PixButton>
+  </:triggerElement>
 
-        <:tooltip>
-          <FaIcon @icon="up-right-from-square" /> <strong>HTML/Ember</strong>
-        </:tooltip>
-      </PixTooltip>
-    `,
+  <:tooltip>
+    <FaIcon @icon='up-right-from-square' />
+    <strong>HTML/Ember</strong>
+  </:tooltip>
+</PixTooltip>`,
     context: args,
   };
 };
 
 const TemplateWithIconElement = (args) => {
   return {
-    template: hbs`
-      <PixTooltip
-        @id={{this.id}}
-        @isInline=true>
-        <:triggerElement>
-          <button style='padding:0; margin-left:4px; line-height:0;'>
-            <FaIcon class="external-link" @icon="up-right-from-square" />
-          </button>
-        </:triggerElement>
+    template: hbs`<PixTooltip @id={{this.id}} @isInline='true'>
+  <:triggerElement>
+    <button style='padding:0; margin-left:4px; line-height:0;' type='button'>
+      <FaIcon class='external-link' @icon='up-right-from-square' />
+    </button>
+  </:triggerElement>
 
-        <:tooltip>
-         {{this.text}}
-        </:tooltip>
-      </PixTooltip>
-    `,
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`,
     context: args,
   };
 };

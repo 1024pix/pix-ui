@@ -23,6 +23,8 @@ module('Unit | Component | pix-select', function (hooks) {
     const component = createGlimmerComponent('component:pix-select', componentParams);
 
     // when & then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(component.className, 'pix-select-button');
   });
 
@@ -32,6 +34,8 @@ module('Unit | Component | pix-select', function (hooks) {
     const component = createGlimmerComponent('component:pix-select', componentParams);
 
     // when & then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(component.className, 'pix-select-button custom-class');
   });
 
@@ -41,6 +45,8 @@ module('Unit | Component | pix-select', function (hooks) {
     const component = createGlimmerComponent('component:pix-select', componentParams);
 
     // when & then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(component.className, 'pix-select-button pix-select-button--error');
   });
 
@@ -55,6 +61,8 @@ module('Unit | Component | pix-select', function (hooks) {
     const component = createGlimmerComponent('component:pix-select', componentParams);
 
     // when & then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(component.className, 'pix-select-button custom-class pix-select-button--error');
   });
 });

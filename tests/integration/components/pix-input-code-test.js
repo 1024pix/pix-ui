@@ -14,18 +14,20 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
   test('it renders the default PixInputCode with 6 inputs', async function (assert) {
     // given & when
-    await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Champ" />`);
+    await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='Champ' />`);
 
     // then
     assert.dom(COMPONENT_SELECTOR).exists();
     const inputElementsFound = this.element.querySelectorAll('input');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(inputElementsFound.length, 6);
   });
 
   test('it should have a fieldset with a legend for accessibility', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInputCode @legend="Ce code est le code de vérification d'email" @ariaLabel="Champ" />`
+      hbs`<PixInputCode @legend="Ce code est le code de vérification d'email" @ariaLabel='Champ' />`
     );
 
     // then
@@ -36,10 +38,10 @@ module('Integration | Component | pix-input-code', function (hooks) {
   test('it should explain how PixInputCode can be eddited', async function (assert) {
     // given & when
     await render(hbs`<PixInputCode
-      @legend="Ce code est le code de vérification d'email"
-      @ariaLabel="Champ"
-      @explanationOfUse="Vous pouvez utiliser les flèches pour naviguer de champ en champ"
-    />`);
+  @legend="Ce code est le code de vérification d'email"
+  @ariaLabel='Champ'
+  @explanationOfUse='Vous pouvez utiliser les flèches pour naviguer de champ en champ'
+/>`);
 
     // then
     assert.contains('Vous pouvez utiliser les flèches pour naviguer de champ en champ');
@@ -76,7 +78,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   module('when adding characters', function () {
     test('it should focus on next input after inputting value', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="Champ" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='Champ' />`);
 
       // when
       await fillInByLabel('Champ 1', '1');
@@ -88,7 +90,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should truncate input to 1 digit', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await fillInByLabel('label 4', '12345');
@@ -101,7 +103,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should not allow characters when type is number', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await fillInByLabel('label 4', 'a');
@@ -115,7 +117,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     test('it should truncate input to 1 character', async function (assert) {
       // given
       await render(
-        hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @inputType="text" />`
+        hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' @inputType='text' />`
       );
 
       // when
@@ -130,7 +132,11 @@ module('Integration | Component | pix-input-code', function (hooks) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
       await render(
-        hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`
+        hbs`<PixInputCode
+  @legend='Nom du PixInputCode'
+  @ariaLabel='label'
+  @onAllInputsFilled={{this.onAllInputsFilled}}
+/>`
       );
 
       // when
@@ -150,7 +156,11 @@ module('Integration | Component | pix-input-code', function (hooks) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
       await render(
-        hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`
+        hbs`<PixInputCode
+  @legend='Nom du PixInputCode'
+  @ariaLabel='label'
+  @onAllInputsFilled={{this.onAllInputsFilled}}
+/>`
       );
 
       // when
@@ -168,7 +178,11 @@ module('Integration | Component | pix-input-code', function (hooks) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
       await render(
-        hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`
+        hbs`<PixInputCode
+  @legend='Nom du PixInputCode'
+  @ariaLabel='label'
+  @onAllInputsFilled={{this.onAllInputsFilled}}
+/>`
       );
 
       // when
@@ -188,7 +202,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   module('when deleting characters', function () {
     test('it should focus on previous input after Backspace', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -202,7 +216,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   module('when changing focus', function () {
     test('it should focus on previous input after ArrowLeft', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -214,7 +228,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should focus on next input after ArrowRight', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -226,7 +240,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     test('it should not focus on next input after ArrowUp or ArrowDown', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await focus(`${INPUT_SELECTOR}-4`);
@@ -243,7 +257,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   module('when filling inputs by copy paste', function () {
     test('it should support paste filling all inputs', async function (assert) {
       // given
-      await render(hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" />`);
+      await render(hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' />`);
 
       // when
       await triggerEvent(`${INPUT_SELECTOR}-1`, 'paste', {
@@ -260,7 +274,11 @@ module('Integration | Component | pix-input-code', function (hooks) {
       // given
       this.set('onAllInputsFilled', sinon.spy());
       await render(
-        hbs`<PixInputCode @legend="Nom du PixInputCode" @ariaLabel="label" @onAllInputsFilled={{this.onAllInputsFilled}} />`
+        hbs`<PixInputCode
+  @legend='Nom du PixInputCode'
+  @ariaLabel='label'
+  @onAllInputsFilled={{this.onAllInputsFilled}}
+/>`
       );
 
       // when

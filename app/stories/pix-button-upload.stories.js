@@ -3,18 +3,16 @@ import { action } from '@storybook/addon-actions';
 
 export const buttonUpload = (args) => {
   return {
-    template: hbs`
-      <PixButtonUpload
-        @id="id"
-        @onChange={{onChange}}
-        @shape={{shape}}
-        @backgroundColor={{backgroundColor}}
-        @size={{size}}
-        @isBorderVisible={{isBorderVisible}}
-      >
-        Cliquer pour uploader un fichier
-      </PixButtonUpload>
-    `,
+    template: hbs`<PixButtonUpload
+  @id='id'
+  @onChange={{onChange}}
+  @shape={{shape}}
+  @backgroundColor={{backgroundColor}}
+  @size={{size}}
+  @isBorderVisible={{isBorderVisible}}
+>
+  Cliquer pour uploader un fichier
+</PixButtonUpload>`,
     context: args,
   };
 };

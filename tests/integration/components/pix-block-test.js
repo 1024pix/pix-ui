@@ -10,15 +10,15 @@ module('Integration | Component | pix-block', function (hooks) {
 
   test('it renders the default PixBlock', async function (assert) {
     // when
-    await render(hbs`
-      <PixBlock>
-        Je suis un beau bloc avec une ombre légere
-      </PixBlock>
-    `);
+    await render(hbs`<PixBlock>
+  Je suis un beau bloc avec une ombre légere
+</PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
     assert.contains('Je suis un beau bloc avec une ombre légere');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 
@@ -27,15 +27,15 @@ module('Integration | Component | pix-block', function (hooks) {
     this.set('shadowWeight', 'heavy');
 
     // when
-    await render(hbs`
-      <PixBlock @shadow={{this.shadowWeight}}>
-        Je suis trop d4rk
-      </PixBlock>
-    `);
+    await render(hbs`<PixBlock @shadow={{this.shadowWeight}}>
+  Je suis trop d4rk
+</PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
     assert.contains('Je suis trop d4rk');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-heavy');
   });
 
@@ -44,15 +44,15 @@ module('Integration | Component | pix-block', function (hooks) {
     this.set('shadowWeight', 'normal');
 
     // when
-    await render(hbs`
-      <PixBlock @shadow={{this.shadowWeight}}>
-        Joli bloc quand même
-      </PixBlock>
-    `);
+    await render(hbs`<PixBlock @shadow={{this.shadowWeight}}>
+  Joli bloc quand même
+</PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
 
     // then
     assert.contains('Joli bloc quand même');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(blockElement.className, 'pix-block pix-block--shadow-light');
   });
 });

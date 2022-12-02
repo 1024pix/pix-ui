@@ -13,7 +13,7 @@ module('Integration | Component | pix-tag', function (hooks) {
   });
 
   test('it renders with the given color class', async function (assert) {
-    await render(hbs`<PixTag @color="purple" />`);
+    await render(hbs`<PixTag @color='purple' />`);
 
     const pixTagElement = this.element.querySelector('.pix-tag');
     assert.ok(pixTagElement.classList.contains('pix-tag--purple'));
@@ -27,9 +27,11 @@ module('Integration | Component | pix-tag', function (hooks) {
   });
 
   test('it renders with attributes override', async function (assert) {
-    await render(hbs`<PixTag @color="blue" aria-label="world" />`);
+    await render(hbs`<PixTag @color='blue' aria-label='world' />`);
 
     const pixTagElement = this.element.querySelector('.pix-tag');
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(pixTagElement.getAttribute('aria-label'), 'world');
   });
 });

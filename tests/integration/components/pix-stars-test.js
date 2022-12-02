@@ -12,32 +12,40 @@ module('Integration | Component | stars', function (hooks) {
     const stars = this.element.querySelectorAll('img');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(stars.length, 0);
   });
 
   test('it renders a total of 5 empty stars', async function (assert) {
     // when
-    await render(hbs`<PixStars @total={{5}}/>`);
+    await render(hbs`<PixStars @total={{5}} />`);
     const stars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(stars.length, 5);
   });
 
   test('it renders 3 stars acquired on a total of 5', async function (assert) {
     // when
-    await render(hbs`<PixStars @count={{3}} @total={{5}}/>`);
+    await render(hbs`<PixStars @count={{3}} @total={{5}} />`);
     const acquiredStars = this.element.querySelectorAll('[data-test-status="acquired"]');
     const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(acquiredStars.length, 3);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(unacquiredStars.length, 2);
   });
 
   test('it renders aria-label message', async function (assert) {
     // when
-    const screen = await render(hbs`<PixStars @total={{3}} @alt="message"/>`);
+    const screen = await render(hbs`<PixStars @total={{3}} @alt='message' />`);
     // then
     assert.dom(screen.getByLabelText('message')).exists();
   });
@@ -49,13 +57,17 @@ module('Integration | Component | stars', function (hooks) {
     const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
 
     // then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(acquiredStars.length, 3);
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(unacquiredStars.length, 0);
   });
 
   test('it renders the color', async function (assert) {
     // when
-    await render(hbs`<PixStars @count={{3}} @total={{5}} @color="blue" />`);
+    await render(hbs`<PixStars @count={{3}} @total={{5}} @color='blue' />`);
     const component = this.element.querySelector('.pix-stars--blue');
 
     // then

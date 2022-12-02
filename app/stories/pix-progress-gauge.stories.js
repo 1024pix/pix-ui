@@ -2,15 +2,13 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const Default = (args) => {
   return {
-    template: hbs`
-      <PixProgressGauge
-        @value={{value}}
-        @color={{color}}
-        @isArrowLeft={{isArrowLeft}}
-        @subtitle={{subtitle}}
-        @tooltipText={{tooltipText}}
-      />
-    `,
+    template: hbs`<PixProgressGauge
+  @value={{value}}
+  @color={{color}}
+  @isArrowLeft={{isArrowLeft}}
+  @subtitle={{subtitle}}
+  @tooltipText={{tooltipText}}
+/>`,
     context: args,
   };
 };
@@ -20,17 +18,15 @@ Default.args = {
 
 export const whiteProgressGauge = (args) => {
   return {
-    template: hbs`
-    <section style="width: 100%; padding: 35px 35px 5px;background-color: lightgray">
-      <PixProgressGauge
-        @value={{value}}
-        @color={{color}}
-        @isArrowLeft={{isArrowLeft}}
-        @subtitle={{subtitle}}
-        @tooltipText={{tooltipText}}
-      />
-    </section>
-    `,
+    template: hbs`<section style='width: 100%; padding: 35px 35px 5px;background-color: lightgray'>
+  <PixProgressGauge
+    @value={{value}}
+    @color={{color}}
+    @isArrowLeft={{isArrowLeft}}
+    @subtitle={{subtitle}}
+    @tooltipText={{tooltipText}}
+  />
+</section>`,
     context: args,
   };
 };

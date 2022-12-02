@@ -2,17 +2,15 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const Template = (args) => {
   return {
-    template: hbs`
-      <PixInputPassword
-        @ariaLabel={{ariaLabel}}
-        @id={{id}}
-        @label={{label}}
-        @information={{information}}
-        @errorMessage={{errorMessage}}
-        @prefix={{prefix}}
-        @requiredLabel={{requiredLabel}}
-      />
-    `,
+    template: hbs`<PixInputPassword
+  @ariaLabel={{ariaLabel}}
+  @id={{id}}
+  @label={{label}}
+  @information={{information}}
+  @errorMessage={{errorMessage}}
+  @prefix={{prefix}}
+  @requiredLabel={{requiredLabel}}
+/>`,
     context: args,
   };
 };

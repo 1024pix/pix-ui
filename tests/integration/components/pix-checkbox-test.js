@@ -11,7 +11,7 @@ module('Integration | Component | checkbox', function (hooks) {
 
   test('it should be possible to check the checkbox', async function (assert) {
     // when
-    await render(hbs`<PixCheckbox @id="checkboxId">Recevoir la newsletter</PixCheckbox>`);
+    await render(hbs`<PixCheckbox @id='checkboxId'>Recevoir la newsletter</PixCheckbox>`);
     await clickByText('Recevoir la newsletter');
 
     // then
@@ -33,7 +33,7 @@ module('Integration | Component | checkbox', function (hooks) {
 
   test('it should display error message if there no yield', async function (assert) {
     // given & when
-    const screen = await render(hbs`<PixCheckbox @id="checkboxId"/>`);
+    const screen = await render(hbs`<PixCheckbox @id='checkboxId' />`);
 
     // then
     assert
@@ -43,7 +43,7 @@ module('Integration | Component | checkbox', function (hooks) {
 
   test('it should be possible to make label small', async function (assert) {
     // when
-    await render(hbs`<PixCheckbox @id="checkboxId" @labelSize="small">Mini label</PixCheckbox>`);
+    await render(hbs`<PixCheckbox @id='checkboxId' @labelSize='small'>Mini label</PixCheckbox>`);
 
     // then
     assert.dom('.pix-checkbox__label--small').exists();
@@ -52,7 +52,8 @@ module('Integration | Component | checkbox', function (hooks) {
   test('it should be possible to insert html in label', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixCheckbox @id="checkboxId">Accepter les cgu, <a href="https://cgu.example.net">voir ici</a></PixCheckbox>`
+      hbs`<PixCheckbox @id='checkboxId'>Accepter les cgu,
+  <a href='https://cgu.example.net'>voir ici</a></PixCheckbox>`
     );
 
     // then
@@ -63,7 +64,7 @@ module('Integration | Component | checkbox', function (hooks) {
     // given
     this.set('checked', false);
     await render(
-      hbs`<PixCheckbox @id="checkboxId" @checked={{checked}}>Recevoir la newsletter</PixCheckbox>`
+      hbs`<PixCheckbox @id='checkboxId' @checked={{this.checked}}>Recevoir la newsletter</PixCheckbox>`
     );
     const checkbox = this.element.querySelector(CHECKBOX_INPUT_SELECTOR);
     assert.false(checkbox.checked);

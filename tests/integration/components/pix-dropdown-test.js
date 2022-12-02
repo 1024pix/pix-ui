@@ -14,17 +14,15 @@ module('Integration | Component | dropdown', function (hooks) {
 
   test('it renders PixDropdown with proper labels', async function (assert) {
     // given & when
-    const screen = await render(hbs`
-      <PixDropdown
-        @id="pix-dropdown"
-        @options={{this.options}}
-        @placeholder="Choisissez une option"
-        @label="Mon menu déroulant"
-        @clearLabel="Supprimer la sélection"
-        @expandLabel="Ouvrir le menu déroulant"
-        @collapseLabel="Réduire le menu déroulant"
-      />
-    `);
+    const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @label='Mon menu déroulant'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
     // then
     assert.dom(screen.getByText('Choisissez une option')).exists();
@@ -36,17 +34,15 @@ module('Integration | Component | dropdown', function (hooks) {
 
   test('it should be possible to make pix dropdown required', async function (assert) {
     // given & when
-    const screen = await render(hbs`
-      <PixDropdown
-        @id="pix-dropdown"
-        @options={{this.options}}
-        @label="Mon menu déroulant"
-        @clearLabel="Supprimer la sélection"
-        @expandLabel="Ouvrir le menu déroulant"
-        @collapseLabel="Réduire le menu déroulant"
-        @requiredLabel="Champ obligatoire"
-      />
-    `);
+    const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @label='Mon menu déroulant'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+  @requiredLabel='Champ obligatoire'
+/>`);
 
     // then
     assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
@@ -55,45 +51,47 @@ module('Integration | Component | dropdown', function (hooks) {
   module('selection', () => {
     test('it allows to select an option and renders a clear button', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
       await clickByText('4abc');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 2);
       assert.dom(screen.getByLabelText('Supprimer la sélection')).exists();
     });
 
     test('it pre-selects and clears selection', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @selectedOption="4"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @selectedOption='4'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 2);
 
       // when
       await clickByName('Supprimer la sélection');
 
       // then
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 1);
     });
   });
@@ -101,18 +99,16 @@ module('Integration | Component | dropdown', function (hooks) {
   module('searchable', () => {
     test('it renders input when searchable and sets focus on input when expanding', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @isSearchable={{true}}
-          @placeholder="Choisissez une option"
-          @searchPlaceholder="Rechercher"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @isSearchable={{true}}
+  @placeholder='Choisissez une option'
+  @searchPlaceholder='Rechercher'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -126,18 +122,16 @@ module('Integration | Component | dropdown', function (hooks) {
 
     test('it filters list', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @isSearchable={{true}}
-          @placeholder="Choisissez une option"
-          @searchPlaceholder="Rechercher"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @isSearchable={{true}}
+  @placeholder='Choisissez une option'
+  @searchPlaceholder='Rechercher'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -152,16 +146,14 @@ module('Integration | Component | dropdown', function (hooks) {
   module('navigation', () => {
     test('it focuses on the first option when not searchable', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -172,16 +164,14 @@ module('Integration | Component | dropdown', function (hooks) {
 
     test('it allows to navigate through options using arrow keys', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -196,16 +186,14 @@ module('Integration | Component | dropdown', function (hooks) {
 
     test('it selects option which has focus on enter key and collapses dropdown', async function (assert) {
       // given
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -216,6 +204,8 @@ module('Integration | Component | dropdown', function (hooks) {
 
       // then
       assert.dom(screen.getByLabelText('Choisissez une option')).doesNotHaveClass('expanded');
+      // TODO: Fix this the next time the file is edited.
+      // eslint-disable-next-line qunit/no-assert-equal
       assert.equal(screen.getAllByText('4abc').length, 2);
     });
 
@@ -229,16 +219,14 @@ module('Integration | Component | dropdown', function (hooks) {
         { value: '3', label: '3abc' },
         { value: '30', label: '30abc' },
       ];
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -265,18 +253,16 @@ module('Integration | Component | dropdown', function (hooks) {
         { value: '3', label: '3abc' },
         { value: '30', label: '30abc' },
       ];
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @isSearchable={{true}}
-          @placeholder="Choisissez une option"
-          @searchPlaceholder="Rechercher"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @isSearchable={{true}}
+  @placeholder='Choisissez une option'
+  @searchPlaceholder='Rechercher'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -301,17 +287,15 @@ module('Integration | Component | dropdown', function (hooks) {
         { value: '5', label: '5abc' },
         { value: '6', label: '6abc' },
       ];
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-          @pageSize={{2}}
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+  @pageSize={{2}}
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');
@@ -333,17 +317,15 @@ module('Integration | Component | dropdown', function (hooks) {
         { value: '5', label: '5abc' },
         { value: '6', label: '6abc' },
       ];
-      const screen = await render(hbs`
-        <PixDropdown
-          @id="pix-dropdown"
-          @options={{this.options}}
-          @placeholder="Choisissez une option"
-          @clearLabel="Supprimer la sélection"
-          @expandLabel="Ouvrir le menu déroulant"
-          @collapseLabel="Réduire le menu déroulant"
-          @pageSize={{2}}
-        />
-      `);
+      const screen = await render(hbs`<PixDropdown
+  @id='pix-dropdown'
+  @options={{this.options}}
+  @placeholder='Choisissez une option'
+  @clearLabel='Supprimer la sélection'
+  @expandLabel='Ouvrir le menu déroulant'
+  @collapseLabel='Réduire le menu déroulant'
+  @pageSize={{2}}
+/>`);
 
       // when
       await clickByName('Ouvrir le menu déroulant');

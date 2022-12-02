@@ -2,14 +2,12 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const Template = (args) => {
   return {
-    template: hbs`
-      <PixPagination
-        @pagination={{pagination}}
-        @locale = {{locale}}
-        @pageOptions= {{pageOptions}}
-        @isCondensed= {{isCondensed}}
-            />
-    `,
+    template: hbs`<PixPagination
+  @pagination={{pagination}}
+  @locale={{locale}}
+  @pageOptions={{pageOptions}}
+  @isCondensed={{isCondensed}}
+/>`,
     context: args,
   };
 };

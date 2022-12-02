@@ -12,6 +12,8 @@ module('Unit | Component | pix-return-to', function (hooks) {
     const component = createGlimmerComponent('component:pix-return-to', componentParams);
 
     // when & then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(component.shade, expectedShade);
   });
 
@@ -22,6 +24,8 @@ module('Unit | Component | pix-return-to', function (hooks) {
     const component = createGlimmerComponent('component:pix-return-to', componentParams);
 
     // when & then
+    // TODO: Fix this the next time the file is edited.
+    // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(component.shade, expectedShade);
   });
 

@@ -8,11 +8,9 @@ module('Integration | Component | button-upload', function (hooks) {
 
   test('it renders the default PixButtonUpload', async function (assert) {
     // when
-    await render(hbs`
-      <PixButtonUpload @id="1">
-        content
-      </PixButtonUpload>
-    `);
+    await render(hbs`<PixButtonUpload @id='1'>
+  content
+</PixButtonUpload>`);
 
     // then
     assert.contains('content');

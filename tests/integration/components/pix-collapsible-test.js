@@ -9,11 +9,9 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should only render PixCollapsible title by default', async function (assert) {
     // when
-    const screen = await render(hbs`
-      <PixCollapsible @title="Titre de mon élément déroulable">
-        <p>Contenu de mon élément</p>
-      </PixCollapsible>
-    `);
+    const screen = await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable'>
+  <p>Contenu de mon élément</p>
+</PixCollapsible>`);
 
     // then
     assert.dom(screen.queryByText('Titre de mon élément déroulable')).isVisible();
@@ -22,14 +20,10 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should render and show content on click on PixCollapsible title', async function (assert) {
     // when
-    const screen = await render(hbs`
-      <PixCollapsible
-        @title="Titre de mon élément déroulable"
-        aria-label="collapsible label"
-      >
-        <p>Contenu de mon élément</p>
-      </PixCollapsible>
-    `);
+    const screen =
+      await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
+  <p>Contenu de mon élément</p>
+</PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
 
     // then
@@ -53,14 +47,10 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should not destroy content when uncollapsed then collapsed again', async function (assert) {
     // when
-    const screen = await render(hbs`
-      <PixCollapsible
-        @title="Titre de mon élément déroulable"
-        aria-label="collapsible label"
-      >
-        <p>Contenu de mon élément</p>
-      </PixCollapsible>
-    `);
+    const screen =
+      await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
+  <p>Contenu de mon élément</p>
+</PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
     await clickByText('Titre de mon élément déroulable');
 

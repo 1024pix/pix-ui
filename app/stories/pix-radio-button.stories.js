@@ -2,13 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 const Template = (args) => {
   return {
-    template: hbs`
-      <PixRadioButton
-        @label={{label}}
-        @value={{value}}
-        @isDisabled={{isDisabled}}
-      />
-    `,
+    template: hbs`<PixRadioButton @label={{label}} @value={{value}} @isDisabled={{isDisabled}} />`,
     context: args,
   };
 };
@@ -26,13 +20,7 @@ isDisabled.args = {
 
 const checked = (args) => {
   return {
-    template: hbs`
-      <PixRadioButton
-        @label={{label}}
-        @isDisabled={{isDisabled}}
-        checked
-      />
-    `,
+    template: hbs`<PixRadioButton @label={{label}} @isDisabled={{isDisabled}} checked />`,
     context: args,
   };
 };

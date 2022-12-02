@@ -10,11 +10,9 @@ module('Integration | Component | filter-banner', function (hooks) {
 
   test('it renders the default PixFilterBanner', async function (assert) {
     // when
-    await render(hbs`
-      <PixFilterBanner>
-        content
-      </PixFilterBanner>
-    `);
+    await render(hbs`<PixFilterBanner>
+  content
+</PixFilterBanner>`);
 
     // then
     assert.contains('content');
@@ -22,11 +20,9 @@ module('Integration | Component | filter-banner', function (hooks) {
 
   test('it renders the PixFilterBanner with title', async function (assert) {
     // when
-    await render(hbs`
-      <PixFilterBanner @title="Titre de la bannière">
-        content
-      </PixFilterBanner>
-    `);
+    await render(hbs`<PixFilterBanner @title='Titre de la bannière'>
+  content
+</PixFilterBanner>`);
 
     // then
     assert.contains('Titre de la bannière');
@@ -34,11 +30,9 @@ module('Integration | Component | filter-banner', function (hooks) {
 
   test('it renders the PixFilterBanner with details', async function (assert) {
     // when
-    await render(hbs`
-      <PixFilterBanner @details="5 participants filtrés">
-        content
-      </PixFilterBanner>
-    `);
+    await render(hbs`<PixFilterBanner @details='5 participants filtrés'>
+  content
+</PixFilterBanner>`);
 
     // then
     assert.contains('5 participants filtrés');
@@ -50,11 +44,12 @@ module('Integration | Component | filter-banner', function (hooks) {
     this.onClearFilters = sinon.spy();
 
     // when
-    await render(hbs`
-      <PixFilterBanner @clearFiltersLabel={{this.clearFiltersLabel}} @onClearFilters={{this.onClearFilters}}>
-        content
-      </PixFilterBanner>
-    `);
+    await render(hbs`<PixFilterBanner
+  @clearFiltersLabel={{this.clearFiltersLabel}}
+  @onClearFilters={{this.onClearFilters}}
+>
+  content
+</PixFilterBanner>`);
 
     // then
     assert.contains(this.clearFiltersLabel);
@@ -66,14 +61,12 @@ module('Integration | Component | filter-banner', function (hooks) {
     this.onClearFilters = sinon.spy();
 
     //when
-    await render(hbs`
-      <PixFilterBanner
-        @clearFiltersLabel={{this.clearFiltersLabel}}
-        @onClearFilters={{this.onClearFilters}}
-      >
-        content
-      </PixFilterBanner>
-    `);
+    await render(hbs`<PixFilterBanner
+  @clearFiltersLabel={{this.clearFiltersLabel}}
+  @onClearFilters={{this.onClearFilters}}
+>
+  content
+</PixFilterBanner>`);
     await clickByLabel('some label');
 
     // then
