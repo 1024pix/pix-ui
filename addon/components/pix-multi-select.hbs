@@ -5,13 +5,13 @@
   {{on-escape-action this.hideDropDown this.multiSelectId}}
 >
 
+  {{#if @label}}
+    <label
+      for={{this.multiSelectId}}
+      class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
+    >{{@label}}</label>
+  {{/if}}
   {{#if @isSearchable}}
-    {{#if @label}}
-      <label
-        for={{this.multiSelectId}}
-        class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
-      >{{@label}}</label>
-    {{/if}}
     <span class="pix-multi-select-header{{if @className this.className}}">
       <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
 
@@ -31,14 +31,7 @@
       />
     </span>
   {{else}}
-    {{#if @label}}
-      <span
-        id={{this.labelId}}
-        class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
-      >{{@label}}</span>
-    {{/if}}
     <button
-      aria-labelledby={{this.labelId}}
       id={{this.multiSelectId}}
       type="button"
       aria-expanded={{this.isAriaExpanded}}
