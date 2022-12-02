@@ -77,7 +77,7 @@
             {{on-enter-action this.hideDropDown this.multiSelectId}}
             tabindex={{if this.isExpanded "0" "-1"}}
           >
-            {{yield option to="default"}}
+            {{yield option}}
           </PixCheckbox>
         </li>
       {{/each}}
