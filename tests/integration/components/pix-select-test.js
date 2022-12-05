@@ -312,9 +312,34 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         // then
         sinon.assert.calledWith(this.onChange, '2');
-        // TODO: Fix this the next time the file is edited.
-        // eslint-disable-next-line qunit/no-assert-equal
-        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        assert.dom(screen.getByLabelText('Mon menu déroulant')).isFocused();
+      });
+
+      test('it should not focus select on click outside', async function (assert) {
+        // given
+        this.onChange = sinon.spy();
+
+        const screen = await render(hbs`<button id="focus">Focus me</button><PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @onChange={{this.onChange}}
+/>`);
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[Space]');
+
+        await screen.findByRole('listbox');
+
+        await screen.getByText('Tomate').focus();
+
+        await click(screen.getByRole('button', { name: 'Focus me' }));
+
+        // then
+        assert.dom(screen.getByRole('button', { name: 'Focus me' })).isFocused();
       });
 
       test('it should call on select on space press', async function (assert) {
@@ -342,9 +367,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         // then
         sinon.assert.calledWith(this.onChange, '2');
-        // TODO: Fix this the next time the file is edited.
-        // eslint-disable-next-line qunit/no-assert-equal
-        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        assert.dom(screen.getByLabelText('Mon menu déroulant')).isFocused();
       });
 
       test('it should focus on the search input when tab is pressed', async function (assert) {
