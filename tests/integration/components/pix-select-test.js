@@ -232,9 +232,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         const option = screen.getByRole('option', { name: 'Choisissez une option' });
         // then
-        // TODO: Fix this the next time the file is edited.
-        // eslint-disable-next-line qunit/no-assert-equal
-        assert.equal(document.activeElement, option);
+        assert.dom(option).isFocused();
       });
 
       test('it should focus last element on arrow up press', async function (assert) {
@@ -257,9 +255,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         const option = screen.getByRole('option', { name: 'Oignon' });
         // then
-        // TODO: Fix this the next time the file is edited.
-        // eslint-disable-next-line qunit/no-assert-equal
-        assert.equal(document.activeElement, option);
+        assert.dom(option).isFocused();
       });
 
       test('it should close menu on escape press, focus select element', async function (assert) {
@@ -281,9 +277,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
-        // TODO: Fix this the next time the file is edited.
-        // eslint-disable-next-line qunit/no-assert-equal
-        assert.equal(document.activeElement, screen.getByLabelText('Mon menu déroulant'));
+        assert.dom(screen.getByLabelText('Mon menu déroulant')).isFocused;
         assert.throws(screen.getByRole('listbox'));
       });
 
@@ -392,9 +386,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Tab]');
 
         // then
-        // TODO: Fix this the next time the file is edited.
-        // eslint-disable-next-line qunit/no-assert-equal
-        assert.equal(document.activeElement, screen.getByLabelText(this.searchLabel));
+        assert.dom(screen.getByLabelText(this.searchLabel)).isFocused();
       });
 
       test('it should focus on the input when escape is pressed', async function (assert) {
