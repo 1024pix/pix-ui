@@ -1,5 +1,28 @@
 # Pix-UI Changelog
 
+## v21.0.0 (05/12/2022)
+
+
+### :rocket: Amélioration
+- [#289](https://github.com/1024pix/pix-ui/pull/289) [FEATURE] Ajouter le composant PixFilterableAndSearchableSelect (PIX-6026)
+- [#291](https://github.com/1024pix/pix-ui/pull/291) [FEATURE] Ajoute la possibilité d'utiliser un block à la place du placeholder (PIX-6443)
+- [#290](https://github.com/1024pix/pix-ui/pull/290) [FEATURE] Ajoute une propriété id sur le composant PixSelect (PIX-6440)
+
+### :building_construction: Tech
+- [#286](https://github.com/1024pix/pix-ui/pull/286) [TECH] Mettre à jour les paquets non bloquants (PIX-6419).
+- [#274](https://github.com/1024pix/pix-ui/pull/274) [TECH] Utiliser la dernière version mineure de NodeJs automatiquement
+
+### :bug: Correction
+- [#298](https://github.com/1024pix/pix-ui/pull/298) [BUGFIX] Rétrograder la version  d'ember click outside à la 4.0.0 (PIX-6482)
+- [#296](https://github.com/1024pix/pix-ui/pull/296) [BUGFIX] Le select ne prend pas le focus quand on clique sur son label (PIX-6476).
+- [#281](https://github.com/1024pix/pix-ui/pull/281) [BUGFIX] Autorise d'autres événements de la page à avoir lieu lors de l'ouverture/fermeture du select (PIX-6399)
+
+### :coffee: Autre
+- [#284](https://github.com/1024pix/pix-ui/pull/284) [BREAKING CHANGES][TECH] Supprime la propriété onLoadOptions sur le composant PixMultiSelect (PIX-6418)
+- [#280](https://github.com/1024pix/pix-ui/pull/280) [BUG] Empêche le composant PixSelect de capturer le focus à chaque click sur la page (PIX-6397)
+- [#278](https://github.com/1024pix/pix-ui/pull/278) [BREAKING CHANGES][TECH] Améliorer le composant PixMultiSelect (Pix-6025)
+- [#266](https://github.com/1024pix/pix-ui/pull/266) [BREAKING CHANGES][FEATURE] Créer un nouveau PixSelect accessible basé sur PixDropdown/PixSelect (Pix-6018)
+
 ## v20.2.3 (15/11/2022)
 
 
