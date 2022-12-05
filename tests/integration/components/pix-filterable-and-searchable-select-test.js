@@ -361,7 +361,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
         @categoriesPlaceholder={{this.categoriesPlaceholder}}
         @searchLabel={{this.searchLabel}}
         @isSearchable={{true}}
-        @requiredText={{requiredText}}
+        @requiredText={{this.requiredText}}
       />
     `);
 
@@ -392,8 +392,8 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       @categoriesPlaceholder={{this.categoriesPlaceholder}}
       @searchLabel={{this.searchLabel}}
       @isSearchable={{true}}
-      @requiredText={{requiredText}}
-      @errorMessage={{errorMessage}}
+      @requiredText={{this.requiredText}}
+      @errorMessage={{this.errorMessage}}
     />
   `);
 
