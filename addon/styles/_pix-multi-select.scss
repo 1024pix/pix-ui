@@ -78,8 +78,9 @@
   max-height: 200px;
   list-style-type: none;
   padding: 0;
-  box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
+  box-shadow: 0px 6px 12px rgba(7, 20, 46, 0.08);
   transition: all 0.1s ease-in-out;
+  margin-top: $spacing-xxs;
 
   &--hidden {
     visibility: hidden;
@@ -103,14 +104,17 @@
   }
 
   li.pix-multi-select-list__item {
-    font-family: $font-roboto;
     position: relative;
-    border-bottom: 1px solid $pix-neutral-15;
     list-style: none;
-    font-size: 0.9rem;
-    padding: 8px;
+    padding: $spacing-xs $spacing-m;
 
-    @include hoverFormElement();
+
+    &:hover,
+    &:focus {
+      outline: none;
+      cursor: pointer;
+      background-color: $pix-neutral-10;
+    }
 
     &--no-result {
       text-align: center;

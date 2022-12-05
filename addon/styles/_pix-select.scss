@@ -21,9 +21,10 @@
     list-style-type: none;
     padding: 0;
     background-color: $pix-neutral-0;
-    box-shadow: 0px 8px 24px 0px rgba(23, 43, 77, 0.1);
+    box-shadow: 0px 6px 12px rgba(7, 20, 46, 0.08);
     transition: all 0.1s ease-in-out;
     white-space: nowrap;
+    margin-top: $spacing-xxs;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -129,7 +130,6 @@
     @include text-small();
     display: flex;
     justify-content: space-between;
-    font-family: $font-roboto;
     padding: $spacing-xs $spacing-m;
     color: $pix-neutral-70;
 

@@ -113,7 +113,6 @@ export default class PixSelect extends Component {
       event.preventDefault();
 
       this.isExpanded = false;
-      document.getElementById(this.selectId).focus();
     }
   }
 
@@ -122,6 +121,7 @@ export default class PixSelect extends Component {
     this.args.onChange(option.value);
 
     this.hideDropdown(event);
+    document.getElementById(this.selectId).focus();
   }
 
   @action

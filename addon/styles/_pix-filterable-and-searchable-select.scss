@@ -1,0 +1,57 @@
+.pix-filterable-and-searchable-select {
+  display: flex;
+  width: fit-content;
+  border: 1px $pix-neutral-45 solid;
+  border-radius: 4px;
+
+  &--error {
+    @include formElementInError();
+  }
+
+  &__label {
+    @include label();
+  }
+
+  &__sub-label {
+    @include subLabel();
+  }
+
+  &__pix-multi-select,
+  &__pix-select {
+    border: none;
+    &:hover {
+      border: none;
+      box-shadow: none;
+    }
+  }
+
+  &__error-message {
+    @include errorMessage();
+  }
+  .pix-multi-select {
+    margin-right: 2px;
+
+    [role="menu"] {
+      width: fit-content;
+    }
+  }
+
+  &__pix-multi-select {
+    border-radius: 4px 0px 0px 4px;
+    position: relative;
+
+    &:after {
+      height: 22px;
+      width: 2px;
+      content: '';
+      background-color: $pix-neutral-22;
+      position: absolute;
+      right: -2px;
+      border-radius: 50px;
+    }
+  }
+
+  &__pix-select {
+    border-radius: 0px 4px 4px 0px;
+  }
+}

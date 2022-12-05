@@ -284,7 +284,7 @@ export const argTypes = {
   },
   requiredText: {
     name: 'requiredText',
-    description: "Affiche l'asterix au label et ajoute sa signification",
+    description: "Affiche l'astérisque au label et ajoute sa signification",
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
