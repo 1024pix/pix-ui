@@ -18,6 +18,13 @@ export default class PixModal extends Component {
     }
   }
 
+  @action
+  resetForm(element) {
+    if (!!element.querySelector('form')) {
+      element.querySelector('form').reset();
+    }
+  }
+
   isClickOnOverlay(event) {
     return event.target.classList.contains('pix-modal__overlay');
   }
