@@ -36,12 +36,12 @@ module('Integration | Component | modal', function (hooks) {
         // given
         this.title = 'Close me baby one more time';
         this.showModal = true;
-        this.onCloseButtonClick = sinon.stub();
+        this.onClose = sinon.stub();
 
         // when
         await render(hbs`<PixModal
   @title={{this.title}}
-  @onCloseButtonClick={{this.onCloseButtonClick}}
+  @onClose={{this.onClose}}
   @showModal={{this.showModal}}
 >
   content
@@ -49,7 +49,7 @@ module('Integration | Component | modal', function (hooks) {
         await click('[aria-label="Fermer"]');
 
         // then
-        assert.ok(this.onCloseButtonClick.calledOnce);
+        assert.ok(this.onClose.calledOnce);
       });
     });
 
@@ -58,12 +58,12 @@ module('Integration | Component | modal', function (hooks) {
         // given
         this.title = 'Close me baby one more time';
         this.showModal = true;
-        this.onCloseButtonClick = sinon.stub();
+        this.onClose = sinon.stub();
 
         // when
         await render(hbs`<PixModal
   @title={{this.title}}
-  @onCloseButtonClick={{this.onCloseButtonClick}}
+  @onClose={{this.onClose}}
   @showModal={{this.showModal}}
 >
   content
@@ -71,7 +71,7 @@ module('Integration | Component | modal', function (hooks) {
         await triggerKeyEvent('.pix-modal__overlay', 'keyup', 'Escape');
 
         // then
-        assert.ok(this.onCloseButtonClick.calledOnce);
+        assert.ok(this.onClose.calledOnce);
       });
     });
   });

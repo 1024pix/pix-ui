@@ -5,7 +5,7 @@ export const Template = (args) => {
     template: hbs`<PixModal
   @showModal={{this.showModal}}
   @title={{this.title}}
-  @onCloseButtonClick={{fn (mut this.showModal) (not this.showModal)}}
+  @onClose={{fn (mut this.showModal) (not this.showModal)}}
 >
   <:content>
     <p>
@@ -35,7 +35,7 @@ export const Default = Template.bind({});
 Default.args = {
   showModal: true,
   title: "Qu'est-ce qu'une modale ?",
-  onCloseButtonClick: () => {},
+  onClose: () => {},
 };
 
 export const argTypes = {
@@ -45,9 +45,14 @@ export const argTypes = {
     type: { name: 'string', required: true },
     defaultValue: null,
   },
-  onCloseButtonClick: {
-    name: 'onCloseButtonClick',
-    description: 'Fonction à exécuter à la fermeture de la modale',
+  onClose: {
+    name: 'onClose',
+    description: `
+Fonction à exécuter à la fermeture de la modale.
+Paramètres de callback :
+  1. **event**: Event
+  2. **modalElement**: HTMLElement
+`,
     type: { name: 'function', required: true },
     defaultValue: null,
   },

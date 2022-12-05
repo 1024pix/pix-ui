@@ -7,5 +7,5 @@ export default class ModalPage extends Controller {
   title = "Qu'est-ce qu'une modale ?";
 
   @action
-  onCloseButtonClick() {}
+  onClose() {}
 }

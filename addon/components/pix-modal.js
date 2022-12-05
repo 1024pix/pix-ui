@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import uniqueId from '@1024pix/pix-ui/utils/unique-id';
+import { guidFor } from '@ember/object/internals';
 
 export default class PixModal extends Component {
   constructor(...args) {
@@ -13,16 +13,19 @@ export default class PixModal extends Component {
 
   @action
   closeAction(event) {
-    if (this.args.onCloseButtonClick && this.isClickOnOverlay(event)) {
-      this.args.onCloseButtonClick(event);
+    if (this.args.onClose) {
+      const currentElement = document.getElementById(this.modalId);
+      this.args.onClose(event, currentElement);
     }
   }
 
-  isClickOnOverlay(event) {
-    return event.target.classList.contains('pix-modal__overlay');
+  @action
+  stopPropagation(event) {
+    event.stopPropagation();
   }
 
-  get id() {
-    return uniqueId();
+  get modalId() {
+    if (this.args.id) return this.args.id;
+    return guidFor(this);
   }
 }
