@@ -1,0 +1,24 @@
+<label class={{this.className}}>
+  <span class="pix-toggle__label{{if @screenReaderOnly ' screen-reader-only'}}">{{@label}}</span>
+  <button
+    class="pix-toggle__button"
+    aria-pressed={{if @toggled "true" "false"}}
+    type="button"
+    {{on "click" this.onToggle}}
+  >
+    <span class="pix-toggle__on">
+      {{#if @onLabel}}
+        {{@onLabel}}
+      {{else}}
+        {{yield to="on"}}
+      {{/if}}
+    </span>
+    <span class="pix-toggle__off">
+      {{#if @offLabel}}
+        {{@offLabel}}
+      {{else}}
+        {{yield to="off"}}
+      {{/if}}
+    </span>
+  </button>
+</label>

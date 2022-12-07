@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import centered from '@storybook/addon-centered/ember';
+import * as stories from './pix-toggle.stories.js';
+
+<Meta
+  title='Form/Toggle'
+  component='PixToggle'
+  argTypes={stories.argTypes}
+/>
+
+# Pix Select
+
+Affiche un bouton à deux états.
+
+## Default
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={200} />
+</Canvas>
+
+## Inline
+
+<Canvas>
+  <Story name='Inline' story={stories.Inline} height={200} />
+</Canvas>
+
+## ScreenReaderOnly
+
+<Canvas>
+  <Story name='ScreenReaderOnly' story={stories.ScreenReaderOnly} height={200} />
+</Canvas>
+
+## WithYields
+
+<Canvas>
+  <Story name='WithYields' story={stories.WithYields} height={200} />
+</Canvas>
+
