@@ -3,11 +3,11 @@ import { hbs } from 'ember-cli-htmlbars';
 export const Template = (args) => {
   return {
     template: hbs`<PixCheckbox
-  @id={{id}}
-  @screenReaderOnly={{screenReaderOnly}}
-  @isIndeterminate={{isIndeterminate}}
-  @labelSize={{labelSize}}
-  @checked={{checked}}
+  @id={{this.id}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @isIndeterminate={{this.isIndeterminate}}
+  @labelSize={{this.labelSize}}
+  @checked={{this.checked}}
 >
   {{label}}
 </PixCheckbox>`,

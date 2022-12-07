@@ -2,9 +2,9 @@ import { hbs } from 'ember-cli-htmlbars';
 
 const Template = (args) => {
   return {
-    template: hbs`<PixMessage @type={{type}} @withIcon={{withIcon}}>
+    template: hbs`<PixMessage @type={{this.type}} @withIcon={{this.withIcon}}>
   Ceci est un message
-  {{type}}
+  {{this.type}}
   avec un texte tellement long qu'il est nécessaire
   <br />
   de l'afficher sur deux lignes.

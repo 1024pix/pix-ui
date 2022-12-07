@@ -4,14 +4,14 @@ import { action } from '@storybook/addon-actions';
 const Template = (args) => {
   return {
     template: hbs`<PixIconButton
-  @ariaLabel={{ariaLabel}}
-  @icon={{icon}}
-  @iconPrefix={{iconPrefix}}
-  @triggerAction={{triggerAction}}
-  @withBackground={{withBackground}}
-  @size={{size}}
-  disabled={{disabled}}
-  aria-disabled={{disabled}}
+  @ariaLabel={{this.ariaLabel}}
+  @icon={{this.icon}}
+  @iconPrefix={{this.iconPrefix}}
+  @triggerAction={{this.triggerAction}}
+  @withBackground={{this.withBackground}}
+  @size={{this.size}}
+  disabled={{this.disabled}}
+  aria-disabled={{this.disabled}}
 />`,
     context: args,
   };

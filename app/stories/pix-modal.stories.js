@@ -3,9 +3,9 @@ import { hbs } from 'ember-cli-htmlbars';
 export const Template = (args) => {
   return {
     template: hbs`<PixModal
-  @showModal={{showModal}}
+  @showModal={{this.showModal}}
   @title={{this.title}}
-  @onCloseButtonClick={{fn (mut showModal) (not showModal)}}
+  @onCloseButtonClick={{fn (mut this.showModal) (not this.showModal)}}
 >
   <:content>
     <p>
@@ -21,13 +21,13 @@ export const Template = (args) => {
     <PixButton
       @backgroundColor='transparent-light'
       @isBorderVisible='true'
-      @triggerAction={{fn (mut showModal) (not showModal)}}
+      @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
     >Annuler</PixButton>
-    <PixButton @triggerAction={{fn (mut showModal) (not showModal)}}>Valider</PixButton>
+    <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Valider</PixButton>
   </:footer>
 </PixModal>
 <div style='display:flex; justify-content:center; align-items:center; height:105vh;'>
-  <PixButton @triggerAction={{fn (mut showModal) (not showModal)}}>Ouvrir la modale</PixButton>
+  <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Ouvrir la modale</PixButton>
 </div>`,
     context: args,
   };

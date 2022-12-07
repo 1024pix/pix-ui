@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export const block = (args) => ({
-  template: hbs`<PixBlock @shadow={{shadow}}>
+  template: hbs`<PixBlock @shadow={{this.shadow}}>
   Lorem ipsum
 </PixBlock>`,
   context: args,

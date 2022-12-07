@@ -7,20 +7,20 @@ export const form = (args) => {
   <PixInput
     @id='firstName'
     @label='Prénom'
-    @errorMessage={{genericErrorMessage}}
+    @errorMessage={{this.genericErrorMessage}}
     @requiredLabel='champ obligatoire'
   />
   <br />
-  <PixInputPassword @id='password' @label='Mot de passe' @errorMessage={{genericErrorMessage}} />
+  <PixInputPassword @id='password' @label='Mot de passe' @errorMessage={{this.genericErrorMessage}} />
   <br />
 
   <PixMultiSelect
     @innerText='Votre notation en étoiles...'
     @id='form__pix-mutli-select'
     @label='A quel point aimez vous Pix UI ?'
-    @onSelect={{onSelect}}
-    @selected={{selected}}
-    @options={{options}}
+    @onSelect={{this.onSelect}}
+    @selected={{this.selected}}
+    @options={{this.options}}
     as |star|
   >
     <PixStars @count={{star.value}} @total={{star.total}} />
@@ -31,10 +31,10 @@ export const form = (args) => {
     @innerText='Mes condiements'
     @id='form__pix-mutli-select-searchable'
     @label='Choississez vos condiments'
-    @onSelect={{onSelect}}
-    @selected={{selected}}
+    @onSelect={{this.onSelect}}
+    @selected={{this.selected}}
     @isSearchable={{true}}
-    @options={{optionsSearch}}
+    @options={{this.optionsSearch}}
     as |condiment|
   >
     {{condiment.label}}
@@ -44,7 +44,7 @@ export const form = (args) => {
   <PixSelect
     @id='form__searchable-pix-select'
     @label='Votre fruit préféré est : '
-    @options={{selectOptions}}
+    @options={{this.selectOptions}}
     @isSearchable={{true}}
     @isValidationActive={{true}}
     placeholder='Fraises, Mangues...'
@@ -54,7 +54,7 @@ export const form = (args) => {
 
   <PixDropdown
     @id='form__searchable-pix-dropdown'
-    @options={{selectOptions}}
+    @options={{this.selectOptions}}
     @placeholder='Choisir votre fruit'
     @isSearchable={{true}}
     @searchPlaceholder='Rechercher'
@@ -70,7 +70,7 @@ export const form = (args) => {
     @value=''
     @maxlength={{200}}
     @label='Un commentaire ?'
-    @errorMessage={{genericErrorMessage}}
+    @errorMessage={{this.genericErrorMessage}}
   />
   <br />
 
@@ -89,7 +89,7 @@ export const form = (args) => {
 
   <div class='pix-form__actions'>
     <PixButton
-      @triggerAction={{cancel}}
+      @triggerAction={{this.cancel}}
       @backgroundColor='transparent-light'
       @isBorderVisible={{true}}
     >

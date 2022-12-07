@@ -3,11 +3,11 @@ import { hbs } from 'ember-cli-htmlbars';
 export const Template = (args) => {
   return {
     template: hbs`<PixInputCode
-  @ariaLabel={{ariaLabel}}
-  @legend={{legend}}
-  @inputType={{inputType}}
-  @numInputs={{numInputs}}
-  @explanationOfUse={{explanationOfUse}}
+  @ariaLabel={{this.ariaLabel}}
+  @legend={{this.legend}}
+  @inputType={{this.inputType}}
+  @numInputs={{this.numInputs}}
+  @explanationOfUse={{this.explanationOfUse}}
 />`,
     context: args,
   };
