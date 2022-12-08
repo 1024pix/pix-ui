@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v23.0.0 (08/12/2022)
+
+
+### :rocket: Amélioration
+- [#285](https://github.com/1024pix/pix-ui/pull/285) [FEATURE] Améliorer l'accessibilité de PixModal (PIX-6265)
+- [#287](https://github.com/1024pix/pix-ui/pull/287) [FEATURE] Améliorer l'accessiblité de PixSidebar (PIX-6424)
+
+### :coffee: Autre
+- [#302](https://github.com/1024pix/pix-ui/pull/302) [DOCS] Modifie l'exemple de la Modal pour utiliser `gap`
+
 ## v22.0.1 (08/12/2022)
 
 
