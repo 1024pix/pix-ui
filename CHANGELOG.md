@@ -2,6 +2,24 @@
 
 ## v23.0.0 (08/12/2022)
 
+### :warning: Breaking Change
+**PixModal** :
+* Les boutons d'actions dans le footer ne sont plus alignés à droite par défaut. Pour garder le comportement précédant, il faut reprendre ce bout de code :
+
+```
+ul {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-s;
+  margin-bottom: $spacing-s;
+
+  @include device-is('tablet') {
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+  }
+}
+```
 
 ### :rocket: Amélioration
 - [#285](https://github.com/1024pix/pix-ui/pull/285) [FEATURE] Améliorer l'accessibilité de PixModal (PIX-6265)
@@ -18,6 +36,9 @@
 
 ## v22.0.0 (08/12/2022)
 
+
+### :warning: Breaking Change
+Ember v4 obligatoire.
 
 ### :rocket: Amélioration
 - [#288](https://github.com/1024pix/pix-ui/pull/288) [FEATURE] Ajout le composant PixToggle (PIX-6427)
