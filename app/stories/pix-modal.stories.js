@@ -18,9 +18,9 @@ export const Template = (args) => {
     </p>
   </:content>
   <:footer>
-    <div style="display:flex; justify-content: flex-end; flex-wrap: wrap;">
-      <PixButton style="margin: 0 0 16px 16px;" @backgroundColor='transparent-light' @isBorderVisible='true' @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Annuler</PixButton>
-      <PixButton style="margin: 0 0 16px 16px;" @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Valider</PixButton>
+    <div style="display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 16px">
+      <PixButton @backgroundColor='transparent-light' @isBorderVisible='true' @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Annuler</PixButton>
+      <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Valider</PixButton>
     </div>
   </:footer>
 </PixModal>
