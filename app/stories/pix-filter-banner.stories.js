@@ -9,10 +9,10 @@ export const filterBanner = (args) => {
   @clearFiltersLabel={{this.clearFiltersLabel}}
   @onClearFilters={{this.onClearFilters}}
 >
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+  <PixRadioButton
+    @value='small'
+    @label='Acceptez-vous de vous faire spammer de PUB ?'
+  />
 </PixFilterBanner>`,
     context: args,
   };

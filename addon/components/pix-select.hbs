@@ -7,6 +7,7 @@
   {{on-escape-action this.hideDropdown this.selectId}}
   {{did-insert this.setSelectWidth}}
   {{on "keydown" this.lockTab}}
+  ...attributes
 >
   {{#if @label}}
     <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
