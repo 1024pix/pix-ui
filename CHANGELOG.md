@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v22.0.1 (08/12/2022)
+
+
+### :building_construction: Tech
+- [#300](https://github.com/1024pix/pix-ui/pull/300) [TECH] Réparer l'affichage des stories
+
 ## v22.0.0 (08/12/2022)
 
 
