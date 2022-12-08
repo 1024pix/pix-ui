@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v22.0.0 (08/12/2022)
+
+
+### :rocket: Amélioration
+- [#288](https://github.com/1024pix/pix-ui/pull/288) [FEATURE] Ajout le composant PixToggle (PIX-6427)
+
+### :building_construction: Tech
+- [#292](https://github.com/1024pix/pix-ui/pull/292) [TECH] Mettre à jour `ember-source` vers la 4.0.1 (PIX-6462).
+
 ## v21.0.0 (05/12/2022)
 
 
