@@ -12,7 +12,7 @@
     aria-modal="true"
     ...attributes
   >
-    <header class="pix-sidebar__header">
+    <div class="pix-sidebar__header">
       <h1 id="sidebar-title--{{this.id}}" class="pix-sidebar__title">{{@title}}</h1>
       <PixIconButton
         @icon="xmark"
@@ -22,12 +22,12 @@
         @withBackground={{true}}
         class="pix-sidebar__close-button"
       />
-    </header>
-    <main id="sidebar-content--{{this.id}}" class="pix-sidebar__content">
+    </div>
+    <div id="sidebar-content--{{this.id}}" class="pix-sidebar__content">
       {{yield to="content"}}
-    </main>
-    <footer class="pix-sidebar__footer">
+    </div>
+    <div class="pix-sidebar__footer">
       {{yield to="footer"}}
-    </footer>
+    </div>
   </div>
 </div>
