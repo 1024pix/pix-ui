@@ -5,11 +5,11 @@ export const htmlLinkTemplate = (args) => {
     template: hbs`<PixButtonLink
   @href='https://pix.fr'
   target='NEW'
-  @shape={{shape}}
-  @backgroundColor={{backgroundColor}}
-  @size={{size}}
-  @isBorderVisible={{isBorderVisible}}
-  @isDisabled={{isDisabled}}
+  @shape={{this.shape}}
+  @backgroundColor={{this.backgroundColor}}
+  @size={{this.size}}
+  @isBorderVisible={{this.isBorderVisible}}
+  @isDisabled={{this.isDisabled}}
 >
   Lien HTML classique
 </PixButtonLink>`,
@@ -22,12 +22,12 @@ export const emberLinkTemplate = (args) => {
     template: hbs`<PixButtonLink
   @route=''
   @model=''
-  @query={{query}}
-  @shape={{shape}}
-  @backgroundColor={{backgroundColor}}
-  @size={{size}}
-  @isBorderVisible={{isBorderVisible}}
-  @isDisabled={{isDisabled}}
+  @query={{this.query}}
+  @shape={{this.shape}}
+  @backgroundColor={{this.backgroundColor}}
+  @size={{this.size}}
+  @isBorderVisible={{this.isBorderVisible}}
+  @isDisabled={{this.isDisabled}}
 >
   Lien route Ember (LinkTo)
 </PixButtonLink>`,

@@ -5,19 +5,19 @@ export const Template = (args) => {
   return {
     template: hbs`<div style='width: 300px;'>
   <PixDropdown
-    @id={{id}}
-    @options={{options}}
-    @onSelect={{onSelect}}
-    @placeholder={{placeholder}}
-    @selectedOption={{selectedOption}}
-    @isSearchable={{isSearchable}}
-    @searchPlaceholder={{searchPlaceholder}}
-    @label={{label}}
-    @clearLabel={{clearLabel}}
-    @expandLabel={{expandLabel}}
-    @collapseLabel={{collapseLabel}}
-    @pageSize={{pageSize}}
-    @requiredLabel={{requiredLabel}}
+    @id={{this.id}}
+    @options={{this.options}}
+    @onSelect={{this.onSelect}}
+    @placeholder={{this.placeholder}}
+    @selectedOption={{this.selectedOption}}
+    @isSearchable={{this.isSearchable}}
+    @searchPlaceholder={{this.searchPlaceholder}}
+    @label={{this.label}}
+    @clearLabel={{this.clearLabel}}
+    @expandLabel={{this.expandLabel}}
+    @collapseLabel={{this.collapseLabel}}
+    @pageSize={{this.pageSize}}
+    @requiredLabel={{this.requiredLabel}}
   />
 </div>`,
     context: args,

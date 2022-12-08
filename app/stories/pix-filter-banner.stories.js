@@ -4,10 +4,10 @@ import { action } from '@storybook/addon-actions';
 export const filterBanner = (args) => {
   return {
     template: hbs`<PixFilterBanner
-  @title={{title}}
-  @details={{details}}
-  @clearFiltersLabel={{clearFiltersLabel}}
-  @onClearFilters={{onClearFilters}}
+  @title={{this.title}}
+  @details={{this.details}}
+  @clearFiltersLabel={{this.clearFiltersLabel}}
+  @onClearFilters={{this.onClearFilters}}
 >
   <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
   <PixSelect @options={{this.options}} @onChange={{this.onChange}} />

@@ -3,22 +3,22 @@ import { hbs } from 'ember-cli-htmlbars';
 const Template = (args) => ({
   template: hbs`<section style={{this.style}}>
   <PixButton
-    @triggerAction={{action triggerAction}}
-    @loadingColor={{loadingColor}}
-    @shape={{shape}}
-    @backgroundColor={{backgroundColor}}
-    @isDisabled={{isDisabled}}
-    @isLoading={{isLoading}}
-    @size={{size}}
-    @isBorderVisible={{isBorderVisible}}
+    @triggerAction={{action this.triggerAction}}
+    @loadingColor={{this.loadingColor}}
+    @shape={{this.shape}}
+    @backgroundColor={{this.backgroundColor}}
+    @isDisabled={{this.isDisabled}}
+    @isLoading={{this.isLoading}}
+    @size={{this.size}}
+    @isBorderVisible={{this.isBorderVisible}}
   >
     {{this.label}}
   </PixButton>
 </section>
-{{#each extraButtons as |button|}}
+{{#each this.extraButtons as |button|}}
   <section style={{button.style}}>
     <PixButton
-      @triggerAction={{action triggerAction}}
+      @triggerAction={{action this.triggerAction}}
       @loadingColor={{button.loadingColor}}
       @shape={{button.shape}}
       @backgroundColor={{button.backgroundColor}}

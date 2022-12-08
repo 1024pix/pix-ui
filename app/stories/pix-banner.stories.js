@@ -3,10 +3,10 @@ import { hbs } from 'ember-cli-htmlbars';
 const Template = (args) => {
   return {
     template: hbs`<PixBanner
-  @type={{type}}
-  @actionLabel={{actionLabel}}
-  @actionUrl={{actionUrl}}
-  @canCloseBanner={{canCloseBanner}}
+  @type={{this.type}}
+  @actionLabel={{this.actionLabel}}
+  @actionUrl={{this.actionUrl}}
+  @canCloseBanner={{this.canCloseBanner}}
 >
   Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les
   diffuser aux élèves avant la Toussaint.

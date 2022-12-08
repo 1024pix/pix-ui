@@ -5,11 +5,11 @@ export const buttonUpload = (args) => {
   return {
     template: hbs`<PixButtonUpload
   @id='id'
-  @onChange={{onChange}}
-  @shape={{shape}}
-  @backgroundColor={{backgroundColor}}
-  @size={{size}}
-  @isBorderVisible={{isBorderVisible}}
+  @onChange={{this.onChange}}
+  @shape={{this.shape}}
+  @backgroundColor={{this.backgroundColor}}
+  @size={{this.size}}
+  @isBorderVisible={{this.isBorderVisible}}
 >
   Cliquer pour uploader un fichier
 </PixButtonUpload>`,

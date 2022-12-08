@@ -4,18 +4,18 @@ const Template = (args) => {
   return {
     template: hbs`
       <PixFilterableAndSearchableSelect
-        @label={{label}}
-        @subLabel={{subLabel}}
-        @screenReaderOnly={{screenReaderOnly}}
-        @placeholder={{placeholder}}
-        @options={{options}}
-        @onChange={{onChange}}
-        @categoriesLabel={{categoriesLabel}}
-        @categoriesPlaceholder={{categoriesPlaceholder}}
-        @isSearchable={{isSearchable}}
-        @value={{value}}
-        @requiredText={{requiredText}}
-        @errorMessage={{errorMessage}}
+        @label={{this.label}}
+        @subLabel={{this.subLabel}}
+        @screenReaderOnly={{this.screenReaderOnly}}
+        @placeholder={{this.placeholder}}
+        @options={{this.options}}
+        @onChange={{this.onChange}}
+        @categoriesLabel={{this.categoriesLabel}}
+        @categoriesPlaceholder={{this.categoriesPlaceholder}}
+        @isSearchable={{this.isSearchable}}
+        @value={{this.value}}
+        @requiredText={{this.requiredText}}
+        @errorMessage={{this.errorMessage}}
       />
     `,
     context: args,

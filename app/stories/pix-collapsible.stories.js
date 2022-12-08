@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const collapsible = (args) => {
   return {
-    template: hbs`<PixCollapsible @title={{title}} @titleIcon={{titleIcon}}>
+    template: hbs`<PixCollapsible @title={{this.title}} @titleIcon={{this.titleIcon}}>
   <div>Contenu du PixCollapsible</div>
 </PixCollapsible>`,
     context: args,
@@ -11,7 +11,7 @@ export const collapsible = (args) => {
 
 export const collapsibleWithBlockTitle = (args) => {
   return {
-    template: hbs`<PixCollapsible @titleIcon={{titleIcon}}>
+    template: hbs`<PixCollapsible @titleIcon={{this.titleIcon}}>
   <:title>
     <span>Titre avec <em>contenu de type block</em></span>
   </:title>
@@ -26,15 +26,15 @@ export const collapsibleWithBlockTitle = (args) => {
 export const multipleCollapsible = (args) => {
   return {
     template: hbs`<div>
-  <PixCollapsible @title='Titre A' @titleIcon={{titleIcon}}>
+  <PixCollapsible @title='Titre A' @titleIcon={{this.titleIcon}}>
     <div>Contenu A</div>
   </PixCollapsible>
 
-  <PixCollapsible @title='Titre B' @titleIcon={{titleIcon}}>
+  <PixCollapsible @title='Titre B' @titleIcon={{this.titleIcon}}>
     <div>Contenu B</div>
   </PixCollapsible>
 
-  <PixCollapsible @title='Titre C' @titleIcon={{titleIcon}}>
+  <PixCollapsible @title='Titre C' @titleIcon={{this.titleIcon}}>
     <div>Contenu C</div>
   </PixCollapsible>
 </div>`,
