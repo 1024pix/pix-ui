@@ -3,7 +3,7 @@ import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
 export default class PixTooltip extends Component {
-  @tracked isVisible = false;
+  @tracked automaticVisible = false;
 
   get position() {
     const correctsPosition = [
@@ -25,12 +25,12 @@ export default class PixTooltip extends Component {
 
   @action
   showTooltip() {
-    this.isVisible = true;
+    this.automaticVisible = true;
   }
 
   @action
   hideTooltip() {
-    this.isVisible = false;
+    this.automaticVisible = false;
   }
 
   @action
@@ -42,5 +42,9 @@ export default class PixTooltip extends Component {
     }
 
     this.hideTooltip(event);
+  }
+
+  get isVisible() {
+    return this.automaticVisible || this.args.manual;
   }
 }
