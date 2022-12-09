@@ -9,6 +9,7 @@ const Template = (args) => {
   @isInline={{this.isInline}}
   @isWide={{this.isWide}}
   @hide={{this.hide}}
+  @manual={{this.manual}}
 >
   <:triggerElement>
     <PixButton aria-describedby={{this.id}}>
@@ -121,6 +122,13 @@ hide.args = {
   hide: true,
 };
 
+export const manual = Template.bind({});
+manual.args = {
+  label: 'Ma tooltip ne se cache plus',
+  text: 'Cachez-moi !',
+  manual: true,
+};
+
 export const WithHTML = TemplateWithHTMLElement.bind({});
 WithHTML.args = {
   label: 'À survoler pour voir la tooltip',
@@ -184,6 +192,12 @@ export const argTypes = {
   hide: {
     name: 'hide',
     description: 'Masquer la tooltip',
+    type: { name: 'boolean', required: false },
+    table: { defaultValue: { summary: false } },
+  },
+  manual: {
+    name: 'manual',
+    description: 'Laisser la gestion du comportement de la tooltip au parent',
     type: { name: 'boolean', required: false },
     table: { defaultValue: { summary: false } },
   },

@@ -61,6 +61,15 @@ Les tooltips doivent prendre un `@id` et être référencées par leur élément
 </PixTooltip>
 ```
 
+## Default
+
+Infobulle en position `top`, fond sombre (par défaut).
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={200} />
+  <Story name="WithIcon" story={stories.WithIcon} height={200} />
+</Canvas>
+
 ## Hide
 
 Cache la tooltip (par exemple si le contenu est vide).
@@ -69,13 +78,12 @@ Cache la tooltip (par exemple si le contenu est vide).
   <Story name="Hide" story={stories.hide} height={200} />
 </Canvas>
 
-## Default
+## Manual
 
-Infobulle en position `top`, fond sombre (par défaut).
+Annule le comportement par defaut de la tooltip et permet de le forcer dans le component parent
 
 <Canvas>
-  <Story name="Default" story={stories.Default} height={200} />
-  <Story name="WithIcon" story={stories.WithIcon} height={200} />
+  <Story name="Manual" story={stories.manual} height={200} />
 </Canvas>
 
 ## Is Light
@@ -196,6 +204,19 @@ Infobulle contenant des éléments HTML
     Hey
   </:tooltip>
 </PixTooltip>
+
+</PixTooltip>
+
+<PixTooltip
+  @manual={{true}}
+  >
+  <:triggerElement>
+    <button>Tooltip ne se cache plus</button>
+  </:triggerElement>
+
+  <:tooltip>
+    Hey
+  </:tooltip>
 ```
 
 ## Arguments
