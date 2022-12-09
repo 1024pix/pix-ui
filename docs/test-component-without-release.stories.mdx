@@ -4,6 +4,8 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 # Tester un composant en developpement dans une app
 
+## Sur une version de Pix UI
+
 Il est possible de tester l'intégration d'un composant dans une application
 Ember sans nécessairement créer une nouvelle release.
 
@@ -17,3 +19,15 @@ npm install "git://github.com/1024pix/pix-ui#add-modal-component" --save-dev
 
 Une fois l'application Ember redémarrée, il sera possible d'accéder aux
 composants Pix UI tels qu'ils sont dans la branche en cours de développement.
+
+## Sur votre Pix UI en local
+
+Dans la console Pix UI lancer la commande : `npm link`
+Puis dans la console de votre app : `npm link @1024pix/pix-ui`
+
+Les changements faits sur votre Pix UI se répercuteront sur votre app en local mais n'oubliez pas de rebuild l'app à
+chaque changement Pix UI.
+
+Pour unlink vous pouvez relancer un `npm ci` sur votre app.
+
+
