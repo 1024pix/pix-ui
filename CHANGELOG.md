@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v23.1.0 (09/12/2022)
+
+
+### :rocket: Amélioration
+- [#305](https://github.com/1024pix/pix-ui/pull/305) [FEATURE] Permettre l'appel d'une fonction lors de la fermeture d'une Pix Banner (PIX-6513).
+
 ## v23.0.1 (09/12/2022)
 
 
