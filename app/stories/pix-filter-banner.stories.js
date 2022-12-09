@@ -9,10 +9,9 @@ export const filterBanner = (args) => {
   @clearFiltersLabel={{this.clearFiltersLabel}}
   @onClearFilters={{this.onClearFilters}}
 >
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} />
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
+  <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
 </PixFilterBanner>`,
     context: args,
   };

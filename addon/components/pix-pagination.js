@@ -105,8 +105,8 @@ export default class PixPagination extends Component {
   }
 
   @action
-  changePageSize(event) {
-    this.router.replaceWith({ queryParams: { pageSize: event.target.value, pageNumber: 1 } });
+  changePageSize(value) {
+    this.router.replaceWith({ queryParams: { pageSize: value, pageNumber: 1 } });
   }
 
   @action

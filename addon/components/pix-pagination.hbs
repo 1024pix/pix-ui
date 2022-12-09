@@ -3,9 +3,11 @@
     <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
     <PixSelect
       @label={{this.selectPageSizeLabel}}
+      @placeholder={{this.pageSize}}
       @screenReaderOnly={{true}}
       class="pagination-size__choice"
-      @selectedOption={{this.pageSize}}
+      @value={{this.pageSize}}
+      @hideDefaultOption={{true}}
       @onChange={{this.changePageSize}}
       @options={{this.pageOptions}}
     />

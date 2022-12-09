@@ -211,7 +211,8 @@ export const argTypes = {
   },
   id: {
     name: 'id',
-    description: 'Un identifiant unique placé sur le composant',
+    description:
+      "Un identifiant unique placé sur le composant. **⚠️ L'`id` est obligatoire que si le `label` n'est pas donné. ⚠️**",
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
@@ -219,7 +220,8 @@ export const argTypes = {
   },
   label: {
     name: 'label',
-    description: 'Label du menu déroulant',
+    description:
+      "Label du menu déroulant. ** ⚠️ Le `label` est obligatoire que si l'`id` n'est pas donné. ⚠️ **",
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
@@ -260,24 +262,27 @@ export const argTypes = {
   },
   searchLabel: {
     name: 'searchLabel',
-    description: 'Label de la recherche dans le menu déroulant',
-    type: { name: 'string', required: true },
+    description:
+      'Label de la recherche dans le menu déroulant. **⚠️ Le `searchLabel` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
+    type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
     },
   },
   searchPlaceholder: {
     name: 'searchPlaceholder',
-    description: 'Placeholder de la recherche dans le menu déroulant',
-    type: { name: 'string', required: true },
+    description:
+      'Placeholder de la recherche dans le menu déroulant. **⚠️ Le `searchPlaceholder` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
+    type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
     },
   },
   emptySearchMessage: {
     name: 'emptySearchMessage',
-    description: "Message affiché si la recherche ne retourne pas d'options",
-    type: { name: 'string', required: true },
+    description:
+      "Message affiché si la recherche ne retourne pas d'options. **⚠️ Le `emptySearchMessage` est obligatoire que si le `isSearchable` à `true`. ⚠️**",
+    type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
     },

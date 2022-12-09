@@ -105,6 +105,7 @@
 
   &__dropdown-icon {
     @include text-small();
+    margin-left: $spacing-xs;
     color: $pix-neutral-60;
     font-weight: $font-heavy;
     pointer-events: none;

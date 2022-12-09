@@ -1,5 +1,4 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-toggle.stories.js';
 
 <Meta
@@ -8,7 +7,7 @@ import * as stories from './pix-toggle.stories.js';
   argTypes={stories.argTypes}
 />
 
-# Pix Select
+# Pix Toggle
 
 Affiche un bouton à deux états.
 
@@ -36,3 +35,6 @@ Affiche un bouton à deux états.
   <Story name='WithYields' story={stories.WithYields} height={200} />
 </Canvas>
 
+## Arguments
+
+<ArgsTable story="Default" />
