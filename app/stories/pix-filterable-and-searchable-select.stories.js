@@ -155,7 +155,7 @@ export const argTypes = {
   searchLabel: {
     name: 'searchLabel',
     description:
-      'Label de la recherche dans le menu déroulant du select. Obligatoire uniquement si le isSearchable est à true.',
+      'Label de la recherche dans le menu déroulant du select. **⚠️ Obligatoire uniquement si le `isSearchable` est à true. ⚠️**',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
@@ -164,7 +164,7 @@ export const argTypes = {
   searchPlaceholder: {
     name: 'searchPlaceholder',
     description:
-      'Placeholder de la recherche dans le menu déroulant du select.  Obligatoire uniquement si le isSearchable est à true.',
+      'Placeholder de la recherche dans le menu déroulant du select.  **⚠️ Obligatoire uniquement si le `isSearchable` est à true. ⚠️**',
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
@@ -173,7 +173,7 @@ export const argTypes = {
   emptySearchMessage: {
     name: 'emptySearchMessage',
     description:
-      "Message affiché si la recherche dans le select ne retourne pas d'options.  Obligatoire uniquement si le isSearchable est à true.",
+      "Message affiché si la recherche dans le select ne retourne pas d'options.  **⚠️ Obligatoire uniquement si le `isSearchable` est à true. ⚠️**",
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
