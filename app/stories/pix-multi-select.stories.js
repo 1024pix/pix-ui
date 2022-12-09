@@ -140,7 +140,8 @@ multiSelectWithYield.args = {
 export const argTypes = {
   id: {
     name: 'id',
-    description: 'Permet l‘accessibilité du composant attribuant des ``for`` pour chaque entité',
+    description:
+      "Permet l'accessibilité du composant attribuant des ``for`` pour chaque entité. **⚠️ L'`id` est obligatoire que si le `label` n'est pas donné. ⚠️**",
     type: { name: 'string' },
   },
   placeholder: {
@@ -152,7 +153,8 @@ export const argTypes = {
   },
   label: {
     name: 'label',
-    description: "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran",
+    description:
+      "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran. **⚠️ Le`label` est obligatoire que si l'`id` n'est pas donné. ⚠️**",
     type: { name: 'string' },
     defaultValue: 'Label du champ',
   },
