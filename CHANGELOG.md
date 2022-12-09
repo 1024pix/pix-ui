@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v23.0.1 (09/12/2022)
+
+
+### :building_construction: Tech
+- [#304](https://github.com/1024pix/pix-ui/pull/304) [TECH] Enlever le reset-css et ajouter attributes dans PixSelect(PIX-6504)
+
+### :coffee: Autre
+- [#303](https://github.com/1024pix/pix-ui/pull/303) [DOCS] Ajouter des infos sur les breaking changes des v22 & v23 dans le changelog
+
 ## v23.0.0 (08/12/2022)
 
 ### :warning: Breaking Change
