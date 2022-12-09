@@ -77,7 +77,6 @@ export const argTypes = {
 ```markdown
 {/* pix-message.stories.mdx */}
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
-import centered from '@storybook/addon-centered/ember';
 import * as stories from './pix-message.stories.js';
 
 {/* Titre de la section affichée dans le menu de storybook */}
@@ -85,7 +84,6 @@ import * as stories from './pix-message.stories.js';
 <Meta
   title='Notification/Message'
   component='PixMessage'
-  decorators={[centered]}
   argTypes={stories.argTypes}
 />
 

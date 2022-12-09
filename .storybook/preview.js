@@ -1,4 +1,5 @@
 export const parameters = {
+  layout: 'centered',
   a11y: {
     element: '#root',
   },
