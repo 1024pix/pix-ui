@@ -101,4 +101,11 @@ export const argsTypes = {
       defaultValue: { summary: false },
     },
   },
+  onCloseBannerTriggerAction: {
+    name: 'onCloseBannerTriggerAction',
+    description:
+      'Fonction à appeler lors de la fermeture de la bannière. Doit être utilisé avec le paramètre canCloseBanner',
+    type: { required: false },
+    control: { disable: true },
+  },
 };

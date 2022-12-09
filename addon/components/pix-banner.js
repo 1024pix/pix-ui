@@ -53,7 +53,10 @@ export default class PixBanner extends Component {
   }
 
   @action
-  closeBanner() {
+  async closeBanner(params) {
+    if (this.args.onCloseBannerTriggerAction) {
+      await this.args.onCloseBannerTriggerAction(params);
+    }
     this.isBannerVisible = false;
   }
 }
