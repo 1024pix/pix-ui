@@ -1,0 +1,42 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import * as stories from './pix-menu.stories.js';
+
+<Meta
+  title='Others/Menu'
+  component='PixMenu'
+  argTypes={stories.argTypes}
+/>
+
+# Pix Menu
+
+Les Menus affichent une liste de choix sur une surface temporaire
+
+## Default 
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={300} />
+</Canvas>
+
+## Hide 
+
+<Canvas>
+  <Story name="Hide" story={stories.Hide} height={300} />
+</Canvas>
+
+## WithYield 
+
+<Canvas>
+  <Story name="WithYield" story={stories.WithYield} height={300} />
+</Canvas>
+
+## WithoutClick
+
+<Canvas>
+  <Story name="WithoutClick" story={stories.WithoutClick} height={300} />
+</Canvas>
+
+## WithFilter
+
+<Canvas>
+  <Story name="WithFilter" story={stories.WithFilter} height={300} />
+</Canvas>

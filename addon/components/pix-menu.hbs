@@ -1,0 +1,20 @@
+{{#if @show}}
+  <PixBlock class="pix-menu" ...attributes>
+    {{#if (has-block-params "filter")}}
+      <div class="pix-menu__filter">
+        {{yield this.filterValue this.onFilterChange to="filter"}}
+      </div>
+    {{/if}}
+    <ul class="pix-menu__list" role="menu">
+      {{#each this.items as |item|}}
+        {{#if @onClick}}
+          <li role="menuitem" {{on "click" (fn @onClick item)}} class="pix-menu__item">
+            {{yield item}}
+          </li>
+        {{else}}
+          <li role="menuitem">{{yield item "pix-menu__item"}}</li>
+        {{/if}}
+      {{/each}}
+    </ul>
+  </PixBlock>
+{{/if}}

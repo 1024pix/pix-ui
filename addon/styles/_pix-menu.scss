@@ -1,0 +1,25 @@
+.pix-menu {
+  width: fit-content;
+
+  &__filter {
+    padding: $spacing-s $spacing-m;
+    border-bottom: 1px solid $pix-neutral-20;
+  }
+
+  &__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  &__item {
+    padding: $spacing-xs $spacing-m;
+    color: $pix-neutral-70;
+    @include text-small;
+
+    &:hover {
+      cursor: pointer;
+      background-color: $pix-neutral-10;
+    }
+  }
+}
