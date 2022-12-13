@@ -18,7 +18,6 @@ jobs:
     docker:
       - image: cimg/node:18.12.1-browsers
     steps:
-      - run: sudo npm i -g npm@8.13.2
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - checkout
