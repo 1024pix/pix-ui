@@ -5,6 +5,17 @@
   }
 }
 
+@mixin hoverFormElementDisabled() {
+  &:hover {
+    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-70;
+    background-color: $pix-neutral-20;
+  }
+}
+
+@mixin formElementDisabled() {  
+  background-color: $pix-neutral-20;
+}
+
 @mixin focusFormElement() {
   &:focus {
     border-color: $pix-primary;

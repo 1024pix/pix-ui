@@ -141,6 +141,25 @@ module('Integration | Component | PixSelect', function (hooks) {
   });
 
   module('a11y', function () {
+    module('disabled dropdown', function () {
+      test('it should not display list on click', async function (assert) {
+        // given
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+  @isDisabled={{true}}
+/>`);
+
+        // when
+        await click(await screen.getByLabelText('Mon menu déroulant'));
+
+        // then
+        assert.dom(await screen.findByRole('listbox', { hidden: true })).exists();
+      });
+    });
+
     module('closed dropdown', function () {
       test('it should display list, focus selected element on arrow up press', async function (assert) {
         // given

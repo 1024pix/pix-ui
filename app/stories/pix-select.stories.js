@@ -34,6 +34,7 @@ export const Template = (args) => {
           @emptySearchMessage={{this.emptySearchMessage}}
           @requiredText={{this.requiredText}}
           @errorMessage={{this.errorMessage}}
+          @isDisabled={{this.isDisabled}}
         />
     `,
     context: args,
@@ -301,6 +302,14 @@ export const argTypes = {
     type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
+    },
+  },
+  isDisabled: {
+    name: 'isDisabled',
+    description: "Permet de désactiver l'affichage des options possible",
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: false },
     },
   },
 };

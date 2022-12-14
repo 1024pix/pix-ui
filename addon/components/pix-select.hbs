@@ -31,6 +31,7 @@
     {{on "click" this.toggleDropdown}}
     aria-expanded={{this.isAriaExpanded}}
     aria-controls={{this.listId}}
+    aria-disabled={{@isDisabled}}
   >
     {{this.placeholder}}
 
@@ -59,22 +60,20 @@
       </div>
     {{/if}}
     <div role="listbox" id={{this.listId}} class="pix-select__options">
-      {{#if this.displayDefaultOption}}
-        <li
-          class="pix-select-options-category__option{{unless
-              @value
-              ' pix-select-options-category__option--selected'
-            }}"
-          role="option"
-          tabindex={{if this.isExpanded "0" "-1"}}
-          aria-selected={{if @value "false" "true"}}
-          {{on "click" (fn this.onChange this.defaultOption)}}
-          {{on-enter-action (fn this.onChange this.defaultOption)}}
-          {{on-space-action (fn this.onChange this.defaultOption)}}
-        >
-          {{@placeholder}}
-        </li>
-      {{/if}}
+      <li
+        class="pix-select-options-category__option{{unless
+            @value
+            ' pix-select-options-category__option--selected'
+          }}{{unless this.displayDefaultOption ' pix-select-options-category__option--hidden'}}"
+        role="option"
+        tabindex={{if this.isExpanded "0" "-1"}}
+        aria-selected={{if @value "false" "true"}}
+        {{on "click" (fn this.onChange this.defaultOption)}}
+        {{on-enter-action (fn this.onChange this.defaultOption)}}
+        {{on-space-action (fn this.onChange this.defaultOption)}}
+      >
+        {{@placeholder}}
+      </li>
       {{#if this.results}}
         {{#if this.displayCategory}}
           {{#each this.results as |element index|}}
