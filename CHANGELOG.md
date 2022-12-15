@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v23.1.1 (15/12/2022)
+
+
+### :building_construction: Tech
+- [#270](https://github.com/1024pix/pix-ui/pull/270) [TECH] Suppression ember-cli-google-fonts (PIX-6423)
+
 ## v23.1.0 (09/12/2022)
 
 
