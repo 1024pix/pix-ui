@@ -1,0 +1,35 @@
+.pix-informations {
+  display: flex;
+  align-items: center;
+  margin: 0;
+  padding: 0;
+
+
+
+  & > * {
+    padding-right: $spacing-xs;
+    margin-right: $spacing-xs;
+    border-right: 1px solid $pix-neutral-22;
+  }
+
+  & > *:last-child {
+    padding-right: 0;
+    margin-right: 0;
+    border-right-width: 0;
+  }
+}
+
+.pix-informations-item {
+    font-size: 0.875rem;
+
+    &__title {
+      margin-bottom: $spacing-xs;
+      color: $pix-neutral-50;
+    }
+
+    &__description {
+      color: $pix-neutral-90;
+      margin: 0;
+    }
+}
+

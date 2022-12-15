@@ -1,0 +1,10 @@
+<div>
+  <dl class="pix-informations">
+    {{#each @informations as |information|}}
+      <div class="pix-informations-item">
+        <dt class="pix-informations-item__title">{{information.title}}</dt>
+        <dd class="pix-informations-item__description">{{information.description}}</dd>
+      </div>
+    {{/each}}
+  </dl>
+</div>
