@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v23.1.2 (16/12/2022)
+
+
+### :bug: Correction
+- [#308](https://github.com/1024pix/pix-ui/pull/308) [BUGFIX] Support de l'état `disabled` et correction de la taille de l'élement Pix Select
+
+### :coffee: Autre
+- [#310](https://github.com/1024pix/pix-ui/pull/310) [DOCS] Ajout infos v20.2.4 au changelog
+
 ## v23.1.1 (15/12/2022)
 
 
