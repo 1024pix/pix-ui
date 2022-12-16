@@ -38,6 +38,10 @@
         background-color: $pix-primary-10;
         color: $pix-primary-70;
       }
+
+      &:focus:enabled {
+        outline-color: $pix-primary-70;
+      }
     }
   }
 
@@ -53,6 +57,10 @@
         background-color: $pix-warning-10;
         color: $pix-warning-70;
       }
+
+      &:focus:enabled {
+        outline-color: $pix-warning-70;
+      }
     }
   }
 
@@ -67,6 +75,10 @@
       &:active:enabled {
         background-color: $pix-error-10;
         color: $pix-error-70;
+      }
+
+      &:focus:enabled {
+        outline-color: $pix-error-70;
       }
     }
   }

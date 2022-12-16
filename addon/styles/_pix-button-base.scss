@@ -9,7 +9,8 @@
   letter-spacing: 0.028rem;
   cursor: pointer;
   background-color: $pix-primary;
-  border: 2px solid transparent;
+  border: 1px solid transparent;
+  outline: none;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -40,105 +41,185 @@
     cursor: not-allowed;
   }
 
-  @mixin colorizeBackground($backgroundColor, $outlineColor) {
-    background-color: $backgroundColor;
-    border-color: $backgroundColor;
+  &--background-blue {
+    background-color: $pix-primary;
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: $pix-primary-60;
+      }
+
       &:focus,
       &:focus-visible {
-        background-color: darken($backgroundColor, 8%);
-        box-shadow: 0 0 0 2px darken($outlineColor, 8%);
-        border-color: $pix-neutral-0;
-        outline: none;
+        background-color: $pix-primary-60;
+        outline: 1px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
-        background-color: darken($backgroundColor, 12%);
+        background-color: $pix-primary-70;
+        outline: none;
       }
     }
   }
 
-  &--background-blue {
-    @include colorizeBackground($pix-primary, $pix-primary);
-  }
-
   &--background-green {
-    @include colorizeBackground($green, $green);
+    background-color: $pix-success-60;
+
+    &:not(.pix-button--disabled) {
+      &:hover {
+        background-color: $pix-success-70;
+      }
+
+      &:focus,
+      &:focus-visible {
+        background-color: $pix-success-70;
+        outline: 1px solid $pix-neutral-0;
+        outline-offset: -4px;
+      }
+
+      &:active {
+        background-color: $pix-success-80;
+        outline: none;
+      }
+    }
   }
 
   &--background-yellow {
     color: $pix-neutral-100;
-    @include colorizeBackground($pix-warning-40, $pix-warning-40);
+    background-color: $pix-warning-40;
+
+    &:not(.pix-button--disabled) {
+      &:hover {
+        background-color: $pix-warning-50;
+      }
+
+      &:focus,
+      &:focus-visible {
+        background-color: $pix-warning-50;
+        outline: 1px solid $pix-neutral-0;
+        outline-offset: -4px;
+      }
+
+      &:active {
+        background-color: $pix-warning-60;
+        outline: none;
+      }
+    }
   }
 
   &--background-red {
     color: $pix-neutral-0;
-    @include colorizeBackground($pix-error-70, $pix-error-70);
+    background-color: $pix-error-70;
+
+    &:not(.pix-button--disabled) {
+      &:hover {
+        background-color: $pix-error-80;
+      }
+
+      &:focus,
+      &:focus-visible {
+        background-color: $pix-error-70;
+        outline: 1px solid $pix-neutral-0;
+        outline-offset: -4px;
+      }
+
+      &:active {
+        background-color: $pix-error-90;
+        outline: none;
+      }
+    }
   }
 
   &--background-grey {
-    @include colorizeBackground($pix-neutral-60, $pix-neutral-60);
+    color: $pix-neutral-90;
+    background-color: $pix-neutral-20;
+
+    &:not(.pix-button--disabled) {
+      &:hover {
+        background-color: $pix-neutral-22;
+      }
+
+      &:focus,
+      &:focus-visible {
+        background-color: $pix-neutral-90;
+        color: $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
+        outline-offset: -4px;
+      }
+
+      &:active {
+        background-color: $pix-neutral-25;
+        color: $pix-neutral-90;
+        outline: none;
+      }
+    }
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
   &--background-transparent {
     background-color: transparent;
     color: $pix-neutral-50;
-    border: 2px solid $pix-neutral-50;
+    border: 1px solid $pix-neutral-50;
   }
 
   &--background-transparent-light {
-    background-color: transparent;
-    border-color: transparent;
     color: $pix-neutral-90;
+    background-color: transparent;
+
+    &.pix-button--border {
+      border: 1px solid $pix-neutral-50;
+    }
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: $pix-neutral-60;
+        color: $pix-neutral-0;
+        border: 1px solid transparent;
+      }
+
       &:focus,
       &:focus-visible {
-        background-color: rgba($pix-neutral-110, 0.1);
-        outline: none;
+        background-color: $pix-neutral-90;
+        color: $pix-neutral-0;
+        outline: 1px solid $pix-neutral-0;
+        outline-offset: -4px;
       }
 
       &:active {
-        background-color: rgba($pix-neutral-110, 0.2);
-      }
-    }
-
-    &.pix-button--border {
-      border-color: $pix-neutral-50;
-
-      &:not(.pix-button--disabled) {
-        &:hover,
-        &:active {
-          border-color: $pix-neutral-80;
-        }
+        background-color: $pix-neutral-70;
+        outline: none;
       }
     }
   }
 
   &--background-transparent-dark {
-    background-color: transparent;
-    border-color: transparent;
     color: $pix-neutral-0;
+    background-color: transparent;
+
+    &.pix-button--border {
+      border: 1px solid $pix-neutral-0;
+    }
 
     &:not(.pix-button--disabled) {
-      &:hover,
+      &:hover {
+        background-color: $pix-neutral-10;
+        color: $pix-neutral-90;
+        border: 1px solid transparent;
+      }
+
       &:focus,
       &:focus-visible {
-        background-color: rgba($pix-neutral-110, 0.1);
-        outline: none;
+        background-color: $pix-neutral-10;
+        color: $pix-neutral-90;
+        outline: 1px solid $pix-neutral-90;
+        outline-offset: -4px;
       }
 
       &:active {
-        background-color: rgba($pix-neutral-110, 0.2);
+        background-color: $pix-neutral-20;
+        outline: none;
       }
-    }
-
-    &.pix-button--border {
-      border-color: $pix-neutral-0;
     }
   }
 }
