@@ -90,6 +90,12 @@ Ember v4 obligatoire.
 - [#278](https://github.com/1024pix/pix-ui/pull/278) [BREAKING CHANGES][TECH] Améliorer le composant PixMultiSelect (Pix-6025)
 - [#266](https://github.com/1024pix/pix-ui/pull/266) [BREAKING CHANGES][FEATURE] Créer un nouveau PixSelect accessible basé sur PixDropdown/PixSelect (Pix-6018)
 
+## v20.2.4 (16/12/2022)
+
+
+### :coffee: Autre
+- [f9a35c](https://github.com/1024pix/pix-ui/commit/f9a35c4787dc2ae6c7fa62e2cb538bfec84982a9) Relaxer nos version Node.js et npm
+
 ## v20.2.3 (15/11/2022)
 
 
