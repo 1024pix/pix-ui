@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v23.2.0 (16/12/2022)
+
+
+### :rocket: Amélioration
+- [#271](https://github.com/1024pix/pix-ui/pull/271) [FEATURE] Revue du design des boutons (PIX-6218)
+
 ## v23.1.2 (16/12/2022)
 
 
