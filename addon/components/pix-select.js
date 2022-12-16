@@ -41,6 +41,9 @@ export default class PixSelect extends Component {
     if (this.args.errorMessage) {
       classes.push('pix-select-button--error');
     }
+    if (this.args.isDisabled) {
+      classes.push('pix-select-button--disabled');
+    }
     return classes.join(' ');
   }
 
@@ -103,6 +106,7 @@ export default class PixSelect extends Component {
   @action
   showDropdown(event) {
     event.preventDefault();
+    if (this.args.isDisabled) return;
 
     this.isExpanded = true;
   }
@@ -118,6 +122,8 @@ export default class PixSelect extends Component {
 
   @action
   onChange(option, event) {
+    if (this.args.isDisabled) return;
+
     this.args.onChange(option.value);
 
     this.hideDropdown(event);
@@ -156,6 +162,21 @@ export default class PixSelect extends Component {
     const checkIconWidth = 16;
     const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
     const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
-    document.getElementById(`container-${this.selectId}`).style.width = `${selectWidth}rem`;
+
+    const className = `sizing-select-${this.selectId}`;
+    this.createClass(`.${className}`, `width: ${selectWidth}rem;`);
+
+    const element = document.getElementById(`container-${this.selectId}`);
+
+    element.className = element.className + ' ' + className;
+  }
+
+  createClass(name, rules) {
+    var style = document.createElement('style');
+    style.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(style);
+
+    if (!(style.sheet || {}).insertRule) (style.styleSheet || style.sheet).addRule(name, rules);
+    else style.sheet.insertRule(name + '{' + rules + '}', 0);
   }
 }

@@ -99,6 +99,11 @@
   @include hoverFormElement();
   @include focusWithinFormElement();
 
+  &--disabled {
+    @include formElementDisabled();
+    @include hoverFormElementDisabled();
+  }
+
   &--error {
     @include formElementInError();
   }
@@ -155,6 +160,11 @@
         visibility: visible;
         opacity: 1;
       }
+    }
+
+    &--hidden {
+      visibility: hidden;
+      height: 0;
     }
   }
 }
