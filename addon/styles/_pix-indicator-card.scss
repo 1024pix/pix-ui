@@ -1,0 +1,65 @@
+.indicator-card {
+  display: flex;
+  width: 100%;
+  background-color: $pix-neutral-0;
+  border-radius: 8px;
+  min-height: 112px;
+
+  box-shadow: 0 4px 8px rgba($pix-neutral-110, 0.05);
+  padding: 0;
+
+  &__icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 8px 0 0 8px;
+    background-color: $pix-neutral-20;
+    min-width: 96px;
+    font-size: 2.5rem;
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: $pix-neutral-60;
+    padding: $spacing-s $spacing-m;
+    margin: 0;
+  }
+
+  &__title {
+    @include text-large();
+    display: flex;
+    align-items: center;
+    font-weight: $font-medium;
+    font-size: 1rem;
+    line-height: 1.375rem;
+    margin-bottom: $spacing-xxs;
+  }
+
+  &__value {
+    font-family: $font-open-sans;
+    font-weight: $font-medium;
+    font-size: 2rem;
+    line-height: 2.5rem;
+    margin: 0;
+    margin-bottom: $spacing-xxs;
+  }
+
+  &__sub {
+    @include text-small();
+    font-weight: $font-normal;
+    display: flex;
+    gap: 10px;
+    margin: 0
+  }
+
+  &__tooltip {
+    font-weight: $font-normal;
+  }
+
+  &__tooltip-icon {
+    color: $pix-neutral-30;
+    margin: 0 $spacing-xs;
+  }
+}

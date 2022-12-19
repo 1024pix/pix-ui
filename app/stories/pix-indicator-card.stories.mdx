@@ -1,0 +1,38 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import * as stories from './pix-indicator-card.stories.js';
+
+<Meta title="Others/Indicator Card" component="PixIndicatorCard" argTypes={stories.argTypes} />
+
+# Pix Indicator Card
+
+Une carte est un bloc en 2 parties dont les bords sont arrondis et ayant une ombre projetée.
+
+> La carte adapte la couleur de fond avec la couleur de l'icone passée en paramètre.
+
+> La carte peut contenir un titre, une tooltip ainsi que des infos complémentaires.
+
+## Default
+
+<Canvas>
+  <Story name="Default" story={stories.Default} height={200} />
+</Canvas>
+
+## Usage
+
+```html
+    <PixIndicatorCard
+      @title={{this.title}}
+      @color={{this.color}}
+      @icon={{this.icon}}
+      @info={{this.info}}
+      @isLoading={{this.isLoading}}
+      @loadingMessage={{this.loadingMessage}}
+    >
+      <:default>{{this.value}}</:default>
+      <:sub>
+        <span>En cours : 1</span><span>En attente : 2</span><span>Envoyés : 3</span>
+      </:sub>
+    </PixIndicatorCard>
+```
+
+<ArgsTable story="Default" />
