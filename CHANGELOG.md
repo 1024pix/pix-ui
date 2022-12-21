@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v23.2.1 (21/12/2022)
+
+
+### :bug: Correction
+- [#312](https://github.com/1024pix/pix-ui/pull/312) [BUGFIX] Supprime la zone blanche non clickable dans les options du `PixSelect` (PIX-6591)
+
 ## v23.2.0 (16/12/2022)
 
 
