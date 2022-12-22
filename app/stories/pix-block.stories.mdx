@@ -1,11 +1,7 @@
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
 import * as stories from './pix-block.stories.js';
 
-<Meta
-  title='Layout/Block'
-  component='PixBlock'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Layout/Block" component="PixBlock" argTypes={stories.argTypes} />
 
 # Pix Block
 
@@ -21,18 +17,16 @@ Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis et ayant une
   <Story name="Block" story={stories.block} height={60} />
 </Canvas>
 
-
 ## Usage
 
 ```html
 <PixBlock @shadow="light">
-  <div> Un bloc avec une ombre faible </div>
+  <div>Un bloc avec une ombre faible</div>
 </PixBlock>
 
 <PixBlock @shadow="heavy">
-  <div> Un bloc avec une ombre forte </div>
+  <div>Un bloc avec une ombre forte</div>
 </PixBlock>
-
 ```
 
 ## Arguments
