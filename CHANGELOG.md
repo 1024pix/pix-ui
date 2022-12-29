@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v23.3.0 (29/12/2022)
+
+
+### :rocket: Amélioration
+- [#307](https://github.com/1024pix/pix-ui/pull/307) [FEATURE] Création du composant carte (PIX-6141).
+
+### :building_construction: Tech
+- [#313](https://github.com/1024pix/pix-ui/pull/313) [TECH] Ne plus ajouter de lien vers la review-app dans la pull-request 
+
 ## v23.2.1 (21/12/2022)
 
 
