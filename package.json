@@ -1,6 +1,6 @@
 {
   "name": "@1024pix/pix-ui",
-  "version": "23.2.0",
+  "version": "23.3.0",
   "description": "Pix-UI is the implementation of Pix design principles and guidelines for its products.",
   "keywords": [
     "ember-addon"
@@ -23,7 +23,7 @@
     "test": "tests"
   },
   "scripts": {
-    "build": "./scripts/build.sh && npm run signal-github",
+    "build": "./scripts/build.sh",
     "build-ember": "ember build --environment=production",
     "build-storybook": "ember build && cp -v CNAME dist && build-storybook -s dist",
     "clean": "rm -rf dist node_modules",
@@ -39,10 +39,10 @@
     "storybook": "ember build && ember serve & start-storybook -p 9001 -s dist",
     "test": "ember test",
     "test:ember": "ember test",
-    "test:ember-compatibility": "ember try:each",
-    "signal-github": "./scripts/signal-deploy-to-pr.sh"
+    "test:ember-compatibility": "ember try:each"
   },
   "dependencies": {
+    "color": "^4.2.3",
     "ember-cli-babel": "^7.26.8",
     "ember-cli-htmlbars": "^6.1.1",
     "ember-cli-sass": "^11.0.1",
@@ -82,6 +82,7 @@
     "core-js": "^3.26.1",
     "ember-auto-import": "^2.5.0",
     "ember-cli": "^4.8.0",
+    "ember-cli-cjs-transform": "^2.0.0",
     "ember-cli-dependency-checker": "^3.3.1",
     "ember-cli-inject-live-reload": "^2.1.0",
     "ember-cli-sri": "^2.1.1",
