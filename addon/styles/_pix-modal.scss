@@ -35,7 +35,7 @@ $space-between-title-and-close-button: 8px;
 $button-margin: 16px;
 
 .pix-modal {
-  @import 'reset-css';
+  
   display: inline-block;
   vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
   width: 512px;

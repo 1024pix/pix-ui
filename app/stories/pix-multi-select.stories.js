@@ -8,7 +8,7 @@ const Template = (args) => ({
       border : none;
     }
   </style>
-  <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+  <h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
   {{#if this.id}}
     <div>
       <label for={{this.id}}>Un label en dehors du composant</label>
@@ -54,7 +54,7 @@ Default.args = {
 export const multiSelectWithChildComponent = (args) => {
   return {
     template: hbs`
-      <h4>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</h4>
+      <h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
       <PixMultiSelect
         @label={{this.label}}
         @placeholder={{this.placeholder}}
