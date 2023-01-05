@@ -1,16 +1,25 @@
 <PixModal
   @showModal={{this.showModal}}
   @title={{this.title}}
-  @onClose={{fn (mut this.showModal) (not this.showModal)}}
+  @onClose={{this.onClose}}
 >
   <:content>
-    <LinkTo @route="hello" class="internal-link">My link</LinkTo>
+    <form>
+      <p>
+        <label for="test">Input 1</label>
+        <input type="text" name="test" id="test">
+      </p>
+      <p>
+        <label for="test2">Input 2</label>
+        <input type="checkbox" name="test2" id="test2">
+      </p>
+    </form>
   </:content>
   <:footer>
     <PixButton
       @backgroundColor="transparent-light"
       @isBorderVisible="true"
-      @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
+      @triggerAction={{this.onClose}}
     >Annuler</PixButton>
     <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Valider</PixButton>
   </:footer>

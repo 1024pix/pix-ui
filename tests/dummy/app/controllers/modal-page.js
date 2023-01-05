@@ -7,5 +7,12 @@ export default class ModalPage extends Controller {
   title = "Qu'est-ce qu'une modale ?";
 
   @action
-  onClose() {}
+  onClose(event) {
+    this.showModal = !this.showModal;
+
+    const currentModal = event.target.closest('.pix-modal');
+    if (currentModal.querySelector('form').length) {
+      currentModal.querySelector('form').reset();
+    }
+  }
 }
