@@ -1,6 +1,4 @@
 .pix-collapsible {
-  @import 'reset-css';
-
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -21,7 +19,6 @@
     border: none;
     color: $pix-neutral-60;
     font-size: 1rem;
-    font-weight: 500;
     align-items: center;
 
     &:hover {

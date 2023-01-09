@@ -1,4 +1,5 @@
 @import 'pix-design-tokens';
+@import 'normalize-reset';
 @import 'a11y';
 @import 'pix-background-header';
 @import 'pix-banner';
@@ -17,7 +18,6 @@
 @import 'pix-tag';
 @import 'pix-textarea';
 @import 'pix-tooltip';
-@import 'pix-button-link';
 @import 'pix-button-upload';
 @import 'pix-input';
 @import 'pix-input-password';
@@ -35,15 +35,3 @@
 
 // at the end so it can override it's children scss
 @import 'pix-filterable-and-searchable-select';
-
-html {
-  font-size: 16px;
-}
-
-body {
-  font-family: $font-roboto;
-}
-
-* {
-  box-sizing: border-box;
-}

@@ -9,7 +9,7 @@ export const Template = (args) => {
   @labelSize={{this.labelSize}}
   @checked={{this.checked}}
 >
-  {{label}}
+  {{this.label}}
 </PixCheckbox>`,
     context: args,
   };
