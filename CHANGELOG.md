@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v24.0.0 (09/01/2023)
+
+
+### :coffee: Autre
+- [#314](https://github.com/1024pix/pix-ui/pull/314) [BREAKING_CHANGE] Ajouter un normalize/reset css dans Pix UI (pix-6723)
+
 ## v23.3.0 (29/12/2022)
 
 
