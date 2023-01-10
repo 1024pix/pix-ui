@@ -139,7 +139,7 @@ export default class PixSelect extends Component {
   lockTab(event) {
     if (event.code === 'Tab' && this.isExpanded) {
       event.preventDefault();
-      document.getElementById(this.searchId).focus();
+      if (this.args.isSearchable) document.getElementById(this.searchId).focus();
     }
   }
 
