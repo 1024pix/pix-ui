@@ -1,17 +1,21 @@
-<div class="pix-search-input" ...attributes>
+<div class="pix-search-input">
   {{#if this.label}}
-    <label for={{this.searchInputId}} class="pix-input__label">{{this.label}}</label>
+    <label for={{this.searchInputId}} class="pix-search-input__label">{{this.label}}</label>
   {{/if}}
 
-  <FaIcon @icon="magnifying-glass" />
-  {{! template-lint-disable require-input-label }}
-  <input
-    id={{this.searchInputId}}
-    role="searchbox"
-    name={{@inputName}}
-    placeholder={{@placeholder}}
-    aria-label={{this.ariaLabel}}
-    value={{@value}}
-    oninput={{this.onSearch}}
-  />
+  <div class="pix-search-input__input-container">
+    <FaIcon @icon="magnifying-glass" />
+    {{! template-lint-disable require-input-label }}
+    <input
+      id={{this.searchInputId}}
+      class="pix-search-input__input"
+      role="searchbox"
+      name={{@inputName}}
+      placeholder={{@placeholder}}
+      aria-label={{this.ariaLabel}}
+      value={{@value}}
+      oninput={{this.onSearch}}
+      ...attributes
+    />
+  </div>
 </div>

@@ -1,0 +1,43 @@
+.pix-search-input {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
+.pix-search-input__label {
+  font-family: $font-roboto;
+  font-size: 0.875rem;
+  color: $pix-neutral-70;
+  margin-bottom: 4px;
+}
+
+.pix-search-input__input-container {
+  position: relative;
+
+  svg {
+    position: absolute;
+    bottom: calc(50% - 9px);
+    left: 6px;
+    color: $pix-neutral-60;
+    font-size: 0.6rem;
+    padding-left: 2px;
+    width: 18px;
+    height: 18px;
+  }
+}
+
+.pix-search-input__input {
+  @include input();
+  @include hoverFormElement();
+  @include focusFormElement();
+
+  width: 100%;
+  height: 36px;
+  border: 1px solid $pix-neutral-40;
+  padding-left: $spacing-xl;
+
+  &::placeholder {
+    color: $pix-neutral-30;
+  }
+}
+
