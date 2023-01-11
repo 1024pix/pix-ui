@@ -7,6 +7,7 @@ export const Template = (args) => {
       <style>
         .custom {
           border: 0;
+          width: 150px;
         }
         .custom:hover {
           border: 0;
