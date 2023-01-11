@@ -1,0 +1,17 @@
+<div class="pix-search-input" ...attributes>
+  {{#if this.label}}
+    <label for={{this.searchInputId}} class="pix-input__label">{{this.label}}</label>
+  {{/if}}
+
+  <FaIcon @icon="magnifying-glass" />
+  {{! template-lint-disable require-input-label }}
+  <input
+    id={{this.searchInputId}}
+    role="searchbox"
+    name={{@inputName}}
+    placeholder={{@placeholder}}
+    aria-label={{this.ariaLabel}}
+    value={{@value}}
+    oninput={{this.onSearch}}
+  />
+</div>
