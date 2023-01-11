@@ -108,6 +108,12 @@
     @include formElementInError();
   }
 
+  &__text {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+  }
+
   &__dropdown-icon {
     @include text-small();
     margin-left: $spacing-xs;
