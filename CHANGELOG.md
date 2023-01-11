@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v24.0.1 (11/01/2023)
+
+
+### :bug: Correction
+- [#315](https://github.com/1024pix/pix-ui/pull/315) [BUGFIX] Améliorer le comportement du PixSelect (PIX-6775)
+- [#317](https://github.com/1024pix/pix-ui/pull/317) [BUGFIX] La CI sort en erreur alors que les tests sont OK en local
+
 ## v24.0.0 (09/01/2023)
 
 
