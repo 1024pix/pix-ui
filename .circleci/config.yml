@@ -17,12 +17,14 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/node:16.14.0-browsers
+    resource_class: small
+    working_directory: ~/pix-ui
     steps:
-      - run: sudo npm i -g npm@8.13.2
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
-      - checkout
-      - run: npm ci
-      - run: npm run lint:js
-      - run: npm run lint:hbs
-      - run: npm test
+        - run: sudo npm i -g npm@8.13.2
+        - browser-tools/install-chrome
+        - browser-tools/install-chromedriver
+        - checkout
+        - run: npm ci
+        - run: npm run lint:js
+        - run: npm run lint:hbs
+        - run: npm test
