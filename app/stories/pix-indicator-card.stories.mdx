@@ -17,6 +17,11 @@ Une carte est un bloc en 2 parties dont les bords sont arrondis et ayant une omb
   <Story name="Default" story={stories.Default} height={200} />
 </Canvas>
 
+## WithIconPrefix
+<Canvas>
+  <Story name="WithIconPrefix" story={stories.withIconPrefix} height={200} />
+</Canvas>
+
 ## Usage
 
 ```html
@@ -24,6 +29,7 @@ Une carte est un bloc en 2 parties dont les bords sont arrondis et ayant une omb
       @title={{this.title}}
       @color={{this.color}}
       @icon={{this.icon}}
+      @iconPrefix={{this.iconPrefix}}
       @info={{this.info}}
       @isLoading={{this.isLoading}}
       @loadingMessage={{this.loadingMessage}}

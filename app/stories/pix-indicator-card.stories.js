@@ -8,6 +8,7 @@ const Template = (args) => {
         @title={{this.title}}
         @color={{this.color}}
         @icon={{this.icon}}
+        @iconPrefix={{this.iconPrefix}}
         @info={{this.info}}
         @isLoading={{this.isLoading}}
         @loadingMessage={{this.loadingMessage}}
@@ -33,6 +34,12 @@ Default.args = {
   loadingMessage: 'texte de chargement ScreenReader',
 };
 
+export const withIconPrefix = Template.bind({});
+withIconPrefix.args = {
+  ...Default.args,
+  iconPrefix: 'far',
+};
+
 export const argTypes = {
   title: {
     name: 'Title',
@@ -45,6 +52,12 @@ export const argTypes = {
   icon: {
     name: 'Icon',
     description: "Icone dans l'encart",
+  },
+  iconPrefix: {
+    name: 'IconPrefix',
+    description:
+      "Préfixe pour l'icone dans l'encart - permet d'utiliser une variation de l'icone font awesome différente de celle par défaut (fa).",
+    defaultValue: null,
   },
   value: {
     name: 'Value',
