@@ -24,6 +24,6 @@ export default function (hex) {
     contrast = color.contrast(newColor);
 
     // newColor.luminosity() can return 0.9999..99 when newColor is white but reinstanciating Color with the hexacode #FFFFFF returns 1
-  } while (contrast < 4.5 && Color(newColor.hex()).luminosity() < 1);
+  } while (contrast < 3 && Color(newColor.hex()).luminosity() < 1);
   return newColor.hex();
 }

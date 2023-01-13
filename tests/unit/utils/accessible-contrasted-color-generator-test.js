@@ -10,7 +10,7 @@ module('Unit | Utils | Accessible Contrasted Color Generator', function () {
     const newColor = getAccessibleContrastedColor('#176C4D');
     // then
     const contrast = color.contrast(Color(newColor));
-    assert.ok(contrast >= 4.5);
+    assert.ok(contrast >= 3);
   });
 
   test('It return a dark background color from a light foreground color', function (assert) {
@@ -20,7 +20,7 @@ module('Unit | Utils | Accessible Contrasted Color Generator', function () {
     const newColor = getAccessibleContrastedColor('#edfbf6');
     // then
     const contrast = color.contrast(Color(newColor));
-    assert.ok(contrast >= 4.5);
+    assert.ok(contrast >= 3);
   });
 
   // See this link to have explaination about this edge case : https://github.com/Qix-/color/issues/53#issue-57856520
@@ -31,12 +31,12 @@ module('Unit | Utils | Accessible Contrasted Color Generator', function () {
     const newColor = getAccessibleContrastedColor('#000');
     const contrast = color.contrast(Color(newColor));
     // then
-    assert.ok(contrast >= 4.5);
+    assert.ok(contrast >= 3);
   });
 
-  test("It return the white hexadecimal when the contrast of 4.5 can't be reached", function (assert) {
+  test("It return the white hexadecimal when the contrast of 3 can't be reached", function (assert) {
     // when
-    const color = getAccessibleContrastedColor('#808080');
+    const color = getAccessibleContrastedColor('#B5B5B5');
     // then
     assert.strictEqual(color.toLowerCase(), '#ffffff');
   });
