@@ -1,13 +1,13 @@
 @mixin hoverFormElement() {
   &:hover {
-    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-70;
+    box-shadow: inset 0 0 0 0.6px $pix-neutral-70;
     background-color: $pix-neutral-5;
   }
 }
 
 @mixin hoverFormElementDisabled() {
   &:hover {
-    box-shadow: inset 0px 0px 0px 0.6px $pix-neutral-70;
+    box-shadow: inset 0 0 0 0.6px $pix-neutral-70;
     background-color: $pix-neutral-20;
   }
 }
@@ -19,7 +19,7 @@
 @mixin focusFormElement() {
   &:focus {
     border-color: $pix-primary;
-    box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
+    box-shadow: inset 0 0 0 0.6px $pix-primary;
     outline: none;
   }
 }
@@ -27,7 +27,7 @@
 @mixin focusWithinFormElement() {
   &:focus-within {
     border-color: $pix-primary;
-    box-shadow: inset 0px 0px 0px 0.6px $pix-primary;
+    box-shadow: inset 0 0 0 0.6px $pix-primary;
     outline: none;
   }
 }
@@ -43,7 +43,7 @@
 }
 
 @mixin subLabel() {
-  @include label();
+  @include label;
 
   font-size: 0.813rem;
   line-height: 1rem;
@@ -60,7 +60,7 @@
 
 @mixin formElementInError() {
   border-color: $pix-error-70;
-  box-shadow: inset 0px 0px 0px 0.6px $pix-error-70;
+  box-shadow: inset 0 0 0 0.6px $pix-error-70;
 }
 
 @mixin input() {
@@ -73,7 +73,8 @@
 }
 
 .pix-form__label {
-  @include label();
+  @include label;
+
   padding-bottom: 12px;
 }
 

@@ -2,7 +2,7 @@
 
 // Mixin pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
 @mixin shadow($verticalSize, $blur) {
-  box-shadow: 0 $verticalSize $blur rgba(7, 20, 46, 0.08);
+  box-shadow: 0 $verticalSize $blur rgb(7 20 46 / 8%);
 }
 
 @mixin shadow-xs() {

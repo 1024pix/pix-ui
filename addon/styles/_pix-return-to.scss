@@ -71,9 +71,11 @@
   &--white {
     @include coloriseLink($pix-neutral-10, $pix-neutral-0, $pix-neutral-0);
   }
+
   &--black {
     @include coloriseLink($pix-neutral-80, $pix-neutral-110, $pix-neutral-60);
   }
+
   &--blue {
     @include coloriseLink($pix-communication-dark, $pix-primary-60, $pix-communication-dark);
   }

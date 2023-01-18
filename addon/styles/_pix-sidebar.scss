@@ -6,7 +6,7 @@
   left: 0;
   right: 0;
   overflow-y: scroll;
-  background-color: rgba(52, 69, 99, 0.7);
+  background-color: rgb(52 69 99 / 70%);
   transition: all .3s ease-in-out;
 
   &--hidden {
@@ -22,12 +22,11 @@ $space-between-title-and-close-button: 8px;
 $button-margin: 16px;
 
 .pix-sidebar {
-  
   display: flex;
   flex-direction: column;
   height: 100%;
   max-width: 320px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  box-shadow: 1px 1px 5px rgb(0 0 0 / 10%);
   background: $pix-neutral-0;
   transform: translate(0);
   transition: transform .3s ease-in-out;
@@ -60,6 +59,7 @@ $button-margin: 16px;
 
   &__title {
     @include h4;
+
     margin-bottom: 0;
     color: $pix-neutral-90;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;

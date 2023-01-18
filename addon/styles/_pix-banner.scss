@@ -5,21 +5,24 @@
   display: flex;
   align-items: center;
   font-size: 0.875rem;
-  box-shadow: 0px 4px 8px rgba(7, 20, 46, 0.08);
+  box-shadow: 0 4px 8px rgb(7 20 46 / 8%);
 
   &__action {
     text-decoration: underline;
     color: inherit;
+
     .external-link {
       margin-left: 4px;
       font-size: 0.875rem;
     }
   }
+
   &__close {
     display: flex;
     margin-left: auto;
     padding-left: 8px;
   }
+
   &__icon {
     font-size: 1.125rem;
     margin-right: $spacing-xs;
@@ -28,9 +31,11 @@
   &--information {
     background-color: $pix-primary-5;
     color: $pix-primary-70;
+
     .pix-icon-button {
       background-color: $pix-primary-5;
       color: $pix-primary-70;
+
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
@@ -47,9 +52,11 @@
   &--warning {
     background-color: $pix-warning-5;
     color: $pix-warning-70;
+
     .pix-icon-button {
       background-color: $pix-warning-5;
       color: $pix-warning-70;
+
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
@@ -66,9 +73,11 @@
   &--error {
     background-color: $pix-error-5;
     color: $pix-error-70;
+
     .pix-icon-button {
       background-color: $pix-error-5;
       color: $pix-error-70;
+
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {

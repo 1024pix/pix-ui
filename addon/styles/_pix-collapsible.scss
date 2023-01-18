@@ -42,12 +42,12 @@
       flex-grow: 1;
     }
 
-    &__icon{
+    &__icon {
       color: $pix-neutral-45;
       margin-right: 6px;
     }
 
-    &__toggle-icon{
+    &__toggle-icon {
       color: $pix-neutral-45;
       margin-left: 16px;
     }
@@ -90,6 +90,6 @@
 
 // Pour le deuxième élément d'affilé qui est refermé, on enlève la bordure-top
 .pix-collapsible:not(.pix-collapsible--uncollapsed)
-  + .pix-collapsible:not(.pix-collapsible--uncollapsed) {
++ .pix-collapsible:not(.pix-collapsible--uncollapsed) {
   border-top: none;
 }

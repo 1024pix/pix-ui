@@ -13,9 +13,11 @@
     &--small {
       @include text-small;
     }
+
     &--default {
       @include text;
     }
+
     &--large {
       @include text-large;
     }
@@ -31,11 +33,11 @@
     position: relative;
 
     &:hover, &:focus {
-      box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px $pix-neutral-15;
+      box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%), 0 0 0 6px $pix-neutral-15;
     }
 
     &:active {
-      box-shadow: inset 0 1px 3px rgba(0,0,0, .1), 0 0 0 6px $pix-neutral-22;
+      box-shadow: inset 0 1px 3px rgb(0 0 0 / 10%), 0 0 0 6px $pix-neutral-22;
     }
 
     &:checked {

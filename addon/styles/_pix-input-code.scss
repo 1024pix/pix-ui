@@ -4,12 +4,12 @@
   // hide up/down cursors
   input[type='number'] {
     // Firefox
-    -moz-appearance: textfield;
+    appearance: textfield;
 
     // The rest
     &::-webkit-inner-spin-button,
     &::-webkit-outer-spin-button {
-      -webkit-appearance: none;
+      appearance: none;
     }
   }
 
@@ -39,7 +39,7 @@
     text-align: center;
     outline: none;
 
-    @include hoverFormElement();
+    @include hoverFormElement;
 
     &:not(:first-child) {
       margin-left: 4px;

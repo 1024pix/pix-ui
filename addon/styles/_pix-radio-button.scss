@@ -40,7 +40,7 @@
     &:checked {
       border-color: $pix-primary;
 
-      &:after {
+      &::after {
         background-color: $pix-primary;
         border-radius: 50%;
         content: '';
@@ -59,7 +59,7 @@
       box-shadow: none;
       cursor: not-allowed;
 
-      &:checked:after {
+      &:checked::after {
         background-color: $pix-neutral-25;
       }
     }

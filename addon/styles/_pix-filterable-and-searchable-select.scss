@@ -5,20 +5,21 @@
   border-radius: 4px;
 
   &--error {
-    @include formElementInError();
+    @include formElementInError;
   }
 
   &__label {
-    @include label();
+    @include label;
   }
 
   &__sub-label {
-    @include subLabel();
+    @include subLabel;
   }
 
   &__pix-multi-select,
   &__pix-select {
     border: none;
+
     &:hover {
       border: none;
       box-shadow: none;
@@ -26,21 +27,22 @@
   }
 
   &__error-message {
-    @include errorMessage();
+    @include errorMessage;
   }
+
   .pix-multi-select {
     margin-right: 2px;
 
-    [role="menu"] {
+    [role='menu'] {
       width: fit-content;
     }
   }
 
   &__pix-multi-select {
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0 0 4px;
     position: relative;
 
-    &:after {
+    &::after {
       height: 22px;
       width: 2px;
       content: '';
@@ -52,6 +54,6 @@
   }
 
   &__pix-select {
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0 4px 4px 0;
   }
 }

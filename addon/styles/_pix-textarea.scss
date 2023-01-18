@@ -10,11 +10,11 @@
     font-size: 0.875rem;
     resize: vertical;
 
-    @include hoverFormElement();
-    @include focusFormElement();
+    @include hoverFormElement;
+    @include focusFormElement;
 
     &.pix-textarea--error {
-      @include formElementInError();
+      @include formElementInError;
     }
   }
 
@@ -28,10 +28,10 @@
   }
 
   &__label {
-    @include label();
+    @include label;
   }
 
   &__error-message {
-    @include errorMessage();
+    @include errorMessage;
   }
 }

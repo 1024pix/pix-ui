@@ -15,7 +15,6 @@
     font-size: 0.75rem;
     margin-top: 4px;
     color: $pix-neutral-60;
-
     display: block;
   }
 
@@ -37,7 +36,8 @@
   }
 
   &__error-message {
-    @include errorMessage();
+    @include errorMessage;
+
     margin-bottom: 0;
     bottom: calc(-4px - 1px - 0.75rem);
 
@@ -51,9 +51,9 @@
     height: 36px;
     border: 1px solid $pix-neutral-40;
 
-    @include input();
-    @include hoverFormElement();
-    @include focusFormElement();
+    @include input;
+    @include hoverFormElement;
+    @include focusFormElement;
 
     &::placeholder {
       color: $pix-neutral-30;
@@ -61,7 +61,7 @@
 
     &.pix-input__input--error {
       padding-right: 32px;
-      @include formElementInError();
+      @include formElementInError;
     }
   }
 }
