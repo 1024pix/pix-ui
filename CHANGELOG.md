@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v24.0.3 (18/01/2023)
+
+
+### :building_construction: Tech
+- [#321](https://github.com/1024pix/pix-ui/pull/321) [TECH] Stabilise le premier lancement de Storybook en dev
+
 ## v24.0.2 (18/01/2023)
 
 
