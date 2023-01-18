@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v24.0.2 (18/01/2023)
+
+
+### :rocket: Amélioration
+- [#319](https://github.com/1024pix/pix-ui/pull/319) [FEATURE] Ajouter un argument IconPrefixe au composant IndicatorCard afin d'autoriser l'utilisation d'icônes personnalisées (PIX-6809)
+
+### :building_construction: Tech
+- [#318](https://github.com/1024pix/pix-ui/pull/318) [TECH] Changement du ratio minimal pour la couleur de fond accessible de 4.5 à 3 (PIX-6802)
+
 ## v24.0.1 (11/01/2023)
 
 
