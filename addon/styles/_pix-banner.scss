@@ -31,64 +31,64 @@
   &--information {
     background-color: $pix-primary-5;
     color: $pix-primary-70;
-
-    .pix-icon-button {
-      background-color: $pix-primary-5;
-      color: $pix-primary-70;
-
-      &:hover:enabled,
-      &:focus:enabled,
-      &:active:enabled {
-        background-color: $pix-primary-10;
-        color: $pix-primary-70;
-      }
-
-      &:focus:enabled {
-        outline-color: $pix-primary-70;
-      }
-    }
   }
 
   &--warning {
     background-color: $pix-warning-5;
     color: $pix-warning-70;
-
-    .pix-icon-button {
-      background-color: $pix-warning-5;
-      color: $pix-warning-70;
-
-      &:hover:enabled,
-      &:focus:enabled,
-      &:active:enabled {
-        background-color: $pix-warning-10;
-        color: $pix-warning-70;
-      }
-
-      &:focus:enabled {
-        outline-color: $pix-warning-70;
-      }
-    }
   }
 
   &--error {
     background-color: $pix-error-5;
     color: $pix-error-70;
+  }
 
-    .pix-icon-button {
-      background-color: $pix-error-5;
-      color: $pix-error-70;
+  &--information .pix-icon-button {
+    background-color: $pix-primary-5;
+    color: $pix-primary-70;
+  }
 
-      &:hover:enabled,
-      &:focus:enabled,
-      &:active:enabled {
-        background-color: $pix-error-10;
-        color: $pix-error-70;
-      }
+  &--warning .pix-icon-button {
+    background-color: $pix-warning-5;
+    color: $pix-warning-70;
+  }
 
-      &:focus:enabled {
-        outline-color: $pix-error-70;
-      }
-    }
+  &--error .pix-icon-button {
+    background-color: $pix-error-5;
+    color: $pix-error-70;
+  }
+
+  &--information .pix-icon-button &:hover:enabled,
+  &--information .pix-icon-button &:focus:enabled,
+  &--information .pix-icon-button &:active:enabled {
+    background-color: $pix-primary-10;
+    color: $pix-primary-70;
+  }
+
+  &--information .pix-icon-button &:focus:enabled {
+    outline-color: $pix-primary-70;
+  }
+
+  &--warning .pix-icon-button &:hover:enabled,
+  &--warning .pix-icon-button &:focus:enabled,
+  &--warning .pix-icon-button &:active:enabled {
+    background-color: $pix-warning-10;
+    color: $pix-warning-70;
+  }
+
+  &--warning .pix-icon-button &:focus:enabled {
+    outline-color: $pix-warning-70;
+  }
+
+  &--error .pix-icon-button &:hover:enabled,
+  &--error .pix-icon-button &:focus:enabled,
+  &--error .pix-icon-button &:active:enabled {
+    background-color: $pix-error-10;
+    color: $pix-error-70;
+  }
+
+  &--error .pix-icon-button &:focus:enabled {
+    outline-color: $pix-error-70;
   }
 
   &--communication {

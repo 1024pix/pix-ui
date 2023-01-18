@@ -6,6 +6,14 @@
     height: 36px;
   }
 
+  &__acquired {
+    fill: url('#pix-stars-default');
+  }
+
+  &__unacquired {
+    fill: $pix-neutral-15;
+  }
+
   &--blue > &__acquired {
     fill: $pix-primary;
   }
@@ -21,13 +29,5 @@
   &--grey > &__unacquired {
     fill: $pix-neutral-0;
     stroke: $pix-neutral-40;
-  }
-
-  &__acquired {
-    fill: url('#pix-stars-default');
-  }
-
-  &__unacquired {
-    fill: $pix-neutral-15;
   }
 }
