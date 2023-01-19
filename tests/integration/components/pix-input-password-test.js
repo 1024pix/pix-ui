@@ -1,6 +1,7 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
@@ -120,5 +121,20 @@ module('Integration | Component | pix-input-password', function (hooks) {
     // then
     const requiredPasswordInput = screen.getByLabelText('* Mot de passe');
     assert.dom(requiredPasswordInput).isRequired();
+  });
+
+  module('when the password visibility button is clicked', function () {
+    test('it should focus on input', async function (assert) {
+      // given
+      const screen = await render(
+        hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`
+      );
+
+      // when
+      await click(screen.getByRole('button', { name: 'Afficher le mot de passe' }));
+
+      // then
+      assert.dom(screen.getByRole('textbox', { name: 'Mot de passe' })).isFocused();
+    });
   });
 });

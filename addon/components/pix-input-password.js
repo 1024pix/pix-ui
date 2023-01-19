@@ -25,5 +25,9 @@ export default class PixInputPassword extends PixInput {
   @action
   togglePasswordVisibility() {
     this.isPasswordVisible = !this.isPasswordVisible;
+    const InputElement = document.getElementById(this.args.id);
+    if (InputElement) {
+      InputElement.focus();
+    }
   }
 }
