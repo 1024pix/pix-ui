@@ -1,0 +1,41 @@
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+
+import * as stories from './pix-search-input.stories.js';
+
+<Meta
+  title='Others/SearchInput'
+  component='PixSearchInput'
+  argTypes={stories.argTypes}
+/>
+
+# PixSearchInput
+
+Le PixSearchInput est un champ qui permet de filter des résultats. Un cas d'utilisation courant de ce genre de composant est un champ de filtre d'une colonne d'un tableau.
+
+
+A la différence d'un [PixSelect](?path=/docs/form-select--default#withsearch) searchable, la liste des résultats s'affiche en dehors du composant.
+
+
+Ce composant permet d'appeler la fonction triggerFiltering passée en paramètre selon un debounce (temps d'attente avant le prochain appel) fournis.
+
+
+<Canvas>
+  <Story name='Default' story={stories.Default} height={80} />
+</Canvas>
+
+## Usage
+
+```html
+<PixSearchInput
+  @id={{this.id}}
+  @label={{this.label}}
+  @ariaLabel={{this.ariaLabel}}
+  @placeholder={{this.placeholder}}
+  @debounceTimeInMs={{this.debounceTimeInMs}}
+  @triggerFiltering={{this.triggerFiltering}}
+/>
+```
+
+## Arguments
+
+<ArgsTable story="Default" />
