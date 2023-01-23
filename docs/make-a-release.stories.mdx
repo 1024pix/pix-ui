@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
-<Meta title='Développement/Faire une release' />
+<Meta title="Développement/Faire une release" />
 
 # Faire une release
 
@@ -19,11 +19,12 @@ Par ailleurs, sur Pix UI une release signifie aussi la mise à jour automatique 
 ## Effectuer la release, méthode via slack (conseillée)
 
 Aller dans le canal slack dédié aux releases : [#tech-releases](https://1024pix.slack.com/archives/CVAMDQYHY), puis taper la commande suivante :
+
 - `/publish-pix-ui <version_souhaitée>`
-    `<version_souhaitée>` peut prendre 3 valeurs :
-    - `patch` : correctif de bug
-    - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix UI
-    - `major` : modifications apportant des breaking changes
+  `<version_souhaitée>` peut prendre 3 valeurs :
+  - `patch` : correctif de bug
+  - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix UI
+  - `major` : modifications apportant des breaking changes
 
 Vous devriez voir apparaître dans le canal un premier message (visible uniquement par vous) de Pix-bot vous indiquant
 que la demande de déploiement pour Pix UI a bien été prise en compte.
@@ -34,33 +35,35 @@ indiquant le numéro de sa nouvelle version.
 Et voilà 🎉
 
 Si vous souhaitez suivre le déroulement de la release, consulter les [logs](https://github.com/1024pix/pix-ui/actions/workflows/deploy-storybook.yml)
-de la  GitHub action `Deploy Pix UI Storybook`.
+de la GitHub action `Deploy Pix UI Storybook`.
 
 ## Constater le bon fonctionnement de la release
 
 Pour vérifier si la release s'est bien déroulée :
+
 - vérifier le contenu du [CHANGELOG.md](../CHANGELOG.md) : contient-il toutes les PR qui ont été mergées récemment sur la branche `dev` ?
 - vérifier si notre [Storybook en ligne](https://1024pix.github.io/pix-ui/) montre bien les nouveaux composants.
 
-
 ## Effectuer la release, méthode à la mano (déconseillée)
+
 Après s'être mis à jour sur la branche dev, lancer le script de publication :
+
 - `git checkout dev`
 - `git pull`
 - `./scripts/publish.sh <version_souhaitée>`
 
   `<version_souhaitée>` peut prendre 3 valeurs :
-    - `patch` : correctif de bug
-    - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix UI
-    - `major` : modifications apportant des breaking changes
+
+  - `patch` : correctif de bug
+  - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix UI
+  - `major` : modifications apportant des breaking changes
 
 Pour plus d'informations au sujet de la version à choisir se référencer à [SemVer](https://semver.org/lang/fr/).
 
 Le script de publication effectuera automatiquement les actions suivantes :
+
 - mise à jour de la version du projet dans le `package.json`
 - création d'un tag git correspondant à la nouvelle version
 - mise à jour de la liste des changements dans le [CHANGELOG.md](../CHANGELOG.md)
 - mise à jour de la branche `master` par rapport à `dev`
 - re-[déploiement de storybook sur les GitHub Pages](/?path=/docs/développement-storybook--page)
-
-

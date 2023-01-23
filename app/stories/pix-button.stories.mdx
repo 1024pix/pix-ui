@@ -1,11 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable, SourceContainer } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable, SourceContainer } from '@storybook/addon-docs';
 import * as stories from './pix-button.stories.js';
 
-<Meta
-  title='Basics/Button'
-  component='PixButton'
-  argTypes={stories.argsTypes}
-/>
+<Meta title="Basics/Button" component="PixButton" argTypes={stories.argsTypes} />
 
 # Pix Button
 
@@ -51,6 +47,7 @@ Utiliser le composant `<PixButtonLink />` à la place.
 
 Le bouton avec loader.
 Le loader peut être affiché de deux façons :
+
 - En passant une promesse dans l'attribut `@triggerAction`
 - En passant directement l'attribut `@isLoading={{true}}`
 
@@ -80,13 +77,14 @@ Un petit bouton avec les bords arrondis en fond transparent avec une bordure
 
 ```html
 <PixButton
-  @triggerAction={{action triggerAction}}
+  @triggerAction="{{action"
+  triggerAction}}
   @loadingColor="white"
   @shape="squircle"
   @backgroundColor="transparent-light"
-  @isDisabled={{false}}
+  @isDisabled="{{false}}"
   @size="small"
-  @isBorderVisible={{true}}
+  @isBorderVisible="{{true}}"
 >
   Cliquez-moi
 </PixButton>

@@ -1,11 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as stories from './pix-return-to.stories.js';
 
-<Meta
-  title='Basics/Return To'
-  component='PixReturnTo'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Basics/Return To" component="PixReturnTo" argTypes={stories.argTypes} />
 
 # Pix Return To
 
@@ -26,12 +22,10 @@ Le `ReturnTo` est un lien de retour vers uneOpixRe page précédente.
 
 ```html
 Liens avec texte
-<PixReturnTo @route='profile'>
-  Un lien de retour
-</PixReturnTo>
+<PixReturnTo @route="profile"> Un lien de retour </PixReturnTo>
 
 Liens sans texte
-<PixReturnTo @route='profile' />
+<PixReturnTo @route="profile" />
 ```
 
 ## Arguments

@@ -1,11 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as stories from './pix-select.stories.js';
 
-<Meta
-  title='Form/Select'
-  component='PixSelect'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Form/Select" component="PixSelect" argTypes={stories.argTypes} />
 
 # Pix Select
 
@@ -13,9 +9,9 @@ Affiche un menu déroulant avec la liste des options fournies.
 
 Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
 
-> **⚠️** __Il est nécessaire d'avoir au moins un label ou un placeholder !__
+> **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
 
-> **⚠️** __N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !__
+> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
 
 > Pour aider l'utilisateur, rajoutez un placeholder cohérent !
 
@@ -24,59 +20,58 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 ## Default
 
 <Canvas>
-  <Story name='Default' story={stories.Default} height={200} />
+  <Story name="Default" story={stories.Default} height={200} />
 </Canvas>
 
 ## WithId
 
 <Canvas>
-  <Story name='WithId' story={stories.WithId} height={200} />
+  <Story name="WithId" story={stories.WithId} height={200} />
 </Canvas>
 
 ## WithCustomClass
 
 <Canvas>
-  <Story name='WithCustomClass' story={stories.WithCustomClass} height={200} />
+  <Story name="WithCustomClass" story={stories.WithCustomClass} height={200} />
 </Canvas>
 
 ## WithCategories
 
 <Canvas>
-  <Story name='Select with categories' story={stories.WithCategories} height={200} />
+  <Story name="Select with categories" story={stories.WithCategories} height={200} />
 </Canvas>
 
 ## WithSearch
 
 <Canvas>
-  <Story name='Select with search' story={stories.WithSearch} height={200} />
+  <Story name="Select with search" story={stories.WithSearch} height={200} />
 </Canvas>
-
 
 ## WithCategoriesAndSearch
 
 <Canvas>
-  <Story name='WithCategoriesAndSearch' story={stories.WithCategoriesAndSearch} height={200} />
+  <Story name="WithCategoriesAndSearch" story={stories.WithCategoriesAndSearch} height={200} />
 </Canvas>
 
 ## Usage
 
 ```html
-  <PixSelect
-    @className={{className}}
-    @label={{label}}
-    @subLabel={{subLabel}}
-    @placeholder={{placeholder}}
-    @options={{options}}
-    @onChange={{onChange}}
-    @value={{value}}
-    @isSearchable={{isSearchable}}
-    @searchLabel={{searchLabel}}
-    @searchPlaceholder={{searchPlaceholder}}
-    @emptySearchMessage={{emptySearchMessage}}
-    @screenReaderOnly={{screenReaderOnly}}
-    @requiredText={{requiredText}}
-    @errorMessage={{errorMessage}}
-  />
+<PixSelect
+  @className="{{className}}"
+  @label="{{label}}"
+  @subLabel="{{subLabel}}"
+  @placeholder="{{placeholder}}"
+  @options="{{options}}"
+  @onChange="{{onChange}}"
+  @value="{{value}}"
+  @isSearchable="{{isSearchable}}"
+  @searchLabel="{{searchLabel}}"
+  @searchPlaceholder="{{searchPlaceholder}}"
+  @emptySearchMessage="{{emptySearchMessage}}"
+  @screenReaderOnly="{{screenReaderOnly}}"
+  @requiredText="{{requiredText}}"
+  @errorMessage="{{errorMessage}}"
+/>
 ```
 
 ## Arguments

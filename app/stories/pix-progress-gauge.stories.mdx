@@ -1,11 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as stories from './pix-progress-gauge.stories.js';
 
-<Meta
-  title='Others/Progress Gauge'
-  component='PixProgressGauge'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Others/Progress Gauge" component="PixProgressGauge" argTypes={stories.argTypes} />
 
 # Progress Gauge
 
@@ -14,7 +10,7 @@ import * as stories from './pix-progress-gauge.stories.js';
 Permet d'afficher un barre de progression sur un barème de 100%. Des paramètres existent pour changer la position de la tooltip ou la couleur du composant
 
 <Canvas>
-  <Story name='Default' story={stories.Default} height={60} />
+  <Story name="Default" story={stories.Default} height={60} />
 </Canvas>
 
 ## White
@@ -22,7 +18,7 @@ Permet d'afficher un barre de progression sur un barème de 100%. Des paramètre
 Démonstration d'une barre de progression blanche avec l'info bulle à gauche avec un sous titre
 
 <Canvas>
-  <Story name='White' story={stories.whiteProgressGauge} height={100} />
+  <Story name="White" story={stories.whiteProgressGauge} height={100} />
 </Canvas>
 
 ## Usage
@@ -33,7 +29,8 @@ Démonstration d'une barre de progression blanche avec l'info bulle à gauche av
   @color="white"
   @tooltipText="50%"
   @isArrowLeft="true"
-  @subTitle="Un sous titre" />
+  @subTitle="Un sous titre"
+/>
 ```
 
 ## Arguments

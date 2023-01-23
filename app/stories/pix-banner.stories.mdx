@@ -1,18 +1,13 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as stories from './pix-banner.stories.js';
 
-<Meta
-  title='Notification/Banner'
-  component='PixBanner'
-  argTypes={stories.argsTypes}
-/>
+<Meta title="Notification/Banner" component="PixBanner" argTypes={stories.argsTypes} />
 
 # Pix Banner
 
 Une `Banner` permet de mettre en avant une information importante.
 
 > Il est possible de surcharger le style d'une `<PixBanner>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
-
 
 ## Default
 
@@ -76,43 +71,25 @@ Bannière contenant un bouton qui permet de fermer la bannière.
 ## Usage
 
 ```html
-<PixBanner>
-Bannière Info par défaut
-</PixBanner>
+<PixBanner> Bannière Info par défaut </PixBanner>
 
-<PixBanner @type='communication'>
-  Bannière Communication pour Pix App
-</PixBanner>
+<PixBanner @type="communication"> Bannière Communication pour Pix App </PixBanner>
 
-<PixBanner @type='warning'>
-  Bannière Warning
-</PixBanner>
+<PixBanner @type="warning"> Bannière Warning </PixBanner>
 
-<PixBanner @type='error'>
-  Bannière Error
-</PixBanner>
+<PixBanner @type="error"> Bannière Error </PixBanner>
 
-<PixBanner
-  @actionLabel='Liste des campagnes'
-  @actionUrl='authenticated.campaigns'
->
+<PixBanner @actionLabel="Liste des campagnes" @actionUrl="authenticated.campaigns">
   Bannière avec une route pour lien
 </PixBanner>
 
-<PixBanner
-  @actionLabel='Ajouter des élèves'
-  @actionUrl='https://orga.pix.fr/eleves'
->
+<PixBanner @actionLabel="Ajouter des élèves" @actionUrl="https://orga.pix.fr/eleves">
   Bannière avec une route externe
 </PixBanner>
 
-<PixBanner
-  @type='warning'
-  @canCloseBanner=true
->
+<PixBanner @type="warning" @canCloseBanner="true">
   Bannière possédant un bouton de fermeture
 </PixBanner>
-
 ```
 
 ## Arguments

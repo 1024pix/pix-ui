@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
-<Meta title='Utiliser Pix UI/Utiliser un composant' />
+<Meta title="Utiliser Pix UI/Utiliser un composant" />
 
 # Utiliser un composant
 
@@ -63,8 +63,8 @@ Si cela ne fonctionne pas, vérifier dans Pix UI que le composant hérite des at
 et que cet argument soit placé en dernier pour qu'il puisse surchager les attributs par défaut du composant.
 
 ```hbs
-<p class="pix-message {{concat "pix-message--" this.type}}" ...attributes>
-   ...
+<p class='pix-message {{concat "pix-message--" this.type}}' ...attributes>
+  ...
 </p>
 ```
 
@@ -74,11 +74,12 @@ L'accessibilité du composant lui-même est déjà testé par Storybook, voir
 [Bonnes Pratiques / Accessibilité](/?path=/docs/développement-bonnes-pratiques-accessibilité--page).
 
 Mais il faut aussi vérifier son accessibilité une fois composant intégré dans l'application front.
-*Par exemple, le libellé étant spécifique à chaque bouton, il doit être défini à l'instanciation.*
+_Par exemple, le libellé étant spécifique à chaque bouton, il doit être défini à l'instanciation._
 
 Pour tester l'accessibilité, on peut utiliser [l'extension Wave](https://wave.webaim.org/extension/) (Chrome et Firefox).
 
 Voici quelques liens utiles :
+
 - https://github.com/1024pix/pix/blob/dev/docs/Accessibilite.md
 - https://1024pix.atlassian.net/wiki/spaces/DEV/pages/2856288297/2021-05-27+-+Compte-rendu+Atelier+accessibilit+Tanaguru+les+devs
 
@@ -86,4 +87,4 @@ Voici quelques liens utiles :
 
 Si une icône n'apparaît pas lorsqu'un composant est instancié, il faut vérifier que l'icône est bien déclarée dans le
 fichier `config/icons.js` de l'application concernée.
-*Par exemple, `PixBanner` utilise l'icône `info-circle`, il faut penser à l'ajouter au fichier `icons.js`.*
+_Par exemple, `PixBanner` utilise l'icône `info-circle`, il faut penser à l'ajouter au fichier `icons.js`._

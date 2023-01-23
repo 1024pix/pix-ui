@@ -1,12 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import * as stories from './pix-input-code.stories.js';
 
-<Meta
-  title='Form/Inputs/Code'
-  component='PixInputCode'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Form/Inputs/Code" component="PixInputCode" argTypes={stories.argTypes} />
 
 # Pix Input Code
 
@@ -23,22 +19,17 @@ Le composant peut être numérique ou alphanumérique précisé avec la proprié
 ## Default
 
 <Canvas>
-  <Story name='Default' story={stories.Default} height={70}/>
+  <Story name="Default" story={stories.Default} height={70} />
 </Canvas>
 
 ## Usage
 
 ```html
-<PixInputCode
-    @ariaLabel="Champ"
-    @legend="Code correspondant au code de vérification envoyé par email"
-    @explanationOfUse="Détails d'utilisation du PixInputCode"
-    @numInputs={{6}}
-    @inputType="number"
-    @onAllInputsFilled={{(code) => {}}}
-/>
+<PixInputCode @ariaLabel="Champ" @legend="Code correspondant au code de vérification envoyé par
+email" @explanationOfUse="Détails d'utilisation du PixInputCode" @numInputs={{6}}
+@inputType="number" @onAllInputsFilled={{(code) => {}}} />
 ```
 
 ## Arguments
 
-<ArgsTable story="Default"/>
+<ArgsTable story="Default" />

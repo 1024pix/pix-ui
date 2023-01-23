@@ -1,12 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import * as stories from './pix-collapsible.stories.js';
 
-<Meta
-  title='Others/Collapsible'
-  component='PixCollapsible'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Others/Collapsible" component="PixCollapsible" argTypes={stories.argTypes} />
 
 # PixCollapsible
 
@@ -16,23 +12,21 @@ Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer 
 > Il est possible de cumuler les `PixCollapsible` de sorte à former un accordéon, il suffit de les mettre dans une même div parente.
 
 <Canvas>
-  <Story name='PixCollapsible' story={stories.collapsible} height={150} />
+  <Story name="PixCollapsible" story={stories.collapsible} height={150} />
 </Canvas>
 
 <Canvas>
-  <Story name='With block title' story={stories.collapsibleWithBlockTitle} height={150} />
+  <Story name="With block title" story={stories.collapsibleWithBlockTitle} height={150} />
 </Canvas>
 
 <Canvas>
-  <Story name='MultiplePixCollapsible' story={stories.multipleCollapsible} height={260} />
+  <Story name="MultiplePixCollapsible" story={stories.multipleCollapsible} height={260} />
 </Canvas>
 
 ## Usage
 
 ```html
-<PixCollapsible
-  @title="Titre du contenu à dérouler en cliquant"
-  @iconTitle="user">
+<PixCollapsible @title="Titre du contenu à dérouler en cliquant" @iconTitle="user">
   <p>Contenu du PixCollapsible</p>
 </PixCollapsible>
 ```
