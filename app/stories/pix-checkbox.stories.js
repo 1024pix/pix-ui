@@ -81,8 +81,8 @@ export const argTypes = {
     defaultValue: { summary: 'default' },
     control: {
       type: 'select',
-      options: ['small', 'default', 'large'],
     },
+    options: ['small', 'default', 'large'],
   },
   checked: {
     name: 'checked',

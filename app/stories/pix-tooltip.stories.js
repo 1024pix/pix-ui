@@ -151,17 +151,17 @@ export const argTypes = {
     table: { defaultValue: { summary: 'top' } },
     control: {
       type: 'select',
-      options: [
-        'top',
-        'top-left',
-        'top-right',
-        'right',
-        'bottom',
-        'bottom-left',
-        'bottom-right',
-        'left',
-      ],
     },
+    options: [
+      'top',
+      'top-left',
+      'top-right',
+      'right',
+      'bottom',
+      'bottom-left',
+      'bottom-right',
+      'left',
+    ],
   },
   isLight: {
     name: 'isLight',

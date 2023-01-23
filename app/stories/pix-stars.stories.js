@@ -31,6 +31,7 @@ export const argTypes = {
     description: 'Couleur des étoiles',
     type: { name: 'string', required: false },
     defaultValue: 'yellow',
-    control: { type: 'select', options: ['yellow', 'blue', 'grey'] },
+    control: { type: 'select' },
+    options: ['yellow', 'blue', 'grey'],
   },
 };

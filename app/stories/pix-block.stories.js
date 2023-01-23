@@ -13,6 +13,7 @@ export const argTypes = {
     description: 'Ombre sur le bloc',
     type: { name: 'string', required: false },
     defaultValue: 'light',
-    control: { type: 'select', options: ['light', 'heavy'] },
+    control: { type: 'select' },
+    options: ['light', 'heavy'],
   },
 };

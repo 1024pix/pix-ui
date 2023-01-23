@@ -36,6 +36,7 @@ export const argTypes = {
     description: 'Couleur du lien',
     type: { name: 'string', required: false },
     defaultValue: 'black',
-    control: { type: 'select', options: ['white', 'black', 'blue'] },
+    control: { type: 'select' },
+    options: ['white', 'black', 'blue'],
   },
 };

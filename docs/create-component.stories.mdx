@@ -72,12 +72,13 @@ export const argTypes = {
     description: 'Type du message',
     type: { name: 'string', required: false },
     defaultValue: 'info',
-    control: { type: 'select', options: ['info', 'success', 'warning', 'alert'] },
+    control: { type: 'select' },
+    options: ['info', 'success', 'warning', 'alert'],
   },
 };
 ```
 
-````markdown
+`````markdown
 {/_ pix-message.stories.mdx _/}
 import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import \* as stories from './pix-message.stories.js';
@@ -109,6 +110,9 @@ Un bandeau d'information, par défaut de type info, avec une icône facultative.
 
 <ArgsTable story="Message" />
 ````
-````
+`````
+
+```
 
 Plus d'information sur le [guide d'ember de Storybook ici](https://storybook.js.org/docs/guides/guide-ember/).
+```

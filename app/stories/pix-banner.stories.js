@@ -82,15 +82,15 @@ export const argsTypes = {
     defaultValue: { summary: 'information' },
     control: {
       type: 'select',
-      options: [
-        'information',
-        'warning',
-        'error',
-        'communication',
-        'communication-orga',
-        'communication-certif',
-      ],
     },
+    options: [
+      'information',
+      'warning',
+      'error',
+      'communication',
+      'communication-orga',
+      'communication-certif',
+    ],
   },
   canCloseBanner: {
     name: 'canCloseBanner',
