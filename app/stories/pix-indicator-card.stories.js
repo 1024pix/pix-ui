@@ -56,8 +56,8 @@ export const argTypes = {
   iconPrefix: {
     name: 'IconPrefix',
     description:
-      "Préfixe pour l'icone dans l'encart - permet d'utiliser une variation de l'icone font awesome différente de celle par défaut (fa).",
-    defaultValue: null,
+      "Préfixe pour l'icone dans l'encart - permet d'utiliser une variation de l'icone font awesome différente de celle par défaut.",
+    table: { defaultValue: { summary: 'fas' } },
   },
   value: {
     name: 'Value',

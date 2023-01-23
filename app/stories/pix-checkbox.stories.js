@@ -47,12 +47,10 @@ export const argTypes = {
     name: 'id',
     description: 'Identifiant du champ permettant de lui attacher un label',
     type: { name: 'string', required: true },
-    defaultValue: null,
   },
   label: {
     name: 'label',
     description: "Le label de l'input",
-    defaultValue: null,
   },
   screenReaderOnly: {
     name: 'screenReaderOnly',
@@ -78,10 +76,10 @@ export const argTypes = {
     name: 'labelSize',
     description: 'Correspond à la taille de la police du label.',
     type: { name: 'string', required: false },
-    defaultValue: { summary: 'default' },
-    control: {
-      type: 'select',
+    table: {
+      defaultValue: { summary: 'default' },
     },
+    control: { type: 'select' },
     options: ['small', 'default', 'large'],
   },
   checked: {

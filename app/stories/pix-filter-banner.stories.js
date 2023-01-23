@@ -25,6 +25,7 @@ filterBanner.args = {
     { value: '2', label: 'Mozza' },
   ],
   onChange: action('select-onchange'),
+  onClearFilters: action('onClearFilters'),
 };
 
 export const argTypes = {
@@ -32,24 +33,20 @@ export const argTypes = {
     name: 'title',
     description: 'Titre du filtre',
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   details: {
     name: 'details',
     description: 'Détails du filtre',
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   clearFiltersLabel: {
     name: 'clearFiltersLabel',
     description: 'libellé du bouton',
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   onClearFilters: {
     name: 'onClearFilters',
     description: 'fonction à appeler pour déclencher l’action de suppression des filtres',
     type: { required: false },
-    defaultValue: action('onClearFilters'),
   },
 };

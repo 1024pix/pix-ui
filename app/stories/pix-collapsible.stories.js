@@ -1,12 +1,18 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const collapsible = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixCollapsible @title={{this.title}} @titleIcon={{this.titleIcon}}>
   <div>Contenu du PixCollapsible</div>
 </PixCollapsible>`,
     context: args,
   };
+};
+
+export const collapsible = Template.bind({});
+collapsible.args = {
+  title: 'Titre du contenu à dérouler en cliquant',
+  titleIcon: 'user',
 };
 
 export const collapsibleWithBlockTitle = (args) => {
@@ -47,12 +53,10 @@ export const argTypes = {
     name: 'title',
     description: 'Intitulé du contenu du PixCollapsible',
     type: { name: 'string', required: true },
-    defaultValue: 'Titre du contenu à dérouler en cliquant',
   },
   titleIcon: {
     name: 'titleIcon',
     description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
     type: { name: 'string', required: false },
-    defaultValue: 'user',
   },
 };

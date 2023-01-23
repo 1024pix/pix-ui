@@ -44,7 +44,6 @@ export const argTypes = {
     name: 'showSidebar',
     description: 'Visibilité de la sidebar',
     type: { name: 'boolean', required: false },
-    control: { type: 'boolean' },
     table: {
       type: { summary: 'boolean' },
       defaultValue: { summary: false },
@@ -54,10 +53,6 @@ export const argTypes = {
     name: 'title',
     description: 'Titre de la sidebar',
     type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: '' },
-    },
   },
   onClose: {
     name: 'onClose',

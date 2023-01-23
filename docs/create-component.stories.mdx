@@ -71,7 +71,7 @@ export const argTypes = {
     name: 'type',
     description: 'Type du message',
     type: { name: 'string', required: false },
-    defaultValue: 'info',
+    table: { defaultValue: { summary: 'info' } },
     control: { type: 'select' },
     options: ['info', 'success', 'warning', 'alert'],
   },

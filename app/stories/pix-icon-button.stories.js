@@ -17,7 +17,7 @@ const Template = (args) => {
   };
 };
 
-const triggerAction = () => Promise.resolve();
+const triggerAction = action('triggerAction');
 
 export const Default = Template.bind({});
 Default.args = {
@@ -70,7 +70,6 @@ export const argTypes = {
     name: 'triggerAction',
     description: 'Fonction à appeler au clic du bouton',
     type: { required: true },
-    defaultValue: action('triggerAction'),
   },
   withBackground: {
     name: 'withBackground',

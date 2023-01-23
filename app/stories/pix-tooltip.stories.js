@@ -140,7 +140,6 @@ export const argTypes = {
   },
   text: {
     name: 'text',
-    defaultValue: 'Tooltiptop',
     description: 'Texte à afficher',
     type: { name: 'string', required: false },
   },
@@ -149,9 +148,7 @@ export const argTypes = {
     description: 'Position de la tooltip',
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'top' } },
-    control: {
-      type: 'select',
-    },
+    control: { type: 'select' },
     options: [
       'top',
       'top-left',

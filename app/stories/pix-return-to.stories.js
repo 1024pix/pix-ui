@@ -24,7 +24,6 @@ export const argTypes = {
     name: 'route',
     description: 'Route de redirection',
     type: { name: 'string', required: true },
-    defaultValue: null,
   },
   model: {
     name: 'model',
@@ -35,7 +34,7 @@ export const argTypes = {
     name: 'shade',
     description: 'Couleur du lien',
     type: { name: 'string', required: false },
-    defaultValue: 'black',
+    table: { defaultValue: { summary: 'black' } },
     control: { type: 'select' },
     options: ['white', 'black', 'blue'],
   },

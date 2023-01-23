@@ -23,6 +23,5 @@ export const argTypes = {
     name: 'attribute name',
     description: 'attribute description',
     type: { name: 'string', required: false },
-    defaultValue: '',
   },
 };

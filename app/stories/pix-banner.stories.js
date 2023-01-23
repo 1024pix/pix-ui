@@ -67,19 +67,17 @@ export const argsTypes = {
     name: 'actionLabel',
     description: 'Nom de l‘action',
     type: { name: 'string', required: false },
-    defaultValue: '',
   },
   actionUrl: {
     name: 'actionUrl',
     description: 'Lien de l‘action',
     type: { name: 'string', required: false },
-    defaultValue: '',
   },
   type: {
     name: 'type',
     description: 'Définit le type de bannière',
     type: { name: 'string', required: false },
-    defaultValue: { summary: 'information' },
+    table: { defaultValue: { summary: 'information' } },
     control: {
       type: 'select',
     },

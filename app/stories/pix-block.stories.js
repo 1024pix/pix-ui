@@ -12,7 +12,7 @@ export const argTypes = {
     name: 'shadow',
     description: 'Ombre sur le bloc',
     type: { name: 'string', required: false },
-    defaultValue: 'light',
+    table: { defaultValue: { summary: 'light' } },
     control: { type: 'select' },
     options: ['light', 'heavy'],
   },

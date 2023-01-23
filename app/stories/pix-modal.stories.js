@@ -43,13 +43,11 @@ export const argTypes = {
     name: 'title',
     description: 'Titre de la modale',
     type: { name: 'string', required: true },
-    defaultValue: null,
   },
   onCloseButtonClick: {
     name: 'onCloseButtonClick',
     description: 'Fonction à exécuter à la fermeture de la modale',
     type: { name: 'function', required: true },
-    defaultValue: null,
   },
   showModal: {
     name: 'showModal',

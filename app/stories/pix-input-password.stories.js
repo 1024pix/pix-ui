@@ -54,43 +54,36 @@ export const argTypes = {
     name: 'id',
     description: 'Identifiant du champ permettant de lui attacher un label',
     type: { name: 'string', required: true },
-    defaultValue: null,
   },
   value: {
     name: 'value',
     description: "Valeur de l'input",
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   label: {
     name: 'label',
     description: "Label de l'input. Requis si ariaLabel n'est pas définit.",
     type: { name: 'string', required: true },
-    defaultValue: null,
   },
   ariaLabel: {
     name: 'ariaLabel',
     description: "L'action du champ, pour l'accessibilité. Requis si label n'est pas définit.",
     type: { name: 'string', required: true },
-    defaultValue: null,
   },
   information: {
     name: 'information',
     description: 'Un descriptif complétant le label',
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   errorMessage: {
     name: 'errorMessage',
     description: "Affiche le message d'erreur donné et encadre en rouge le champ",
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   prefix: {
     name: 'prefix',
     description: 'Affiche un préfixe avant la zone de saisie du champ',
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   requiredLabel: {
     name: 'requiredLabel',
