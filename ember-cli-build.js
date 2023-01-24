@@ -10,6 +10,9 @@ module.exports = function (defaults) {
   app.import('node_modules/color/index.js', {
     using: [{ transformation: 'cjs', as: 'color' }],
   });
+  app.import('node_modules/lodash.debounce/index.js', {
+    using: [{ transformation: 'cjs', as: 'lodash.debounce' }],
+  });
   /*
     This build file specifies the options for the dummy test app of this
     addon, located in `/tests/dummy`
