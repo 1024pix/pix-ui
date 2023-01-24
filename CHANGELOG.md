@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v24.1.0 (24/01/2023)
+
+
+### :rocket: Amélioration
+- [#316](https://github.com/1024pix/pix-ui/pull/316) [FEATURE] Création d'un input permettant de chercher/filtrer (PIX-6780)
+- [#320](https://github.com/1024pix/pix-ui/pull/320) [FEATURE] Déplacer le focus sur le champ lorsque le bouton pour masquer/afficher le mot de passe est cliqué sur PixInputPassword (PIX-6855)
+
 ## v24.0.3 (18/01/2023)
 
 
