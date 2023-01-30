@@ -8,6 +8,7 @@ const Template = (args) => {
         @subLabel={{this.subLabel}}
         @screenReaderOnly={{this.screenReaderOnly}}
         @placeholder={{this.placeholder}}
+        @hideDefaultOption={{this.hideDefaultOption}}
         @options={{this.options}}
         @onChange={{this.onChange}}
         @categoriesLabel={{this.categoriesLabel}}
