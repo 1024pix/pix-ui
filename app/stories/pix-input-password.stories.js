@@ -17,7 +17,7 @@ export const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  id: 'firstName',
+  id: 'first-name',
   ariaLabel: 'Mot de passe',
 };
 

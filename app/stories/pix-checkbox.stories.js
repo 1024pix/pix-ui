@@ -17,27 +17,27 @@ export const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  id: 'acceptNewsletter',
+  id: 'accept-newsletter',
   label: 'Recevoir la newsletter',
 };
 
 export const indeterminateCheckbox = Template.bind({});
 indeterminateCheckbox.args = {
-  id: 'acceptNewsletter2',
+  id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   isIndeterminate: true,
 };
 
 export const checkboxWithSmallLabel = Template.bind({});
 checkboxWithSmallLabel.args = {
-  id: 'acceptNewsletter2',
+  id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   labelSize: 'small',
 };
 
 export const checkboxWithLargeLabel = Template.bind({});
 checkboxWithLargeLabel.args = {
-  id: 'acceptNewsletter2',
+  id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   labelSize: 'large',
 };
