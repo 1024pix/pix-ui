@@ -17,20 +17,20 @@ export const Template = (args) => {
 
 export const Default = Template.bind({});
 Default.args = {
-  id: 'firstName',
+  id: 'first-name',
   ariaLabel: 'Prénom',
 };
 
 export const withLabel = Template.bind({});
 withLabel.args = {
-  id: 'firstName',
+  id: 'first-name',
   label: 'Prénom',
   information: 'a small information',
 };
 
 export const withErrorMessage = Template.bind({});
 withErrorMessage.args = {
-  id: 'firstName',
+  id: 'first-name',
   label: 'Prénom',
   information: 'a small information',
   errorMessage: "un message d'erreur",
@@ -38,7 +38,7 @@ withErrorMessage.args = {
 
 export const withRequiredLabel = Template.bind({});
 withRequiredLabel.args = {
-  id: 'firstName',
+  id: 'first-name',
   label: 'Prénom',
   requiredLabel: 'Champ obligatoire',
 };
