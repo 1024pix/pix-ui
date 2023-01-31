@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v24.2.0 (31/01/2023)
+
+
+### :bug: Correction
+- [#325](https://github.com/1024pix/pix-ui/pull/325) [BUGFIX] Ajouter le paramètre permettant de ne pas afficher la valeur par défaut dans le fat composant (PIX-6925)
+
 ## v24.1.0 (24/01/2023)
 
 
