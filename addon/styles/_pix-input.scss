@@ -25,14 +25,14 @@
 
   svg {
     position: absolute;
-    bottom: 7px;
-    right: 6px;
     color: $pix-neutral-0;
     border-radius: 50%;
     font-size: 0.6rem;
     padding: 2px;
-    width: 18px;
-    height: 18px;
+    bottom: 11px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
 
     &.pix-input__error-icon {
       background: $pix-error-70;
