@@ -82,8 +82,9 @@ export const form = (args) => {
   <PixCheckbox
     @id='spam-pub'
     @labelSize='small'
-    @label='Acceptez-vous de vous faire spammer de PUB ?'
-  />
+  >
+    Acceptez-vous de vous faire spammer de PUB ?
+  </PixCheckbox>
 
   <br /><br />
 
