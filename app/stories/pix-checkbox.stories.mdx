@@ -1,34 +1,33 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import * as stories from './pix-checkbox.stories.js';
 
-<Meta
-  title='Form/Checkbox'
-  component='PixCheckbox'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Form/Checkbox" component="PixCheckbox" argTypes={stories.argTypes} />
 
 # PixCheckbox
 
 La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (checkbox servant d'indicateur lors d'une sélection multiple).
 
 <Canvas>
-  <Story name='Default' story={stories.Default} height={60} />
+  <Story name="Default" story={stories.Default} height={60} />
 </Canvas>
 
 ## Checkbox indéterminée
+
 <Canvas>
-  <Story name='Indeterminate' story={stories.indeterminateCheckbox} height={60} />
+  <Story name="Indeterminate" story={stories.indeterminateCheckbox} height={60} />
 </Canvas>
 
 ## Checkbox avec un petit label
+
 <Canvas>
-  <Story name='SmallLabel' story={stories.checkboxWithSmallLabel} height={60} />
+  <Story name="SmallLabel" story={stories.checkboxWithSmallLabel} height={60} />
 </Canvas>
 
 ## Checkbox avec un grand label
+
 <Canvas>
-  <Story name='LargeLabel' story={stories.checkboxWithLargeLabel} height={60} />
+  <Story name="LargeLabel" story={stories.checkboxWithLargeLabel} height={60} />
 </Canvas>
 
 ## Usage
@@ -36,12 +35,12 @@ La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (c
 ```html
 <PixCheckbox
   @id="superId"
-  @screenReaderOnly={{false}}
-  @isIndeterminate={{false}}
+  @screenReaderOnly="{{false}}"
+  @isIndeterminate="{{false}}"
   @labelSize="small"
 >
   Recevoir la newsletter
-</PixCheckBox>
+</PixCheckbox>
 ```
 
 ## Arguments

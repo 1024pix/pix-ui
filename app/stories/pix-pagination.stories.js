@@ -124,7 +124,8 @@ export const argTypes = {
     name: 'locale',
     description: "La langue de l'utilisateur",
     type: { name: 'string', required: false },
-    control: { type: 'select', options: ['fr', 'en'] },
+    control: { type: 'select' },
+    options: ['fr', 'en'],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'fr' },

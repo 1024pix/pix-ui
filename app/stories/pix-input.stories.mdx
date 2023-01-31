@@ -1,12 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import * as stories from './pix-input.stories.js';
 
-<Meta
-  title='Form/Inputs/Input'
-  component='PixInput'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Form/Inputs/Input" component="PixInput" argTypes={stories.argTypes} />
 
 # Pix Input
 
@@ -21,35 +17,27 @@ Si vous utilisez le `PixInput` sans label alors il faut renseigner le paramètre
 Pour acceder à l'élément via son label/aria-label avec testing-library:
 
 ```html
-<PixInput
-  @id='firstName'
-  @label='Prénom'
-/>
+<PixInput @id="firstName" @label="Prénom" />
 ```
 
 ```javascript
-screen.getByLabelText('Prénom')
-````
+screen.getByLabelText('Prénom');
+```
 
 Si le paramètre @information est utilisé, il faudra concatener les valeurs de `@label`/`@ariaLabel` et `@information`
 
 ```html
-<PixInput
-  @id='firstName'
-  @label='Prénom'
-  @information='exemple: Barry'
-/>
+<PixInput @id="firstName" @label="Prénom" @information="exemple: Barry" />
 ```
 
 ```javascript
-screen.getByLabelText('Prénom exemple: Barry')
-````
-
+screen.getByLabelText('Prénom exemple: Barry');
+```
 
 ## Default
 
 <Canvas>
-  <Story name='Default' story={stories.Default} height={100} />
+  <Story name="Default" story={stories.Default} height={100} />
 </Canvas>
 
 ## With label and information
@@ -74,11 +62,11 @@ screen.getByLabelText('Prénom exemple: Barry')
 
 ```html
 <PixInput
-  @id='firstName'
-  @label='Prénom'
-  @information='Complément du label'
-  @errorMessage='Un message d`erreur'
-  @requiredLabel='Champ obligatoire'
+  @id="firstName"
+  @label="Prénom"
+  @information="Complément du label"
+  @errorMessage="Un message d`erreur"
+  @requiredLabel="Champ obligatoire"
 />
 ```
 

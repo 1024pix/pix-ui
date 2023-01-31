@@ -43,14 +43,15 @@ export const argTypes = {
     name: 'type',
     description: 'Type du message',
     type: { name: 'string', required: false },
-    defaultValue: 'info',
-    control: { type: 'select', options: ['info', 'success', 'warning', 'alert', 'error'] },
+    table: { defaultValue: { summary: 'info' } },
+    control: { type: 'select' },
+    options: ['info', 'success', 'warning', 'alert', 'error'],
   },
   withIcon: {
     name: 'withIcon',
     description: 'Icône du message',
+    table: { defaultValue: { summary: false } },
     type: { name: 'boolean', required: false },
-    defaultValue: false,
     control: { type: 'boolean' },
   },
 };

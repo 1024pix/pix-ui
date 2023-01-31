@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
-<Meta title='Développement/Storybook' />
+<Meta title="Développement/Storybook" />
 
 # Déploiement de Storybook
 
@@ -33,10 +33,11 @@ npm run deploy-storybook
 ```
 
 Cette commande fait appel à l'outil [storybook-deployer](https://github.com/storybookjs/storybook-deployer). Ce dernier effectue les actions suivantes :
+
 - compiler Storybook comme une application statique
 - commit et push le résultat précédent sur la branche `gh-pages`
 
-*(Il est possible de customiser l'auteur ou le nom des commits, voir sur la [doc de storybook-deployer](https://github.com/storybookjs/storybook-deployer).)*
+_(Il est possible de customiser l'auteur ou le nom des commits, voir sur la [doc de storybook-deployer](https://github.com/storybookjs/storybook-deployer).)_
 
 Le changement de la branche `gh-pages` est détecté par les Github Pages et la nouvelle version du site est re-déployée.
 

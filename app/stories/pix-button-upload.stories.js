@@ -4,7 +4,7 @@ import { action } from '@storybook/addon-actions';
 export const buttonUpload = (args) => {
   return {
     template: hbs`<PixButtonUpload
-  @id='id'
+  @id={{this.id}}
   @onChange={{this.onChange}}
   @shape={{this.shape}}
   @backgroundColor={{this.backgroundColor}}
@@ -18,6 +18,7 @@ export const buttonUpload = (args) => {
 };
 
 buttonUpload.args = {
+  id: 'file-upload',
   onChange: action('onChange'),
 };
 
@@ -26,14 +27,12 @@ export const argTypes = {
     name: 'id',
     description: "identifiant du bouton d'upload",
     type: { name: 'string', required: true },
-    defaultValue: 'file-upload',
   },
   onChange: {
     name: 'onChange',
     description:
       "fonction à exécuter au moment de l'upload du fichier, elle prend en entrée la liste des fichiers uploadés.",
     type: { name: 'function', required: true },
-    defaultValue: null,
   },
   shape: {
     name: 'shape',

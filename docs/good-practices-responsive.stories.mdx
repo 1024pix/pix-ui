@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
-<Meta title='Développement/Bonnes pratiques/Responsive' />
+<Meta title="Développement/Bonnes pratiques/Responsive" />
 
 # Bonnes pratiques responsive
 
@@ -14,7 +14,6 @@ Ils sont décris dans le fichier `addon/styles/_breakpoints.scss` et utilisables
 
 Par exemple, ici le style s'applique si on a moins la largeure d'une tablette.
 
-
 ```scss
 @include device-is('tablet') {
   padding: 32px 58px;
@@ -23,6 +22,7 @@ Par exemple, ici le style s'applique si on a moins la largeure d'une tablette.
 ```
 
 Le différents devices disponibles sont :
+
 - `mobile`
 - `tablet`
 - `desktop`

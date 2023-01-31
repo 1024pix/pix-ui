@@ -1,6 +1,6 @@
-import { Meta } from '@storybook/addon-docs/blocks';
+import { Meta } from '@storybook/addon-docs';
 
-<Meta title='Développement/Bonnes pratiques/Design' />
+<Meta title="Développement/Bonnes pratiques/Design" />
 
 # Bonnes pratiques design
 
@@ -8,23 +8,16 @@ import { Meta } from '@storybook/addon-docs/blocks';
 
 - les **noms de branches** commencent par `pix-ui`.
 
-
 - Les **noms des fichiers** suivent l'exemple de la pix-tooltip.
-*Par exemple, pour les styles, on recomandera de rajouter `_` devant le nom du fichier pour indiquer que c'est un ["fichier partiel Sass"](https://sass-lang.com/guide#topic-4).*
+  _Par exemple, pour les styles, on recomandera de rajouter `_` devant le nom du fichier pour indiquer que c'est un ["fichier partiel Sass"](https://sass-lang.com/guide#topic-4)._
 
+- Les **noms des composants** commencent par `Pix` et sont écrit en _PascalCase_.
+  _Par exemple, un composant bouton devient : `PixButton`._
 
-- Les **noms des composants** commencent par `Pix` et sont écrit en *PascalCase*.
-*Par exemple, un composant bouton devient : `PixButton`.*
-
-
-- Les **noms des propriétés des composants** sont écrit en *camelCase*.
+- Les **noms des propriétés des composants** sont écrit en _camelCase_.
 
 ```hbs
-<PixSelect
-  @options={{options}}
-  @onChange={{onChange}}
-  @selectedOption="1"
-/>
+<PixSelect @options={{options}} @onChange={{onChange}} @selectedOption='1' />
 ```
 
 - Les **noms des classes CSS** suivent la convention [BEM](https://github.com/1024pix/pix/blob/dev/docs/CSS.md).
@@ -40,7 +33,7 @@ Il faut garder une **responsabilité unique** par composant.
 - Un composant doit interagir uniquement dans son scope afin de ne pas devenir trop complexe et provoquer des effets de bord.
 - Un composant trop complexe induit plusieurs paramètres ce qui rend donc son utilisation délicate.
 
-Par exemple, si l'intention d'un composant est d'être un bouton (dans notre existant, *`PixButton`*) et qu'on le fait évoluer pour qu'il puisse devenir aussi un lien, il perd alors son intention d'origine (le nommage du composant *`PixButton`* ne fait alors plus sens) et prend trop de responsabilités.
+Par exemple, si l'intention d'un composant est d'être un bouton (dans notre existant, _`PixButton`_) et qu'on le fait évoluer pour qu'il puisse devenir aussi un lien, il perd alors son intention d'origine (le nommage du composant _`PixButton`_ ne fait alors plus sens) et prend trop de responsabilités.
 
 Il conviendra alors d'avoir un composant pour un bouton et un autre pour un lien.
 
@@ -55,16 +48,14 @@ Lorsqu'une autre personne va mettre à jour Pix UI dans une application, il est 
 ## Rétrocompatibilité / Deprecated
 
 Il est aussi possible de signaler ces changements comme dépréciés :
+
 - Ne pas supprimer le composant actuel mais l'indiquer comme déprécié afin qu'il soit toujours utilisable le temps de faire les modifications. À terme, l'élément déprécié sera supprimé dans une nouvelle version majeure de Pix UI.
 
 Exemple d'un composant déprécié :
+
 ```hbs
 <PixSelect>
-  <NewPixSelect
-    @options={{options}}
-    @onChange={{onChange}}
-    @selectedOption="1"
-  />
+  <NewPixSelect @options={{options}} @onChange={{onChange}} @selectedOption='1' />
 </PixSelect>
 ```
 

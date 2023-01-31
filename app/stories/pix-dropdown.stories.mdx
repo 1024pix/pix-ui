@@ -1,12 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import * as stories from './pix-dropdown.stories.js';
 
-<Meta
-  title='Form/Dropdown'
-  component='PixDropdown'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Form/Dropdown" component="PixDropdown" argTypes={stories.argTypes} />
 
 # Pix Dropdown
 
@@ -14,16 +10,16 @@ Affiche un menu déroulant avec la liste des options fournies.
 
 Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
 
-> **⚠️** __Il est nécessaire d'avoir au moins un label ou un placeholder !__
+> **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
 
-> **⚠️** __N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !__
+> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
 
 > Pour aider l'utilisateur, rajoutez un placeholder cohérent !
 
 ## Default
 
 <Canvas>
-  <Story name='Dropdown' story={stories.Default} height={200} />
+  <Story name="Dropdown" story={stories.Default} height={200} />
 </Canvas>
 
 ## With label
@@ -48,11 +44,11 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 
 ```html
 <PixDropdown
-  @id={{id}}
-  @options={{options}}
-  @onSelect={{onSelect}}
+  @id="{{id}}"
+  @options="{{options}}"
+  @onSelect="{{onSelect}}"
   @selectedOption="1"
-  @isSearchable={{false}}
+  @isSearchable="{{false}}"
   @placeholder="Choisissez une option"
   @searchPlaceholder="Rechercher"
   @label="Mon menu déroulant"
@@ -60,7 +56,7 @@ Les options sont représentées par un tableau d'objet contenant les propriété
   @clearLabel="Supprimer la sélection"
   @expandLabel="Ouvrir le menu déroulant"
   @collapseLabel="Réduire le menu déroulant"
-  @pageSize={{10}}
+  @pageSize="{{10}}"
 />
 ```
 

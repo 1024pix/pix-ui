@@ -1,4 +1,4 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as stories from './pix-filterable-and-searchable-select.stories.js';
 
 <Meta
@@ -15,9 +15,9 @@ Il permet de sélectionner une option, de filter sur la liste des options en fon
 
 Les options sont représentées par un tableau d'objet contenant les propriétés value, label et category.
 
-> **⚠️** __Il est nécessaire d'avoir au moins un label ou un placeholder !__
+> **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
 
-> **⚠️** __N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !__
+> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
 
 > Pour aider l'utilisateur, rajoutez un placeholder cohérent !
 
@@ -42,28 +42,28 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 ## Usage
 
 ```html
-  <PixFilterableAndSearchableSelect
-    @label={{label}}
-    @sublabel={{sublabel}}
-    @selectLabel={{selectLabel}}
-    @placeholder={{placeholder}}
-    @options={{options}}
-    @value={{value}}
-    @isSearchable={{isSearchable}}
-    @hideDefaultOption={{hideDefaultOption}}
-    @screenReaderOnly={{screenReaderOnly}}
-    @searchLabel={{searchLabel}}
-    @searchPlaceholder={{searchPlaceholder}}
-    @emptySearchMessage={{emptySearchMessage}}
-    @requiredText={{requiredText}}
-    @errorMessage={{errorMessage}}
-    @onChange={{onChange}}
-    @categoriesLabel={{categoriesLabel}}
-    @categoriesPlaceholder={{categoriesPlaceholder}}
-    @categoriesEmptyMessage={{categoriesEmptyMessage}}
-    @requiredText={{requiredText}}
-    @errorMessage={{errorMessage}}
-  />
+<PixFilterableAndSearchableSelect
+  @label="{{label}}"
+  @sublabel="{{sublabel}}"
+  @selectLabel="{{selectLabel}}"
+  @placeholder="{{placeholder}}"
+  @options="{{options}}"
+  @value="{{value}}"
+  @isSearchable="{{isSearchable}}"
+  @hideDefaultOption="{{hideDefaultOption}}"
+  @screenReaderOnly="{{screenReaderOnly}}"
+  @searchLabel="{{searchLabel}}"
+  @searchPlaceholder="{{searchPlaceholder}}"
+  @emptySearchMessage="{{emptySearchMessage}}"
+  @requiredText="{{requiredText}}"
+  @errorMessage="{{errorMessage}}"
+  @onChange="{{onChange}}"
+  @categoriesLabel="{{categoriesLabel}}"
+  @categoriesPlaceholder="{{categoriesPlaceholder}}"
+  @categoriesEmptyMessage="{{categoriesEmptyMessage}}"
+  @requiredText="{{requiredText}}"
+  @errorMessage="{{errorMessage}}"
+/>
 ```
 
 ## Arguments

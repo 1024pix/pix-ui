@@ -1,11 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 import * as stories from './pix-tag.stories.js';
 
-<Meta
-  title='Basics/Tag'
-  component='PixTag'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Basics/Tag" component="PixTag" argTypes={stories.argTypes} />
 
 # Pix Tag
 
@@ -24,19 +20,13 @@ Un `Tag` est un type de `Chips` qui permet de mettre en avant une information ou
 
 ```html
 Par défaut:
-<PixTag>
-  This is a blue tag
-</PixTag>
+<PixTag> This is a blue tag </PixTag>
 
 Customiser la couleur du tag:
-<PixTag @color='purple'>
-  This is a purple tag
-</PixTag>
+<PixTag @color="purple"> This is a purple tag </PixTag>
 
 Tag Compact
-<PixTag @compact={{true}} @color='blue'>
-  This is a compactg tag
-</PixTag>
+<PixTag @compact="{{true}}" @color="blue"> This is a compactg tag </PixTag>
 ```
 
 ## Arguments

@@ -17,7 +17,7 @@ const Template = (args) => {
   };
 };
 
-const triggerAction = () => Promise.resolve();
+const triggerAction = action('triggerAction');
 
 export const Default = Template.bind({});
 Default.args = {
@@ -63,13 +63,13 @@ export const argTypes = {
     name: 'iconPrefix',
     description: "Prefix de l'icône font-awesome",
     type: { name: 'string', required: false },
-    control: { type: 'select', options: ['far', 'fas'] },
+    control: { type: 'select' },
+    options: ['far', 'fas'],
   },
   triggerAction: {
     name: 'triggerAction',
     description: 'Fonction à appeler au clic du bouton',
     type: { required: true },
-    defaultValue: action('triggerAction'),
   },
   withBackground: {
     name: 'withBackground',
@@ -84,7 +84,8 @@ export const argTypes = {
     name: 'size',
     description: 'Size: `small`, `big`',
     type: { name: 'string', required: false },
-    control: { type: 'select', options: ['big', 'small'] },
+    control: { type: 'select' },
+    options: ['big', 'small'],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'big' },
@@ -94,7 +95,8 @@ export const argTypes = {
     name: 'color',
     description: ' ⚠️ **Propriété dépréciée** ⚠️ Color: `light-grey`, `dark-grey`',
     type: { name: 'string', required: false },
-    control: { type: 'select', options: ['light-grey', 'dark-grey'] },
+    control: { type: 'select' },
+    options: ['light-grey', 'dark-grey'],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'light-grey' },

@@ -44,14 +44,12 @@ export const argTypes = {
     name: 'href',
     description: 'Paramètre à renseigner pour utiliser lien HTML.',
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   route: {
     name: 'route',
     description:
       "Paramètre à renseigner pour utiliser un composant LinkTo à la place d'un lien classique. Il prend comme valeur la route de redirection",
     type: { name: 'string', required: false },
-    defaultValue: null,
   },
   model: {
     name: 'model',

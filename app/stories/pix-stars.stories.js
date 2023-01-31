@@ -1,10 +1,18 @@
 import { hbs } from 'ember-cli-htmlbars';
 
-export const stars = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixStars @count={{this.count}} @total={{this.total}} @alt={{this.alt}} @color={{this.color}} />`,
     context: args,
   };
+};
+
+export const stars = Template.bind({});
+stars.args = {
+  count: 2,
+  total: 5,
+  alt: 'message alternatif',
+  color: 'blue',
 };
 
 export const argTypes = {
@@ -12,25 +20,23 @@ export const argTypes = {
     name: 'count',
     description: 'Nombre total d’étoiles actives',
     type: { name: 'number', required: false },
-    defaultValue: 2,
   },
   total: {
     name: 'total',
     description: 'Nombre total d’étoiles',
     type: { name: 'number', required: false },
-    defaultValue: 5,
   },
   alt: {
     name: 'alt',
     description: 'Message alternatif pour les étoiles',
     type: { name: 'string', required: true },
-    defaultValue: 'Message',
   },
   color: {
     name: 'color',
     description: 'Couleur des étoiles',
     type: { name: 'string', required: false },
-    defaultValue: 'yellow',
-    control: { type: 'select', options: ['yellow', 'blue', 'grey'] },
+    table: { defaultValue: { summary: 'yellow' } },
+    control: { type: 'select' },
+    options: ['yellow', 'blue', 'grey'],
   },
 };

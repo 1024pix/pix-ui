@@ -1,12 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs/blocks';
+import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
 
 import * as stories from './pix-radio-button.stories.js';
 
-<Meta
-  title='Form/Radio Button'
-  component='PixRadioButton'
-  argTypes={stories.argTypes}
-/>
+<Meta title="Form/Radio Button" component="PixRadioButton" argTypes={stories.argTypes} />
 
 # Pix Radio Button
 
@@ -18,8 +14,8 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 ## Default
 
 <Canvas isColumn>
-  <Story name= "Default" story={stories.Default} height={60} />
-  <Story name='Default checked' story={stories.defaultChecked} height={60} />
+  <Story name="Default" story={stories.Default} height={60} />
+  <Story name="Default checked" story={stories.defaultChecked} height={60} />
 </Canvas>
 
 ## IsDisabled
@@ -27,19 +23,14 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 État inactif du bouton radio.
 
 <Canvas isColumn>
-  <Story name='Disabled' story={stories.isDisabled} height={60} />
-  <Story name='Disabled checked' story={stories.disabledChecked} height={60} />
+  <Story name="Disabled" story={stories.isDisabled} height={60} />
+  <Story name="Disabled checked" story={stories.disabledChecked} height={60} />
 </Canvas>
 
 ## Usage
 
 ```html
-
-<PixRadioButton
-    @label={{label}}
-    @value={{value}}
-    @isDisabled={{isDisabled}}
-/>
+<PixRadioButton @label="{{label}}" @value="{{value}}" @isDisabled="{{isDisabled}}" />
 ```
 
 ## Arguments

@@ -140,7 +140,6 @@ export const argTypes = {
   },
   text: {
     name: 'text',
-    defaultValue: 'Tooltiptop',
     description: 'Texte à afficher',
     type: { name: 'string', required: false },
   },
@@ -149,19 +148,17 @@ export const argTypes = {
     description: 'Position de la tooltip',
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'top' } },
-    control: {
-      type: 'select',
-      options: [
-        'top',
-        'top-left',
-        'top-right',
-        'right',
-        'bottom',
-        'bottom-left',
-        'bottom-right',
-        'left',
-      ],
-    },
+    control: { type: 'select' },
+    options: [
+      'top',
+      'top-left',
+      'top-right',
+      'right',
+      'bottom',
+      'bottom-left',
+      'bottom-right',
+      'left',
+    ],
   },
   isLight: {
     name: 'isLight',

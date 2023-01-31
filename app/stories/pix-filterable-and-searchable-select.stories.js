@@ -201,13 +201,11 @@ export const argTypes = {
     description:
       'Pour le filtre de categories, cela rempli le contenu interne du composant, `categoriesPlaceholder` pour `isSearchable` `true`, sinon rawContent du `button`',
     type: { name: 'string', required: true },
-    defaultValue: 'Rechercher un condiment',
   },
   categoriesLabel: {
     name: 'categoriesLabel',
     description:
       "Pour le composant de filtre sur les catégories, cela donne un label au champ qui sera celui vocalisé par le lecteur d'écran",
     type: { name: 'string', required: true },
-    defaultValue: 'Label du champ',
   },
 };
