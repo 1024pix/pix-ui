@@ -10,6 +10,7 @@ export const Template = (args) => {
   @errorMessage={{this.errorMessage}}
   @prefix={{this.prefix}}
   @requiredLabel={{this.requiredLabel}}
+  @validationStatus={{this.validationStatus}}
 />`,
     context: args,
   };
@@ -28,11 +29,19 @@ withLabelAndInformation.args = {
   information: 'Une brève information',
 };
 
-export const withErrorMessage = Template.bind({});
-withErrorMessage.args = {
+export const errorState = Template.bind({});
+errorState.args = {
   id: 'password',
   label: 'Mot de passe',
-  errorMessage: "Un message d'erreur.",
+  errorMessage: "un message d'erreur",
+  validationStatus: 'error',
+};
+
+export const successState = Template.bind({});
+successState.args = {
+  id: 'password',
+  label: 'Mot de passe',
+  validationStatus: 'success',
 };
 
 export const withPrefix = Template.bind({});
@@ -75,9 +84,18 @@ export const argTypes = {
     description: 'Un descriptif complétant le label',
     type: { name: 'string', required: false },
   },
+  validationStatus: {
+    name: 'validationStatus',
+    description:
+      "Définit l'état du champ, neutre par défaut, en succès ou erreur selon l'action de l'utilisateur",
+    type: { name: 'string', required: false },
+    options: ['default', 'success', 'error'],
+    control: { type: 'select' },
+  },
   errorMessage: {
     name: 'errorMessage',
-    description: "Affiche le message d'erreur donné et encadre en rouge le champ",
+    description:
+      "Affiche le message d'erreur donné. Doit s'accompagner du paramètre validationStatus en 'error'",
     type: { name: 'string', required: false },
   },
   prefix: {
