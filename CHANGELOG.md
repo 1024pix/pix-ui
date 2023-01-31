@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v24.2.1 (31/01/2023)
+
+
+### :building_construction: Tech
+- [#323](https://github.com/1024pix/pix-ui/pull/323) [TECH] Supprime des warnings de deprecation Storybook
+- [#327](https://github.com/1024pix/pix-ui/pull/327) [TECH] Remplacer les valeurs d'`id` par du kebab case
+
 ## v24.2.0 (31/01/2023)
 
 
