@@ -9,6 +9,7 @@ export const form = (args) => {
     @label='Prénom'
     @errorMessage={{this.genericErrorMessage}}
     @requiredLabel='champ obligatoire'
+    @validationStatus={{this.validationStatus}}
   />
   <br />
   <PixInputPassword @id='password' @label='Mot de passe' @errorMessage={{this.genericErrorMessage}} />

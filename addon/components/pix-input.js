@@ -2,6 +2,12 @@ import Component from '@glimmer/component';
 
 const ERROR_MESSAGE = 'ERROR in PixInput component, you must provide @label or @ariaLabel params';
 
+const INPUT_VALIDATION_STATUS_MAP = {
+  default: '',
+  error: 'pix-input__input--error',
+  success: 'pix-input__input--success',
+};
+
 export default class PixInput extends Component {
   get id() {
     if (!this.args.id || !this.args.id.toString().trim()) {
@@ -22,5 +28,9 @@ export default class PixInput extends Component {
       throw new Error(ERROR_MESSAGE);
     }
     return this.args.label ? null : this.args.ariaLabel;
+  }
+
+  get validationStatusClassName() {
+    return INPUT_VALIDATION_STATUS_MAP[this.args.validationStatus] || '';
   }
 }

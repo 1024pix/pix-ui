@@ -12,7 +12,7 @@
   }
 }
 
-@mixin formElementDisabled() {  
+@mixin formElementDisabled() {
   background-color: $pix-neutral-20;
 }
 
@@ -61,6 +61,11 @@
 @mixin formElementInError() {
   border-color: $pix-error-70;
   box-shadow: inset 0px 0px 0px 0.6px $pix-error-70;
+}
+
+@mixin formElementInSuccess() {
+  border-color: $pix-success-60;
+  box-shadow: inset 0px 0px 0px 0.6px $pix-success-60;
 }
 
 @mixin input() {

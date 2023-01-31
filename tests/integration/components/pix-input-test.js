@@ -62,16 +62,17 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give an error message to input', async function (assert) {
     // given & when
-    await render(
+    const screen = await render(
       hbs`<PixInput
-  @id='firstName'
-  @label='Prénom'
-  @errorMessage='Seul les caractères alphanumériques sont autorisés'
-/>`
+        @id='firstName'
+        @label='Prénom'
+        @errorMessage='Seul les caractères alphanumériques sont autorisés'
+        @validationStatus="error"
+      />`
     );
 
     // then
-    assert.contains('Seul les caractères alphanumériques sont autorisés');
+    assert.dom(screen.getByText('Seul les caractères alphanumériques sont autorisés')).exists();
   });
 
   test('it should be possible to track value from input', async function (assert) {
