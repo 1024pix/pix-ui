@@ -45,12 +45,6 @@
 
   &__error-message {
     @include errorMessage();
-    margin-bottom: 0;
-    bottom: calc(-4px - 1px - 0.75rem);
-
-    &.pix-input__error-message {
-      margin-top: 4px;
-    }
   }
 
   &__input--default {
