@@ -44,21 +44,21 @@ communicationPixCertif.args = {
 
 export const withExternalLink = Template.bind({});
 withExternalLink.args = {
-  type: 'info',
+  type: 'information',
   actionLabel: 'Voir le nouveau site',
   actionUrl: 'www.test.fr/',
 };
 
 export const withInternalLink = Template.bind({});
 withInternalLink.args = {
-  type: 'info',
+  type: 'information',
   actionLabel: 'Voir la liste des participants',
   actionUrl: 'campaign.list',
 };
 
 export const withCloseIcon = Template.bind({});
 withCloseIcon.args = {
-  type: 'info',
+  type: 'information',
   canCloseBanner: true,
 };
 
