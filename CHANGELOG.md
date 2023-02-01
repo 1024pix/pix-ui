@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v24.2.2 (01/02/2023)
+
+
+### :rocket: Amélioration
+- [#326](https://github.com/1024pix/pix-ui/pull/326) [FEATURE] utiliser une div comme tag parent de PixTooltip (PIX-6816)
+
 ## v24.2.1 (31/01/2023)
 
 
