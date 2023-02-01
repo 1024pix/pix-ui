@@ -127,7 +127,7 @@ WithHTML.args = {
 };
 
 export const WithIcon = TemplateWithIconElement.bind({});
-Default.args = {
+WithIcon.args = {
   text: 'Hello World',
   label: 'À survoler pour voir la tooltip',
 };
