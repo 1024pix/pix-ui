@@ -114,13 +114,6 @@ bottom.args = {
   position: 'bottom',
 };
 
-export const hide = Template.bind({});
-hide.args = {
-  label: 'À survoler pour voir la tooltip',
-  text: "Ne devrait pas s'afficher",
-  hide: true,
-};
-
 export const WithHTML = TemplateWithHTMLElement.bind({});
 WithHTML.args = {
   label: 'À survoler pour voir la tooltip',
@@ -130,6 +123,13 @@ export const WithIcon = TemplateWithIconElement.bind({});
 WithIcon.args = {
   text: 'Hello World',
   label: 'À survoler pour voir la tooltip',
+};
+
+export const hide = Template.bind({});
+hide.args = {
+  label: "Survoler ici n'affiche pas tooltip",
+  text: "Ne devrait pas s'afficher",
+  hide: true,
 };
 
 export const argTypes = {
