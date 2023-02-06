@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v26.0.1 (06/02/2023)
+
+
+### :building_construction: Tech
+- [#332](https://github.com/1024pix/pix-ui/pull/332) [TECH] Monter la version de Node.js en 16.19.0
+
 ## v26.0.0 (06/02/2023)
 
 
