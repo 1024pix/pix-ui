@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v26.0.0 (06/02/2023)
+
+
+### :rocket: Amélioration
+- [#328](https://github.com/1024pix/pix-ui/pull/328) [FEATURE] Ajout de l'état de succès pour les composants pixInput et pixInputPassword
+
 ## v25.0.1 (06/02/2023)
 
 
