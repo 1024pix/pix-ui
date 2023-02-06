@@ -43,19 +43,25 @@ screen.getByLabelText('Prénom exemple: Barry');
 ## With label and information
 
 <Canvas>
-  <Story story={stories.withLabel} height={100} />
+  <Story story={stories.withLabel} height={110} />
 </Canvas>
 
-## With error message
+## Error state (with error message)
 
 <Canvas>
-  <Story story={stories.withErrorMessage} height={130} />
+  <Story story={stories.errorState} height={110} />
+</Canvas>
+
+## Success state
+
+<Canvas>
+  <Story story={stories.successState} height={100} />
 </Canvas>
 
 ## With required label
 
 <Canvas>
-  <Story story={stories.withRequiredLabel} height={130} />
+  <Story story={stories.withRequiredLabel} height={100} />
 </Canvas>
 
 ## Usage
@@ -66,6 +72,7 @@ screen.getByLabelText('Prénom exemple: Barry');
   @label="Prénom"
   @information="Complément du label"
   @errorMessage="Un message d`erreur"
+  @validationStatus="default"
   @requiredLabel="Champ obligatoire"
 />
 ```

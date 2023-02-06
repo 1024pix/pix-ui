@@ -23,30 +23,31 @@
     position: relative;
   }
 
-  svg.pix-input__error-icon {
+  svg {
     position: absolute;
-    bottom: 7px;
-    right: 6px;
     color: $pix-neutral-0;
-    background: $pix-error-70;
     border-radius: 50%;
     font-size: 0.6rem;
     padding: 2px;
-    width: 18px;
-    height: 18px;
+    bottom: 11px;
+    right: 12px;
+    width: 10px;
+    height: 10px;
+
+    &.pix-input__error-icon {
+      background: $pix-error-70;
+    }
+
+    &.pix-input__success-icon {
+      background: $pix-success-60;
+    }
   }
 
   &__error-message {
     @include errorMessage();
-    margin-bottom: 0;
-    bottom: calc(-4px - 1px - 0.75rem);
-
-    &.pix-input__error-message {
-      margin-top: 4px;
-    }
   }
 
-  input {
+  &__input--default {
     width: 100%;
     height: 36px;
     border: 1px solid $pix-neutral-40;
@@ -58,10 +59,15 @@
     &::placeholder {
       color: $pix-neutral-30;
     }
+  }
 
-    &.pix-input__input--error {
-      padding-right: 32px;
-      @include formElementInError();
-    }
+  &__input--error {
+    padding-right: $spacing-l;
+    @include formElementInError();
+  }
+
+  &__input--success {
+    padding-right: $spacing-l;
+    @include formElementInSuccess();
   }
 }

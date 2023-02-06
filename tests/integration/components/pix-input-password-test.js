@@ -48,12 +48,17 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to associate an error message to input', async function (assert) {
     // given & when
-    await render(
-      hbs`<PixInputPassword @label='Mot de passe' @id='password' @errorMessage="Un message d'erreur." />`
+    const screen = await render(
+      hbs`<PixInputPassword
+        @label='Mot de passe'
+        @id='password'
+        @errorMessage="Un message d'erreur."
+        @validationStatus="error"
+        />`
     );
 
     // then
-    assert.contains("Un message d'erreur.");
+    assert.dom(screen.getByText("Un message d'erreur.")).exists();
   });
 
   test('it should display an input prefix if necessary', async function (assert) {

@@ -16,21 +16,24 @@
   <div class="pix-input__container">
     <input
       id={{this.id}}
-      class={{if @errorMessage "pix-input__input--error"}}
+      class="pix-input__input--default {{this.validationStatusClassName}}"
       value={{@value}}
       aria-label={{this.ariaLabel}}
       aria-required="{{if @requiredLabel true false}}"
       required={{if @requiredLabel true false}}
-      aria-describedby={{if @errorMessage "text-input-error"}}
+      aria-describedby={{if (eq @validationStatus "error") "text-input-error"}}
       ...attributes
     />
 
-    {{#if @errorMessage}}
+    {{#if (eq @validationStatus "error")}}
       <FaIcon @icon="xmark" class="pix-input__error-icon" />
+    {{/if}}
+    {{#if (eq @validationStatus "success")}}
+      <FaIcon @icon="check" class="pix-input__success-icon" />
     {{/if}}
   </div>
 
-  {{#if @errorMessage}}
+  {{#if (and (eq @validationStatus "error") @errorMessage)}}
     <p id="text-input-error" class="pix-input__error-message">{{@errorMessage}}</p>
   {{/if}}
 </div>
