@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v25.0.1 (06/02/2023)
+
+
+### :building_construction: Tech
+- [#329](https://github.com/1024pix/pix-ui/pull/329) [TECH] Améliorations techniques diverses
+
+### :coffee: Autre
+- [#294](https://github.com/1024pix/pix-ui/pull/294) chore(deps): bump decode-uri-component from 0.2.0 to 0.2.2
+
 ## v25.0.0 (06/02/2023)
 
 
