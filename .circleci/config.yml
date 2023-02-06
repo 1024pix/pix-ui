@@ -16,10 +16,9 @@ workflows:
 jobs:
   build-and-test:
     docker:
-      - image: cimg/node:16.14.0-browsers
+      - image: cimg/node:16.19.0-browsers
     steps:
       - checkout
-      - run: sudo npm i -g npm@8.13.2
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run: npm ci
