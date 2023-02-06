@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v25.0.0 (06/02/2023)
+
+
+### :coffee: Autre
+- [#330](https://github.com/1024pix/pix-ui/pull/330) [BREAKING CHANGES] Ajouter une min-width au PixIconButton (PIX-7003)
+
 ## v24.2.2 (01/02/2023)
 
 
