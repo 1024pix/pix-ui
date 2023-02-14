@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v26.0.2 (14/02/2023)
+
+
+### :building_construction: Tech
+- [#333](https://github.com/1024pix/pix-ui/pull/333) [TECH] Ajouter la configuration pour Renovate
+
 ## v26.0.1 (06/02/2023)
 
 
