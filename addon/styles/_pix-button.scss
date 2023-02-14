@@ -1,43 +1,53 @@
-.pix-button {
-  .loader {
-    position: absolute;
+.pix-button__icon {
+  height: 1rem;
 
-    &__not-visible-text {
-      visibility: hidden;
-    }
+  &--before {
+    margin-right: $spacing-xs;
   }
 
-  .loader > div {
-    width: 10px;
-    height: 10px;
-    background-color: $pix-neutral-0;
-    border-radius: 100%;
-    display: inline-block;
-    animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+  &--after {
+    margin-left: $spacing-xs;
   }
+}
 
-  .loader--white > div {
-    background-color: $pix-neutral-0;
-  }
-  .loader--grey > div {
-    background-color: $pix-neutral-80;
-  }
-  .loader .bounce1 {
-    animation-delay: -0.32s;
-  }
+.pix-button .loader {
+  position: absolute;
 
-  .loader .bounce2 {
-    animation-delay: -0.16s;
+  &__not-visible-text {
+    visibility: hidden;
   }
+}
 
-  @keyframes sk-bouncedelay {
-    0%,
-    80%,
-    100% {
-      transform: scale(0);
-    }
-    40% {
-      transform: scale(1);
-    }
+.loader > div {
+  width: 10px;
+  height: 10px;
+  background-color: $pix-neutral-0;
+  border-radius: 100%;
+  display: inline-block;
+  animation: sk-bouncedelay 1.4s infinite ease-in-out both;
+}
+
+.loader--white > div {
+  background-color: $pix-neutral-0;
+}
+.loader--grey > div {
+  background-color: $pix-neutral-80;
+}
+.loader .bounce1 {
+  animation-delay: -0.32s;
+}
+
+.loader .bounce2 {
+  animation-delay: -0.16s;
+}
+
+@keyframes sk-bouncedelay {
+  0%,
+  80%,
+  100% {
+    transform: scale(0);
+  }
+  40% {
+    transform: scale(1);
   }
 }

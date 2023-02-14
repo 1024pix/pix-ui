@@ -11,6 +11,8 @@ const Template = (args) => ({
     @isLoading={{this.isLoading}}
     @size={{this.size}}
     @isBorderVisible={{this.isBorderVisible}}
+    @iconBefore={{this.iconBefore}}
+    @iconAfter={{this.iconAfter}}
   >
     {{this.label}}
   </PixButton>
@@ -26,6 +28,8 @@ const Template = (args) => ({
       @isLoading={{button.isLoading}}
       @size={{button.size}}
       @isBorderVisible={{button.isBorderVisible}}
+      @iconBefore={{button.iconBefore}}
+      @iconAfter={{button.iconAfter}}
     >
       {{button.label}}
     </PixButton>
@@ -101,6 +105,13 @@ colors.args = {
       isBorderVisible: true,
     },
   ],
+};
+
+export const icons = Template.bind({});
+icons.args = {
+  ...Default.args,
+  iconBefore: 'magnifying-glass',
+  iconAfter: 'heart',
 };
 
 export const disabled = Template.bind({});
@@ -194,6 +205,28 @@ export const argsTypes = {
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: 'blue' },
+    },
+  },
+  iconBefore: {
+    name: 'iconBefore',
+    description: `Nom de l'icône font-awesome à afficher **avant** le label`,
+    type: { name: 'string', required: false },
+    control: { type: 'select' },
+    options: ['heart', 'magnifying-glass', 'plus', 'xmark'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    },
+  },
+  iconAfter: {
+    name: 'iconAfter',
+    description: `Nom de l'icône font-awesome à afficher **après** le label`,
+    type: { name: 'string', required: false },
+    control: { type: 'select' },
+    options: ['heart', 'magnifying-glass', 'plus', 'xmark'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
     },
   },
   isDisabled: {
