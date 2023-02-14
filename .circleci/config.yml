@@ -24,4 +24,5 @@ jobs:
       - run: npm ci
       - run: npm run lint:js
       - run: npm run lint:hbs
+      - run: npm run lint:scss
       - run: npm test
