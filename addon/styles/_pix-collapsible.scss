@@ -4,88 +4,86 @@
   flex-direction: column;
   font-family: $font-roboto;
   font-size: 1rem;
-  border: 1px solid $pix-neutral-20;
   padding: 0;
   cursor: pointer;
+  border: 1px solid $pix-neutral-20;
   background-color: $pix-neutral-0;
 
-  &__title {
-    padding: 14px 16px;
-    min-width: 100%;
-    cursor: pointer;
-    display: flex;
-    justify-content: space-between;
-    background: transparent;
-    border: none;
-    color: $pix-neutral-60;
-    font-size: 1rem;
+  &:first-child {
+    border-top: 1px solid $pix-neutral-20;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
+  }
+
+  &:last-child {
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
+  }
+
+  &--uncollapsed {
+    box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
+    border-radius: 4px;
+  }
+
+  &--uncollapsed:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  &--uncollapsed:not(:last-child) {
+    margin-bottom: 10px;
+  }
+}
+
+.pix-collapsible__title {
+  padding: 14px 16px;
+  min-width: 100%;
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  background: transparent;
+  border: none;
+  color: $pix-neutral-60;
+  font-size: 1rem;
+  align-items: center;
+
+  &:hover {
+    background-color: $pix-neutral-10;
+  }
+
+  &:focus {
+    background-color: $pix-neutral-10;
+  }
+
+  &--uncollapsed {
+    background-color: $pix-neutral-10;
+  }
+}
+
+.pix-collapsible-title {
+  &__container {
     align-items: center;
-
-    &:hover {
-      background-color: $pix-neutral-10;
-    }
-
-    &:focus {
-      background-color: $pix-neutral-10;
-    }
-
-    &--uncollapsed {
-      background-color: $pix-neutral-10;
-    }
+    display: flex;
+    flex-grow: 1;
   }
 
-  &-title {
-
-    &__container {
-      align-items: center;
-      display: flex;
-      flex-grow: 1;
-    }
-
-    &__icon{
-      color: $pix-neutral-45;
-      margin-right: 6px;
-    }
-
-    &__toggle-icon{
-      color: $pix-neutral-45;
-      margin-left: 16px;
-    }
+  &__icon {
+    color: $pix-neutral-45;
+    margin-right: 6px;
   }
 
-  &__content {
-    padding: 16px 20px;
-    display: none;
-
-    &--uncollapse {
-      display: initial;
-    }
+  &__toggle-icon {
+    color: $pix-neutral-45;
+    margin-left: 16px;
   }
 }
 
-.pix-collapsible:first-child {
-  border-top-left-radius: 4px;
-  border-top-right-radius: 4px;
-}
+.pix-collapsible__content {
+  padding: 16px 20px;
+  display: none;
 
-.pix-collapsible:last-child {
-  border-bottom-left-radius: 4px;
-  border-bottom-right-radius: 4px;
-}
-
-.pix-collapsible--uncollapsed {
-  margin-top: 10px;
-  margin-bottom: 10px;
-  box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
-  border-radius: 4px;
-}
-
-.pix-collapsible--uncollapsed:first-child {
-  margin-top: 0;
-}
-
-.pix-collapsible--uncollapsed:last-child {
-  margin-bottom: 0;
+  &--uncollapse {
+    display: initial;
+  }
 }
 
 // Pour le deuxième élément d'affilé qui est refermé, on enlève la bordure-top
