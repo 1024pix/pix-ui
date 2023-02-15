@@ -1,16 +1,16 @@
-<div class="pix-collapsible {{if this.isUnCollapsed 'pix-collapsible--uncollapsed'}}">
+<div class="pix-collapsible">
 
   <button
+    class="pix-collapsible__title"
     type="button"
     {{on "click" this.toggleCollapsible}}
-    class="pix-collapsible__title {{if this.isUnCollapsed 'pix-collapsible__title--uncollapsed'}}"
     aria-controls={{this.contentId}}
     aria-expanded={{if this.isUnCollapsed "true" "false"}}
     ...attributes
   >
-    <span class="pix-collapsible-title__container">
+    <span class="pix-collapsible-title__label">
       {{#if @titleIcon}}
-        <FaIcon @icon={{@titleIcon}} class="pix-collapsible-title__icon" />
+        <FaIcon class="pix-collapsible-title__icon" @icon={{@titleIcon}} />
       {{/if}}
 
       {{#if (has-block "title")}}
@@ -21,19 +21,16 @@
     </span>
 
     <FaIcon
-      @icon="{{if this.isCollapsed 'plus' 'minus'}}"
       class="pix-collapsible-title__toggle-icon"
+      @icon="{{if this.isCollapsed 'chevron-down' 'chevron-up'}}"
     />
   </button>
 
   <div
     id={{this.contentId}}
+    class="pix-collapsible__content"
     aria-hidden={{if this.isCollapsed "true" "false"}}
-    class="pix-collapsible__content
-      {{if this.isUnCollapsed ' pix-collapsible__content--uncollapse'}}"
   >
-    {{#if this.isContentRendered}}
-      {{yield}}
-    {{/if}}
+    {{yield}}
   </div>
 </div>
