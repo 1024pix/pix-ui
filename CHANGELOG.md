@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v26.0.3 (16/02/2023)
+
+
+### :bug: Correction
+- [#337](https://github.com/1024pix/pix-ui/pull/337) [BUGFIX] utiliser la font-size du navigateur pour le calcul de la taille du PixSelect (PIX-7128)
+
 ## v26.0.2 (14/02/2023)
 
 
