@@ -13,11 +13,10 @@
   &__dropdown {
     z-index: 200;
     position: absolute;
-    border-top: none;
-    border-radius: 0 0 4px 4px;
-    overflow-y: auto;
     max-height: 200px;
     width: inherit;
+    border-top: none;
+    border-radius: 0 0 4px 4px;
     list-style-type: none;
     padding: 0;
     background-color: $pix-neutral-0;
@@ -69,6 +68,8 @@
   }
 
   &__options {
+    overflow-y: auto;
+    max-height: inherit;
     border-top: 1px solid $pix-neutral-20;
   }
 

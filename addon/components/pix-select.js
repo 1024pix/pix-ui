@@ -158,8 +158,10 @@ export default class PixSelect extends Component {
 
   @action
   setSelectWidth() {
-    const baseFontRemRatio = 16;
-    const checkIconWidth = 16;
+    const baseFontRemRatio = Number(
+      getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0]
+    );
+    const checkIconWidth = 1.125 * baseFontRemRatio;
     const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
     const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
 
