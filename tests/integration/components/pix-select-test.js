@@ -110,6 +110,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
+      assert.strictEqual(screen.queryByText(this.placeholder, { selector: 'li' }).tabIndex, -1);
       assert.strictEqual(screen.queryByRole('option', { name: this.placeholder }), null);
     });
   });
