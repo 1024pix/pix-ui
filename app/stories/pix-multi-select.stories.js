@@ -46,8 +46,11 @@ const DEFAULT_OPTIONS = [
 
 export const Default = Template.bind({});
 Default.args = {
+  label: 'Label du champ',
   options: DEFAULT_OPTIONS,
   onChange: action('onChange'),
+  emptyMessage: 'pas de résultat',
+  values: ['1', '3'],
   placeholder: 'placeholder',
 };
 
@@ -76,6 +79,7 @@ export const multiSelectWithChildComponent = (args) => {
 };
 
 multiSelectWithChildComponent.args = {
+  ...Default.args,
   placeholder: 'Sélectionner le niveau souhaité',
   label: 'Résultat évaluation',
   options: [
@@ -149,59 +153,53 @@ export const argTypes = {
     description:
       'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
     type: { name: 'string', required: true },
-    defaultValue: 'Rechercher un condiment',
   },
   label: {
     name: 'label',
     description:
       "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran. **⚠️ Le`label` est obligatoire que si l'`id` n'est pas donné. ⚠️**",
     type: { name: 'string' },
-    defaultValue: 'Label du champ',
   },
   screenReaderOnly: {
     name: 'screenReaderOnly',
     description: "Permet de cacher à l'écran le label tout en restant vocalisable",
     type: { name: 'boolean', required: false },
-    defaultValue: false,
+    table: { defaultValue: { summary: false } },
   },
   emptyMessage: {
     name: 'emptyMessage',
     description:
       'Un intitulé de choix indisponible (dans le cas ou certains filtres seraient excluant)',
     type: { name: 'string', required: true },
-    defaultValue: 'pas de résultat',
   },
   options: {
     name: 'options',
     description:
       'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value`` et ``label``. ``value`` doit être de type ``String`` pour être conforme au traitement des input value.',
     type: { name: 'array', required: false },
-    defaultValue: DEFAULT_OPTIONS,
   },
   onChange: {
     name: 'onChange',
     description: "Une fonction permettant d'effectuer une action à chaque sélection",
     type: { required: true },
-    defaultValue: action('onChange'),
   },
   values: {
     name: 'values',
     description: 'Une pré-sélection peut être donnée au composant',
     type: { name: 'array', required: false },
-    defaultValue: ['1', '4'],
   },
   isSearchable: {
     name: 'isSearchable',
     description: 'Permet de rajouter une saisie utilisateur pour faciliter la recherche',
     type: { name: 'boolean', required: false },
-    defaultValue: true,
+    table: { defaultValue: { summary: false } },
   },
   strictSearch: {
     name: 'strictSearch',
     description:
       'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
     type: { name: 'boolean', required: false },
-    defaultValue: false,
+    table: { defaultValue: { summary: false } },
   },
   className: {
     name: 'className',

@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { action } from '@storybook/addon-actions';
 
 const Template = (args) => {
   return {
@@ -35,46 +36,22 @@ Default.args = {
     { value: '4', label: 'Steak', category: 'Hamburger' },
     { value: '5', label: 'Cheddar', category: 'Hamburger' },
   ],
-  onChange: () => {},
+  onChange: action('onChange'),
   categoriesLabel: 'Mon multi select label',
   categoriesPlaceholder: 'Mon multi select placeholder',
 };
 
 export const Searchable = Template.bind({});
 Searchable.args = {
-  label: 'Are you hungry?',
-  subLabel: 'To help you choose your food, you can filter on different categories',
-  placeholder: 'Mon select placeholder',
+  ...Default.args,
   isSearchable: true,
-  options: [
-    { value: '1', label: 'Salade', category: 'Kebab' },
-    { value: '2', label: 'Tomate', category: 'Kebab' },
-    { value: '3', label: 'Oignons', category: 'Kebab' },
-    { value: '4', label: 'Steak', category: 'Hamburger' },
-    { value: '5', label: 'Cheddar', category: 'Hamburger' },
-  ],
-  onChange: () => {},
-  categoriesLabel: 'Mon multi select label',
-  categoriesPlaceholder: 'Mon multi select placeholder',
 };
 
 export const WithLabelsOnlyForScreenReaders = Template.bind({});
 WithLabelsOnlyForScreenReaders.args = {
-  label: 'Are you hungry?',
-  subLabel: 'To help you choose your food, you can filter on different categories',
+  ...Default.args,
   screenReaderOnly: true,
-  placeholder: 'Mon select placeholder',
   isSearchable: true,
-  options: [
-    { value: '1', label: 'Salade', category: 'Kebab' },
-    { value: '2', label: 'Tomate', category: 'Kebab' },
-    { value: '3', label: 'Oignons', category: 'Kebab' },
-    { value: '4', label: 'Steak', category: 'Hamburger' },
-    { value: '5', label: 'Cheddar', category: 'Hamburger' },
-  ],
-  onChange: () => {},
-  categoriesLabel: 'Mon multi select label',
-  categoriesPlaceholder: 'Mon multi select placeholder',
 };
 
 export const argTypes = {
