@@ -90,6 +90,6 @@
 
 // Pour le deuxième élément d'affilé qui est refermé, on enlève la bordure-top
 .pix-collapsible:not(.pix-collapsible--uncollapsed)
-  + .pix-collapsible:not(.pix-collapsible--uncollapsed) {
++ .pix-collapsible:not(.pix-collapsible--uncollapsed) {
   border-top: none;
 }
