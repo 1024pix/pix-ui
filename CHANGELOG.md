@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v26.0.5 (20/02/2023)
+
+
+### :building_construction: Tech
+- [#345](https://github.com/1024pix/pix-ui/pull/345) [TECH] Active la règle de lint SCSS d'ajout d'espace après les `:`
+- [#346](https://github.com/1024pix/pix-ui/pull/346) [TECH] Active la règle de lint SCSS pour ne pas mettre d'unité derrière les `0`
+- [#344](https://github.com/1024pix/pix-ui/pull/344) [TECH] Active la règle de lint SCSS de format de couleurs
+- [#343](https://github.com/1024pix/pix-ui/pull/343) [TECH] Active la règle de lint SCSS d'indentation
+- [#336](https://github.com/1024pix/pix-ui/pull/336) [TECH] Mise en place de Stylelint
+
 ## v26.0.4 (20/02/2023)
 
 
