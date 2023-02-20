@@ -4,7 +4,6 @@
   background-color: $pix-neutral-0;
   border-radius: 8px;
   min-height: 112px;
-
   box-shadow: 0 4px 8px rgba($pix-neutral-110, 0.05);
   padding: 0;
 
@@ -29,6 +28,7 @@
 
   &__title {
     @include text-large();
+
     display: flex;
     align-items: center;
     font-weight: $font-medium;
@@ -48,6 +48,7 @@
 
   &__sub {
     @include text-small();
+
     font-weight: $font-normal;
     display: flex;
     gap: 10px;

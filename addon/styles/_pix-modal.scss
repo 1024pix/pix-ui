@@ -35,13 +35,13 @@ $space-between-title-and-close-button: 8px;
 $button-margin: 16px;
 
 .pix-modal {
-  
   display: inline-block;
   vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
   width: 512px;
   max-width: calc(
       100% - #{2 * $spacing-xs}
     ); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
+
   text-align: initial;
   background-color: $pix-neutral-10;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);

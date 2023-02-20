@@ -53,6 +53,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
   &--checked {
     @include checkmarkColor($pix-neutral-70);
+
     border: $pix-neutral-22 solid 1px;
     background-color: $pix-neutral-20;
     color: $pix-neutral-70;
@@ -60,6 +61,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
     &:hover {
       @include checkmarkColor($pix-neutral-70);
+
       background-color: $pix-neutral-22;
       border: $pix-neutral-25 solid 1px;
       color: $pix-neutral-70;
@@ -72,6 +74,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
   &:focus-within {
     @include checkmarkColor($pix-neutral-0);
+
     background-color: $pix-neutral-60;
     color: $pix-neutral-0;
     box-shadow: 0 0 0 1px $pix-neutral-60;
@@ -80,6 +83,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
     &:hover {
       @include checkmarkColor($pix-neutral-70);
+
       color: $pix-neutral-70;
       background-color: $pix-neutral-22;
       border: $pix-neutral-25 solid 1px;

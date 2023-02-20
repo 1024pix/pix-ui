@@ -50,6 +50,7 @@
 
   &__empty-search-message {
     @include text-small();
+
     color: $pix-neutral-70;
     text-align: center;
   }
@@ -117,6 +118,7 @@
 
   &__dropdown-icon {
     @include text-small();
+
     margin-left: $spacing-xs;
     color: $pix-neutral-60;
     font-weight: $font-heavy;
@@ -133,6 +135,7 @@
 .pix-select-options-category {
   &__name {
     @include text-small();
+
     padding: $spacing-s $spacing-m $spacing-xs $spacing-m;
     text-transform: uppercase;
     font-family: $font-roboto;
@@ -141,6 +144,7 @@
 
   &__option {
     @include text-small();
+
     display: flex;
     justify-content: space-between;
     padding: $spacing-xs $spacing-m;
@@ -181,6 +185,7 @@
 .pix-select-search {
   &__input {
     @include text-small();
+
     width: 100%;
     border: none;
     padding-left: $spacing-xs;

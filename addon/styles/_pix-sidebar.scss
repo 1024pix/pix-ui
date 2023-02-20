@@ -22,7 +22,6 @@ $space-between-title-and-close-button: 8px;
 $button-margin: 16px;
 
 .pix-sidebar {
-  
   display: flex;
   flex-direction: column;
   height: 100%;
@@ -60,6 +59,7 @@ $button-margin: 16px;
 
   &__title {
     @include h4;
+
     margin-bottom: 0;
     color: $pix-neutral-90;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;

@@ -57,6 +57,7 @@
 
   &__dropdown-icon {
     @include text-small();
+
     color: $pix-neutral-60;
     font-weight: $font-heavy;
     right: 10px;
