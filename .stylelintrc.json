@@ -13,7 +13,6 @@
     "property-no-vendor-prefix": null,
     "scss/at-mixin-argumentless-call-parentheses": null,
     "scss/at-mixin-pattern": null,
-    "scss/double-slash-comment-empty-line-before": null,
     "scss/no-global-function-names": null,
     "scss/operator-no-newline-before": null,
     "selector-id-pattern": null,
