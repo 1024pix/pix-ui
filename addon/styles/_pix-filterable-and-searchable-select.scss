@@ -37,7 +37,7 @@
   }
 
   &__pix-multi-select {
-    border-radius: 4px 0px 0px 4px;
+    border-radius: 4px 0 0 4px;
     position: relative;
 
     &:after {
@@ -52,6 +52,6 @@
   }
 
   &__pix-select {
-    border-radius: 0px 4px 4px 0px;
+    border-radius: 0 4px 4px 0;
   }
 }
