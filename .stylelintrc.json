@@ -14,7 +14,6 @@
     "scss/at-mixin-argumentless-call-parentheses": null,
     "scss/at-mixin-pattern": null,
     "scss/no-global-function-names": null,
-    "scss/operator-no-newline-before": null,
     "selector-id-pattern": null,
     "selector-pseudo-element-colon-notation": null
   }
