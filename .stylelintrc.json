@@ -2,7 +2,6 @@
   "extends": ["@1024pix/stylelint-config"],
   "rules": {
     "alpha-value-notation": null,
-    "block-opening-brace-space-before": null,
     "color-function-notation": null,
     "comment-empty-line-before": null,
     "declaration-block-no-redundant-longhand-properties": null,
