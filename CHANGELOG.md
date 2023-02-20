@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v26.0.4 (20/02/2023)
+
+
+### :building_construction: Tech
+- [#335](https://github.com/1024pix/pix-ui/pull/335) [TECH] Améliorations techniques diverses
+
+### :bug: Correction
+- [#340](https://github.com/1024pix/pix-ui/pull/340) [BUGFIX] Ne pas permettre le focus de l'option par défaut cachée du PixSelect (PIX-7196)
+
 ## v26.0.3 (16/02/2023)
 
 
