@@ -11,7 +11,6 @@
     "no-descending-specificity": null,
     "no-empty-source": null,
     "property-no-vendor-prefix": null,
-    "rule-empty-line-before": null,
     "scss/at-mixin-argumentless-call-parentheses": null,
     "scss/at-mixin-pattern": null,
     "scss/dollar-variable-empty-line-before": null,

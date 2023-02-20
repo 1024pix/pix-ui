@@ -30,9 +30,11 @@
 .loader--white > div {
   background-color: $pix-neutral-0;
 }
+
 .loader--grey > div {
   background-color: $pix-neutral-80;
 }
+
 .loader .bounce1 {
   animation-delay: -0.32s;
 }
@@ -47,6 +49,7 @@
   100% {
     transform: scale(0);
   }
+
   40% {
     transform: scale(1);
   }

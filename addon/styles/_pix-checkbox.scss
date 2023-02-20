@@ -13,9 +13,11 @@
     &--small {
       @include text-small;
     }
+
     &--default {
       @include text;
     }
+
     &--large {
       @include text-large;
     }

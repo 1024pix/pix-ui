@@ -91,15 +91,18 @@
   &::-webkit-scrollbar {
     width: 11px;
   }
+
   &::-webkit-scrollbar-track {
     border-radius: 4px;
     border: 1px solid $pix-neutral-20;
     background: $pix-neutral-0;
   }
+
   &::-webkit-scrollbar-thumb {
     border-radius: 4px;
     background: $pix-neutral-30;
   }
+
   &::-webkit-scrollbar-thumb:hover {
     background: $pix-neutral-35;
   }

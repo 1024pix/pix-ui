@@ -28,16 +28,19 @@
     &::-webkit-scrollbar {
       width: 0.5rem;
     }
+
     &::-webkit-scrollbar-track {
       border-radius: 4px;
       border: 1px solid $pix-neutral-20;
       background: $pix-neutral-20;
     }
+
     &::-webkit-scrollbar-thumb {
       border-radius: 4px;
       width: 0.375rem;
       background: $pix-neutral-30;
     }
+
     &::-webkit-scrollbar-thumb:hover {
       background: $pix-neutral-35;
     }
@@ -190,6 +193,7 @@
     border: none;
     padding-left: $spacing-xs;
     margin: $spacing-xxs;
+
     &:focus {
       outline: none;
       background: $pix-neutral-10;
