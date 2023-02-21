@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v26.1.0 (21/02/2023)
+
+
+### :rocket: Amélioration
+- [#338](https://github.com/1024pix/pix-ui/pull/338) [FEATURE] Permettre au PixButton d'avoir des icônes avant et après le label (PIX-3038)
+
 ## v26.0.5 (20/02/2023)
 
 
