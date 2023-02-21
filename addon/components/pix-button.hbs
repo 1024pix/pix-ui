@@ -24,7 +24,13 @@
       </div>
       <span class="loader__not-visible-text">{{yield}}</span>
     {{else}}
+      {{#if @iconBefore}}
+        <FaIcon class="pix-button__icon pix-button__icon--before" @icon={{@iconBefore}} />
+      {{/if}}
       {{yield}}
+      {{#if @iconAfter}}
+        <FaIcon class="pix-button__icon pix-button__icon--after" @icon={{@iconAfter}} />
+      {{/if}}
     {{/if}}
   </button>
 {{/if}}

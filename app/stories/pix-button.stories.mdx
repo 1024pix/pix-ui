@@ -29,6 +29,16 @@ Le bouton avec toutes ses variations de couleur
   <Story story={stories.colors} height={500} />
 </Canvas>
 
+## Icons
+
+Le bouton avec des icônes `font-awesome` à afficher avant (`@iconBefore`) ou après (`@iconAfter`) le label.
+
+> ℹ️ Accessibilité : dans le cas où les icônes ont une valeur d'information (ex:&nbsp;un bouton `⬅️ Précédent`), il est important d'apporter un aria-label au bouton (ex:&nbsp;"Retour à la page précédente").
+
+<Canvas isColumn>
+  <Story story={stories.icons} height={75} />
+</Canvas>
+
 ## Disabled
 
 Le bouton désactivé
