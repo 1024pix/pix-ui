@@ -116,16 +116,12 @@ $pix-shades-100: #000000;
 // Domain
 $pix-information-dark: #F24645;
 $pix-information-light: #F1A141;
-
 $pix-content-dark: #1A8C89;
 $pix-content-light: #52D987;
-
 $pix-communication-dark: #3D68FF;
 $pix-communication-light: #12A3FF;
-
 $pix-security-dark: #AC008D;
 $pix-security-light: #FF3F94;
-
 $pix-environment-dark: #5E2563;
 $pix-environment-light: #564DA6;
 
@@ -145,6 +141,7 @@ $pix-environment-gradient: linear-gradient(180deg, #5E2563 0%, #564DA6 100%);
 
 //// DEPRECATED
 // primary
+
 /**
  * @deprecated Please use '$pix-primary' instead!
  */
@@ -223,6 +220,7 @@ $purple: #8845FF;
 }
 
 // gradients
+
 /**
  * @deprecated Please use '$pix-primary-app-gradient' instead!
  */
@@ -304,6 +302,7 @@ $grey-22: #C1C7D0;
  * @deprecated Please use '$pix-neutral-25' instead!
  */
 $grey-25: #A5ADBA;
+
 // medium
 
 /**
@@ -337,6 +336,7 @@ $grey-50: #5E6C84;
 $grey-60: #505F79;
 
 // dark
+
 /**
  * @deprecated Please use '$pix-neutral-70' instead!
  */
@@ -368,6 +368,7 @@ $grey-150: #0C163A;
 $grey-200: #07142E;
 
 // gradients domain
+
 /**
  * @deprecated Please use '$pix-information-gradient' instead!
  */

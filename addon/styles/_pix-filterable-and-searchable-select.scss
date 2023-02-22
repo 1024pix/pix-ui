@@ -19,6 +19,7 @@
   &__pix-multi-select,
   &__pix-select {
     border: none;
+
     &:hover {
       border: none;
       box-shadow: none;
@@ -28,6 +29,7 @@
   &__error-message {
     @include errorMessage();
   }
+
   .pix-multi-select {
     margin-right: 2px;
 
