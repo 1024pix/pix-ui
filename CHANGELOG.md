@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v27.0.0 (22/02/2023)
+
+
+### :rocket: Amélioration
+- [#339](https://github.com/1024pix/pix-ui/pull/339) [FEATURE] Accorder le style du PixCollapsible au Design System (PIX-7164)
+
 ## v26.1.0 (21/02/2023)
 
 
