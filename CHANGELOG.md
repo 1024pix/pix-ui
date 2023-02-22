@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v27.0.1 (22/02/2023)
+
+
+### :building_construction: Tech
+- [#347](https://github.com/1024pix/pix-ui/pull/347) [TECH] Active des règles de lint SCSS d'espacement
+
 ## v27.0.0 (22/02/2023)
 
 
