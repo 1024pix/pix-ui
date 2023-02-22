@@ -14,10 +14,6 @@ export default class PixCollapsible extends Component {
     return !this.isCollapsed;
   }
 
-  get isContentRendered() {
-    return this.hasUnCollapsedOnce;
-  }
-
   get title() {
     if (!this.args.title || !this.args.title.trim()) {
       throw new Error('ERROR in PixCollapsible component, @title param is not provided');

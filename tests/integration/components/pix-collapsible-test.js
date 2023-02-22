@@ -15,7 +15,7 @@ module('Integration | Component | collapsible', function (hooks) {
 
     // then
     assert.dom(screen.queryByText('Titre de mon élément déroulable')).isVisible();
-    assert.dom(screen.queryByText('Contenu de mon élément')).doesNotExist();
+    assert.dom(screen.queryByText('Contenu de mon élément')).isNotVisible();
   });
 
   test('it should render and show content on click on PixCollapsible title', async function (assert) {
