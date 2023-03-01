@@ -13,15 +13,15 @@
     background-color: transparent;
     border: 1px solid $pix-neutral-30;
     border-radius: 4px;
-    padding: $spacing-xxs;
-    margin-top: $spacing-xxs;
+    padding: $pix-spacing-xxs;
+    margin-top: $pix-spacing-xxs;
   }
 
   &__on,
   &__off {
     display: inline-block;
     border-radius: 4px;
-    padding: $spacing-xs;
+    padding: $pix-spacing-xs;
     color: $pix-neutral-70;
 
     @include text-small;
@@ -35,7 +35,7 @@
   &--inline {
     flex-direction: row;
     align-items: center;
-    gap: $spacing-xxs;
+    gap: $pix-spacing-xxs;
   }
 
   &--inline,

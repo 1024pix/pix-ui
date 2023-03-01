@@ -23,7 +23,7 @@
     box-shadow: 0 6px 12px rgba(7, 20, 46, 0.08);
     transition: all 0.1s ease-in-out;
     white-space: nowrap;
-    margin-top: $spacing-xxs;
+    margin-top: $pix-spacing-xxs;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -61,7 +61,7 @@
   &__search {
     display: flex;
     border-bottom: 2px solid $pix-neutral-22;
-    margin: $spacing-s $spacing-m;
+    margin: $pix-spacing-s $pix-spacing-m;
     color: $pix-neutral-30;
     border-radius: 4px 4px 0 0;
 
@@ -90,7 +90,7 @@
   font-weight: $font-normal;
   position: relative;
   border: 1px $pix-neutral-45 solid;
-  padding: 0 $spacing-s 0 $spacing-s;
+  padding: 0 $pix-spacing-s 0 $pix-spacing-s;
   width: 100%;
   background-color: $pix-neutral-0;
   border-radius: 4px;
@@ -122,7 +122,7 @@
   &__dropdown-icon {
     @include text-small();
 
-    margin-left: $spacing-xs;
+    margin-left: $pix-spacing-xs;
     color: $pix-neutral-60;
     font-weight: $font-heavy;
     pointer-events: none;
@@ -139,7 +139,7 @@
   &__name {
     @include text-small();
 
-    padding: $spacing-s $spacing-m $spacing-xs $spacing-m;
+    padding: $pix-spacing-s $pix-spacing-m $pix-spacing-xs $pix-spacing-m;
     text-transform: uppercase;
     font-family: $font-roboto;
     color: $pix-neutral-45;
@@ -150,7 +150,7 @@
 
     display: flex;
     justify-content: space-between;
-    padding: $spacing-xs $spacing-m;
+    padding: $pix-spacing-xs $pix-spacing-m;
     color: $pix-neutral-70;
 
     &:hover,
@@ -191,8 +191,8 @@
 
     width: 100%;
     border: none;
-    padding-left: $spacing-xs;
-    margin: $spacing-xxs;
+    padding-left: $pix-spacing-xs;
+    margin: $pix-spacing-xxs;
 
     &:focus {
       outline: none;
@@ -201,6 +201,6 @@
   }
 
   &__icon {
-    margin: auto $spacing-xxs;
+    margin: auto $pix-spacing-xxs;
   }
 }
