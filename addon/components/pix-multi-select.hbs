@@ -66,6 +66,7 @@
             @id={{concat this.multiSelectId "-" option.value}}
             @checked={{option.checked}}
             @labelSize="small"
+            @class="pix-multi-select-list__item-label"
             value={{option.value}}
             {{on "change" this.onSelect}}
             {{on-enter-action this.hideDropDown this.multiSelectId}}
