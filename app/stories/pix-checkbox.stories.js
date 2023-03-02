@@ -52,6 +52,11 @@ export const argTypes = {
     name: 'label',
     description: "Le label de l'input",
   },
+  class: {
+    name: 'class',
+    description: "Permet d'ajouter une classe css à la checkbox.",
+    type: { name: 'string' },
+  },
   screenReaderOnly: {
     name: 'screenReaderOnly',
     description:
