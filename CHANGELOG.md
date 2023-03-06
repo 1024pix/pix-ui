@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v28.0.1 (06/03/2023)
+
+
+### :coffee: Autre
+- [#355](https://github.com/1024pix/pix-ui/pull/355) [BUG] Corrige le PixCheckbox pour éviter de cacher l'input en utilisant la propriété screenReaderOnly
+
 ## v28.0.0 (06/03/2023)
 
 
