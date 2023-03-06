@@ -25,7 +25,7 @@
   "scripts": {
     "build": "./scripts/build.sh",
     "build-ember": "ember build --environment=production",
-    "serve-ember": "ember serve",
+    "serve-ember": "ember build --watch",
     "build-storybook": "ember build && cp -v CNAME dist && build-storybook",
     "serve-storybook": "start-storybook --port 9001",
     "clean": "rm -rf dist node_modules",
