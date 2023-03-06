@@ -43,11 +43,11 @@ module('Integration | Component | stars', function (hooks) {
     assert.equal(unacquiredStars.length, 2);
   });
 
-  test('it renders aria-label message', async function (assert) {
+  test('it renders message', async function (assert) {
     // when
     const screen = await render(hbs`<PixStars @total={{3}} @alt='message' />`);
     // then
-    assert.dom(screen.getByLabelText('message')).exists();
+    assert.dom(screen.getByText('message')).exists();
   });
 
   test('it renders the acquired start but hide unacquired', async function (assert) {
