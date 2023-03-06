@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v28.0.0 (06/03/2023)
+
+
+### :rocket: Amélioration
+- [#351](https://github.com/1024pix/pix-ui/pull/351) [FEATURE] Garder la cohérence sémantique du Pix-pagination (PIX-6812)
+
 ## v27.0.2 (06/03/2023)
 
 
