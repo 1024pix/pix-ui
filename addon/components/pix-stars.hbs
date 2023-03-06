@@ -1,10 +1,10 @@
-<div class={{this.pixStarsClass}} ...attributes aria-label={{@alt}}>
+<div class={{this.pixStarsClass}} ...attributes>
+  <span class="screen-reader-only">{{@alt}}</span>
   {{#each this.stars as |star|}}
     <svg
       class="pix-stars__{{star}}"
       data-test-status={{star}}
       viewBox="0 0 36 36"
-      role="img"
       aria-hidden="true"
     >
       <defs>
