@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v27.0.2 (06/03/2023)
+
+
+### :bug: Correction
+- [#353](https://github.com/1024pix/pix-ui/pull/353) [BUGFIX] Améliorer l'accessibilité de PixStar (PIX-7349)
+- [#348](https://github.com/1024pix/pix-ui/pull/348) [BUGFIX] Rendre la ligne entière d'une option du multiselect cliquable (PIX-6957)
+
 ## v27.0.1 (22/02/2023)
 
 
