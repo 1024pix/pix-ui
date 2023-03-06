@@ -1,4 +1,4 @@
-<label class="pix-checkbox {{if @screenReaderOnly 'sr-only'}} {{@class}}" for={{@id}}>
+<label class="pix-checkbox {{@class}}" for={{@id}}>
   <input
     id={{@id}}
     type="checkbox"
@@ -8,7 +8,11 @@
   />
 
   {{#if (has-block)}}
-    <span class="pix-checkbox__label {{this.labelSizeClass}}">{{yield}}</span>
+    <span
+      class="pix-checkbox__label
+        {{if @screenReaderOnly 'screen-reader-only'}}
+        {{this.labelSizeClass}}"
+    >{{yield}}</span>
   {{else}}
     yield required to give a label for PixCheckBox
     {{@id}}.
