@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v28.0.2 (09/03/2023)
+
+
+### :building_construction: Tech
+- [#356](https://github.com/1024pix/pix-ui/pull/356) [TECH] Supprimer des fichiers inutiles (PIX-7402).
+
 ## v28.0.1 (06/03/2023)
 
 
