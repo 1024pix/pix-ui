@@ -13,6 +13,8 @@ const Template = (args) => ({
     @isBorderVisible={{this.isBorderVisible}}
     @iconBefore={{this.iconBefore}}
     @iconAfter={{this.iconAfter}}
+    @prefixIconBefore={{this.prefixIconBefore}}
+    @prefixIconAfter={{this.prefixIconAfter}}
   >
     {{this.label}}
   </PixButton>
@@ -30,6 +32,8 @@ const Template = (args) => ({
       @isBorderVisible={{button.isBorderVisible}}
       @iconBefore={{button.iconBefore}}
       @iconAfter={{button.iconAfter}}
+      @prefixIconBefore={{this.prefixIconBefore}}
+      @prefixIconAfter={{this.prefixIconAfter}}
     >
       {{button.label}}
     </PixButton>
@@ -212,7 +216,7 @@ export const argsTypes = {
     description: `Nom de l'icône font-awesome à afficher **avant** le label`,
     type: { name: 'string', required: false },
     control: { type: 'select' },
-    options: ['heart', 'magnifying-glass', 'plus', 'xmark'],
+    options: ['trash-can', 'heart', 'magnifying-glass', 'plus', 'xmark'],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
@@ -223,7 +227,29 @@ export const argsTypes = {
     description: `Nom de l'icône font-awesome à afficher **après** le label`,
     type: { name: 'string', required: false },
     control: { type: 'select' },
-    options: ['heart', 'magnifying-glass', 'plus', 'xmark'],
+    options: ['trash-can', 'heart', 'magnifying-glass', 'plus', 'xmark'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    },
+  },
+  prefixIconBefore: {
+    name: 'prefixIconBefore',
+    description: `Permet d'ajouter un préfix à l'icone devant le label pour appliquer un style particulier`,
+    type: { name: 'string', required: false },
+    control: { type: 'select' },
+    options: ['fas', 'far'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    },
+  },
+  prefixIconAfter: {
+    name: 'prefixIconAfter',
+    description: `Permet d'ajouter un préfix à l'icone derrière le label pour appliquer un style particulier`,
+    type: { name: 'string', required: false },
+    control: { type: 'select' },
+    options: ['fas', 'far'],
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },

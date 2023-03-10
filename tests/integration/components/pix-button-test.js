@@ -70,6 +70,19 @@ module('Integration | Component | button', function (hooks) {
     assert.ok(iconAfter);
   });
 
+  test('it renders the PixButton component with prefixIconBefore and prefixIconAfter attributes', async function (assert) {
+    //when
+    await render(hbs`
+      <PixButton @iconBefore='plus' @prefixIconBefore='fas' @iconAfter='plus' @prefixIconAfter='fas' aria-label='button label'>
+        Mon bouton
+      </PixButton>
+    `);
+
+    const prefixes = this.element.querySelectorAll('[data-prefix="fas"]');
+    // then
+    assert.strictEqual(prefixes.length, 2);
+  });
+
   test('it should call the action', async function (assert) {
     // given
     this.set('count', 1);
