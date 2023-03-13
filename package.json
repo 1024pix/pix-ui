@@ -85,6 +85,7 @@
     "@storybook/manager-webpack5": "^6.5.13",
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/theming": "^6.5.13",
+    "@testing-library/dom": "^8.20.0",
     "@testing-library/user-event": "^14.4.3",
     "axios": "^1.2.0",
     "broccoli-asset-rev": "^3.0.0",
