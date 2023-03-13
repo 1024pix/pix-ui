@@ -22,8 +22,9 @@
             @shape="squircle"
             @size="small"
             @triggerAction={{@onClearFilters}}
+            @iconBefore="trash-can"
+            @prefixIconBefore="far"
           >
-            <FaIcon class="pix-filter-banner-button__icon" @icon="trash-can" @prefix="far" />
             {{@clearFiltersLabel}}
           </PixButton>
         </div>

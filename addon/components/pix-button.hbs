@@ -25,11 +25,19 @@
       <span class="loader__not-visible-text">{{yield}}</span>
     {{else}}
       {{#if @iconBefore}}
-        <FaIcon class="pix-button__icon pix-button__icon--before" @icon={{@iconBefore}} />
+        <FaIcon
+          class="pix-button__icon pix-button__icon--before"
+          @icon={{@iconBefore}}
+          @prefix={{@prefixIconBefore}}
+        />
       {{/if}}
       {{yield}}
       {{#if @iconAfter}}
-        <FaIcon class="pix-button__icon pix-button__icon--after" @icon={{@iconAfter}} />
+        <FaIcon
+          class="pix-button__icon pix-button__icon--after"
+          @icon={{@iconAfter}}
+          @prefix={{@prefixIconAfter}}
+        />
       {{/if}}
     {{/if}}
   </button>
