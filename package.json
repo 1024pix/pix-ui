@@ -85,7 +85,6 @@
     "@storybook/theming": "^6.5.13",
     "@testing-library/dom": "^8.20.0",
     "@testing-library/user-event": "^14.4.3",
-    "broccoli-asset-rev": "^3.0.0",
     "core-js": "^3.26.1",
     "ember-cli": "^4.8.0",
     "ember-cli-dependency-checker": "^3.3.1",
