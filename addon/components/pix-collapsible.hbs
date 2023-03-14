@@ -31,6 +31,8 @@
     class="pix-collapsible__content"
     aria-hidden={{if this.isCollapsed "true" "false"}}
   >
-    {{yield}}
+    {{#if this.isContentRendered}}
+      {{yield}}
+    {{/if}}
   </div>
 </div>
