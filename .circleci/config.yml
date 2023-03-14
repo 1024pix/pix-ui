@@ -17,6 +17,7 @@ jobs:
   build-and-test:
     docker:
       - image: cimg/node:16.19.0-browsers
+    resource_class: medium+
     steps:
       - checkout
       - browser-tools/install-chrome
@@ -26,3 +27,4 @@ jobs:
       - run: npm run lint:hbs
       - run: npm run lint:scss
       - run: npm test
+      - run: npm run test:ember-compatibility

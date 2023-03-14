@@ -12,18 +12,6 @@ A la différence d'un [PixSelect](?path=/docs/form-select--default#withsearch) s
 
 Ce composant permet d'appeler la fonction triggerFiltering passée en paramètre selon un debounce (temps d'attente avant le prochain appel) fournis.
 
-⚠️ ⚠️ ⚠️ Pour utiliser ce composant des changements sont nécessaires dans l'application où est installé Pix UI :
-
-1- Rajoutez ceci dans le `ember-cli-build.js` de votre application (mon-pix/pix-orga/pix-certif/pix-admin) :
-
-```js
-app.import('node_modules/lodash.debounce/index.js', {
-  using: [{ transformation: 'cjs', as: 'lodash.debounce' }],
-});
-```
-
-2- Installez la dépendance "ember-cli-cjs-transform" : `npm install ember-cli-cjs-transform`
-
 <Canvas>
   <Story name="Default" story={stories.Default} height={80} />
 </Canvas>
