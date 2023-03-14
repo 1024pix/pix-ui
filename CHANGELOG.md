@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v28.1.0 (14/03/2023)
+
+
+### :rocket: Amélioration
+- [#360](https://github.com/1024pix/pix-ui/pull/360) [FEATURE] Vérifie la compatibilité avec embroider sur la ci
+
+### :coffee: Autre
+- [#357](https://github.com/1024pix/pix-ui/pull/357) [CHORE] Utiliser la propriété iconBefore dans le bouton du filterBanner (PIX-7415)
+
 ## v28.0.2 (09/03/2023)
 
 
