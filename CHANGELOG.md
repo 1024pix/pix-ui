@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v28.1.1 (14/03/2023)
+
+
+### :bug: Correction
+- [#361](https://github.com/1024pix/pix-ui/pull/361) [BUGFIX] Le contenu du `PixCollapsible` ne se rend plus en lazy
+
 ## v28.1.0 (14/03/2023)
 
 
