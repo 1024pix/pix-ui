@@ -59,7 +59,7 @@
         />
       </div>
     {{/if}}
-    <div role="listbox" id={{this.listId}} class="pix-select__options">
+    <ul role="listbox" id={{this.listId}} class="pix-select__options">
       <li
         class="pix-select-options-category__option{{unless
             @value
@@ -135,9 +135,9 @@
           {{/each}}
         {{/if}}
       {{else}}
-        <p class="pix-select__empty-search-message">{{@emptySearchMessage}}</p>
+        <li class="pix-select__empty-search-message">{{@emptySearchMessage}}</li>
       {{/if}}
-    </div>
+    </ul>
   </div>
   {{#if @errorMessage}}
     <p class="pix-select__error-message">{{@errorMessage}}</p>

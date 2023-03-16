@@ -13,10 +13,10 @@
   &__dropdown {
     z-index: 200;
     position: absolute;
-    max-height: 200px;
+    max-height: 12.5rem;
     width: inherit;
     border-top: none;
-    border-radius: 0 0 4px 4px;
+    border-radius: 0 0 $pix-spacing-xxs $pix-spacing-xxs;
     list-style-type: none;
     padding: 0;
     background-color: $pix-neutral-0;
@@ -24,19 +24,20 @@
     transition: all 0.1s ease-in-out;
     white-space: nowrap;
     margin-top: $pix-spacing-xxs;
+    overflow-y: auto;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
     }
 
     &::-webkit-scrollbar-track {
-      border-radius: 4px;
+      border-radius: $pix-spacing-xxs;
       border: 1px solid $pix-neutral-20;
       background: $pix-neutral-20;
     }
 
     &::-webkit-scrollbar-thumb {
-      border-radius: 4px;
+      border-radius: $pix-spacing-xxs;
       width: 0.375rem;
       background: $pix-neutral-30;
     }
@@ -63,7 +64,7 @@
     border-bottom: 2px solid $pix-neutral-22;
     margin: $pix-spacing-s $pix-spacing-m;
     color: $pix-neutral-30;
-    border-radius: 4px 4px 0 0;
+    border-radius: $pix-spacing-xxs $pix-spacing-xxs 0 0;
 
     &:focus-within {
       background: $pix-neutral-10;
@@ -72,8 +73,6 @@
   }
 
   &__options {
-    overflow-y: auto;
-    max-height: inherit;
     border-top: 1px solid $pix-neutral-20;
   }
 
@@ -84,14 +83,13 @@
 
 .pix-select-button {
   display: flex;
-  flex-direction: row;
   align-items: center;
   position: relative;
   border: 1px $pix-neutral-45 solid;
   padding: 0 $pix-spacing-s 0 $pix-spacing-s;
   width: 100%;
   background-color: $pix-neutral-0;
-  border-radius: 4px;
+  border-radius: $pix-spacing-xxs;
   outline: none;
   height: 2.25rem;
   cursor: pointer;
