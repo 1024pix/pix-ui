@@ -5,42 +5,27 @@
   box-shadow: 0 $verticalSize $blur rgba(7, 20, 46, 0.08);
 }
 
-@mixin shadow-xs() {
+%pix-shadow-xs,
+.pix-shadow-xs {
   @include shadow(4px, 8px);
 }
 
-@mixin shadow-sm() {
+%pix-shadow-sm,
+.pix-shadow-sm {
   @include shadow(6px, 12px);
 }
 
-@mixin shadow-md() {
+%pix-shadow-md,
+.pix-shadow-md {
   @include shadow(8px, 16px);
 }
 
-@mixin shadow-lg() {
+%pix-shadow-lg,
+.pix-shadow-lg {
   @include shadow(10px, 20px);
 }
 
-@mixin shadow-xl() {
-  @include shadow(12px, 24px);
-}
-
-.pix-shadow-xs {
-  @include shadow-xs;
-}
-
-.pix-shadow-sm {
-  @include shadow-sm;
-}
-
-.pix-shadow-md {
-  @include shadow-md;
-}
-
-.pix-shadow-lg {
-  @include shadow-lg;
-}
-
+%pix-shadow-xl,
 .pix-shadow-xl {
-  @include shadow-xl;
+  @include shadow(12px, 24px);
 }
