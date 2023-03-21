@@ -83,11 +83,11 @@
     }
 
     & .progress-gauge__marker {
-      background: $pix-yellow-gradient-right;
+      background: $pix-secondary-app-gradient;
     }
 
     & .progress-gauge__tooltip {
-      background: $pix-yellow-gradient;
+      background: $pix-secondary-app-gradient;
       color: $pix-neutral-0;
 
       &::before {
