@@ -27,12 +27,12 @@
   }
 
   &--purple {
-    background-color: $purple;
+    background-color: $pix-tertiary-60;
   }
 
   &--purple-light {
-    color: darken($purple, 10%);
-    background-color: lighten($purple, 30%);
+    color: $pix-tertiary-80;
+    background-color: $pix-tertiary-5;
   }
 
   &--yellow {
