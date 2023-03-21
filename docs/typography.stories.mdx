@@ -6,7 +6,7 @@ import { Meta, Typeset } from '@storybook/addon-docs';
 
 # Typographie
 
-Cette page permet de connaitre les typographies qui sont disponibles dans `Pix-UI`. [Figma](https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24-8&t=Nuq9GxVknLW0Qsbc-0) reste la source de vérité du design system de Pix.
+Cette page permet de connaître les typographies qui sont disponibles dans `Pix-UI`. [Figma](https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24-8&t=Nuq9GxVknLW0Qsbc-0) reste la source de vérité du design system de Pix.
 
 Ce que l'on nomme typographie dans ce contexte est un ensemble de 5 éléments :
 
@@ -16,67 +16,69 @@ Ce que l'on nomme typographie dans ce contexte est un ensemble de 5 éléments :
 - Graisse `font-weight`
 - Espacement des caractères `letter-spacing`
 
-## Utilisation recommandée
+On met à disposition dans Pix UI des utilitaires pour simplifier l'usage.
 
-On recommande en priorité d'utiliser les **classes CSS** utilitaires :
+## Utilisation via placeholder SCSS
+
+Des **placeholder SCSS** équivalents aux tokens de Figma sont disponibles. C'est l'usage recommandé en priorité.
 
 ### Titres
 
 <Typeset
   fontSizes={[48]}
   fontWeight={500}
-  sampleText={'pix-title-large'}
+  sampleText={'@extend %pix-title-l;'}
   fontFamily={'"Open Sans", Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[36]}
   fontWeight={500}
-  sampleText={'pix-title-medium'}
+  sampleText={'@extend %pix-title-m;'}
   fontFamily={'"Open Sans", Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[28]}
   fontWeight={500}
-  sampleText={'pix-title-small'}
+  sampleText={'@extend %pix-title-s;'}
   fontFamily={'"Open Sans", Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[20]}
   fontWeight={500}
-  sampleText={'pix-title-extra-small'}
+  sampleText={'@extend %pix-title-xs;'}
   fontFamily={'"Open Sans", Arial, sans-serif'}
 />
 
-### Corps
+### Corps de texte
 
 <Typeset
   fontSizes={[18]}
   fontWeight={400}
-  sampleText={'pix-body-large'}
+  sampleText={'@extend %pix-body-l;'}
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[16]}
   fontWeight={400}
-  sampleText={'pix-body-medium'}
+  sampleText={'@extend %pix-body-m;'}
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[14]}
   fontWeight={400}
-  sampleText={'pix-body-small'}
+  sampleText={'@extend %pix-body-s;'}
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[12]}
   fontWeight={400}
-  sampleText={'pix-body-extra-small'}
+  sampleText={'@extend %pix-body-xs;'}
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
@@ -87,22 +89,56 @@ Pour les corps, on peut préciser une graisse différente en complément :
 <Typeset
   fontSizes={[16]}
   fontWeight={500}
-  sampleText={'pix-body-medium pix-weight-medium'}
+  sampleText={'@extend %pix-weight-medium;'}
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
 <Typeset
   fontSizes={[16]}
   fontWeight={700}
-  sampleText={'pix-body-medium pix-weight-bold'}
+  sampleText={'@extend %pix-weight-bold;'}
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
-## Autre utilisation
+### Comment utiliser un placeholder SCSS ?
 
-Il existe pour chaque classe CSS, une mixin SCSS du même nom si l'on souhaite ne pas alourdir le template.
+```css
+.card__title {
+  @extend %pix-title-m;
 
-⚠️ Attention, de cette manière on duplique du code qui est déjà embarqué dans les classes CSS utilitaires.
+  color: $pix-neutral-70;
+}
+```
+
+Contrairement à l'utilisation de mixins, le CSS compilé ne sera que très peu surchargé. Il ressemblera à ceci :
+
+```css
+.pix-title-m,
+.card__title {
+  font-family: 'Open Sans', Arial, sans-serif;
+  font-size: 2rem;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  font-weight: 500;
+}
+
+.card__title {
+  color: #344563;
+}
+```
+
+## Utilisation via classe CSS
+
+Pour chaque placeholder SCSS, une **classe CSS** utilitaire de même nom existe :
+
+- `pix-title-l`
+- `pix-title-m`
+- `pix-title-s`
+- `pix-title-xs`
+- `pix-body-l`
+- `pix-body-m`
+- `pix-body-s`
+- `pix-body-xs`
 
 ## Détails techniques
 

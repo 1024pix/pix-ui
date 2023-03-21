@@ -1,13 +1,14 @@
 // See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24%3A8
 
-// Mixin pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
-@mixin _pix-title() {
+// Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
+%-pix-title {
   font-family: $font-open-sans;
   font-weight: 500;
 }
 
-@mixin pix-title-large() {
-  @include _pix-title();
+%pix-title-l,
+.pix-title-l {
+  @extend %-pix-title;
 
   font-size: 2rem;
   line-height: 1.25;
@@ -22,8 +23,9 @@
   }
 }
 
-@mixin pix-title-medium() {
-  @include _pix-title();
+%pix-title-m,
+.pix-title-m {
+  @extend %-pix-title;
 
   font-size: 1.625rem;
   line-height: 1.3;
@@ -40,8 +42,9 @@
   }
 }
 
-@mixin pix-title-small() {
-  @include _pix-title();
+%pix-title-s,
+.pix-title-s {
+  @extend %-pix-title;
 
   font-size: 1.375rem;
   line-height: 1.3;
@@ -56,21 +59,23 @@
   }
 }
 
-@mixin pix-title-extra-small() {
-  @include _pix-title();
+%pix-title-xs,
+.pix-title-xs {
+  @extend %-pix-title;
 
-  font-size: 1rem;
+  font-size: 1.25rem;
   line-height: 1.4;
   letter-spacing: -0.02em;
 }
 
-@mixin _pix-body() {
+%-pix-body {
   font-family: $font-roboto;
   font-weight: 400;
 }
 
-@mixin pix-body-large() {
-  @include _pix-body();
+%pix-body-l,
+.pix-body-l {
+  @extend %-pix-body;
 
   font-size: 1rem;
   line-height: 1.5;
@@ -80,8 +85,9 @@
   }
 }
 
-@mixin pix-body-medium() {
-  @include _pix-body();
+%pix-body-m,
+.pix-body-m {
+  @extend %-pix-body;
 
   font-size: 0.875rem;
   line-height: 1.5;
@@ -91,65 +97,29 @@
   }
 }
 
-@mixin pix-body-small() {
-  @include _pix-body();
+%pix-body-s,
+.pix-body-s {
+  @extend %-pix-body;
 
   font-size: 0.875rem;
   line-height: 1.5;
 }
 
-@mixin pix-body-extra-small() {
-  @include _pix-body();
+%pix-body-xs,
+.pix-body-xs {
+  @extend %-pix-body;
 
   font-size: 0.75rem;
   line-height: 1.5;
   letter-spacing: 0.02em;
 }
 
-.pix-title-large {
-  @include pix-title-large();
-}
-
-.pix-title-medium {
-  @include pix-title-medium();
-}
-
-.pix-title-small {
-  @include pix-title-small();
-}
-
-.pix-title-extra-small {
-  @include pix-title-extra-small();
-}
-
-.pix-body-large {
-  @include pix-body-large();
-}
-
-.pix-body-medium {
-  @include pix-body-medium();
-}
-
-.pix-body-small {
-  @include pix-body-small();
-}
-
-.pix-body-extra-small {
-  @include pix-body-extra-small();
-}
-
-@mixin pix-body-weight-medium() {
+%pix-body-weight-medium,
+.pix-body-weight-medium {
   font-weight: 500;
 }
 
-@mixin pix-body-weight-bold() {
-  font-weight: 700;
-}
-
-.pix-body-weight-medium {
-  @include pix-body-weight-medium();
-}
-
+%pix-body-weight-bold,
 .pix-body-weight-bold {
-  @include pix-body-weight-bold();
+  font-weight: 700;
 }
