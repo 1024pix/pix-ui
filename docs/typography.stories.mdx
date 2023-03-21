@@ -1,0 +1,124 @@
+<!-- Typography.stories.mdx -->
+
+import { Meta, Typeset } from '@storybook/addon-docs';
+
+<Meta title="Utiliser Pix UI/Design Tokens/Typographie" />
+
+# Typographie
+
+Cette page permet de connaitre les typographies qui sont disponibles dans `Pix-UI`. [Figma](https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24-8&t=Nuq9GxVknLW0Qsbc-0) reste la source de vérité du design system de Pix.
+
+Ce que l'on nomme typographie dans ce contexte est un ensemble de 5 éléments :
+
+- Police d'écriture `font-family`
+- Taille de la police `font-size`
+- Hauteur de ligne `line-height`
+- Graisse `font-weight`
+- Espacement des caractères `letter-spacing`
+
+## Utilisation recommandée
+
+On recommande en priorité d'utiliser les **classes CSS** utilitaires :
+
+### Titres
+
+<Typeset
+  fontSizes={[48]}
+  fontWeight={500}
+  sampleText={'pix-title-large'}
+  fontFamily={'"Open Sans", Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[36]}
+  fontWeight={500}
+  sampleText={'pix-title-medium'}
+  fontFamily={'"Open Sans", Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[28]}
+  fontWeight={500}
+  sampleText={'pix-title-small'}
+  fontFamily={'"Open Sans", Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[20]}
+  fontWeight={500}
+  sampleText={'pix-title-extra-small'}
+  fontFamily={'"Open Sans", Arial, sans-serif'}
+/>
+
+### Corps
+
+<Typeset
+  fontSizes={[18]}
+  fontWeight={400}
+  sampleText={'pix-body-large'}
+  fontFamily={'Roboto, Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[16]}
+  fontWeight={400}
+  sampleText={'pix-body-medium'}
+  fontFamily={'Roboto, Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[14]}
+  fontWeight={400}
+  sampleText={'pix-body-small'}
+  fontFamily={'Roboto, Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[12]}
+  fontWeight={400}
+  sampleText={'pix-body-extra-small'}
+  fontFamily={'Roboto, Arial, sans-serif'}
+/>
+
+#### Variantes de gras
+
+Pour les corps, on peut préciser une graisse différente en complément :
+
+<Typeset
+  fontSizes={[16]}
+  fontWeight={500}
+  sampleText={'pix-body-medium pix-weight-medium'}
+  fontFamily={'Roboto, Arial, sans-serif'}
+/>
+
+<Typeset
+  fontSizes={[16]}
+  fontWeight={700}
+  sampleText={'pix-body-medium pix-weight-bold'}
+  fontFamily={'Roboto, Arial, sans-serif'}
+/>
+
+## Autre utilisation
+
+Il existe pour chaque classe CSS, une mixin SCSS du même nom si l'on souhaite ne pas alourdir le template.
+
+⚠️ Attention, de cette manière on duplique du code qui est déjà embarqué dans les classes CSS utilitaires.
+
+## Détails techniques
+
+On utilise sur les applications Pix deux polices d'écriture :
+
+- Open Sans pour les titres
+- Roboto pour les corps
+
+Selon qu'on utilise un smartphone, une tablette ou un ordinateur de bureau on peut se placer plus ou moins proche de l'écran.
+Aussi, le choix de design a été fait de faire varier les typographies en fonction de largeur du viewport de l'utilisateur.
+
+Ce choix est abstrait par l'utilisation des classes CSS ou mixins citées plus haut.
+
+Code associé :
+
+- https://github.com/1024pix/pix-ui/blob/dev/addon/styles/pix-design-tokens/_fonts.scss
+- https://github.com/1024pix/pix-ui/blob/dev/addon/styles/pix-design-tokens/_typography.scss
+
+Lien Figma : https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24%3A8
