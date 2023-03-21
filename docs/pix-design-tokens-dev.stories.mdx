@@ -12,29 +12,28 @@ Quand vous êtes amenés à ajouter ou à modifier des éléments des design tok
 par example `addon/styles/_typography.scss` ou `addon/styles/_colors.scss` et s'il n'est pas déjà importé, rajoutez l'import dans `addon/styles/design-tokens.scss`.
 Ceci nous permettra d'utiliser les mixin dans nos applications par la suite.
 
-Le standard d'équipe est de créer un mixin et une classe et de préfixer la classe avec `pix-`.
+Le standard d'équipe est de créer un mixin et une classe préfixés par `pix-`.
 
 Par exemple :
 
 ```
-@mixin text() {
-  font-family: $font-roboto;
-  font-weight: $font-normal;
-  font-size: 1rem;
-  line-height: 1.375rem;
+@mixin pix-title-large() {
+  font-family: $font-open-sans;
+  font-size: 2rem;
+  line-height: 1.25;
+  letter-spacing: -0.04em;
+  font-weight: 500;
 
-  b,
-  strong {
-    font-weight: $font-medium;
+  @include device-is('tablet') {
+    font-size: 2.5rem;
   }
 
-  a {
-    font-weight: $font-medium;
-    color: $pix-primary;
+  @include device-is('desktop') {
+    font-size: 3rem;
   }
 }
 
 .pix-text {
-  @include text;
+  @include pix-title-large;
 }
 ```
