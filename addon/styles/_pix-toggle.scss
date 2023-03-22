@@ -5,7 +5,7 @@
   &__label {
     color: $pix-neutral-90;
 
-    @include text;
+    @extend %pix-body-m;
   }
 
   &__button {
@@ -24,7 +24,7 @@
     padding: $pix-spacing-xs;
     color: $pix-neutral-70;
 
-    @include text-small;
+    @extend %pix-body-s;
   }
 
   &__off {

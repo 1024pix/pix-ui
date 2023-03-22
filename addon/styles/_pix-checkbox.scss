@@ -5,18 +5,14 @@
   cursor: pointer;
 
   &__label {
-    @include text;
+    @extend %pix-body-m;
 
     &--small {
-      @include text-small;
-    }
-
-    &--default {
-      @include text;
+      @extend %pix-body-s;
     }
 
     &--large {
-      @include text-large;
+      @extend %pix-body-l;
     }
   }
 

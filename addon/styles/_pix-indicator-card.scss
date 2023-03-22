@@ -27,7 +27,7 @@
   }
 
   &__title {
-    @include text-large();
+    @extend %pix-body-l;
 
     display: flex;
     align-items: center;
@@ -47,7 +47,7 @@
   }
 
   &__sub {
-    @include text-small();
+    @extend %pix-body-s;
 
     font-weight: $font-normal;
     display: flex;
