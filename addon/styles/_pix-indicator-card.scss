@@ -27,7 +27,7 @@
   }
 
   &__title {
-    @extend %pix-body-m;
+    @extend %pix-body-l;
 
     display: flex;
     align-items: center;
@@ -38,7 +38,7 @@
   }
 
   &__value {
-    @extend %pix-title-l;
+    @extend %pix-title-m;
 
     margin: 0;
     margin-bottom: $pix-spacing-xxs;
