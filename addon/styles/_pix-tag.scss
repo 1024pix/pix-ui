@@ -18,21 +18,21 @@
   }
 
   &--green {
-    background-color: $green;
+    background-color: $pix-success-70;
   }
 
   &--green-light {
-    color: $green;
-    background-color: lighten($green, 65%);
+    color: $pix-success-70;
+    background-color: $pix-success-5;
   }
 
   &--purple {
-    background-color: $purple;
+    background-color: $pix-tertiary-60;
   }
 
   &--purple-light {
-    color: darken($purple, 10%);
-    background-color: lighten($purple, 30%);
+    color: $pix-tertiary-80;
+    background-color: $pix-tertiary-5;
   }
 
   &--yellow {
@@ -46,12 +46,12 @@
   }
 
   &--orange {
-    background-color: $orange;
+    background-color: $pix-warning-70;
   }
 
   &--orange-light {
-    color: darken($orange, 25%);
-    background-color: lighten($orange, 35%);
+    color: $pix-warning-70;
+    background-color: $pix-warning-5;
   }
 
   &--grey {
