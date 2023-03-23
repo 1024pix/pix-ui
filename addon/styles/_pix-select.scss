@@ -52,7 +52,7 @@
   }
 
   &__empty-search-message {
-    @include text-small();
+    @extend %pix-body-s;
 
     color: $pix-neutral-70;
     text-align: center;
@@ -86,8 +86,6 @@
   display: flex;
   flex-direction: row;
   align-items: center;
-  font-family: $font-roboto;
-  font-weight: $font-normal;
   position: relative;
   border: 1px $pix-neutral-45 solid;
   padding: 0 $pix-spacing-s 0 $pix-spacing-s;
@@ -100,7 +98,7 @@
   color: $pix-neutral-90;
   justify-content: space-between;
 
-  @include text-small();
+  @extend %pix-body-s;
   @include hoverFormElement();
   @include focusWithinFormElement();
 
@@ -120,11 +118,10 @@
   }
 
   &__dropdown-icon {
-    @include text-small();
+    @extend %pix-body-s;
 
     margin-left: $pix-spacing-xs;
     color: $pix-neutral-60;
-    font-weight: $font-heavy;
     pointer-events: none;
   }
 }
@@ -137,16 +134,15 @@
 
 .pix-select-options-category {
   &__name {
-    @include text-small();
+    @extend %pix-body-s;
 
     padding: $pix-spacing-s $pix-spacing-m $pix-spacing-xs $pix-spacing-m;
     text-transform: uppercase;
-    font-family: $font-roboto;
     color: $pix-neutral-45;
   }
 
   &__option {
-    @include text-small();
+    @extend %pix-body-s;
 
     display: flex;
     justify-content: space-between;
@@ -187,7 +183,7 @@
 
 .pix-select-search {
   &__input {
-    @include text-small();
+    @extend %pix-body-s;
 
     width: 100%;
     border: none;

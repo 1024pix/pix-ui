@@ -68,12 +68,10 @@ $button-margin: 16px;
   }
 
   &__title {
+    @extend %pix-title-s;
+
     margin-bottom: 0;
-    font-family: $font-open-sans;
     color: $pix-neutral-90;
-    font-size: 1.25rem;
-    line-height: 1.875rem;
-    font-weight: $font-normal;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
 
     @include device-is('tablet') {
@@ -82,12 +80,10 @@ $button-margin: 16px;
   }
 
   &__content {
+    @extend %pix-body-m;
+
     padding: $modal-padding;
-    font-size: 0.875rem;
     color: $pix-neutral-90;
-    line-height: 1.375rem;
-    font-family: $font-roboto;
-    font-weight: $font-normal;
 
     p:last-child {
       margin-bottom: 0;

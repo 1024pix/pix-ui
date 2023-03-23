@@ -6,12 +6,12 @@ import { Meta } from '@storybook/addon-docs';
 
 > Les design tokens contiennent plusieurs éléments de base de la charte graphique (les couleurs, la typographie, les icônes, etc.)
 
-## Utiliser les classes, mixins et variables dans votre css
+## Utiliser les classes, placeholders, mixins et variables dans vos fichiers scss
 
-En ajoutant la dépendance dans votre application avec `npm install`, vous avez déjà accès aux classes, mais pour avoir accès aux mixins et variables,
+En ajoutant la dépendance dans votre application avec `npm install`, vous avez déjà accès aux classes, mais pour avoir accès aux placeholders, mixins et variables,
 il faut ajouter le code ci-dessous dans le `new EmberApp()` de votre `ember-cli.build.js` qui se trouve à la racine du projet :
 
-```
+```js
 sassOptions: {
   includePaths: ['node_modules/@1024pix/pix-ui/addon/styles'],
 },
@@ -19,15 +19,23 @@ sassOptions: {
 
 Par la suite vous aurez accès à toutes les variables des design tokens avec le `$`, par exemple `border: 1px solid $pix-primary;`.
 
-Et pour les mixins, dans le scss voulu, il faudra importer (avec `@use`) les design tokens en haut du fichier pour les utiliser
+Pour pouvoir utiliser les placeholders et mixins, il faudra importer les design tokens dans le fichier source :
 
-Par exemple :
-
+```css
+/* Fichier pix/orga/app/styles/app.scss */
+@import 'pix-design-tokens';
 ```
-@use 'design-tokens`;
 
+Puis les utiliser de cette manière :
+
+```css
+/* Fichier pix/orga/app/styles/authenticated/organization.scss */
 .organization-title {
-  @include design-tokens.text-bold;
+  @extend %pix-title-m;
+
+  @include device-is('desktop') {
+    ...
+  }
 }
 ```
 

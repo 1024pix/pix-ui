@@ -6,7 +6,6 @@
 
   &__sub-title {
     font-size: 0.813rem;
-    font-weight: $font-light;
     color: $pix-warning-40;
     margin: 6px 0;
     letter-spacing: 0.4px;
@@ -36,10 +35,8 @@
     bottom: calc(100% + 10px);
     border-radius: 5px;
     text-align: center;
-    line-height: normal;
     padding: 4px;
     font-size: 0.8rem;
-    font-family: $font-open-sans;
     font-weight: $font-bold;
 
     &::before {

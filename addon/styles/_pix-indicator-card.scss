@@ -27,7 +27,7 @@
   }
 
   &__title {
-    @include text-large();
+    @extend %pix-body-m;
 
     display: flex;
     align-items: center;
@@ -38,16 +38,14 @@
   }
 
   &__value {
-    font-family: $font-open-sans;
-    font-weight: $font-medium;
-    font-size: 2rem;
-    line-height: 2.5rem;
+    @extend %pix-title-l;
+
     margin: 0;
     margin-bottom: $pix-spacing-xxs;
   }
 
   &__sub {
-    @include text-small();
+    @extend %pix-body-s;
 
     font-weight: $font-normal;
     display: flex;

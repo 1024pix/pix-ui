@@ -1,263 +1,125 @@
 // See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24%3A8
 
-// Mixin pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
-@mixin display1() {
+// Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
+%-pix-title {
   font-family: $font-open-sans;
-  font-weight: $font-light;
-  font-size: 4.5rem;
-  line-height: 5.5rem;
-  letter-spacing: -0.04em;
+  font-weight: 500;
 }
 
-@mixin display2() {
-  font-family: $font-open-sans;
-  font-weight: $font-light;
-  font-size: 3.75rem;
-  line-height: 4.5rem;
-  letter-spacing: -0.04em;
-}
+%pix-title-l,
+.pix-title-l {
+  @extend %-pix-title;
 
-@mixin display3() {
-  font-family: $font-open-sans;
-  font-weight: $font-light;
-  font-size: 3rem;
-  line-height: 3.75rem;
-  letter-spacing: -0.04em;
-
-  @include device-is('mobile') {
-    font-weight: $font-medium;
-    font-size: 2.25rem;
-    line-height: 2.75rem;
-  }
-}
-
-@mixin h1() {
-  font-family: $font-open-sans;
-  font-weight: $font-light;
-  font-size: 2.5rem;
-  line-height: 3rem;
-  letter-spacing: -0.04em;
-
-  @include device-is('mobile') {
-    font-weight: $font-medium;
-    font-size: 2rem;
-    line-height: 2.5rem;
-  }
-}
-
-@mixin h2() {
-  font-family: $font-open-sans;
-  font-weight: $font-medium;
   font-size: 2rem;
-  line-height: 2.5rem;
+  line-height: 1.25;
   letter-spacing: -0.04em;
 
-  @include device-is('mobile') {
-    font-size: 1.75rem;
-    line-height: 2.25rem;
+  @include device-is('tablet') {
+    font-size: 2.5rem;
+  }
+
+  @include device-is('desktop') {
+    font-size: 3rem;
   }
 }
 
-@mixin h3() {
-  font-family: $font-open-sans;
-  font-weight: $font-medium;
-  font-size: 1.75rem;
-  line-height: 2.25rem;
-  letter-spacing: -0.04em;
+%pix-title-m,
+.pix-title-m {
+  @extend %-pix-title;
 
-  @include device-is('mobile') {
+  font-size: 1.625rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+
+  @include device-is('tablet') {
+    font-size: 2rem;
+    line-height: 1.25;
+    letter-spacing: -0.04em;
+  }
+
+  @include device-is('desktop') {
+    font-size: 2.25rem;
+  }
+}
+
+%pix-title-s,
+.pix-title-s {
+  @extend %-pix-title;
+
+  font-size: 1.375rem;
+  line-height: 1.3;
+  letter-spacing: -0.02em;
+
+  @include device-is('tablet') {
     font-size: 1.5rem;
-    line-height: 2rem;
+  }
+
+  @include device-is('desktop') {
+    font-size: 1.75rem;
   }
 }
 
-@mixin h4() {
-  font-family: $font-open-sans;
-  font-weight: $font-medium;
-  font-size: 1.5rem;
-  line-height: 2rem;
+%pix-title-xs,
+.pix-title-xs {
+  @extend %-pix-title;
+
+  font-size: 1.25rem;
+  line-height: 1.4;
   letter-spacing: -0.02em;
 }
 
-@mixin subheading() {
-  font-family: $font-open-sans;
-  font-weight: $font-semi-bold;
-  font-size: 1.25rem;
-  line-height: 1.75rem;
-
-  @include device-is('mobile') {
-    font-size: 1.125rem;
-    line-height: 1.575rem;
-  }
-}
-
-@mixin text() {
+%-pix-body {
   font-family: $font-roboto;
-  font-weight: $font-normal;
+  font-weight: 400;
+}
+
+%pix-body-l,
+.pix-body-l {
+  @extend %-pix-body;
+
   font-size: 1rem;
-  line-height: 1.375rem;
+  line-height: 1.5;
 
-  b,
-  strong {
-    font-weight: $font-medium;
-  }
-
-  a {
-    font-weight: $font-medium;
-    color: $pix-primary;
+  @include device-is('tablet') {
+    font-size: 1.125rem;
   }
 }
 
-@mixin text-bold() {
-  @include text;
-
-  font-weight: $font-medium;
-}
-
-@mixin text-link() {
-  @include text;
-
-  font-weight: $font-medium;
-  color: $pix-primary;
-}
-
-@mixin text-small() {
-  @include text;
+%pix-body-m,
+.pix-body-m {
+  @extend %-pix-body;
 
   font-size: 0.875rem;
-  line-height: 1.25rem;
+  line-height: 1.5;
+
+  @include device-is('tablet') {
+    font-size: 1rem;
+  }
 }
 
-@mixin text-large() {
-  @include text;
+%pix-body-s,
+.pix-body-s {
+  @extend %-pix-body;
 
-  font-size: 1.125rem;
-  line-height: 1.625rem;
+  font-size: 0.875rem;
+  line-height: 1.5;
 }
 
-@mixin caption() {
-  font-family: $font-roboto;
-  font-weight: $font-normal;
+%pix-body-xs,
+.pix-body-xs {
+  @extend %-pix-body;
+
   font-size: 0.75rem;
-  line-height: 1.125rem;
-
-  b,
-  strong {
-    font-weight: $font-bold;
-  }
-}
-
-@mixin caption-bold() {
-  @include caption;
-
-  font-weight: $font-bold;
-}
-
-@mixin caption-uppercase() {
-  @include caption;
-
-  text-transform: uppercase;
-}
-
-@mixin footer() {
-  font-family: $font-roboto;
-  font-weight: $font-normal;
-  font-size: 0.625rem;
-  line-height: 0.875rem;
+  line-height: 1.5;
   letter-spacing: 0.02em;
-
-  b,
-  strong {
-    font-weight: $font-bold;
-  }
 }
 
-@mixin footer-bold() {
-  @include footer;
-
-  font-weight: $font-bold;
+%pix-body-weight-medium,
+.pix-body-weight-medium {
+  font-weight: 500;
 }
 
-@mixin footer-uppercase() {
-  @include footer;
-
-  font-weight: $font-bold;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.pix-display1 {
-  @include display1;
-}
-
-.pix-display2 {
-  @include display2;
-}
-
-.pix-display3 {
-  @include display3;
-}
-
-.pix-h1 {
-  @include h1;
-}
-
-.pix-h2 {
-  @include h2;
-}
-
-.pix-h3 {
-  @include h3;
-}
-
-.pix-h4 {
-  @include h4;
-}
-
-.pix-subheading {
-  @include subheading;
-}
-
-.pix-text {
-  @include text;
-
-  &--bold {
-    @include text-bold;
-  }
-
-  &--link {
-    @include text-link;
-  }
-
-  &--small {
-    @include text-small;
-  }
-
-  &--large {
-    @include text-large;
-  }
-}
-
-.pix-caption {
-  @include caption;
-
-  &--bold {
-    @include caption-bold;
-  }
-
-  &--uppercase {
-    @include caption-uppercase;
-  }
-}
-
-.pix-footer {
-  @include footer;
-
-  &--bold {
-    @include footer-bold;
-  }
-
-  &--uppercase {
-    @include footer-uppercase;
-  }
+%pix-body-weight-bold,
+.pix-body-weight-bold {
+  font-weight: 700;
 }

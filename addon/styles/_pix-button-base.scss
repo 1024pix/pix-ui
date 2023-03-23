@@ -1,10 +1,8 @@
 .pix-button {
   color: $pix-neutral-0;
-  font-family: $font-roboto;
   font-size: 0.875rem;
-  font-weight: 500;
+  font-weight: $font-medium;
   white-space: nowrap;
-  letter-spacing: 0.028rem;
   cursor: pointer;
   background-color: $pix-primary;
   border: 1px solid transparent;

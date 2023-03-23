@@ -7,7 +7,7 @@
   right: 0;
   overflow-y: scroll;
   background-color: rgba(52, 69, 99, 0.7);
-  transition: all .3s ease-in-out;
+  transition: all 0.3s ease-in-out;
 
   &--hidden {
     visibility: hidden;
@@ -29,7 +29,7 @@ $button-margin: 16px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   background: $pix-neutral-0;
   transform: translate(0);
-  transition: transform .3s ease-in-out;
+  transition: transform 0.3s ease-in-out;
 
   &--hidden {
     transform: translate(-100%);
@@ -58,7 +58,7 @@ $button-margin: 16px;
   }
 
   &__title {
-    @include h4;
+    @extend %pix-title-s;
 
     margin-bottom: 0;
     color: $pix-neutral-90;

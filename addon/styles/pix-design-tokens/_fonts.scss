@@ -1,51 +1,33 @@
 @font-face {
-  font-family: "Open Sans";
-  src: url("../@1024pix/pix-ui/fonts/OpenSans/OpenSans-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../@1024pix/pix-ui/fonts/OpenSans/OpenSans-SemiBold.ttf");
-  font-weight: 600;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Open Sans";
-  src: url("../@1024pix/pix-ui/fonts/OpenSans/OpenSans-Light.ttf");
-  font-weight: 300;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../@1024pix/pix-ui/fonts/Roboto/Roboto-Regular.ttf");
-  font-weight: normal;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: "Roboto";
-  src: url("../@1024pix/pix-ui/fonts/Roboto/Roboto-Medium.ttf");
+  font-family: 'Open Sans';
+  src: url('../@1024pix/pix-ui/fonts/OpenSans/OpenSans-Medium.ttf');
   font-weight: 500;
   font-style: normal;
 }
 
 @font-face {
-  font-family: "Roboto";
-  src: url("../@1024pix/pix-ui/fonts/Roboto/Roboto-Light.ttf");
-  font-weight: 300;
+  font-family: 'Roboto';
+  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Regular.ttf');
+  font-weight: 400;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Medium.ttf');
+  font-weight: 500;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'Roboto';
+  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Bold.ttf');
+  font-weight: 700;
   font-style: normal;
 }
 
 $font-open-sans: 'Open Sans', Arial, sans-serif;
 $font-roboto: 'Roboto', Arial, sans-serif;
-$font-light: 300;
 $font-normal: 400;
 $font-medium: 500;
-$font-semi-bold: 600;
 $font-bold: 700;
-$font-extra-bold: 800;
-$font-heavy: 900;
