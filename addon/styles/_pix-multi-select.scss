@@ -81,10 +81,10 @@
   padding: 0;
   box-shadow: 0 6px 12px rgba(7, 20, 46, 0.08);
   transition: all 0.1s ease-in-out;
-  margin-top: $spacing-xxs;
+  margin-top: $pix-spacing-xxs;
 
   &__item-label {
-    padding: $spacing-xs $spacing-m;
+    padding: $pix-spacing-xs $pix-spacing-m;
   }
 
   &--hidden {
@@ -114,7 +114,6 @@
   li.pix-multi-select-list__item {
     position: relative;
     list-style: none;
-
 
     &:hover,
     &:focus {

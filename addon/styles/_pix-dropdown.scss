@@ -24,7 +24,7 @@
       min-width: 250px;
       min-height: 34px;
       border: 1px solid $pix-neutral-40;
-      border-radius: $spacing-xxs;
+      border-radius: $pix-spacing-xxs;
       padding: 0;
       background: $pix-neutral-0;
 
@@ -97,7 +97,7 @@
       max-height: 300px;
       border: 1px solid $pix-neutral-40;
       border-top: none;
-      border-radius: 0 0 $spacing-xxs $spacing-xxs;
+      border-radius: 0 0 $pix-spacing-xxs $pix-spacing-xxs;
     }
 
     &--search {

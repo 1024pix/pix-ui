@@ -61,12 +61,12 @@
   }
 
   &__input--error {
-    padding-right: $spacing-l;
+    padding-right: $pix-spacing-l;
     @include formElementInError();
   }
 
   &__input--success {
-    padding-right: $spacing-l;
+    padding-right: $pix-spacing-l;
     @include formElementInSuccess();
   }
 }

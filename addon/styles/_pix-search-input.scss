@@ -34,10 +34,9 @@
   width: 100%;
   height: 36px;
   border: 1px solid $pix-neutral-40;
-  padding-left: $spacing-xl;
+  padding-left: $pix-spacing-xl;
 
   &::placeholder {
     color: $pix-neutral-30;
   }
 }
-

@@ -38,7 +38,7 @@
   font-size: 0.875rem;
   line-height: 1.375rem;
   color: $pix-neutral-90;
-  margin-bottom: $spacing-xxs;
+  margin-bottom: $pix-spacing-xxs;
   font-weight: $font-medium;
 }
 
@@ -55,7 +55,7 @@
   font-family: $font-roboto;
   font-size: 0.75rem;
   color: $pix-error-70;
-  margin-top: $spacing-xxs;
+  margin-top: $pix-spacing-xxs;
 }
 
 @mixin formElementInError() {
@@ -73,8 +73,8 @@
   font-size: 0.875rem;
   font-weight: 400;
   color: $pix-neutral-90;
-  border-radius: $spacing-xxs;
-  padding: 0 $spacing-s 0 $spacing-s;
+  border-radius: $pix-spacing-xxs;
+  padding: 0 $pix-spacing-s 0 $pix-spacing-s;
 }
 
 .pix-form__label {
@@ -84,7 +84,7 @@
 }
 
 .pix-radio-button {
-  padding: $spacing-xs 0 $spacing-xs 0;
+  padding: $pix-spacing-xs 0 $pix-spacing-xs 0;
 }
 
 .pix-form__actions {
