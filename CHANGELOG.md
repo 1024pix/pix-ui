@@ -1,5 +1,23 @@
 # Pix-UI Changelog
 
+## v29.0.0 (24/03/2023)
+
+
+### :rocket: Amélioration
+- [#367](https://github.com/1024pix/pix-ui/pull/367) [FEATURE] Mise à jour du Design Token "typographie" (PIX-7515)
+- [#368](https://github.com/1024pix/pix-ui/pull/368) [FEATURE] Suppression de variables SCSS de couleurs dépréciées (PIX-7518)
+
+### :building_construction: Tech
+- [#350](https://github.com/1024pix/pix-ui/pull/350) [TECH] Aligne les noms des variables SCSS d'espacement et documente des Design Token (PIX-7523)
+
+### :bug: Correction
+- [#369](https://github.com/1024pix/pix-ui/pull/369) [BUGFIX] Correction typographies composant Indicator Card
+
+### :coffee: Autre
+- [#358](https://github.com/1024pix/pix-ui/pull/358) [BUMP] Update dependency @embroider/test-setup to ^0.50.0
+- [#352](https://github.com/1024pix/pix-ui/pull/352) build(deps): bump minimist from 0.2.1 to 0.2.4
+- [#363](https://github.com/1024pix/pix-ui/pull/363) build(deps-dev): bump webpack from 5.75.0 to 5.76.0
+
 ## v28.1.1 (14/03/2023)
 
 
