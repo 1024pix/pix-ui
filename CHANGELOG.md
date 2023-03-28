@@ -1,5 +1,22 @@
 # Pix-UI Changelog
 
+## v29.1.0 (28/03/2023)
+
+
+### :building_construction: Tech
+- [#364](https://github.com/1024pix/pix-ui/pull/364) [TECH] Mise à jour de ember-click-outside
+
+### :bug: Correction
+- [#372](https://github.com/1024pix/pix-ui/pull/372) [BUGFIX] Augmenter l'épaisseur du label de PixInput (PIX-7574).
+- [#365](https://github.com/1024pix/pix-ui/pull/365) [BUGFIX] Corriger la sémantique et l'affichage du scroll sur la dropdown du PixSelect (PIX-7480)
+
+### :coffee: Autre
+- [#362](https://github.com/1024pix/pix-ui/pull/362) [CLEANUP] Nettoie quelques dépendances et de la doc
+- [#371](https://github.com/1024pix/pix-ui/pull/371) [BUMP] Update actions/setup-node action to v3 (workflows)
+- [#370](https://github.com/1024pix/pix-ui/pull/370) [BUMP] Update actions/checkout action to v3 (workflows)
+- [#341](https://github.com/1024pix/pix-ui/pull/341) [BUMP] Update Node.js to v16.19.1 (.circleci)
+- [#342](https://github.com/1024pix/pix-ui/pull/342) [BUMP] Update browser-tools orb to v1.4.1 (.circleci)
+
 ## v29.0.0 (24/03/2023)
 
 
