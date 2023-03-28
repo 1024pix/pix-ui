@@ -93,7 +93,8 @@
   }
 }
 
-abbr.mandatory-mark {
+.mandatory-mark,
+.mandatory-mark[title] {
   cursor: help;
   color: $pix-error-70;
   text-decoration: none;

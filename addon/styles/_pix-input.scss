@@ -4,16 +4,11 @@
   position: relative;
 
   &__label {
-    font-size: 0.875rem;
-    color: $pix-neutral-70;
-    margin-bottom: 4px;
+    @include label();
   }
 
   &__information {
-    font-size: 0.75rem;
-    margin-top: 4px;
-    color: $pix-neutral-60;
-    display: block;
+    @include subLabel();
   }
 
   &__container {
