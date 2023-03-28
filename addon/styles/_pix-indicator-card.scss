@@ -23,7 +23,6 @@
     justify-content: center;
     color: $pix-neutral-60;
     padding: $pix-spacing-s $pix-spacing-m;
-    margin: 0;
   }
 
   &__title {
@@ -40,7 +39,6 @@
   &__value {
     @extend %pix-title-m;
 
-    margin: 0;
     margin-bottom: $pix-spacing-xxs;
   }
 
@@ -50,7 +48,6 @@
     font-weight: $font-normal;
     display: flex;
     gap: 10px;
-    margin: 0;
   }
 
   &__tooltip {
