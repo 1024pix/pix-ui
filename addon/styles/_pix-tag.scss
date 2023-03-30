@@ -11,8 +11,8 @@
   background-color: $pix-primary;
 
   &--blue-light {
-    color: darken($pix-primary, 10%);
-    background-color: lighten($pix-primary, 30%);
+    color: $pix-primary-80;
+    background-color: $pix-primary-10;
   }
 
   &--green {
@@ -20,8 +20,8 @@
   }
 
   &--green-light {
-    color: $pix-success-70;
-    background-color: $pix-success-5;
+    color: $pix-success-80;
+    background-color: $pix-success-10;
   }
 
   &--purple {
@@ -39,8 +39,8 @@
   }
 
   &--yellow-light {
-    color: darken($pix-warning-40, 25%);
-    background-color: lighten($pix-warning-40, 35%);
+    color: $pix-warning-80;
+    background-color: $pix-warning-10;
   }
 
   &--orange {
@@ -48,8 +48,8 @@
   }
 
   &--orange-light {
-    color: $pix-warning-70;
-    background-color: $pix-warning-5;
+    color: $pix-warning-80;
+    background-color: $pix-warning-10;
   }
 
   &--grey {
@@ -58,8 +58,8 @@
   }
 
   &--grey-light {
-    color: $pix-neutral-60;
-    background-color: $pix-neutral-15;
+    color: $pix-neutral-90;
+    background-color: $pix-neutral-20;
   }
 
   &--compact {
