@@ -68,7 +68,7 @@ $button-margin: 16px;
   }
 
   &__title {
-    @extend %pix-title-s;
+    @extend %pix-title-xs;
 
     margin-bottom: 0;
     color: $pix-neutral-90;
@@ -80,7 +80,7 @@ $button-margin: 16px;
   }
 
   &__content {
-    @extend %pix-body-m;
+    @extend %pix-body-s;
 
     padding: $modal-padding;
     color: $pix-neutral-90;
