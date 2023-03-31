@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v29.1.1 (31/03/2023)
+
+
+### :building_construction: Tech
+- [#375](https://github.com/1024pix/pix-ui/pull/375) [TECH] Améliorer l'affichage des éléments en screen-reader-only ayant des sous élements (PIX-7623)
+
+### :bug: Correction
+- [#373](https://github.com/1024pix/pix-ui/pull/373) [BUGFIX] Rendre les couleurs des tags cohérentes avec celles des maquettes (PIX-7582)
+- [#374](https://github.com/1024pix/pix-ui/pull/374) [BUGFIX] Rendre les typographies de la modale cohérentes avec celles des maquettes (PIX-7615) 
+
 ## v29.1.0 (28/03/2023)
 
 
