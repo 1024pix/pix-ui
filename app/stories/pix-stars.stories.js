@@ -12,7 +12,7 @@ stars.args = {
   count: 2,
   total: 5,
   alt: 'message alternatif',
-  color: 'blue',
+  color: undefined,
 };
 
 export const argTypes = {
@@ -35,8 +35,8 @@ export const argTypes = {
     name: 'color',
     description: 'Couleur des étoiles',
     type: { name: 'string', required: false },
-    table: { defaultValue: { summary: 'yellow' } },
-    control: { type: 'select' },
-    options: ['yellow', 'blue', 'grey'],
+    table: { defaultValue: { summary: undefined } },
+    control: { type: 'radio' },
+    options: [undefined, 'blue', 'grey'],
   },
 };

@@ -1,9 +1,9 @@
-<div class={{this.pixStarsClass}} ...attributes>
+<div class="pix-stars" ...attributes>
   <span class="screen-reader-only">{{@alt}}</span>
-  {{#each this.stars as |star|}}
+  {{#each this.starsCount as |item index|}}
     <svg
-      class="pix-stars__{{star}}"
-      data-test-status={{star}}
+      class={{this.itemClasses}}
+      data-acquired={{lt index @count}}
       viewBox="0 0 36 36"
       aria-hidden="true"
     >

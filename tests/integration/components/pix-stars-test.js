@@ -9,38 +9,32 @@ module('Integration | Component | stars', function (hooks) {
   test('it renders the default PixStars', async function (assert) {
     // when
     await render(hbs`<PixStars />`);
-    const stars = this.element.querySelectorAll('img');
+    const stars = this.element.querySelectorAll('.pix-stars__item');
 
     // then
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(stars.length, 0);
+    assert.strictEqual(stars.length, 0);
   });
 
   test('it renders a total of 5 empty stars', async function (assert) {
     // when
     await render(hbs`<PixStars @total={{5}} />`);
-    const stars = this.element.querySelectorAll('[data-test-status="unacquired"]');
+    const stars = this.element.querySelectorAll('.pix-stars__item');
+    const acquiredStars = this.element.querySelectorAll('[data-acquired]');
 
     // then
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(stars.length, 5);
+    assert.strictEqual(stars.length, 5);
+    assert.strictEqual(acquiredStars.length, 0);
   });
 
   test('it renders 3 stars acquired on a total of 5', async function (assert) {
     // when
     await render(hbs`<PixStars @count={{3}} @total={{5}} />`);
-    const acquiredStars = this.element.querySelectorAll('[data-test-status="acquired"]');
-    const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
+    const stars = this.element.querySelectorAll('.pix-stars__item');
+    const acquiredStars = this.element.querySelectorAll('[data-acquired]');
 
     // then
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(acquiredStars.length, 3);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(unacquiredStars.length, 2);
+    assert.strictEqual(stars.length, 5);
+    assert.strictEqual(acquiredStars.length, 3);
   });
 
   test('it renders message', async function (assert) {
@@ -53,22 +47,18 @@ module('Integration | Component | stars', function (hooks) {
   test('it renders the acquired start but hide unacquired', async function (assert) {
     // when
     await render(hbs`<PixStars @count={{3}} />`);
-    const acquiredStars = this.element.querySelectorAll('[data-test-status="acquired"]');
-    const unacquiredStars = this.element.querySelectorAll('[data-test-status="unacquired"]');
+    const stars = this.element.querySelectorAll('.pix-stars__item');
+    const acquiredStars = this.element.querySelectorAll('[data-acquired]');
 
     // then
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(acquiredStars.length, 3);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(unacquiredStars.length, 0);
+    assert.strictEqual(stars.length, 3);
+    assert.strictEqual(acquiredStars.length, 3);
   });
 
   test('it renders the color', async function (assert) {
     // when
     await render(hbs`<PixStars @count={{3}} @total={{5}} @color='blue' />`);
-    const component = this.element.querySelector('.pix-stars--blue');
+    const component = this.element.querySelector('.pix-stars__item--color-blue');
 
     // then
     assert.ok(component);
