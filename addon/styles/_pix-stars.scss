@@ -9,16 +9,19 @@
 
 .pix-stars__item {
   height: 100%;
-  fill: $pix-neutral-15;
+  fill: $pix-neutral-5;
+  stroke: $pix-neutral-40;
 
   &[data-acquired] {
-    fill: url(#pix-stars-default);
+    fill: $pix-secondary-40;
+    stroke: $pix-secondary-60;
   }
 }
 
 // Color variant : Blue
 .pix-stars__item--color-blue[data-acquired] {
-  fill: $pix-primary;
+  fill: $pix-primary-40;
+  stroke: $pix-primary-60;
 }
 
 // Color variant : Grey
@@ -28,5 +31,6 @@
 
   &[data-acquired] {
     fill: $pix-neutral-40;
+    stroke: $pix-neutral-40;
   }
 }
