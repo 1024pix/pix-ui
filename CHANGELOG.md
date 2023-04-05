@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v30.0.0 (05/04/2023)
+
+
+### :rocket: Amélioration
+- [#376](https://github.com/1024pix/pix-ui/pull/376) [FEATURE] Rendre PixStars adaptatif et plus accessible (PIX-7625).
+
 ## v29.1.1 (31/03/2023)
 
 
