@@ -1,33 +1,36 @@
 .pix-stars {
-  line-height: 0;
+  display: flex;
+  height: 2.25rem;
 
-  > svg {
-    width: 36px;
-    height: 36px;
+  & * + * {
+    margin-left: $pix-spacing-xxs;
   }
+}
 
-  &--blue > &__acquired {
-    fill: $pix-primary;
+.pix-stars__item {
+  height: 100%;
+  fill: $pix-neutral-5;
+  stroke: $pix-neutral-40;
+
+  &[data-acquired] {
+    fill: $pix-secondary-40;
+    stroke: $pix-secondary-60;
   }
+}
 
-  &--blue > &__unacquired {
-    fill: $pix-neutral-15;
-  }
+// Color variant : Blue
+.pix-stars__item--color-blue[data-acquired] {
+  fill: $pix-primary-40;
+  stroke: $pix-primary-60;
+}
 
-  &--grey > &__acquired {
+// Color variant : Grey
+.pix-stars__item--color-grey {
+  fill: $pix-neutral-0;
+  stroke: $pix-neutral-40;
+
+  &[data-acquired] {
     fill: $pix-neutral-40;
-  }
-
-  &--grey > &__unacquired {
-    fill: $pix-neutral-0;
     stroke: $pix-neutral-40;
-  }
-
-  &__acquired {
-    fill: url(#pix-stars-default);
-  }
-
-  &__unacquired {
-    fill: $pix-neutral-15;
   }
 }

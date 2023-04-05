@@ -1,27 +1,13 @@
 import Component from '@glimmer/component';
 
-const STAR_ACQUIRED = 'acquired';
-const STAR_UNACQUIRED = 'unacquired';
-
 export default class PixStars extends Component {
-  get pixStarsClass() {
-    if (!this.args.color) return 'pix-stars';
-    return `pix-stars pix-stars--${this.args.color}`;
+  get starsCount() {
+    if (!this.args.total && !this.args.count) return [];
+    return this.args.total ? Array(this.args.total) : Array(this.args.count);
   }
 
-  get stars() {
-    const { count = 0, total = 0 } = this.args;
-
-    const starsTotal = total || count;
-
-    const stars = [];
-    for (let index = 0; index < starsTotal; index++) {
-      if (index < count) {
-        stars[index] = STAR_ACQUIRED;
-      } else {
-        stars[index] = STAR_UNACQUIRED;
-      }
-    }
-    return stars;
+  get itemClasses() {
+    if (!this.args.color) return 'pix-stars__item';
+    return `pix-stars__item pix-stars__item--color-${this.args.color}`;
   }
 }
