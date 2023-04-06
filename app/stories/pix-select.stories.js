@@ -4,15 +4,6 @@ import { action } from '@storybook/addon-actions';
 export const Template = (args) => {
   return {
     template: hbs`
-      <style>
-        .custom {
-          border: 0;
-          width: 150px;
-        }
-        .custom:hover {
-          border: 0;
-        }
-      </style>
         {{#if this.id}}
           <div>
             <label for={{this.id}}>Un label en dehors du composant</label>
@@ -36,7 +27,45 @@ export const Template = (args) => {
           @requiredText={{this.requiredText}}
           @errorMessage={{this.errorMessage}}
           @isDisabled={{this.isDisabled}}
+          @placement={{this.placement}}
         />
+    `,
+    context: args,
+  };
+};
+
+export const TemplatePopover = (args) => {
+  return {
+    template: hbs`
+      <div style="display:flex;height:330px">
+        <div style="align-self:flex-end">
+        {{#if this.id}}
+          <div>
+            <label for={{this.id}}>Un label en dehors du composant</label>
+          </div>
+        {{/if}}
+        <PixSelect
+          @id={{this.id}}
+          @className={{this.className}}
+          @options={{this.options}}
+          @isSearchable={{this.isSearchable}}
+          @onChange={{this.onChange}}
+          @label={{this.label}}
+          @placeholder={{this.placeholder}}
+          @hideDefaultOption={{this.hideDefaultOption}}
+          @subLabel={{this.subLabel}}
+          @searchLabel={{this.searchLabel}}
+          @value={{this.value}}
+          @searchPlaceholder={{this.searchPlaceholder}}
+          @screenReaderOnly={{this.screenReaderOnly}}
+          @emptySearchMessage={{this.emptySearchMessage}}
+          @requiredText={{this.requiredText}}
+          @errorMessage={{this.errorMessage}}
+          @isDisabled={{this.isDisabled}}
+          @placement={{this.placement}}
+        />
+        </div>
+      </div>
     `,
     context: args,
   };
@@ -166,6 +195,27 @@ WithCategoriesAndSearch.args = {
   isSearchable: true,
   emptySearchMessage: 'Aucune option',
   onChange: action('onChange'),
+};
+
+export const WithDropDownAtTheTop = TemplatePopover.bind({});
+WithDropDownAtTheTop.args = {
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  label: 'JambonFromage',
+  placeholder: 'Mon innerText',
+  subLabel: 'Mon sous label',
+  isSearchable: false,
+  onChange: action('onChange'),
+  placement: 'top',
 };
 
 export const argTypes = {
@@ -311,6 +361,17 @@ export const argTypes = {
     type: { name: 'boolean', required: false },
     table: {
       type: { summary: false },
+    },
+  },
+  placement: {
+    name: 'placement',
+    description:
+      "Permet de placer la dropdown du select par rapport à son bouton. Par défaut, cela s'adapte tout seul.",
+    type: { name: 'string', required: false },
+    options: ['bottom', 'top', 'left', 'right'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
     },
   },
 };
