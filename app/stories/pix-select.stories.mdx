@@ -53,6 +53,14 @@ Les options sont représentées par un tableau d'objet contenant les propriété
   <Story name="WithCategoriesAndSearch" story={stories.WithCategoriesAndSearch} height={200} />
 </Canvas>
 
+## WithDropDownAtTheTop
+
+Ici nous avons forcé le placement de la dropdown en haut du select mais sachez que ce placement se fait automatiquement par défaut.
+
+<Canvas>
+  <Story name="WithDropDownAtTheTop" story={stories.WithDropDownAtTheTop} />
+</Canvas>
+
 ## Usage
 
 ```html
@@ -71,6 +79,7 @@ Les options sont représentées par un tableau d'objet contenant les propriété
   @screenReaderOnly="{{screenReaderOnly}}"
   @requiredText="{{requiredText}}"
   @errorMessage="{{errorMessage}}"
+  @placement="{{placement}}"
 />
 ```
 
