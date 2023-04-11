@@ -7,62 +7,52 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - install:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
       - lint-and-test:
+          matrix:
+            parameters:
+              node-version:
+                - "16.20.1"
+                - "18.17.0"
           filters:
             branches:
               ignore:
                 - gh-pages
-          requires:
-            - install
       - try-scenarios:
           matrix:
             parameters:
               try-scenario:
                 - embroider-safe
                 - embroider-optimized
+              node-version:
+                - "16.20.1"
+                - "18.17.0"
           filters:
             branches:
               ignore:
                 - gh-pages
-          requires:
-            - install
       - chromatic-deployment:
+          matrix:
+            parameters:
+              node-version:
+                - "16.20.1"
+                - "18.17.0"
           filters:
             branches:
               ignore:
                 - gh-pages
-          requires:
-            - install
 
 jobs:
-  install:
+  lint-and-test:
+    parameters:
+      node-version:
+        type: string
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:<< parameters.node-version >>-browsers
     resource_class: medium+
-    working_directory: ~/pix-ui
     steps:
+      - browser-tools/install-chrome
       - checkout
       - run: npm ci
-      - persist_to_workspace:
-          root: ~/pix-ui
-          paths:
-            - .
-
-  lint-and-test:
-    docker:
-      - image: cimg/node:16.20.0-browsers
-    resource_class: medium+
-    working_directory: ~/pix-ui
-    steps:
-      - attach_workspace:
-          at: ~/pix-ui
-      - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
       - run: npm run lint:js
       - run: npm run lint:hbs
       - run: npm run lint:scss
@@ -72,22 +62,24 @@ jobs:
     parameters:
       try-scenario:
         type: string
+      node-version:
+        type: string
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:<< parameters.node-version >>-browsers
     resource_class: medium+
-    working_directory: ~/pix-ui
     steps:
-      - attach_workspace:
-          at: ~/pix-ui
       - browser-tools/install-chrome
-      - browser-tools/install-chromedriver
+      - checkout
+      - run: npm ci
       - run: npx ember try:one << parameters.try-scenario >>
 
   chromatic-deployment:
+    parameters:
+      node-version:
+        type: string
     docker:
-      - image: cimg/node:16.20.0-browsers
-    working_directory: ~/pix-ui
+      - image: cimg/node:<< parameters.node-version >>-browsers
     steps:
-      - attach_workspace:
-          at: ~/pix-ui
+      - checkout
+      - run: npm ci
       - run: npm run chromatic -- --auto-accept-changes
