@@ -1,6 +1,6 @@
 <!-- Typography.stories.mdx -->
 
-import { Meta, Typeset } from '@storybook/addon-docs';
+import { Meta, Typeset, Markdown } from '@storybook/addon-docs';
 
 <Meta title="Utiliser Pix UI/Design Tokens/Typographie" />
 
@@ -82,24 +82,6 @@ Des **placeholder SCSS** équivalents aux tokens de Figma sont disponibles. C'es
   fontFamily={'Roboto, Arial, sans-serif'}
 />
 
-#### Variantes de gras
-
-Pour les corps, on peut préciser une graisse différente en complément :
-
-<Typeset
-  fontSizes={[16]}
-  fontWeight={500}
-  sampleText={'@extend %pix-weight-medium;'}
-  fontFamily={'Roboto, Arial, sans-serif'}
-/>
-
-<Typeset
-  fontSizes={[16]}
-  fontWeight={700}
-  sampleText={'@extend %pix-weight-bold;'}
-  fontFamily={'Roboto, Arial, sans-serif'}
-/>
-
 ### Comment utiliser un placeholder SCSS ?
 
 ```css
@@ -139,6 +121,29 @@ Pour chaque placeholder SCSS, une **classe CSS** utilitaire de même nom existe 
 - `pix-body-m`
 - `pix-body-s`
 - `pix-body-xs`
+
+## Design tokens
+
+Des variables SCSS existent pour certaines propriétés de typographie.
+
+### Font-weight
+
+ℹ️ Ces variables ne devraient pas être utilisées pour modifier la graisse d'un titre car les classes utilitaires et les placeholders ci-dessus s'en occupent déjà.
+
+`$font-normal: 400;`
+
+`$font-medium: 500;`
+
+`$font-bold: 700;`
+
+### Font-family
+
+ℹ️ Vous ne devriez pas avoir à les utiliser car elles vont de pair avec d'autres propriétés de typo (font-size, line-height, ...).<br/>
+Pour en savoir plus, voir les classes utilitaires et les placeholders ci-dessus.
+
+`$font-open-sans: 'Open Sans', Arial, sans-serif;`
+
+`$font-roboto: 'Roboto', Arial, sans-serif;`
 
 ## Détails techniques
 
