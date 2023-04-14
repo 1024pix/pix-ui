@@ -702,4 +702,28 @@ module('Integration | Component | PixSelect', function (hooks) {
       assert.dom('.some-custom-class').exists();
     });
   });
+
+  module('#icon', function () {
+    module('when no icon name is provided', function () {
+      test('does not display any icon', async function (assert) {
+        // given & when
+        await render(hbs`<PixSelect @options={{this.options}} @label={{this.label}} />`);
+
+        // then
+        assert.dom('.fa-earth-europe').doesNotExist();
+      });
+    });
+
+    module('when an icon name is provided', function () {
+      test('displays an icon', async function (assert) {
+        // given & when
+        await render(
+          hbs`<PixSelect @icon='earth-europe' @options={{this.options}} @label={{this.label}} />`
+        );
+
+        // then
+        assert.dom('.fa-earth-europe').exists();
+      });
+    });
+  });
 });
