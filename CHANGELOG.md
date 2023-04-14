@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v30.1.0 (14/04/2023)
+
+
+### :bug: Correction
+- [#377](https://github.com/1024pix/pix-ui/pull/377) [BUGFIX] Faire en sorte que la dropdown du select puisse s'ouvrir ailleurs qu'en bas si besoin (PIX-7237)
+
 ## v30.0.0 (05/04/2023)
 
 
