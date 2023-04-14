@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v31.0.0 (14/04/2023)
+
+
+### :building_construction: Tech
+- [#381](https://github.com/1024pix/pix-ui/pull/381) [TECH] Modification de la valeur du Design Token warning-60 et suppression des placeholders de font-weight (PIX-7666).
+
 ## v30.1.0 (14/04/2023)
 
 
