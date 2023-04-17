@@ -81,7 +81,6 @@
     "@storybook/builder-webpack5": "^7.0.5",
     "@storybook/ember": "^7.0.5",
     "@storybook/ember-cli-storybook": "^0.6.0",
-    "@storybook/manager-webpack5": "^6.5.13",
     "@storybook/storybook-deployer": "^2.8.16",
     "@storybook/theming": "^7.0.5",
     "@testing-library/dom": "^8.20.0",
