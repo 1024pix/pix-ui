@@ -28,6 +28,7 @@ export const Template = (args) => {
           @errorMessage={{this.errorMessage}}
           @isDisabled={{this.isDisabled}}
           @placement={{this.placement}}
+          @icon={{this.icon}}
         />
     `,
     context: args,
@@ -218,6 +219,19 @@ WithDropDownAtTheTop.args = {
   placement: 'top',
 };
 
+export const WithIcon = Template.bind({});
+WithIcon.args = {
+  icon: 'earth-europe',
+  isSearchable: false,
+  label: 'With icon',
+  onChange: action('onChange'),
+  options: [
+    { value: 'en', label: 'English' },
+    { value: 'fr', label: 'Français' },
+  ],
+  value: 'fr',
+};
+
 export const argTypes = {
   options: {
     name: 'options',
@@ -369,6 +383,16 @@ export const argTypes = {
       "Permet de placer la dropdown du select par rapport à son bouton. Par défaut, cela s'adapte tout seul.",
     type: { name: 'string', required: false },
     options: ['bottom', 'top', 'left', 'right'],
+    table: {
+      type: { summary: 'string' },
+      defaultValue: { summary: null },
+    },
+  },
+  icon: {
+    name: 'icon',
+    description:
+      "Permet l'affichage d'une icône FontAwesome avant le placeholder ou le label de l'option sélectionnée.",
+    type: { name: 'string', required: false },
     table: {
       type: { summary: 'string' },
       defaultValue: { summary: null },
