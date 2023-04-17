@@ -1,13 +1,11 @@
 module.exports = {
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-  ],
-  stories: [
-    '../docs/**/*.stories.@(mdx)',
-    '../app/**/*.stories.@(js|mdx)',
-  ],
-  core: {
-    builder: 'webpack5',
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-mdx-gfm'],
+  stories: ['../docs/**/*.stories.@(mdx)', '../app/**/*.stories.@(js|mdx)'],
+  framework: {
+    name: '@storybook/ember',
+    options: {}
   },
+  docs: {
+    autodocs: true
+  }
 };
