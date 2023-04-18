@@ -34,6 +34,10 @@
       aria-controls={{this.listId}}
       aria-disabled={{@isDisabled}}
     >
+      {{#if @icon}}
+        <FaIcon @icon={{@icon}} />
+      {{/if}}
+
       <span class="pix-select-button__text">{{this.placeholder}}</span>
 
       <FaIcon
