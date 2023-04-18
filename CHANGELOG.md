@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v31.1.0 (18/04/2023)
+
+
+### :rocket: Amélioration
+- [#384](https://github.com/1024pix/pix-ui/pull/384) [FEATURE] Ajouter une icône avant le label du composant Pix-Select (PIX-7634)
+
 ## v31.0.0 (14/04/2023)
 
 
