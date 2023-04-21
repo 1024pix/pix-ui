@@ -6,7 +6,7 @@
 
   &__sub-title {
     font-size: 0.813rem;
-    color: $pix-warning-40;
+    color: $pix-primary-60;
     margin: 6px 0;
     letter-spacing: 0.4px;
     text-transform: uppercase;
@@ -74,27 +74,26 @@
     }
   }
 
-  &--yellow {
+  &--blue {
     & .progress-gauge__referrer {
       background-color: $pix-neutral-20;
     }
 
     & .progress-gauge__marker {
-      background: $pix-secondary-app-gradient;
+      background-color: $pix-primary-60;
     }
 
     & .progress-gauge__tooltip {
-      background: $pix-secondary-app-gradient;
+      background-color: $pix-primary-60;
       color: $pix-neutral-0;
 
       &::before {
-        color: $pix-warning-40;
-        border-top-color: $pix-warning-40;
+        border-top-color: $pix-primary-60;
       }
     }
 
     & .progress-gauge__sub-title {
-      color: $pix-warning-40;
+      color: $pix-primary-60;
     }
   }
 

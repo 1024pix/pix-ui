@@ -19,10 +19,10 @@ export default class PixProgressGauge extends Component {
   }
 
   get progressGaugeClass() {
-    const availableColor = ['yellow', 'white'];
+    const availableColor = ['blue', 'white'];
 
     const color =
-      this.args.color && availableColor.includes(this.args.color) ? this.args.color : `yellow`;
+      this.args.color && availableColor.includes(this.args.color) ? this.args.color : `blue`;
 
     return `progress-gauge--${color}`;
   }

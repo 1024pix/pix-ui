@@ -48,11 +48,11 @@ export const argTypes = {
   color: {
     name: 'color',
     description:
-      'Modifie la couleur de la barre de progression. Peut prendre les valeurs `yellow` ou `white`',
+      'Modifie la couleur de la barre de progression. Peut prendre les valeurs `blue` ou `white`',
     type: { name: 'string', required: false },
-    table: { defaultValue: { summary: 'yellow' } },
+    table: { defaultValue: { summary: 'blue' } },
     control: { type: 'select' },
-    options: ['yellow', 'white'],
+    options: ['blue', 'white'],
   },
   isArrowLeft: {
     name: 'isArrowLeft',
