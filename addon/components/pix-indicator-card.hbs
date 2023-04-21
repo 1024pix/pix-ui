@@ -4,12 +4,7 @@
     <div class="indicator-card__icon" aria-hidden="true"></div>
     <div class="indicator-card__content" aria-hidden="true"></div>
   {{else}}
-    <div
-      id={{this.iconId}}
-      class="indicator-card__icon"
-      aria-hidden="true"
-      {{did-insert this.setIconColor}}
-    >
+    <div id={{this.iconId}} class="indicator-card__icon {{this.color}}" aria-hidden="true">
       <FaIcon @icon={{@icon}} @prefix={{@iconPrefix}} />
     </div>
     <dl class="indicator-card__content">

@@ -48,6 +48,9 @@ export const argTypes = {
   color: {
     name: 'Color',
     description: "Couleur de l'icone",
+    table: { defaultValue: { summary: 'grey' } },
+    control: { type: 'select' },
+    options: ['grey', 'blue', 'green', 'purple'],
   },
   icon: {
     name: 'Icon',
