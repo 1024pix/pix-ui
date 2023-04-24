@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v32.0.0 (24/04/2023)
+
+
+### :rocket: Amélioration
+- [#387](https://github.com/1024pix/pix-ui/pull/387) [FEATURE] Ne plus calculer le couleur de fond d'icône du PixIndicatorCard (PIX-7746)
+
 ## v31.1.0 (18/04/2023)
 
 
