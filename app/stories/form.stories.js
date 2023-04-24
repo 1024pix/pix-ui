@@ -71,6 +71,7 @@ export const form = (args) => {
     @value=''
     @maxlength={{200}}
     @label='Un commentaire ?'
+    @requiredLabel='Champ obligatoire'
     @errorMessage={{this.genericErrorMessage}}
   />
   <br />

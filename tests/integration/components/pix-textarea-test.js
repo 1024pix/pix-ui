@@ -9,6 +9,7 @@ module('Integration | Component | textarea', function (hooks) {
   setupRenderingTest(hooks);
 
   const TEXTAREA_SELECTOR = '.pix-textarea textarea';
+  const ABBR_SELECTOR = '.mandatory-mark';
 
   test('it renders PixTextarea with correct id and content', async function (assert) {
     // given
@@ -56,6 +57,37 @@ module('Integration | Component | textarea', function (hooks) {
     assert.true(textarea.required);
   });
 
+  test('it should add requiredLabel message in label', async function (assert) {
+    // given
+    const requiredLabel = 'Obligatoire';
+    this.set('requiredLabel', requiredLabel);
+
+    // when{{
+    await render(
+      hbs`<PixTextarea @value={{this.value}} @id='pix-textarea' @label='label' @requiredLabel={{this.requiredLabel}}/>`
+    );
+
+    // then
+    const abbr = this.element.querySelector(ABBR_SELECTOR);
+    assert.deepEqual(abbr.title, requiredLabel);
+  });
+
+  test('it should add required html attributes when given a requiredLabel argument', async function (assert) {
+    // given
+    const defaultValue = '';
+    this.set('value', defaultValue);
+
+    // when
+    await render(
+      hbs`<PixTextarea @value={{this.value}} @requiredLabel='Obligatoire' @label='label' @id='id' />`
+    );
+
+    // then
+    const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
+    assert.true(textarea.required);
+    assert.strictEqual(textarea.ariaRequired, 'true');
+  });
+
   test('it should be possible to give a label', async function (assert) {
     // given & when
     await render(hbs`<PixTextarea @id='pix-select-with-label' @label='Décrivez votre problème' />`);
@@ -75,6 +107,20 @@ module('Integration | Component | textarea', function (hooks) {
     );
     assert.throws(function () {
       component.label;
+    }, expectedError);
+  });
+
+  test('it should throw an error if no label is provided when there is a requiredLabel', async function (assert) {
+    // given & when
+    const componentParams = { label: '   ', requiredLabel: 'Obligatoire' };
+    const component = createGlimmerComponent('component:pix-textarea', componentParams);
+
+    // then
+    const expectedError = new Error(
+      'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+    );
+    assert.throws(function () {
+      component.requiredLabel;
     }, expectedError);
   });
 

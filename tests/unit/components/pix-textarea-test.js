@@ -31,5 +31,19 @@ module('Unit | Component | pix-textarea', function (hooks) {
         component.label;
       }, expectedError);
     });
+
+    test('it should throw an error if there is no label provided when requiredLabel is present', function (assert) {
+      // given
+      const componentParams = { requiredLabel: 'Required label' };
+      const component = createGlimmerComponent('component:pix-textarea', componentParams);
+
+      // when & then
+      const expectedError = new Error(
+        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+      );
+      assert.throws(function () {
+        component.requiredLabel;
+      }, expectedError);
+    });
   });
 });

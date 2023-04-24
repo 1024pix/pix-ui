@@ -1,16 +1,25 @@
 <div class="pix-textarea">
 
   {{#if this.label}}
-    <label for={{@id}} class="pix-textarea__label">{{this.label}}</label>
+
+    <label for={{@id}} class="pix-textarea__label">
+      {{#if this.requiredLabel}}
+        <abbr title={{this.requiredLabel}} class="mandatory-mark" aria-hidden="true">*</abbr>
+      {{/if}}
+      {{this.label}}
+    </label>
   {{/if}}
 
   <Textarea
     id={{@id}}
     @value={{@value}}
     maxlength={{if @maxlength @maxlength}}
+    aria-required="{{if this.requiredLabel true false}}"
+    required={{if this.requiredLabel true false}}
     class="{{if @errorMessage 'pix-textarea--error'}}"
     ...attributes
   />
+
   {{#if @maxlength}}
     <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
   {{/if}}
