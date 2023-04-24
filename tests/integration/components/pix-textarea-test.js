@@ -21,9 +21,7 @@ module('Integration | Component | textarea', function (hooks) {
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
     assert.contains('Bonjour Pix !');
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(textarea.id, 7);
+    assert.strictEqual(textarea.id, '7');
   });
 
   test('it should count textarea characters length', async function (assert) {
@@ -41,9 +39,7 @@ module('Integration | Component | textarea', function (hooks) {
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(textarea.maxLength, maxlength);
+    assert.strictEqual(textarea.maxLength, maxlength);
     assert.contains('11 / 20');
   });
 
