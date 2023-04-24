@@ -1,5 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+/* Default stories */
 const Template = (args) => {
   return {
     template: hbs`<PixRadioButton @label={{this.label}} @value={{this.value}} @isDisabled={{this.isDisabled}} />`,
@@ -18,6 +19,7 @@ isDisabled.args = {
   isDisabled: true,
 };
 
+/* Checked stories */
 const checked = (args) => {
   return {
     template: hbs`<PixRadioButton @label={{this.label}} @isDisabled={{this.isDisabled}} checked />`,
@@ -33,6 +35,23 @@ disabledChecked.args = {
 
 export const defaultChecked = checked.bind({});
 defaultChecked.args = Default.args;
+
+/* Multiple components story */
+const multipleTemplate = (args) => {
+  return {
+    template: hbs`
+<PixRadioButton @label={{this.label}} @isDisabled={{this.isDisabled}} name="radio" />
+<PixRadioButton @label={{this.label}} @isDisabled={{this.isDisabled}} name="radio" />
+<PixRadioButton @label={{this.label}} @isDisabled={{this.isDisabled}} name="radio" />
+`,
+    context: args,
+  };
+};
+
+export const multiple = multipleTemplate.bind({});
+multiple.args = {
+  ...Default.args,
+};
 
 export const argTypes = {
   label: {

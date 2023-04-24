@@ -1,71 +1,95 @@
 .pix-radio-button {
+  display: flex;
+  align-items: center;
   cursor: pointer;
-  font-size: 0.875rem;
-  color: $pix-neutral-70;
 
-  label {
-    display: flex;
-    align-items: center;
+  & + .pix-radio-button {
+    margin-top: $pix-spacing-s;
   }
 
-  input {
-    appearance: none;
-    position: relative;
-    border-radius: 50%;
-    width: 18px;
-    height: 18px;
-    margin: 0 10px 0 0;
-    border: 1px solid $pix-neutral-70;
-    cursor: pointer;
-    background-color: transparent;
+  &__label {
+    padding-left: 12px;
+    color: $pix-neutral-90;
+    font-size: 1rem;
+    line-height: 1.5;
+  }
 
-    &:hover {
+  &__input {
+    position: relative;
+    width: 1rem;
+    height: 1rem;
+    background-color: $pix-neutral-0;
+    border: 1.5px solid $pix-neutral-70;
+    border-radius: 50%;
+    appearance: none;
+
+    // Hover effect
+    &::before {
+      content: '';
+      position: absolute;
+      z-index: -1;
+      top: 50%;
+      left: 50%;
+      width: 1rem;
+      height: 1rem;
+      transform: translate(-50%, -50%) scale(1);
+      border-radius: 50%;
       background-color: $pix-neutral-15;
-      box-shadow: 0 0 0 8px $pix-neutral-15;
+      visibility: hidden;
+      opacity: 0;
       transition: all 0.3s ease;
     }
 
-    &:focus-visible {
-      box-shadow: $pix-neutral-0 0 0 0 2px, $pix-primary 0 0 0 4px;
-      outline: none;
+    &:hover,
+    &:focus-visible,
+    &:active {
+      &::before {
+        visibility: visible;
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1.75);
+      }
     }
 
     &:active {
-      border-color: $pix-primary;
-      background-color: transparent;
-      box-shadow: none;
+      &::before {
+        background-color: $pix-neutral-22;
+      }
     }
 
+    // Checked state
     &:checked {
       border-color: $pix-primary;
 
-      &:after {
+      &::after {
+        content: '';
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        height: 62.5%;
+        width: 62.5%;
+        transform: translate(-50%, -50%);
         background-color: $pix-primary;
         border-radius: 50%;
-        content: '';
-        height: 12px;
-        width: 12px;
-        position: absolute;
-        left: 50%;
-        top: 50%;
-        transform: translate(-50%, -50%);
       }
     }
 
+    // Disabled state
     &:disabled {
-      border: 1px solid $pix-neutral-45;
-      background-color: transparent;
-      box-shadow: none;
+      background-color: $pix-neutral-10;
+      border-color: $pix-neutral-30;
       cursor: not-allowed;
 
-      &:checked:after {
-        background-color: $pix-neutral-25;
+      & + .pix-radio-button__label {
+        cursor: not-allowed;
+      }
+
+      &::before {
+        display: none;
+      }
+
+      &:checked::after {
+        background-color: $pix-neutral-30;
       }
     }
-  }
-
-  &--disabled {
-    cursor: not-allowed;
-    color: $pix-neutral-45;
   }
 }
