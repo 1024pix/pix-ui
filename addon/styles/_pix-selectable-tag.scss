@@ -3,8 +3,8 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 @mixin checkmarkColor($borderColor) {
   input[type='checkbox']:checked + label::before {
     position: absolute;
-    top: 6px;
-    left: 8px;
+    top: 10px;
+    left: 10px;
     width: $checkmark-width;
     height: 0.3125rem;
     border: 2px solid;
@@ -17,17 +17,20 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 }
 
 .pix-selectable-tag {
+
+  @extend %pix-body-s;
+
   display: inline-block;
   text-align: center;
   position: relative;
   padding: 3px calc(8px + #{$checkmark-width-with-space} / 2);
   letter-spacing: 0.009rem;
-  border-radius: 0.75rem;
+  border-radius: 0.95rem;
   border: $pix-neutral-30 solid 1px;
   color: $pix-neutral-60;
   background-color: $pix-neutral-0;
-  font-size: 0.8125rem;
   cursor: pointer;
+  font-weight: $font-medium;
 
   input {
     position: absolute;
