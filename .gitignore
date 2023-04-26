@@ -27,8 +27,9 @@
 /bower.json.ember-try
 /package.json.ember-try
 
-# storybook
+# storybook / chromatic
 .storybook/preview-head.html
+build-storybook.log
 
 # IDE
 **/.idea

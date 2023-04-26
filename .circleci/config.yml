@@ -7,24 +7,61 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - build-and-test:
+      - install:
           filters:
             branches:
               ignore:
                 - gh-pages
+      - lint-and-test:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - install
+      - chromatic-deployment:
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - install
 
 jobs:
-  build-and-test:
+  install:
     docker:
       - image: cimg/node:16.19.1-browsers
     resource_class: medium+
     steps:
       - checkout
+      - run: npm ci
+      - save_cache:
+          name: Save node modules
+          key: node_modules
+          paths:
+            - node_modules
+  lint-and-test:
+    docker:
+      - image: cimg/node:16.19.1-browsers
+    resource_class: medium+
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore node modules
+          key: node_modules
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
-      - run: npm ci
       - run: npm run lint:js
       - run: npm run lint:hbs
       - run: npm run lint:scss
       - run: npm test
       - run: npx ember try:one embroider-safe
+  chromatic-deployment:
+    docker:
+      - image: cimg/node:16.19.1-browsers
+    steps:
+      - checkout
+      - restore_cache:
+          name: Restore node modules
+          key: node_modules
+      - run: npm run chromatic -- --exit-zero-on-changes
