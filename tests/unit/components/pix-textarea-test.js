@@ -15,9 +15,7 @@ module('Unit | Component | pix-textarea', function (hooks) {
       const result = component.label;
 
       // then
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(result, 'Textarea label');
+      assert.strictEqual(result, 'Textarea label');
     });
 
     test('it should throw an error if id is undefined', function (assert) {
@@ -31,6 +29,20 @@ module('Unit | Component | pix-textarea', function (hooks) {
       );
       assert.throws(function () {
         component.label;
+      }, expectedError);
+    });
+
+    test('it should throw an error if there is no label provided when requiredLabel is present', function (assert) {
+      // given
+      const componentParams = { requiredLabel: 'Required label' };
+      const component = createGlimmerComponent('component:pix-textarea', componentParams);
+
+      // when & then
+      const expectedError = new Error(
+        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+      );
+      assert.throws(function () {
+        component.requiredLabel;
       }, expectedError);
     });
   });

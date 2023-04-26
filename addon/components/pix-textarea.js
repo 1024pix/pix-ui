@@ -7,11 +7,23 @@ export default class PixTextarea extends Component {
 
   get label() {
     const labelIsDefined = this.args.label?.trim();
-    const idIsNotDefined = !this.args.id?.trim();
+    const idIsDefined = this.args.id?.trim();
 
-    if (labelIsDefined && idIsNotDefined) {
+    if (labelIsDefined && !idIsDefined) {
       throw new Error('ERROR in PixTextarea component, @id param is necessary when giving @label');
     }
     return this.args.label || null;
+  }
+
+  get requiredLabel() {
+    const idRequiredLabelDefined = this.args.requiredLabel?.trim();
+    const labelIsDefined = this.args.label?.trim();
+
+    if (idRequiredLabelDefined && !labelIsDefined) {
+      throw new Error(
+        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+      );
+    }
+    return this.args.requiredLabel || null;
   }
 }

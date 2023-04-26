@@ -7,6 +7,7 @@ const Template = (args) => {
   @value={{this.value}}
   @maxlength={{this.maxlength}}
   @label={{this.label}}
+  @requiredLabel={{this.requiredLabel}}
   @errorMessage={{this.errorMessage}}
 />`,
     context: args,
@@ -41,6 +42,13 @@ export const argTypes = {
   label: {
     name: 'label',
     description: 'Donne un label au champ.',
+    type: { name: 'string', required: false },
+  },
+
+  requiredLabel: {
+    name: 'requiredLabel',
+    description:
+      'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
     type: { name: 'string', required: false },
   },
 
