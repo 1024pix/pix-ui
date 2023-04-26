@@ -82,31 +82,31 @@ module('Integration | Component | progress-gauge', function (hooks) {
   });
 
   module('Attributes @color', function () {
-    test('it renders the progress gauge by default with yellow class', async function (assert) {
+    test('it renders the progress gauge by default with blue class', async function (assert) {
       // given & when
       await render(hbs`<PixProgressGauge @value='50' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--yellow'));
+      assert.true(componentElement.classList.contains('progress-gauge--blue'));
     });
 
-    test('it renders the progress gauge with yellow class when color not exists', async function (assert) {
+    test('it renders the progress gauge with blue class when color not exists', async function (assert) {
       // given & when
       await render(hbs`<PixProgressGauge @value='50' @color='vert-lychen' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--yellow'));
+      assert.true(componentElement.classList.contains('progress-gauge--blue'));
     });
 
-    test('it renders the progress gauge with yellow class', async function (assert) {
+    test('it renders the progress gauge with blue class', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='50' @color='yellow' />`);
+      await render(hbs`<PixProgressGauge @value='50' @color='blue' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--yellow'));
+      assert.true(componentElement.classList.contains('progress-gauge--blue'));
     });
 
     test('it renders the progress gauge with white class', async function (assert) {
