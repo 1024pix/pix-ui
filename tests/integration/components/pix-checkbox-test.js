@@ -7,15 +7,13 @@ import createGlimmerComponent from '../../helpers/create-glimmer-component';
 module('Integration | Component | checkbox', function (hooks) {
   setupRenderingTest(hooks);
 
-  const CHECKBOX_INPUT_SELECTOR = '.pix-checkbox input';
-
   test('it should be possible to check the checkbox', async function (assert) {
     // when
     await render(hbs`<PixCheckbox @id='checkboxId'>Recevoir la newsletter</PixCheckbox>`);
     await clickByText('Recevoir la newsletter');
 
     // then
-    const checkbox = this.element.querySelector(CHECKBOX_INPUT_SELECTOR);
+    const checkbox = this.element.querySelector('.pix-checkbox__input');
     assert.true(checkbox.checked);
   });
 
@@ -37,7 +35,7 @@ module('Integration | Component | checkbox', function (hooks) {
 
     // then
     assert
-      .dom(screen.getByLabelText('yield required to give a label for PixCheckBox checkboxId.'))
+      .dom(screen.getByLabelText('yield required to give a label for PixCheckbox checkboxId.'))
       .exists();
   });
 
@@ -47,6 +45,14 @@ module('Integration | Component | checkbox', function (hooks) {
 
     // then
     assert.dom('.pix-checkbox__label--small').exists();
+  });
+
+  test('it should be possible to disable the checkbox', async function (assert) {
+    // when
+    await render(hbs`<PixCheckbox @id='checkboxId' disable>Mini label</PixCheckbox>`);
+
+    // then
+    assert.dom('.pix-checkbox__input[disable]').exists();
   });
 
   test('it should be possible to insert html in label', async function (assert) {
@@ -66,7 +72,7 @@ module('Integration | Component | checkbox', function (hooks) {
     await render(
       hbs`<PixCheckbox @id='checkboxId' @checked={{this.checked}}>Recevoir la newsletter</PixCheckbox>`
     );
-    const checkbox = this.element.querySelector(CHECKBOX_INPUT_SELECTOR);
+    const checkbox = this.element.querySelector('.pix-checkbox__input');
     assert.false(checkbox.checked);
 
     // when

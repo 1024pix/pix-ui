@@ -2,15 +2,18 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export const Template = (args) => {
   return {
-    template: hbs`<PixCheckbox
+    template: hbs`
+<PixCheckbox
   @id={{this.id}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
   @checked={{this.checked}}
+  disabled={{this.disabled}}
 >
   {{this.label}}
-</PixCheckbox>`,
+</PixCheckbox>
+`,
     context: args,
   };
 };
@@ -26,6 +29,7 @@ indeterminateCheckbox.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   isIndeterminate: true,
+  checked: true,
 };
 
 export const checkboxWithSmallLabel = Template.bind({});
@@ -40,6 +44,63 @@ checkboxWithLargeLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   labelSize: 'large',
+};
+
+export const checkboxDisabled = Template.bind({});
+checkboxDisabled.args = {
+  id: 'accept-newsletter-2',
+  label: 'Recevoir la newsletter',
+  disabled: true,
+};
+
+export const checkboxCheckedDisabled = Template.bind({});
+checkboxCheckedDisabled.args = {
+  id: 'accept-newsletter-2',
+  label: 'Recevoir la newsletter',
+  disabled: true,
+  checked: true,
+};
+
+export const checkboxInterminateDisabled = Template.bind({});
+checkboxInterminateDisabled.args = {
+  id: 'accept-newsletter-2',
+  label: 'Recevoir la newsletter',
+  disabled: true,
+  checked: true,
+  isIndeterminate: true,
+};
+
+export const MultipleTemplate = (args) => {
+  return {
+    template: hbs`
+<PixCheckbox
+  @id="one"
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @isIndeterminate={{this.isIndeterminate}}
+  @labelSize={{this.labelSize}}
+  @checked={{this.checked}}
+  disabled={{this.disabled}}
+>
+  {{this.label}}
+</PixCheckbox>
+<PixCheckbox
+  @id="two"
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @isIndeterminate={{this.isIndeterminate}}
+  @labelSize={{this.labelSize}}
+  @checked={{this.checked}}
+  disabled={{this.disabled}}
+>
+  {{this.label}}
+</PixCheckbox>
+`,
+    context: args,
+  };
+};
+
+export const multiple = MultipleTemplate.bind({});
+multiple.args = {
+  label: 'Recevoir la newsletter',
 };
 
 export const argTypes = {
@@ -90,6 +151,15 @@ export const argTypes = {
   checked: {
     name: 'checked',
     description: 'Permet de cocher la checkbox',
+    type: { name: 'boolean', required: false },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
+  },
+  disabled: {
+    name: 'disabled',
+    description: 'Permet de désactiver la checkbox',
     type: { name: 'boolean', required: false },
     table: {
       type: { summary: 'boolean' },

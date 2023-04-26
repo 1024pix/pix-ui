@@ -12,19 +12,44 @@ La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (c
   <Story name="Default" story={stories.Default} height={60} />
 </Canvas>
 
-## Checkbox indéterminée
+### Liste de checkboxes
+
+Il n'est pas rare d'avoir plusieurs champs checkbox qui se suivent.<br/>
+En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composants qui se suivent.
+
+<Canvas>
+  <Story name="Multiple" story={stories.multiple} height={140} />
+</Canvas>
+
+## États de la Checkbox
+
+<br />
+
+### Checkbox interminée
 
 <Canvas>
   <Story name="Indeterminate" story={stories.indeterminateCheckbox} height={60} />
 </Canvas>
 
-## Checkbox avec un petit label
+### Checkbox désactivée
+
+<Canvas>
+  <Story name="Disabled" story={stories.checkboxDisabled} height={60} />
+  <Story name="CheckedDisabled" story={stories.checkboxCheckedDisabled} height={60} />
+  <Story name="InterminateDisabled" story={stories.checkboxInterminateDisabled} height={60} />
+</Canvas>
+
+## Autres tailles de police du label
+
+<br />
+
+### Small
 
 <Canvas>
   <Story name="SmallLabel" story={stories.checkboxWithSmallLabel} height={60} />
 </Canvas>
 
-## Checkbox avec un grand label
+### Large
 
 <Canvas>
   <Story name="LargeLabel" story={stories.checkboxWithLargeLabel} height={60} />
@@ -38,6 +63,7 @@ La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (c
   @screenReaderOnly="{{false}}"
   @isIndeterminate="{{false}}"
   @labelSize="small"
+  disabled
 >
   Recevoir la newsletter
 </PixCheckbox>

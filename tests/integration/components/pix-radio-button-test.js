@@ -6,14 +6,12 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | pix-radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
-  const INPUT_SELECTOR = '.pix-radio-button input';
-
   test('it renders the default PixRadioButton', async function (assert) {
     // when
     await render(hbs`<PixRadioButton @label='Abricot' />`);
 
     // then
-    const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
+    const componentInputElement = this.element.querySelector('.pix-radio-button__input');
     assert.contains('Abricot');
     // TODO: Fix this the next time the file is edited.
     // eslint-disable-next-line qunit/no-assert-equal
@@ -25,7 +23,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     await render(hbs`<PixRadioButton @label='Abricot' @id='abricot' @isDisabled='true' />`);
 
     // then
-    const componentInputElement = this.element.querySelector(INPUT_SELECTOR);
+    const componentInputElement = this.element.querySelector('.pix-radio-button__input');
     assert.true(componentInputElement.disabled);
   });
 
@@ -34,7 +32,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     await render(hbs`<PixRadioButton @label='Abricot' @id='abricot' @isDisabled='true' checked />`);
 
     // when & then
-    const componentInput = this.element.querySelector(INPUT_SELECTOR);
+    const componentInput = this.element.querySelector('.pix-radio-button__input');
     assert.true(componentInput.checked);
   });
 });

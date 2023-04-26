@@ -8,7 +8,7 @@ import * as stories from './pix-radio-button.stories.js';
 
 Un bouton radio permettant de sélectionner une seule option dans une liste.
 
-⚠️ Le bouton radio ne peut pas être utilisé seul : il faut au minimum **2 options**.
+⚠️ Le bouton radio ne peut pas être utilisé seul : il faut au minimum **2 options**.<br/>
 Il est préférable de ne pas sélectionner d’option par défaut pour que le choix de l’utilisateur soit conscient (en particulier si le choix est obligatoire).
 
 ## Default
@@ -16,6 +16,15 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 <Canvas isColumn>
   <Story name="Default" story={stories.Default} height={60} />
   <Story name="Default checked" story={stories.defaultChecked} height={60} />
+</Canvas>
+
+### Liste de radios
+
+Puisqu'on ne souhaite en aucune avoir un input radio unique, il est déjà prévu l'espacement vertical avec un input radio suivant.<br/>
+Pour les considérer comme un seul groupe d'inputs, **il est nécessaire qu'ils aient chacun un attribut `name` avec une valeur commune**.
+
+<Canvas>
+  <Story name="Multiple" story={stories.multiple} height={140} />
 </Canvas>
 
 ## IsDisabled
@@ -30,7 +39,12 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 ## Usage
 
 ```html
-<PixRadioButton @label="{{label}}" @value="{{value}}" @isDisabled="{{isDisabled}}" />
+<PixRadioButton
+  name="input-name"
+  @label="{{label}}"
+  @value="{{value}}"
+  @isDisabled="{{isDisabled}}"
+/>
 ```
 
 ## Arguments

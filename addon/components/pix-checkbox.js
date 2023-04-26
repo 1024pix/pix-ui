@@ -1,11 +1,5 @@
 import Component from '@glimmer/component';
 
-const labelSizeToClass = new Map([
-  ['small', 'pix-checkbox__label--small'],
-  ['default', 'pix-checkbox__label--default'],
-  ['large', 'pix-checkbox__label--large'],
-]);
-
 export default class PixCheckbox extends Component {
   constructor() {
     super(...arguments);
@@ -15,7 +9,27 @@ export default class PixCheckbox extends Component {
     }
   }
 
-  get labelSizeClass() {
-    return labelSizeToClass.get(this.args.labelSize);
+  get inputClasses() {
+    const classes = ['pix-checkbox__input'];
+
+    if (this.args.isIndeterminate) {
+      classes.push(`${classes[0]}--indeterminate`);
+    }
+
+    return classes.join(' ');
+  }
+
+  get labelClasses() {
+    const classes = ['pix-checkbox__label'];
+
+    if (this.args.labelSize) {
+      classes.push(`${classes[0]}--${this.args.labelSize}`);
+    }
+
+    if (this.args.screenReaderOnly) {
+      classes.push('screen-reader-only');
+    }
+
+    return classes.join(' ');
   }
 }

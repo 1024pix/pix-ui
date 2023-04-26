@@ -1,12 +1,10 @@
-<div class="pix-radio-button">
-  <label class="{{if @isDisabled ' pix-radio-button--disabled'}}">
-    <input
-      disabled={{@isDisabled}}
-      aria-disabled="{{@isDisabled}}"
-      type="radio"
-      value={{@value}}
-      ...attributes
-    />
-    {{@label}}
-  </label>
-</div>
+<label class="pix-radio-button">
+  <input
+    class="pix-radio-button__input"
+    type="radio"
+    value={{@value}}
+    disabled={{@isDisabled}}
+    ...attributes
+  />
+  <span class="pix-radio-button__label">{{@label}}</span>
+</label>
