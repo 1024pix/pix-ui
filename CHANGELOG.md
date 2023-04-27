@@ -1,6 +1,6 @@
 # Pix-UI Changelog
 
-## v32.1.0 (27/04/2023)
+## v33.0.0 (27/04/2023)
 
 
 ### :rocket: Amélioration
