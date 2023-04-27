@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v32.1.0 (27/04/2023)
+
+
+### :rocket: Amélioration
+- [#389](https://github.com/1024pix/pix-ui/pull/389) [FEATURE] Ajouter l'argument requiredLabel au TextArea (PIX-7710)
+- [#388](https://github.com/1024pix/pix-ui/pull/388) [FEATURE] Rectifier et uniformiser les composants Checkbox et Radio
+- [#390](https://github.com/1024pix/pix-ui/pull/390) [FEATURE] Ajouter Chromatic (PIX-7872)
+- [#386](https://github.com/1024pix/pix-ui/pull/386) [FEATURE] Améliorer le contraste du composant PixProgressGauge (PIX-7268)
+
 ## v32.0.0 (24/04/2023)
 
 
