@@ -1,10 +1,16 @@
-<label class="pix-radio-button">
+<div class="pix-radio-button {{@class}}">
   <input
-    class="pix-radio-button__input"
     type="radio"
+    id={{this.id}}
+    class="pix-radio-button__input"
     value={{@value}}
-    disabled={{@isDisabled}}
     ...attributes
   />
-  <span class="pix-radio-button__label">{{@label}}</span>
-</label>
+  <label class="pix-radio-button__label" for={{this.id}}>
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      <span>yield required to give a label for PixRadioButton.</span>
+    {{/if}}
+  </label>
+</div>
