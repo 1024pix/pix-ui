@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v33.1.0 (27/04/2023)
+
+
+### :rocket: Amélioration
+- [#391](https://github.com/1024pix/pix-ui/pull/391) [FEATURE] Améliorer la lisibilité des tags (PIX-7827)
+
 ## v33.0.0 (27/04/2023)
 
 
