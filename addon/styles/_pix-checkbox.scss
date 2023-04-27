@@ -4,7 +4,6 @@
   align-items: center;
   display: flex;
   color: $pix-neutral-70;
-  cursor: pointer;
 
   & + .pix-checkbox {
     margin-top: $pix-spacing-s;
@@ -17,6 +16,7 @@
   color: $pix-neutral-90;
   font-size: 1rem;
   line-height: 1.5;
+  cursor: pointer;
 
   &--small {
     font-size: 0.875rem;

@@ -2,14 +2,13 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import { render, clickByText } from '@1024pix/ember-testing-library';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | checkbox', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should be possible to check the checkbox', async function (assert) {
     // when
-    await render(hbs`<PixCheckbox @id='checkboxId'>Recevoir la newsletter</PixCheckbox>`);
+    await render(hbs`<PixCheckbox>Recevoir la newsletter</PixCheckbox>`);
     await clickByText('Recevoir la newsletter');
 
     // then
@@ -17,31 +16,17 @@ module('Integration | Component | checkbox', function (hooks) {
     assert.true(checkbox.checked);
   });
 
-  test('it should throw an error if there is no id', async function (assert) {
-    // given & when
-    const componentParams = { id: '   ', label: 'Super label' };
-    const renderComponent = function () {
-      createGlimmerComponent('component:pix-checkbox', componentParams);
-    };
-
-    // then
-    const expectedError = new Error('ERROR in PixCheckbox component, @id param is not provided');
-    assert.throws(renderComponent, expectedError);
-  });
-
   test('it should display error message if there no yield', async function (assert) {
     // given & when
-    const screen = await render(hbs`<PixCheckbox @id='checkboxId' />`);
+    const screen = await render(hbs`<PixCheckbox />`);
 
     // then
-    assert
-      .dom(screen.getByLabelText('yield required to give a label for PixCheckbox checkboxId.'))
-      .exists();
+    assert.dom(screen.getByLabelText('yield required to give a label for PixCheckbox.')).exists();
   });
 
   test('it should be possible to make label small', async function (assert) {
     // when
-    await render(hbs`<PixCheckbox @id='checkboxId' @labelSize='small'>Mini label</PixCheckbox>`);
+    await render(hbs`<PixCheckbox @labelSize='small'>Mini label</PixCheckbox>`);
 
     // then
     assert.dom('.pix-checkbox__label--small').exists();
@@ -49,7 +34,7 @@ module('Integration | Component | checkbox', function (hooks) {
 
   test('it should be possible to disable the checkbox', async function (assert) {
     // when
-    await render(hbs`<PixCheckbox @id='checkboxId' disable>Mini label</PixCheckbox>`);
+    await render(hbs`<PixCheckbox disable>Mini label</PixCheckbox>`);
 
     // then
     assert.dom('.pix-checkbox__input[disable]').exists();
@@ -58,7 +43,7 @@ module('Integration | Component | checkbox', function (hooks) {
   test('it should be possible to insert html in label', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixCheckbox @id='checkboxId'>Accepter les cgu,
+      hbs`<PixCheckbox>Accepter les cgu,
   <a href='https://cgu.example.net'>voir ici</a></PixCheckbox>`
     );
 
@@ -69,9 +54,7 @@ module('Integration | Component | checkbox', function (hooks) {
   test('it should be possible to control state', async function (assert) {
     // given
     this.set('checked', false);
-    await render(
-      hbs`<PixCheckbox @id='checkboxId' @checked={{this.checked}}>Recevoir la newsletter</PixCheckbox>`
-    );
+    await render(hbs`<PixCheckbox @checked={{this.checked}}>Recevoir la newsletter</PixCheckbox>`);
     const checkbox = this.element.querySelector('.pix-checkbox__input');
     assert.false(checkbox.checked);
 

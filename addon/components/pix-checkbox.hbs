@@ -1,18 +1,17 @@
-<label class="pix-checkbox {{@class}}" for={{@id}}>
+<div class="pix-checkbox {{@class}}">
   <input
-    id={{@id}}
     type="checkbox"
+    id={{this.id}}
     class={{this.inputClasses}}
     checked={{@checked}}
     ...attributes
   />
 
-  {{#if (has-block)}}
-    <span class={{this.labelClasses}}>{{yield}}</span>
-  {{else}}
-    <span>
-      yield required to give a label for PixCheckbox
-      {{@id}}.
-    </span>
-  {{/if}}
-</label>
+  <label class={{this.labelClasses}} for={{this.id}}>
+    {{#if (has-block)}}
+      {{yield}}
+    {{else}}
+      <span>yield required to give a label for PixCheckbox.</span>
+    {{/if}}
+  </label>
+</div>

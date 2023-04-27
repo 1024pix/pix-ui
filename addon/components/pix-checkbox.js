@@ -1,12 +1,13 @@
 import Component from '@glimmer/component';
+import { guidFor } from '@ember/object/internals';
 
 export default class PixCheckbox extends Component {
   constructor() {
     super(...arguments);
+  }
 
-    if (!this.args.id || !this.args.id.toString().trim()) {
-      throw new Error('ERROR in PixCheckbox component, @id param is not provided');
-    }
+  get id() {
+    return this.args.id || guidFor(this);
   }
 
   get inputClasses() {
