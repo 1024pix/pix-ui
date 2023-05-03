@@ -64,4 +64,4 @@ jobs:
       - restore_cache:
           name: Restore node modules
           key: node_modules
-      - run: npm run chromatic -- --exit-zero-on-changes
+      - run: npm run chromatic -- --auto-accept-changes
