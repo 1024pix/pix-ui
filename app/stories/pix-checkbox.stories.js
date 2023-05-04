@@ -5,6 +5,7 @@ export const Template = (args) => {
     template: hbs`
 <PixCheckbox
   @id={{this.id}}
+  @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
@@ -75,6 +76,7 @@ export const MultipleTemplate = (args) => {
     template: hbs`
 <PixCheckbox
   @id="one"
+  @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
@@ -85,6 +87,7 @@ export const MultipleTemplate = (args) => {
 </PixCheckbox>
 <PixCheckbox
   @id="two"
+  @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
@@ -106,8 +109,9 @@ multiple.args = {
 export const argTypes = {
   id: {
     name: 'id',
-    description: 'Identifiant du champ permettant de lui attacher un label',
-    type: { name: 'string', required: true },
+    description:
+      'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
+    type: { name: 'string' },
   },
   label: {
     name: 'label',
@@ -115,7 +119,7 @@ export const argTypes = {
   },
   class: {
     name: 'class',
-    description: "Permet d'ajouter une classe css à la checkbox.",
+    description: "Permet d'ajouter une classe au parent du composant.",
     type: { name: 'string' },
   },
   screenReaderOnly: {

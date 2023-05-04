@@ -1,7 +1,6 @@
 .pix-radio-button {
   display: flex;
   align-items: center;
-  cursor: pointer;
 
   & + .pix-radio-button {
     margin-top: $pix-spacing-s;
@@ -12,6 +11,7 @@
     color: $pix-neutral-90;
     font-size: 1rem;
     line-height: 1.5;
+    cursor: pointer;
   }
 
   &__input {
@@ -23,6 +23,7 @@
     border: 1.5px solid $pix-neutral-70;
     border-radius: 50%;
     appearance: none;
+    cursor: pointer;
 
     // Hover effect
     &::before {
