@@ -8,6 +8,7 @@ export const filterBanner = (args) => {
   @details={{this.details}}
   @clearFiltersLabel={{this.clearFiltersLabel}}
   @onClearFilters={{this.onClearFilters}}
+  @isClearFilterButtonDisabled={{this.isClearFilterButtonDisabled}}
 >
   <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
   <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
@@ -48,5 +49,15 @@ export const argTypes = {
     name: 'onClearFilters',
     description: 'fonction à appeler pour déclencher l’action de suppression des filtres',
     type: { required: false },
+  },
+  isClearFilterButtonDisabled: {
+    name: 'isClearFilterButtonDisabled',
+    description: 'Désactiver le button de la suppresion des filtres',
+    type: { name: 'boolean', required: true },
+    control: { type: 'boolean' },
+    table: {
+      type: { summary: 'boolean' },
+      defaultValue: { summary: false },
+    },
   },
 };

@@ -13,8 +13,8 @@
     class={{this.className}}
     {{on "click" this.triggerAction}}
     ...attributes
-    disabled={{this.isButtonLoadingOrDisabled}}
-    aria-disabled="{{this.ariaDisabled}}"
+    disabled={{this.isDisabled}}
+    aria-disabled="{{this.isDisabled}}"
   >
     {{#if this.isLoading}}
       <div class="loader loader--{{this.loadingColor}}">

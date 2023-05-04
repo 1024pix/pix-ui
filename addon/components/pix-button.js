@@ -21,12 +21,8 @@ export default class PixButton extends PixButtonBase {
     return this.args.loadingColor || this.args['loading-color'] || 'white';
   }
 
-  get isButtonLoadingOrDisabled() {
+  get isDisabled() {
     return this.isLoading || this.args.isDisabled;
-  }
-
-  get ariaDisabled() {
-    return this.isButtonLoadingOrDisabled;
   }
 
   get className() {
@@ -35,7 +31,7 @@ export default class PixButton extends PixButtonBase {
 
   @action
   async triggerAction(params) {
-    if (this.type === 'submit' && !this.args.triggerAction) return;
+    if (this.isDisabled || (this.type === 'submit' && !this.args.triggerAction)) return;
     if (!this.args.triggerAction) {
       throw new Error('@triggerAction params is required for PixButton !');
     }
