@@ -1,5 +1,18 @@
 # Pix-UI Changelog
 
+## v34.0.0 (04/05/2023)
+
+
+### :rocket: Amélioration
+- [#393](https://github.com/1024pix/pix-ui/pull/393) [FEATURE] Uniformiser PixRadioButton et PixCheckbox (PIX-7900)
+
+### :building_construction: Tech
+- [#354](https://github.com/1024pix/pix-ui/pull/354) [TECH] Améliorer l'expérience de dev
+- [#394](https://github.com/1024pix/pix-ui/pull/394) [TECH] Rendre Chromatic non bloquant lors du run de la CI (PIX-7932)
+
+### :bug: Correction
+- [#392](https://github.com/1024pix/pix-ui/pull/392) [BUGFIX] Éviter le rétrécissement des inputs checkbox et radio (PIX-7896).
+
 ## v33.1.0 (27/04/2023)
 
 
