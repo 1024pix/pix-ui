@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v34.1.0 (05/05/2023)
+
+
+### :rocket: Amélioration
+- [#397](https://github.com/1024pix/pix-ui/pull/397) [FEATURE] Améliorer le composant PixFilterbanner (PIX-7854)
+
 ## v34.0.0 (04/05/2023)
 
 
