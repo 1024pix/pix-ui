@@ -1,9 +1,9 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
-import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | filter-banner', function (hooks) {
   setupRenderingTest(hooks);
@@ -38,38 +38,60 @@ module('Integration | Component | filter-banner', function (hooks) {
     assert.contains('5 participants filtrés');
   });
 
-  test('it renders the PixFilterBanner with a clearFiltersLabel button', async function (assert) {
-    //given
-    this.clearFiltersLabel = 'Effacer les filtres';
-    this.onClearFilters = sinon.spy();
+  module('clearFilterbutton', function () {
+    test('it renders the PixFilterBanner with a clearFiltersLabel button', async function (assert) {
+      //given
+      this.clearFiltersLabel = 'Effacer les filtres';
+      this.onClearFilters = sinon.spy();
 
-    // when
-    await render(hbs`<PixFilterBanner
-  @clearFiltersLabel={{this.clearFiltersLabel}}
-  @onClearFilters={{this.onClearFilters}}
->
-  content
-</PixFilterBanner>`);
+      // when
+      const screen = await render(hbs`<PixFilterBanner
+    @clearFiltersLabel={{this.clearFiltersLabel}}
+    @onClearFilters={{this.onClearFilters}}
+  >
+    content
+  </PixFilterBanner>`);
 
-    // then
-    assert.contains(this.clearFiltersLabel);
-  });
+      // then
+      const button = screen.getByRole('button', { name: this.clearFiltersLabel });
+      assert.dom(button).exists();
+    });
 
-  test('it should trigger onClearFilters when button clicked', async function (assert) {
-    // given
-    this.clearFiltersLabel = 'some label';
-    this.onClearFilters = sinon.spy();
+    test('it renders the PixFilterBanner with a disabled clearFiltersLabel button', async function (assert) {
+      //given
+      this.clearFiltersLabel = 'Effacer les filtres';
+      this.isClearFilterButtonDisabled = true;
+      this.onClearFilters = sinon.spy();
 
-    //when
-    await render(hbs`<PixFilterBanner
-  @clearFiltersLabel={{this.clearFiltersLabel}}
-  @onClearFilters={{this.onClearFilters}}
->
-  content
-</PixFilterBanner>`);
-    await clickByLabel('some label');
+      // when
+      const screen = await render(hbs`<PixFilterBanner
+    @clearFiltersLabel={{this.clearFiltersLabel}}
+    @isClearFilterButtonDisabled={{this.isClearFilterButtonDisabled}}
+  >
+    content
+  </PixFilterBanner>`);
 
-    // then
-    assert.ok(this.onClearFilters.calledOnce, 'the callback should be called once');
+      // then
+      const button = screen.getByRole('button', { name: this.clearFiltersLabel, hidden: true });
+      assert.dom(button).exists();
+    });
+
+    test('it should trigger onClearFilters when button clicked', async function (assert) {
+      // given
+      this.clearFiltersLabel = 'some label';
+      this.onClearFilters = sinon.spy();
+
+      //when
+      const screen = await render(hbs`<PixFilterBanner
+    @clearFiltersLabel={{this.clearFiltersLabel}}
+    @onClearFilters={{this.onClearFilters}}
+  >
+    content
+  </PixFilterBanner>`);
+      await click(screen.getByRole('button', { name: this.clearFiltersLabel }));
+
+      // then
+      assert.ok(this.onClearFilters.calledOnce, 'the callback should be called once');
+    });
   });
 });

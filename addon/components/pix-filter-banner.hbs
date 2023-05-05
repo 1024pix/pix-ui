@@ -22,8 +22,7 @@
             @shape="squircle"
             @size="small"
             @triggerAction={{@onClearFilters}}
-            @iconBefore="trash-can"
-            @prefixIconBefore="far"
+            @isDisabled={{@isClearFilterButtonDisabled}}
           >
             {{@clearFiltersLabel}}
           </PixButton>
