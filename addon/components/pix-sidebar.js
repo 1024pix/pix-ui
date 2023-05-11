@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import uniqueId from '@1024pix/pix-ui/utils/unique-id';
+import { guidFor } from '@ember/object/internals';
 
 export default class PixSidebar extends Component {
   constructor(...args) {
@@ -23,6 +23,6 @@ export default class PixSidebar extends Component {
   }
 
   get id() {
-    return uniqueId();
+    return guidFor(this);
   }
 }
