@@ -99,7 +99,7 @@ module('Integration | Component | textarea', function (hooks) {
   test('it should throw an error if no id is provided when there is a label', async function (assert) {
     // given & when
     const componentParams = { id: '   ', label: 'Décrivez votre problème' };
-    const component = createGlimmerComponent('component:pix-textarea', componentParams);
+    const component = createGlimmerComponent('pix-textarea', componentParams);
 
     // then
     const expectedError = new Error(
@@ -113,7 +113,7 @@ module('Integration | Component | textarea', function (hooks) {
   test('it should throw an error if no label is provided when there is a requiredLabel', async function (assert) {
     // given & when
     const componentParams = { label: '   ', requiredLabel: 'Obligatoire' };
-    const component = createGlimmerComponent('component:pix-textarea', componentParams);
+    const component = createGlimmerComponent('pix-textarea', componentParams);
 
     // then
     const expectedError = new Error(

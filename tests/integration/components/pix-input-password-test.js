@@ -16,7 +16,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
   test('it should throw an error if there is no id', async function (assert) {
     // given & when
     const componentParams = { id: '   ' };
-    const component = createGlimmerComponent('component:pix-input-password', componentParams);
+    const component = createGlimmerComponent('pix-input-password', componentParams);
 
     // then
     const expectedError = new Error('ERROR in PixInput component, @id param is not provided');
@@ -92,7 +92,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
   test('it should throw an error if PixInputPassword has neither a label nor an ariaLabel param', async function (assert) {
     // given & when
     const componentParams = { label: null, ariaLabel: null };
-    const component = createGlimmerComponent('component:pix-input-password', componentParams);
+    const component = createGlimmerComponent('pix-input-password', componentParams);
 
     // then
     const expectedError = new Error(

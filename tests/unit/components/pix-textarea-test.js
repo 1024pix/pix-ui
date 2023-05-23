@@ -9,7 +9,7 @@ module('Unit | Component | pix-textarea', function (hooks) {
     test('it should return label if id is defined', function (assert) {
       // given
       const componentParams = { id: 'Textearea id', label: 'Textarea label' };
-      const component = createGlimmerComponent('component:pix-textarea', componentParams);
+      const component = createGlimmerComponent('pix-textarea', componentParams);
 
       // when
       const result = component.label;
@@ -21,7 +21,7 @@ module('Unit | Component | pix-textarea', function (hooks) {
     test('it should throw an error if id is undefined', function (assert) {
       // given
       const componentParams = { label: 'Textarea label' };
-      const component = createGlimmerComponent('component:pix-textarea', componentParams);
+      const component = createGlimmerComponent('pix-textarea', componentParams);
 
       // when & then
       const expectedError = new Error(
@@ -35,7 +35,7 @@ module('Unit | Component | pix-textarea', function (hooks) {
     test('it should throw an error if there is no label provided when requiredLabel is present', function (assert) {
       // given
       const componentParams = { requiredLabel: 'Required label' };
-      const component = createGlimmerComponent('component:pix-textarea', componentParams);
+      const component = createGlimmerComponent('pix-textarea', componentParams);
 
       // when & then
       const expectedError = new Error(

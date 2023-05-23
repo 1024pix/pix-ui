@@ -9,7 +9,7 @@ module('Unit | Component | pix-select', function (hooks) {
     // given & when
     const componentParams = { options: [] };
     const renderComponent = function () {
-      createGlimmerComponent('component:pix-select', componentParams);
+      createGlimmerComponent('pix-select', componentParams);
     };
 
     // then
@@ -20,7 +20,7 @@ module('Unit | Component | pix-select', function (hooks) {
   test('its should return the default className', function (assert) {
     // given
     const componentParams = { label: 'Un label', options: [] };
-    const component = createGlimmerComponent('component:pix-select', componentParams);
+    const component = createGlimmerComponent('pix-select', componentParams);
 
     // when & then
     // TODO: Fix this the next time the file is edited.
@@ -31,7 +31,7 @@ module('Unit | Component | pix-select', function (hooks) {
   test('it should add a custom class name', function (assert) {
     // given
     const componentParams = { label: 'Un label', options: [], className: 'custom-class' };
-    const component = createGlimmerComponent('component:pix-select', componentParams);
+    const component = createGlimmerComponent('pix-select', componentParams);
 
     // when & then
     // TODO: Fix this the next time the file is edited.
@@ -42,7 +42,7 @@ module('Unit | Component | pix-select', function (hooks) {
   test('it should add an error class name', function (assert) {
     // given
     const componentParams = { label: 'Un label', options: [], errorMessage: 'there is an error' };
-    const component = createGlimmerComponent('component:pix-select', componentParams);
+    const component = createGlimmerComponent('pix-select', componentParams);
 
     // when & then
     // TODO: Fix this the next time the file is edited.
@@ -58,7 +58,7 @@ module('Unit | Component | pix-select', function (hooks) {
       errorMessage: 'there is an error',
       className: 'custom-class',
     };
-    const component = createGlimmerComponent('component:pix-select', componentParams);
+    const component = createGlimmerComponent('pix-select', componentParams);
 
     // when & then
     // TODO: Fix this the next time the file is edited.

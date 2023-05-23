@@ -9,7 +9,7 @@ module('Unit | Component | pix-return-to', function (hooks) {
     // given
     const componentParams = { route: 'uneRoute', shade: 'test' };
     const expectedShade = 'black';
-    const component = createGlimmerComponent('component:pix-return-to', componentParams);
+    const component = createGlimmerComponent('pix-return-to', componentParams);
 
     // when & then
     // TODO: Fix this the next time the file is edited.
@@ -21,7 +21,7 @@ module('Unit | Component | pix-return-to', function (hooks) {
     // given
     const componentParams = { route: 'uneRoute', shade: 'white' };
     const expectedShade = 'white';
-    const component = createGlimmerComponent('component:pix-return-to', componentParams);
+    const component = createGlimmerComponent('pix-return-to', componentParams);
 
     // when & then
     // TODO: Fix this the next time the file is edited.
@@ -33,7 +33,7 @@ module('Unit | Component | pix-return-to', function (hooks) {
     // given
     const componentParams = { route: '  ' };
     const expectedError = new Error('ERROR in PixReturnTo component, @route param is not provided');
-    const component = createGlimmerComponent('component:pix-return-to', componentParams);
+    const component = createGlimmerComponent('pix-return-to', componentParams);
 
     // when & then
     assert.throws(function () {

@@ -34,7 +34,7 @@ module('Integration | Component | collapsible', function (hooks) {
   test('it should not show PixCollapsible if title is not provided', async function (assert) {
     // given
     const componentParams = { title: '  ' };
-    const component = createGlimmerComponent('component:pix-collapsible', componentParams);
+    const component = createGlimmerComponent('pix-collapsible', componentParams);
 
     // when & then
     const expectedError = new Error(

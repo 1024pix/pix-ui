@@ -22,7 +22,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should throw an error if there is no id', async function (assert) {
     // given & when
     const componentParams = { id: '   ' };
-    const component = createGlimmerComponent('component:pix-input', componentParams);
+    const component = createGlimmerComponent('pix-input', componentParams);
 
     // then
     const expectedError = new Error('ERROR in PixInput component, @id param is not provided');

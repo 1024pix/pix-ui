@@ -13,7 +13,7 @@ module('Unit | Component | PixBanner', function (hooks) {
         const params = Symbol();
         const onCloseBannerTriggerAction = sinon.stub();
         const componentParams = { canCloseBanner: true, onCloseBannerTriggerAction };
-        const component = createGlimmerComponent('component:pix-banner', componentParams);
+        const component = createGlimmerComponent('pix-banner', componentParams);
 
         // when
         await component.closeBanner(params);

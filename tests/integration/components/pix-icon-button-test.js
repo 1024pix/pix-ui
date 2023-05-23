@@ -64,7 +64,7 @@ module('Integration | Component | icon-button', function (hooks) {
   test('it should not show PixIconButton if ariaLabel is not provided', async function (assert) {
     // given
     const componentParams = { ariaLabel: '   ' };
-    const component = createGlimmerComponent('component:pix-icon-button', componentParams);
+    const component = createGlimmerComponent('pix-icon-button', componentParams);
 
     // when & then
     const expectedError = new Error(
