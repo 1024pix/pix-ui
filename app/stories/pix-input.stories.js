@@ -55,7 +55,7 @@ export const argTypes = {
   ariaLabel: {
     name: 'ariaLabel',
     description: "L'action du champ, pour l'accessibilité. Requis si label n'est pas définit.",
-    type: { name: 'string', required: true },
+    type: { name: 'string', required: false },
   },
   id: {
     name: 'id',
