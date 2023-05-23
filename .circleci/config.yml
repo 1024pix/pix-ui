@@ -32,23 +32,23 @@ jobs:
     docker:
       - image: cimg/node:16.19.1-browsers
     resource_class: medium+
+    working_directory: ~/pix-ui
     steps:
       - checkout
       - run: npm ci
-      - save_cache:
-          name: Save node modules
-          key: node_modules
+      - persist_to_workspace:
+          root: ~/pix-ui
           paths:
-            - node_modules
+            - .
+
   lint-and-test:
     docker:
       - image: cimg/node:16.19.1-browsers
     resource_class: medium+
+    working_directory: ~/pix-ui
     steps:
-      - checkout
-      - restore_cache:
-          name: Restore node modules
-          key: node_modules
+      - attach_workspace:
+          at: ~/pix-ui
       - browser-tools/install-chrome
       - browser-tools/install-chromedriver
       - run: npm run lint:js
@@ -56,12 +56,12 @@ jobs:
       - run: npm run lint:scss
       - run: npm test
       - run: npx ember try:one embroider-safe
+
   chromatic-deployment:
     docker:
       - image: cimg/node:16.19.1-browsers
+    working_directory: ~/pix-ui
     steps:
-      - checkout
-      - restore_cache:
-          name: Restore node modules
-          key: node_modules
+      - attach_workspace:
+          at: ~/pix-ui
       - run: npm run chromatic -- --auto-accept-changes
