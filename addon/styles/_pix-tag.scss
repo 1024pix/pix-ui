@@ -1,5 +1,4 @@
 .pix-tag {
-
   @extend %pix-body-s;
 
   display: inline-block;
@@ -66,7 +65,6 @@
   }
 
   &--compact {
-
     @extend %pix-body-xs;
 
     font-weight: $font-medium;

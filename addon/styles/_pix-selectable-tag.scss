@@ -1,5 +1,6 @@
 $checkmark-width: 0.625rem;
 $checkmark-width-with-space: $checkmark-width + 0.438rem;
+
 @mixin checkmarkColor($borderColor) {
   input[type='checkbox']:checked + label::before {
     position: absolute;
@@ -17,7 +18,6 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 }
 
 .pix-selectable-tag {
-
   @extend %pix-body-s;
 
   display: inline-block;
