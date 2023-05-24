@@ -55,11 +55,13 @@
 
   &__input--error {
     padding-right: $pix-spacing-l;
+
     @include formElementInError();
   }
 
   &__input--success {
     padding-right: $pix-spacing-l;
+
     @include formElementInSuccess();
   }
 }
