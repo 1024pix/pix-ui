@@ -1,5 +1,21 @@
 # Pix-UI Changelog
 
+## v34.2.0 (26/05/2023)
+
+
+### :rocket: Amélioration
+- [#406](https://github.com/1024pix/pix-ui/pull/406) [FEATURE] Enlever l'obligation d'avoir un label ou un ariaLabel pour le PixInput (PIX-8126) 
+
+### :building_construction: Tech
+- [#401](https://github.com/1024pix/pix-ui/pull/401) [TECH] Suppression de l'utilitaire uniqueId (PIX-8003)
+
+### :coffee: Autre
+- [#410](https://github.com/1024pix/pix-ui/pull/410) [BUMP] Update dependency stylelint to v15 (dossier racine)
+- [#411](https://github.com/1024pix/pix-ui/pull/411) chore(deps): bump socket.io-parser from 4.2.1 to 4.2.3
+- [#405](https://github.com/1024pix/pix-ui/pull/405) [BUMP] Update dependency @embroider/test-setup to v3 (dossier racine)
+- [#398](https://github.com/1024pix/pix-ui/pull/398) [BUMP] Update Node.js to v16.20.0
+- [#404](https://github.com/1024pix/pix-ui/pull/404) [BUMP] Update dependency @fortawesome/ember-fontawesome to v1 (dossier racine)
+
 ## v34.1.0 (05/05/2023)
 
 
