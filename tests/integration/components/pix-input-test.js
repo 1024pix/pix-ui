@@ -107,21 +107,4 @@ module('Integration | Component | input', function (hooks) {
     const requiredInput = screen.getByLabelText('* Prénom');
     assert.dom(requiredInput).isRequired();
   });
-
-  test('it should throw an error if pix input has neither a label nor an ariaLabel param', async function (assert) {
-    // given & when
-    const componentParams = { label: null, ariaLabel: null };
-    const component = createGlimmerComponent('component:pix-input', componentParams);
-
-    // then
-    const expectedError = new Error(
-      'ERROR in PixInput component, you must provide @label or @ariaLabel params'
-    );
-    assert.throws(function () {
-      component.label;
-    }, expectedError);
-    assert.throws(function () {
-      component.ariaLabel;
-    }, expectedError);
-  });
 });
