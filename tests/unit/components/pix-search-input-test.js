@@ -21,10 +21,10 @@ module('Unit | Component | pix-search-select', function (hooks) {
         'ERROR in PixSearchInput component, you must provide @label or @ariaLabel params'
       );
       assert.throws(function () {
-        createGlimmerComponent('component:pix-search-input', componentParams);
+        createGlimmerComponent('pix-search-input', componentParams);
       }, expectedError);
       assert.throws(function () {
-        createGlimmerComponent('component:pix-search-input', componentParams);
+        createGlimmerComponent('pix-search-input', componentParams);
       }, expectedError);
     });
 
@@ -38,7 +38,7 @@ module('Unit | Component | pix-search-select', function (hooks) {
 
       // when & then
       assert.throws(function () {
-        createGlimmerComponent('component:pix-search-input', componentParams);
+        createGlimmerComponent('pix-search-input', componentParams);
       }, new Error('ERROR in PixSearchInput component, @triggerFiltering param is not provided'));
     });
 
@@ -52,7 +52,7 @@ module('Unit | Component | pix-search-select', function (hooks) {
 
       // when & then
       assert.throws(function () {
-        createGlimmerComponent('component:pix-search-input', componentParams);
+        createGlimmerComponent('pix-search-input', componentParams);
       }, new Error('ERROR in PixSearchInput component, @debounceTimeInMs param is not provided'));
     });
   });

@@ -50,7 +50,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   test('it should throw an error if PixInputCode does not have an ariaLabel', async function (assert) {
     // given
     const componentParams = { ariaLabel: null, legend: 'super legende' };
-    const component = createGlimmerComponent('component:pix-input-code', componentParams);
+    const component = createGlimmerComponent('pix-input-code', componentParams);
 
     // when & then
     const expectedError = new Error(
@@ -64,7 +64,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   test('it should throw an error if PixInputCode does not have a legend', async function (assert) {
     // given
     const componentParams = { ariaLabel: 'Champ', legend: null };
-    const component = createGlimmerComponent('component:pix-input-code', componentParams);
+    const component = createGlimmerComponent('pix-input-code', componentParams);
 
     // when & then
     const expectedError = new Error(

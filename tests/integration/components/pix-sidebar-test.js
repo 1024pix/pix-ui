@@ -117,7 +117,7 @@ module('Integration | Component | Sidebar', function (hooks) {
 
     // when
     const renderComponent = function () {
-      createGlimmerComponent('component:pix-sidebar', componentParams);
+      createGlimmerComponent('pix-sidebar', componentParams);
     };
 
     // then

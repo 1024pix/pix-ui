@@ -9,7 +9,7 @@ module('Unit | Component | PixMultiSelect', function (hooks) {
     // given & when
     const componentParams = { options: [] };
     const renderComponent = function () {
-      createGlimmerComponent('component:pix-multi-select', componentParams);
+      createGlimmerComponent('pix-multi-select', componentParams);
     };
 
     // then

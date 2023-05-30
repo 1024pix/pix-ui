@@ -19,6 +19,18 @@ workflows:
                 - gh-pages
           requires:
             - install
+      - try-scenarios:
+          matrix:
+            parameters:
+              try-scenario:
+                - embroider-safe
+                - embroider-optimized
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+          requires:
+            - install
       - chromatic-deployment:
           filters:
             branches:
@@ -55,7 +67,21 @@ jobs:
       - run: npm run lint:hbs
       - run: npm run lint:scss
       - run: npm test
-      - run: npx ember try:one embroider-safe
+
+  try-scenarios:
+    parameters:
+      try-scenario:
+        type: string
+    docker:
+      - image: cimg/node:16.20.0-browsers
+    resource_class: medium+
+    working_directory: ~/pix-ui
+    steps:
+      - attach_workspace:
+          at: ~/pix-ui
+      - browser-tools/install-chrome
+      - browser-tools/install-chromedriver
+      - run: npx ember try:one << parameters.try-scenario >>
 
   chromatic-deployment:
     docker:

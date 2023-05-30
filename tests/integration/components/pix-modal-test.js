@@ -103,7 +103,7 @@ module('Integration | Component | modal', function (hooks) {
 
     // when
     const renderComponent = function () {
-      createGlimmerComponent('component:pix-modal', componentParams);
+      createGlimmerComponent('pix-modal', componentParams);
     };
 
     // then
