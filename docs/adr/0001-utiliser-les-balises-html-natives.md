@@ -1,4 +1,4 @@
-# 1. Eviter les balises HTML natives
+# 1. Utiliser les balises HTML natives
 
 Date : 2022-01-04
 
@@ -47,7 +47,5 @@ Ce qui impliquerait :
 Nous privilégierons les éléments HTML natifs et éviterons autant que possible le two-way-binding.
 
 ## Conséquences
-
-Il faut mettre à jour le PixTextarea pour qu'il utilise une balise `<textarea>`.
 
 ⚠️ Pour ne pas casser le comportement existant. lors de la mise à jour des versions v11.0.0 / v11.1.0 de Pix-UI il faut mettre à jour tous les PixInput et PixInputPassword afin qu'il définissent un `onChange`.
