@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
@@ -40,6 +40,8 @@ module('Integration | Component | textarea', function (hooks) {
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
+    await triggerEvent(textarea, 'keyup', { code: 'Enter' });
+
     assert.strictEqual(textarea.maxLength, maxlength);
     assert.contains('11 / 20');
   });

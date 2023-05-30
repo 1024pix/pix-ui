@@ -1,8 +1,12 @@
 import Component from '@glimmer/component';
+import { action } from '@ember/object';
+import { tracked } from '@glimmer/tracking';
 
 export default class PixTextarea extends Component {
+  @tracked value = this.args.value;
+
   get textLengthIndicator() {
-    return this.args.value ? this.args.value.length : 0;
+    return this.value ? this.value.length : 0;
   }
 
   get label() {
@@ -13,6 +17,11 @@ export default class PixTextarea extends Component {
       throw new Error('ERROR in PixTextarea component, @id param is necessary when giving @label');
     }
     return this.args.label || null;
+  }
+
+  @action
+  updateValue(event) {
+    this.value = event.target.value;
   }
 
   get requiredLabel() {

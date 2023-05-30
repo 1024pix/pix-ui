@@ -10,15 +10,15 @@
     </label>
   {{/if}}
 
-  <Textarea
+  <textarea
     id={{@id}}
-    @value={{@value}}
     maxlength={{if @maxlength @maxlength}}
     aria-required="{{if this.requiredLabel true false}}"
     required={{if this.requiredLabel true false}}
     class="{{if @errorMessage 'pix-textarea--error'}}"
+    {{on "keyup" this.updateValue}}
     ...attributes
-  />
+  >{{@value}}</textarea>
 
   {{#if @maxlength}}
     <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
