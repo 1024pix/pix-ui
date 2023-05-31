@@ -1,5 +1,17 @@
 # Pix-UI Changelog
 
+## v35.0.0 (31/05/2023)
+
+
+### :rocket: Amélioration
+- [#415](https://github.com/1024pix/pix-ui/pull/415) [FEATURE] Utiliser les éléments HTML native pour le TextArea (PIX-8200)
+
+### :building_construction: Tech
+- [#409](https://github.com/1024pix/pix-ui/pull/409) [TECH] Fait tourner le scenario embroider-optimized sur la CI
+
+### :coffee: Autre
+- [#408](https://github.com/1024pix/pix-ui/pull/408) [BUMP] Update dependency fs-extra to v11 (dossier racine)
+
 ## v34.2.0 (26/05/2023)
 
 
