@@ -1,116 +1,117 @@
 .progress-gauge {
   position: relative;
-  min-width: 200px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
   width: 100%;
+  min-width: 200px;
   border-radius: 5px;
 
+  &__bar {
+    flex-grow: 1;
+    height: 0.875rem;
+    border: 2px solid $pix-neutral-20;
+    border-radius: 1.625rem;
+    overflow: hidden;
+
+    &::-webkit-progress-value {
+      background-color: $pix-primary;
+      border-radius: 1.625rem;
+    }
+
+    &::-moz-progress-bar {
+      background-color: $pix-primary;
+      border-radius: 1.625rem;
+    }
+
+    &::-webkit-progress-bar {
+      background-color: $pix-neutral-20;
+    }
+  }
+
+  &__text {
+    @extend %pix-body-s;
+
+    font-weight: 500;
+    margin-right: $pix-spacing-s;
+    white-space: nowrap;
+  }
+
   &__sub-title {
-    font-size: 0.813rem;
-    color: $pix-primary-60;
+    @extend %pix-body-s;
+
+    width: 100%;
     margin: 6px 0;
+    color: $pix-primary-60;
     letter-spacing: 0.4px;
     text-transform: uppercase;
   }
+}
 
-  &__marker,
-  &__referrer {
-    height: 4px;
-    border-radius: 5px;
-    text-align: right;
+// THEME DARK
+.progress-gauge--theme-dark {
+  .progress-gauge__bar {
+    border: 2px solid $pix-neutral-0;
   }
 
-  &__marker {
-    margin-top: -4px;
+  .progress-gauge__bar::-webkit-progress-bar {
+    background-color: $pix-neutral-0;
   }
 
-  &__tooltip-wrapper {
-    position: relative;
+  .progress-gauge__text,
+  .progress-gauge__sub-title {
+    color: $pix-neutral-0;
+  }
+}
+
+// SPECIFIC BAR COLORS
+.progress-gauge--content-blue {
+  .progress-gauge__bar::-webkit-progress-value {
+    background-color: $pix-primary;
   }
 
-  &__tooltip {
-    position: absolute;
-    min-width: 40px;
-    left: 100%;
-    transform: translate(-50%);
-    bottom: calc(100% + 10px);
-    border-radius: 5px;
-    text-align: center;
-    padding: 4px;
-    font-size: 0.8rem;
-    font-weight: $font-bold;
-
-    &::before {
-      content: '';
-      position: absolute;
-      left: calc(50% - 4px);
-      border-top: 4px solid;
-      border-right: 4px solid transparent;
-      border-left: 4px solid transparent;
-      bottom: -4px;
-    }
+  .progress-gauge__bar::-moz-progress-bar {
+    background-color: $pix-primary;
   }
 
-  &--white {
-    & .progress-gauge__referrer {
-      background-color: lighten($pix-primary, 15%);
-    }
-
-    & .progress-gauge__marker {
-      background: $pix-neutral-0;
-    }
-
-    & .progress-gauge__tooltip {
-      background: $pix-neutral-0;
+  &:not(.progress-gauge--theme-dark) {
+    .progress-gauge__text,
+    .progress-gauge__sub-title {
       color: $pix-primary;
-
-      &::before {
-        color: $pix-neutral-0;
-        border-top-color: $pix-neutral-0;
-      }
-    }
-
-    & .progress-gauge__sub-title {
-      color: $pix-neutral-0;
     }
   }
+}
 
-  &--blue {
-    & .progress-gauge__referrer {
-      background-color: $pix-neutral-20;
-    }
-
-    & .progress-gauge__marker {
-      background-color: $pix-primary-60;
-    }
-
-    & .progress-gauge__tooltip {
-      background-color: $pix-primary-60;
-      color: $pix-neutral-0;
-
-      &::before {
-        border-top-color: $pix-primary-60;
-      }
-    }
-
-    & .progress-gauge__sub-title {
-      color: $pix-primary-60;
-    }
+.progress-gauge--content-green {
+  .progress-gauge__bar::-webkit-progress-value {
+    background-color: $pix-success-60;
   }
 
-  &--tooltip-left {
-    & .progress-gauge__tooltip {
-      border-bottom-left-radius: 0;
-      bottom: calc(100% + 14px);
-      transform: none;
-      left: 100%;
+  .progress-gauge__bar::-moz-progress-bar {
+    background-color: $pix-success-60;
+  }
 
-      &::before {
-        border-top: 8px solid;
-        border-right: 8px solid transparent;
-        border-left: none;
-        left: 0;
-        bottom: -8px;
-      }
+  &:not(.progress-gauge--theme-dark) {
+    .progress-gauge__text,
+    .progress-gauge__sub-title {
+      color: $pix-success-60;
+    }
+  }
+}
+
+.progress-gauge--content-purple {
+  .progress-gauge__bar::-webkit-progress-value {
+    background-color: $pix-tertiary-60;
+  }
+
+  .progress-gauge__bar::-moz-progress-bar {
+    background-color: $pix-tertiary-60;
+  }
+
+  &:not(.progress-gauge--theme-dark) {
+    .progress-gauge__text,
+    .progress-gauge__sub-title {
+      color: $pix-tertiary-60;
     }
   }
 }
