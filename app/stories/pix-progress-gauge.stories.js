@@ -5,36 +5,36 @@ export const Default = (args) => {
     template: hbs`<PixProgressGauge
   @value={{this.value}}
   @color={{this.color}}
-  @isArrowLeft={{this.isArrowLeft}}
+  @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
-  @tooltipText={{this.tooltipText}}
+  @label={{this.label}}
 />`,
     context: args,
   };
 };
 Default.args = {
-  tooltipText: '%',
+  value: '50',
 };
 
-export const whiteProgressGauge = (args) => {
+export const darkModeProgressGauge = (args) => {
   return {
-    template: hbs`<section style='width: 100%; padding: 35px 35px 5px;background-color: lightgray'>
+    template: hbs`<section style='width: 100%; padding: 35px 35px 5px;background-color: #253858'>
   <PixProgressGauge
     @value={{this.value}}
     @color={{this.color}}
-    @isArrowLeft={{this.isArrowLeft}}
+    @label={{this.label}}
+    @themeMode={{this.themeMode}}
     @subtitle={{this.subtitle}}
-    @tooltipText={{this.tooltipText}}
   />
 </section>`,
     context: args,
   };
 };
-whiteProgressGauge.args = {
+darkModeProgressGauge.args = {
   value: '50',
-  tooltipText: '50%',
-  color: 'white',
-  isArrowLeft: true,
+  label: 'Chargement',
+  color: 'purple',
+  themeMode: 'dark',
   subtitle: 'Avancement',
 };
 
@@ -42,33 +42,37 @@ export const argTypes = {
   value: {
     name: 'value',
     description: 'Valeur atteinte sur 100',
-    type: { name: 'number', required: false },
+    type: { name: 'number', required: true },
     table: { defaultValue: { summary: null } },
+  },
+  label: {
+    name: 'label',
+    description:
+      "Afficher un label caché permettant d'expliciter le contexte de la jauge de progression",
+    type: { name: 'string', required: true },
+    table: { defaultValue: { summary: 'null' } },
+  },
+  themeMode: {
+    name: 'themeMode',
+    description:
+      "Permet d'indiquer si le thème de la barre de progression est en dark mode ou light mode. Modifie la couleur de fond de la barre de progression. Peut prendre les valeurs `light` ou `dark`",
+    type: { name: 'string', required: false },
+    table: { defaultValue: { summary: 'light' } },
+    control: { type: 'select' },
+    options: ['dark', 'light'],
   },
   color: {
     name: 'color',
     description:
-      'Modifie la couleur de la barre de progression. Peut prendre les valeurs `blue` ou `white`',
+      "Modifie la couleur du contenu de la barre de progression. Peut prendre les valeurs `blue`, 'green' ou `purple`",
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'blue' } },
     control: { type: 'select' },
-    options: ['blue', 'white'],
-  },
-  isArrowLeft: {
-    name: 'isArrowLeft',
-    description: "Modifie la position de l'info bulle sur la gauche",
-    type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
+    options: ['blue', 'green', 'purple'],
   },
   subtitle: {
     name: 'subtitle',
     description: 'Afficher un sous-titre sous la barre de progression',
-    type: { name: 'string', required: false },
-    table: { defaultValue: { summary: 'null' } },
-  },
-  tooltipText: {
-    name: 'tooltipText',
-    description: "Afficher un label dans l'info bulle au dessus de la barre de progression",
     type: { name: 'string', required: false },
     table: { defaultValue: { summary: 'null' } },
   },
