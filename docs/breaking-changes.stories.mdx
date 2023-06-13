@@ -69,10 +69,14 @@ Pour aller plus loin, il est possible d'utiliser l'outil SourceGraph pour recher
 
 C'est au développeur qui ouvre la _pull request_ qu'incombe la responsabilité
 d'identifier les éventuels _breaking changes_ dans ses modifications et, le cas
-échéant, de les signaler dans le titre de la PR. Il lui faudra donner aussi un
-maximum d'informations dans une section breaking changes de la PR sur ce qu'il
-convient de faire pour vérifier que rien de casse lors de la montée de version
-de Pix UI.
+échéant, de les signaler en préfixe dans le titre de la PR :
+
+```
+[BREAKING] Changement de couleur de fond par défaut du PixButton (PIX-1234)
+```
+
+Enumérer précisément les fonctionnalités impactées par le breaking change, et la modification à apporter (solution de contournement ou définitive).
+Le développeur pourra ainsi déterminer s'il les utilise, et si c'est le cas, apporter les modifications.
 
 Ainsi :
 
