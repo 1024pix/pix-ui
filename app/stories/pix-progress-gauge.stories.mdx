@@ -3,22 +3,24 @@ import * as stories from './pix-progress-gauge.stories.js';
 
 <Meta title="Others/Progress Gauge" component="PixProgressGauge" argTypes={stories.argTypes} />
 
-# Progress Gauge
+# PixProgressGauge
 
 ## Default
 
-Permet d'afficher un barre de progression sur un barème de 100%. Des paramètres existent pour changer la position de la tooltip ou la couleur du composant
+Permet d'afficher un barre de progression sur un barème de 100%. Des paramètres existent pour changer le mode (dark ou light) ou la couleur du composant.
+
+> **⚠️** **Il est nécessaire d'avoir un `label` pour rendre le composant accessible !**
 
 <Canvas>
   <Story name="Default" story={stories.Default} height={60} />
 </Canvas>
 
-## White
+## Dark mode
 
-Démonstration d'une barre de progression blanche avec l'info bulle à gauche avec un sous titre
+Démonstration d'une barre de progression blanche en dark mode avec un sous titre.
 
 <Canvas>
-  <Story name="White" story={stories.whiteProgressGauge} height={100} />
+  <Story name="Dark" story={stories.darkModeProgressGauge} height={100} />
 </Canvas>
 
 ## Usage
@@ -26,9 +28,9 @@ Démonstration d'une barre de progression blanche avec l'info bulle à gauche av
 ```html
 <PixProgressGauge
   @value="50"
-  @color="white"
-  @tooltipText="50%"
-  @isArrowLeft="true"
+  @label="Chargement"
+  @color="green"
+  @themeMode="dark"
   @subTitle="Un sous titre"
 />
 ```

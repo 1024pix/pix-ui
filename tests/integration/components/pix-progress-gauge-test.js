@@ -1,83 +1,73 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@ember/test-helpers';
+import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | progress-gauge', function (hooks) {
   setupRenderingTest(hooks);
 
-  const MARKER_SELECTOR = '.progress-gauge__marker';
   const PROGRESS_GAUGE_SELECTOR = '.progress-gauge';
 
   module('Attributes @value', function () {
-    test('it renders the progress gauge with correct width', async function (assert) {
+    test('it should throw an error if there is no value', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='50' />`);
+      const componentParams = { value: undefined };
+      const component = createGlimmerComponent('pix-progress-gauge', componentParams);
 
       // then
-      const componentElement = this.element.querySelector(MARKER_SELECTOR);
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(componentElement.style.width, '50%');
+      const expectedError = new Error(
+        'ERROR in PixProgressGauge component, @value param is not provided.'
+      );
+      assert.throws(function () {
+        component.value;
+      }, expectedError);
     });
 
-    test('it renders the progress tooltip with correct information', async function (assert) {
+    test('it renders the value with percentage', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='50' @tooltipText='50%' />`);
+      const screen = await render(hbs`<PixProgressGauge @value='50' />`);
 
       // then
-      assert.contains('50%');
-    });
-
-    test('it should not renders the progress tooltip if no tooltipText', async function (assert) {
-      // given & when
-      await render(hbs`<PixProgressGauge @value='50' />`);
-
-      // then
-      const componentElement = this.element.querySelector('.progress-gauge__tooltip');
-      assert.notOk(componentElement);
+      const frenchLocale = String(navigator.language).toLowerCase() === 'fr-fr';
+      assert.strictEqual(
+        screen.getByRole('presentation').innerText,
+        frenchLocale ? '50\xA0%' : '50%'
+      );
     });
 
     test('it renders the progress gauge with correct width never exceed 100%', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='110' />`);
+      const screen = await render(hbs`<PixProgressGauge @value='110' />`);
 
       // then
-      const markerComponent = this.element.querySelector(MARKER_SELECTOR);
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(markerComponent.style.width, '100%');
+      const progressbar = screen.getByRole('progressbar');
+      assert.strictEqual(progressbar.value, 100);
     });
 
     test('it renders the progress gauge with correct width never under 0%', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='-1' />`);
+      const screen = await render(hbs`<PixProgressGauge @value='-20' />`);
 
       // then
-      const markerComponent = this.element.querySelector(MARKER_SELECTOR);
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(markerComponent.style.width, '0%');
+      const progressbar = screen.getByRole('progressbar');
+      assert.strictEqual(progressbar.value, 0);
     });
   });
 
-  module('Attributes @isArrowLeft', function () {
-    test('it renders the progress gauge with default tootlip', async function (assert) {
+  module('Attributes @label', function () {
+    test('it should throw an error if there is no label', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='50' />`);
+      const componentParams = { label: null };
+      const component = createGlimmerComponent('pix-progress-gauge', componentParams);
 
       // then
-      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.false(componentElement.classList.contains('progress-gauge--tooltip-left'));
-    });
-
-    test('it renders the progress gauge with tootlip left class', async function (assert) {
-      // given & when
-      await render(hbs`<PixProgressGauge @value='50' @isArrowLeft='true' />`);
-
-      // then
-      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--tooltip-left'));
+      const expectedError = new Error(
+        'ERROR in PixProgressGauge component, @label param is not provided.'
+      );
+      assert.throws(function () {
+        component.label;
+      }, expectedError);
     });
   });
 
@@ -88,7 +78,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--blue'));
+      assert.true(componentElement.classList.contains('progress-gauge--content-blue'));
     });
 
     test('it renders the progress gauge with blue class when color not exists', async function (assert) {
@@ -97,7 +87,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--blue'));
+      assert.true(componentElement.classList.contains('progress-gauge--content-blue'));
     });
 
     test('it renders the progress gauge with blue class', async function (assert) {
@@ -106,16 +96,63 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--blue'));
+      assert.true(componentElement.classList.contains('progress-gauge--content-blue'));
     });
 
-    test('it renders the progress gauge with white class', async function (assert) {
+    test('it renders the progress gauge with green class', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='50' @color='white' />`);
+      await render(hbs`<PixProgressGauge @value='50' @color='green' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
-      assert.true(componentElement.classList.contains('progress-gauge--white'));
+      assert.true(componentElement.classList.contains('progress-gauge--content-green'));
+    });
+
+    test('it renders the progress gauge with purple class', async function (assert) {
+      // given & when
+      await render(hbs`<PixProgressGauge @value='50' @color='purple' />`);
+
+      // then
+      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
+      assert.true(componentElement.classList.contains('progress-gauge--content-purple'));
+    });
+  });
+
+  module('Attributes @themeMode', function () {
+    test('it renders the progress gauge by default with light mode', async function (assert) {
+      // given & when
+      await render(hbs`<PixProgressGauge @value='50' />`);
+
+      // then
+      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
+      assert.true(componentElement.classList.contains('progress-gauge--theme-light'));
+    });
+
+    test('it renders the progress gauge with light mode when value not exists', async function (assert) {
+      // given & when
+      await render(hbs`<PixProgressGauge @value='50' @themeMode='darken-light' />`);
+
+      // then
+      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
+      assert.true(componentElement.classList.contains('progress-gauge--theme-light'));
+    });
+
+    test('it renders the progress gauge with light mode', async function (assert) {
+      // given & when
+      await render(hbs`<PixProgressGauge @value='50' @themeMode='light' />`);
+
+      // then
+      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
+      assert.true(componentElement.classList.contains('progress-gauge--theme-light'));
+    });
+
+    test('it renders the progress gauge with dark mode', async function (assert) {
+      // given & when
+      await render(hbs`<PixProgressGauge @value='50' @themeMode="dark" />`);
+
+      // then
+      const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);
+      assert.true(componentElement.classList.contains('progress-gauge--theme-dark'));
     });
   });
 
@@ -135,9 +172,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const componentElement = this.element.querySelector('.progress-gauge__sub-title');
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(componentElement.textContent.trim(), 'toto');
+      assert.strictEqual(componentElement.textContent.trim(), 'toto');
     });
   });
 });
