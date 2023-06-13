@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v35.0.1 (13/06/2023)
+
+
+### :building_construction: Tech
+- [#420](https://github.com/1024pix/pix-ui/pull/420) [TECH] Précise comment documenter un Breaking Change.
+- [#419](https://github.com/1024pix/pix-ui/pull/419) [TECH] Ajoute un moyen d'identifier qu'on génère un Breaking Change.
+
 ## v35.0.0 (31/05/2023)
 
 
