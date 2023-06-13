@@ -53,11 +53,17 @@ Exemples :
 - Un nouveau composant est ajouté
 - Un argument facultatif est ajouté
 
-Astuce : pour repérer les potentiels breaking changes, le mieux est d'installer
+Pour repérer les potentiels breaking changes, il est possible d'[installer
 la version en cours de développement de Pix UI dans une app Ember à partir de
-sa branche sur Github. Si, sans faire aucune autre modification que cette mise
+sa branche sur Github](https://ui.pix.fr/?path=/docs/d%C3%A9veloppement-tester-un-composant-en-developpement-dans-une-app--page). Si, sans faire aucune autre modification que cette mise
 à jour, on observe des changements, alors il s'agit probablement de _breaking
 changes_.
+
+Pour aller plus loin, il est possible d'utiliser l'outil SourceGraph pour rechercher les usages de nos composants ou styles dans nos repos publics. Ainsi, on peut savoir exactement le nombre d'usages de nos composants ou bien les attributs utilisés. Voici quelques exemples de requêtes :
+
+- [Trouver les usages du composant `PixButton`](https://sourcegraph.com/search?q=context:global+repo:1024pix+file:.hbs+PixButton%5Cs&patternType=regexp&sm=0&groupBy=repo)
+- [Trouver les usages du composant `PixModal`](https://sourcegraph.com/search?q=context:global+repo:1024pix+file:.hbs+PixModal%5Cs&patternType=regexp&sm=0&groupBy=repo)
+- [Trouver les usages du placeholder SCSS `%pix-body-m`](https://sourcegraph.com/search?q=context:global+repo:1024pix+file:.scss+%25pix-body-m&patternType=standard&sm=0&groupBy=repo)
 
 ## Comment communiquer en cas de _breaking change_ ?
 
