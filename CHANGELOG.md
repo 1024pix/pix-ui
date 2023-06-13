@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v36.0.0 (13/06/2023)
+
+
+### :boom: BREAKING CHANGE
+- [#417](https://github.com/1024pix/pix-ui/pull/417) [BREAKING] Met à jour la PixProgressBar avec le nouveau design (PIX-8172).
+
 ## v35.0.1 (13/06/2023)
 
 
