@@ -42,7 +42,7 @@ workflows:
 jobs:
   install:
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:20.3.0-browsers
     resource_class: medium+
     working_directory: ~/pix-ui
     steps:
@@ -55,7 +55,7 @@ jobs:
 
   lint-and-test:
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:20.3.0-browsers
     resource_class: medium+
     working_directory: ~/pix-ui
     steps:
@@ -73,7 +73,7 @@ jobs:
       try-scenario:
         type: string
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:20.3.0-browsers
     resource_class: medium+
     working_directory: ~/pix-ui
     steps:
@@ -85,7 +85,7 @@ jobs:
 
   chromatic-deployment:
     docker:
-      - image: cimg/node:16.20.0-browsers
+      - image: cimg/node:20.3.0-browsers
     working_directory: ~/pix-ui
     steps:
       - attach_workspace:
