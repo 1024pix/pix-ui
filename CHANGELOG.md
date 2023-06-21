@@ -105,7 +105,7 @@
 ## v35.0.0 (31/05/2023)
 
 
-### :rocket: Amélioration
+### :boom: BREAKING CHANGE
 - [#415](https://github.com/1024pix/pix-ui/pull/415) [FEATURE] Utiliser les éléments HTML native pour le TextArea (PIX-8200)
 
 ### :building_construction: Tech
