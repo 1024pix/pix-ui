@@ -32,9 +32,10 @@
   &__text {
     @extend %pix-body-s;
 
-    font-weight: 500;
-    margin-right: $pix-spacing-s;
+    min-width: 5ch;
+    margin-right: $pix-spacing-xxs;
     white-space: nowrap;
+    font-weight: 500;
   }
 
   &__sub-title {
