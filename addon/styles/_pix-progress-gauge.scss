@@ -1,13 +1,18 @@
 .progress-gauge {
   position: relative;
-  display: flex;
-  flex-wrap: wrap;
+  display: grid;
+  grid-template-areas:
+    'text progressbar'
+    'subtitle subtitle';
+  grid-template-columns: auto 1fr;
   align-items: center;
   width: 100%;
-  min-width: 200px;
+  min-width: 6rem;
   border-radius: 5px;
 
   &__bar {
+    grid-area: progressbar;
+    inline-size: unset;
     flex-grow: 1;
     height: 0.875rem;
     border: 2px solid $pix-neutral-20;
@@ -32,20 +37,25 @@
   &__text {
     @extend %pix-body-s;
 
+    grid-area: text;
     min-width: 5ch;
     margin-right: $pix-spacing-xxs;
     white-space: nowrap;
     font-weight: 500;
+    line-height: 1;
   }
 
   &__sub-title {
     @extend %pix-body-s;
 
+    grid-area: subtitle;
     width: 100%;
     margin: 6px 0;
     color: $pix-primary-60;
     letter-spacing: 0.4px;
     text-transform: uppercase;
+    text-overflow: ellipsis;
+    overflow: hidden;
   }
 }
 
