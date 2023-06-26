@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v36.0.1 (26/06/2023)
+
+
+### :bug: Correction
+- [#425](https://github.com/1024pix/pix-ui/pull/425) [BUGFIX] Réduire la largeur minimum de PixProgressGauge (PIX-8457).
+- [#424](https://github.com/1024pix/pix-ui/pull/424) [BUGFIX] définir une largeur fixe pour le texte de pourcentage de PixProgressGauge (PIX-8439).
+
 ## v36.0.0 (13/06/2023)
 
 
