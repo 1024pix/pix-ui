@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v36.0.2 (07/07/2023)
+
+
+### :building_construction: Tech
+- [#429](https://github.com/1024pix/pix-ui/pull/429) [TECH] Débloque la CI le temps de comprendre ce qui se passe.
+
 ## v36.0.1 (26/06/2023)
 
 
