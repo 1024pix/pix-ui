@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v37.0.0 (07/07/2023)
+
+
+### :boom: BREAKING CHANGE
+- [#428](https://github.com/1024pix/pix-ui/pull/428) [BREAKING] Montée de version de Node.js minimum à la v16.17.0.
+
 ## v36.0.2 (07/07/2023)
 
 
