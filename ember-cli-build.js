@@ -13,7 +13,19 @@ module.exports = function (defaults) {
     behave. You most likely want to be modifying `./index.js` or app's build file
   */
 
-  app.import('node_modules/@1024pix/pix-ui-webcomponents/dist/pix-theme-default.css');
+  app.import('node_modules/@1024pix/pix-ui-themes/dist/fonts/OpenSans/OpenSans-Medium.ttf', {
+    destDir: 'assets/fonts/OpenSans/',
+  });
+  app.import('node_modules/@1024pix/pix-ui-themes/dist/fonts/Roboto/Roboto-Medium.ttf', {
+    destDir: 'assets/fonts/Roboto/',
+  });
+  app.import('node_modules/@1024pix/pix-ui-themes/dist/fonts/Roboto/Roboto-Regular.ttf', {
+    destDir: 'assets/fonts/Roboto/',
+  });
+  app.import('node_modules/@1024pix/pix-ui-themes/dist/fonts/Roboto/Roboto-Bold.ttf', {
+    destDir: 'assets/fonts/Roboto/',
+  });
+  app.import('node_modules/@1024pix/pix-ui-themes/dist/pix-theme-default.css');
 
   const { maybeEmbroider } = require('@embroider/test-setup');
   return maybeEmbroider(app, {
