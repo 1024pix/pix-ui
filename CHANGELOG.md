@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v38.0.0 (12/07/2023)
+
+
+### :coffee: Autre
+- [#435](https://github.com/1024pix/pix-ui/pull/435) [BREAKING_CHANGES][BUGFIX] Ajuster la taille du bouton upload à son contenu.
+
 ## v37.0.0 (07/07/2023)
 
 
