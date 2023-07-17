@@ -58,7 +58,7 @@
     "lodash.debounce": "^4.0.8"
   },
   "devDependencies": {
-    "@1024pix/ember-testing-library": "^0.6.0",
+    "@1024pix/ember-testing-library": "^0.7.0",
     "@1024pix/stylelint-config": "^3.0.0",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-decorators": "^7.20.5",
