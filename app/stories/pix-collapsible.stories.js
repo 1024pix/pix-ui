@@ -1,7 +1,19 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  component: 'PixCollapsible',
+  title: 'Others/Collapsible',
+  argTypes: {
+    title: {
+      name: 'title',
+      description: 'Intitulé du contenu du PixCollapsible',
+      type: { name: 'string', required: true },
+    },
+    titleIcon: {
+      name: 'titleIcon',
+      description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
+      type: { name: 'string', required: false },
+    },
+  },
 };
 
 const Template = (args) => {
@@ -50,17 +62,4 @@ export const multipleCollapsible = (args) => {
 </div>`,
     context: args,
   };
-};
-
-export const argTypes = {
-  title: {
-    name: 'title',
-    description: 'Intitulé du contenu du PixCollapsible',
-    type: { name: 'string', required: true },
-  },
-  titleIcon: {
-    name: 'titleIcon',
-    description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
-    type: { name: 'string', required: false },
-  },
 };
