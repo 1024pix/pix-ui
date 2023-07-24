@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable, SourceContainer } from '@storybook/addon-docs';
-import * as stories from './pix-button.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-button.stories';
 
-<Meta title="Basics/Button" component="PixButton" argTypes={stories.argsTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Button
 
@@ -9,25 +9,19 @@ import * as stories from './pix-button.stories.js';
 
 Le bouton par défaut qui empêche les clics multiples.
 
-<Canvas>
-  <Story name="Default" story={stories.Default} height={75} />
-</Canvas>
+  <Story of={ComponentStories.Default} />
 
 ## Borders
 
 Le bouton avec bordures et fond transparent
 
-<Canvas isColumn>
-  <Story story={stories.borders} height={150} />
-</Canvas>
+  <Story of={ComponentStories.borders} height={150} />
 
 ## Colors
 
 Le bouton avec toutes ses variations de couleur
 
-<Canvas isColumn>
-  <Story story={stories.colors} height={500} />
-</Canvas>
+  <Story of={ComponentStories.colors} height={500} />
 
 ## Icons
 
@@ -35,17 +29,14 @@ Le bouton avec des icônes `font-awesome` à afficher avant (`@iconBefore`) ou a
 
 > ℹ️ Accessibilité : dans le cas où les icônes ont une valeur d'information (ex:&nbsp;un bouton `⬅️ Précédent`), il est important d'apporter un aria-label au bouton (ex:&nbsp;"Retour à la page précédente").
 
-<Canvas isColumn>
-  <Story story={stories.icons} height={75} />
-</Canvas>
+  <Story of={ComponentStories.icons} height={75} />
 
 ## Disabled
 
 Le bouton désactivé
 
-<Canvas>
-  <Story story={stories.disabled} height={75} />
-</Canvas>
+  <Story of={ComponentStories.disabled} height={75} />
+
 
 ## Link
 
@@ -61,25 +52,21 @@ Le loader peut être affiché de deux façons :
 - En passant une promesse dans l'attribut `@triggerAction`
 - En passant directement l'attribut `@isLoading={{true}}`
 
-<Canvas>
-  <Story story={stories.loader} height={150} />
-</Canvas>
+ <Story of={ComponentStories.loader} height={150} />
 
 ## Shape
 
 Le bouton rounded
 
-<Canvas>
-  <Story story={stories.shape} height={75} />
-</Canvas>
+ <Story of={ComponentStories.shape}  height={75} />
+
 
 ## Size
 
 Le bouton en small
 
-<Canvas>
-  <Story story={stories.size} height={75} />
-</Canvas>
+ <Story of={ComponentStories.size} height={75} />
+
 
 ## Usage
 
@@ -102,4 +89,4 @@ Un petit bouton avec les bords arrondis en fond transparent avec une bordure
 
 ## Arguments
 
-<ArgsTable story="Default" exclude={['buttons', 'model', 'label', 'style']} />
+<ArgTypes of={ComponentStories} />
