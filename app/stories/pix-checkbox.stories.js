@@ -1,7 +1,72 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  component: 'PixCheckbox',
+  title: 'Form/Checkbox',
+  argTypes: {
+    id: {
+      name: 'id',
+      description:
+        'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
+      type: { name: 'string' },
+    },
+    label: {
+      name: 'label',
+      description: "Le label de l'input",
+    },
+    class: {
+      name: 'class',
+      description: "Permet d'ajouter une classe au parent du composant.",
+      type: { name: 'string' },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description:
+        "Permet de ne pas afficher le label à l'écran. Sert à garder un label qui sera lisible par les lecteurs d'écran.",
+      type: { name: 'boolean', required: true },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    isIndeterminate: {
+      name: 'isIndeterminate',
+      description:
+        "Rendre la checkbox indéterminée, état indiquant que la/les case(s) n'est/ne sont ni cochée(s) ni décochée(s) (exemple: une checkbox parente indiquant la sélection partielle de plusieurs checkbox enfants)",
+      type: { name: 'boolean', required: true },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'default', 'large'],
+    },
+    checked: {
+      name: 'checked',
+      description: 'Permet de cocher la checkbox',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    disabled: {
+      name: 'disabled',
+      description: 'Permet de désactiver la checkbox',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+  },
 };
 
 export const Template = (args) => {
@@ -108,70 +173,4 @@ export const MultipleTemplate = (args) => {
 export const multiple = MultipleTemplate.bind({});
 multiple.args = {
   label: 'Recevoir la newsletter',
-};
-
-export const argTypes = {
-  id: {
-    name: 'id',
-    description:
-      'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
-    type: { name: 'string' },
-  },
-  label: {
-    name: 'label',
-    description: "Le label de l'input",
-  },
-  class: {
-    name: 'class',
-    description: "Permet d'ajouter une classe au parent du composant.",
-    type: { name: 'string' },
-  },
-  screenReaderOnly: {
-    name: 'screenReaderOnly',
-    description:
-      "Permet de ne pas afficher le label à l'écran. Sert à garder un label qui sera lisible par les lecteurs d'écran.",
-    type: { name: 'boolean', required: true },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  isIndeterminate: {
-    name: 'isIndeterminate',
-    description:
-      "Rendre la checkbox indéterminée, état indiquant que la/les case(s) n'est/ne sont ni cochée(s) ni décochée(s) (exemple: une checkbox parente indiquant la sélection partielle de plusieurs checkbox enfants)",
-    type: { name: 'boolean', required: true },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  labelSize: {
-    name: 'labelSize',
-    description: 'Correspond à la taille de la police du label.',
-    type: { name: 'string', required: false },
-    table: {
-      defaultValue: { summary: 'default' },
-    },
-    control: { type: 'select' },
-    options: ['small', 'default', 'large'],
-  },
-  checked: {
-    name: 'checked',
-    description: 'Permet de cocher la checkbox',
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  disabled: {
-    name: 'disabled',
-    description: 'Permet de désactiver la checkbox',
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
 };
