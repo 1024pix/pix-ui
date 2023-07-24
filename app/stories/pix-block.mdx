@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import * as stories from './pix-block.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-block.stories';
 
-<Meta title="Layout/Block" component="PixBlock" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Block
 
@@ -13,9 +13,7 @@ Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis et ayant une
 
 > Il est souvent utilisé dans le PixBackgroundHeader.
 
-<Canvas>
-  <Story name="Block" story={stories.block} height={60} />
-</Canvas>
+  <Story of={ComponentStories.block} height={60} />
 
 ## Usage
 
@@ -31,4 +29,4 @@ Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis et ayant une
 
 ## Arguments
 
-<ArgsTable story="Block" />
+<ArgTypes of={ComponentStories} />
