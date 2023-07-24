@@ -2,7 +2,174 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  component: 'PixSelect',
+  title: 'Form/Select',
+  argTypes: {
+    options: {
+      name: 'options',
+      description:
+        'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
+      type: { name: 'array', required: true },
+    },
+    value: {
+      name: 'value',
+      description: 'Option sélectionnée',
+      options: ['1', '2', '3', '4', '5', '6'],
+      control: { type: 'select' },
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    onChange: {
+      name: 'onChange',
+      description: 'Fonction à appeler quand une option est sélectionnée.',
+      type: { required: true },
+      control: { disable: true },
+    },
+    isSearchable: {
+      name: 'isSearchable',
+      description: 'Rend le champ cherchable',
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    id: {
+      name: 'id',
+      description:
+        "Un identifiant unique placé sur le composant. **⚠️ L'`id` est obligatoire que si le `label` n'est pas donné. ⚠️**",
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    label: {
+      name: 'label',
+      description:
+        "Label du menu déroulant. ** ⚠️ Le `label` est obligatoire que si l'`id` n'est pas donné. ⚠️ **",
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Sous Label explicatif du menu déroulant',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    placeholder: {
+      name: 'placeholder',
+      description: "Placeholder du menu déroulant. Il sert aussi de label pour l'option par défaut",
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    hideDefaultOption: {
+      name: 'hideDefaultOption',
+      description: "Cache l'option par défaut",
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    className: {
+      name: 'className',
+      description: 'Cette classe css permet de surcharger le css par défaut du composant.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    searchLabel: {
+      name: 'searchLabel',
+      description:
+        'Label de la recherche dans le menu déroulant. **⚠️ Le `searchLabel` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    searchPlaceholder: {
+      name: 'searchPlaceholder',
+      description:
+        'Placeholder de la recherche dans le menu déroulant. **⚠️ Le `searchPlaceholder` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    emptySearchMessage: {
+      name: 'emptySearchMessage',
+      description:
+        "Message affiché si la recherche ne retourne pas d'options. **⚠️ Le `emptySearchMessage` est obligatoire que si le `isSearchable` à `true`. ⚠️**",
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    requiredText: {
+      name: 'requiredText',
+      description: "Affiche l'astérisque au label et ajoute sa signification",
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    errorMessage: {
+      name: 'errorMessage',
+      description: 'Message affiché si une erreur survient',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    isDisabled: {
+      name: 'isDisabled',
+      description: "Permet de désactiver l'affichage des options possible",
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: false },
+      },
+    },
+    placement: {
+      name: 'placement',
+      description:
+        "Permet de placer la dropdown du select par rapport à son bouton. Par défaut, cela s'adapte tout seul.",
+      type: { name: 'string', required: false },
+      options: ['bottom', 'top', 'left', 'right'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: null },
+      },
+    },
+    icon: {
+      name: 'icon',
+      description:
+        "Permet l'affichage d'une icône FontAwesome avant le placeholder ou le label de l'option sélectionnée.",
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: null },
+      },
+    },
+  },
 };
 
 export const Template = (args) => {
@@ -234,172 +401,4 @@ WithIcon.args = {
     { value: 'fr', label: 'Français' },
   ],
   value: 'fr',
-};
-
-export const argTypes = {
-  options: {
-    name: 'options',
-    description:
-      'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
-    type: { name: 'array', required: true },
-  },
-  value: {
-    name: 'value',
-    description: 'Option sélectionnée',
-    options: ['1', '2', '3', '4', '5', '6'],
-    control: { type: 'select' },
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  onChange: {
-    name: 'onChange',
-    description: 'Fonction à appeler quand une option est sélectionnée.',
-    type: { required: true },
-    control: { disable: true },
-  },
-  isSearchable: {
-    name: 'isSearchable',
-    description: 'Rend le champ cherchable',
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  screenReaderOnly: {
-    name: 'screenReaderOnly',
-    description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  id: {
-    name: 'id',
-    description:
-      "Un identifiant unique placé sur le composant. **⚠️ L'`id` est obligatoire que si le `label` n'est pas donné. ⚠️**",
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  label: {
-    name: 'label',
-    description:
-      "Label du menu déroulant. ** ⚠️ Le `label` est obligatoire que si l'`id` n'est pas donné. ⚠️ **",
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  subLabel: {
-    name: 'subLabel',
-    description: 'Sous Label explicatif du menu déroulant',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  placeholder: {
-    name: 'placeholder',
-    description: "Placeholder du menu déroulant. Il sert aussi de label pour l'option par défaut",
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  hideDefaultOption: {
-    name: 'hideDefaultOption',
-    description: "Cache l'option par défaut",
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  className: {
-    name: 'className',
-    description: 'Cette classe css permet de surcharger le css par défaut du composant.',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  searchLabel: {
-    name: 'searchLabel',
-    description:
-      'Label de la recherche dans le menu déroulant. **⚠️ Le `searchLabel` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  searchPlaceholder: {
-    name: 'searchPlaceholder',
-    description:
-      'Placeholder de la recherche dans le menu déroulant. **⚠️ Le `searchPlaceholder` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  emptySearchMessage: {
-    name: 'emptySearchMessage',
-    description:
-      "Message affiché si la recherche ne retourne pas d'options. **⚠️ Le `emptySearchMessage` est obligatoire que si le `isSearchable` à `true`. ⚠️**",
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  requiredText: {
-    name: 'requiredText',
-    description: "Affiche l'astérisque au label et ajoute sa signification",
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  errorMessage: {
-    name: 'errorMessage',
-    description: 'Message affiché si une erreur survient',
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  isDisabled: {
-    name: 'isDisabled',
-    description: "Permet de désactiver l'affichage des options possible",
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: false },
-    },
-  },
-  placement: {
-    name: 'placement',
-    description:
-      "Permet de placer la dropdown du select par rapport à son bouton. Par défaut, cela s'adapte tout seul.",
-    type: { name: 'string', required: false },
-    options: ['bottom', 'top', 'left', 'right'],
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: null },
-    },
-  },
-  icon: {
-    name: 'icon',
-    description:
-      "Permet l'affichage d'une icône FontAwesome avant le placeholder ou le label de l'option sélectionnée.",
-    type: { name: 'string', required: false },
-    table: {
-      type: { summary: 'string' },
-      defaultValue: { summary: null },
-    },
-  },
 };
