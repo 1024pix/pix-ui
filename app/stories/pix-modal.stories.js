@@ -1,7 +1,29 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  component: 'PixModal',
+  title: 'Basics/Modal',
+  argTypes: {
+    title: {
+      name: 'title',
+      description: 'Titre de la modale',
+      type: { name: 'string', required: true },
+    },
+    onCloseButtonClick: {
+      name: 'onCloseButtonClick',
+      description: 'Fonction à exécuter à la fermeture de la modale',
+      type: { name: 'function', required: true },
+    },
+    showModal: {
+      name: 'showModal',
+      description: "Gérer l'ouverture de la modale",
+      type: { name: 'boolean', required: true },
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+  },
 };
 
 export const Template = (args) => {
@@ -40,27 +62,4 @@ Default.args = {
   showModal: true,
   title: "Qu'est-ce qu'une modale ?",
   onCloseButtonClick: () => {},
-};
-
-export const argTypes = {
-  title: {
-    name: 'title',
-    description: 'Titre de la modale',
-    type: { name: 'string', required: true },
-  },
-  onCloseButtonClick: {
-    name: 'onCloseButtonClick',
-    description: 'Fonction à exécuter à la fermeture de la modale',
-    type: { name: 'function', required: true },
-  },
-  showModal: {
-    name: 'showModal',
-    description: "Gérer l'ouverture de la modale",
-    type: { name: 'boolean', required: true },
-    control: { type: 'boolean' },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
 };

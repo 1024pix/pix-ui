@@ -1,8 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
 
-import * as stories from './pix-modal.stories.js';
+import * as ComponentStories from './pix-modal.stories.js';
 
-<Meta title="Basics/Modal" component="PixModal" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # PixModal
 
@@ -15,9 +15,7 @@ Ce composant possède deux `yield` :
 - `:footer` peut également accueillir tout type de contenu HTML, mais est destiné aux boutons permettant d'interagir
   avec la modale, ce qui permettra de les positionner correctement dans tous les cas de figure.
 
-<Canvas>
-  <Story name="Default" story={stories.Default} height={500} />
-</Canvas>
+<Story of={ComponentStories.Default} height={500} />
 
 ## Usage
 
@@ -52,4 +50,4 @@ Ce composant possède deux `yield` :
 
 ## Arguments
 
-<ArgsTable story="Default" />
+<ArgTypes />
