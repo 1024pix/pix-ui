@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import * as stories from './pix-multi-select.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-multi-select.stories';
 
-<Meta title="Form/Multi Select" component="Multi Select" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Multi Select
 
@@ -12,33 +12,21 @@ L'ajout de `class` et d'autres attributs comme `aria-label` sont possibles.
 
 ## With child component
 
-<Canvas>
-  <Story name="With child component" story={stories.multiSelectWithChildComponent} height={310} />
-</Canvas>
+<Story of={ComponentStories.multiSelectWithChildComponent} height={310} />
 
 ## Searchable
 
-<Canvas>
-  <Story name="Searchable" story={stories.multiSelectSearchable} height={330} />
-</Canvas>
+<Story of={ComponentStories.multiSelectSearchable} height={330} />
 
 ## withCustomClass
 
-<Canvas>
-  <Story name="withCustomClass" story={stories.multiSelectWithCustomClass} height={330} />
-</Canvas>
+<Story of={ComponentStories.multiSelectWithCustomClass} height={330} />
 
 ## withId
 
-<Canvas>
-  <Story name="withId" story={stories.multiSelectWithId} height={330} />
-</Canvas>
+<Story of={ComponentStories.multiSelectWithId} height={330} />
 
-## withYield
-
-<Canvas>
-  <Story name="withYield" story={stories.multiSelectWithYield} height={330} />
-</Canvas>
+<Story of={ComponentStories.multiSelectWithYield} height={330} />
 
 ## Usage
 
@@ -62,4 +50,4 @@ L'ajout de `class` et d'autres attributs comme `aria-label` sont possibles.
 
 ## Arguments
 
-<ArgsTable story="Searchable" />
+<ArgTypes />
