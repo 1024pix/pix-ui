@@ -2,32 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export default {
   title: 'Basics/Modal',
-  argTypes: {
-    title: {
-      name: 'title',
-      description: 'Titre de la modale',
-      type: { name: 'string', required: true },
-    },
-    onCloseButtonClick: {
-      name: 'onCloseButtonClick',
-      description: 'Fonction à exécuter à la fermeture de la modale',
-      type: { name: 'function', required: true },
-    },
-    showModal: {
-      name: 'showModal',
-      description: "Gérer l'ouverture de la modale",
-      type: { name: 'boolean', required: true },
-      control: { type: 'boolean' },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-  },
-};
-
-export const Template = (args) => {
-  return {
+  render: (args) => ({
     template: hbs`<PixModal
   @showModal={{this.showModal}}
   @title={{this.title}}
@@ -54,12 +29,35 @@ export const Template = (args) => {
   <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Ouvrir la modale</PixButton>
 </div>`,
     context: args,
-  };
+  }),
+  argTypes: {
+    title: {
+      name: 'title',
+      description: 'Titre de la modale',
+      type: { name: 'string', required: true },
+    },
+    onCloseButtonClick: {
+      name: 'onCloseButtonClick',
+      description: 'Fonction à exécuter à la fermeture de la modale',
+      type: { name: 'function', required: true },
+    },
+    showModal: {
+      name: 'showModal',
+      description: "Gérer l'ouverture de la modale",
+      type: { name: 'boolean', required: true },
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+  },
 };
 
-export const Default = Template.bind({});
-Default.args = {
-  showModal: true,
-  title: "Qu'est-ce qu'une modale ?",
-  onCloseButtonClick: () => {},
+export const Default = {
+  args: {
+    showModal: true,
+    title: "Qu'est-ce qu'une modale ?",
+    onCloseButtonClick: () => {},
+  }
 };
