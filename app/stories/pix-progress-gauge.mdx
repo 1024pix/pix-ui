@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import * as stories from './pix-progress-gauge.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-progress-gauge.stories';
 
-<Meta title="Others/Progress Gauge" component="PixProgressGauge" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # PixProgressGauge
 
@@ -11,17 +11,13 @@ Permet d'afficher un barre de progression sur un barème de 100%. Des paramètre
 
 > **⚠️** **Il est nécessaire d'avoir un `label` pour rendre le composant accessible !**
 
-<Canvas>
-  <Story name="Default" story={stories.Default} height={60} />
-</Canvas>
+<Story of={ComponentStories.Default} height={60} />
 
 ## Dark mode
 
 Démonstration d'une barre de progression blanche en dark mode avec un sous titre.
 
-<Canvas>
-  <Story name="Dark" story={stories.darkModeProgressGauge} height={100} />
-</Canvas>
+<Story of={ComponentStories.darkModeProgressGauge} height={100} />
 
 ## Usage
 
@@ -37,4 +33,4 @@ Démonstration d'une barre de progression blanche en dark mode avec un sous titr
 
 ## Arguments
 
-<ArgsTable story="Default" />
+<ArgTypes />
