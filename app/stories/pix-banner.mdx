@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import * as stories from './pix-banner.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-banner.stories';
 
-<Meta title="Notification/Banner" component="PixBanner" argTypes={stories.argsTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Banner
 
@@ -13,60 +13,49 @@ Une `Banner` permet de mettre en avant une information importante.
 
 Bannière Information (par défaut).
 
-<Canvas>
-  <Story name="Default" story={stories.Default} height={75} />
-</Canvas>
+<Story of={ComponentStories.Default} height={75}/>
 
 ## Warning
 
 Bannière pour les alertes.
 
-<Canvas>
-  <Story name="Warning" story={stories.warning} height={75} />
-</Canvas>
+<Story of={ComponentStories.warning} height={75} />
 
 ## Error
 
 Bannière pour les erreurs.
 
-<Canvas>
-  <Story name="Error" story={stories.error} height={75} />
-</Canvas>
+<Story of={ComponentStories.error} height={75} />
 
 ## Communication
 
-<Canvas isColumn>
-  Bannière pour Pix App
-  <Story name="Communication Pix App" story={stories.communicationPixApp} height={75} />
-  Bannière pour Pix Orga
-  <Story name="Pix Orga" story={stories.communicationPixOrga} height={75} />
-  Bannière pour Pix Certif
-  <Story name="Pix Certif" story={stories.communicationPixCertif} height={75} />
-</Canvas>
+Bannière pour Pix App
+<Story of={ComponentStories.communicationPixApp} height={75} />
+Bannière pour Pix Orga
+<Story of={ComponentStories.communicationPixOrga} height={75} />
+Bannière pour Pix Certif
+<Story of={ComponentStories.communicationPixCertif} height={75} />
 
 ## With Internal Link
 
 Bannière contenant un lien interne.
 
-<Canvas>
-  <Story name="With internal link" story={stories.withInternalLink} height={100} />
-</Canvas>
+<Story of={ComponentStories.withInternalLink} height={100} />
+
 
 ## With External Link
 
 Bannière contenant un lien externe.
 
-<Canvas>
-  <Story name="With external link" story={stories.withExternalLink} height={100} />
-</Canvas>
+<Story of={ComponentStories.withExternalLink} height={100} />
+
 
 ## With Close Icon
 
 Bannière contenant un bouton qui permet de fermer la bannière.
 
-<Canvas>
-  <Story name="With close icon" story={stories.withCloseIcon} height={100} />
-</Canvas>
+<Story of={ComponentStories.withCloseIcon} height={100} />
+
 
 ## Usage
 
@@ -94,4 +83,4 @@ Bannière contenant un bouton qui permet de fermer la bannière.
 
 ## Arguments
 
-<ArgsTable story="Default" />
+<ArgTypes of={ComponentStories} />
