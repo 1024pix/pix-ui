@@ -2,7 +2,55 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  component: 'PixToggle',
+  title: 'Form/Toggle',
+  argTypes: {
+    label: {
+      name: 'label',
+      description: 'Le label du PixToggle',
+      type: { name: 'string', required: true },
+    },
+    onLabel: {
+      name: 'onLabel',
+      description: "Le label de l'état actif du PixToggle",
+      type: { name: 'string', required: false },
+    },
+    offLabel: {
+      name: 'offLabel',
+      description: "Le label de l'état non actif du PixToggle",
+      type: { name: 'string', required: false },
+    },
+    toggled: {
+      name: 'toggled',
+      description: 'Détermine si le PixToggle est activé',
+      type: { name: 'boolean', required: true },
+    },
+    onChange: {
+      name: 'onChange',
+      description: "Fonction à appeler quand le PixToggle change d'état.",
+      type: { required: true },
+      control: { disable: true },
+    },
+    inline: {
+      name: 'inline',
+      description: "Permet d'afficher le PixToggle sur une seule ligne",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+  },
 };
 
 export const Template = (args) => {
@@ -72,53 +120,4 @@ WithYields.args = {
   label: 'Mon toggle',
   toggled: false,
   onChange: action('onChange'),
-};
-
-export const argTypes = {
-  label: {
-    name: 'label',
-    description: 'Le label du PixToggle',
-    type: { name: 'string', required: true },
-  },
-  onLabel: {
-    name: 'onLabel',
-    description: "Le label de l'état actif du PixToggle",
-    type: { name: 'string', required: false },
-  },
-  offLabel: {
-    name: 'offLabel',
-    description: "Le label de l'état non actif du PixToggle",
-    type: { name: 'string', required: false },
-  },
-  toggled: {
-    name: 'toggled',
-    description: 'Détermine si le PixToggle est activé',
-    type: { name: 'boolean', required: true },
-  },
-  onChange: {
-    name: 'onChange',
-    description: "Fonction à appeler quand le PixToggle change d'état.",
-    type: { required: true },
-    control: { disable: true },
-  },
-  inline: {
-    name: 'inline',
-    description: "Permet d'afficher le PixToggle sur une seule ligne",
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  screenReaderOnly: {
-    name: 'screenReaderOnly',
-    description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
-    control: { type: 'boolean' },
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
 };
