@@ -1,7 +1,31 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  component: 'PixSidebar',
+  title: 'Basics/Sidebar',
+  argTypes: {
+    showSidebar: {
+      name: 'showSidebar',
+      description: 'Visibilité de la sidebar',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    title: {
+      name: 'title',
+      description: 'Titre de la sidebar',
+      type: { name: 'string', required: true },
+    },
+    onClose: {
+      name: 'onClose',
+      description: 'Fonction à exécuter à la fermeture de la sidebar',
+      type: { name: 'function', required: true },
+      table: {
+        type: { summary: 'function' },
+      },
+    },
+  },
 };
 
 export const Template = (args) => {
@@ -41,29 +65,4 @@ Default.args = {
   showSidebar: true,
   title: 'Filtrer',
   onClose: () => {},
-};
-
-export const argTypes = {
-  showSidebar: {
-    name: 'showSidebar',
-    description: 'Visibilité de la sidebar',
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  title: {
-    name: 'title',
-    description: 'Titre de la sidebar',
-    type: { name: 'string', required: true },
-  },
-  onClose: {
-    name: 'onClose',
-    description: 'Fonction à exécuter à la fermeture de la sidebar',
-    type: { name: 'function', required: true },
-    table: {
-      type: { summary: 'function' },
-    },
-  },
 };
