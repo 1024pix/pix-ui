@@ -1,49 +1,10 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  component: 'PixButtonLink',
+  title: 'Basics/ButtonLink',
 };
 
-export const htmlLinkTemplate = (args) => {
-  return {
-    template: hbs`<PixButtonLink
-  @href='https://pix.fr'
-  target='NEW'
-  @shape={{this.shape}}
-  @backgroundColor={{this.backgroundColor}}
-  @size={{this.size}}
-  @isBorderVisible={{this.isBorderVisible}}
-  @isDisabled={{this.isDisabled}}
->
-  Lien HTML classique
-</PixButtonLink>`,
-    context: args,
-  };
-};
-
-export const emberLinkTemplate = (args) => {
-  return {
-    template: hbs`<PixButtonLink
-  @route=''
-  @model=''
-  @query={{this.query}}
-  @shape={{this.shape}}
-  @backgroundColor={{this.backgroundColor}}
-  @size={{this.size}}
-  @isBorderVisible={{this.isBorderVisible}}
-  @isDisabled={{this.isDisabled}}
->
-  Lien route Ember (LinkTo)
-</PixButtonLink>`,
-    context: args,
-  };
-};
-
-export const htmlLink = htmlLinkTemplate.bind({});
-
-export const emberLink = emberLinkTemplate.bind({});
-
-export const argTypes = {
+const argTypes = {
   href: {
     name: 'href',
     description: 'Paramètre à renseigner pour utiliser lien HTML.',
@@ -120,4 +81,41 @@ export const argTypes = {
       defaultValue: { summary: 'false' },
     },
   },
+};
+
+export const htmlLink = {
+  render: (args) => ({
+    template: hbs`<PixButtonLink
+  @href='https://pix.fr'
+  target='NEW'
+  @shape={{this.shape}}
+  @backgroundColor={{this.backgroundColor}}
+  @size={{this.size}}
+  @isBorderVisible={{this.isBorderVisible}}
+  @isDisabled={{this.isDisabled}}
+>
+  Lien HTML classique
+</PixButtonLink>`,
+    context: args,
+  }),
+  argTypes,
+  tags: ['autodocs'],
+};
+
+export const emberLink = (args) => {
+  return {
+    template: hbs`<PixButtonLink
+  @route=''
+  @model=''
+  @query={{this.query}}
+  @shape={{this.shape}}
+  @backgroundColor={{this.backgroundColor}}
+  @size={{this.size}}
+  @isBorderVisible={{this.isBorderVisible}}
+  @isDisabled={{this.isDisabled}}
+>
+  Lien route Ember (LinkTo)
+</PixButtonLink>`,
+    context: args,
+  };
 };

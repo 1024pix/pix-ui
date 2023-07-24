@@ -1,8 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story } from '@storybook/blocks';
 
-import * as stories from './pix-button-link.stories.js';
+import * as ComponentStories from './pix-button-link.stories';
 
-<Meta title="Basics/ButtonLink" component="PixButtonLink" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # ButtonLink
 
@@ -17,9 +17,7 @@ Affiche un bouton avec les propriétés de lien HTML définies.
 Prend en entrée la propriété `@href`.
 Redirige directement les attributs de la balise HTML `<a>` (eg. `target`...).
 
-<Canvas>
-  <Story name="Lien HTML" story={stories.htmlLink} height={60} />
-</Canvas>
+<Story of={ComponentStories.htmlLink} />
 
 ```html
 <PixButtonLink @href="https://pix.fr" target="_blank"> Libellé du lien </PixButtonLink>
@@ -34,14 +32,4 @@ Prend en entrée la propriété `@route` et `@model`.
 
 Un bouton de route EmberJS peut être désactivé via la propriété `@isDisabled`.
 
-<Canvas>
-  <Story name="Route EmberJS" story={stories.emberLink} height={60} />
-</Canvas>
-
-```html
-<PixButtonLink @route="ma.route.ember" @model="mon-model"> Libellé du lien </PixButtonLink>
-```
-
-## Arguments
-
-<ArgsTable story="Lien HTML" />
+<Story of={ComponentStories.emberLink} />
