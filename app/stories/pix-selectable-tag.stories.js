@@ -1,7 +1,40 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  component: 'PixSelectableTag',
+  title: 'basics/Tag/Selectable Tag',
+  argTypes: {
+    label: {
+      name: 'label',
+      description: 'Le label du tag sélectionnable',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    id: {
+      name: 'id',
+      description: "L'id du tag sélectionnable",
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    onChange: {
+      name: 'onChange',
+      description: 'Fonction à appeler si le tag est sélectionné',
+      type: { required: true },
+      control: { disable: true },
+    },
+    checked: {
+      name: 'checked',
+      description: 'Indiquez si le tag doit être coché',
+      type: { name: 'boolean', required: true },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+  },
 };
 
 export const selectableTagDefault = (args) => {
@@ -27,38 +60,4 @@ export const selectableTagMultiple = (args) => {
 </div>`,
     context: args,
   };
-};
-
-export const argTypes = {
-  label: {
-    name: 'label',
-    description: 'Le label du tag sélectionnable',
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  id: {
-    name: 'id',
-    description: "L'id du tag sélectionnable",
-    type: { name: 'string', required: true },
-    table: {
-      type: { summary: 'string' },
-    },
-  },
-  onChange: {
-    name: 'onChange',
-    description: 'Fonction à appeler si le tag est sélectionné',
-    type: { required: true },
-    control: { disable: true },
-  },
-  checked: {
-    name: 'checked',
-    description: 'Indiquez si le tag doit être coché',
-    type: { name: 'boolean', required: true },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
 };

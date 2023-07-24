@@ -1,0 +1,37 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-selectable-tag.stories.js';
+
+<Meta of={ComponentStories} />
+
+# Pix Selectable Tag
+
+Un tag permettant de sélectionner ou non la valeur.
+
+## Default
+
+<Story of={ComponentStories.selectableTagDefault} height={60} />
+
+## Selected
+
+<Story of={ComponentStories.selectableTagSelected} height={60} />
+
+## Multiple tags
+
+<Story of={ComponentStories.selectableTagMultiple} height={60} />
+
+## Usage
+
+```html
+Par défaut :
+<PixSelectableTag> @label={{label}} @id={{id}} @onChange={{onChange}} </PixSelectableTag>
+
+Tag Sélectionné :
+<PixSelectableTag>
+  @label={{label}} @id={{id}} @onChange={{onChange}} @checked={{true}}
+</PixSelectableTag>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
