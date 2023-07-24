@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixBanner',
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixBanner

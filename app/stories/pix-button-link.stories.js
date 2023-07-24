@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixButtonLink',
+};
+
 export const htmlLinkTemplate = (args) => {
   return {
     template: hbs`<PixButtonLink

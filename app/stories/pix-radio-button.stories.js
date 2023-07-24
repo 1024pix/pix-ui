@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixRadioButton',
+};
+
 /* Default stories */
 const Template = (args) => {
   return {

@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixStars',
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixStars @count={{this.count}} @total={{this.total}} @alt={{this.alt}} @color={{this.color}} />`,

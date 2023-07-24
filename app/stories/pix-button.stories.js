@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixButton',
+};
+
 const Template = (args) => ({
   template: hbs`<section style={{this.style}}>
   <PixButton

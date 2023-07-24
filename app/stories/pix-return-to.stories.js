@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixReturnTo',
+};
+
 export const returnTo = (args) => {
   return {
     template: hbs`<PixReturnTo @route='profile' @shade={{this.shade}} />`,

@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixMessage',
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixMessage @type={{this.type}} @withIcon={{this.withIcon}}>

@@ -1,6 +1,10 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
+export default {
+  component: 'PixFilterBanner',
+};
+
 export const filterBanner = (args) => {
   return {
     template: hbs`<PixFilterBanner

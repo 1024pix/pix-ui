@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixCollapsible',
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixCollapsible @title={{this.title}} @titleIcon={{this.titleIcon}}>

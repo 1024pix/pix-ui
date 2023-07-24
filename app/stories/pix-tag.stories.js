@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixTag',
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixTag @color={{this.color}} @compact={{this.compact}}>

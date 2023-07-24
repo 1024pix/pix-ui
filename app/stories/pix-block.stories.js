@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixBlock',
+};
+
 export const block = (args) => ({
   template: hbs`<PixBlock @shadow={{this.shadow}}>
   Lorem ipsum

@@ -1,6 +1,10 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
+export default {
+  component: 'PixButtonUpload',
+};
+
 export const buttonUpload = (args) => {
   return {
     template: hbs`<PixButtonUpload

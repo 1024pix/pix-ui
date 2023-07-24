@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixProgressGauge',
+};
+
 export const Default = (args) => {
   return {
     template: hbs`<PixProgressGauge

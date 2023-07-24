@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  component: 'PixSelectableTag',
+};
+
 export const selectableTagDefault = (args) => {
   return {
     template: hbs`<PixSelectableTag @label='non sélectionné' @id='123' @onChange={{this.onChange}} @checked={{false}} />`,
