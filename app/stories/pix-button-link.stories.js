@@ -12,7 +12,7 @@ export default {
     route: {
       name: 'route',
       description:
-      "Paramètre à renseigner pour utiliser un composant LinkTo à la place d'un lien classique. Il prend comme valeur la route de redirection",
+        "Paramètre à renseigner pour utiliser un composant LinkTo à la place d'un lien classique. Il prend comme valeur la route de redirection",
       type: { name: 'string', required: false },
     },
     model: {
@@ -23,7 +23,7 @@ export default {
     query: {
       name: 'query',
       description:
-      "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
+        "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
       type: { required: false },
     },
     shape: {
@@ -40,7 +40,7 @@ export default {
     backgroundColor: {
       name: 'backgroundColor',
       description:
-      'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
+        'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
       options: ['blue', 'green', 'yellow', 'red', 'grey', 'transparent-light', 'transparent-dark'],
       type: { name: 'string', required: false },
       control: { type: 'select' },
@@ -63,7 +63,7 @@ export default {
     isBorderVisible: {
       name: 'isBorderVisible',
       description:
-      'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+        'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
       type: { name: 'boolean', required: false },
       control: { type: 'boolean' },
       table: {
@@ -80,7 +80,7 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
-  }
+  },
 };
 
 export const htmlLink = {

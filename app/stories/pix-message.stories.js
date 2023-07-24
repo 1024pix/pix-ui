@@ -31,20 +31,20 @@ export default {
   },
 };
 
-export const Default = {}
+export const Default = {};
 
 export const error = {
   args: {
     type: 'error',
     withIcon: true,
-  }
+  },
 };
 
 export const warning = {
   args: {
     type: 'warning',
     withIcon: true,
-  }
+  },
 };
 
 export const success = {
@@ -57,5 +57,5 @@ export const success = {
 export const withIcon = {
   args: {
     withIcon: true,
-  }
+  },
 };

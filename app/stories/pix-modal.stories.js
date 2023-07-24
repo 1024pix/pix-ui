@@ -59,5 +59,5 @@ export const Default = {
     showModal: true,
     title: "Qu'est-ce qu'une modale ?",
     onCloseButtonClick: () => {},
-  }
+  },
 };
