@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import * as stories from './pix-stars.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/addon-docs';
+import * as ComponentStories from './pix-stars.stories.js';
 
-<Meta title="Others/PixStars" component="PixStars" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Stars
 
@@ -9,9 +9,7 @@ Affiche une série d'étoiles en fonction des paramètres donnés.
 Un texte alternatif peut être renseigné et différents styles sont pré-définis.
 Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'étoiles.
 
-<Canvas>
-  <Story name="PixStars" story={stories.stars} height={70} />
-</Canvas>
+<Story of={ComponentStories.stars} height={70} />
 
 ## Usage
 
@@ -21,4 +19,4 @@ Pour ne pas afficher les étoiles vides, il suffit de ne pas donner le total d'�
 
 ## Arguments
 
-<ArgsTable story="PixStars" />
+<ArgTypes of={ComponentStories} />
