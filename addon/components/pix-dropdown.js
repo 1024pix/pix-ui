@@ -18,13 +18,13 @@ export default class PixDropdown extends Component {
 
     if (!this.args.label && !this.args.placeholder) {
       throw new Error(
-        'ERROR in PixDropdown component, you need to provide a label and/or a placeholder'
+        'ERROR in PixDropdown component, you need to provide a label and/or a placeholder',
       );
     }
 
     if (this.args.selectedOption) {
       this.selectedOption = this.args.options.find(
-        ({ value }) => value === this.args.selectedOption
+        ({ value }) => value === this.args.selectedOption,
       );
     }
   }

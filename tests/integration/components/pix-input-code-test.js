@@ -27,7 +27,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   test('it should have a fieldset with a legend for accessibility', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInputCode @legend="Ce code est le code de vérification d'email" @ariaLabel='Champ' />`
+      hbs`<PixInputCode @legend="Ce code est le code de vérification d'email" @ariaLabel='Champ' />`,
     );
 
     // then
@@ -54,7 +54,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     // when & then
     const expectedError = new Error(
-      'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend'
+      'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend',
     );
     assert.throws(function () {
       component.ariaLabel;
@@ -68,7 +68,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     // when & then
     const expectedError = new Error(
-      'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend'
+      'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend',
     );
     assert.throws(function () {
       component.legend;
@@ -117,7 +117,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
     test('it should truncate input to 1 character', async function (assert) {
       // given
       await render(
-        hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' @inputType='text' />`
+        hbs`<PixInputCode @legend='Nom du PixInputCode' @ariaLabel='label' @inputType='text' />`,
       );
 
       // when
@@ -136,7 +136,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   @legend='Nom du PixInputCode'
   @ariaLabel='label'
   @onAllInputsFilled={{this.onAllInputsFilled}}
-/>`
+/>`,
       );
 
       // when
@@ -160,7 +160,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   @legend='Nom du PixInputCode'
   @ariaLabel='label'
   @onAllInputsFilled={{this.onAllInputsFilled}}
-/>`
+/>`,
       );
 
       // when
@@ -182,7 +182,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   @legend='Nom du PixInputCode'
   @ariaLabel='label'
   @onAllInputsFilled={{this.onAllInputsFilled}}
-/>`
+/>`,
       );
 
       // when
@@ -278,7 +278,7 @@ module('Integration | Component | pix-input-code', function (hooks) {
   @legend='Nom du PixInputCode'
   @ariaLabel='label'
   @onAllInputsFilled={{this.onAllInputsFilled}}
-/>`
+/>`,
       );
 
       // when

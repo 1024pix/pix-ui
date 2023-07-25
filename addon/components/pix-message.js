@@ -11,7 +11,7 @@ export default class PixMessage extends Component {
     const correctTypes = [TYPE_INFO, TYPE_SUCCESS, TYPE_WARNING, TYPE_ALERT, TYPE_ERROR];
     if (this.args.type === 'alert') {
       console.warn(
-        'ERROR in PixMessage component, "alert" type is deprecated. Use "error" type instead.'
+        'ERROR in PixMessage component, "alert" type is deprecated. Use "error" type instead.',
       );
     }
     return correctTypes.includes(this.args.type) ? this.args.type : 'info';

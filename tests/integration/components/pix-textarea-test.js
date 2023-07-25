@@ -34,7 +34,7 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when
     await render(
-      hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id' @label='label' />`
+      hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id' @label='label' />`,
     );
     await fillInByLabel('label', 'Hello Pix !');
 
@@ -66,7 +66,7 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when{{
     await render(
-      hbs`<PixTextarea @value={{this.value}} @id='pix-textarea' @label='label' @requiredLabel={{this.requiredLabel}}/>`
+      hbs`<PixTextarea @value={{this.value}} @id='pix-textarea' @label='label' @requiredLabel={{this.requiredLabel}}/>`,
     );
 
     // then
@@ -81,7 +81,7 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when
     await render(
-      hbs`<PixTextarea @value={{this.value}} @requiredLabel='Obligatoire' @label='label' @id='id' />`
+      hbs`<PixTextarea @value={{this.value}} @requiredLabel='Obligatoire' @label='label' @id='id' />`,
     );
 
     // then
@@ -105,7 +105,7 @@ module('Integration | Component | textarea', function (hooks) {
 
     // then
     const expectedError = new Error(
-      'ERROR in PixTextarea component, @id param is necessary when giving @label'
+      'ERROR in PixTextarea component, @id param is necessary when giving @label',
     );
     assert.throws(function () {
       component.label;
@@ -119,7 +119,7 @@ module('Integration | Component | textarea', function (hooks) {
 
     // then
     const expectedError = new Error(
-      'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+      'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel',
     );
     assert.throws(function () {
       component.requiredLabel;
@@ -129,7 +129,7 @@ module('Integration | Component | textarea', function (hooks) {
   test('it should be possible to show an error message', async function (assert) {
     // given & when
     await render(
-      hbs`<PixTextarea @id='pix-textarea-with-error' @errorMessage='Veuillez remplir ce champ.' />`
+      hbs`<PixTextarea @id='pix-textarea-with-error' @errorMessage='Veuillez remplir ce champ.' />`,
     );
 
     // then

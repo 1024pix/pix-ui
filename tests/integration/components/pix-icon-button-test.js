@@ -37,7 +37,7 @@ module('Integration | Component | icon-button', function (hooks) {
       this.count = this.count + 1;
     });
     await render(
-      hbs`<PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel='action du bouton' />`
+      hbs`<PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel='action du bouton' />`,
     );
     await clickByLabel('action du bouton');
 
@@ -68,7 +68,7 @@ module('Integration | Component | icon-button', function (hooks) {
 
     // when & then
     const expectedError = new Error(
-      'ERROR in PixIconButton component, @ariaLabel param is not provided.'
+      'ERROR in PixIconButton component, @ariaLabel param is not provided.',
     );
     assert.throws(function () {
       component.ariaLabel;

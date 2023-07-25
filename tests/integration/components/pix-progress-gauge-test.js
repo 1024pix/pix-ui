@@ -17,7 +17,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const expectedError = new Error(
-        'ERROR in PixProgressGauge component, @value param is not provided.'
+        'ERROR in PixProgressGauge component, @value param is not provided.',
       );
       assert.throws(function () {
         component.value;
@@ -32,7 +32,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
       const frenchLocale = String(navigator.language).toLowerCase() === 'fr-fr';
       assert.strictEqual(
         screen.getByRole('presentation').innerText,
-        frenchLocale ? '50\xA0%' : '50%'
+        frenchLocale ? '50\xA0%' : '50%',
       );
     });
 
@@ -63,7 +63,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       const expectedError = new Error(
-        'ERROR in PixProgressGauge component, @label param is not provided.'
+        'ERROR in PixProgressGauge component, @label param is not provided.',
       );
       assert.throws(function () {
         component.label;
