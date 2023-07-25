@@ -105,7 +105,7 @@ module('Integration | Component | pix-tooltip', function (hooks) {
         // then
         const tooltipContentElement = this.element.querySelector(TOOLTIP_SELECTOR);
         assert.ok(
-          tooltipContentElement.classList.toString().includes(TOOLTIP_POSITION_SELECTOR + position)
+          tooltipContentElement.classList.toString().includes(TOOLTIP_POSITION_SELECTOR + position),
         );
       });
     });

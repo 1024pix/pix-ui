@@ -18,7 +18,7 @@ module('Unit | Component | pix-search-select', function (hooks) {
 
       // when & then
       const expectedError = new Error(
-        'ERROR in PixSearchInput component, you must provide @label or @ariaLabel params'
+        'ERROR in PixSearchInput component, you must provide @label or @ariaLabel params',
       );
       assert.throws(function () {
         createGlimmerComponent('pix-search-input', componentParams);

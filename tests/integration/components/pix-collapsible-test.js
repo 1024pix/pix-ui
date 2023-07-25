@@ -38,7 +38,7 @@ module('Integration | Component | collapsible', function (hooks) {
 
     // when & then
     const expectedError = new Error(
-      'ERROR in PixCollapsible component, @title param is not provided'
+      'ERROR in PixCollapsible component, @title param is not provided',
     );
     assert.throws(function () {
       component.title;

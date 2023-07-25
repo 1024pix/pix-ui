@@ -81,7 +81,7 @@ export default class PixSelect extends Component {
 
     if (this.searchValue) {
       options = this.args.options.filter((option) =>
-        option.label.toLowerCase().includes(this.searchValue.toLowerCase())
+        option.label.toLowerCase().includes(this.searchValue.toLowerCase()),
       );
     }
 
@@ -163,7 +163,7 @@ export default class PixSelect extends Component {
   @action
   setSelectWidth() {
     const baseFontRemRatio = Number(
-      getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0]
+      getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
     );
     const checkIconWidth = 1.125 * baseFontRemRatio;
     const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;

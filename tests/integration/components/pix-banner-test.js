@@ -21,7 +21,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
     // eslint-disable-next-line qunit/no-assert-equal
     assert.equal(
       componentElement.classList.toString().trim(),
-      'pix-banner pix-banner--information'
+      'pix-banner pix-banner--information',
     );
   });
 
@@ -94,7 +94,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     //when
     await render(
-      hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`
+      hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`,
     );
 
     // then
@@ -112,7 +112,7 @@ module('Integration | Component | Pix Banner', function (hooks) {
 
     //when
     await render(
-      hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`
+      hbs`<PixBanner @actionUrl={{this.actionUrl}} @actionLabel={{this.actionLabel}} />`,
     );
 
     // then

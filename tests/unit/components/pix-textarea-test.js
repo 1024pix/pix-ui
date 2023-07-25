@@ -25,7 +25,7 @@ module('Unit | Component | pix-textarea', function (hooks) {
 
       // when & then
       const expectedError = new Error(
-        'ERROR in PixTextarea component, @id param is necessary when giving @label'
+        'ERROR in PixTextarea component, @id param is necessary when giving @label',
       );
       assert.throws(function () {
         component.label;
@@ -39,7 +39,7 @@ module('Unit | Component | pix-textarea', function (hooks) {
 
       // when & then
       const expectedError = new Error(
-        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel',
       );
       assert.throws(function () {
         component.requiredLabel;

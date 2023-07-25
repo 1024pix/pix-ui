@@ -41,7 +41,7 @@ module('Integration | Component | PixSelect', function (hooks) {
     assert.dom(screen.getByText('Mon sous label')).exists();
     assert.strictEqual(
       screen.getByLabelText('Mon menu déroulant').innerText,
-      'Choisissez une option'
+      'Choisissez une option',
     );
   });
 
@@ -695,7 +695,7 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('it adds a custom class', async function (assert) {
       // given & when
       await render(
-        hbs`<PixSelect @className='some-custom-class' @options={{this.options}} @label={{this.label}} />`
+        hbs`<PixSelect @className='some-custom-class' @options={{this.options}} @label={{this.label}} />`,
       );
 
       // then
@@ -718,7 +718,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('displays an icon', async function (assert) {
         // given & when
         await render(
-          hbs`<PixSelect @icon='earth-europe' @options={{this.options}} @label={{this.label}} />`
+          hbs`<PixSelect @icon='earth-europe' @options={{this.options}} @label={{this.label}} />`,
         );
 
         // then

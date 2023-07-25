@@ -30,7 +30,7 @@ export default class PixTextarea extends Component {
 
     if (idRequiredLabelDefined && !labelIsDefined) {
       throw new Error(
-        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel'
+        'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel',
       );
     }
     return this.args.requiredLabel || null;

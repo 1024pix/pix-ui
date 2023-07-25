@@ -76,7 +76,7 @@ export default modifier((element, [elementId, callback, isExpanded]) => {
 function findFocusableElements(element) {
   return [
     ...element.querySelectorAll(
-      'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])'
+      'a[href], button, input, textarea, select, details,[tabindex]:not([tabindex="-1"])',
     ),
   ].filter((el) => !el.hasAttribute('disabled') && !el.getAttribute('aria-hidden'));
 }

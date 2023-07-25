@@ -16,7 +16,7 @@ module('Integration | Component | pix-return-to', function (hooks) {
     const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
     assert.contains('Home');
     assert.ok(
-      pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--black')
+      pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--black'),
     );
   });
 
@@ -27,7 +27,7 @@ module('Integration | Component | pix-return-to', function (hooks) {
     // then
     const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
     assert.ok(
-      pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--white')
+      pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--white'),
     );
   });
 

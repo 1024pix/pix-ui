@@ -53,7 +53,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to give an extra information to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInput @id='firstName' @label='Prénom' @information='a small information' />`
+      hbs`<PixInput @id='firstName' @label='Prénom' @information='a small information' />`,
     );
 
     // then
@@ -68,7 +68,7 @@ module('Integration | Component | input', function (hooks) {
         @label='Prénom'
         @errorMessage='Seul les caractères alphanumériques sont autorisés'
         @validationStatus="error"
-      />`
+      />`,
     );
 
     // then
@@ -100,7 +100,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to make pix input required', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInput @label='Prénom' @id='firstName' @requiredLabel='Champ obligatoire' />`
+      hbs`<PixInput @label='Prénom' @id='firstName' @requiredLabel='Champ obligatoire' />`,
     );
 
     // then

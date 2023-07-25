@@ -44,7 +44,7 @@ module('Integration | Component | checkbox', function (hooks) {
     // given & when
     const screen = await render(
       hbs`<PixCheckbox>Accepter les cgu,
-  <a href='https://cgu.example.net'>voir ici</a></PixCheckbox>`
+  <a href='https://cgu.example.net'>voir ici</a></PixCheckbox>`,
     );
 
     // then

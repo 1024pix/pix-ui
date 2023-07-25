@@ -36,7 +36,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
   test('it should be possible to add extra information to input', async function (assert) {
     // given & when
     await render(
-      hbs`<PixInputPassword @label='Mot de passe' @id='password' @information='une brève information' />`
+      hbs`<PixInputPassword @label='Mot de passe' @id='password' @information='une brève information' />`,
     );
 
     // then
@@ -54,7 +54,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
         @id='password'
         @errorMessage="Un message d'erreur."
         @validationStatus="error"
-        />`
+        />`,
     );
 
     // then
@@ -96,7 +96,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
     // then
     const expectedError = new Error(
-      'ERROR in PixInputPassword component, you must provide @label or @ariaLabel params'
+      'ERROR in PixInputPassword component, you must provide @label or @ariaLabel params',
     );
     assert.throws(function () {
       component.label;
@@ -120,7 +120,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
   test('it should be possible to make pix input password required', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`
+      hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`,
     );
 
     // then
@@ -132,7 +132,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
     test('it should focus on input', async function (assert) {
       // given
       const screen = await render(
-        hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`
+        hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`,
       );
 
       // when
