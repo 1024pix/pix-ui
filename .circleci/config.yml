@@ -34,7 +34,6 @@ workflows:
           matrix:
             parameters:
               node-version:
-                - "16.20.1"
                 - "18.17.0"
           filters:
             branches:
