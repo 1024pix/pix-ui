@@ -1,8 +1,8 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
 
-import * as stories from './pix-radio-button.stories.js';
+import * as ComponentStories from './pix-radio-button.stories.js';
 
-<Meta title="Form/Radio Button" component="PixRadioButton" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Radio Button
 
@@ -13,28 +13,26 @@ Il est préférable de ne pas sélectionner d’option par défaut pour que le c
 
 ## Default
 
-<Canvas isColumn>
-  <Story name="Default" story={stories.Default} height={60} />
-  <Story name="Default checked" story={stories.defaultChecked} height={60} />
-</Canvas>
+<Story of={ComponentStories.Default} height={60} />
+
+<Story of={ComponentStories.defaultChecked} height={60} />
 
 ### Liste de radios
 
 Puisqu'on ne souhaite en aucune avoir un input radio unique, il est déjà prévu l'espacement vertical avec un input radio suivant.<br/>
 Pour les considérer comme un seul groupe d'inputs, **il est nécessaire qu'ils aient chacun un attribut `name` avec une valeur commune**.
 
-<Canvas>
-  <Story name="Multiple" story={stories.multiple} height={140} />
-</Canvas>
+<Story of={ComponentStories.multiple} height={140} />
+
 
 ## Disabled
 
 État inactif du bouton radio.
 
-<Canvas isColumn>
-  <Story name="Disabled" story={stories.isDisabled} height={60} />
-  <Story name="Disabled checked" story={stories.disabledChecked} height={60} />
-</Canvas>
+<Story of={ComponentStories.isDisabled} height={60} />
+
+<Story of={ComponentStories.disabledChecked} height={60} />
+
 
 ## Usage
 
@@ -44,4 +42,4 @@ Pour les considérer comme un seul groupe d'inputs, **il est nécessaire qu'ils 
 
 ## Arguments
 
-<ArgsTable story="Default" />
+<ArgTypes of={ComponentStories} />
