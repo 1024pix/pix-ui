@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v38.2.1 (25/07/2023)
+
+
+### :building_construction: Tech
+- [#451](https://github.com/1024pix/pix-ui/pull/451) [TECH] Ajustements des versions de Node et npm.
+
+### :coffee: Autre
+- [#449](https://github.com/1024pix/pix-ui/pull/449) [BUMP] Update dependency eslint-plugin-qunit to v8 (dossier racine).
+- [#443](https://github.com/1024pix/pix-ui/pull/443) [BUMP] Update dependency eslint-plugin-prettier to v5 (dossier racine).
+
 ## v38.2.0 (25/07/2023)
 
 
