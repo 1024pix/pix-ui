@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v38.2.0 (25/07/2023)
+
+
+### :building_construction: Tech
+- [#383](https://github.com/1024pix/pix-ui/pull/383) [TECH] Ajouter la compatibilité avec node18.
+
 ## v38.1.0 (25/07/2023)
 
 
