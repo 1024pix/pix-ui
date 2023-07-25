@@ -2,7 +2,39 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  component: 'PixFilterBanner',
+  title: 'Form/Filter banner',
+  argTypes: {
+    title: {
+      name: 'title',
+      description: 'Titre du filtre',
+      type: { name: 'string', required: false },
+    },
+    details: {
+      name: 'details',
+      description: 'Détails du filtre',
+      type: { name: 'string', required: false },
+    },
+    clearFiltersLabel: {
+      name: 'clearFiltersLabel',
+      description: 'libellé du bouton',
+      type: { name: 'string', required: false },
+    },
+    onClearFilters: {
+      name: 'onClearFilters',
+      description: 'fonction à appeler pour déclencher l’action de suppression des filtres',
+      type: { required: false },
+    },
+    isClearFilterButtonDisabled: {
+      name: 'isClearFilterButtonDisabled',
+      description: 'Désactiver le button de la suppresion des filtres',
+      type: { name: 'boolean', required: true },
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+  },
 };
 
 export const filterBanner = (args) => {
@@ -31,37 +63,4 @@ filterBanner.args = {
   ],
   onChange: action('select-onchange'),
   onClearFilters: action('onClearFilters'),
-};
-
-export const argTypes = {
-  title: {
-    name: 'title',
-    description: 'Titre du filtre',
-    type: { name: 'string', required: false },
-  },
-  details: {
-    name: 'details',
-    description: 'Détails du filtre',
-    type: { name: 'string', required: false },
-  },
-  clearFiltersLabel: {
-    name: 'clearFiltersLabel',
-    description: 'libellé du bouton',
-    type: { name: 'string', required: false },
-  },
-  onClearFilters: {
-    name: 'onClearFilters',
-    description: 'fonction à appeler pour déclencher l’action de suppression des filtres',
-    type: { required: false },
-  },
-  isClearFilterButtonDisabled: {
-    name: 'isClearFilterButtonDisabled',
-    description: 'Désactiver le button de la suppresion des filtres',
-    type: { name: 'boolean', required: true },
-    control: { type: 'boolean' },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
 };

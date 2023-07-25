@@ -1,7 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
-import * as stories from './pix-filter-banner.stories.js';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-filter-banner.stories.js';
 
-<Meta title="Form/Filter banner" component="PixFilterBanner" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Filter Banner
 
@@ -9,9 +9,7 @@ Une `FilterBanner` permet de wrapper les éléments de filtres (`Select`, `Multi
 
 > Il est possible de surcharger le style d'une `<PixFilterBanner>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
 
-<Canvas>
-  <Story name="Filter banner" story={stories.filterBanner} height={80} />
-</Canvas>
+<Story of={ComponentStories.filterBanner} height={80} />
 
 ## Usage
 
@@ -25,4 +23,4 @@ Une `FilterBanner` permet de wrapper les éléments de filtres (`Select`, `Multi
 
 ## Arguments
 
-<ArgsTable story="Filter banner" />
+<ArgTypes of={ComponentStories} />
