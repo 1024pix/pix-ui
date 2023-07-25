@@ -1,0 +1,61 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-filterable-and-searchable-select.stories.js';
+
+<Meta of={ComponentStories} />
+
+# Pix Filterable and searchable select
+
+Ce composant est la fusion de deux autres composants: PixMultiSelect et PixSelect.
+
+Il permet de sélectionner une option, de filter sur la liste des options en fonction de leur catégorie afin de simplifier la sélection.
+
+Les options sont représentées par un tableau d'objet contenant les propriétés value, label et category.
+
+> **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
+
+> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
+
+> Pour aider l'utilisateur, rajoutez un placeholder cohérent !
+
+## Default
+
+<Story of={ComponentStories.Default} height={400}/>
+
+## Searchable
+
+<Story of={ComponentStories.Searchable} height={400}/>
+
+## With labels only for screenReaders
+
+<Story of={ComponentStories.WithLabelsOnlyForScreenReaders} height={400}/>
+
+## Usage
+
+```html
+<PixFilterableAndSearchableSelect
+  @label="{{label}}"
+  @sublabel="{{sublabel}}"
+  @selectLabel="{{selectLabel}}"
+  @placeholder="{{placeholder}}"
+  @options="{{options}}"
+  @value="{{value}}"
+  @isSearchable="{{isSearchable}}"
+  @hideDefaultOption="{{hideDefaultOption}}"
+  @screenReaderOnly="{{screenReaderOnly}}"
+  @searchLabel="{{searchLabel}}"
+  @searchPlaceholder="{{searchPlaceholder}}"
+  @emptySearchMessage="{{emptySearchMessage}}"
+  @requiredText="{{requiredText}}"
+  @errorMessage="{{errorMessage}}"
+  @onChange="{{onChange}}"
+  @categoriesLabel="{{categoriesLabel}}"
+  @categoriesPlaceholder="{{categoriesPlaceholder}}"
+  @categoriesEmptyMessage="{{categoriesEmptyMessage}}"
+  @requiredText="{{requiredText}}"
+  @errorMessage="{{errorMessage}}"
+/>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

@@ -25,8 +25,8 @@
     "build": "./scripts/build.sh",
     "build-ember": "ember build --environment=production",
     "serve-ember": "ember serve",
-    "build-storybook": "ember build && cp -v CNAME dist && build-storybook",
-    "serve-storybook": "start-storybook --port 9001",
+    "build-storybook": "ember build && cp -v CNAME dist && storybook build",
+    "serve-storybook": "storybook dev --port 9001",
     "clean": "rm -rf dist node_modules",
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "npm-run-all --aggregate-output --parallel --continue-on-error 'lint:!(fix)'",
@@ -59,6 +59,7 @@
   },
   "devDependencies": {
     "@1024pix/ember-testing-library": "^0.7.0",
+    "@1024pix/storybook-ember": "^7.1.1",
     "@1024pix/stylelint-config": "^3.0.0",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-decorators": "^7.20.5",
@@ -73,17 +74,17 @@
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
-    "@storybook/addon-a11y": "^6.5.13",
-    "@storybook/addon-controls": "^6.5.13",
-    "@storybook/addon-docs": "^6.5.13",
-    "@storybook/addon-essentials": "^6.5.13",
-    "@storybook/addons": "^6.5.13",
-    "@storybook/builder-webpack5": "^6.5.13",
-    "@storybook/ember": "^6.5.13",
+    "@storybook/addon-a11y": "^7.1.0",
+    "@storybook/addon-controls": "^7.1.0",
+    "@storybook/addon-docs": "^7.1.0",
+    "@storybook/addon-essentials": "^7.1.0",
+    "@storybook/addon-mdx-gfm": "^7.1.0",
+    "@storybook/addons": "^7.1.0",
+    "@storybook/blocks": "^7.1.0",
+    "@storybook/builder-webpack5": "^7.1.0",
     "@storybook/ember-cli-storybook": "^0.6.0",
-    "@storybook/manager-webpack5": "^6.5.13",
     "@storybook/storybook-deployer": "^2.8.16",
-    "@storybook/theming": "^6.5.13",
+    "@storybook/theming": "^7.1.0",
     "@testing-library/dom": "^8.20.0",
     "@testing-library/user-event": "^14.4.3",
     "chromatic": "^6.17.3",
@@ -120,14 +121,10 @@
     "qunit": "^2.19.3",
     "qunit-dom": "^2.0.0",
     "sass": "^1.56.1",
+    "storybook": "^7.1.0",
     "stylelint": "^15.0.0",
     "stylelint-config-standard-scss": "^9.0.0",
     "webpack": "^5.75.0"
-  },
-  "overrides": {
-    "@storybook/ember": {
-      "ember-source": "^4.0.1"
-    }
   },
   "bugs": {
     "url": "https://github.com/1024pix/pix-ui/issues"

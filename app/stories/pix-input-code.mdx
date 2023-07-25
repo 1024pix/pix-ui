@@ -1,0 +1,33 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-input-code.stories.js';
+
+<Meta of={ComponentStories} />
+
+# Pix Input Code
+
+Le `PixInputCode` permet d'associer plusieurs champs pour entrer un code reçu.
+
+Un aria-label est requis pour l'accessibilité.
+
+Par défaut il y a 6 champs mais le nombre est modifiable avec `numInputs`.
+
+Le composant peut être numérique ou alphanumérique précisé avec la propriété `inputType`, par défaut il est numérique.
+
+> ⚠️ N'oubliez pas de renseigner vous même la variable `@explanationOfUse` afin de garantir la gestion de traduction sur le composant PixInputCode.
+
+## Default
+
+<Story of={ComponentStories.Default} height={70} />
+
+## Usage
+
+```html
+<PixInputCode @ariaLabel="Champ" @legend="Code correspondant au code de vérification envoyé par
+email" @explanationOfUse="Détails d'utilisation du PixInputCode" @numInputs={{6}}
+@inputType="number" @onAllInputsFilled={{(code) => {}}} />
+```
+
+## Arguments
+
+<ArgTypes story="Default" />

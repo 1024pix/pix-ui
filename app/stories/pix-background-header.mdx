@@ -1,0 +1,29 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-background-header.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Background Header
+
+Un `BackgroundHeader` est une bannière donnant un fond de couleur bleu en haut d'une page.
+Les enfants de la bannière se mettrons en colonne.
+
+> Pour le moment ce composant n'est pas paramétrable car nous n'avons pas d'autres types de bannières.
+
+> Le `BackgroundHeader` se couple bien avec un ou plusieurs `PixBlock`.
+
+
+<Story of={ComponentStories.backgroundHeader} height={500} />
+
+
+## Usage
+
+```html
+<PixBackgroundHeader>
+  <PixBlock> Lorem ipsum </PixBlock>
+</PixBackgroundHeader>
+```
+
+## Arguments
+
+Le composant ne prend pas d'arguments

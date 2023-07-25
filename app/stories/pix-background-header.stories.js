@@ -1,5 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  title: 'Layout/Background Header',
+};
+
 export const backgroundHeader = (args) => {
   return {
     template: hbs`<PixBackgroundHeader>

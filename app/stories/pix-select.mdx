@@ -1,0 +1,79 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-select.stories.js';
+
+<Meta of={ComponentStories} />
+
+# Pix Select
+
+Affiche un menu déroulant avec la liste des options fournies.
+
+Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
+
+> **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
+
+> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
+
+> Pour aider l'utilisateur, rajoutez un placeholder cohérent !
+
+> **⚠️** Pour un champ de filtre sur des résultats qui ne s'affichent pas dans une liste déroulante, utilisez plutôt le [PixSearchInput](?path=/story/others-searchinput--default).
+
+## Default
+
+<Story of={ComponentStories.Default} height={200} />
+
+## WithId
+
+<Story of={ComponentStories.WithId} height={200} />
+
+## WithCustomClass
+
+<Story of={ComponentStories.WithCustomClass} height={200} />
+
+## WithCategories
+
+<Story of={ComponentStories.WithCategories} height={200} />
+
+## WithSearch
+
+<Story of={ComponentStories.WithSearch} height={200} />
+
+## WithCategoriesAndSearch
+
+<Story of={ComponentStories.WithCategoriesAndSearch} height={200} />
+
+## WithDropDownAtTheTop
+
+Ici nous avons forcé le placement de la dropdown en haut du select mais sachez que ce placement se fait automatiquement par défaut.
+
+<Story of={ComponentStories.WithDropDownAtTheTop} />
+
+## WithIcon
+
+<Story of={ComponentStories.WithIcon} />
+
+## Usage
+
+```html
+<PixSelect
+  @className="{{className}}"
+  @label="{{label}}"
+  @subLabel="{{subLabel}}"
+  @placeholder="{{placeholder}}"
+  @options="{{options}}"
+  @onChange="{{onChange}}"
+  @value="{{value}}"
+  @isSearchable="{{isSearchable}}"
+  @searchLabel="{{searchLabel}}"
+  @searchPlaceholder="{{searchPlaceholder}}"
+  @emptySearchMessage="{{emptySearchMessage}}"
+  @screenReaderOnly="{{screenReaderOnly}}"
+  @requiredText="{{requiredText}}"
+  @errorMessage="{{errorMessage}}"
+  @placement="{{placement}}"
+  @icon="{{icon}}"
+/>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

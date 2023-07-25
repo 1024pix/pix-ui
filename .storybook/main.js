@@ -1,8 +1,10 @@
-module.exports = {
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
-  stories: ['../docs/**/*.stories.@(mdx)', '../app/**/*.stories.@(js|mdx)'],
+const config = {
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-mdx-gfm'],
+  stories: ['../docs/**/*.@(mdx|stories.@(mdx))', '../app/*/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   staticDirs: ['../dist'],
-  core: {
-    builder: 'webpack5',
+  framework: {
+    name: '@1024pix/storybook-ember',
+    options: {}
   },
 };
+export default config;

@@ -1,5 +1,40 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  title: 'Form/Radio Button',
+  argTypes: {
+    id: {
+      name: 'id',
+      description:
+        'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
+      type: { name: 'string' },
+    },
+    label: {
+      name: 'label',
+      description: 'Le label du bouton radio',
+      type: { name: 'string', required: true },
+    },
+    class: {
+      name: 'class',
+      description: "Permet d'ajouter une classe CSS au parent du composant.",
+      type: { name: 'string' },
+    },
+    value: {
+      name: 'value',
+      description: "Valeur permettant d'identifier l'option sélectionnée",
+      type: { name: 'string', required: false },
+    },
+    disabled: {
+      name: 'disabled',
+      description: 'Pour désactiver/activer le bouton radio',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: 'false' },
+      },
+    },
+  },
+};
+
 /* Default stories */
 const Template = (args) => {
   return {
@@ -60,36 +95,4 @@ const multipleTemplate = (args) => {
 export const multiple = multipleTemplate.bind({});
 multiple.args = {
   ...Default.args,
-};
-
-export const argTypes = {
-  id: {
-    name: 'id',
-    description:
-      'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
-    type: { name: 'string' },
-  },
-  label: {
-    name: 'label',
-    description: 'Le label du bouton radio',
-    type: { name: 'string', required: true },
-  },
-  class: {
-    name: 'class',
-    description: "Permet d'ajouter une classe CSS au parent du composant.",
-    type: { name: 'string' },
-  },
-  value: {
-    name: 'value',
-    description: "Valeur permettant d'identifier l'option sélectionnée",
-    type: { name: 'string', required: false },
-  },
-  disabled: {
-    name: 'disabled',
-    description: 'Pour désactiver/activer le bouton radio',
-    type: { name: 'boolean', required: false },
-    table: {
-      defaultValue: { summary: 'false' },
-    },
-  },
 };

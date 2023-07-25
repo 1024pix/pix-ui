@@ -1,0 +1,31 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-textarea.stories.js';
+
+<Meta of={ComponentStories} />
+
+# PixTextarea
+
+Un textarea permettant d'avoir un champ de saisie libre.
+
+Optionellement, il peut afficher le nombre de caractères tapés ainsi que le nombre de caractères maximum.
+
+> A noter qu'un `id` est nécessaire pour attribuer au textarea un label. Par ailleurs, l'attribut `value` permet de traiter son contenu.
+
+<Story of={ComponentStories.textarea} height={100} />
+
+
+## Usage
+
+```html
+<PixTextarea
+  @id="{{id}}"
+  @value="{{value}}"
+  @maxlength="{{maxlength}}"
+  @errorMessage="{{errorMessage}}"
+  @requiredLabel="{{requiredLabel}}"
+/>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

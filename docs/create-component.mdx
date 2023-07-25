@@ -1,0 +1,112 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Développement/Créer un composant" />
+
+# Créer un composant et sa story
+
+## Création des fichiers nécessaires au composant
+
+La commande suivante permet de générer un nouveau composant :
+
+```shell
+ember generate pix-component <component-name>
+```
+
+⚠️ Ne pas préfixer le nom du composant par `pix`, cela se fera automatiquement avec la commande.
+
+Cette commande est [un blueprint ember](https://cli.emberjs.com/release/advanced-use/blueprints/), c'est à dire une
+commande customisée, elle permet d'automatiser plusieurs choses.
+
+La commande crée et pré-remplit les fichiers suivant :
+
+- `addon/templates/components/pix-<component-name>.hbs`: template du composant.
+- `addon/components/pix-<component-name>.js`: controller du composant.
+- `addon/stories/pix-<component-name>.mdx`: documentation du composant.
+- `addon/stories/pix-<component-name>.stories.js`: arguments et code de l'aperçu du composant dans la documentation.
+- `addon/styles/_pix-<component-name>.scss`: style du composant.
+- `app/components/pix-<component-name>.js`, sert uniquement à ember pour retrouver les composants existants dans le dossier `addon`. **On ne modifiera pas ce fichier là.**
+- `tests/integration/components/pix-<component-name>-test.js`: test du composant.
+
+De plus la commande met à jour les imports scss dans le fichier :
+
+- `addon.scss` (elle rajoutera l'import juste avant la ligne `html {`)
+
+## C'est quoi une story ?
+
+Une story, c'est deux fichiers :
+
+- un dont l'extension est `.mdx`
+- un dont l'extension est `.stories.js`
+
+Ils permettent de visualiser et documenter le composant.
+
+Lorsqu'on lance Storybook ce dernier va dans `.storybook/main.js` afin de trouver l'emplacement des fichiers `.stories.js`
+et `.mdx`.
+
+Ces derniers permettent ainsi d'afficher un aperçu des composants ainsi que leur documentation.
+
+## Comment écrire une story ?
+
+Voici par exemple la story du composant PixMessage :
+
+```javascript
+// pix-message.stories.js
+import { hbs } from 'ember-cli-htmlbars'; // import nécessaire pour 'canvasContent'
+
+export default {
+  title: 'Docs/Message',
+  // Ici on définit et on documente les arguments du composant
+  argTypes: {
+    type: {
+      name: 'type',
+      description: 'Type du message',
+      type: { name: 'string', required: false },
+      table: { defaultValue: { summary: 'info' } },
+      control: { type: 'select' },
+      options: ['info', 'success', 'warning', 'alert'],
+    },
+  }
+}
+
+// Ici on instancie l'aperçu du composant dans la doc
+export const message = (args) => {
+  return {
+    template: hbs`
+      <PixMessage @type={{type}} @withIcon={{withIcon}}>
+        Ceci est un message {{type}}
+      </PixMessage>
+    `,
+    context: args,
+  };
+};
+```
+
+`````markdown
+{/_ pix-message.stories.mdx _/}
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-message.stories';
+
+{/_ Titre de la section affichée dans le menu de storybook _/}
+
+<Meta of={ComponentStories} />
+
+# Pix Message
+
+Un bandeau d'information, par défaut de type info, avec une icône facultative.
+
+{/_ Affiche la prévisualisation du composant telle que définie dans pix-message.stories.js _/}
+
+<Story of={ComponentStories.message} height={140} />
+
+## Usage
+
+````html
+<PixMessage @type="info" @withIcon="true"> Ceci est un message à caractère informatif. </PixMessage>
+\``` ## Arguments {/* Affiche le tableau des arguments tels que définis dans pix-message.stories.js
+*/}
+
+<ArgTypes />
+````
+`````
+
+Plus d'information sur le [guide d'ember de Storybook ici](https://storybook.js.org/docs/guides/guide-ember/).

@@ -1,0 +1,237 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Utiliser Pix UI/Design Tokens/Palette de couleurs" />
+
+# Palette de couleurs
+
+ > Pour infos :
+ >
+ > Cette page permet de connaitre les couleurs qui sont disponibles dans `Pix-UI`. [Figma](https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=16%3A2) reste la source de vérité des couleurs du design system de `Pix`.
+ >
+ > Les variables SCSS présentes dans le fichier `_colors.scss` reprennent les noms des symboles utilisés sur les maquettes dans Figma,
+ > on préconise d'utiliser ses noms de variables plutôt que le code hexa.
+
+#### SOLID
+
+<ColorPalette>
+  <ColorItem
+    title="Pix Primary"
+    subtitle="$pix-primary-"
+    colors={{ 5: '#f2f9ff',
+              10: '#dcf1ff',
+              20: '#c4e6ff',
+              30: '#88beff',
+              40: '#5b94ff',
+              Primary: '#3d68ff',
+              60: '#2044dc',
+              70: '#0d25b3',
+              80: '#000e87'}}
+  />
+  <ColorItem
+    title="Pix Secondary"
+    subtitle="$pix-secondary-"
+    colors={{ 5: '#fff9e6',
+             10: '#fff1c5',
+             20: '#ffe381',
+             Secondary: '#ffd235',
+             40: '#ffbe00',
+             50: '#eaa600',
+             60: '#d87016',
+             70: '#a95800',
+             80: '#874d00'}}
+  />
+  <ColorItem
+    title="Pix Secondary Certif"
+    subtitle="$pix-secondary-certif-"
+    colors={{ 5: '#ccf6f5',
+             10: '#9aedeb',
+             20: '#67e4e0',
+             30: '#34dbd6',
+             SecondaryCertif: '#20b4af',
+             50: '#17817e',
+             60:' #126765',
+             70: '#0e4d4c',
+             80: '#093432'}}
+  />
+  <ColorItem
+    title="Pix Secondary Orga"
+    subtitle="$pix-secondary-orga-"
+    colors={{ 5: '#d5f9ff',
+             10: '#aaf4ff',
+             20: '#80eeff',
+             30: '#55e8ff',
+             SecondaryOrga: '#00ddff',
+             50: '#00c1df',
+             60: '#00a6bf',
+             70: '#008a9f',
+             80: '#006e80'}}
+  />
+  <ColorItem
+    title="Pix Tertiary"
+    subtitle="$pix-tertiary-"
+    colors={{ 5: '#ebe1ff',
+             10: '#d8c2ff',
+             20: '#c4a4ff',
+             30: '#b186ff',
+             Tertiary: '#9d67ff',
+             50: '#8a49ff',
+             60: '#6712ff',
+             70: '#4e00db',
+             80: '#3b00a4'}}
+  />
+  <ColorItem
+    title="Pix Success"
+    subtitle="$pix-success-"
+    colors={{5: '#ecfdf5',
+            10: '#d1fae5',
+            20: '#a7f3d0',
+            30: '#6ee7b7',
+            40: '#34d399',
+            50: '#27b481',
+            60: '#14865d',
+            70: '#176c4d',
+            80: '#104834'}}
+  />
+  <ColorItem
+    title="Pix Warning"
+    subtitle="$pix-warning-"
+    colors={{5: '#fff9e6',
+            10: '#fff1c5',
+            20: '#ffe381',
+            30: '#ffd235',
+            40: '#ffbe00',
+            50: '#eaa600',
+            60: '#d87016',
+            70: '#a95800',
+            80: '#874d00'}}
+  />
+  <ColorItem
+    title="Pix Error"
+    subtitle="$pix-error-"
+    colors={{5: '#fef2f2',
+            10: '#fee2e2',
+            20: '#fecaca',
+            30: '#fca5a5',
+            40: '#f87171',
+            50: '#ef4444',
+            60: '#dc2626',
+            70: '#b91c1c',
+            80: '#991b1b'}}
+  />
+  <ColorItem
+    title="Pix Neutral ( 0 - 40 )"
+    subtitle="$pix-neutral-"
+    colors={{0: '#ffffff',
+             5: '#fafbfc',
+            10: '#f4f5f7',
+            15: '#eaecf0',
+            20: '#dfe1e6',
+            22: '#c1c7d0',
+            25: '#a5adba',
+            30: '#97a0af',
+            35: '#8993a4',
+            40: '#7a869a'}}
+  />
+  <ColorItem
+    title="Pix Neutral  ( 45 - 110 )"
+    subtitle="$pix-neutral-"
+    colors={{45: '#6b778c',
+             50: '#5e6c84',
+             60: '#505f79',
+             70: '#344563',
+             80: '#253858',
+             90: '#172b4d',
+            100: '#091e42',
+            110: '#07142e'}}
+  />
+  <ColorItem
+    title="Pix Shades"
+    subtitle="$pix-shades-"
+    colors={{100: '#000000'}}
+  />
+  <ColorItem
+    title="Pix Domain Information"
+    subtitle="$pix-information-"
+    colors={{Dark: '#f24645',
+            Light: '#f1a141'}}
+  />
+  <ColorItem
+    title="Pix Domain Content"
+    subtitle="$pix-content-"
+    colors={{Dark: '#1a8c89',
+            Light: '#52d987'}}
+  />
+  <ColorItem
+    title="Pix Domain Communication"
+    subtitle="$pix-communication-"
+    colors={{Dark: '#3d68ff',
+            Light: '#12a3ff'}}
+  />
+  <ColorItem
+    title="Pix Domain Security"
+    subtitle="$pix-security-"
+    colors={{Dark: '#ac008d',
+            Light: '#ff3f94'}}
+  />
+  <ColorItem
+    title="Pix Domain Environment"
+    subtitle="$pix-environment-"
+    colors={{Dark: '#5e2563',
+            Light: '#564da6'}}
+  />
+</ColorPalette>
+
+#### GRADIENT
+
+<ColorPalette>
+  <ColorItem
+    title="Primary Pix App"
+    subtitle="$pix-primary-app-gradient"
+    colors={{ PrimaryPixApp: 'linear-gradient(91.59deg, #3d68ff 0%, #8845ff 100%)'}}
+  />
+  <ColorItem
+    title="Secondary Pix App"
+    subtitle="$pix-secondary-app-gradient"
+    colors={{ SecondaryPixAppGradient: 'linear-gradient(91.59deg, #fedc41 0%, #ff9f00 100%)'}}
+  />
+  <ColorItem
+    title="Primary Certif"
+    subtitle="$pix-primary-certif-gradient"
+    colors={{ PrimaryCertif: 'linear-gradient(91.59deg, #52d987 0%, #1a8c89 100%)'}}
+  />
+  <ColorItem
+    title="Primary Orga"
+    subtitle="$pix-primary-orga-gradient"
+    colors={{ PrimaryOrga: 'linear-gradient(91.59deg, #00ddff 0%, #0095c0 100%)'}}
+   />
+   <ColorItem
+     title="Secondary Orga"
+     subtitle="$pix-primary-secondary-gradient"
+     colors={{SecondaryOrga: 'linear-gradient(91.59deg, #0d7dc4 0%, #213371 100%)'}}
+   />
+   <ColorItem
+     title="Domain Information"
+     subtitle="$pix-information-gradient"
+     colors={{DomainInformation: 'linear-gradient(180deg, #f24645 0%, #f1a141 100%)'}}
+   />
+   <ColorItem
+     title="Domain Content"
+     subtitle="$pix-content-gradient"
+     colors={{DomainContent: 'linear-gradient(180deg, #1a8c89 0%, #52d987 100%)'}}
+   />
+   <ColorItem
+     title="Domain Communication"
+     subtitle="$pix-communication-gradient"
+     colors={{DomainCommunication: 'linear-gradient(180deg, #3d68ff 0%, #12a3ff 100%)'}}
+   />
+   <ColorItem
+     title="Domain Security"
+     subtitle="$pix-security-gradient"
+     colors={{DomainSecurity: 'linear-gradient(180deg, #ac008d 0%, #ff3f94 100%)'}}
+   />
+   <ColorItem
+     title="Domain Environment"
+     subtitle="$pix-environment-gradient"
+     colors={{DomainEnvironment: 'linear-gradient(180deg, #5e2563 0%, #564da6 100%)'}}
+   />
+</ColorPalette>

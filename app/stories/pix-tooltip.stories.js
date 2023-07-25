@@ -1,5 +1,62 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  title: 'Basics/Tooltip',
+  argTypes: {
+    id: {
+      name: 'id',
+      description: 'Identifiant permettant de référencer le déclencheur via aria-describedby',
+      type: { name: 'string', required: true },
+    },
+    text: {
+      name: 'text',
+      description: 'Texte à afficher',
+      type: { name: 'string', required: false },
+    },
+    position: {
+      name: 'position',
+      description: 'Position de la tooltip',
+      type: { name: 'string', required: false },
+      table: { defaultValue: { summary: 'top' } },
+      control: { type: 'select' },
+      options: [
+        'top',
+        'top-left',
+        'top-right',
+        'right',
+        'bottom',
+        'bottom-left',
+        'bottom-right',
+        'left',
+      ],
+    },
+    isLight: {
+      name: 'isLight',
+      description: 'Affichage en mode clair',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: false } },
+    },
+    isInline: {
+      name: 'isInline',
+      description: 'Affichage en une seule ligne',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: false } },
+    },
+    isWide: {
+      name: 'isWide',
+      description: 'Affichage large',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: false } },
+    },
+    hide: {
+      name: 'hide',
+      description: 'Masquer la tooltip',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: false } },
+    },
+  },
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixTooltip
@@ -130,58 +187,4 @@ hide.args = {
   label: "Survoler ici n'affiche pas tooltip",
   text: "Ne devrait pas s'afficher",
   hide: true,
-};
-
-export const argTypes = {
-  id: {
-    name: 'id',
-    description: 'Identifiant permettant de référencer le déclencheur via aria-describedby',
-    type: { name: 'string', required: true },
-  },
-  text: {
-    name: 'text',
-    description: 'Texte à afficher',
-    type: { name: 'string', required: false },
-  },
-  position: {
-    name: 'position',
-    description: 'Position de la tooltip',
-    type: { name: 'string', required: false },
-    table: { defaultValue: { summary: 'top' } },
-    control: { type: 'select' },
-    options: [
-      'top',
-      'top-left',
-      'top-right',
-      'right',
-      'bottom',
-      'bottom-left',
-      'bottom-right',
-      'left',
-    ],
-  },
-  isLight: {
-    name: 'isLight',
-    description: 'Affichage en mode clair',
-    type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
-  },
-  isInline: {
-    name: 'isInline',
-    description: 'Affichage en une seule ligne',
-    type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
-  },
-  isWide: {
-    name: 'isWide',
-    description: 'Affichage large',
-    type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
-  },
-  hide: {
-    name: 'hide',
-    description: 'Masquer la tooltip',
-    type: { name: 'boolean', required: false },
-    table: { defaultValue: { summary: false } },
-  },
 };

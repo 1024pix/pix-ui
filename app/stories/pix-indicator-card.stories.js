@@ -1,5 +1,42 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  title: 'Others/Indicator Card',
+  argTypes: {
+    title: {
+      name: 'Title',
+      description: 'Titre de la carte',
+    },
+    color: {
+      name: 'Color',
+      description: "Couleur de l'icone",
+      table: { defaultValue: { summary: 'grey' } },
+      control: { type: 'select' },
+      options: ['grey', 'blue', 'green', 'purple'],
+    },
+    icon: {
+      name: 'Icon',
+      description: "Icone dans l'encart",
+    },
+    iconPrefix: {
+      name: 'IconPrefix',
+      description:
+        "Préfixe pour l'icone dans l'encart - permet d'utiliser une variation de l'icone font awesome différente de celle par défaut.",
+      table: { defaultValue: { summary: 'fas' } },
+      control: { type: 'select' },
+      options: ['far', 'fas'],
+    },
+    value: {
+      name: 'Value',
+      description: 'Contenu principal',
+    },
+    info: {
+      name: 'Info',
+      description: "Contenu de la bulle d'info",
+    },
+  },
+};
+
 const Template = (args) => {
   return {
     template: hbs`
@@ -38,38 +75,4 @@ export const withIconPrefix = Template.bind({});
 withIconPrefix.args = {
   ...Default.args,
   iconPrefix: 'far',
-};
-
-export const argTypes = {
-  title: {
-    name: 'Title',
-    description: 'Titre de la carte',
-  },
-  color: {
-    name: 'Color',
-    description: "Couleur de l'icone",
-    table: { defaultValue: { summary: 'grey' } },
-    control: { type: 'select' },
-    options: ['grey', 'blue', 'green', 'purple'],
-  },
-  icon: {
-    name: 'Icon',
-    description: "Icone dans l'encart",
-  },
-  iconPrefix: {
-    name: 'IconPrefix',
-    description:
-      "Préfixe pour l'icone dans l'encart - permet d'utiliser une variation de l'icone font awesome différente de celle par défaut.",
-    table: { defaultValue: { summary: 'fas' } },
-    control: { type: 'select' },
-    options: ['far', 'fas'],
-  },
-  value: {
-    name: 'Value',
-    description: 'Contenu principal',
-  },
-  info: {
-    name: 'Info',
-    description: "Contenu de la bulle d'info",
-  },
 };

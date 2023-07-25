@@ -1,5 +1,54 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+export default {
+  title: 'Notification/Banner',
+  argTypes: {
+    actionLabel: {
+      name: 'actionLabel',
+      description: 'Nom de l‘action',
+      type: { name: 'string', required: false },
+    },
+    actionUrl: {
+      name: 'actionUrl',
+      description: 'Lien de l‘action',
+      type: { name: 'string', required: false },
+    },
+    type: {
+      name: 'type',
+      description: 'Définit le type de bannière',
+      type: { name: 'string', required: false },
+      table: { defaultValue: { summary: 'information' } },
+      control: {
+        type: 'select',
+      },
+      options: [
+        'information',
+        'warning',
+        'error',
+        'communication',
+        'communication-orga',
+        'communication-certif',
+      ],
+    },
+    canCloseBanner: {
+      name: 'canCloseBanner',
+      description: 'Afficher la croix pour fermer la bannière',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    onCloseBannerTriggerAction: {
+      name: 'onCloseBannerTriggerAction',
+      description:
+        'Fonction à appeler lors de la fermeture de la bannière. Doit être utilisé avec le paramètre canCloseBanner',
+      type: { required: false },
+      control: { disable: true },
+    },
+  },
+};
+
 const Template = (args) => {
   return {
     template: hbs`<PixBanner
@@ -60,50 +109,4 @@ export const withCloseIcon = Template.bind({});
 withCloseIcon.args = {
   type: 'information',
   canCloseBanner: true,
-};
-
-export const argsTypes = {
-  actionLabel: {
-    name: 'actionLabel',
-    description: 'Nom de l‘action',
-    type: { name: 'string', required: false },
-  },
-  actionUrl: {
-    name: 'actionUrl',
-    description: 'Lien de l‘action',
-    type: { name: 'string', required: false },
-  },
-  type: {
-    name: 'type',
-    description: 'Définit le type de bannière',
-    type: { name: 'string', required: false },
-    table: { defaultValue: { summary: 'information' } },
-    control: {
-      type: 'select',
-    },
-    options: [
-      'information',
-      'warning',
-      'error',
-      'communication',
-      'communication-orga',
-      'communication-certif',
-    ],
-  },
-  canCloseBanner: {
-    name: 'canCloseBanner',
-    description: 'Afficher la croix pour fermer la bannière',
-    type: { name: 'boolean', required: false },
-    table: {
-      type: { summary: 'boolean' },
-      defaultValue: { summary: false },
-    },
-  },
-  onCloseBannerTriggerAction: {
-    name: 'onCloseBannerTriggerAction',
-    description:
-      'Fonction à appeler lors de la fermeture de la bannière. Doit être utilisé avec le paramètre canCloseBanner',
-    type: { required: false },
-    control: { disable: true },
-  },
 };

@@ -1,0 +1,76 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-input.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Input
+
+Le PixInput permet de créer un champ de texte.
+
+## Accessibilité
+
+Si vous utilisez le `PixInput` sans label alors il faut renseigner le paramètre `ariaLabel`. Il est possible d'ajouter un label en dehors du composant en précisant bien un attribut `for` correspondant à l'`@id` passé au PixInput.
+
+> Si vous renseignez les paramètres label et ariaLabel ensemble, ariaLabel sera nullifié.
+
+Pour acceder à l'élément via son label/aria-label avec testing-library:
+
+```html
+<PixInput @id="firstName" @label="Prénom" />
+```
+
+```javascript
+screen.getByLabelText('Prénom');
+```
+
+Si le paramètre @information est utilisé, il faudra concatener les valeurs de `@label`/`@ariaLabel` et `@information`
+
+```html
+<PixInput @id="firstName" @label="Prénom" @information="exemple: Barry" />
+```
+
+```javascript
+screen.getByLabelText('Prénom exemple: Barry');
+```
+
+## Default
+
+<Story of={ComponentStories.Default} height={100} />
+
+
+## With label and information
+
+<Story of={ComponentStories.withLabel} height={110} />
+
+
+## Error state (with error message)
+
+<Story of={ComponentStories.errorState} height={110} />
+
+
+## Success state
+
+<Story of={ComponentStories.successState} height={100} />
+
+
+## With required label
+
+<Story of={ComponentStories.withRequiredLabel} height={100} />
+
+
+## Usage
+
+```html
+<PixInput
+  @id="firstName"
+  @label="Prénom"
+  @information="Complément du label"
+  @errorMessage="Un message d`erreur"
+  @validationStatus="default"
+  @requiredLabel="Champ obligatoire"
+/>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

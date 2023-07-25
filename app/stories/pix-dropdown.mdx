@@ -1,0 +1,57 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-dropdown.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Dropdown
+
+Affiche un menu déroulant avec la liste des options fournies.
+
+Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
+
+> **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
+
+> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
+
+> Pour aider l'utilisateur, rajoutez un placeholder cohérent !
+
+## Default
+
+<Story of={ComponentStories.Default} height={200} />
+
+## With label
+
+<Story of={ComponentStories.withLabel} height={200} />
+
+## Searchable
+
+<Story of={ComponentStories.searchableDropdown} height={200} />
+
+
+## Infinite scroll
+
+<Story of={ComponentStories.paginatedDropdown} height={200} />
+
+## Usage
+
+```html
+<PixDropdown
+  @id="{{id}}"
+  @options="{{options}}"
+  @onSelect="{{onSelect}}"
+  @selectedOption="1"
+  @isSearchable="{{false}}"
+  @placeholder="Choisissez une option"
+  @searchPlaceholder="Rechercher"
+  @label="Mon menu déroulant"
+  @requiredLabel="Requis"
+  @clearLabel="Supprimer la sélection"
+  @expandLabel="Ouvrir le menu déroulant"
+  @collapseLabel="Réduire le menu déroulant"
+  @pageSize="{{10}}"
+/>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

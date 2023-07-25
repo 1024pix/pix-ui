@@ -1,0 +1,86 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-banner.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Banner
+
+Une `Banner` permet de mettre en avant une information importante.
+
+> Il est possible de surcharger le style d'une `<PixBanner>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
+
+## Default
+
+Bannière Information (par défaut).
+
+<Story of={ComponentStories.Default} height={75}/>
+
+## Warning
+
+Bannière pour les alertes.
+
+<Story of={ComponentStories.warning} height={75} />
+
+## Error
+
+Bannière pour les erreurs.
+
+<Story of={ComponentStories.error} height={75} />
+
+## Communication
+
+Bannière pour Pix App
+<Story of={ComponentStories.communicationPixApp} height={75} />
+Bannière pour Pix Orga
+<Story of={ComponentStories.communicationPixOrga} height={75} />
+Bannière pour Pix Certif
+<Story of={ComponentStories.communicationPixCertif} height={75} />
+
+## With Internal Link
+
+Bannière contenant un lien interne.
+
+<Story of={ComponentStories.withInternalLink} height={100} />
+
+
+## With External Link
+
+Bannière contenant un lien externe.
+
+<Story of={ComponentStories.withExternalLink} height={100} />
+
+
+## With Close Icon
+
+Bannière contenant un bouton qui permet de fermer la bannière.
+
+<Story of={ComponentStories.withCloseIcon} height={100} />
+
+
+## Usage
+
+```html
+<PixBanner> Bannière Info par défaut </PixBanner>
+
+<PixBanner @type="communication"> Bannière Communication pour Pix App </PixBanner>
+
+<PixBanner @type="warning"> Bannière Warning </PixBanner>
+
+<PixBanner @type="error"> Bannière Error </PixBanner>
+
+<PixBanner @actionLabel="Liste des campagnes" @actionUrl="authenticated.campaigns">
+  Bannière avec une route pour lien
+</PixBanner>
+
+<PixBanner @actionLabel="Ajouter des élèves" @actionUrl="https://orga.pix.fr/eleves">
+  Bannière avec une route externe
+</PixBanner>
+
+<PixBanner @type="warning" @canCloseBanner="true">
+  Bannière possédant un bouton de fermeture
+</PixBanner>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

@@ -1,0 +1,71 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-checkbox.stories';
+
+<Meta of={ComponentStories} />
+
+# PixCheckbox
+
+La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (checkbox servant d'indicateur lors d'une sélection multiple).
+
+
+ <Story of={ComponentStories.Default} height={60} />
+
+
+### Liste de checkboxes
+
+Il n'est pas rare d'avoir plusieurs champs checkbox qui se suivent.<br/>
+En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composants qui se suivent.
+
+
+  <Story of={ComponentStories.multiple} height={140} />
+
+
+## États de la Checkbox
+
+<br />
+
+### Checkbox interminée
+
+
+  <Story of={ComponentStories.indeterminateCheckbox} height={60} />
+
+
+### Checkbox désactivée
+
+  <Story of={ComponentStories.checkboxDisabled} height={60} />
+  <Story of={ComponentStories.checkboxCheckedDisabled} height={60} />
+  <Story of={ComponentStories.checkboxInterminateDisabled} height={60} />
+
+
+## Autres tailles de police du label
+
+<br />
+
+### Small
+
+
+  <Story of={ComponentStories.checkboxWithSmallLabel} height={60} />
+
+
+### Large
+
+
+  <Story of={ComponentStories.checkboxWithLargeLabel} height={60} />
+
+
+## Usage
+
+```html
+<PixCheckbox
+  @screenReaderOnly="{{false}}"
+  @isIndeterminate="{{false}}"
+  @labelSize="small"
+  disabled
+>
+  Recevoir la newsletter
+</PixCheckbox>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
