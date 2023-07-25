@@ -14,7 +14,6 @@ jobs:
       - uses: actions/setup-node@v3
         with:
           node-version-file: 'package.json'
-      - run: npm i -g npm@9.6.4
       - run: npm ci
       - name: Deploy storybook to Github Pages
         run: npm run deploy-storybook -- --ci
