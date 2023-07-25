@@ -1,8 +1,7 @@
-import { Meta, Story, Canvas, ArgsTable } from '@storybook/addon-docs';
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-input.stories';
 
-import * as stories from './pix-input.stories.js';
-
-<Meta title="Form/Inputs/Input" component="PixInput" argTypes={stories.argTypes} />
+<Meta of={ComponentStories} />
 
 # Pix Input
 
@@ -36,33 +35,28 @@ screen.getByLabelText('Prénom exemple: Barry');
 
 ## Default
 
-<Canvas>
-  <Story name="Default" story={stories.Default} height={100} />
-</Canvas>
+<Story of={ComponentStories.Default} height={100} />
+
 
 ## With label and information
 
-<Canvas>
-  <Story story={stories.withLabel} height={110} />
-</Canvas>
+<Story of={ComponentStories.withLabel} height={110} />
+
 
 ## Error state (with error message)
 
-<Canvas>
-  <Story story={stories.errorState} height={110} />
-</Canvas>
+<Story of={ComponentStories.errorState} height={110} />
+
 
 ## Success state
 
-<Canvas>
-  <Story story={stories.successState} height={100} />
-</Canvas>
+<Story of={ComponentStories.successState} height={100} />
+
 
 ## With required label
 
-<Canvas>
-  <Story story={stories.withRequiredLabel} height={100} />
-</Canvas>
+<Story of={ComponentStories.withRequiredLabel} height={100} />
+
 
 ## Usage
 
@@ -79,4 +73,4 @@ screen.getByLabelText('Prénom exemple: Barry');
 
 ## Arguments
 
-<ArgsTable story="Default" />
+<ArgTypes of={ComponentStories} />
