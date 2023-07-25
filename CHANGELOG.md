@@ -1,5 +1,19 @@
 # Pix-UI Changelog
 
+## v38.1.0 (25/07/2023)
+
+
+### :rocket: Amélioration
+- [#445](https://github.com/1024pix/pix-ui/pull/445) [FEATURE] :sparkles: Upgrade storybook to v7.1.0.
+
+### :coffee: Autre
+- [#447](https://github.com/1024pix/pix-ui/pull/447) chore(deps-dev): bump word-wrap from 1.2.3 to 1.2.5.
+- [#446](https://github.com/1024pix/pix-ui/pull/446) [BUMP] Update browser-tools orb to v1.4.3 (.circleci).
+- [#418](https://github.com/1024pix/pix-ui/pull/418) [BUMP] Update dependency @ember/test-helpers to v3 (dossier racine).
+- [#433](https://github.com/1024pix/pix-ui/pull/433) chore(deps): bump tough-cookie from 4.0.0 to 4.1.3.
+- [#437](https://github.com/1024pix/pix-ui/pull/437) [BUMP] Update dependency @1024pix/ember-testing-library to ^0.7.0 (dossier racine).
+- [#434](https://github.com/1024pix/pix-ui/pull/434) chore(deps): bump semver from 5.7.1 to 5.7.2.
+
 ## v38.0.0 (12/07/2023)
 
 
