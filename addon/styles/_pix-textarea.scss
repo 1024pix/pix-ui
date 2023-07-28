@@ -1,12 +1,12 @@
 .pix-textarea {
   textarea {
     width: 100%;
-    border: 1px solid $pix-neutral-40;
-    border-style: solid;
-    border-radius: 4px;
     padding: 10px 16px;
     color: $pix-neutral-90;
     font-size: 0.875rem;
+    border: 1px solid $pix-neutral-40;
+    border-style: solid;
+    border-radius: 4px;
     resize: vertical;
 
     @include hoverFormElement();
@@ -18,12 +18,12 @@
   }
 
   p {
-    color: $pix-neutral-45;
-    margin-top: 6px;
-    font-size: 12px;
     display: flex;
     flex-direction: row-reverse;
+    margin-top: 6px;
     margin-bottom: 0;
+    color: $pix-neutral-45;
+    font-size: 12px;
   }
 
   &__label {

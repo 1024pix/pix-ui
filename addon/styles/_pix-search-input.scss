@@ -1,13 +1,13 @@
 .pix-search-input {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
 }
 
 .pix-search-input__label {
-  font-size: 0.875rem;
-  color: $pix-neutral-70;
   margin-bottom: 4px;
+  color: $pix-neutral-70;
+  font-size: 0.875rem;
 }
 
 .pix-search-input__input-container {
@@ -17,11 +17,11 @@
     position: absolute;
     bottom: calc(50% - 9px);
     left: 6px;
-    color: $pix-neutral-60;
-    font-size: 0.6rem;
-    padding-left: 2px;
     width: 18px;
     height: 18px;
+    padding-left: 2px;
+    color: $pix-neutral-60;
+    font-size: 0.6rem;
   }
 }
 
@@ -32,8 +32,8 @@
 
   width: 100%;
   height: 36px;
-  border: 1px solid $pix-neutral-40;
   padding-left: $pix-spacing-xl;
+  border: 1px solid $pix-neutral-40;
 
   &::placeholder {
     color: $pix-neutral-30;

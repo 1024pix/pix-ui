@@ -60,7 +60,7 @@
   "devDependencies": {
     "@1024pix/ember-testing-library": "^0.7.0",
     "@1024pix/storybook-ember": "^7.1.1",
-    "@1024pix/stylelint-config": "^3.0.0",
+    "@1024pix/stylelint-config": "^4.0.1",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-decorators": "^7.20.5",
     "@ember/optional-features": "^2.0.0",
@@ -123,6 +123,7 @@
     "sass": "^1.56.1",
     "storybook": "^7.1.0",
     "stylelint": "^15.0.0",
+    "stylelint-config-rational-order": "^0.1.2",
     "stylelint-config-standard-scss": "^10.0.0",
     "webpack": "^5.75.0"
   },

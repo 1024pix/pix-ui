@@ -27,15 +27,15 @@
 
   input.pix-input-code__input {
     display: inline-block;
-    height: 44px;
     width: 38px;
+    height: 44px;
     padding: 10px 12px 8px;
+    color: $pix-neutral-90;
+    font-size: 1.25rem;
+    text-align: center;
     background-color: $pix-neutral-10;
     border: 1.4px solid $pix-neutral-50;
-    font-size: 1.25rem;
-    color: $pix-neutral-90;
     border-radius: 4px;
-    text-align: center;
     outline: none;
 
     @include hoverFormElement();
@@ -54,8 +54,8 @@
 
     &:active,
     &:focus {
-      border-color: $pix-primary;
       background-color: $pix-neutral-0;
+      border-color: $pix-primary;
 
       &::placeholder {
         opacity: 0;

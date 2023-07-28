@@ -1,17 +1,17 @@
 .pix-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: fit-content;
   color: $pix-neutral-0;
-  font-size: 0.875rem;
   font-weight: $font-medium;
+  font-size: 0.875rem;
   white-space: nowrap;
-  cursor: pointer;
+  text-decoration: none;
   background-color: $pix-primary;
   border: 1px solid transparent;
   outline: none;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-decoration: none;
-  width: fit-content;
+  cursor: pointer;
 
   &--shape-rounded {
     border-radius: 25px;
@@ -34,8 +34,8 @@
   }
 
   &--disabled {
-    opacity: 0.5;
     cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &--background-blue {
@@ -139,15 +139,15 @@
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-neutral-90;
         color: $pix-neutral-0;
+        background-color: $pix-neutral-90;
         outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-neutral-25;
         color: $pix-neutral-90;
+        background-color: $pix-neutral-25;
         outline: none;
       }
     }
@@ -155,8 +155,8 @@
 
   /* deprecated in favor of --background-transparent-light + --border */
   &--background-transparent {
-    background-color: transparent;
     color: $pix-neutral-50;
+    background-color: transparent;
     border: 1px solid $pix-neutral-50;
   }
 
@@ -170,15 +170,15 @@
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-neutral-60;
         color: $pix-neutral-0;
+        background-color: $pix-neutral-60;
         border: 1px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-neutral-90;
         color: $pix-neutral-0;
+        background-color: $pix-neutral-90;
         outline: 1px solid $pix-neutral-0;
         outline-offset: -4px;
       }
@@ -200,15 +200,15 @@
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-neutral-10;
         color: $pix-neutral-90;
+        background-color: $pix-neutral-10;
         border: 1px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-neutral-10;
         color: $pix-neutral-90;
+        background-color: $pix-neutral-10;
         outline: 1px solid $pix-neutral-90;
         outline-offset: -4px;
       }

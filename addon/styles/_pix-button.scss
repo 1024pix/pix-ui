@@ -19,11 +19,11 @@
 }
 
 .loader > div {
+  display: inline-block;
   width: 10px;
   height: 10px;
   background-color: $pix-neutral-0;
   border-radius: 100%;
-  display: inline-block;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 

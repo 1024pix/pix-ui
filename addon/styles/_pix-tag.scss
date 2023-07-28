@@ -2,15 +2,15 @@
   @extend %pix-body-s;
 
   display: inline-block;
+  padding: 4px 16px;
+  color: $pix-neutral-0;
+  font-weight: $font-medium;
+  white-space: nowrap;
   text-align: center;
   vertical-align: baseline;
-  white-space: nowrap;
-  padding: 4px 16px;
+  background-color: $pix-primary;
   border: 1px solid transparent;
   border-radius: 0.95rem;
-  color: $pix-neutral-0;
-  background-color: $pix-primary;
-  font-weight: $font-medium;
 
   &--blue-light {
     color: $pix-primary-80;
@@ -67,9 +67,9 @@
   &--compact {
     @extend %pix-body-xs;
 
-    font-weight: $font-medium;
-    text-transform: uppercase;
     padding: 4px 13px;
+    font-weight: $font-medium;
     line-height: inherit;
+    text-transform: uppercase;
   }
 }

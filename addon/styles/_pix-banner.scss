@@ -1,13 +1,13 @@
 .pix-banner {
-  padding: 16px 24px;
   display: flex;
   align-items: center;
+  padding: 16px 24px;
   font-size: 0.875rem;
   box-shadow: 0 4px 8px rgba(7, 20, 46, 0.08);
 
   &__action {
-    text-decoration: underline;
     color: inherit;
+    text-decoration: underline;
 
     .external-link {
       margin-left: 4px;
@@ -22,23 +22,23 @@
   }
 
   &__icon {
-    font-size: 1.125rem;
     margin-right: $pix-spacing-xs;
+    font-size: 1.125rem;
   }
 
   &--information {
-    background-color: $pix-primary-5;
     color: $pix-primary-70;
+    background-color: $pix-primary-5;
 
     .pix-icon-button {
-      background-color: $pix-primary-5;
       color: $pix-primary-70;
+      background-color: $pix-primary-5;
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        background-color: $pix-primary-10;
         color: $pix-primary-70;
+        background-color: $pix-primary-10;
       }
 
       &:focus:enabled {
@@ -48,18 +48,18 @@
   }
 
   &--warning {
-    background-color: $pix-warning-5;
     color: $pix-warning-70;
+    background-color: $pix-warning-5;
 
     .pix-icon-button {
-      background-color: $pix-warning-5;
       color: $pix-warning-70;
+      background-color: $pix-warning-5;
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        background-color: $pix-warning-10;
         color: $pix-warning-70;
+        background-color: $pix-warning-10;
       }
 
       &:focus:enabled {
@@ -69,18 +69,18 @@
   }
 
   &--error {
-    background-color: $pix-error-5;
     color: $pix-error-70;
+    background-color: $pix-error-5;
 
     .pix-icon-button {
-      background-color: $pix-error-5;
       color: $pix-error-70;
+      background-color: $pix-error-5;
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        background-color: $pix-error-10;
         color: $pix-error-70;
+        background-color: $pix-error-10;
       }
 
       &:focus:enabled {
@@ -90,17 +90,17 @@
   }
 
   &--communication {
-    background-color: $pix-primary;
     color: $pix-neutral-0;
+    background-color: $pix-primary;
 
     &-orga {
-      background-color: $pix-secondary-orga-80;
       color: $pix-neutral-0;
+      background-color: $pix-secondary-orga-80;
     }
 
     &-certif {
-      background-color: $pix-secondary-certif-50;
       color: $pix-neutral-0;
+      background-color: $pix-secondary-certif-50;
     }
   }
 }

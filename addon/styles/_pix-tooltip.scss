@@ -1,8 +1,8 @@
 .pix-tooltip {
   position: relative;
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
 
   &__trigger-element {
     display: block;
@@ -11,19 +11,19 @@
 }
 
 .pix-tooltip__content {
-  display: none;
-  opacity: 0;
-  pointer-events: none;
-  background-color: $pix-neutral-100;
   position: absolute;
-  z-index: 100;
-  padding: 8px 16px;
   left: auto;
+  z-index: 100;
+  display: none;
+  padding: 8px 16px;
   color: $pix-neutral-0;
   font-size: 0.875rem;
-  border-radius: 6px;
   line-height: 1.4rem;
+  background-color: $pix-neutral-100;
+  border-radius: 6px;
+  opacity: 0;
   transition: opacity 0.3s;
+  pointer-events: none;
 
   &--visible {
     display: block;
@@ -35,10 +35,10 @@
   }
 
   &::before {
-    content: '';
     position: absolute;
-    border-width: 5px;
     border-style: solid;
+    border-width: 5px;
+    content: '';
   }
 
   &--wide {
@@ -46,16 +46,16 @@
   }
 
   &--light {
+    color: $pix-neutral-60;
     font-weight: $font-medium;
     background-color: $pix-neutral-0;
-    color: $pix-neutral-60;
     box-shadow: 0 6px 24px 0 rgba($pix-neutral-70, 0.14);
 
     &::before {
-      border-width: 0;
-      height: 8px;
       width: 8px;
+      height: 8px;
       background-color: $pix-neutral-0;
+      border-width: 0;
     }
   }
 }
@@ -71,8 +71,8 @@
 
   &.pix-tooltip__content--light::before {
     left: -5px;
-    transform: rotate(315deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(315deg);
   }
 }
 
@@ -89,8 +89,8 @@
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
-    transform: rotate(225deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(225deg);
   }
 }
 
@@ -107,8 +107,8 @@
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
     left: calc(100% - 26px);
-    transform: rotate(225deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(225deg);
   }
 }
 
@@ -123,8 +123,8 @@
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
-    transform: rotate(225deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(225deg);
   }
 }
 
@@ -141,8 +141,8 @@
 
   &.pix-tooltip__content--light::before {
     top: -5px;
-    transform: rotate(45deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(45deg);
   }
 }
 
@@ -159,8 +159,8 @@
   &.pix-tooltip__content--light::before {
     top: -5px;
     left: calc(100% - 26px);
-    transform: rotate(45deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(45deg);
   }
 }
 
@@ -175,8 +175,8 @@
 
   &.pix-tooltip__content--light::before {
     top: -5px;
-    transform: rotate(45deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(45deg);
   }
 }
 
@@ -191,7 +191,7 @@
 
   &.pix-tooltip__content--light::before {
     right: -5px;
-    transform: rotate(135deg);
     border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    transform: rotate(135deg);
   }
 }
