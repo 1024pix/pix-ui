@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v38.2.2 (28/07/2023)
+
+
+### :building_construction: Tech
+- [#453](https://github.com/1024pix/pix-ui/pull/453) [TECH] Ajout de l'ordonnancement des propriétés CSS.
+
+### :arrow_up: Montée de version
+- [#450](https://github.com/1024pix/pix-ui/pull/450) [BUMP] Update dependency stylelint-config-standard-scss to v10 (dossier racine).
+
 ## v38.2.1 (25/07/2023)
 
 
