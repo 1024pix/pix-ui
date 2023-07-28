@@ -1,18 +1,18 @@
 .pix-filter-banner {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
   gap: $pix-spacing-xs;
   width: 100%;
-  background-color: $pix-neutral-0;
-  box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
   min-height: 64px;
   padding: $pix-spacing-s $pix-spacing-m;
+  background-color: $pix-neutral-0;
+  box-shadow: 0 2px 5px 0 rgba($pix-neutral-110, 0.05);
 
   &__title {
+    margin: 0;
     color: $pix-neutral-60;
     font-size: 0.875rem;
-    margin: 0;
   }
 
   &__container-filter {
@@ -29,10 +29,10 @@
   }
 
   &__details {
+    margin: 0;
+    padding: $pix-spacing-xs 0 $pix-spacing-xs 0;
     color: $pix-neutral-60;
     font-weight: $font-medium;
-    padding: $pix-spacing-xs 0 $pix-spacing-xs 0;
-    margin: 0;
     font-size: 0.875rem;
   }
 
@@ -47,9 +47,9 @@
 
 @include device-is('tablet') {
   .pix-filter-banner {
-    align-items: center;
     flex-direction: row;
     gap: $pix-spacing-m;
+    align-items: center;
 
     &__container-title {
       display: flex;
@@ -58,9 +58,9 @@
 
     &__container-filter {
       flex-direction: row;
+      flex-grow: 2;
       flex-wrap: wrap;
       align-items: center;
-      flex-grow: 2;
     }
 
     &__container-action {
@@ -75,8 +75,8 @@
     }
 
     &__button-container {
-      border-left: 1px solid $pix-neutral-15;
       padding-left: $pix-spacing-s;
+      border-left: 1px solid $pix-neutral-15;
     }
   }
 }

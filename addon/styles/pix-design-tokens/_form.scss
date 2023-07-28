@@ -1,14 +1,14 @@
 @mixin hoverFormElement() {
   &:hover {
-    box-shadow: inset 0 0 0 0.6px $pix-neutral-70;
     background-color: $pix-neutral-5;
+    box-shadow: inset 0 0 0 0.6px $pix-neutral-70;
   }
 }
 
 @mixin hoverFormElementDisabled() {
   &:hover {
-    box-shadow: inset 0 0 0 0.6px $pix-neutral-70;
     background-color: $pix-neutral-20;
+    box-shadow: inset 0 0 0 0.6px $pix-neutral-70;
   }
 }
 
@@ -19,41 +19,41 @@
 @mixin focusFormElement() {
   &:focus {
     border-color: $pix-primary;
-    box-shadow: inset 0 0 0 0.6px $pix-primary;
     outline: none;
+    box-shadow: inset 0 0 0 0.6px $pix-primary;
   }
 }
 
 @mixin focusWithinFormElement() {
   &:focus-within {
     border-color: $pix-primary;
-    box-shadow: inset 0 0 0 0.6px $pix-primary;
     outline: none;
+    box-shadow: inset 0 0 0 0.6px $pix-primary;
   }
 }
 
 @mixin label() {
   display: block;
+  margin-bottom: $pix-spacing-xxs;
+  color: $pix-neutral-90;
+  font-weight: $font-medium;
   font-size: 0.875rem;
   line-height: 1.375rem;
-  color: $pix-neutral-90;
-  margin-bottom: $pix-spacing-xxs;
-  font-weight: $font-medium;
 }
 
 @mixin subLabel() {
   @include label();
 
-  font-size: 0.813rem;
-  line-height: 1rem;
   color: $pix-neutral-60;
   font-weight: $font-normal;
+  font-size: 0.813rem;
+  line-height: 1rem;
 }
 
 @mixin errorMessage() {
-  font-size: 0.75rem;
-  color: $pix-error-70;
   margin-top: $pix-spacing-xxs;
+  color: $pix-error-70;
+  font-size: 0.75rem;
 }
 
 @mixin formElementInError() {
@@ -67,11 +67,11 @@
 }
 
 @mixin input() {
-  font-size: 0.875rem;
-  font-weight: $font-normal;
-  color: $pix-neutral-90;
-  border-radius: $pix-spacing-xxs;
   padding: 0 $pix-spacing-s 0 $pix-spacing-s;
+  color: $pix-neutral-90;
+  font-weight: $font-normal;
+  font-size: 0.875rem;
+  border-radius: $pix-spacing-xxs;
 }
 
 .pix-form__label {
@@ -91,8 +91,8 @@
 
 .mandatory-mark,
 .mandatory-mark[title] {
-  cursor: help;
   color: $pix-error-70;
   text-decoration: none;
   border: none;
+  cursor: help;
 }

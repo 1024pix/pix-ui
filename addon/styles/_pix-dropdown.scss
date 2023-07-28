@@ -1,6 +1,6 @@
 .pix-dropdown {
-  width: 100%;
   position: relative;
+  width: 100%;
 
   button {
     margin: 0;
@@ -13,8 +13,8 @@
   }
 
   &__controller {
-    width: 100%;
     position: relative;
+    width: 100%;
 
     &--placeholder {
       @include hoverFormElement();
@@ -23,43 +23,43 @@
       width: 100%;
       min-width: 250px;
       min-height: 34px;
-      border: 1px solid $pix-neutral-40;
-      border-radius: $pix-spacing-xxs;
       padding: 0;
       background: $pix-neutral-0;
+      border: 1px solid $pix-neutral-40;
+      border-radius: $pix-spacing-xxs;
 
       &.expanded {
-        border-bottom-left-radius: 0;
         border-bottom-right-radius: 0;
+        border-bottom-left-radius: 0;
       }
     }
 
     &--placeholder-text {
-      color: $pix-neutral-90;
       margin: 0;
-      font-size: 0.875rem;
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
       padding: 8px 68px 8px 16px;
+      overflow: hidden;
+      color: $pix-neutral-90;
+      font-size: 0.875rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
 
       &.default {
-        color: $pix-neutral-60;
         padding-right: 36px;
+        color: $pix-neutral-60;
       }
     }
 
     &--clear {
-      background: transparent;
-      font-size: 1rem;
-      color: $pix-neutral-50;
       position: absolute;
+      top: 1px;
+      right: 38px;
+      width: fit-content;
       padding: 8px 8px 6px;
+      color: $pix-neutral-50;
+      font-size: 1rem;
+      background: transparent;
       border: none;
       border-right: 2px solid $pix-neutral-40;
-      right: 38px;
-      top: 1px;
-      width: fit-content;
 
       &:hover {
         color: $pix-neutral-70;
@@ -67,13 +67,13 @@
     }
 
     &--chevron {
-      background: transparent;
-      border: none;
-      padding: 0;
       position: absolute;
       top: 9px;
       right: 12px;
+      padding: 0;
       color: $pix-neutral-50;
+      background: transparent;
+      border: none;
       cursor: pointer;
 
       &:hover {
@@ -83,15 +83,15 @@
   }
 
   &__menu {
-    background: $pix-neutral-0;
     position: absolute;
     top: 100%;
+    z-index: 1;
     width: 100%;
     max-height: 0;
-    transition: max-height ease-in 0.5s;
     overflow: hidden;
     overflow-y: auto;
-    z-index: 1;
+    background: $pix-neutral-0;
+    transition: max-height ease-in 0.5s;
 
     &.expanded {
       max-height: 300px;
@@ -101,24 +101,24 @@
     }
 
     &--search {
-      display: flex;
       position: relative;
+      display: flex;
 
       &-icon {
-        color: $pix-neutral-30;
-        margin: 4px;
         position: absolute;
-        left: 16px;
         top: 12px;
+        left: 16px;
+        margin: 4px;
+        color: $pix-neutral-30;
       }
 
       &-input {
-        border: none;
-        border-bottom: 1px solid $pix-neutral-40;
-        font-size: 0.875rem;
         flex-grow: 1;
         margin: 12px 12px 8px;
         padding: 4px 4px 4px 32px;
+        font-size: 0.875rem;
+        border: none;
+        border-bottom: 1px solid $pix-neutral-40;
         outline: none;
 
         &:hover {
@@ -126,13 +126,13 @@
         }
 
         &:focus {
-          box-shadow: inset 0 -0.7px 0 0 $pix-primary;
           border-color: $pix-primary;
+          box-shadow: inset 0 -0.7px 0 0 $pix-primary;
         }
 
         &-label {
-          height: 0;
           width: 0;
+          height: 0;
           overflow: hidden;
         }
       }
@@ -149,8 +149,8 @@
 
       &:focus,
       &:hover {
-        outline: none;
         background: $pix-neutral-15;
+        outline: none;
       }
     }
   }

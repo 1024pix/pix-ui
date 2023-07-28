@@ -1,7 +1,7 @@
 .pix-input {
+  position: relative;
   display: flex;
   flex-direction: column;
-  position: relative;
 
   &__label {
     @include label();
@@ -17,14 +17,14 @@
 
   svg {
     position: absolute;
-    color: $pix-neutral-0;
-    border-radius: 50%;
-    font-size: 0.6rem;
-    padding: 2px;
-    bottom: 11px;
     right: 12px;
+    bottom: 11px;
     width: 10px;
     height: 10px;
+    padding: 2px;
+    color: $pix-neutral-0;
+    font-size: 0.6rem;
+    border-radius: 50%;
 
     &.pix-input__error-icon {
       background: $pix-error-70;

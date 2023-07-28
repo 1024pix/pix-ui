@@ -1,29 +1,29 @@
 @font-face {
+  font-weight: 500;
   font-family: 'Open Sans';
+  font-style: normal;
   src: url('../@1024pix/pix-ui/fonts/OpenSans/OpenSans-Medium.ttf');
-  font-weight: 500;
-  font-style: normal;
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Regular.ttf');
   font-weight: 400;
+  font-family: 'Roboto';
   font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Regular.ttf');
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Medium.ttf');
   font-weight: 500;
+  font-family: 'Roboto';
   font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Medium.ttf');
 }
 
 @font-face {
-  font-family: 'Roboto';
-  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Bold.ttf');
   font-weight: 700;
+  font-family: 'Roboto';
   font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Bold.ttf');
 }
 
 $font-open-sans: 'Open Sans', Arial, sans-serif;

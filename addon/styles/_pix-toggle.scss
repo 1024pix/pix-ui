@@ -10,32 +10,32 @@
 
   &__button {
     width: fit-content;
+    margin-top: $pix-spacing-xxs;
+    padding: $pix-spacing-xxs;
     background-color: transparent;
     border: 1px solid $pix-neutral-30;
     border-radius: 4px;
-    padding: $pix-spacing-xxs;
-    margin-top: $pix-spacing-xxs;
   }
 
   &__on,
   &__off {
     display: inline-block;
-    border-radius: 4px;
     padding: $pix-spacing-xs;
     color: $pix-neutral-70;
+    border-radius: 4px;
 
     @extend %pix-body-s;
   }
 
   &__off {
-    background-color: $pix-neutral-45;
     color: $pix-neutral-0;
+    background-color: $pix-neutral-45;
   }
 
   &--inline {
     flex-direction: row;
-    align-items: center;
     gap: $pix-spacing-xxs;
+    align-items: center;
   }
 
   &--inline,
@@ -50,13 +50,13 @@
   &--pressed {
     .pix-toggle {
       &__on {
-        background-color: $pix-neutral-45;
         color: $pix-neutral-0;
+        background-color: $pix-neutral-45;
       }
 
       &__off {
-        background-color: transparent;
         color: inherit;
+        background-color: transparent;
       }
     }
   }

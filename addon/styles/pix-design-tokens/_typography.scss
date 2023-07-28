@@ -2,8 +2,8 @@
 
 // Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
 %-pix-title {
-  font-family: $font-open-sans;
   font-weight: 500;
+  font-family: $font-open-sans;
 }
 
 %pix-title-l,
@@ -69,8 +69,8 @@
 }
 
 %-pix-body {
-  font-family: $font-roboto;
   font-weight: 400;
+  font-family: $font-roboto;
 }
 
 %pix-body-l,

@@ -1,37 +1,37 @@
 .pix-icon-button {
-  border-radius: 50%;
-  cursor: pointer;
-  border: none;
-  outline: none;
-  padding: 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background-color: transparent;
+  padding: 0;
   color: $pix-neutral-60;
+  background-color: transparent;
+  border: none;
+  border-radius: 50%;
+  outline: none;
+  cursor: pointer;
 
   &:disabled {
-    opacity: 0.5;
     cursor: not-allowed;
+    opacity: 0.5;
   }
 
   &:hover:enabled {
+    color: $pix-neutral-60;
     background-color: $pix-neutral-20;
     outline: 0;
-    color: $pix-neutral-60;
   }
 
   &:focus:enabled {
+    color: $pix-neutral-0;
     background-color: $pix-neutral-60;
     outline: 1px solid $pix-neutral-0;
     outline-offset: -3px;
-    color: $pix-neutral-0;
   }
 
   &:active:enabled {
+    color: $pix-neutral-60;
     background-color: $pix-neutral-22;
     outline: 0;
-    color: $pix-neutral-60;
   }
 
   &--background {

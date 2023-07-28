@@ -1,19 +1,19 @@
 .indicator-card {
   display: flex;
   width: 100%;
+  min-height: 112px;
+  padding: 0;
   background-color: $pix-neutral-0;
   border-radius: 8px;
-  min-height: 112px;
   box-shadow: 0 4px 8px rgba($pix-neutral-110, 0.05);
-  padding: 0;
 
   &__icon {
     display: flex;
-    justify-content: center;
     align-items: center;
-    border-radius: 8px 0 0 8px;
+    justify-content: center;
     min-width: 96px;
     font-size: 2.5rem;
+    border-radius: 8px 0 0 8px;
 
     &--grey {
       color: $pix-neutral-60;
@@ -40,8 +40,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    color: $pix-neutral-60;
     padding: $pix-spacing-s $pix-spacing-m;
+    color: $pix-neutral-60;
   }
 
   &__title {
@@ -49,10 +49,10 @@
 
     display: flex;
     align-items: center;
+    margin-bottom: $pix-spacing-xxs;
     font-weight: $font-medium;
     font-size: 1rem;
     line-height: 1.375rem;
-    margin-bottom: $pix-spacing-xxs;
   }
 
   &__value {
@@ -64,9 +64,9 @@
   &__sub {
     @extend %pix-body-s;
 
-    font-weight: $font-normal;
     display: flex;
     gap: 10px;
+    font-weight: $font-normal;
   }
 
   &__tooltip {
@@ -74,7 +74,7 @@
   }
 
   &__tooltip-icon {
-    color: $pix-neutral-30;
     margin: 0 $pix-spacing-xs;
+    color: $pix-neutral-30;
   }
 }

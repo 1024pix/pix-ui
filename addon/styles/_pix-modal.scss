@@ -1,13 +1,13 @@
 .pix-modal__overlay {
   position: fixed;
-  z-index: 1000;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  z-index: 1000;
+  padding: $pix-spacing-xs 0;
   overflow-y: auto;
   text-align: center; // Used to center horizontally the inline-block modal content
-  padding: $pix-spacing-xs 0;
   background-color: rgba(52, 69, 99, 0.7);
   transition: all 0.3s ease-in-out;
 
@@ -15,11 +15,11 @@
   // if the content is less than 100vh
   // Inspired by https://mui.com/material-ui/react-dialog/#scrolling-long-content
   &::after {
-    content: '';
     display: inline-block;
-    vertical-align: middle;
-    height: 100%;
     width: 0;
+    height: 100%;
+    vertical-align: middle;
+    content: '';
   }
 
   &--hidden {
@@ -36,25 +36,25 @@ $button-margin: 16px;
 
 .pix-modal {
   display: inline-block;
-  vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
   width: 512px;
   max-width: calc(
       100% - #{2 * $pix-spacing-xs}
     ); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
 
-  text-align: initial;
-  background-color: $pix-neutral-10;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
-  border-radius: 4px;
   overflow: hidden;
+  text-align: initial;
+  vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
+  background-color: $pix-neutral-10;
+  border-radius: 4px;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 
   &__header {
-    background: $pix-neutral-0;
-    border-bottom: 1px solid $pix-neutral-20;
-    padding: $modal-padding;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
+    padding: $modal-padding;
+    background: $pix-neutral-0;
+    border-bottom: 1px solid $pix-neutral-20;
   }
 
   &__close-button {
@@ -62,8 +62,8 @@ $button-margin: 16px;
     margin-top: -4px;
 
     @include device-is('tablet') {
-      height: $tablet-close-button-size;
       width: $tablet-close-button-size;
+      height: $tablet-close-button-size;
     }
   }
 
@@ -71,8 +71,8 @@ $button-margin: 16px;
     @extend %pix-title-xs;
 
     margin-bottom: 0;
-    color: $pix-neutral-90;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
+    color: $pix-neutral-90;
 
     @include device-is('tablet') {
       padding-right: $tablet-close-button-size + $space-between-title-and-close-button;

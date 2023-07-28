@@ -1,10 +1,10 @@
 .pix-sidebar__overlay {
   position: fixed;
-  z-index: 1000;
   top: 0;
+  right: 0;
   bottom: 0;
   left: 0;
-  right: 0;
+  z-index: 1000;
   overflow-y: scroll;
   background-color: rgba(52, 69, 99, 0.7);
   transition: all 0.3s ease-in-out;
@@ -24,10 +24,10 @@ $button-margin: 16px;
 .pix-sidebar {
   display: flex;
   flex-direction: column;
-  height: 100%;
   max-width: 320px;
-  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
+  height: 100%;
   background: $pix-neutral-0;
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   transform: translate(0);
   transition: transform 0.3s ease-in-out;
 
@@ -36,19 +36,19 @@ $button-margin: 16px;
   }
 
   &__header {
-    border-bottom: 1px solid $pix-neutral-20;
-    padding: $sidebar-padding;
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: $sidebar-padding;
+    border-bottom: 1px solid $pix-neutral-20;
   }
 
   &__close-button {
     flex-shrink: 0;
 
     @include device-is('tablet') {
-      height: $tablet-close-button-size;
       width: $tablet-close-button-size;
+      height: $tablet-close-button-size;
     }
   }
 
@@ -61,8 +61,8 @@ $button-margin: 16px;
     @extend %pix-title-s;
 
     margin-bottom: 0;
-    color: $pix-neutral-90;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
+    color: $pix-neutral-90;
 
     @include device-is('tablet') {
       padding-right: $tablet-close-button-size + $space-between-title-and-close-button;

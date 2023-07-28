@@ -11,13 +11,13 @@
   border-radius: 5px;
 
   &__bar {
-    grid-area: progressbar;
-    inline-size: unset;
     flex-grow: 1;
+    grid-area: progressbar;
     height: 0.875rem;
+    overflow: hidden;
     border: 2px solid $pix-neutral-20;
     border-radius: 1.625rem;
-    overflow: hidden;
+    inline-size: unset;
 
     &::-webkit-progress-value {
       background-color: $pix-primary;
@@ -40,9 +40,9 @@
     grid-area: text;
     min-width: 5ch;
     margin-right: $pix-spacing-xxs;
-    white-space: nowrap;
     font-weight: 500;
     line-height: 1;
+    white-space: nowrap;
   }
 
   &__sub-title {
@@ -51,11 +51,11 @@
     grid-area: subtitle;
     width: 100%;
     margin: 6px 0;
+    overflow: hidden;
     color: $pix-primary-60;
     letter-spacing: 0.4px;
     text-transform: uppercase;
     text-overflow: ellipsis;
-    overflow: hidden;
   }
 }
 
