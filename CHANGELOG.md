@@ -1,5 +1,12 @@
 # Pix-UI Changelog
 
+## v39.0.0 (31/07/2023)
+
+
+### :bug: Correction
+- [#455](https://github.com/1024pix/pix-ui/pull/455) [BUGFIX] Corrige la personnalisation du logo de storybook.
+- [#452](https://github.com/1024pix/pix-ui/pull/452) [BUGFIX] Ajuster la taille du bouton upload.
+
 ## v38.2.2 (28/07/2023)
 
 
