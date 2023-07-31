@@ -51,6 +51,17 @@
     &::placeholder {
       color: $pix-neutral-30;
     }
+
+    &[aria-disabled],
+    &[disabled],
+    &[readonly] {
+      @include formElementDisabled();
+      @include hoverFormElementDisabled();
+    }
+
+    &[readonly] {
+      cursor: default;
+    }
   }
 
   &__input--error {

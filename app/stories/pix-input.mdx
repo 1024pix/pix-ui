@@ -37,26 +37,37 @@ screen.getByLabelText('Prénom exemple: Barry');
 
 <Story of={ComponentStories.Default} height={100} />
 
-
 ## With label and information
 
 <Story of={ComponentStories.withLabel} height={110} />
-
 
 ## Error state (with error message)
 
 <Story of={ComponentStories.errorState} height={110} />
 
-
 ## Success state
 
 <Story of={ComponentStories.successState} height={100} />
 
+## Disabled & readonly states
+
+[📖 Lire la différence entre les 2 états.](https://developer.mozilla.org/en-US/docs/Web/HTML/Attributes/readonly#attribute_interactions)
+
+#### Disabled
+
+Un input désactivé n'est pas focusable et n'est pas censé être envoyé à la soumission de formulaire.
+
+<Story of={ComponentStories.disabledState} height={100} />
+
+#### Readonly
+
+En readonly, l'input n'est pas modifiable, mais il est toujours focusable et est soumis normalement.
+
+<Story of={ComponentStories.readonlyState} height={100} />
 
 ## With required label
 
 <Story of={ComponentStories.withRequiredLabel} height={100} />
-
 
 ## Usage
 
