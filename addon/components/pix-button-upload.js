@@ -7,7 +7,7 @@ export default class PixButtonUpload extends PixButtonBase {
   files = [];
 
   get className() {
-    return super.baseClassNames.join(' ');
+    return [...super.baseClassNames, 'pix-button-upload'].join(' ');
   }
 
   @action
