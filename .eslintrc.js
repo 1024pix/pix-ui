@@ -21,7 +21,18 @@ module.exports = {
   env: {
     browser: true,
   },
-  rules: {},
+  rules: {
+    'no-restricted-imports': [
+      'error',
+      'lodash',
+      {
+        name: '@ember/test-helpers',
+        importNames: ['render', 'visit', 'find'],
+        message:
+          "Please import 'render' from '@1024pix/ember-testing-library'.\n Please import 'visit' from '@1024pix/ember-testing-library'.\n. 'find' should be replaced with '@1024pix/ember-testing-library' 'find...'/'get...'/'query...' methods to enforce accessible usages.",
+      },
+    ],
+  },
   overrides: [
     // node files
     {
