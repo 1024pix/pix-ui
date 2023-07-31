@@ -1,5 +1,7 @@
 import { create } from '@storybook/theming/create';
 
+import logo from './logo.svg';
+
 export default create({
   base: 'light', // needed, this is not an optional parameter
 
@@ -30,8 +32,6 @@ export default create({
   // inputBorder: 'white',
   // inputTextColor: 'white',
   // inputBorderRadius: 4,
-
   brandTitle: 'Pix',
-  brandUrl: 'https://pix.fr/',
-  brandImage: 'https://pix.fr/images/pix-logo.svg',
+  brandImage: logo,
 });
