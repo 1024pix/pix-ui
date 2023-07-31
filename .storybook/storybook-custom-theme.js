@@ -33,6 +33,5 @@ export default create({
   // inputTextColor: 'white',
   // inputBorderRadius: 4,
   brandTitle: 'Pix',
-  brandUrl: 'https://pix.org',
   brandImage: logo,
 });
