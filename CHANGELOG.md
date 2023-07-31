@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v39.0.1 (31/07/2023)
+
+
+### :building_construction: Tech
+- [#454](https://github.com/1024pix/pix-ui/pull/454) [TECH] Ajouter une erreur de lint si `render` ou `find` ne sont pas importés depuis `@1024pix/ember-testing-library`.
+
 ## v39.0.0 (31/07/2023)
 
 
