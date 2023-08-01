@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v39.0.2 (01/08/2023)
+
+
+### :arrow_up: Montée de version
+- [#442](https://github.com/1024pix/pix-ui/pull/442) [BUMP] Update dependency ember-resolver to v9 (dossier racine).
+
 ## v39.0.1 (31/07/2023)
 
 
