@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v39.0.3 (02/08/2023)
+
+
+### :rocket: Amélioration
+- [#456](https://github.com/1024pix/pix-ui/pull/456) [FEATURE] Ajout des styles disabled et readonly du PixInput (PIX-8793).
+
 ## v39.0.2 (01/08/2023)
 
 
