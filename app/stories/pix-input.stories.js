@@ -65,6 +65,8 @@ const Template = (args) => {
   @requiredLabel={{this.requiredLabel}}
   @ariaLabel={{this.ariaLabel}}
   @validationStatus={{this.validationStatus}}
+  disabled={{this.disabled}}
+  readonly={{this.readonly}}
 />`,
     context: args,
   };
@@ -96,6 +98,20 @@ successState.args = {
   id: 'first-name',
   label: 'Prénom',
   validationStatus: 'success',
+};
+
+export const disabledState = Template.bind({});
+disabledState.args = {
+  id: 'first-name',
+  label: 'Prénom',
+  disabled: true,
+};
+
+export const readonlyState = Template.bind({});
+readonlyState.args = {
+  id: 'first-name',
+  label: 'Prénom',
+  readonly: true,
 };
 
 export const withRequiredLabel = Template.bind({});
