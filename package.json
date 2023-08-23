@@ -49,7 +49,7 @@
   "dependencies": {
     "@formatjs/intl": "^2.5.1",
     "ember-auto-import": "^2.5.0",
-    "ember-cli-babel": "^7.26.8",
+    "ember-cli-babel": "^8.0.0",
     "ember-cli-htmlbars": "^6.1.1",
     "ember-cli-sass": "^11.0.1",
     "ember-click-outside": "^6.0.1",
