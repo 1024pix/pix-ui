@@ -1,10 +1,10 @@
 ## :boom: BREAKING_CHANGES
-> _Décrivez ici les changements cassant (voir la doc associée)[https://github.com/1024pix/pix-ui/blob/dev/docs/breaking-changes.stories.mdx], s'il n'y en a pas indiquez le aussi.
+> _Décrivez ici les changements cassant (voir la doc associée)[https://ui.pix.fr/?path=/docs/d%C3%A9veloppement-breaking-changes--docs]. Préfixer la PR par `[BREAKING]` dans ce cas. S'il n'y en a pas, la section peut être supprimée.
 
 ## :christmas_tree: Problème
 > _Décrivez ici le besoin ou l'intention couvert par cette Pull Request._
 
-## :gift: Solution
+## :gift: Proposition
 > _Ajoutez à cet endroit, si nécessaire, des détails concernant la solution technique retenue et mise en oeuvre, des difficultés ou problèmes rencontrés._
 
 ## :star2: Remarques
