@@ -1,5 +1,5 @@
 ## :boom: BREAKING_CHANGES
-> _Décrivez ici les changements cassant (voir la doc associée)[https://ui.pix.fr/?path=/docs/d%C3%A9veloppement-breaking-changes--docs]. Préfixer la PR par `[BREAKING]` dans ce cas. S'il n'y en a pas, la section peut être supprimée.
+> _Décrivez ici les breaking changes (voir la doc associée)[https://ui.pix.fr/?path=/docs/d%C3%A9veloppement-breaking-changes--docs]. Préfixer la PR par `[BREAKING]` dans ce cas. S'il n'y en a pas, la section peut être supprimée.
 
 ## :christmas_tree: Problème
 > _Décrivez ici le besoin ou l'intention couvert par cette Pull Request._
