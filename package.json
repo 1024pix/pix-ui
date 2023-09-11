@@ -54,7 +54,7 @@
     "ember-cli-sass": "^11.0.1",
     "ember-click-outside": "^6.0.1",
     "ember-popperjs": "^3.0.0",
-    "ember-truth-helpers": "^3.1.1",
+    "ember-truth-helpers": "^4.0.0",
     "lodash.debounce": "^4.0.8"
   },
   "devDependencies": {
