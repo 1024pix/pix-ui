@@ -162,19 +162,21 @@ export default class PixSelect extends Component {
 
   @action
   setSelectWidth() {
-    const baseFontRemRatio = Number(
-      getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
-    );
-    const checkIconWidth = 1.125 * baseFontRemRatio;
-    const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
-    const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
+    if (!this.args.isComputeWidthDisabled) {
+      const baseFontRemRatio = Number(
+        getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+      );
+      const checkIconWidth = 1.125 * baseFontRemRatio;
+      const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
+      const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
 
-    const className = `sizing-select-${this.selectId}`;
-    this.createClass(`.${className}`, `width: ${selectWidth}rem;`);
+      const className = `sizing-select-${this.selectId}`;
+      this.createClass(`.${className}`, `width: ${selectWidth}rem;`);
 
-    const element = document.getElementById(`container-${this.selectId}`);
+      const element = document.getElementById(`container-${this.selectId}`);
 
-    element.className = element.className + ' ' + className;
+      element.className = element.className + ' ' + className;
+    }
   }
 
   createClass(name, rules) {

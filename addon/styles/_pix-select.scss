@@ -13,7 +13,8 @@
   &__dropdown {
     position: absolute;
     z-index: 200;
-    width: inherit;
+    width: 100%;
+    min-width: fit-content;
     max-height: 12.5rem;
     margin-top: $pix-spacing-xxs;
     padding: 0;
@@ -84,6 +85,7 @@
 .pix-select-button {
   position: relative;
   display: flex;
+  gap: $pix-spacing-s;
   align-items: center;
   justify-content: space-between;
   width: 100%;
@@ -118,7 +120,6 @@
   &__dropdown-icon {
     @extend %pix-body-s;
 
-    margin-left: $pix-spacing-xs;
     color: $pix-neutral-60;
     pointer-events: none;
   }
@@ -143,6 +144,7 @@
     @extend %pix-body-s;
 
     display: flex;
+    gap: $pix-spacing-m;
     justify-content: space-between;
     padding: $pix-spacing-xs $pix-spacing-m;
     color: $pix-neutral-70;

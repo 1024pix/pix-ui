@@ -169,6 +169,15 @@ export default {
         defaultValue: { summary: null },
       },
     },
+    isComputeWidthDisabled: {
+      name: 'isComputeWidthDisabled',
+      description:
+        'Permet de ne pas calculer la width du select par rapport à la taille maximum de la dropdown',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: false },
+      },
+    },
   },
 };
 
