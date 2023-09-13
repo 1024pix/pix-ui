@@ -33,6 +33,15 @@ export default class PixMultiSelect extends Component {
     this.options = [...(this.args.options || [])];
   }
 
+  get headerClassName() {
+    const classes = ['pix-multi-select-header'];
+    if (this.args.className) {
+      classes.push(this.args.className);
+    }
+
+    return classes.join(' ');
+  }
+
   get multiSelectId() {
     if (this.args.id) return this.args.id;
     return 'select-' + guidFor(this);

@@ -1,6 +1,6 @@
 .pix-filterable-and-searchable-select {
   display: flex;
-  width: fit-content;
+  max-width: 100%;
   border: 1px $pix-neutral-45 solid;
   border-radius: 4px;
 
@@ -30,6 +30,10 @@
     @include errorMessage();
   }
 
+  .pix-select {
+    flex: 1 1 0%;
+  }
+
   .pix-multi-select {
     margin-right: 2px;
 
@@ -54,6 +58,7 @@
   }
 
   &__pix-select {
+    width: 100%;
     border-radius: 0 4px 4px 0;
   }
 }

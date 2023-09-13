@@ -92,8 +92,8 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: false } },
     },
-    className: {
-      name: 'className',
+    headerClassName: {
+      name: 'headerClassName',
       description: 'Cette classe css permet de surcharger le css par défaut du composant.',
       type: { name: 'string', required: false },
       table: {

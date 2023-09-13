@@ -2,6 +2,7 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { createClass } from '../common/add-dynamic-style-tag';
 
 export default class PixSelect extends Component {
   @tracked isExpanded = false;
@@ -171,20 +172,11 @@ export default class PixSelect extends Component {
       const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
 
       const className = `sizing-select-${this.selectId}`;
-      this.createClass(`.${className}`, `width: ${selectWidth}rem;`);
+      createClass(`.${className}`, `width: ${selectWidth}rem;`);
 
       const element = document.getElementById(`container-${this.selectId}`);
 
       element.className = element.className + ' ' + className;
     }
-  }
-
-  createClass(name, rules) {
-    var style = document.createElement('style');
-    style.type = 'text/css';
-    document.getElementsByTagName('head')[0].appendChild(style);
-
-    if (!(style.sheet || {}).insertRule) (style.styleSheet || style.sheet).addRule(name, rules);
-    else style.sheet.insertRule(name + '{' + rules + '}', 0);
   }
 }

@@ -1,5 +1,6 @@
 <div
   class="pix-multi-select"
+  ...attributes
   {{on-click-outside this.hideDropDown}}
   {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
   {{on-escape-action this.hideDropDown this.multiSelectId}}
@@ -14,7 +15,7 @@
   <PopperJS @placement={{@placement}} as |reference popover|>
 
     {{#if @isSearchable}}
-      <span {{reference}} class="pix-multi-select-header{{if @className this.className}}">
+      <span {{reference}} class={{this.headerClassName}}>
         <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
 
         <input
@@ -29,7 +30,6 @@
           aria-expanded={{this.isAriaExpanded}}
           aria-controls={{this.listId}}
           aria-haspopup="menu"
-          ...attributes
         />
       </span>
     {{else}}
@@ -40,9 +40,8 @@
         aria-expanded={{this.isAriaExpanded}}
         aria-controls={{this.listId}}
         aria-haspopup="menu"
-        class="pix-multi-select-header{{if @className this.className}}"
+        class={{this.headerClassName}}
         {{on "click" this.toggleDropDown}}
-        ...attributes
       >
         {{#if (has-block "placeholder")}}
           {{yield to="placeholder"}}
