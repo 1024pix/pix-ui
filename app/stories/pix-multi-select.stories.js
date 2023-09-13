@@ -100,6 +100,17 @@ export default {
         type: { summary: 'string' },
       },
     },
+    placement: {
+      name: 'placement',
+      description:
+        "Permet de placer la dropdown du select par rapport à son bouton. Par défaut, cela s'adapte tout seul.",
+      type: { name: 'string', required: false },
+      options: ['bottom', 'top', 'left', 'right'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: null },
+      },
+    },
   },
 };
 
