@@ -92,12 +92,23 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: false } },
     },
-    className: {
-      name: 'className',
+    headerClassName: {
+      name: 'headerClassName',
       description: 'Cette classe css permet de surcharger le css par défaut du composant.',
       type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
+      },
+    },
+    placement: {
+      name: 'placement',
+      description:
+        "Permet de placer la dropdown du select par rapport à son bouton. Par défaut, cela s'adapte tout seul.",
+      type: { name: 'string', required: false },
+      options: ['bottom', 'top', 'left', 'right'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: null },
       },
     },
   },

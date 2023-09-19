@@ -1,15 +1,13 @@
-<div>
-  <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
-    <label class="pix-filterable-and-searchable-select__label" for={{this.id}}>
-      {{#if @requiredText}}
-        <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
-      {{/if}}
-      {{@label}}
-    </label>
+<div id={{this.mainId}} ...attributes>
+  <label class={{this.classLabel}} for={{this.pixSelectId}}>
+    {{#if @requiredText}}
+      <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
+    {{/if}}
+    {{@label}}
     {{#if @subLabel}}
       <span class="pix-select__sub-label">{{@subLabel}}</span>
     {{/if}}
-  </div>
+  </label>
   <div
     class="pix-filterable-and-searchable-select{{if
         @errorMessage
@@ -17,6 +15,7 @@
       }}"
   >
     <PixMultiSelect
+      id={{this.pixMultiSelectId}}
       @values={{this.selectedCategories}}
       @label={{@categoriesLabel}}
       @options={{this.categories}}
@@ -28,7 +27,8 @@
       <:default as |option|>{{option.label}}</:default>
     </PixMultiSelect>
     <PixSelect
-      @id={{this.id}}
+      {{did-insert this.setSelectWidth}}
+      @id={{this.pixSelectId}}
       @placeholder={{@placeholder}}
       @value={{@value}}
       @options={{this.selectableOptions}}
@@ -38,6 +38,7 @@
       @screenReaderOnly={{true}}
       @hideDefaultOption={{@hideDefaultOption}}
       @className="pix-filterable-and-searchable-select__pix-select"
+      @isComputeWidthDisabled={{true}}
     />
   </div>
   {{#if @errorMessage}}

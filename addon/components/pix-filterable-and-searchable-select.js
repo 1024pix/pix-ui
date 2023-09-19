@@ -2,15 +2,25 @@ import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { createClass } from '../common/add-dynamic-style-tag';
 
 export default class PixFilterableAndSearchableSelect extends Component {
   @tracked selectedCategories = [];
-
-  id = 'pix-filterable-and-searchable-select' + guidFor(this);
+  mainId = 'pix-pfass-' + guidFor(this);
+  pixSelectId = 'pix-pfass-select-' + guidFor(this);
+  pixMultiSelectId = 'pix-pfass-multi-select-' + guidFor(this);
 
   @action
   selectCategories(categories) {
     this.selectedCategories = categories;
+  }
+
+  get classLabel() {
+    const cssClass = ['pix-filterable-and-searchable-select__label'];
+
+    if (this.args.screenReaderOnly) cssClass.push('screen-reader-only');
+
+    return cssClass.join(' ');
   }
 
   get categories() {
@@ -44,5 +54,23 @@ export default class PixFilterableAndSearchableSelect extends Component {
     });
 
     return selectableOptions;
+  }
+
+  @action
+  setSelectWidth(element) {
+    const baseFontRemRatio = Number(
+      getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+    );
+
+    const multiSelectWidth = document
+      .getElementById(this.pixMultiSelectId)
+      .getBoundingClientRect().width;
+
+    const selectWidth = Math.ceil(multiSelectWidth / baseFontRemRatio);
+
+    const className = `sizing-select-${this.pixSelectId}`;
+    createClass(`.${className}`, `width: calc(100% - ${selectWidth}rem);`);
+
+    element.className = element.className + ' ' + className;
   }
 }

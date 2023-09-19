@@ -136,6 +136,11 @@
   "ember-addon": {
     "configPath": "tests/dummy/config"
   },
+  "files": [
+    "addon/",
+    "app/",
+    "public/"
+  ],
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [skip ci]"
   }

@@ -1,5 +1,6 @@
 <div
   class="pix-multi-select"
+  ...attributes
   {{on-click-outside this.hideDropDown}}
   {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
   {{on-escape-action this.hideDropDown this.multiSelectId}}
@@ -11,75 +12,78 @@
       class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
     >{{@label}}</label>
   {{/if}}
-  {{#if @isSearchable}}
-    <span class="pix-multi-select-header{{if @className this.className}}">
-      <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
+  <PopperJS @placement={{@placement}} as |reference popover|>
 
-      <input
-        class="pix-multi-select-header__search-input"
+    {{#if @isSearchable}}
+      <span {{reference}} class={{this.headerClassName}}>
+        <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
+
+        <input
+          class="pix-multi-select-header__search-input"
+          id={{this.multiSelectId}}
+          type="text"
+          name={{this.multiSelectId}}
+          placeholder={{this.placeholder}}
+          autocomplete="off"
+          {{on "input" this.updateSearch}}
+          {{on "click" this.toggleDropDown}}
+          aria-expanded={{this.isAriaExpanded}}
+          aria-controls={{this.listId}}
+          aria-haspopup="menu"
+        />
+      </span>
+    {{else}}
+      <button
+        {{reference}}
         id={{this.multiSelectId}}
-        type="text"
-        name={{this.multiSelectId}}
-        placeholder={{this.placeholder}}
-        autocomplete="off"
-        {{on "input" this.updateSearch}}
-        {{on "click" this.toggleDropDown}}
+        type="button"
         aria-expanded={{this.isAriaExpanded}}
         aria-controls={{this.listId}}
         aria-haspopup="menu"
-        ...attributes
-      />
-    </span>
-  {{else}}
-    <button
-      id={{this.multiSelectId}}
-      type="button"
-      aria-expanded={{this.isAriaExpanded}}
-      aria-controls={{this.listId}}
-      aria-haspopup="menu"
-      class="pix-multi-select-header{{if @className this.className}}"
-      {{on "click" this.toggleDropDown}}
-      ...attributes
-    >
-      {{#if (has-block "placeholder")}}
-        {{yield to="placeholder"}}
-      {{else if @placeholder}}
-        {{this.placeholder}}
-      {{/if}}
-      <FaIcon
-        class="pix-multi-select-header__dropdown-icon
-          {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
-        @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
-      />
-    </button>
-  {{/if}}
-
-  <ul
-    class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
-    id={{this.listId}}
-    role="menu"
-  >
-    {{#if (gt this.results.length 0)}}
-      {{#each this.results as |option|}}
-        <li class="pix-multi-select-list__item" role="menuitem">
-          <PixCheckbox
-            @id={{concat this.multiSelectId "-" option.value}}
-            @checked={{option.checked}}
-            @labelSize="small"
-            @class="pix-multi-select-list__item-label"
-            value={{option.value}}
-            {{on "change" this.onSelect}}
-            {{on-enter-action this.hideDropDown this.multiSelectId}}
-            tabindex={{if this.isExpanded "0" "-1"}}
-          >
-            {{yield option}}
-          </PixCheckbox>
-        </li>
-      {{/each}}
-    {{else}}
-      <li
-        class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
-      >{{@emptyMessage}}</li>
+        class={{this.headerClassName}}
+        {{on "click" this.toggleDropDown}}
+      >
+        {{#if (has-block "placeholder")}}
+          {{yield to="placeholder"}}
+        {{else if @placeholder}}
+          {{this.placeholder}}
+        {{/if}}
+        <FaIcon
+          class="pix-multi-select-header__dropdown-icon
+            {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
+          @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+        />
+      </button>
     {{/if}}
-  </ul>
+
+    <ul
+      {{popover}}
+      class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
+      id={{this.listId}}
+      role="menu"
+    >
+      {{#if (gt this.results.length 0)}}
+        {{#each this.results as |option|}}
+          <li class="pix-multi-select-list__item" role="menuitem">
+            <PixCheckbox
+              @id={{concat this.multiSelectId "-" option.value}}
+              @checked={{option.checked}}
+              @labelSize="small"
+              @class="pix-multi-select-list__item-label"
+              value={{option.value}}
+              {{on "change" this.onSelect}}
+              {{on-enter-action this.hideDropDown this.multiSelectId}}
+              tabindex={{if this.isExpanded "0" "-1"}}
+            >
+              {{yield option}}
+            </PixCheckbox>
+          </li>
+        {{/each}}
+      {{else}}
+        <li
+          class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
+        >{{@emptyMessage}}</li>
+      {{/if}}
+    </ul>
+  </PopperJS>
 </div>
