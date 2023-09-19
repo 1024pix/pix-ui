@@ -1,5 +1,27 @@
 # Pix-UI Changelog
 
+## v40.0.0 (19/09/2023)
+
+
+### :building_construction: Tech
+- [#464](https://github.com/1024pix/pix-ui/pull/464) [TECH] Mise à jour du template de PR.
+- [#458](https://github.com/1024pix/pix-ui/pull/458) [TECH] N'autorise qu'une seule version de storybook.
+- [#423](https://github.com/1024pix/pix-ui/pull/423) [TECH] Mise à jour du changelog.
+
+### :bug: Correction
+- [#471](https://github.com/1024pix/pix-ui/pull/471) [BUGFIX] Corriger l'affichage des composant Select MultiSelect SearchableFilterableMultiSelect (Pix-9116).
+
+### :arrow_up: Montée de version
+- [#468](https://github.com/1024pix/pix-ui/pull/468) [BUMP] Update dependency @1024pix/ember-testing-library to ^0.8.0 (dossier racine).
+- [#465](https://github.com/1024pix/pix-ui/pull/465) [BUMP] Update browser-tools orb to v1.4.4 (.circleci).
+- [#467](https://github.com/1024pix/pix-ui/pull/467) [BUMP] Update actions/checkout action to v4 (workflows).
+- [#466](https://github.com/1024pix/pix-ui/pull/466) [BUMP] Update dependency ember-truth-helpers to v4 (dossier racine).
+- [#460](https://github.com/1024pix/pix-ui/pull/460) [BUMP] Update dependency eslint-config-prettier to v9 (dossier racine).
+- [#461](https://github.com/1024pix/pix-ui/pull/461) [BUMP] Update dependency node to v18.17.1.
+- [#463](https://github.com/1024pix/pix-ui/pull/463) [BUMP] Update dependency ember-page-title to v8 (dossier racine).
+- [#462](https://github.com/1024pix/pix-ui/pull/462) [BUMP] Update dependency ember-cli-babel to v8 (dossier racine).
+- [#457](https://github.com/1024pix/pix-ui/pull/457) [BUMP] Update dependency ember-resolver to v11 (dossier racine).
+
 ## v39.0.3 (02/08/2023)
 
 
