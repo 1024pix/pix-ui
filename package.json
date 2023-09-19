@@ -125,7 +125,7 @@
     "storybook": "^7.1.0",
     "stylelint": "^15.0.0",
     "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard-scss": "^10.0.0",
+    "stylelint-config-standard-scss": "^11.0.0",
     "webpack": "^5.75.0"
   },
   "bugs": {
