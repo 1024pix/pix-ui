@@ -69,7 +69,7 @@
     "@ember/string": "^3.0.1",
     "@ember/test-helpers": "^3.0.0",
     "@embroider/macros": "^1.11.0",
-    "@embroider/test-setup": "^3.0.0",
+    "@embroider/test-setup": "^3.0.2",
     "@fortawesome/ember-fontawesome": "^1.0.0",
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
