@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Button',
+  title: 'Design System/Atoms/Button',
   argTypes: {
     type: {
       name: 'type',

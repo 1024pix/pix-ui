@@ -31,6 +31,11 @@ const preview = {
             'Architecture',
             'Storybook'
           ],
+          'Design System',
+          [
+            'Atoms',
+            'Molecules'
+          ]
         ],
       },
     },

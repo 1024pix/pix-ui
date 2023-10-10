@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/Toggle',
+  title: 'Design System/Atoms/Toggle',
   argTypes: {
     label: {
       name: 'label',

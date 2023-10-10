@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Notification/Banner',
+  title: 'Design System/Molecules/Banner',
   argTypes: {
     actionLabel: {
       name: 'actionLabel',

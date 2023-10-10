@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Others/SearchInput',
+  title: 'Design System/Molecules/SearchInput',
   argTypes: {
     id: {
       name: 'id',

@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Basics/Icon button',
+  title: 'Design System/Atoms/Icon button',
   argTypes: {
     ariaLabel: {
       name: 'ariaLabel',

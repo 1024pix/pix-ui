@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Others/Progress Gauge',
+  title: 'Design System/Molecules/Progress Gauge',
   argTypes: {
     value: {
       name: 'value',

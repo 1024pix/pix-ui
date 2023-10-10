@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Others/Collapsible',
+  title: 'Design System/Molecules/Collapsible',
   argTypes: {
     title: {
       name: 'title',

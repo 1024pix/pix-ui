@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Pagination',
+  title: 'Design System/Molecules/Pagination',
   render: (args) => ({
     template: hbs`<PixPagination
   @pagination={{this.pagination}}

@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Modal',
+  title: 'Design System/Molecules/Modal',
   render: (args) => ({
     template: hbs`<PixModal
   @showModal={{this.showModal}}

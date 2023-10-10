@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'basics/Tag/Selectable Tag',
+  title: 'Design System/Atoms/Tag/Selectable Tag',
   argTypes: {
     label: {
       name: 'label',
