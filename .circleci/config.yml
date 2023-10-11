@@ -65,7 +65,7 @@ jobs:
         type: string
     docker:
       - image: cimg/node:<< parameters.node-version >>-browsers
-    resource_class: medium+
+    resource_class: large
     steps:
       - browser-tools/install-chrome
       - checkout

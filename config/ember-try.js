@@ -7,9 +7,10 @@ const optimized = embroiderOptimized();
 
 module.exports = async function () {
   const pinnedDependencies = {
-    '@embroider/core': `3.0.2`,
-    '@embroider/webpack': `3.0.0`,
-    '@embroider/compat': `3.0.2`,
+    '@embroider/core': '3.0.2',
+    '@embroider/webpack': '3.0.0',
+    '@embroider/compat': '3.0.2',
+    '@embroider/test-setup': '3.0.0',
   };
 
   return {
