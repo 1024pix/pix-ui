@@ -1,5 +1,29 @@
 # Pix-UI Changelog
 
+## v40.1.0 (23/10/2023)
+
+
+### :rocket: Amélioration
+- [#479](https://github.com/1024pix/pix-ui/pull/479) [FEATURE] Retirer le Pix Dropdown de Storybook (PIX-9205).
+
+### :building_construction: Tech
+- [#483](https://github.com/1024pix/pix-ui/pull/483) [TECH] Ajoute le support node@v20.
+- [#426](https://github.com/1024pix/pix-ui/pull/426) [TECH] add turboSnap.
+
+### :bug: Correction
+- [#484](https://github.com/1024pix/pix-ui/pull/484) [BUGFIX] Corrige les scénarios ember-try.
+
+### :arrow_up: Montée de version
+- [#475](https://github.com/1024pix/pix-ui/pull/475) [BUMP] Update dependency ember-qunit to v8 (dossier racine).
+- [#485](https://github.com/1024pix/pix-ui/pull/485) [BUMP] Lock file maintenance (dossier racine).
+- [#470](https://github.com/1024pix/pix-ui/pull/470) [BUMP] Update dependency stylelint-config-standard-scss to v11 (dossier racine).
+- [#474](https://github.com/1024pix/pix-ui/pull/474) [BUMP] Update browser-tools orb to v1.4.6 (.circleci).
+- [#472](https://github.com/1024pix/pix-ui/pull/472) [BUMP] Update browser-tools orb to v1.4.5 (.circleci).
+
+### :coffee: Autre
+- [#478](https://github.com/1024pix/pix-ui/pull/478) [DOCS] Tester des changements sur Pix UI en développement sur une app localement.
+- [#476](https://github.com/1024pix/pix-ui/pull/476) [CLEANUP] Suppression de l'archive 1024pix-pix-ui-39.0.3.tgz a la racine.
+
 ## v40.0.0 (19/09/2023)
 
 
