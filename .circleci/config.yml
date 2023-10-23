@@ -13,6 +13,7 @@ workflows:
               node-version:
                 - "16.20.1"
                 - "18.17.0"
+                - "20.8.0"
           filters:
             branches:
               ignore:
@@ -26,6 +27,7 @@ workflows:
               node-version:
                 - "16.20.1"
                 - "18.17.0"
+                - "20.8.0"
           filters:
             branches:
               ignore:
@@ -35,6 +37,7 @@ workflows:
             parameters:
               node-version:
                 - "18.17.0"
+                - "20.8.0"
           filters:
             branches:
               ignore:
