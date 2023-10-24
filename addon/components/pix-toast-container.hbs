@@ -1,0 +1,9 @@
+<div class="pix-toast-container">
+  {{#if this.pixToast.content}}
+    <PixToast
+      @message={{this.pixToast.content.message}}
+      @ariaLabelForCloseButton={{this.pixToast.content.ariaLabel}}
+      @type={{this.pixToast.content.type}}
+    />
+  {{/if}}
+</div>

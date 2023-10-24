@@ -1,0 +1,17 @@
+<div class="pix-toast {{concat 'pix-toast--' this.type}}" ...attributes>
+  <div class="pix-toast__icon {{concat 'pix-toast__icon--' this.type}}">
+    <FaIcon @icon={{this.iconClass}} />
+  </div>
+  <p class="pix-toast__content">
+    {{@message}}
+  </p>
+  <div class="pix-toast__close-button-container">
+    <PixIconButton
+      @ariaLabel={{@ariaLabelForCloseButton}}
+      @icon="xmark"
+      @size="small"
+      @triggerAction={{this.removeNotification}}
+      class="{{concat 'pix-toast__close-button--' this.type}}"
+    />
+  </div>
+</div>
