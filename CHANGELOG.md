@@ -1,5 +1,16 @@
 # Pix-UI Changelog
 
+## v41.0.1 (07/11/2023)
+
+
+### :building_construction: Tech
+- [#488](https://github.com/1024pix/pix-ui/pull/488) [TECH] Supprime un warning.
+
+### :arrow_up: Montée de version
+- [#495](https://github.com/1024pix/pix-ui/pull/495) [BUMP] Update dependency @1024pix/stylelint-config to v5 (dossier racine).
+- [#491](https://github.com/1024pix/pix-ui/pull/491) [BUMP] Update actions/setup-node action to v4 (workflows).
+- [#490](https://github.com/1024pix/pix-ui/pull/490) [BUMP] Update dependency @1024pix/ember-testing-library to v1 (dossier racine).
+
 ## v41.0.0 (07/11/2023)
 
 
