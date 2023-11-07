@@ -58,7 +58,7 @@
     "lodash.debounce": "^4.0.8"
   },
   "devDependencies": {
-    "@1024pix/ember-testing-library": "^0.8.0",
+    "@1024pix/ember-testing-library": "^0.9.0",
     "@1024pix/eslint-config": "^1.0.3",
     "@1024pix/storybook-ember": "^7.1.1",
     "@1024pix/stylelint-config": "^4.0.1",
