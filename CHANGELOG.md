@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v41.0.0 (07/11/2023)
+
+
+### :building_construction: Tech
+- [#487](https://github.com/1024pix/pix-ui/pull/487) [TECH] Suppression du support Node 16 et Node 18.
+
 ## v40.1.0 (23/10/2023)
 
 
