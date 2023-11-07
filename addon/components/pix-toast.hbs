@@ -13,7 +13,7 @@
       @ariaLabel={{@ariaLabelForCloseButton}}
       @icon="xmark"
       @size="small"
-      @triggerAction={{@onCloseButtonClick}}
+      @triggerAction={{this.removeNotification}}
       class="{{concat 'pix-toast__close-button--' this.type}}"
     />
   </div>
