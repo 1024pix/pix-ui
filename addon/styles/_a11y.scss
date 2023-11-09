@@ -1,10 +1,36 @@
+// https://gist.github.com/ffoodd/000b59f431e3e64e4ce1a24d5bb36034
+
 .screen-reader-only, .screen-reader-only > * {
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  margin: -1px;
-  padding: 0;
-  overflow: hidden;
-  border: 0;
-  clip: rect(0, 0, 0, 0);
+  position: absolute !important;
+  width: 1px !important;
+  height: 1px !important;
+  margin: -1px !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  white-space: nowrap !important;
+  border: 0 !important;
+  clip: rect(1px, 1px, 1px, 1px) !important;
+  -webkit-clip-path: inset(50%) !important;
+  clip-path: inset(50%) !important;
+}
+
+/*
+	Use in conjunction with .screen-reader-only to only display content when it's focused.
+	@note Useful for skip links
+	@see http://www.w3.org/TR/2013/NOTE-WCAG20-TECHS-20130905/G1
+	@note Based on a HTML5 Boilerplate technique, included in Bootstrap
+	@note Fixed a bug with position: static on iOS 10.0.2 + VoiceOver
+		@author Sylvain Pigeard
+		@see https://github.com/twbs/bootstrap/issues/20732
+*/
+.screen-reader-only-focusable:focus,
+.screen-reader-only-focusable:active {
+  width: auto !important;
+  height: auto !important;
+  margin: auto !important;
+  overflow: visible !important;
+  white-space: normal !important;
+  clip: auto !important;
+  -webkit-clip-path: none !important;
+  clip-path: none !important;
 }
