@@ -1,5 +1,17 @@
 # Pix-UI Changelog
 
+## v41.0.2 (10/11/2023)
+
+
+### :building_construction: Tech
+- [#492](https://github.com/1024pix/pix-ui/pull/492) [TECH] Mise à jour de la classe .screen-reader-only.
+
+### :arrow_up: Montée de version
+- [#493](https://github.com/1024pix/pix-ui/pull/493) [BUMP] Update dependency node to v20.9.0.
+
+### :coffee: Autre
+- [#494](https://github.com/1024pix/pix-ui/pull/494) [DOC] Ajout de la doc pour la classe `screen-reader-only` (pix-7740).
+
 ## v41.0.1 (07/11/2023)
 
 
