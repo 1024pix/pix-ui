@@ -17,23 +17,25 @@ Le standard d'équipe est de créer un placeholder SCSS et une classe CSS préfi
 Par exemple :
 
 ```
-%pix-title-large {
-  font-family: $font-open-sans;
+%pix-title-l {
+  font-family: Nunito, Arial, sans-serif;
   font-size: 2rem;
-  line-height: 1.25;
-  letter-spacing: -0.04em;
-  font-weight: 500;
+  line-height: 1.3;
+  letter-spacing: -0.04rem;
+  font-weight: 700;
 
   @include device-is('tablet') {
     font-size: 2.5rem;
+    letter-spacing: -0.05rem;
   }
 
   @include device-is('desktop') {
     font-size: 3rem;
+    letter-spacing: -0.06rem;
   }
 }
 
-.pix-text {
-  @extend %pix-title-large;
+.my-text {
+  @extend %pix-title-l;
 }
 ```
