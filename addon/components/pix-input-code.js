@@ -125,6 +125,12 @@ export default class PixInputCode extends Component {
     this.focusElement(index);
     this.triggerAction();
   }
+
+  @action
+  handleFocus(index) {
+    const element = document.getElementById(`code-input-${index}`);
+    element && element.select();
+  }
 }
 
 function _extractValidCharacters(pastedText) {
