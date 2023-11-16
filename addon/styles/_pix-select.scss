@@ -21,7 +21,7 @@
     overflow-y: auto;
     white-space: nowrap;
     list-style-type: none;
-    background-color: $pix-neutral-0;
+    background-color: var(--pix-neutral-0);
     border-top: none;
     border-radius: 0 0 $pix-spacing-xxs $pix-spacing-xxs;
     box-shadow: 0 6px 12px rgba(7, 20, 46, 0.08);
@@ -32,19 +32,19 @@
     }
 
     &::-webkit-scrollbar-track {
-      background: $pix-neutral-20;
-      border: 1px solid $pix-neutral-20;
+      background: var(--pix-neutral-20);
+      border: 1px solid var(--pix-neutral-20);
       border-radius: $pix-spacing-xxs;
     }
 
     &::-webkit-scrollbar-thumb {
       width: 0.375rem;
-      background: $pix-neutral-30;
+      background: var(--pix-neutral-100);
       border-radius: $pix-spacing-xxs;
     }
 
     &::-webkit-scrollbar-thumb:hover {
-      background: $pix-neutral-35;
+      background: var(--pix-neutral-100);
     }
 
     &--closed {
@@ -56,25 +56,25 @@
   &__empty-search-message {
     @extend %pix-body-s;
 
-    color: $pix-neutral-70;
+    color: var(--pix-neutral-800);
     text-align: center;
   }
 
   &__search {
     display: flex;
     margin: $pix-spacing-s $pix-spacing-m;
-    color: $pix-neutral-30;
-    border-bottom: 2px solid $pix-neutral-22;
+    color: var(--pix-neutral-100);
+    border-bottom: 2px solid var(--pix-neutral-100);
     border-radius: $pix-spacing-xxs $pix-spacing-xxs 0 0;
 
     &:focus-within {
-      background: $pix-neutral-10;
-      border-bottom: 2px solid $pix-primary;
+      background: var(--pix-neutral-20);
+      border-bottom: 2px solid var(--pix-primary-500);
     }
   }
 
   &__options {
-    border-top: 1px solid $pix-neutral-20;
+    border-top: 1px solid var(--pix-neutral-20);
   }
 
   &__error-message {
@@ -91,9 +91,9 @@
   width: 100%;
   height: 2.25rem;
   padding: 0 $pix-spacing-s 0 $pix-spacing-s;
-  color: $pix-neutral-90;
-  background-color: $pix-neutral-0;
-  border: 1px $pix-neutral-45 solid;
+  color: var(--pix-neutral-900);
+  background-color: var(--pix-neutral-0);
+  border: 1px var(--pix-neutral-500) solid;
   border-radius: $pix-spacing-xxs;
   outline: none;
   cursor: pointer;
@@ -120,7 +120,7 @@
   &__dropdown-icon {
     @extend %pix-body-s;
 
-    color: $pix-neutral-60;
+    color: var(--pix-neutral-500);
     pointer-events: none;
   }
 }
@@ -136,7 +136,7 @@
     @extend %pix-body-s;
 
     padding: $pix-spacing-s $pix-spacing-m $pix-spacing-xs $pix-spacing-m;
-    color: $pix-neutral-45;
+    color: var(--pix-neutral-500);
     text-transform: uppercase;
   }
 
@@ -147,11 +147,11 @@
     gap: $pix-spacing-m;
     justify-content: space-between;
     padding: $pix-spacing-xs $pix-spacing-m;
-    color: $pix-neutral-70;
+    color: var(--pix-neutral-800);
 
     &:hover,
     &:focus {
-      background-color: $pix-neutral-10;
+      background-color: var(--pix-neutral-20);
       outline: none;
       cursor: pointer;
     }
@@ -164,7 +164,7 @@
 
     &--selected {
       align-items: center;
-      background-color: $pix-primary-5;
+      background-color: var(--pix-primary-10);
 
       svg {
         visibility: visible;
@@ -191,7 +191,7 @@
     border: none;
 
     &:focus {
-      background: $pix-neutral-10;
+      background: var(--pix-neutral-20);
       outline: none;
     }
   }

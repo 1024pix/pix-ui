@@ -26,7 +26,7 @@ $button-margin: 16px;
   flex-direction: column;
   max-width: 320px;
   height: 100%;
-  background: $pix-neutral-0;
+  background: var(--pix-neutral-0);
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
   transform: translate(0);
   transition: transform 0.3s ease-in-out;
@@ -40,7 +40,7 @@ $button-margin: 16px;
     align-items: center;
     justify-content: space-between;
     padding: $sidebar-padding;
-    border-bottom: 1px solid $pix-neutral-20;
+    border-bottom: 1px solid var(--pix-neutral-20);
   }
 
   &__close-button {
@@ -62,7 +62,7 @@ $button-margin: 16px;
 
     margin-bottom: 0;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
 
     @include device-is('tablet') {
       padding-right: $tablet-close-button-size + $space-between-title-and-close-button;
@@ -71,6 +71,6 @@ $button-margin: 16px;
 
   &__footer {
     padding: $sidebar-padding;
-    border-top: 1px solid $pix-neutral-20;
+    border-top: 1px solid var(--pix-neutral-20);
   }
 }

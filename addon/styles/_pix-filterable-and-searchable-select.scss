@@ -1,7 +1,7 @@
 .pix-filterable-and-searchable-select {
   display: flex;
   max-width: 100%;
-  border: 1px $pix-neutral-45 solid;
+  border: 1px var(--pix-neutral-500) solid;
   border-radius: 4px;
 
   &--error {
@@ -51,7 +51,7 @@
       right: -2px;
       width: 2px;
       height: 22px;
-      background-color: $pix-neutral-22;
+      background-color: var(--pix-neutral-100);
       border-radius: 50px;
       content: '';
     }

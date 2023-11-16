@@ -3,9 +3,9 @@
   width: 100%;
   min-height: 112px;
   padding: 0;
-  background-color: $pix-neutral-0;
+  background-color: var(--pix-neutral-0);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba($pix-neutral-110, 0.05);
+  box-shadow: 0 4px 8px rgba(var(--pix-neutral-900), 0.05);
 
   &__icon {
     display: flex;
@@ -16,23 +16,23 @@
     border-radius: 8px 0 0 8px;
 
     &--grey {
-      color: $pix-neutral-60;
-      background-color: $pix-neutral-5;  
+      color: var(--pix-neutral-500);
+      background-color: var(--pix-neutral-20);  
     }
 
     &--blue {
-      color: $pix-primary-60;
-      background-color: $pix-primary-5;  
+      color: var(--pix-primary-700);
+      background-color: var(--pix-primary-10);  
     }
 
     &--green {
-      color: $pix-success-60;
-      background-color: $pix-success-5;  
+      color: var(--pix-success-700);
+      background-color: var(--pix-success-50);  
     }
 
     &--purple {
-      color: $pix-tertiary-60;
-      background-color: $pix-tertiary-5;  
+      color: var(--pix-tertiary-900);
+      background-color: var(--pix-tertiary-100);  
     }
   }
 
@@ -41,7 +41,7 @@
     flex-direction: column;
     justify-content: center;
     padding: $pix-spacing-s $pix-spacing-m;
-    color: $pix-neutral-60;
+    color: var(--pix-neutral-500);
   }
 
   &__title {
@@ -75,6 +75,6 @@
 
   &__tooltip-icon {
     margin: 0 $pix-spacing-xs;
-    color: $pix-neutral-30;
+    color: var(--pix-neutral-100);
   }
 }

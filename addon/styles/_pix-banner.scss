@@ -27,80 +27,80 @@
   }
 
   &--information {
-    color: $pix-primary-70;
-    background-color: $pix-primary-5;
+    color: var(--pix-primary-700);
+    background-color: var(--pix-primary-10);
 
     .pix-icon-button {
-      color: $pix-primary-70;
-      background-color: $pix-primary-5;
+      color: var(--pix-primary-700);
+      background-color: var(--pix-primary-10);
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        color: $pix-primary-70;
-        background-color: $pix-primary-10;
+        color: var(--pix-primary-700);
+        background-color: var(--pix-primary-100);
       }
 
       &:focus:enabled {
-        outline-color: $pix-primary-70;
+        outline-color: var(--pix-primary-700);
       }
     }
   }
 
   &--warning {
-    color: $pix-warning-70;
-    background-color: $pix-warning-5;
+    color: var(--pix-warning-700);
+    background-color: var(--pix-warning-50);
 
     .pix-icon-button {
-      color: $pix-warning-70;
-      background-color: $pix-warning-5;
+      color: var(--pix-warning-700);
+      background-color: var(--pix-warning-50);
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        color: $pix-warning-70;
-        background-color: $pix-warning-10;
+        color: var(--pix-warning-700);
+        background-color: var(--pix-warning-100);
       }
 
       &:focus:enabled {
-        outline-color: $pix-warning-70;
+        outline-color: var(--pix-warning-700);
       }
     }
   }
 
   &--error {
-    color: $pix-error-70;
-    background-color: $pix-error-5;
+    color: var(--pix-error-700);
+    background-color: var(--pix-error-50);
 
     .pix-icon-button {
-      color: $pix-error-70;
-      background-color: $pix-error-5;
+      color: var(--pix-error-700);
+      background-color: var(--pix-error-50);
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        color: $pix-error-70;
-        background-color: $pix-error-10;
+        color: var(--pix-error-700);
+        background-color: var(--pix-error-100);
       }
 
       &:focus:enabled {
-        outline-color: $pix-error-70;
+        outline-color: var(--pix-error-700);
       }
     }
   }
 
   &--communication {
-    color: $pix-neutral-0;
-    background-color: $pix-primary;
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-primary-500);
 
     &-orga {
-      color: $pix-neutral-0;
-      background-color: $pix-secondary-orga-80;
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-orga-500);
     }
 
     &-certif {
-      color: $pix-neutral-0;
-      background-color: $pix-secondary-certif-50;
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-certif-500);
     }
   }
 }

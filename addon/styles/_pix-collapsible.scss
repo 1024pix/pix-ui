@@ -1,6 +1,6 @@
 .pix-collapsible {
-  background-color: $pix-neutral-0;
-  border: 1px solid $pix-neutral-20;
+  background-color: var(--pix-neutral-0);
+  border: 1px solid var(--pix-neutral-20);
 
   &:first-child,
   &:first-child .pix-collapsible__title {
@@ -25,7 +25,7 @@
   justify-content: space-between;
   width: 100%;
   padding: $pix-spacing-s;
-  color: $pix-neutral-90;
+  color: var(--pix-neutral-900);
   font-size: 1rem;
   line-height: 1.25;
   border: none;
@@ -33,11 +33,11 @@
   &:hover,
   &:focus,
   &[aria-expanded='true'] {
-    background-color: $pix-neutral-10;
+    background-color: var(--pix-neutral-20);
   }
 
   &[aria-expanded='true'] {
-    border-bottom: 1px solid $pix-neutral-20;
+    border-bottom: 1px solid var(--pix-neutral-20);
   }
 }
 
@@ -50,7 +50,7 @@
 
   &__icon {
     margin-right: $pix-spacing-xs;
-    color: $pix-neutral-50;
+    color: var(--pix-neutral-500);
   }
 
   &__toggle-icon {
@@ -63,12 +63,12 @@
 }
 
 .pix-collapsible__title:hover .pix-collapsible-title__toggle-icon {
-  background-color: $pix-neutral-20;
+  background-color: var(--pix-neutral-20);
 }
 
 .pix-collapsible__content {
   padding: $pix-spacing-s;
-  color: $pix-neutral-60;
+  color: var(--pix-neutral-500);
   font-size: 0.875rem;
   line-height: 1.25rem;
 

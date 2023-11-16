@@ -3,7 +3,7 @@
   flex-direction: column;
 
   &__label {
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
 
     @extend %pix-body-m;
   }
@@ -13,7 +13,7 @@
     margin-top: $pix-spacing-xxs;
     padding: $pix-spacing-xxs;
     background-color: transparent;
-    border: 1px solid $pix-neutral-30;
+    border: 1px solid var(--pix-neutral-100);
     border-radius: 4px;
   }
 
@@ -21,15 +21,15 @@
   &__off {
     display: inline-block;
     padding: $pix-spacing-xs;
-    color: $pix-neutral-70;
+    color: var(--pix-neutral-800);
     border-radius: 4px;
 
     @extend %pix-body-s;
   }
 
   &__off {
-    color: $pix-neutral-0;
-    background-color: $pix-neutral-45;
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-neutral-500);
   }
 
   &--inline {
@@ -50,8 +50,8 @@
   &--pressed {
     .pix-toggle {
       &__on {
-        color: $pix-neutral-0;
-        background-color: $pix-neutral-45;
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-neutral-500);
       }
 
       &__off {

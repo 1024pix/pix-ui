@@ -2,12 +2,12 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: $pix-neutral-0;
+  color: var(--pix-neutral-0);
   font-weight: $font-medium;
   font-size: 0.875rem;
   white-space: nowrap;
   text-decoration: none;
-  background-color: $pix-primary;
+  background-color: var(--pix-primary-500);
   border: 1px solid transparent;
   outline: none;
   cursor: pointer;
@@ -38,115 +38,115 @@
   }
 
   &--background-blue {
-    background-color: $pix-primary;
+    background-color: var(--pix-primary-500);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-primary-60;
+        background-color: var(--pix-primary-700);
       }
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-primary-60;
-        outline: 1px solid $pix-neutral-0;
+        background-color: var(--pix-primary-700);
+        outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-primary-70;
+        background-color: var(--pix-primary-700);
         outline: none;
       }
     }
   }
 
   &--background-green {
-    background-color: $pix-success-60;
+    background-color: var(--pix-success-700);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-success-70;
+        background-color: var(--pix-success-700);
       }
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-success-70;
-        outline: 1px solid $pix-neutral-0;
+        background-color: var(--pix-success-700);
+        outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-success-80;
+        background-color: var(--pix-success-900);
         outline: none;
       }
     }
   }
 
   &--background-yellow {
-    color: $pix-neutral-100;
-    background-color: $pix-warning-40;
+    color: var(--pix-neutral-900);
+    background-color: var(--pix-warning-500);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-warning-50;
+        background-color: var(--pix-warning-500);
       }
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-warning-50;
-        outline: 1px solid $pix-neutral-0;
+        background-color: var(--pix-warning-500);
+        outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-warning-60;
+        background-color: var(--pix-warning-700);
         outline: none;
       }
     }
   }
 
   &--background-red {
-    color: $pix-neutral-0;
-    background-color: $pix-error-70;
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-error-700);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-error-80;
+        background-color: var(--pix-error-900);
       }
 
       &:focus,
       &:focus-visible {
-        background-color: $pix-error-70;
-        outline: 1px solid $pix-neutral-0;
+        background-color: var(--pix-error-700);
+        outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-error-90;
+        background-color: var(--pix-error-900);
         outline: none;
       }
     }
   }
 
   &--background-grey {
-    color: $pix-neutral-90;
-    background-color: $pix-neutral-20;
+    color: var(--pix-neutral-900);
+    background-color: var(--pix-neutral-20);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: $pix-neutral-22;
+        background-color: var(--pix-neutral-100);
       }
 
       &:focus,
       &:focus-visible {
-        color: $pix-neutral-0;
-        background-color: $pix-neutral-90;
-        outline: 1px solid $pix-neutral-0;
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-neutral-900);
+        outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        color: $pix-neutral-90;
-        background-color: $pix-neutral-25;
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-100);
         outline: none;
       }
     }
@@ -154,66 +154,66 @@
 
   /* deprecated in favor of --background-transparent-light + --border */
   &--background-transparent {
-    color: $pix-neutral-50;
+    color: var(--pix-neutral-500);
     background-color: transparent;
-    border: 1px solid $pix-neutral-50;
+    border: 1px solid var(--pix-neutral-500);
   }
 
   &--background-transparent-light {
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
     background-color: transparent;
 
     &.pix-button--border {
-      border: 1px solid $pix-neutral-50;
+      border: 1px solid var(--pix-neutral-500);
     }
 
     &:not(.pix-button--disabled) {
       &:hover {
-        color: $pix-neutral-0;
-        background-color: $pix-neutral-60;
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-neutral-500);
         border: 1px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        color: $pix-neutral-0;
-        background-color: $pix-neutral-90;
-        outline: 1px solid $pix-neutral-0;
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-neutral-900);
+        outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-neutral-70;
+        background-color: var(--pix-neutral-800);
         outline: none;
       }
     }
   }
 
   &--background-transparent-dark {
-    color: $pix-neutral-0;
+    color: var(--pix-neutral-0);
     background-color: transparent;
 
     &.pix-button--border {
-      border: 1px solid $pix-neutral-0;
+      border: 1px solid var(--pix-neutral-0);
     }
 
     &:not(.pix-button--disabled) {
       &:hover {
-        color: $pix-neutral-90;
-        background-color: $pix-neutral-10;
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-20);
         border: 1px solid transparent;
       }
 
       &:focus,
       &:focus-visible {
-        color: $pix-neutral-90;
-        background-color: $pix-neutral-10;
-        outline: 1px solid $pix-neutral-90;
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-20);
+        outline: 1px solid var(--pix-neutral-900);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: $pix-neutral-20;
+        background-color: var(--pix-neutral-20);
         outline: none;
       }
     }

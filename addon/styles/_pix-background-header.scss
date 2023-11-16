@@ -9,7 +9,7 @@
     z-index: -1;
     width: 100%;
     min-height: 270px;
-    color: $pix-neutral-0;
+    color: var(--pix-neutral-0);
     background: $pix-primary-app-gradient;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   }

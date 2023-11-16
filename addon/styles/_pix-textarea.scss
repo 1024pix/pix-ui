@@ -2,9 +2,9 @@
   textarea {
     width: 100%;
     padding: 10px 16px;
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
     font-size: 0.875rem;
-    border: 1px solid $pix-neutral-40;
+    border: 1px solid var(--pix-neutral-500);
     border-style: solid;
     border-radius: 4px;
     resize: vertical;
@@ -22,7 +22,7 @@
     flex-direction: row-reverse;
     margin-top: 6px;
     margin-bottom: 0;
-    color: $pix-neutral-45;
+    color: var(--pix-neutral-500);
     font-size: 12px;
   }
 

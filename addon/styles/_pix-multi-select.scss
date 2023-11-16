@@ -15,10 +15,10 @@
   width: 100%;
   height: 36px;
   padding: 0 32px 0 16px;
-  color: $pix-neutral-90;
+  color: var(--pix-neutral-900);
   font-size: 0.875rem;
-  background-color: $pix-neutral-0;
-  border: 1px $pix-neutral-40 solid;
+  background-color: var(--pix-neutral-0);
+  border: 1px var(--pix-neutral-500) solid;
   border-radius: 4px;
   outline: none;
   cursor: pointer;
@@ -31,7 +31,7 @@
   }
 
   &__search-icon {
-    color: $pix-neutral-30;
+    color: var(--pix-neutral-100);
   }
 
   &__title {
@@ -45,7 +45,7 @@
     width: 100%;
     height: inherit;
     padding: 0 10px;
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
     font-size: 0.875rem;
     background: transparent;
     border: none;
@@ -59,7 +59,7 @@
     position: absolute;
     top: calc(50% - 6px);
     right: 10px;
-    color: $pix-neutral-60;
+    color: var(--pix-neutral-500);
     pointer-events: none;
   }
 }
@@ -74,7 +74,7 @@
   padding: 0;
   overflow-y: auto;
   list-style-type: none;
-  background-color: $pix-neutral-0;
+  background-color: var(--pix-neutral-0);
   border-top: none;
   border-radius: 0 0 4px 4px;
   box-shadow: 0 6px 12px rgba(7, 20, 46, 0.08);
@@ -94,18 +94,18 @@
   }
 
   &::-webkit-scrollbar-track {
-    background: $pix-neutral-0;
-    border: 1px solid $pix-neutral-20;
+    background: var(--pix-neutral-0);
+    border: 1px solid var(--pix-neutral-20);
     border-radius: 4px;
   }
 
   &::-webkit-scrollbar-thumb {
-    background: $pix-neutral-30;
+    background: var(--pix-neutral-100);
     border-radius: 4px;
   }
 
   &::-webkit-scrollbar-thumb:hover {
-    background: $pix-neutral-35;
+    background: var(--pix-neutral-100);
   }
 
   li.pix-multi-select-list__item {
@@ -114,7 +114,7 @@
 
     &:hover,
     &:focus {
-      background-color: $pix-neutral-10;
+      background-color: var(--pix-neutral-20);
       outline: none;
       cursor: pointer;
     }

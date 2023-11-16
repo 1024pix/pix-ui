@@ -3,7 +3,7 @@
   z-index: 0;
   display: flex;
   align-items: center;
-  color: $pix-neutral-70;
+  color: var(--pix-neutral-800);
 
   & + .pix-checkbox {
     margin-top: $pix-spacing-s;
@@ -13,7 +13,7 @@
 /* Label */
 .pix-checkbox__label {
   padding-left: 12px;
-  color: $pix-neutral-90;
+  color: var(--pix-neutral-900);
   font-size: 1rem;
   line-height: 1.5;
   cursor: pointer;
@@ -33,8 +33,8 @@
   flex-shrink: 0;
   width: 1rem;
   height: 1rem;
-  background-color: $pix-neutral-0;
-  border: 1.5px solid $pix-neutral-70;
+  background-color: var(--pix-neutral-0);
+  border: 1.5px solid var(--pix-neutral-800);
   border-radius: 2px;
   cursor: pointer;
   appearance: none;
@@ -47,7 +47,7 @@
     z-index: -1;
     width: 1rem;
     height: 1rem;
-    background-color: $pix-neutral-15;
+    background-color: var(--pix-neutral-20);
     border-radius: 50%;
     transform: translate(-50%, -50%) scale(1);
     visibility: hidden;
@@ -59,7 +59,7 @@
   &:hover,
   &:focus-visible,
   &:active {
-    border-color: $pix-neutral-90;
+    border-color: var(--pix-neutral-900);
 
     &::before {
       transform: translate(-50%, -50%) scale(1.75);
@@ -70,20 +70,20 @@
 
   &:active {
     &::before {
-      background-color: $pix-neutral-22;
+      background-color: var(--pix-neutral-100);
     }
   }
 
   // Checked state
   &:checked {
-    background: $pix-primary;
-    border-color: $pix-primary;
+    background: var(--pix-primary-500);
+    border-color: var(--pix-primary-500);
 
     &:hover,
     &:focus-visible,
     &:active {
-      background: $pix-primary-60;
-      border-color: $pix-primary-60;
+      background: var(--pix-primary-700);
+      border-color: var(--pix-primary-700);
     }
 
     &::after {
@@ -99,14 +99,14 @@
 
   // Indeterminate state
   &--indeterminate:checked {
-    background: $pix-neutral-70;
-    border-color: $pix-neutral-70;
+    background: var(--pix-neutral-800);
+    border-color: var(--pix-neutral-800);
 
     &:hover,
     &:focus-visible,
     &:active {
-      background: $pix-neutral-90;
-      border-color: $pix-neutral-90;
+      background: var(--pix-neutral-900);
+      border-color: var(--pix-neutral-900);
     }
 
     &::after {
@@ -118,8 +118,8 @@
   // Disabled state
   &:disabled,
   &--indeterminate:disabled {
-    background: $pix-neutral-10;
-    border-color: $pix-neutral-30;
+    background: var(--pix-neutral-20);
+    border-color: var(--pix-neutral-100);
     cursor: not-allowed;
 
     & + .pix-checkbox__label {
@@ -127,8 +127,8 @@
     }
 
     &:checked {
-      background: $pix-neutral-30;
-      border-color: $pix-neutral-30;
+      background: var(--pix-neutral-100);
+      border-color: var(--pix-neutral-100);
     }
 
     &::before {

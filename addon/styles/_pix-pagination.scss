@@ -2,7 +2,7 @@
 .pix-pagination-condensed {
   display: flex;
   justify-content: center;
-  color: $pix-neutral-60;
+  color: var(--pix-neutral-500);
   font-size: 0.875rem;
 
   &__size {

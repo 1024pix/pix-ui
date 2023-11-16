@@ -44,7 +44,7 @@ $button-margin: 16px;
   overflow: hidden;
   text-align: initial;
   vertical-align: middle; // Centered vertically with the .pix-modal__overlay::after which is 100% height
-  background-color: $pix-neutral-10;
+  background-color: var(--pix-neutral-20);
   border-radius: 4px;
   box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.1);
 
@@ -53,8 +53,8 @@ $button-margin: 16px;
     align-items: flex-start;
     justify-content: space-between;
     padding: $modal-padding;
-    background: $pix-neutral-0;
-    border-bottom: 1px solid $pix-neutral-20;
+    background: var(--pix-neutral-0);
+    border-bottom: 1px solid var(--pix-neutral-20);
   }
 
   &__close-button {
@@ -72,7 +72,7 @@ $button-margin: 16px;
 
     margin-bottom: 0;
     padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
 
     @include device-is('tablet') {
       padding-right: $tablet-close-button-size + $space-between-title-and-close-button;
@@ -83,7 +83,7 @@ $button-margin: 16px;
     @extend %pix-body-s;
 
     padding: $modal-padding;
-    color: $pix-neutral-90;
+    color: var(--pix-neutral-900);
 
     p:last-child {
       margin-bottom: 0;
