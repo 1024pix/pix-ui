@@ -12,6 +12,24 @@
   outline: none;
   cursor: pointer;
 
+  &:not(.pix-button--disabled) {
+    &:hover {
+      background-color: var(--pix-primary-700);
+    }
+
+    &:focus,
+    &:focus-visible {
+      background-color: var(--pix-primary-700);
+      outline: 1px solid var(--pix-neutral-0);
+      outline-offset: -5px;
+    }
+
+    &:active {
+      background-color: var(--pix-primary-900);
+      outline: none;
+    }
+  }
+
   &--shape-rounded {
     border-radius: 25px;
   }
@@ -37,7 +55,7 @@
     opacity: 0.5;
   }
 
-  &--background-blue {
+  &--blue, &--primary {
     background-color: var(--pix-primary-500);
 
     &:not(.pix-button--disabled) {
@@ -49,18 +67,18 @@
       &:focus-visible {
         background-color: var(--pix-primary-700);
         outline: 1px solid var(--pix-neutral-0);
-        outline-offset: -4px;
+        outline-offset: -5px;
       }
 
       &:active {
-        background-color: var(--pix-primary-700);
+        background-color: var(--pix-primary-900);
         outline: none;
       }
     }
   }
 
-  &--background-green {
-    background-color: var(--pix-success-700);
+  &--green, &--success {
+    background-color: var(--pix-success-500);
 
     &:not(.pix-button--disabled) {
       &:hover {
@@ -81,36 +99,39 @@
     }
   }
 
-  &--background-yellow {
+  &--yellow, &--secondary {
     color: var(--pix-neutral-900);
-    background-color: var(--pix-warning-500);
+    background-color: var(--pix-secondary-500);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: var(--pix-warning-500);
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-secondary-700);
       }
 
       &:focus,
       &:focus-visible {
-        background-color: var(--pix-warning-500);
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-secondary-700);
         outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
 
       &:active {
-        background-color: var(--pix-warning-700);
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-secondary-900);
         outline: none;
       }
     }
   }
 
-  &--background-red {
+  &--red, &--error {
     color: var(--pix-neutral-0);
-    background-color: var(--pix-error-700);
+    background-color: var(--pix-error-500);
 
     &:not(.pix-button--disabled) {
       &:hover {
-        background-color: var(--pix-error-900);
+        background-color: var(--pix-error-700);
       }
 
       &:focus,
@@ -127,7 +148,7 @@
     }
   }
 
-  &--background-grey {
+  &--grey, &--neutral {
     color: var(--pix-neutral-900);
     background-color: var(--pix-neutral-20);
 
@@ -153,43 +174,43 @@
   }
 
   /* deprecated in favor of --background-transparent-light + --border */
-  &--background-transparent {
+  &--transparent {
     color: var(--pix-neutral-500);
     background-color: transparent;
     border: 1px solid var(--pix-neutral-500);
   }
 
-  &--background-transparent-light {
-    color: var(--pix-neutral-900);
+  &--transparent-light {
+    color: var(--pix-primary-700);
     background-color: transparent;
 
     &.pix-button--border {
-      border: 1px solid var(--pix-neutral-500);
+      border: 2px solid var(--pix-primary-700);
     }
 
     &:not(.pix-button--disabled) {
       &:hover {
         color: var(--pix-neutral-0);
-        background-color: var(--pix-neutral-500);
-        border: 1px solid transparent;
+        background-color: var(--pix-primary-500);
       }
 
       &:focus,
       &:focus-visible {
-        color: var(--pix-neutral-0);
-        background-color: var(--pix-neutral-900);
-        outline: 1px solid var(--pix-neutral-0);
-        outline-offset: -4px;
+        color: var(--pix-primary-900);
+        background-color: var(--pix-primary-100);
+        outline: 1px solid var(--pix-primary-700);
+        outline-offset: -5px;
       }
 
       &:active {
-        background-color: var(--pix-neutral-800);
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-primary-700);
         outline: none;
       }
     }
   }
 
-  &--background-transparent-dark {
+  &--transparent-dark {
     color: var(--pix-neutral-0);
     background-color: transparent;
 
