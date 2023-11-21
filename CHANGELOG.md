@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v41.1.0 (21/11/2023)
+
+
+### :rocket: Amélioration
+- [#497](https://github.com/1024pix/pix-ui/pull/497) [FEATURE] Remise à jour des typographies des titres (PIX-9969).
+
 ## v41.0.3 (21/11/2023)
 
 
