@@ -33,18 +33,13 @@ npm pack
 cela va creer une archive `.tgz` de la librairie
 
 Se déplacer dans le répertoire de l'application dans laquelle l'on veut tester la librairie
-puis dans le fichier `package.json` remplacer la version de Pix UI par le chemin vers l'archive
-
-```json
-"@1024pix/pix-ui": "file:<chemin_absolu_vers_archive>"
-```
-on notera la présence de `file:`
-
-Vous pouvez ensuite installer la version de la librairie de manière habituelle
+puis installer la version compilée localement :
 
 ```shell
-npm install @1024pix/pix-ui --force
+npm install --save-dev "file:../../pix-ui/1024pix-pix-ui-<X.Y.Z>.tgz"
 ```
+on notera la présence de `file:` suivi du chemin vers l'archive.
+
 Puis lancer l'application
 
 ```shell
