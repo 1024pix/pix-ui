@@ -1,4 +1,12 @@
 @font-face {
+  font-weight: 700;
+  font-family: 'Nunito';
+  font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/Nunito/Nunito-Bold.ttf');
+}
+
+/* @deprecated - use Nunito */
+@font-face {
   font-weight: 500;
   font-family: 'Open Sans';
   font-style: normal;
@@ -26,8 +34,15 @@
   src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Bold.ttf');
 }
 
+/* @deprecated - use Design Tokens */
 $font-open-sans: 'Open Sans', Arial, sans-serif;
 $font-roboto: 'Roboto', Arial, sans-serif;
 $font-normal: 400;
 $font-medium: 500;
 $font-bold: 700;
+
+:root {
+  --pix-font-normal: 400;
+  --pix-font-medium: 500;
+  --pix-font-bold: 700;
+}

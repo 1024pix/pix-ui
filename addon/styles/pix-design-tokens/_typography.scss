@@ -2,24 +2,26 @@
 
 // Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
 %-pix-title {
-  font-weight: 500;
-  font-family: $font-open-sans;
+  font-weight: 700;
+  font-family: 'Nunito', 'Arial', sans-serif;
 }
 
 %pix-title-l,
 .pix-title-l {
   @extend %-pix-title;
 
-  font-size: 2rem;
-  line-height: 1.25;
-  letter-spacing: -0.04em;
+  --font-size-title: 2rem;
+
+  font-size: var(--font-size-title);
+  line-height: 1.3;
+  letter-spacing: calc(-0.02 * var(--font-size-title));
 
   @include device-is('tablet') {
-    font-size: 2.5rem;
+    --font-size-title: 2.5rem;
   }
 
   @include device-is('desktop') {
-    font-size: 3rem;
+    --font-size-title: 3rem;
   }
 }
 
@@ -27,18 +29,20 @@
 .pix-title-m {
   @extend %-pix-title;
 
-  font-size: 1.625rem;
+  --font-size-title: 1.625rem;
+  --letter-spacing-title: -0.02;
+
+  font-size: var(--font-size-title);
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: calc(var(--letter-spacing-title) * var(--font-size-title));
 
   @include device-is('tablet') {
-    font-size: 2rem;
-    line-height: 1.25;
-    letter-spacing: -0.04em;
+    --font-size-title: 2rem;
   }
 
   @include device-is('desktop') {
-    font-size: 2.25rem;
+    --font-size-title: 2.25rem;
+    --letter-spacing-title: -0.01;
   }
 }
 
@@ -46,16 +50,18 @@
 .pix-title-s {
   @extend %-pix-title;
 
-  font-size: 1.375rem;
+  --font-size-title: 1.375rem;
+
+  font-size: var(--font-size-title);
   line-height: 1.3;
-  letter-spacing: -0.02em;
+  letter-spacing: calc(-0.01 * var(--font-size-title));
 
   @include device-is('tablet') {
-    font-size: 1.5rem;
+    --font-size-title: 1.5rem;
   }
 
   @include device-is('desktop') {
-    font-size: 1.75rem;
+    --font-size-title: 1.75rem;
   }
 }
 
@@ -63,14 +69,16 @@
 .pix-title-xs {
   @extend %-pix-title;
 
-  font-size: 1.25rem;
+  --font-size-title: 1.25rem;
+
+  font-size: var(--font-size-title);
   line-height: 1.4;
-  letter-spacing: -0.02em;
+  letter-spacing: calc(-0.01 * var(--font-size-title));
 }
 
 %-pix-body {
   font-weight: 400;
-  font-family: $font-roboto;
+  font-family: 'Roboto', 'Arial', sans-serif;
 }
 
 %pix-body-l,
@@ -115,9 +123,9 @@
 }
 
 .pix-body-weight-medium {
-  font-weight: 500;
+  font-weight: var(--pix-font-medium);
 }
 
 .pix-body-weight-bold {
-  font-weight: 700;
+  font-weight: var(--pix-font-bold);
 }
