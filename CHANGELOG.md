@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v41.0.3 (21/11/2023)
+
+
+### :coffee: Autre
+- [#498](https://github.com/1024pix/pix-ui/pull/498) [CHORE] Améliorer le composant pix input code (Pix-9824).
+
 ## v41.0.2 (10/11/2023)
 
 
