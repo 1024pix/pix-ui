@@ -18,19 +18,16 @@
   }
 }
 
-// Color variant : Blue
+// Color variant : primary
+.pix-stars__item--color-primary[data-acquired],
 .pix-stars__item--color-blue[data-acquired] {
   fill: var(--pix-primary-500);
   stroke: var(--pix-primary-700);
 }
 
-// Color variant : Grey
-.pix-stars__item--color-grey {
-  fill: var(--pix-neutral-0);
-  stroke: var(--pix-neutral-500);
-
-  &[data-acquired] {
+// Color variant : neutral "deprecated ????"
+.pix-stars__item--color-neutral[data-acquired],
+.pix-stars__item--color-grey[data-acquired] {
     fill: var(--pix-neutral-500);
     stroke: var(--pix-neutral-500);
-  }
 }
