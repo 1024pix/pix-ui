@@ -2,54 +2,77 @@
   @extend %pix-body-s;
 
   display: inline-block;
-  padding: 4px 16px;
-  color: var(--pix-neutral-0);
+  padding: $pix-spacing-xxs $pix-spacing-s;
+  color: var(--pix-primary-900);
   font-weight: $font-medium;
   white-space: nowrap;
   text-align: center;
   vertical-align: baseline;
-  background-color: var(--pix-primary-500);
+  background-color: var(--pix-primary-100);
   border: 1px solid transparent;
   border-radius: 0.95rem;
 
-  &--blue-light {
-    color: var(--pix-primary-900);
-    background-color: var(--pix-primary-100);
+  &--compact {
+    @extend %pix-body-xs;
+
+    line-height: inherit;
+    text-transform: uppercase;
   }
 
-  &--green {
-    background-color: var(--pix-success-700);
+  &--grey-light, &--neutral {
+    color: var(--pix-neutral-900);
+    background-color: var(--pix-neutral-20);
   }
 
-  &--green-light {
-    color: var(--pix-success-900);
-    background-color: var(--pix-success-100);
+  &--yellow-light, &--secondary {
+    color: var(--pix-secondary-900);
+    background-color: var(--pix-secondary-100);
   }
 
-  &--purple {
-    background-color: var(--pix-tertiary-900);
-  }
-
-  &--purple-light {
+  &--purple-light, &--tertiary {
     color: var(--pix-tertiary-900);
     background-color: var(--pix-tertiary-100);
   }
 
+  &--green-light, &--success {
+    color: var(--pix-success-900);
+    background-color: var(--pix-success-100);
+  }
+
+  &--error {
+    color: var(--pix-error-900);
+    background-color: var(--pix-error-100);
+  }
+
+  &--orga {
+    color: var(--pix-orga-50);
+    background-color: var(--pix-orga-500);
+  }
+
+
+  &--green {
+    /** Deprecated color **/
+    background-color: var(--pix-success-700);
+  }
+
+  &--purple {
+    /** Deprecated color **/
+    background-color: var(--pix-tertiary-900);
+  }
+
   &--yellow {
+    /** Deprecated color **/
     color: var(--pix-neutral-900);
     background-color: var(--pix-warning-500);
   }
 
-  &--yellow-light {
-    color: var(--pix-warning-900);
-    background-color: var(--pix-warning-100);
-  }
-
   &--orange {
+    /** Deprecated color **/
     background-color: var(--pix-warning-700);
   }
 
   &--orange-light {
+    /** Deprecated color **/
     color: var(--pix-warning-900);
     background-color: var(--pix-warning-100);
   }
@@ -57,19 +80,5 @@
   &--grey {
     color: var(--pix-neutral-20);
     background-color: var(--pix-neutral-500);
-  }
-
-  &--grey-light {
-    color: var(--pix-neutral-900);
-    background-color: var(--pix-neutral-20);
-  }
-
-  &--compact {
-    @extend %pix-body-xs;
-
-    padding: 4px 13px;
-    font-weight: $font-medium;
-    line-height: inherit;
-    text-transform: uppercase;
   }
 }

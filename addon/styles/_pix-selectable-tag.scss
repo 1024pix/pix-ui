@@ -22,13 +22,12 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
   position: relative;
   display: inline-block;
-  padding: 3px calc(8px + #{$checkmark-width-with-space} / 2);
-  color: var(--pix-neutral-500);
-  font-weight: $font-medium;
+  padding: $pix-spacing-xxs calc($pix-spacing-xs + #{$checkmark-width-with-space} / 2);
+  color: var(--pix-neutral-900);
   letter-spacing: 0.009rem;
   text-align: center;
   background-color: var(--pix-neutral-0);
-  border: var(--pix-neutral-100) solid 1px;
+  border: var(--pix-neutral-900) solid 1px;
   border-radius: 0.95rem;
   cursor: pointer;
 
@@ -46,26 +45,19 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
     cursor: pointer;
   }
 
-  &:hover {
-    color: var(--pix-neutral-800);
-    background-color: var(--pix-neutral-100);
-    border: var(--pix-neutral-100) solid 1px;
-  }
-
   &--checked {
     @include checkmarkColor(var(--pix-neutral-800));
 
     padding: 3px 8px;
-    color: var(--pix-neutral-800);
+    color: var(--pix-neutral-900);
     background-color: var(--pix-neutral-20);
-    border: var(--pix-neutral-100) solid 1px;
 
     &:hover {
-      @include checkmarkColor(var(--pix-neutral-800));
+      @include checkmarkColor(var(--pix-neutral-900));
 
-      color: var(--pix-neutral-800);
-      background-color: var(--pix-neutral-100);
-      border: var(--pix-neutral-100) solid 1px;
+      color: var(--pix-neutral-900);
+      background-color: var(--pix-neutral-20);
+      border: var(--pix-neutral-500) solid 1px;
     }
 
     & label {
@@ -77,17 +69,21 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
     @include checkmarkColor(var(--pix-neutral-0));
 
     color: var(--pix-neutral-0);
-    background-color: var(--pix-neutral-500);
+    background-color: var(--pix-neutral-900);
     border-color: var(--pix-neutral-0);
     outline: none;
-    box-shadow: 0 0 0 1px var(--pix-neutral-500);
+    box-shadow: 0 0 0 1px var(--pix-neutral-900);
 
     &:hover {
-      @include checkmarkColor(var(--pix-neutral-800));
+      @include checkmarkColor(var(--pix-neutral-900));
 
-      color: var(--pix-neutral-800);
+      color: var(--pix-neutral-900);
+      background-color: var(--pix-neutral-20);
+      border: var(--pix-neutral-500) solid 1px;
+    }
+
+    &:active {
       background-color: var(--pix-neutral-100);
-      border: var(--pix-neutral-100) solid 1px;
     }
   }
 }
