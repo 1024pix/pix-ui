@@ -173,7 +173,7 @@
     }
   }
 
-  /* deprecated in favor of --background-transparent-light + --border */
+  /* deprecated in favor of --transparent-light + --border */
   &--transparent {
     color: var(--pix-neutral-500);
     background-color: transparent;
