@@ -13,7 +13,7 @@
     margin-top: $pix-spacing-xxs;
     padding: $pix-spacing-xxs;
     background-color: transparent;
-    border: 1px solid var(--pix-neutral-100);
+    border: 1px solid var(--pix-neutral-500);
     border-radius: 4px;
   }
 
@@ -28,8 +28,8 @@
   }
 
   &__off {
-    color: var(--pix-neutral-0);
-    background-color: var(--pix-neutral-500);
+    color: var(--pix-neutral-20);
+    background-color: var(--pix-neutral-800);
   }
 
   &--inline {
@@ -50,8 +50,8 @@
   &--pressed {
     .pix-toggle {
       &__on {
-        color: var(--pix-neutral-0);
-        background-color: var(--pix-neutral-500);
+        color: var(--pix-neutral-20);
+        background-color: var(--pix-neutral-800);
       }
 
       &__off {
