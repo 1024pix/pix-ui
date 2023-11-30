@@ -4,10 +4,10 @@
   border-radius: 5px;
 
   &--shadow-light {
-    box-shadow: 0 4px 8px rgba(var(--pix-neutral-900), 0.08);
+    @extend %pix-shadow-sm;
   }
 
   &--shadow-heavy {
-    box-shadow: 0 12px 24px rgba(var(--pix-neutral-900), 0.08);
+    @extend %pix-shadow-xl;
   }
 }
