@@ -1,4 +1,6 @@
 .pix-filter-banner {
+  @extend %pix-shadow-sm;
+
   position: relative;
   display: flex;
   flex-direction: column;
@@ -7,7 +9,6 @@
   min-height: 64px;
   padding: $pix-spacing-s $pix-spacing-m;
   background-color: var(--pix-neutral-0);
-  box-shadow: 0 2px 5px 0 rgba(var(--pix-neutral-900), 0.05);
 
   &__title {
     margin: 0;
