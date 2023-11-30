@@ -1,11 +1,12 @@
 .indicator-card {
+  @extend %pix-shadow-xs;
+
   display: flex;
   width: 100%;
   min-height: 112px;
   padding: 0;
   background-color: var(--pix-neutral-0);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(var(--pix-neutral-900), 0.05);
 
   &__icon {
     display: flex;
@@ -15,24 +16,29 @@
     font-size: 2.5rem;
     border-radius: 8px 0 0 8px;
 
-    &--grey {
+    &--grey, &--neutral {
       color: var(--pix-neutral-500);
-      background-color: var(--pix-neutral-20);  
+      background-color: var(--pix-neutral-20);
     }
 
-    &--blue {
+    &--blue, &--primary {
       color: var(--pix-primary-700);
-      background-color: var(--pix-primary-10);  
+      background-color: var(--pix-primary-10);
     }
 
-    &--green {
+    &--green, &--success {
       color: var(--pix-success-700);
-      background-color: var(--pix-success-50);  
+      background-color: var(--pix-success-50);
     }
 
-    &--purple {
+    &--purple, &--tertiary {
       color: var(--pix-tertiary-900);
-      background-color: var(--pix-tertiary-100);  
+      background-color: var(--pix-tertiary-100);
+    }
+
+    &--warning {
+      color: var(--pix-warning-700);
+      background-color: var(--pix-warning-50);
     }
   }
 
@@ -50,6 +56,7 @@
     display: flex;
     align-items: center;
     margin-bottom: $pix-spacing-xxs;
+    color: var(--pix-neutral-800);
     font-weight: $font-medium;
     font-size: 1rem;
     line-height: 1.375rem;
@@ -59,6 +66,7 @@
     @extend %pix-title-m;
 
     margin-bottom: $pix-spacing-xxs;
+    color: var(--pix-neutral-800);
   }
 
   &__sub {
@@ -75,6 +83,6 @@
 
   &__tooltip-icon {
     margin: 0 $pix-spacing-xs;
-    color: var(--pix-neutral-100);
+    color: var(--pix-neutral-500);
   }
 }

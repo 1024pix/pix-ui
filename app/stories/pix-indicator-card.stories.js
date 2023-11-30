@@ -12,7 +12,7 @@ export default {
       description: "Couleur de l'icone",
       table: { defaultValue: { summary: 'grey' } },
       control: { type: 'select' },
-      options: ['grey', 'blue', 'green', 'purple'],
+      options: ['neutral', 'primary', 'tertiary', 'success', 'warning'],
     },
     icon: {
       name: 'Icon',
