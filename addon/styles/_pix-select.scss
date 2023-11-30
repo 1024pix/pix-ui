@@ -11,6 +11,8 @@
   }
 
   &__dropdown {
+    @extend %pix-shadow-sm;
+
     position: absolute;
     z-index: 200;
     width: 100%;
@@ -24,7 +26,6 @@
     background-color: var(--pix-neutral-0);
     border-top: none;
     border-radius: 0 0 $pix-spacing-xxs $pix-spacing-xxs;
-    box-shadow: 0 6px 12px rgba(7, 20, 46, 0.08);
     transition: all 0.1s ease-in-out;
 
     &::-webkit-scrollbar {
@@ -83,6 +84,8 @@
 }
 
 .pix-select-button {
+  @extend %pix-body-s;
+
   position: relative;
   display: flex;
   gap: $pix-spacing-s;
@@ -98,7 +101,6 @@
   outline: none;
   cursor: pointer;
 
-  @extend %pix-body-s;
   @include hoverFormElement();
   @include focusWithinFormElement();
 
@@ -120,7 +122,7 @@
   &__dropdown-icon {
     @extend %pix-body-s;
 
-    color: var(--pix-neutral-500);
+    color: var(--pix-neutral-900);
     pointer-events: none;
   }
 }
@@ -147,11 +149,11 @@
     gap: $pix-spacing-m;
     justify-content: space-between;
     padding: $pix-spacing-xs $pix-spacing-m;
-    color: var(--pix-neutral-800);
+    color: var(--pix-neutral-900);
 
     &:hover,
     &:focus {
-      background-color: var(--pix-neutral-20);
+      background-color: var(--pix-primary-10);
       outline: none;
       cursor: pointer;
     }
