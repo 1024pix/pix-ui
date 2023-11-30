@@ -1,14 +1,18 @@
 .pix-message {
+  @extend %pix-body-s;
+
   display: flex;
+  gap: $pix-spacing-xs;
   align-items: center;
   margin: 0;
-  padding: 0.75rem 1rem;
+  padding: $pix-spacing-s $pix-spacing-m;
   font-size: 0.875rem;
-  border-radius: 4px;
+  border: 1px solid currentcolor;
+  border-radius: $pix-spacing-xxs;
 
   &.pix-message--info {
-    color: var(--pix-primary-700);
-    background-color: var(--pix-primary-10);
+    color: var(--pix-info-700);
+    background-color: var(--pix-info-50);
   }
 
   &.pix-message--alert {
@@ -29,9 +33,5 @@
   &.pix-message--warning {
     color: var(--pix-warning-700);
     background-color: var(--pix-warning-50);
-  }
-
-  svg {
-    margin-right: 8px;
   }
 }
