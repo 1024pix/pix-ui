@@ -11,6 +11,8 @@
 }
 
 .pix-tooltip__content {
+  @extend %pix-shadow-md;
+
   position: absolute;
   left: auto;
   z-index: 100;
@@ -46,10 +48,9 @@
   }
 
   &--light {
-    color: var(--pix-neutral-500);
+    color: var(--pix-neutral-900);
     font-weight: $font-medium;
     background-color: var(--pix-neutral-0);
-    box-shadow: 0 6px 24px 0 rgba(var(--pix-neutral-800), 0.14);
 
     &::before {
       width: 8px;
@@ -70,8 +71,8 @@
   }
 
   &.pix-tooltip__content--light::before {
-    left: -5px;
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    left: -4px;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(315deg);
   }
 }
@@ -89,7 +90,7 @@
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(225deg);
   }
 }
@@ -107,7 +108,7 @@
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
     left: calc(100% - 26px);
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(225deg);
   }
 }
@@ -123,7 +124,7 @@
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(225deg);
   }
 }
@@ -140,7 +141,7 @@
   }
 
   &.pix-tooltip__content--light::before {
-    top: -5px;
+    top: -4px;
     border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
     transform: rotate(45deg);
   }
@@ -157,9 +158,9 @@
   }
 
   &.pix-tooltip__content--light::before {
-    top: -5px;
+    top: -4px;
     left: calc(100% - 26px);
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(45deg);
   }
 }
@@ -174,8 +175,8 @@
   }
 
   &.pix-tooltip__content--light::before {
-    top: -5px;
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    top: -4px;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(45deg);
   }
 }
@@ -190,8 +191,8 @@
   }
 
   &.pix-tooltip__content--light::before {
-    right: -5px;
-    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
+    right: -4px;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(135deg);
   }
 }
