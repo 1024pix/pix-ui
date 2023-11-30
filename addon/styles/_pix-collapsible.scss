@@ -1,6 +1,6 @@
 .pix-collapsible {
   background-color: var(--pix-neutral-0);
-  border: 1px solid var(--pix-neutral-20);
+  border: 1px solid var(--pix-neutral-100);
 
   &:first-child,
   &:first-child .pix-collapsible__title {
@@ -17,6 +17,15 @@
   &:not(:first-child) {
     border-top: none;
   }
+
+  &:hover {
+    border-color: var(--pix-neutral-500);
+  }
+
+  &:focus-within  {
+    border: 1px solid var(--pix-primary-500);
+    outline: 2px solid var(--pix-primary-300)
+  }
 }
 
 .pix-collapsible__title {
@@ -25,14 +34,14 @@
   justify-content: space-between;
   width: 100%;
   padding: $pix-spacing-s;
-  color: var(--pix-neutral-900);
+  color: var(--pix-neutral-800);
   font-size: 1rem;
   line-height: 1.25;
   border: none;
 
   &:hover,
-  &:focus,
   &[aria-expanded='true'] {
+    color: var(--pix-neutral-900);
     background-color: var(--pix-neutral-20);
   }
 
@@ -63,7 +72,7 @@
 }
 
 .pix-collapsible__title:hover .pix-collapsible-title__toggle-icon {
-  background-color: var(--pix-neutral-20);
+  background-color: var(--pix-neutral-100);
 }
 
 .pix-collapsible__content {
