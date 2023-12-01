@@ -21,16 +21,16 @@ export default {
       name: 'shade',
       description: 'Couleur du lien',
       type: { name: 'string', required: false },
-      table: { defaultValue: { summary: 'black' } },
+      table: { defaultValue: { summary: 'neutral-dark' } },
       control: { type: 'select' },
-      options: ['white', 'black', 'blue'],
+      options: ['neutral-light', 'neutral-dark', 'neutral-primary'],
     },
   },
 };
 
 export const returnTo = {
   args: {
-    shade: 'blue',
+    shade: 'primary',
   },
 };
 
