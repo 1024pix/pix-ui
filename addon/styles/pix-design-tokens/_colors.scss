@@ -1,5 +1,65 @@
 // See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=16%3A2
+:root {
+  --pix-primary-10: #f7f5ff;
+  --pix-primary-100: #cec3f4;
+  --pix-primary-300: #957ee8;
+  --pix-primary-500: #613fdd;
+  --pix-primary-700: #452d9d;
+  --pix-primary-900: #291a5d;
+  --pix-secondary-50: #fffaeb;
+  --pix-secondary-100: #ffefc0;
+  --pix-secondary-300: #ffdc76;
+  --pix-secondary-500: #ffcb33;
+  --pix-secondary-700: #a16206;
+  --pix-secondary-900: #5b3808;
+  --pix-tertiary-100: #c3d0ff;
+  --pix-tertiary-500: #3d68ff;
+  --pix-tertiary-900: #1a2c6b;
+  --pix-neutral-0: #ffffff;
+  --pix-neutral-20: #f4f5f7;
+  --pix-neutral-100: #cdd1d9;
+  --pix-neutral-500: #5e6c84;
+  --pix-neutral-800: #253858;
+  --pix-neutral-900: #122647;
+  --pix-info-50: #e6f2fe;
+  --pix-info-100: #b0d3f4;
+  --pix-info-500: #3b82f6;
+  --pix-info-700: #1d4ed8;
+  --pix-info-900: #1e3a8a;
+  --pix-success-50: #e8f3ef;
+  --pix-success-100: #b9d8cd;
+  --pix-success-300: #67ab92;
+  --pix-success-500: #1c825d;
+  --pix-success-700: #145c42;
+  --pix-success-900: #0c3727;
+  --pix-warning-50: #fff7eb;
+  --pix-warning-100: #ffe5c0;
+  --pix-warning-300: #ffc676;
+  --pix-warning-500: #f59e0b;
+  --pix-warning-700: #b45309;
+  --pix-warning-900: #78350f;
+  --pix-error-50: #fbecec;
+  --pix-error-100: #f1c4c4;
+  --pix-error-500: #d24140;
+  --pix-error-700: #952e2e;
+  --pix-error-900: #581b1b;
+  --pix-certif-50: #e8f2f2;
+  --pix-certif-500: #187f7d;
+  --pix-orga-50: #ebf1f9;
+  --pix-orga-500: #3674bf;
+  --pix-information-dark: #f24645;
+  --pix-information-light: #f1a141;
+  --pix-content-dark: #1a8c89;
+  --pix-content-light: #52d987;
+  --pix-communication-dark: #3d68ff;
+  --pix-communication-light: #12a3ff;
+  --pix-security-dark: #ac008d;
+  --pix-security-light: #ff3f94;
+  --pix-environment-dark: #5e2563;
+  --pix-environment-light: #564da6;
+}
 
+// @deprecated - SCSS variables are replaced by CSS variables
 //// SOLID
 // Primary
 $pix-primary-5: #F2F9FF;
@@ -126,15 +186,15 @@ $pix-environment-dark: #5E2563;
 $pix-environment-light: #564DA6;
 
 //// GRADIENT
-$pix-primary-app-gradient: linear-gradient(91.59deg, #3D68FF 0%, #8845FF 100%);
-$pix-secondary-app-gradient: linear-gradient(91.59deg, #FEDC41 0%, #FF9F00 100%);
-$pix-primary-certif-gradient: linear-gradient(91.59deg, #52D987 0%, #1A8C89 100%);
-$pix-primary-orga-gradient: linear-gradient(91.59deg, #00DDFF 0%, #0095C0 100%);
-$pix-secondary-orga-gradient: linear-gradient(91.59deg, #0D7DC4 0%, #213371 100%);
+$pix-primary-app-gradient: linear-gradient(91.59deg, #3d68ff 0%, #8845ff 100%);
+$pix-secondary-app-gradient: linear-gradient(91.59deg, #fedc41 0%, #ff9f00 100%);
+$pix-primary-certif-gradient: linear-gradient(91.59deg, #52d987 0%, #1a8c89 100%);
+$pix-primary-orga-gradient: linear-gradient(91.59deg, #00ddff 0%, #0095c0 100%);
+$pix-secondary-orga-gradient: linear-gradient(91.59deg, #0d7dc4 0%, #213371 100%);
 
 // Domain
-$pix-information-gradient: linear-gradient(180deg, #F24645 0%, #F1A141 100%);
-$pix-content-gradient: linear-gradient(180deg, #1A8C89 0%, #52D987 100%);
-$pix-communication-gradient: linear-gradient(180deg, #3D68FF 0%, #12A3FF 100%);
-$pix-security-gradient: linear-gradient(180deg, #AC008D 0%, #FF3F94 100%);
-$pix-environment-gradient: linear-gradient(180deg, #5E2563 0%, #564DA6 100%);
+$pix-information-gradient: linear-gradient(180deg, #f24645 0%, #f1a141 100%);
+$pix-content-gradient: linear-gradient(180deg, #1a8c89 0%, #52d987 100%);
+$pix-communication-gradient: linear-gradient(180deg, #3d68ff 0%, #12a3ff 100%);
+$pix-security-gradient: linear-gradient(180deg, #ac008d 0%, #ff3f94 100%);
+$pix-environment-gradient: linear-gradient(180deg, #5e2563 0%, #564da6 100%);

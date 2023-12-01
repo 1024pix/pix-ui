@@ -8,7 +8,7 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
  >
  > Cette page permet de connaitre les couleurs qui sont disponibles dans `Pix-UI`. [Figma](https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=16%3A2) reste la source de vérité des couleurs du design system de `Pix`.
  >
- > Les variables SCSS présentes dans le fichier `_colors.scss` reprennent les noms des symboles utilisés sur les maquettes dans Figma,
+ > Les variables css présentes dans le fichier `_colors.scss` reprennent les noms des symboles utilisés sur les maquettes dans Figma,
  > on préconise d'utiliser ses noms de variables plutôt que le code hexa.
 
 #### SOLID
@@ -16,166 +16,134 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 <ColorPalette>
   <ColorItem
     title="Pix Primary"
-    subtitle="$pix-primary-"
-    colors={{ 5: '#f2f9ff',
-              10: '#dcf1ff',
-              20: '#c4e6ff',
-              30: '#88beff',
-              40: '#5b94ff',
-              Primary: '#3d68ff',
-              60: '#2044dc',
-              70: '#0d25b3',
-              80: '#000e87'}}
+    subtitle="--pix-primary-"
+    colors={{
+            10: '#f7f5ff',
+            100: '#cec3f4',
+            300: '#957ee8',
+            500: '#613fdd',
+            700: '#452d9d',
+            900: '#291a5d'}}
   />
   <ColorItem
     title="Pix Secondary"
-    subtitle="$pix-secondary-"
-    colors={{ 5: '#fff9e6',
-             10: '#fff1c5',
-             20: '#ffe381',
-             Secondary: '#ffd235',
-             40: '#ffbe00',
-             50: '#eaa600',
-             60: '#d87016',
-             70: '#a95800',
-             80: '#874d00'}}
-  />
-  <ColorItem
-    title="Pix Secondary Certif"
-    subtitle="$pix-secondary-certif-"
-    colors={{ 5: '#ccf6f5',
-             10: '#9aedeb',
-             20: '#67e4e0',
-             30: '#34dbd6',
-             SecondaryCertif: '#20b4af',
-             50: '#17817e',
-             60:' #126765',
-             70: '#0e4d4c',
-             80: '#093432'}}
-  />
-  <ColorItem
-    title="Pix Secondary Orga"
-    subtitle="$pix-secondary-orga-"
-    colors={{ 5: '#d5f9ff',
-             10: '#aaf4ff',
-             20: '#80eeff',
-             30: '#55e8ff',
-             SecondaryOrga: '#00ddff',
-             50: '#00c1df',
-             60: '#00a6bf',
-             70: '#008a9f',
-             80: '#006e80'}}
+    subtitle="--pix-secondary-"
+    colors={{
+            50: '#fffaeb',
+            100: '#ffefc0',
+            300: '#ffdc76',
+            500: '#ffcb33',
+            700: '#a16206',
+            900: '#5b3808'}}
   />
   <ColorItem
     title="Pix Tertiary"
-    subtitle="$pix-tertiary-"
-    colors={{ 5: '#ebe1ff',
-             10: '#d8c2ff',
-             20: '#c4a4ff',
-             30: '#b186ff',
-             Tertiary: '#9d67ff',
-             50: '#8a49ff',
-             60: '#6712ff',
-             70: '#4e00db',
-             80: '#3b00a4'}}
+    subtitle="--pix-tertiary-"
+    colors={{
+            100: '#c3d0ff',
+            500: '#3d68ff',
+            900: '#1a2c6b'}}
+  />
+  <ColorItem
+    title="Pix Neutral"
+    subtitle="--pix-neutral-"
+    colors={{
+            0: '#ffffff',
+            20: '#f4f5f7',
+            100: '#cdd1d9',
+            500: '#5e6c84',
+            800: '#253858',
+            900: '#122647'}}
+  />
+  <ColorItem
+    title="Pix Informations"
+    subtitle="--pix-info-"
+    colors={{
+            50: '#e6f2fe',
+            100: '#b0d3f4',
+            500: '#3b82f6',
+            700: '#1d4ed8',
+            900: '#1e3a8a'}}
   />
   <ColorItem
     title="Pix Success"
-    subtitle="$pix-success-"
-    colors={{5: '#ecfdf5',
-            10: '#d1fae5',
-            20: '#a7f3d0',
-            30: '#6ee7b7',
-            40: '#34d399',
-            50: '#27b481',
-            60: '#14865d',
-            70: '#176c4d',
-            80: '#104834'}}
+    subtitle="--pix-success-"
+    colors={{
+            50: '#e8f3ef',
+            100: '#b9d8cd',
+            300: '#67ab92',
+            500: '#1c825d',
+            700: '#145c42',
+            900: '#0c3727'}}
   />
   <ColorItem
     title="Pix Warning"
-    subtitle="$pix-warning-"
-    colors={{5: '#fff9e6',
-            10: '#fff1c5',
-            20: '#ffe381',
-            30: '#ffd235',
-            40: '#ffbe00',
-            50: '#eaa600',
-            60: '#d87016',
-            70: '#a95800',
-            80: '#874d00'}}
+    subtitle="--pix-warning-"
+    colors={{
+            50: '#fff7eb',
+            100: '#ffe5c0',
+            300: '#ffc676',
+            500: '#f59e0b',
+            700: '#b45309',
+            900: '#78350f'}}
   />
   <ColorItem
     title="Pix Error"
-    subtitle="$pix-error-"
-    colors={{5: '#fef2f2',
-            10: '#fee2e2',
-            20: '#fecaca',
-            30: '#fca5a5',
-            40: '#f87171',
-            50: '#ef4444',
-            60: '#dc2626',
-            70: '#b91c1c',
-            80: '#991b1b'}}
+    subtitle="--pix-error-"
+    colors={{
+            50: '#fbecec',
+            100: '#f1c4c4',
+            500: '#d24140',
+            700: '#952e2e',
+            900: '#581b1b'}}
   />
   <ColorItem
-    title="Pix Neutral ( 0 - 40 )"
-    subtitle="$pix-neutral-"
-    colors={{0: '#ffffff',
-             5: '#fafbfc',
-            10: '#f4f5f7',
-            15: '#eaecf0',
-            20: '#dfe1e6',
-            22: '#c1c7d0',
-            25: '#a5adba',
-            30: '#97a0af',
-            35: '#8993a4',
-            40: '#7a869a'}}
+    title="Pix Certif"
+    subtitle="--pix-certif-"
+    colors={{
+            50: '#e8f2f2',
+            500: '#187f7d'}}
   />
   <ColorItem
-    title="Pix Neutral  ( 45 - 110 )"
-    subtitle="$pix-neutral-"
-    colors={{45: '#6b778c',
-             50: '#5e6c84',
-             60: '#505f79',
-             70: '#344563',
-             80: '#253858',
-             90: '#172b4d',
-            100: '#091e42',
-            110: '#07142e'}}
+    title="Pix Orga"
+    subtitle="--pix-orga-"
+    colors={{
+            50: '#ebf1f9',
+            500: '#3674bf'}}
   />
+
   <ColorItem
     title="Pix Shades"
-    subtitle="$pix-shades-"
-    colors={{100: '#000000'}}
+    subtitle="--pix-shadow"
+    colors={{100: '#07142E'}}
   />
   <ColorItem
     title="Pix Domain Information"
-    subtitle="$pix-information-"
+    subtitle="--pix-information-"
     colors={{Dark: '#f24645',
             Light: '#f1a141'}}
   />
   <ColorItem
     title="Pix Domain Content"
-    subtitle="$pix-content-"
+    subtitle="--pix-content-"
     colors={{Dark: '#1a8c89',
             Light: '#52d987'}}
   />
   <ColorItem
     title="Pix Domain Communication"
-    subtitle="$pix-communication-"
+    subtitle="--pix-communication-"
     colors={{Dark: '#3d68ff',
             Light: '#12a3ff'}}
   />
   <ColorItem
     title="Pix Domain Security"
-    subtitle="$pix-security-"
+    subtitle="--pix-security-"
     colors={{Dark: '#ac008d',
             Light: '#ff3f94'}}
   />
   <ColorItem
     title="Pix Domain Environment"
-    subtitle="$pix-environment-"
+    subtitle="--pix-environment-"
     colors={{Dark: '#5e2563',
             Light: '#564da6'}}
   />
