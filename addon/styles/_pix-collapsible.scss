@@ -33,7 +33,7 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: $pix-spacing-s;
+  padding: var(--pix-spacing-4x);
   color: var(--pix-neutral-800);
   font-size: 1rem;
   line-height: 1.25;
@@ -58,14 +58,14 @@
   }
 
   &__icon {
-    margin-right: $pix-spacing-xs;
+    margin-right: var(--pix-spacing-2x);
     color: var(--pix-neutral-500);
   }
 
   &__toggle-icon {
     width: 1rem;
     height: 1rem;
-    margin-left: $pix-spacing-xs;
+    margin-left: var(--pix-spacing-2x);
     padding: 0.5rem;
     border-radius: 50%;
   }
@@ -76,7 +76,7 @@
 }
 
 .pix-collapsible__content {
-  padding: $pix-spacing-s;
+  padding: var(--pix-spacing-4x);
   color: var(--pix-neutral-500);
   font-size: 0.875rem;
   line-height: 1.25rem;

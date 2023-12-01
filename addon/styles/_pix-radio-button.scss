@@ -3,13 +3,13 @@
   align-items: center;
 
   & + .pix-radio-button {
-    margin-top: $pix-spacing-s;
+    margin-top: var(--pix-spacing-4x);
   }
 
   &__label {
     @extend %pix-body-m;
 
-    padding-left: 12px;
+    padding-left: var(--pix-spacing-3x);
     color: var(--pix-neutral-900);
     cursor: pointer;
   }

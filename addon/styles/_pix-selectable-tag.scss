@@ -22,7 +22,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
 
   position: relative;
   display: inline-block;
-  padding: $pix-spacing-xxs calc($pix-spacing-xs + #{$checkmark-width-with-space} / 2);
+  padding: var(--pix-spacing-1x) calc(var(--pix-spacing-2x) + #{$checkmark-width-with-space} / 2);
   color: var(--pix-neutral-900);
   letter-spacing: 0.009rem;
   text-align: center;
@@ -48,8 +48,7 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
   &--checked {
     @include checkmarkColor(var(--pix-neutral-800));
 
-    padding: 3px 8px;
-    color: var(--pix-neutral-900);
+    padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
     background-color: var(--pix-neutral-20);
 
     &:hover {

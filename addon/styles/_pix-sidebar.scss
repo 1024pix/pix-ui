@@ -15,11 +15,11 @@
   }
 }
 
-$sidebar-padding: 16px;
-$mobile-close-button-size: 32px;
-$tablet-close-button-size: 40px;
-$space-between-title-and-close-button: 8px;
-$button-margin: 16px;
+$sidebar-padding: var(--pix-spacing-4x);
+$mobile-close-button-size: var(--pix-spacing-8x);
+$tablet-close-button-size: var(--pix-spacing-10x);
+$space-between-title-and-close-button: var(--pix-spacing-2x);
+$button-margin: var(--pix-spacing-4x);
 
 .pix-sidebar {
   display: flex;

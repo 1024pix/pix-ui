@@ -46,7 +46,7 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: $pix-spacing-s $pix-spacing-m;
+    padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
     color: var(--pix-neutral-500);
   }
 
@@ -55,7 +55,7 @@
 
     display: flex;
     align-items: center;
-    margin-bottom: $pix-spacing-xxs;
+    margin-bottom: var(--pix-spacing-1x);
     color: var(--pix-neutral-800);
     font-weight: $font-medium;
     font-size: 1rem;
@@ -65,7 +65,7 @@
   &__value {
     @extend %pix-title-m;
 
-    margin-bottom: $pix-spacing-xxs;
+    margin-bottom: var(--pix-spacing-1x);
     color: var(--pix-neutral-800);
   }
 
@@ -82,7 +82,7 @@
   }
 
   &__tooltip-icon {
-    margin: 0 $pix-spacing-xs;
+    margin: 0 var(--pix-spacing-2x);
     color: var(--pix-neutral-500);
   }
 }

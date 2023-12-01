@@ -39,15 +39,15 @@
   }
 
   &--size-big {
-    padding: 12px 24px;
+    padding: var(--pix-spacing-3x) var(--pix-spacing-6x);
   }
 
   &--size-small.pix-button--shape-rounded {
-    padding: 8px 24px;
+    padding: var(--pix-spacing-2x) var(--pix-spacing-6x);
   }
 
   &--size-small.pix-button--shape-squircle {
-    padding: 8px 16px;
+    padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
   }
 
   &--disabled {

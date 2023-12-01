@@ -5,7 +5,7 @@
   bottom: 0;
   left: 0;
   z-index: 1000;
-  padding: $pix-spacing-xs 0;
+  padding: var(--pix-spacing-2x) 0;
   overflow-y: auto;
   text-align: center; // Used to center horizontally the inline-block modal content
   // we inline the pix-neutral-800 value
@@ -29,19 +29,13 @@
   }
 }
 
-$modal-padding: 24px;
-$mobile-close-button-size: 32px;
-$tablet-close-button-size: 40px;
-$space-between-title-and-close-button: 8px;
-$button-margin: 16px;
-
 .pix-modal {
   @extend %pix-shadow-sm;
 
   display: inline-block;
   width: 512px;
   max-width: calc(
-      100% - #{2 * $pix-spacing-xs}
+      100% - var(--pix-spacing-4x)
     ); // Horizontal margin sets here to have extra space for the .pix-modal__overlay::after on mobile
 
   overflow: hidden;
@@ -54,7 +48,7 @@ $button-margin: 16px;
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: $modal-padding;
+    padding: var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
     background: var(--pix-neutral-0);
     border-bottom: 1px solid var(--pix-neutral-20);
@@ -65,8 +59,8 @@ $button-margin: 16px;
     margin-top: -4px;
 
     @include device-is('tablet') {
-      width: $tablet-close-button-size;
-      height: $tablet-close-button-size;
+      width: var(--pix-spacing-10x);
+      height: var(--pix-spacing-10x);
     }
   }
 
@@ -74,18 +68,18 @@ $button-margin: 16px;
     @extend %pix-title-xs;
 
     margin-bottom: 0;
-    padding-right: $mobile-close-button-size + $space-between-title-and-close-button;
+    padding-right: var(--pix-spacing-8x) + var(--pix-spacing-2x);
     color: var(--pix-neutral-900);
 
     @include device-is('tablet') {
-      padding-right: $tablet-close-button-size + $space-between-title-and-close-button;
+      padding-right: var(--pix-spacing-10x) + var(--pix-spacing-2x);
     }
   }
 
   &__content {
     @extend %pix-body-s;
 
-    padding: $modal-padding;
+    padding: var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
     background-color:var(--pix-neutral-20);
 
@@ -95,7 +89,7 @@ $button-margin: 16px;
   }
 
   &__footer {
-    padding: 0 $modal-padding $modal-padding - $button-margin;
+    padding: 0 var(--pix-spacing-6x) var(--pix-spacing-2x);
     background-color:var(--pix-neutral-20);
   }
 }

@@ -2,7 +2,7 @@
   @extend %pix-body-s;
 
   display: inline-block;
-  padding: $pix-spacing-xxs $pix-spacing-s;
+  padding: var(--pix-spacing-1x) var(--pix-spacing-4x);
   color: var(--pix-primary-900);
   font-weight: $font-medium;
   white-space: nowrap;

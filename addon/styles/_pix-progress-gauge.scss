@@ -39,7 +39,7 @@
 
     grid-area: text;
     min-width: 5ch;
-    margin-right: $pix-spacing-xxs;
+    margin-right: var(--pix-spacing-1x);
     font-weight: 500;
     line-height: 1;
     white-space: nowrap;

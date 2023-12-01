@@ -66,14 +66,14 @@
   }
 
   &__input--error {
-    padding-right: $pix-spacing-l;
+    padding-right: var(--pix-spacing-10x);
     border-width: 2px;
 
     @include formElementInError();
   }
 
   &__input--success {
-    padding-right: $pix-spacing-l;
+    padding-right: var(--pix-spacing-10x);
     border-width: 2px;
 
     @include formElementInSuccess();

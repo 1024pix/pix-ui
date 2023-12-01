@@ -5,7 +5,7 @@
 }
 
 .pix-search-input__label {
-  margin-bottom: 4px;
+  margin-bottom: var(--pix-spacing-1x);
   color: var(--pix-neutral-900);
   font-size: 0.875rem;
 }
@@ -32,7 +32,7 @@
 
   width: 100%;
   height: 36px;
-  padding-left: $pix-spacing-xl;
+  padding-left: var(--pix-spacing-12x);
   border: 1px solid var(--pix-neutral-500);
 
   &::placeholder {

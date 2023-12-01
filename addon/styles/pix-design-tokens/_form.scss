@@ -13,9 +13,9 @@
 }
 
 @mixin formElementDisabled() {
+  color: var(--pix-neutral-500);
   background-color: var(--pix-neutral-20);
   border-color:  var(--pix-neutral-100);
-  color: var(--pix-neutral-500);
   cursor: not-allowed;
 }
 
@@ -75,6 +75,7 @@
 
 @mixin input() {
   @extend %pix-body-s;
+
   padding: 0 var(--pix-spacing-3x);
   color: var(--pix-neutral-900);
   border-radius: var(--pix-spacing-1x);
@@ -83,7 +84,7 @@
 .pix-form__label {
   @include label();
 
-  padding-bottom: 12px;
+  padding-bottom: var(--pix-spacing-3x);
 }
 
 .pix-form__actions {

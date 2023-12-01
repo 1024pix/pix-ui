@@ -2,11 +2,11 @@
   height: 1rem;
 
   &--before {
-    margin-right: $pix-spacing-xs;
+    margin-right: var(--pix-spacing-2x);
   }
 
   &--after {
-    margin-left: $pix-spacing-xs;
+    margin-left: var(--pix-spacing-2x);
   }
 }
 

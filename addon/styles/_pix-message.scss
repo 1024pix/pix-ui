@@ -2,13 +2,13 @@
   @extend %pix-body-s;
 
   display: flex;
-  gap: $pix-spacing-xs;
+  gap: var(--pix-spacing-2x);
   align-items: center;
   margin: 0;
-  padding: $pix-spacing-s $pix-spacing-m;
+  padding: var(--pix-spacing-3x) var(--pix-spacing-4x);
   font-size: 0.875rem;
   border: 1px solid currentcolor;
-  border-radius: $pix-spacing-xxs;
+  border-radius: var(--pix-spacing-1x);
 
   &.pix-message--info {
     color: var(--pix-info-700);

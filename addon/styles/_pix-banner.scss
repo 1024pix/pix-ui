@@ -1,18 +1,18 @@
 .pix-banner {
   display: flex;
-  gap: $pix-spacing-xs;
+  gap: var(--pix-spacing-2x);
   align-items: center;
-  padding: $pix-spacing-s $pix-spacing-m;
+  padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
   font-size: 0.875rem;
   border: 1px solid currentcolor;
-  border-radius: $pix-spacing-xs;
+  border-radius: var(--pix-spacing-2x);
 
   &__action {
     color: inherit;
     text-decoration: underline;
 
     .external-link {
-      margin-left: 4px;
+      margin-left: var(--pix-spacing-1x);
       font-size: 0.875rem;
     }
   }

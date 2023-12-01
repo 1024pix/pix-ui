@@ -4,10 +4,10 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: $pix-spacing-xs;
+  gap: var(--pix-spacing-2x);
   width: 100%;
   min-height: 64px;
-  padding: $pix-spacing-s $pix-spacing-m;
+  padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
   background-color: var(--pix-neutral-0);
 
   &__title {
@@ -19,7 +19,7 @@
   &__container-filter {
     display: flex;
     flex-direction: column;
-    gap: $pix-spacing-s;
+    gap: var(--pix-spacing-4x);
   }
 
   &__container-action {
@@ -31,7 +31,7 @@
 
   &__details {
     margin: 0;
-    padding: $pix-spacing-xs 0 $pix-spacing-xs 0;
+    padding: var(--pix-spacing-2x) 0 var(--pix-spacing-2x) 0;
     color: var(--pix-neutral-500);
     font-weight: $font-medium;
     font-size: 0.875rem;
@@ -43,13 +43,13 @@
 }
 
 .pix-filter-banner-button__icon {
-  padding-right: $pix-spacing-xxs;
+  padding-right: var(--pix-spacing-1x);
 }
 
 @include device-is('tablet') {
   .pix-filter-banner {
     flex-direction: row;
-    gap: $pix-spacing-m;
+    gap: var(--pix-spacing-6x);
     align-items: center;
 
     &__container-title {
@@ -70,13 +70,13 @@
     }
 
     &__details {
-      padding: 0 $pix-spacing-s 0 0;
+      padding: 0 var(--pix-spacing-4x) 0 0;
       text-align: center;
       border: none;
     }
 
     &__button-container {
-      padding-left: $pix-spacing-s;
+      padding-left: var(--pix-spacing-4x);
       border-left: 1px solid var(--pix-neutral-20);
     }
   }

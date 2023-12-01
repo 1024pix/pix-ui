@@ -3,7 +3,7 @@
   height: 2.25rem;
 
   & * + * {
-    margin-left: $pix-spacing-xxs;
+    margin-left: var(--pix-spacing-1x);
   }
 }
 

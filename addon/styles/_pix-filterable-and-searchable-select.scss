@@ -2,7 +2,7 @@
   display: flex;
   max-width: 100%;
   border: 1px var(--pix-neutral-500) solid;
-  border-radius: 4px;
+  border-radius: var(--pix-spacing-1x);
 
   &--error {
     @include formElementInError();
@@ -44,7 +44,7 @@
 
   &__pix-multi-select {
     position: relative;
-    border-radius: 4px 0 0 4px;
+    border-radius: var(--pix-spacing-1x) 0 0 var(--pix-spacing-1x);
 
     &:after {
       position: absolute;
