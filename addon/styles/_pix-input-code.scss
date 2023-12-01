@@ -5,6 +5,7 @@
   input[type='number'] {
     // Firefox
     -moz-appearance: textfield;
+    appearance: textfield;
 
     // The rest
     &::-webkit-inner-spin-button,
@@ -33,12 +34,19 @@
     color: var(--pix-neutral-900);
     font-size: 1.25rem;
     text-align: center;
-    background-color: var(--pix-neutral-20);
+    background-color: var(--pix-neutral-0);
     border: 1.4px solid var(--pix-neutral-500);
     border-radius: 4px;
-    outline: none;
 
     @include hoverFormElement();
+    @include focusFormElement();
+    @include activeFormElement();
+
+    &:focus, &:active {
+      &::placeholder {
+        opacity: 0;
+      }
+    }
 
     &:not(:first-child) {
       margin-left: 4px;
@@ -46,20 +54,6 @@
 
     &::placeholder {
       color: var(--pix-neutral-500);
-    }
-
-    &:hover {
-      border-color: var(--pix-neutral-800);
-    }
-
-    &:active,
-    &:focus {
-      background-color: var(--pix-neutral-0);
-      border-color: var(--pix-primary-500);
-
-      &::placeholder {
-        opacity: 0;
-      }
     }
 
     &.filled {

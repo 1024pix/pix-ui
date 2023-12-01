@@ -47,9 +47,10 @@
     @include input();
     @include hoverFormElement();
     @include focusFormElement();
+    @include activeFormElement();
 
     &::placeholder {
-      color: var(--pix-neutral-100);
+      color: var(--pix-neutral-500);
     }
 
     &[aria-disabled],
@@ -66,12 +67,14 @@
 
   &__input--error {
     padding-right: $pix-spacing-l;
+    border-width: 2px;
 
     @include formElementInError();
   }
 
   &__input--success {
     padding-right: $pix-spacing-l;
+    border-width: 2px;
 
     @include formElementInSuccess();
   }

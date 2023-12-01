@@ -26,6 +26,14 @@
   }
 }
 
+@mixin activeFormElement() {
+  &:active {
+    background-color: var(--pix-neutral-0);
+    border-color: var(--pix-primary-500);
+    outline: none;
+  }
+}
+
 @mixin focusWithinFormElement() {
   &:focus-within {
     border-color: var(--pix-primary-500);

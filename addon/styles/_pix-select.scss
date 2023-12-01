@@ -103,6 +103,7 @@
 
   @include hoverFormElement();
   @include focusWithinFormElement();
+  @include activeFormElement();
 
   &--disabled {
     @include formElementDisabled();

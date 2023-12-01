@@ -11,6 +11,7 @@
 
     @include hoverFormElement();
     @include focusFormElement();
+    @include activeFormElement();
 
     &.pix-textarea--error {
       @include formElementInError();
