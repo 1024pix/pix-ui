@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v41.1.1 (05/12/2023)
+
+
+### :building_construction: Tech
+- [#501](https://github.com/1024pix/pix-ui/pull/501) [TECH] Ajout d'un délai d'attente avant la prise de Snapshots Chromatic.
+
 ## v41.1.0 (21/11/2023)
 
 
