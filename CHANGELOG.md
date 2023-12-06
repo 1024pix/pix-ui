@@ -1,5 +1,17 @@
 # Pix-UI Changelog
 
+## v41.1.2 (06/12/2023)
+
+
+### :arrow_up: Montée de version
+- [#506](https://github.com/1024pix/pix-ui/pull/506) [BUMP] Update dependency chromatic to v9 (dossier racine).
+- [#505](https://github.com/1024pix/pix-ui/pull/505) [BUMP] Update dependency chromatic to v8 (dossier racine).
+- [#469](https://github.com/1024pix/pix-ui/pull/469) [BUMP] Update dependency chromatic to v7 (dossier racine).
+- [#504](https://github.com/1024pix/pix-ui/pull/504) [BUMP] Update dependency @1024pix/eslint-config to ^1.1.1 (dossier racine).
+- [#496](https://github.com/1024pix/pix-ui/pull/496) [BUMP] Update dependency qunit-dom to v3 (dossier racine).
+- [#502](https://github.com/1024pix/pix-ui/pull/502) [BUMP] Update dependency @1024pix/stylelint-config to ^5.0.2 (dossier racine).
+- [#503](https://github.com/1024pix/pix-ui/pull/503) [BUMP] Update dependency node to v20.10.0.
+
 ## v41.1.1 (05/12/2023)
 
 
