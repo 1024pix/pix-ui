@@ -76,7 +76,7 @@
 }
 
 // SPECIFIC BAR COLORS
-.progress-gauge--content-blue {
+.progress-gauge--content-blue, .progress-gauge--content-primary {
   .progress-gauge__bar::-webkit-progress-value {
     background-color: var(--pix-primary-500);
   }
@@ -93,7 +93,7 @@
   }
 }
 
-.progress-gauge--content-green {
+.progress-gauge--content-green, .progress-gauge--content-success {
   .progress-gauge__bar::-webkit-progress-value {
     background-color: var(--pix-success-700);
   }
@@ -110,7 +110,7 @@
   }
 }
 
-.progress-gauge--content-purple {
+.progress-gauge--content-purple, .progress-gauge--content-tertiary {
   .progress-gauge__bar::-webkit-progress-value {
     background-color: var(--pix-tertiary-900);
   }
