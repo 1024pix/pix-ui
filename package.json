@@ -61,7 +61,7 @@
     "@1024pix/ember-testing-library": "^1.0.0",
     "@1024pix/eslint-config": "^1.0.3",
     "@1024pix/storybook-ember": "^7.1.1",
-    "@1024pix/stylelint-config": "^5.0.0",
+    "@1024pix/stylelint-config": "^5.0.2",
     "@babel/eslint-parser": "^7.19.1",
     "@babel/plugin-proposal-decorators": "^7.20.5",
     "@ember/optional-features": "^2.0.0",
