@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v41.2.0 (08/12/2023)
+
+
+### :rocket: Amélioration
+- [#499](https://github.com/1024pix/pix-ui/pull/499) [FEATURE] Remise à jour des couleurs et des espacements (PIX-9998).
+
 ## v41.1.2 (06/12/2023)
 
 
