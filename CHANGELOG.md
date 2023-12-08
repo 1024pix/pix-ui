@@ -6,6 +6,15 @@
 ### :rocket: Amélioration
 - [#499](https://github.com/1024pix/pix-ui/pull/499) [FEATURE] Remise à jour des couleurs et des espacements (PIX-9998).
 
+#### Processus de migration des tokens 🧰
+
+- Migration de couleurs en variables SCSS vers des variables CSS 🔨
+  * Utiliser le script de migration scripts/migrate-colors-scss-vars-to-css-vars.sh
+  * Attention aux contrastes des écrans lors de la migration 🎨
+- Changement des spacings et migration de variables SCSS en variables CSS 🔧
+  * Utiliser le script de migration scripts/migrate-spacing-scss-vars-to-css-vars.sh
+  * Retirer le changement pour les border / shadow / outline après avoir lancé le script ⚠️
+
 ## v41.1.2 (06/12/2023)
 
 
