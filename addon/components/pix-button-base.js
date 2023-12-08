@@ -6,7 +6,7 @@ export default class PixButtonBase extends Component {
   }
 
   get backgroundColor() {
-    return this.args.backgroundColor || 'blue';
+    return this.args.backgroundColor || 'primary';
   }
 
   get size() {
@@ -18,7 +18,7 @@ export default class PixButtonBase extends Component {
       'pix-button',
       `pix-button--shape-${this.shape}`,
       `pix-button--size-${this.size}`,
-      `pix-button--background-${this.backgroundColor}`,
+      `pix-button--${this.backgroundColor}`,
     ];
     this.args.isBorderVisible && classNames.push('pix-button--border');
     this.args.isDisabled && classNames.push('pix-button--disabled');

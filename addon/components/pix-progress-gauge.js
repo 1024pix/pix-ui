@@ -38,10 +38,18 @@ export default class PixProgressGauge extends Component {
   }
 
   get colorClass() {
-    const availableColor = ['blue', 'green', 'purple'];
+    const availableColor = [
+      'primary',
+      'success',
+      'tertiary',
+      // deprecated color
+      'blue',
+      'green',
+      'purple',
+    ];
 
     const color =
-      this.args.color && availableColor.includes(this.args.color) ? this.args.color : 'blue';
+      this.args.color && availableColor.includes(this.args.color) ? this.args.color : 'primary';
 
     return `progress-gauge--content-${color}`;
   }

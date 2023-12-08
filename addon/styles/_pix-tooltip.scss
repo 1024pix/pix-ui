@@ -11,15 +11,17 @@
 }
 
 .pix-tooltip__content {
+  @extend %pix-shadow-md;
+
   position: absolute;
   left: auto;
   z-index: 100;
   display: none;
-  padding: 8px 16px;
-  color: $pix-neutral-0;
+  padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
+  color: var(--pix-neutral-0);
   font-size: 0.875rem;
   line-height: 1.4rem;
-  background-color: $pix-neutral-100;
+  background-color: var(--pix-neutral-900);
   border-radius: 6px;
   opacity: 0;
   transition: opacity 0.3s;
@@ -46,15 +48,14 @@
   }
 
   &--light {
-    color: $pix-neutral-60;
+    color: var(--pix-neutral-900);
     font-weight: $font-medium;
-    background-color: $pix-neutral-0;
-    box-shadow: 0 6px 24px 0 rgba($pix-neutral-70, 0.14);
+    background-color: var(--pix-neutral-0);
 
     &::before {
       width: 8px;
       height: 8px;
-      background-color: $pix-neutral-0;
+      background-color: var(--pix-neutral-0);
       border-width: 0;
     }
   }
@@ -66,12 +67,12 @@
   &::before {
     top: calc(50% - 5px); // 50% is the height of the parent and 5px the height of the triangle
     left: -10px; // 10px is width of the ::before elmt
-    border-color: transparent $pix-neutral-100 transparent transparent;
+    border-color: transparent var(--pix-neutral-900) transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
-    left: -5px;
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    left: -4px;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(315deg);
   }
 }
@@ -84,12 +85,12 @@
   &::before {
     top: 100%;
     left: calc(50% - 5px);
-    border-color: $pix-neutral-100 transparent transparent transparent;
+    border-color: var(--pix-neutral-900) transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(225deg);
   }
 }
@@ -101,13 +102,13 @@
   &::before {
     top: 100%;
     left: calc(100% - 27px);
-    border-color: $pix-neutral-100 transparent transparent transparent;
+    border-color: var(--pix-neutral-900) transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
     left: calc(100% - 26px);
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(225deg);
   }
 }
@@ -118,12 +119,12 @@
 
   &::before {
     top: 100%;
-    border-color: $pix-neutral-100 transparent transparent transparent;
+    border-color: var(--pix-neutral-900) transparent transparent transparent;
   }
 
   &.pix-tooltip__content--light::before {
     top: calc(100% - 5px);
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(225deg);
   }
 }
@@ -136,12 +137,12 @@
   &::before {
     top: -10px;
     left: calc(50% - 5px);
-    border-color: transparent transparent $pix-neutral-100 transparent;
+    border-color: transparent transparent var(--pix-neutral-900) transparent;
   }
 
   &.pix-tooltip__content--light::before {
-    top: -5px;
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    top: -4px;
+    border-color: var(--pix-neutral-500) transparent transparent var(--pix-neutral-500);
     transform: rotate(45deg);
   }
 }
@@ -153,13 +154,13 @@
   &::before {
     top: -10px;
     left: calc(100% - 27px);
-    border-color: transparent transparent $pix-neutral-100 transparent;
+    border-color: transparent transparent var(--pix-neutral-900) transparent;
   }
 
   &.pix-tooltip__content--light::before {
-    top: -5px;
+    top: -4px;
     left: calc(100% - 26px);
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(45deg);
   }
 }
@@ -170,12 +171,12 @@
 
   &::before {
     top: -10px;
-    border-color: transparent transparent $pix-neutral-100 transparent;
+    border-color: transparent transparent var(--pix-neutral-900) transparent;
   }
 
   &.pix-tooltip__content--light::before {
-    top: -5px;
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    top: -4px;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(45deg);
   }
 }
@@ -186,12 +187,12 @@
   &::before {
     top: calc(50% - 5px);
     right: -10px;
-    border-color: transparent transparent transparent $pix-neutral-100;
+    border-color: transparent transparent transparent var(--pix-neutral-900);
   }
 
   &.pix-tooltip__content--light::before {
-    right: -5px;
-    border-color: $pix-neutral-40 transparent transparent $pix-neutral-40;
+    right: -4px;
+    border-color: var(--pix-neutral-0) transparent transparent var(--pix-neutral-0);
     transform: rotate(135deg);
   }
 }

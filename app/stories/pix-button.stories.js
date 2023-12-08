@@ -44,13 +44,21 @@ export default {
     backgroundColor: {
       name: 'backgroundColor',
       description:
-        'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
-      options: ['blue', 'green', 'yellow', 'red', 'grey', 'transparent-light', 'transparent-dark'],
+        'color: `primary`, `secondary`, `success`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
+      options: [
+        'primary',
+        'secondary',
+        'success',
+        'error',
+        'neutral',
+        'transparent-light',
+        'transparent-dark',
+      ],
       type: { name: 'string', required: false },
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'blue' },
+        defaultValue: { summary: 'primary' },
       },
     },
     iconBefore: {
@@ -199,7 +207,7 @@ Default.args = {
   loadingColor: 'white',
   shape: 'squircle',
   size: 'big',
-  backgroundColor: 'blue',
+  backgroundColor: 'primary',
   label: 'Bouton',
 };
 
@@ -224,7 +232,7 @@ borders.args = {
 export const colors = Template.bind({});
 colors.args = {
   ...Default.args,
-  label: 'Bouton avec background blue (default)',
+  label: 'Bouton avec background primary (default)',
   extraButtons: [
     {
       ...Default.args,

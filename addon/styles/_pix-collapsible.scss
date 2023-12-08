@@ -1,6 +1,6 @@
 .pix-collapsible {
-  background-color: $pix-neutral-0;
-  border: 1px solid $pix-neutral-20;
+  background-color: var(--pix-neutral-0);
+  border: 1px solid var(--pix-neutral-100);
 
   &:first-child,
   &:first-child .pix-collapsible__title {
@@ -17,6 +17,15 @@
   &:not(:first-child) {
     border-top: none;
   }
+
+  &:hover {
+    border-color: var(--pix-neutral-500);
+  }
+
+  &:focus-within  {
+    border: 1px solid var(--pix-primary-500);
+    outline: 2px solid var(--pix-primary-300)
+  }
 }
 
 .pix-collapsible__title {
@@ -24,20 +33,20 @@
   align-items: center;
   justify-content: space-between;
   width: 100%;
-  padding: $pix-spacing-s;
-  color: $pix-neutral-90;
+  padding: var(--pix-spacing-4x);
+  color: var(--pix-neutral-800);
   font-size: 1rem;
   line-height: 1.25;
   border: none;
 
   &:hover,
-  &:focus,
   &[aria-expanded='true'] {
-    background-color: $pix-neutral-10;
+    color: var(--pix-neutral-900);
+    background-color: var(--pix-neutral-20);
   }
 
   &[aria-expanded='true'] {
-    border-bottom: 1px solid $pix-neutral-20;
+    border-bottom: 1px solid var(--pix-neutral-20);
   }
 }
 
@@ -49,26 +58,26 @@
   }
 
   &__icon {
-    margin-right: $pix-spacing-xs;
-    color: $pix-neutral-50;
+    margin-right: var(--pix-spacing-2x);
+    color: var(--pix-neutral-500);
   }
 
   &__toggle-icon {
     width: 1rem;
     height: 1rem;
-    margin-left: $pix-spacing-xs;
+    margin-left: var(--pix-spacing-2x);
     padding: 0.5rem;
     border-radius: 50%;
   }
 }
 
 .pix-collapsible__title:hover .pix-collapsible-title__toggle-icon {
-  background-color: $pix-neutral-20;
+  background-color: var(--pix-neutral-100);
 }
 
 .pix-collapsible__content {
-  padding: $pix-spacing-s;
-  color: $pix-neutral-60;
+  padding: var(--pix-spacing-4x);
+  color: var(--pix-neutral-500);
   font-size: 0.875rem;
   line-height: 1.25rem;
 

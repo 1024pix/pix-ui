@@ -1,16 +1,15 @@
 .pix-return-to {
+  @extend %pix-body-l;
+
   display: inline-flex;
+  gap: var(--pix-spacing-1x);
   align-items: center;
-  font-weight: $font-medium;
-  font-size: 1rem;
-  letter-spacing: 0.15px;
   text-decoration: none;
   border-bottom: transparent solid 2px;
 
   &__icon {
     position: relative;
-    z-index: 3;
-    padding: 4px 7px;
+    padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
     font-size: 1rem;
   }
 
@@ -27,56 +26,46 @@
     content: '';
   }
 
-  &__text {
-    margin-left: 4px;
-  }
-
+  &:focus,
   &:hover,
   &:active {
     background-color: transparent;
     border-bottom-color: transparent;
+    outline: 0;
     cursor: pointer;
 
     ::before {
-      opacity: 0.2;
+      opacity: 1;
     }
   }
 
-  &:focus-visible {
-    background-color: $pix-warning-40;
-    border-bottom: $pix-neutral-100 solid 2px;
+  @mixin coloriseLink($defaultColor, $arrowHoverColor, $arrowBgColor) {
+    color: $defaultColor;
 
-    .pix-return-to__text {
-      padding-right: 6px;
-    }
-  }
-
-  @mixin coloriseLink($textColor, $textHoverColor, $arrowColor) {
-    color: $textColor;
-
-    .pix-return-to__icon {
-      color: $arrowColor;
-    }
-
+    &:focus,
     &:hover,
     &:active {
-      color: $textHoverColor;
+      .pix-return-to__icon {
+        color: $arrowHoverColor;
+      }
 
       ::before {
-        background-color: $arrowColor;
+        background-color: $arrowBgColor;
+        outline: 1px solid var(--pix-neutral-0);
+        outline-offset: -3px;
       }
     }
   }
 
-  &--white {
-    @include coloriseLink($pix-neutral-10, $pix-neutral-0, $pix-neutral-0);
+  &--white, &--neutral-light {
+    @include coloriseLink(var(--pix-neutral-20), var(--pix-neutral-0), var(--pix-neutral-20));
   }
 
-  &--black {
-    @include coloriseLink($pix-neutral-80, $pix-neutral-110, $pix-neutral-60);
+  &--black, &--neutral-dark {
+    @include coloriseLink(var(--pix-neutral-900), var(--pix-neutral-0), var(--pix-neutral-900));
   }
 
-  &--blue {
-    @include coloriseLink($pix-communication-dark, $pix-primary-60, $pix-communication-dark);
+  &--blue, &--primary {
+    @include coloriseLink(var(--pix-primary-900), var(--pix-neutral-0), var(--pix-primary-900));
   }
 }

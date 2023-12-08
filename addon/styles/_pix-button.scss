@@ -2,11 +2,11 @@
   height: 1rem;
 
   &--before {
-    margin-right: $pix-spacing-xs;
+    margin-right: var(--pix-spacing-2x);
   }
 
   &--after {
-    margin-left: $pix-spacing-xs;
+    margin-left: var(--pix-spacing-2x);
   }
 }
 
@@ -22,17 +22,17 @@
   display: inline-block;
   width: 10px;
   height: 10px;
-  background-color: $pix-neutral-0;
+  background-color: var(--pix-neutral-0);
   border-radius: 100%;
   animation: sk-bouncedelay 1.4s infinite ease-in-out both;
 }
 
 .loader--white > div {
-  background-color: $pix-neutral-0;
+  background-color: var(--pix-neutral-0);
 }
 
 .loader--grey > div {
-  background-color: $pix-neutral-80;
+  background-color: var(--pix-neutral-800);
 }
 
 .loader .bounce1 {

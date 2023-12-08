@@ -22,16 +22,16 @@
     width: 10px;
     height: 10px;
     padding: 2px;
-    color: $pix-neutral-0;
+    color: var(--pix-neutral-0);
     font-size: 0.6rem;
     border-radius: 50%;
 
     &.pix-input__error-icon {
-      background: $pix-error-70;
+      background: var(--pix-error-700);
     }
 
     &.pix-input__success-icon {
-      background: $pix-success-60;
+      background: var(--pix-success-700);
     }
   }
 
@@ -42,14 +42,15 @@
   &__input--default {
     width: 100%;
     height: 36px;
-    border: 1px solid $pix-neutral-40;
+    border: 1px solid var(--pix-neutral-500);
 
     @include input();
     @include hoverFormElement();
     @include focusFormElement();
+    @include activeFormElement();
 
     &::placeholder {
-      color: $pix-neutral-30;
+      color: var(--pix-neutral-500);
     }
 
     &[aria-disabled],
@@ -65,13 +66,15 @@
   }
 
   &__input--error {
-    padding-right: $pix-spacing-l;
+    padding-right: var(--pix-spacing-10x);
+    border-width: 2px;
 
     @include formElementInError();
   }
 
   &__input--success {
-    padding-right: $pix-spacing-l;
+    padding-right: var(--pix-spacing-10x);
+    border-width: 2px;
 
     @include formElementInSuccess();
   }

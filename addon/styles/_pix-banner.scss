@@ -1,16 +1,18 @@
 .pix-banner {
   display: flex;
+  gap: var(--pix-spacing-2x);
   align-items: center;
-  padding: 16px 24px;
+  padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
   font-size: 0.875rem;
-  box-shadow: 0 4px 8px rgba(7, 20, 46, 0.08);
+  border: 1px solid currentcolor;
+  border-radius: var(--pix-spacing-2x);
 
   &__action {
     color: inherit;
     text-decoration: underline;
 
     .external-link {
-      margin-left: 4px;
+      margin-left: var(--pix-spacing-1x);
       font-size: 0.875rem;
     }
   }
@@ -18,89 +20,84 @@
   &__close {
     display: flex;
     margin-left: auto;
-    padding-left: 8px;
   }
 
   &__icon {
-    margin-right: $pix-spacing-xs;
     font-size: 1.125rem;
   }
 
   &--information {
-    color: $pix-primary-70;
-    background-color: $pix-primary-5;
+    color: var(--pix-info-700);
+    background-color: var(--pix-info-50);
 
     .pix-icon-button {
-      color: $pix-primary-70;
-      background-color: $pix-primary-5;
+      color: var(--pix-neutral-800);
+      background-color: var(--pix-info-50);
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        color: $pix-primary-70;
-        background-color: $pix-primary-10;
+        background-color: var(--pix-info-100);
       }
 
       &:focus:enabled {
-        outline-color: $pix-primary-70;
+        outline-color: var(--pix-primary-700);
       }
     }
   }
 
   &--warning {
-    color: $pix-warning-70;
-    background-color: $pix-warning-5;
+    color: var(--pix-warning-700);
+    background-color: var(--pix-warning-50);
 
     .pix-icon-button {
-      color: $pix-warning-70;
-      background-color: $pix-warning-5;
+      color: var(--pix-neutral-800);
+      background-color: var(--pix-warning-50);
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        color: $pix-warning-70;
-        background-color: $pix-warning-10;
+        background-color: var(--pix-warning-100);
       }
 
       &:focus:enabled {
-        outline-color: $pix-warning-70;
+        outline-color: var(--pix-warning-700);
       }
     }
   }
 
   &--error {
-    color: $pix-error-70;
-    background-color: $pix-error-5;
+    color: var(--pix-error-700);
+    background-color: var(--pix-error-50);
 
     .pix-icon-button {
-      color: $pix-error-70;
-      background-color: $pix-error-5;
+      color: var(--pix-neutral-800);
+      background-color: var(--pix-error-50);
 
       &:hover:enabled,
       &:focus:enabled,
       &:active:enabled {
-        color: $pix-error-70;
-        background-color: $pix-error-10;
+        background-color: var(--pix-error-100);
       }
 
       &:focus:enabled {
-        outline-color: $pix-error-70;
+        outline-color: var(--pix-error-700);
       }
     }
   }
 
   &--communication {
-    color: $pix-neutral-0;
-    background-color: $pix-primary;
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-primary-500);
 
     &-orga {
-      color: $pix-neutral-0;
-      background-color: $pix-secondary-orga-80;
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-orga-500);
     }
 
     &-certif {
-      color: $pix-neutral-0;
-      background-color: $pix-secondary-certif-50;
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-certif-500);
     }
   }
 }

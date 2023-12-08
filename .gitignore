@@ -5,6 +5,9 @@
 /tmp/
 /storybook-static
 
+#pack
+1024pix-pix-ui-*.tgz
+
 # dependencies
 /bower_components/
 /node_modules/

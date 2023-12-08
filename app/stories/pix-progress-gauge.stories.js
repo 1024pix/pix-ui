@@ -28,11 +28,11 @@ export default {
     color: {
       name: 'color',
       description:
-        "Modifie la couleur du contenu de la barre de progression. Peut prendre les valeurs `blue`, 'green' ou `purple`",
+        'Modifie la couleur du contenu de la barre de progression. Peut prendre les valeurs `primary`, `green` ou `blue`',
       type: { name: 'string', required: false },
-      table: { defaultValue: { summary: 'blue' } },
+      table: { defaultValue: { summary: 'primary' } },
       control: { type: 'select' },
-      options: ['blue', 'green', 'purple'],
+      options: ['primary', 'success', 'tertiary'],
     },
     subtitle: {
       name: 'subtitle',
@@ -59,6 +59,40 @@ Default.args = {
   value: '50',
 };
 
+export const Success = (args) => {
+  return {
+    template: hbs`<PixProgressGauge
+  @value={{this.value}}
+  @color={{this.color}}
+  @themeMode={{this.themeMode}}
+  @subtitle={{this.subtitle}}
+  @label={{this.label}}
+/>`,
+    context: args,
+  };
+};
+Success.args = {
+  value: '50',
+  color: 'success',
+};
+
+export const Tertiary = (args) => {
+  return {
+    template: hbs`<PixProgressGauge
+  @value={{this.value}}
+  @color={{this.color}}
+  @themeMode={{this.themeMode}}
+  @subtitle={{this.subtitle}}
+  @label={{this.label}}
+/>`,
+    context: args,
+  };
+};
+Tertiary.args = {
+  value: '50',
+  color: 'tertiary',
+};
+
 export const darkModeProgressGauge = (args) => {
   return {
     template: hbs`<section style='width: 100%; padding: 35px 35px 5px;background-color: #253858'>
@@ -76,7 +110,7 @@ export const darkModeProgressGauge = (args) => {
 darkModeProgressGauge.args = {
   value: '50',
   label: 'Chargement',
-  color: 'purple',
+  color: 'primary',
   themeMode: 'dark',
   subtitle: 'Avancement',
 };

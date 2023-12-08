@@ -24,7 +24,7 @@ export default {
       type: { name: 'string', required: false },
       table: { defaultValue: { summary: undefined } },
       control: { type: 'radio' },
-      options: [undefined, 'blue', 'grey'],
+      options: [undefined, 'primary'],
     },
   },
 };

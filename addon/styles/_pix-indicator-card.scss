@@ -1,11 +1,12 @@
 .indicator-card {
+  @extend %pix-shadow-xs;
+
   display: flex;
   width: 100%;
   min-height: 112px;
   padding: 0;
-  background-color: $pix-neutral-0;
+  background-color: var(--pix-neutral-0);
   border-radius: 8px;
-  box-shadow: 0 4px 8px rgba($pix-neutral-110, 0.05);
 
   &__icon {
     display: flex;
@@ -15,24 +16,29 @@
     font-size: 2.5rem;
     border-radius: 8px 0 0 8px;
 
-    &--grey {
-      color: $pix-neutral-60;
-      background-color: $pix-neutral-5;  
+    &--grey, &--neutral {
+      color: var(--pix-neutral-500);
+      background-color: var(--pix-neutral-20);
     }
 
-    &--blue {
-      color: $pix-primary-60;
-      background-color: $pix-primary-5;  
+    &--blue, &--primary {
+      color: var(--pix-primary-700);
+      background-color: var(--pix-primary-10);
     }
 
-    &--green {
-      color: $pix-success-60;
-      background-color: $pix-success-5;  
+    &--green, &--success {
+      color: var(--pix-success-700);
+      background-color: var(--pix-success-50);
     }
 
-    &--purple {
-      color: $pix-tertiary-60;
-      background-color: $pix-tertiary-5;  
+    &--purple, &--tertiary {
+      color: var(--pix-tertiary-900);
+      background-color: var(--pix-tertiary-100);
+    }
+
+    &--warning {
+      color: var(--pix-warning-700);
+      background-color: var(--pix-warning-50);
     }
   }
 
@@ -40,8 +46,8 @@
     display: flex;
     flex-direction: column;
     justify-content: center;
-    padding: $pix-spacing-s $pix-spacing-m;
-    color: $pix-neutral-60;
+    padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
+    color: var(--pix-neutral-500);
   }
 
   &__title {
@@ -49,7 +55,8 @@
 
     display: flex;
     align-items: center;
-    margin-bottom: $pix-spacing-xxs;
+    margin-bottom: var(--pix-spacing-1x);
+    color: var(--pix-neutral-800);
     font-weight: $font-medium;
     font-size: 1rem;
     line-height: 1.375rem;
@@ -58,7 +65,8 @@
   &__value {
     @extend %pix-title-m;
 
-    margin-bottom: $pix-spacing-xxs;
+    margin-bottom: var(--pix-spacing-1x);
+    color: var(--pix-neutral-800);
   }
 
   &__sub {
@@ -74,7 +82,7 @@
   }
 
   &__tooltip-icon {
-    margin: 0 $pix-spacing-xs;
-    color: $pix-neutral-30;
+    margin: 0 var(--pix-spacing-2x);
+    color: var(--pix-neutral-500);
   }
 }

@@ -17,7 +17,7 @@ sassOptions: {
 },
 ```
 
-Par la suite vous aurez accès à toutes les variables des design tokens avec le `$`, par exemple `border: 1px solid $pix-primary;`.
+Par la suite vous aurez accès à toutes les variables css des design tokens avec le `--`, par exemple `border: 1px solid var(--pix-primary-10);`.
 
 Pour pouvoir utiliser les placeholders et mixins, il faudra importer les design tokens dans le fichier source :
 
@@ -46,27 +46,27 @@ Les couleurs pour définir un état d'une alerte ont été attribuées pour unif
 ### Success
 
 ```
-Texte ou bordure : $pix-success-70
-Background : $pix-success-5
+Texte ou bordure : var(--pix-success-70)
+Background : var(--pix-success-5)
 ```
 
 ### Warning
 
 ```
-Texte ou bordure : $pix-warning-70
-Background : $pix-warning-5
+Texte ou bordure : var(--pix-warning-70)
+Background : var(--pix-warning-5)
 ```
 
 ### Error
 
 ```
-Texte ou bordure : $pix-error-70
-Background : $pix-error-5
+Texte ou bordure : var(--pix-error-70)
+Background : var(--pix-error-5)
 ```
 
 ### Information
 
 ```
-Texte ou bordure : $pix-primary-70
-Background : $pix-primary-5
+Texte ou bordure : var(--pix-primary-70)
+Background : var(--pix-primary-5)
 ```

@@ -3,34 +3,31 @@
   height: 2.25rem;
 
   & * + * {
-    margin-left: $pix-spacing-xxs;
+    margin-left: var(--pix-spacing-1x);
   }
 }
 
 .pix-stars__item {
   height: 100%;
-  fill: $pix-neutral-5;
-  stroke: $pix-neutral-40;
+  fill: var(--pix-neutral-20);
+  stroke: var(--pix-neutral-500);
 
   &[data-acquired] {
-    fill: $pix-secondary-40;
-    stroke: $pix-secondary-60;
+    fill: var(--pix-secondary-500);
+    stroke: var(--pix-secondary-700);
   }
 }
 
-// Color variant : Blue
+// Color variant : primary
+.pix-stars__item--color-primary[data-acquired],
 .pix-stars__item--color-blue[data-acquired] {
-  fill: $pix-primary-40;
-  stroke: $pix-primary-60;
+  fill: var(--pix-primary-500);
+  stroke: var(--pix-primary-700);
 }
 
-// Color variant : Grey
-.pix-stars__item--color-grey {
-  fill: $pix-neutral-0;
-  stroke: $pix-neutral-40;
-
-  &[data-acquired] {
-    fill: $pix-neutral-40;
-    stroke: $pix-neutral-40;
-  }
+// Color variant : neutral "deprecated ????"
+.pix-stars__item--color-neutral[data-acquired],
+.pix-stars__item--color-grey[data-acquired] {
+    fill: var(--pix-neutral-500);
+    stroke: var(--pix-neutral-500);
 }

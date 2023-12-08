@@ -3,7 +3,7 @@
   align-items: center;
   justify-content: center;
   padding: 0;
-  color: $pix-neutral-60;
+  color: var(--pix-neutral-800);
   background-color: transparent;
   border: none;
   border-radius: 50%;
@@ -16,26 +16,25 @@
   }
 
   &:hover:enabled {
-    color: $pix-neutral-60;
-    background-color: $pix-neutral-20;
+    background-color: var(--pix-neutral-20);
     outline: 0;
   }
 
   &:focus:enabled {
-    color: $pix-neutral-0;
-    background-color: $pix-neutral-60;
-    outline: 1px solid $pix-neutral-0;
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-neutral-800);
+    outline: 1px solid var(--pix-neutral-0);
     outline-offset: -3px;
   }
 
   &:active:enabled {
-    color: $pix-neutral-60;
-    background-color: $pix-neutral-22;
+    color: var(--pix-neutral-800);
+    background-color: var(--pix-neutral-100);
     outline: 0;
   }
 
   &--background {
-    background-color: $pix-neutral-10;
+    background-color: var(--pix-neutral-20);
   }
 
   &--small {

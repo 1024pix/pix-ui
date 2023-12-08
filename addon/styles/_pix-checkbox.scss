@@ -3,136 +3,139 @@
   z-index: 0;
   display: flex;
   align-items: center;
-  color: $pix-neutral-70;
 
   & + .pix-checkbox {
-    margin-top: $pix-spacing-s;
-  }
-}
-
-/* Label */
-.pix-checkbox__label {
-  padding-left: 12px;
-  color: $pix-neutral-90;
-  font-size: 1rem;
-  line-height: 1.5;
-  cursor: pointer;
-
-  &--small {
-    font-size: 0.875rem;
+    margin-top: var(--pix-spacing-4x);
   }
 
-  &--large {
-    font-size: 1.125rem;
+  /* Label */
+  &__label {
+    @extend %pix-body-m;
+
+    padding-left: var(--pix-spacing-3x);
+    color: var(--pix-neutral-900);
+    cursor: pointer;
+
+    &--small {
+      font-size: 0.875rem;
+    }
+
+    &--large {
+      font-size: 1.125rem;
+    }
   }
-}
 
-/* Input */
-.pix-checkbox__input {
-  position: relative;
-  flex-shrink: 0;
-  width: 1rem;
-  height: 1rem;
-  background-color: $pix-neutral-0;
-  border: 1.5px solid $pix-neutral-70;
-  border-radius: 2px;
-  cursor: pointer;
-  appearance: none;
-
-  // Hover effect
-  &::before {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    z-index: -1;
+  /* Input */
+  &__input {
+    position: relative;
+    flex-shrink: 0;
     width: 1rem;
     height: 1rem;
-    background-color: $pix-neutral-15;
-    border-radius: 50%;
-    transform: translate(-50%, -50%) scale(1);
-    visibility: hidden;
-    opacity: 0;
-    transition: all 0.3s ease;
-    content: '';
-  }
+    background-color: var(--pix-neutral-0);
+    border: 1.5px solid var(--pix-neutral-800);
+    border-radius: 2px;
+    outline: 0;
+    cursor: pointer;
+    appearance: none;
 
-  &:hover,
-  &:focus-visible,
-  &:active {
-    border-color: $pix-neutral-90;
-
+    // Hover effect
     &::before {
-      transform: translate(-50%, -50%) scale(1.75);
-      visibility: visible;
-      opacity: 1;
-    }
-  }
-
-  &:active {
-    &::before {
-      background-color: $pix-neutral-22;
-    }
-  }
-
-  // Checked state
-  &:checked {
-    background: $pix-primary;
-    border-color: $pix-primary;
-
-    &:hover,
-    &:focus-visible,
-    &:active {
-      background: $pix-primary-60;
-      border-color: $pix-primary-60;
-    }
-
-    &::after {
       position: absolute;
-      background-image: url("data:image/svg+xml,%3Csvg width='13' height='10' viewBox='0 0 13 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 3L0 4.5L5 9.5L13 1.5L11.5 0L5 6.5L1.5 3Z' fill='white'/%3E%3C/svg%3E%0A");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+      top: 50%;
+      left: 50%;
+      z-index: -1;
+      width: 1rem;
+      height: 1rem;
+      background-color: var(--pix-neutral-20);
+      border-color: var(--pix-neutral-900);
+      border-radius: 50%;
+      transform: translate(-50%, -50%) scale(1);
+      visibility: hidden;
+      opacity: 0;
+      transition: all 0.3s ease;
       content: '';
-      inset: 10%;
     }
-  }
-
-  // Indeterminate state
-  &--indeterminate:checked {
-    background: $pix-neutral-70;
-    border-color: $pix-neutral-70;
 
     &:hover,
-    &:focus-visible,
+    &:focus-visible {
+      &::before {
+        background-color: var(--pix-neutral-20);
+        transform: translate(-50%, -50%) scale(1.75);
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
     &:active {
-      background: $pix-neutral-90;
-      border-color: $pix-neutral-90;
+      &::before {
+        background-color: var(--pix-neutral-100);
+        transform: translate(-50%, -50%) scale(1.75);
+        visibility: visible;
+        opacity: 1;
+      }
     }
 
-    &::after {
-      background-image: url("data:image/svg+xml,%3Csvg width='10' height='2' viewBox='0 0 10 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='10' height='2' fill='white'/%3E%3C/svg%3E%0A");
-      inset: 15%;
-    }
-  }
-
-  // Disabled state
-  &:disabled,
-  &--indeterminate:disabled {
-    background: $pix-neutral-10;
-    border-color: $pix-neutral-30;
-    cursor: not-allowed;
-
-    & + .pix-checkbox__label {
-      cursor: not-allowed;
-    }
-
+    // Checked state
     &:checked {
-      background: $pix-neutral-30;
-      border-color: $pix-neutral-30;
+      background: var(--pix-primary-500);
+      border-color: var(--pix-primary-500);
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        background: var(--pix-primary-700);
+        border-color: var(--pix-primary-700);
+      }
+
+      &::after {
+        position: absolute;
+        background-image: url("data:image/svg+xml,%3Csvg width='13' height='10' viewBox='0 0 13 10' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1.5 3L0 4.5L5 9.5L13 1.5L11.5 0L5 6.5L1.5 3Z' fill='white'/%3E%3C/svg%3E%0A");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+        content: '';
+        inset: 10%;
+      }
     }
 
-    &::before {
-      display: none;
+    // Indeterminate state
+    &--indeterminate:checked {
+      background: var(--pix-neutral-800);
+      border-color: var(--pix-neutral-800);
+
+      &:hover,
+      &:focus-visible,
+      &:active {
+        background: var(--pix-neutral-900);
+        border-color: var(--pix-neutral-900);
+      }
+
+      &::after {
+        background-image: url("data:image/svg+xml,%3Csvg width='10' height='2' viewBox='0 0 10 2' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='10' height='2' fill='white'/%3E%3C/svg%3E%0A");
+        inset: 15%;
+      }
+    }
+
+    // Disabled state
+    &:disabled,
+    &--indeterminate:disabled {
+      background: var(--pix-neutral-100);
+      border-color: var(--pix-neutral-100);
+      cursor: not-allowed;
+
+      & + .pix-checkbox__label {
+        color: var(--pix-neutral-500);
+        cursor: not-allowed;
+      }
+
+      &:checked {
+        background: var(--pix-neutral-100);
+        border-color: var(--pix-neutral-100);
+      }
+
+      &::before {
+        display: none;
+      }
     }
   }
 }
