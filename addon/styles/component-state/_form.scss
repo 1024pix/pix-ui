@@ -1,0 +1,101 @@
+%pix-input-default {
+  @extend %pix-body-s;
+
+  padding: 0 var(--pix-spacing-3x);
+  color: var(--pix-neutral-900);
+  border-radius: var(--pix-spacing-1x);
+}
+
+%pix-input-error-message {
+  @extend %pix-body-xs;
+
+  margin-top: var(--pix-spacing-1x);
+  color: var(--pix-error-700);
+}
+
+%pix-form-success-state {
+  border: 2px solid var(--pix-success-700);
+}
+
+%pix-form-error-state {
+  border: 2px solid var(--pix-error-700);
+}
+
+%pix-form-element-state {
+  &:hover {
+    background-color: var(--pix-neutral-20);
+    border-color: var(--pix-neutral-900);
+  }
+
+  &:active {
+    background-color: var(--pix-neutral-0);
+    border-color: var(--pix-primary-500);
+    outline: none;
+  }
+
+  &:focus-within, &:focus {
+    border-color: var(--pix-primary-500);
+    outline: 2px solid var(--pix-primary-300);
+  }
+
+  &[aria-disabled],
+  &[disabled],
+  &[readonly] {
+    color: var(--pix-neutral-500);
+    background-color: var(--pix-neutral-20);
+    border-color:  var(--pix-neutral-100);
+    cursor: not-allowed;
+
+    &:hover {
+      background-color: var(--pix-neutral-20);
+      border-color:  var(--pix-neutral-100);
+    }
+  }
+
+  &[readonly] {
+    cursor: default;
+  }
+}
+
+%pix-label {
+  @extend %pix-body-m;
+
+  display: block;
+  margin-bottom: var(--pix-spacing-1x);
+  color: var(--pix-neutral-900);
+}
+
+%pix-sublabel {
+  @extend %pix-body-s;
+
+  display: block;
+  margin-bottom: var(--pix-spacing-1x);
+  color: var(--pix-neutral-500);
+}
+
+
+// Only on StoryBook
+.pix-form__label {
+  @extend %pix-body-m;
+
+  display: block;
+  margin-bottom: var(--pix-spacing-3x);
+  color: var(--pix-neutral-900);
+}
+
+.pix-form__actions {
+  display: flex;
+  justify-content: center;
+
+  & > .pix-button:first-child {
+    margin-right: 10px;
+  }
+}
+
+.mandatory-mark,
+.mandatory-mark[title] {
+  color: var(--pix-error-700);
+  text-decoration: none;
+  border: none;
+  cursor: help;
+}

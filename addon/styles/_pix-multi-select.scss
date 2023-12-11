@@ -3,12 +3,13 @@
   display: inline-block;
 
   &__label {
-    @include label();
+    @extend %pix-label;
   }
 }
 
 .pix-multi-select-header {
   @extend %pix-body-s;
+  @extend %pix-form-element-state;
 
   position: relative;
   display: flex;
@@ -20,12 +21,7 @@
   background-color: var(--pix-neutral-0);
   border: 1px var(--pix-neutral-500) solid;
   border-radius: var(--pix-spacing-1x);
-  outline: none;
   cursor: pointer;
-
-  @include hoverFormElement();
-  @include focusWithinFormElement();
-  @include activeFormElement();
 
   &--big {
     height: 44px;

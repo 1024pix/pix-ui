@@ -10,7 +10,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
   setupRenderingTest(hooks);
 
   const INPUT_SELECTOR = '.pix-input-password input[type=password]';
-  const INFORMATION_SELECTOR = '.pix-input__information';
+  const INFORMATION_SELECTOR = '.pix-input__sub-label';
   const BUTTON_SELECTOR = '.pix-input-password__button';
 
   test('it should throw an error if there is no id', async function (assert) {

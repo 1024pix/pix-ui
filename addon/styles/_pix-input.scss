@@ -4,12 +4,13 @@
   flex-direction: column;
 
   &__label {
-    @include label();
+    @extend %pix-label;
   }
 
-  &__information {
-    @include subLabel();
+  &__sub-label {
+    @extend %pix-sublabel;
   }
+
 
   &__container {
     position: relative;
@@ -36,46 +37,28 @@
   }
 
   &__error-message {
-    @include errorMessage();
+    @extend %pix-input-error-message;
   }
 
-  &__input--default {
+  &__input {
+    @extend %pix-form-element-state;
+    @extend %pix-input-default;
+
     width: 100%;
     height: 36px;
     border: 1px solid var(--pix-neutral-500);
 
-    @include input();
-    @include hoverFormElement();
-    @include focusFormElement();
-    @include activeFormElement();
+    &--error {
+      @extend %pix-form-error-state;
+    }
+
+    &--success {
+      @extend %pix-form-success-state;
+    }
 
     &::placeholder {
       color: var(--pix-neutral-500);
     }
 
-    &[aria-disabled],
-    &[disabled],
-    &[readonly] {
-      @include formElementDisabled();
-      @include hoverFormElementDisabled();
-    }
-
-    &[readonly] {
-      cursor: default;
-    }
-  }
-
-  &__input--error {
-    padding-right: var(--pix-spacing-10x);
-    border-width: 2px;
-
-    @include formElementInError();
-  }
-
-  &__input--success {
-    padding-right: var(--pix-spacing-10x);
-    border-width: 2px;
-
-    @include formElementInSuccess();
   }
 }

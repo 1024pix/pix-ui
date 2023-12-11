@@ -26,9 +26,9 @@
 }
 
 .pix-search-input__input {
-  @include input();
-  @include hoverFormElement();
-  @include focusFormElement();
+  @extend %pix-form-element-state;
+  @extend %pix-input-default;
+
 
   width: 100%;
   height: 36px;
