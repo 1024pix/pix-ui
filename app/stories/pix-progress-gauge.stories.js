@@ -95,7 +95,8 @@ Tertiary.args = {
 
 export const darkModeProgressGauge = (args) => {
   return {
-    template: hbs`<section style='width: 100%; padding: 35px 35px 5px;background-color: #253858'>
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<section style='width: 100%; padding: 35px 35px 5px;background-color: #253858'>
   <PixProgressGauge
     @value={{this.value}}
     @color={{this.color}}

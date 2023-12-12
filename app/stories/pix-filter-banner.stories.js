@@ -46,9 +46,27 @@ export const filterBanner = (args) => {
   @onClearFilters={{this.onClearFilters}}
   @isClearFilterButtonDisabled={{this.isClearFilterButtonDisabled}}
 >
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
-  <PixSelect @options={{this.options}} @onChange={{this.onChange}} @label="mon label" @screenReaderOnly={{true}} @placeholder="placeholer"/>
+  <PixSelect
+    @options={{this.options}}
+    @onChange={{this.onChange}}
+    @label='mon label'
+    @screenReaderOnly={{true}}
+    @placeholder='placeholer'
+  />
+  <PixSelect
+    @options={{this.options}}
+    @onChange={{this.onChange}}
+    @label='mon label'
+    @screenReaderOnly={{true}}
+    @placeholder='placeholer'
+  />
+  <PixSelect
+    @options={{this.options}}
+    @onChange={{this.onChange}}
+    @label='mon label'
+    @screenReaderOnly={{true}}
+    @placeholder='placeholer'
+  />
 </PixFilterBanner>`,
     context: args,
   };

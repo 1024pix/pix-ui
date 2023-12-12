@@ -13,16 +13,13 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
   this.loadingMessage = 'texte de chargement sr';
 
   test('it renders', async function (assert) {
-    const screen = await render(hbs`<PixIndicatorCard
-        @title={{this.title}}
-        @color={{this.color}}
-        @icon={{this.icon}}
-      >
-        <:default>42</:default>
-        <:sub>
-          En cours : 1
-        </:sub>
-      </PixIndicatorCard>`);
+    const screen =
+      await render(hbs`<PixIndicatorCard @title={{this.title}} @color={{this.color}} @icon={{this.icon}}>
+  <:default>42</:default>
+  <:sub>
+    En cours : 1
+  </:sub>
+</PixIndicatorCard>`);
 
     assert.strictEqual(screen.getByRole('term').textContent, this.title);
     assert.strictEqual(screen.getByRole('definition').textContent, '42');
@@ -31,16 +28,16 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
 
   test('it shows the pop up info', async function (assert) {
     const screen = await render(hbs`<PixIndicatorCard
-        @title={{this.title}}
-        @color={{this.color}}
-        @icon={{this.icon}}
-        @info={{this.info}}
-      >
-        <:default>42</:default>
-        <:sub>
-          En cours : 1
-        </:sub>
-      </PixIndicatorCard>`);
+  @title={{this.title}}
+  @color={{this.color}}
+  @icon={{this.icon}}
+  @info={{this.info}}
+>
+  <:default>42</:default>
+  <:sub>
+    En cours : 1
+  </:sub>
+</PixIndicatorCard>`);
 
     screen.getAllByRole('img', { hidden: true })[1].focus();
 
@@ -51,18 +48,18 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
   module('#loadingMessage, when is loading', function () {
     test("it didn't display card infos", async function () {
       const screen = await render(hbs`<PixIndicatorCard
-      @title={{this.title}}
-      @color={{this.color}}
-      @icon={{this.icon}}
-      @info={{this.info}}
-      @isLoading={{true}}
-      @loadingMessage={{this.loadingMessage}}
-      >
-      <:default>42</:default>
-      <:sub>
-      En cours : 1
-      </:sub>
-      </PixIndicatorCard>`);
+  @title={{this.title}}
+  @color={{this.color}}
+  @icon={{this.icon}}
+  @info={{this.info}}
+  @isLoading={{true}}
+  @loadingMessage={{this.loadingMessage}}
+>
+  <:default>42</:default>
+  <:sub>
+    En cours : 1
+  </:sub>
+</PixIndicatorCard>`);
 
       const title = screen.queryByText(this.title);
       assert.dom(title).doesNotExist();
@@ -70,18 +67,18 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
 
     test('it display loading text', async function () {
       const screen = await render(hbs`<PixIndicatorCard
-      @title={{this.title}}
-      @color={{this.color}}
-      @icon={{this.icon}}
-      @info={{this.info}}
-      @isLoading={{true}}
-      @loadingMessage={{this.loadingMessage}}
-      >
-      <:default>42</:default>
-      <:sub>
-      En cours : 1
-      </:sub>
-      </PixIndicatorCard>`);
+  @title={{this.title}}
+  @color={{this.color}}
+  @icon={{this.icon}}
+  @info={{this.info}}
+  @isLoading={{true}}
+  @loadingMessage={{this.loadingMessage}}
+>
+  <:default>42</:default>
+  <:sub>
+    En cours : 1
+  </:sub>
+</PixIndicatorCard>`);
 
       const loadingText = screen.queryByText(this.loadingMessage);
       assert.dom(loadingText).exists();

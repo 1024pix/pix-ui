@@ -1,3 +1,4 @@
+//! template-lint-disable
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';

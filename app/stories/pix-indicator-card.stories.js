@@ -39,23 +39,23 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`
-    <div style="min-width:300px">
-      <PixIndicatorCard
-        @title={{this.title}}
-        @color={{this.color}}
-        @icon={{this.icon}}
-        @iconPrefix={{this.iconPrefix}}
-        @info={{this.info}}
-        @isLoading={{this.isLoading}}
-        @loadingMessage={{this.loadingMessage}}
-      >
-        <:default>{{this.value}}</:default>
-        <:sub>
-          <span>En cours : 1</span><span>En attente : 2</span><span>Envoyés : 3</span>
-        </:sub>
-      </PixIndicatorCard>
-    </div>`,
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div style='min-width:300px'>
+  <PixIndicatorCard
+    @title={{this.title}}
+    @color={{this.color}}
+    @icon={{this.icon}}
+    @iconPrefix={{this.iconPrefix}}
+    @info={{this.info}}
+    @isLoading={{this.isLoading}}
+    @loadingMessage={{this.loadingMessage}}
+  >
+    <:default>{{this.value}}</:default>
+    <:sub>
+      <span>En cours : 1</span><span>En attente : 2</span><span>Envoyés : 3</span>
+    </:sub>
+  </PixIndicatorCard>
+</div>`,
     context: args,
   };
 };

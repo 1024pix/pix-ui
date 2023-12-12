@@ -67,7 +67,12 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when{{
     await render(
-      hbs`<PixTextarea @value={{this.value}} @id='pix-textarea' @label='label' @requiredLabel={{this.requiredLabel}}/>`,
+      hbs`<PixTextarea
+  @value={{this.value}}
+  @id='pix-textarea'
+  @label='label'
+  @requiredLabel={{this.requiredLabel}}
+/>`,
     );
 
     // then

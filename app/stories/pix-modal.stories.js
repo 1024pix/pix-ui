@@ -19,12 +19,22 @@ export default {
     </p>
   </:content>
   <:footer>
-    <div style="display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 16px">
-      <PixButton @backgroundColor='transparent-light' @isBorderVisible='true' @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Annuler</PixButton>
+    {{! template-lint-disable no-inline-styles }}
+
+    <div
+      style='display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 16px'
+    >
+      <PixButton
+        @backgroundColor='transparent-light'
+        @isBorderVisible='true'
+        @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
+      >Annuler</PixButton>
       <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Valider</PixButton>
     </div>
   </:footer>
 </PixModal>
+{{! template-lint-disable no-inline-styles }}
+
 <div style='display:flex; justify-content:center; align-items:center; height:105vh;'>
   <PixButton @triggerAction={{fn (mut this.showModal) (not this.showModal)}}>Ouvrir la modale</PixButton>
 </div>`,

@@ -64,11 +64,11 @@ module('Integration | Component | input', function (hooks) {
     // given & when
     const screen = await render(
       hbs`<PixInput
-        @id='firstName'
-        @label='Prénom'
-        @errorMessage='Seul les caractères alphanumériques sont autorisés'
-        @validationStatus="error"
-      />`,
+  @id='firstName'
+  @label='Prénom'
+  @errorMessage='Seul les caractères alphanumériques sont autorisés'
+  @validationStatus='error'
+/>`,
     );
 
     // then

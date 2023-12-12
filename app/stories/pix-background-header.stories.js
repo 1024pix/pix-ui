@@ -7,8 +7,10 @@ export default {
 export const backgroundHeader = (args) => {
   return {
     template: hbs`<PixBackgroundHeader>
+  {{! template-lint-disable no-inline-styles }}
 
   <PixBlock style='margin: 0 0 32px; padding: 14px 24px;'>Un panel avec du text</PixBlock>
+  {{! template-lint-disable no-inline-styles }}
 
   <PixBlock style='padding: 14px 24px;'>
     Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis a interdum mauris. Morbi ac diam

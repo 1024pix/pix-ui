@@ -55,33 +55,25 @@ export default {
 
 export const Template = (args) => {
   return {
-    template: hbs`
-      <PixToggle
-        @label={{this.label}}
-        @onLabel={{this.onLabel}}
-        @offLabel={{this.offLabel}}
-        @toggled={{this.toggled}}
-        @onChange={{this.onChange}}
-        @inline={{this.inline}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-      />
-    `,
+    template: hbs`<PixToggle
+  @label={{this.label}}
+  @onLabel={{this.onLabel}}
+  @offLabel={{this.offLabel}}
+  @toggled={{this.toggled}}
+  @onChange={{this.onChange}}
+  @inline={{this.inline}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+/>`,
     context: args,
   };
 };
 
 export const TemplateWithYields = (args) => {
   return {
-    template: hbs`
-      <PixToggle
-        @label={{this.label}}
-        @toggled={{this.toggled}}
-        @onChange={{this.onChange}}
-      >
-        <:on><FaIcon @icon="sun" /></:on>
-        <:off><FaIcon @icon="moon" /></:off>
-      </PixToggle>
-    `,
+    template: hbs`<PixToggle @label={{this.label}} @toggled={{this.toggled}} @onChange={{this.onChange}}>
+  <:on><FaIcon @icon='sun' /></:on>
+  <:off><FaIcon @icon='moon' /></:off>
+</PixToggle>`,
     context: args,
   };
 };
