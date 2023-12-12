@@ -887,17 +887,17 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // when
       const screen = await render(hbs`<PixMultiSelect
-        @onChange={{this.onChange}}
-        @placeholder={{this.placeholder}}
-        @id={{this.id}}
-        @values={{this.values}}
-        @label='labelMultiSelect'
-        @isSearchable={{false}}
-        @options={{this.options}}
-        as |option|
-      >
-        {{option.label}}
-      </PixMultiSelect>`);
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @values={{this.values}}
+  @label='labelMultiSelect'
+  @isSearchable={{false}}
+  @options={{this.options}}
+  as |option|
+>
+  {{option.label}}
+</PixMultiSelect>`);
 
       await clickByName('labelMultiSelect');
 

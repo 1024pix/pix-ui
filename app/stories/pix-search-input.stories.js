@@ -59,16 +59,14 @@ export default {
 
 export const Template = (args) => {
   return {
-    template: hbs`
-      <PixSearchInput
-        @id={{this.id}}
-        @label={{this.label}}
-        @ariaLabel={{this.ariaLabel}}
-        @placeholder={{this.placeholder}}
-        @debounceTimeInMs={{this.debounceTimeInMs}}
-        @triggerFiltering={{this.triggerFiltering}}
-      />
-    `,
+    template: hbs`<PixSearchInput
+  @id={{this.id}}
+  @label={{this.label}}
+  @ariaLabel={{this.ariaLabel}}
+  @placeholder={{this.placeholder}}
+  @debounceTimeInMs={{this.debounceTimeInMs}}
+  @triggerFiltering={{this.triggerFiltering}}
+/>`,
     context: args,
   };
 };

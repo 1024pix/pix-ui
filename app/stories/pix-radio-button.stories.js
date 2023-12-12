@@ -38,15 +38,14 @@ export default {
 /* Default stories */
 const Template = (args) => {
   return {
-    template: hbs`
-    <PixRadioButton
-      @value={{this.value}}
-      @id={{this.id}}
-      @class={{this.class}}
-      disabled={{this.disabled}}
-    >
-      {{this.label}}
-    </PixRadioButton>`,
+    template: hbs`<PixRadioButton
+  @value={{this.value}}
+  @id={{this.id}}
+  @class={{this.class}}
+  disabled={{this.disabled}}
+>
+  {{this.label}}
+</PixRadioButton>`,
     context: args,
   };
 };
@@ -65,8 +64,11 @@ isDisabled.args = {
 /* Checked stories */
 const checked = (args) => {
   return {
-    template: hbs`
-    <PixRadioButton @value={{this.value}} disabled={{this.disabled}} checked>{{this.label}}</PixRadioButton>`,
+    template: hbs`<PixRadioButton
+  @value={{this.value}}
+  disabled={{this.disabled}}
+  checked
+>{{this.label}}</PixRadioButton>`,
     context: args,
   };
 };
@@ -83,11 +85,9 @@ defaultChecked.args = Default.args;
 /* Multiple components story */
 const multipleTemplate = (args) => {
   return {
-    template: hbs`
-<PixRadioButton disabled={{this.disabled}} name="radio">{{this.label}}</PixRadioButton>
-<PixRadioButton disabled={{this.disabled}} name="radio">{{this.label}}</PixRadioButton>
-<PixRadioButton disabled={{this.disabled}} name="radio">{{this.label}}</PixRadioButton>
-`,
+    template: hbs`<PixRadioButton disabled={{this.disabled}} name='radio'>{{this.label}}</PixRadioButton>
+<PixRadioButton disabled={{this.disabled}} name='radio'>{{this.label}}</PixRadioButton>
+<PixRadioButton disabled={{this.disabled}} name='radio'>{{this.label}}</PixRadioButton>`,
     context: args,
   };
 };

@@ -50,11 +50,11 @@ module('Integration | Component | pix-input-password', function (hooks) {
     // given & when
     const screen = await render(
       hbs`<PixInputPassword
-        @label='Mot de passe'
-        @id='password'
-        @errorMessage="Un message d'erreur."
-        @validationStatus="error"
-        />`,
+  @label='Mot de passe'
+  @id='password'
+  @errorMessage="Un message d'erreur."
+  @validationStatus='error'
+/>`,
     );
 
     // then

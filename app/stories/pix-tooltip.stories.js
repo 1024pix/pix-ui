@@ -103,6 +103,8 @@ const TemplateWithIconElement = (args) => {
   return {
     template: hbs`<PixTooltip @id={{this.id}} @isInline='true'>
   <:triggerElement>
+    {{! template-lint-disable no-inline-styles }}
+
     <button style='padding:0; margin-left:4px; line-height:0;' type='button'>
       <FaIcon class='external-link' @icon='up-right-from-square' />
     </button>

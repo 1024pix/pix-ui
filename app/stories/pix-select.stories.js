@@ -183,71 +183,68 @@ export default {
 
 export const Template = (args) => {
   return {
-    template: hbs`
-        {{#if this.id}}
-          <div>
-            <label for={{this.id}}>Un label en dehors du composant</label>
-          </div>
-        {{/if}}
-        <PixSelect
-          @id={{this.id}}
-          @className={{this.className}}
-          @options={{this.options}}
-          @isSearchable={{this.isSearchable}}
-          @onChange={{this.onChange}}
-          @label={{this.label}}
-          @placeholder={{this.placeholder}}
-          @hideDefaultOption={{this.hideDefaultOption}}
-          @subLabel={{this.subLabel}}
-          @searchLabel={{this.searchLabel}}
-          @value={{this.value}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @screenReaderOnly={{this.screenReaderOnly}}
-          @emptySearchMessage={{this.emptySearchMessage}}
-          @requiredText={{this.requiredText}}
-          @errorMessage={{this.errorMessage}}
-          @isDisabled={{this.isDisabled}}
-          @placement={{this.placement}}
-          @icon={{this.icon}}
-        />
-    `,
+    template: hbs`{{#if this.id}}
+  <div>
+    <label for={{this.id}}>Un label en dehors du composant</label>
+  </div>
+{{/if}}
+<PixSelect
+  @id={{this.id}}
+  @className={{this.className}}
+  @options={{this.options}}
+  @isSearchable={{this.isSearchable}}
+  @onChange={{this.onChange}}
+  @label={{this.label}}
+  @placeholder={{this.placeholder}}
+  @hideDefaultOption={{this.hideDefaultOption}}
+  @subLabel={{this.subLabel}}
+  @searchLabel={{this.searchLabel}}
+  @value={{this.value}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @emptySearchMessage={{this.emptySearchMessage}}
+  @requiredText={{this.requiredText}}
+  @errorMessage={{this.errorMessage}}
+  @isDisabled={{this.isDisabled}}
+  @placement={{this.placement}}
+  @icon={{this.icon}}
+/>`,
     context: args,
   };
 };
 
 export const TemplatePopover = (args) => {
   return {
-    template: hbs`
-      <div style="display:flex;height:330px">
-        <div style="align-self:flex-end">
-        {{#if this.id}}
-          <div>
-            <label for={{this.id}}>Un label en dehors du composant</label>
-          </div>
-        {{/if}}
-        <PixSelect
-          @id={{this.id}}
-          @className={{this.className}}
-          @options={{this.options}}
-          @isSearchable={{this.isSearchable}}
-          @onChange={{this.onChange}}
-          @label={{this.label}}
-          @placeholder={{this.placeholder}}
-          @hideDefaultOption={{this.hideDefaultOption}}
-          @subLabel={{this.subLabel}}
-          @searchLabel={{this.searchLabel}}
-          @value={{this.value}}
-          @searchPlaceholder={{this.searchPlaceholder}}
-          @screenReaderOnly={{this.screenReaderOnly}}
-          @emptySearchMessage={{this.emptySearchMessage}}
-          @requiredText={{this.requiredText}}
-          @errorMessage={{this.errorMessage}}
-          @isDisabled={{this.isDisabled}}
-          @placement={{this.placement}}
-        />
-        </div>
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div style='display:flex;height:330px'>
+  <div style='align-self:flex-end'>
+    {{#if this.id}}
+      <div>
+        <label for={{this.id}}>Un label en dehors du composant</label>
       </div>
-    `,
+    {{/if}}
+    <PixSelect
+      @id={{this.id}}
+      @className={{this.className}}
+      @options={{this.options}}
+      @isSearchable={{this.isSearchable}}
+      @onChange={{this.onChange}}
+      @label={{this.label}}
+      @placeholder={{this.placeholder}}
+      @hideDefaultOption={{this.hideDefaultOption}}
+      @subLabel={{this.subLabel}}
+      @searchLabel={{this.searchLabel}}
+      @value={{this.value}}
+      @searchPlaceholder={{this.searchPlaceholder}}
+      @screenReaderOnly={{this.screenReaderOnly}}
+      @emptySearchMessage={{this.emptySearchMessage}}
+      @requiredText={{this.requiredText}}
+      @errorMessage={{this.errorMessage}}
+      @isDisabled={{this.isDisabled}}
+      @placement={{this.placement}}
+    />
+  </div>
+</div>`,
     context: args,
   };
 };

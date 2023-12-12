@@ -139,23 +139,21 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`
-      <PixFilterableAndSearchableSelect
-        @label={{this.label}}
-        @subLabel={{this.subLabel}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @placeholder={{this.placeholder}}
-        @hideDefaultOption={{this.hideDefaultOption}}
-        @options={{this.options}}
-        @onChange={{this.onChange}}
-        @categoriesLabel={{this.categoriesLabel}}
-        @categoriesPlaceholder={{this.categoriesPlaceholder}}
-        @isSearchable={{this.isSearchable}}
-        @value={{this.value}}
-        @requiredText={{this.requiredText}}
-        @errorMessage={{this.errorMessage}}
-      />
-    `,
+    template: hbs`<PixFilterableAndSearchableSelect
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @placeholder={{this.placeholder}}
+  @hideDefaultOption={{this.hideDefaultOption}}
+  @options={{this.options}}
+  @onChange={{this.onChange}}
+  @categoriesLabel={{this.categoriesLabel}}
+  @categoriesPlaceholder={{this.categoriesPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+  @value={{this.value}}
+  @requiredText={{this.requiredText}}
+  @errorMessage={{this.errorMessage}}
+/>`,
     context: args,
   };
 };

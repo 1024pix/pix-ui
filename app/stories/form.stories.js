@@ -16,7 +16,11 @@ export const form = (args) => {
     @validationStatus={{this.validationStatus}}
   />
   <br />
-  <PixInputPassword @id='password' @label='Mot de passe' @errorMessage={{this.genericErrorMessage}} />
+  <PixInputPassword
+    @id='password'
+    @label='Mot de passe'
+    @errorMessage={{this.genericErrorMessage}}
+  />
   <br />
 
   <PixMultiSelect
@@ -45,6 +49,7 @@ export const form = (args) => {
     {{condiment.label}}
   </PixMultiSelect>
   <br /><br />
+  {{! template-lint-disable no-inline-styles }}
 
   <PixSelect
     @id='form__searchable-pix-select'
@@ -72,10 +77,7 @@ export const form = (args) => {
   <PixRadioButton @label='Carotte' @value='carotte' name='légume' />
   <br />
 
-  <PixCheckbox
-    @id='spam-pub'
-    @labelSize='small'
-  >
+  <PixCheckbox @id='spam-pub' @labelSize='small'>
     Acceptez-vous de vous faire spammer de PUB ?
   </PixCheckbox>
 

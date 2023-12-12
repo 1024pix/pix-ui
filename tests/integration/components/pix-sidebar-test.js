@@ -16,16 +16,14 @@ module('Integration | Component | Sidebar', function (hooks) {
       this.showSidebar = true;
 
       // when
-      await render(hbs`
-        <PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
-          <:content>
-            content
-          </:content>
-          <:footer>
-            footer
-          </:footer>
-        </PixSidebar>
-      `);
+      await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixSidebar>`);
 
       // then
       assert.contains("It's a sidebar!");
@@ -43,17 +41,11 @@ module('Integration | Component | Sidebar', function (hooks) {
         this.onClose = sinon.stub();
 
         // when
-        await render(hbs`
-          <PixSidebar
-            @title={{this.title}}
-            @onClose={{this.onClose}}
-            @showSidebar={{this.showSidebar}}
-          >
-          <:content>
-            content
-          </:content>
-          </PixSidebar>
-        `);
+        await render(hbs`<PixSidebar @title={{this.title}} @onClose={{this.onClose}} @showSidebar={{this.showSidebar}}>
+  <:content>
+    content
+  </:content>
+</PixSidebar>`);
         await click('[aria-label="Fermer"]');
 
         // then
@@ -69,17 +61,11 @@ module('Integration | Component | Sidebar', function (hooks) {
         this.onClose = sinon.stub();
 
         // when
-        await render(hbs`
-          <PixSidebar
-            @title={{this.title}}
-            @onClose={{this.onClose}}
-            @showSidebar={{this.showSidebar}}
-          >
-          <:content>
-            content
-          </:content>
-          </PixSidebar>
-        `);
+        await render(hbs`<PixSidebar @title={{this.title}} @onClose={{this.onClose}} @showSidebar={{this.showSidebar}}>
+  <:content>
+    content
+  </:content>
+</PixSidebar>`);
         await triggerKeyEvent('.pix-sidebar__overlay', 'keyup', 'Escape');
 
         // then
@@ -95,16 +81,14 @@ module('Integration | Component | Sidebar', function (hooks) {
       this.showSidebar = false;
 
       // when
-      await render(hbs`
-        <PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
-          <:content>
-            content
-          </:content>
-          <:footer>
-            footer
-          </:footer>
-        </PixSidebar>
-      `);
+      await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixSidebar>`);
 
       // then
       assert.dom('.pix-sidebar--hidden').exists();

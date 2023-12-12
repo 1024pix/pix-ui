@@ -46,11 +46,11 @@ module('Integration | Component | filter-banner', function (hooks) {
 
       // when
       const screen = await render(hbs`<PixFilterBanner
-    @clearFiltersLabel={{this.clearFiltersLabel}}
-    @onClearFilters={{this.onClearFilters}}
-  >
-    content
-  </PixFilterBanner>`);
+  @clearFiltersLabel={{this.clearFiltersLabel}}
+  @onClearFilters={{this.onClearFilters}}
+>
+  content
+</PixFilterBanner>`);
 
       // then
       const button = screen.getByRole('button', { name: this.clearFiltersLabel });
@@ -65,11 +65,11 @@ module('Integration | Component | filter-banner', function (hooks) {
 
       // when
       const screen = await render(hbs`<PixFilterBanner
-    @clearFiltersLabel={{this.clearFiltersLabel}}
-    @isClearFilterButtonDisabled={{this.isClearFilterButtonDisabled}}
-  >
-    content
-  </PixFilterBanner>`);
+  @clearFiltersLabel={{this.clearFiltersLabel}}
+  @isClearFilterButtonDisabled={{this.isClearFilterButtonDisabled}}
+>
+  content
+</PixFilterBanner>`);
 
       // then
       const button = screen.getByRole('button', { name: this.clearFiltersLabel, hidden: true });
@@ -83,11 +83,11 @@ module('Integration | Component | filter-banner', function (hooks) {
 
       //when
       const screen = await render(hbs`<PixFilterBanner
-    @clearFiltersLabel={{this.clearFiltersLabel}}
-    @onClearFilters={{this.onClearFilters}}
-  >
-    content
-  </PixFilterBanner>`);
+  @clearFiltersLabel={{this.clearFiltersLabel}}
+  @onClearFilters={{this.onClearFilters}}
+>
+  content
+</PixFilterBanner>`);
       await click(screen.getByRole('button', { name: this.clearFiltersLabel }));
 
       // then

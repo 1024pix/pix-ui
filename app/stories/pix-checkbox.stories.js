@@ -71,8 +71,7 @@ export default {
 
 export const Template = (args) => {
   return {
-    template: hbs`
-<PixCheckbox
+    template: hbs`<PixCheckbox
   @id={{this.id}}
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -82,8 +81,7 @@ export const Template = (args) => {
   disabled={{this.disabled}}
 >
   {{this.label}}
-</PixCheckbox>
-`,
+</PixCheckbox>`,
     context: args,
   };
 };
@@ -142,9 +140,8 @@ checkboxInterminateDisabled.args = {
 
 export const MultipleTemplate = (args) => {
   return {
-    template: hbs`
-<PixCheckbox
-  @id="one"
+    template: hbs`<PixCheckbox
+  @id='one'
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
@@ -155,7 +152,7 @@ export const MultipleTemplate = (args) => {
   {{this.label}}
 </PixCheckbox>
 <PixCheckbox
-  @id="two"
+  @id='two'
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
@@ -164,8 +161,7 @@ export const MultipleTemplate = (args) => {
   disabled={{this.disabled}}
 >
   {{this.label}}
-</PixCheckbox>
-`,
+</PixCheckbox>`,
     context: args,
   };
 };

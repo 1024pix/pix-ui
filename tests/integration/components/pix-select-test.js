@@ -48,15 +48,13 @@ module('Integration | Component | PixSelect', function (hooks) {
   module('#id', function () {
     test('it puts a custom id on pix-select', async function (assert) {
       // given & when
-      await render(hbs`
-        <PixSelect
-          @id="custom"
-          @options={{this.options}}
-          @label={{this.label}}
-          @subLabel={{this.subLabel}}
-          @placeholder={{this.placeholder}}
-        />
-      `);
+      await render(hbs`<PixSelect
+  @id='custom'
+  @options={{this.options}}
+  @label={{this.label}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+/>`);
 
       // then
       assert.dom('#custom').exists();
@@ -338,7 +336,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         // given
         this.onChange = sinon.spy();
 
-        const screen = await render(hbs`<button id="focus">Focus me</button><PixSelect
+        const screen = await render(hbs`<button id='focus' type='button'>Focus me</button><PixSelect
   @options={{this.options}}
   @label={{this.label}}
   @subLabel={{this.subLabel}}

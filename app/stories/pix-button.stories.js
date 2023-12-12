@@ -163,7 +163,7 @@ export default {
 const Template = (args) => ({
   template: hbs`<section style={{this.style}}>
   <PixButton
-    @triggerAction={{action this.triggerAction}}
+    @triggerAction={{this.triggerAction}}
     @loadingColor={{this.loadingColor}}
     @shape={{this.shape}}
     @backgroundColor={{this.backgroundColor}}
@@ -182,7 +182,7 @@ const Template = (args) => ({
 {{#each this.extraButtons as |button|}}
   <section style={{button.style}}>
     <PixButton
-      @triggerAction={{action this.triggerAction}}
+      @triggerAction={{this.triggerAction}}
       @loadingColor={{button.loadingColor}}
       @shape={{button.shape}}
       @backgroundColor={{button.backgroundColor}}

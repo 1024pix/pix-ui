@@ -39,7 +39,12 @@ export default {
 
 export const selectableTagDefault = (args) => {
   return {
-    template: hbs`<PixSelectableTag @label='non sélectionné' @id='123' @onChange={{this.onChange}} @checked={{false}} />`,
+    template: hbs`<PixSelectableTag
+  @label='non sélectionné'
+  @id='123'
+  @onChange={{this.onChange}}
+  @checked={{false}}
+/>`,
     context: args,
   };
 };
@@ -53,7 +58,8 @@ export const selectableTagSelected = (args) => {
 
 export const selectableTagMultiple = (args) => {
   return {
-    template: hbs`<div style='display:flex;justify-content:space-around;width:400px;height:100%;padding:10px'>
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div style='display:flex;justify-content:space-around;width:400px;height:100%;padding:10px'>
   <PixSelectableTag @label='Lorem ipsum' @id='1' @onChange={{this.onChange}} @checked={{false}} />
   <PixSelectableTag @label='Lorem ipsum' @id='2' @onChange={{this.onChange}} @checked={{false}} />
   <PixSelectableTag @label='Lorem ipsum' @id='3' @onChange={{this.onChange}} @checked={{false}} />

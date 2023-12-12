@@ -148,7 +148,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
     test('it renders the progress gauge with dark mode', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressGauge @value='50' @themeMode="dark" />`);
+      await render(hbs`<PixProgressGauge @value='50' @themeMode='dark' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_GAUGE_SELECTOR);

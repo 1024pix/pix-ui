@@ -4,32 +4,30 @@ import { action } from '@storybook/addon-actions';
 export default {
   title: 'Form/Multi Select',
   render: (args) => ({
-    template: hbs`
-  <style>
-    .custom {
-      border : none;
-    }
-  </style>
-  <h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
-  {{#if this.id}}
-    <div>
-      <label for={{this.id}}>Un label en dehors du composant</label>
-    </div>
-  {{/if}}
-  <PixMultiSelect
-    @id={{this.id}}
-    @label={{this.label}}
-    @placeholder={{this.placeholder}}
-    @screenReaderOnly={{this.screenReaderOnly}}
-    @onChange={{this.onChange}}
-    @emptyMessage={{this.emptyMessage}}
-    @className={{this.className}}
-    @isSearchable={{this.isSearchable}}
-    @strictSearch={{this.strictSearch}}
-    @values={{this.values}}
-    @options={{this.options}} as |option|
-  >{{option.label}}</PixMultiSelect>
- `,
+    template: hbs`{{! template-lint-disable no-forbidden-elements }}
+<style>
+  .custom { border : none; }
+</style>
+<h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
+{{#if this.id}}
+  <div>
+    <label for={{this.id}}>Un label en dehors du composant</label>
+  </div>
+{{/if}}
+<PixMultiSelect
+  @id={{this.id}}
+  @label={{this.label}}
+  @placeholder={{this.placeholder}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @onChange={{this.onChange}}
+  @emptyMessage={{this.emptyMessage}}
+  @className={{this.className}}
+  @isSearchable={{this.isSearchable}}
+  @strictSearch={{this.strictSearch}}
+  @values={{this.values}}
+  @options={{this.options}}
+  as |option|
+>{{option.label}}</PixMultiSelect>`,
     context: args,
   }),
   argTypes: {
@@ -141,24 +139,23 @@ export const Default = {
 
 export const multiSelectWithChildComponent = (args) => {
   return {
-    template: hbs`
-      <h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
-      <PixMultiSelect
-        @label={{this.label}}
-        @placeholder={{this.placeholder}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @onChange={{this.onChange}}
-        @emptyMessage={{this.emptyMessage}}
-        @className={{this.className}}
-        @options={{this.options}} as |option|
-      >
-        <PixStars
-          @alt={{concat "Étoiles " option.value " sur " option.total}}
-          @count={{option.value}}
-          @total={{option.total}}
-        />
-      </PixMultiSelect>
-    `,
+    template: hbs`<h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
+<PixMultiSelect
+  @label={{this.label}}
+  @placeholder={{this.placeholder}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @onChange={{this.onChange}}
+  @emptyMessage={{this.emptyMessage}}
+  @className={{this.className}}
+  @options={{this.options}}
+  as |option|
+>
+  <PixStars
+    @alt={{concat 'Étoiles ' option.value ' sur ' option.total}}
+    @count={{option.value}}
+    @total={{option.total}}
+  />
+</PixMultiSelect>`,
     context: args,
   };
 };
@@ -202,23 +199,21 @@ export const multiSelectWithId = {
 };
 
 const TemplateWithYield = (args) => ({
-  template: hbs`
-  <PixMultiSelect
-    @id={{this.id}}
-    @label={{this.label}}
-    @screenReaderOnly={{this.screenReaderOnly}}
-    @onChange={{this.onChange}}
-    @emptyMessage={{this.emptyMessage}}
-    @className={{this.className}}
-    @isSearchable={{this.isSearchable}}
-    @strictSearch={{this.strictSearch}}
-    @values={{this.values}}
-    @options={{this.options}}
-  >
-    <:placeholder>filtres (2)</:placeholder>
-    <:default as |option|>{{option.label}}</:default>
-  </PixMultiSelect>
- `,
+  template: hbs`<PixMultiSelect
+  @id={{this.id}}
+  @label={{this.label}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @onChange={{this.onChange}}
+  @emptyMessage={{this.emptyMessage}}
+  @className={{this.className}}
+  @isSearchable={{this.isSearchable}}
+  @strictSearch={{this.strictSearch}}
+  @values={{this.values}}
+  @options={{this.options}}
+>
+  <:placeholder>filtres (2)</:placeholder>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`,
   context: args,
 });
 

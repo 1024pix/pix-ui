@@ -13,11 +13,11 @@ module('Integration | Component | search-input', function (hooks) {
 
     // when
     const screen = await render(hbs`<PixSearchInput
-      @id={{123}}
-      @label="Mon super input qui filtre"
-      @debounceTimeInMs="1000"
-      @triggerFiltering={{this.triggerFiltering}}
-    />`);
+  @id={{123}}
+  @label='Mon super input qui filtre'
+  @debounceTimeInMs='1000'
+  @triggerFiltering={{this.triggerFiltering}}
+/>`);
 
     // then
     const inputFound = screen.getByLabelText('Mon super input qui filtre');
@@ -32,11 +32,11 @@ module('Integration | Component | search-input', function (hooks) {
 
     // when
     await render(hbs`<PixSearchInput
-      @id={{123}}
-      @ariaLabel="Champ de recherche de fruits"
-      @debounceTimeInMs="0"
-      @triggerFiltering={{this.triggerFiltering}}
-    />`);
+  @id={{123}}
+  @ariaLabel='Champ de recherche de fruits'
+  @debounceTimeInMs='0'
+  @triggerFiltering={{this.triggerFiltering}}
+/>`);
     await fillByLabel('Champ de recherche de fruits', 'Mangue');
 
     // then
