@@ -1,5 +1,7 @@
 .pix-textarea {
   textarea {
+    @extend %pix-form-element-state;
+
     width: 100%;
     padding: 10px var(--pix-spacing-4x);
     color: var(--pix-neutral-900);
@@ -9,12 +11,8 @@
     border-radius: var(--pix-spacing-1x);
     resize: vertical;
 
-    @include hoverFormElement();
-    @include focusFormElement();
-    @include activeFormElement();
-
     &.pix-textarea--error {
-      @include formElementInError();
+      @extend %pix-form-error-state;
     }
   }
 
@@ -28,10 +26,10 @@
   }
 
   &__label {
-    @include label();
+    @extend %pix-label;
   }
 
   &__error-message {
-    @include errorMessage();
+    @extend %pix-input-error-message;
   }
 }

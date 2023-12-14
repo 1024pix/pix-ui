@@ -8,7 +8,7 @@
       {{@label}}
 
       {{#if @information}}
-        <span class="pix-input__information">{{@information}}</span>
+        <span class="pix-input__sub-label">{{@information}}</span>
       {{/if}}
     </label>
   {{/if}}
@@ -16,7 +16,7 @@
   <div class="pix-input__container">
     <input
       id={{this.id}}
-      class="pix-input__input--default {{this.validationStatusClassName}}"
+      class="pix-input__input {{this.validationStatusClassName}}"
       value={{@value}}
       aria-label={{this.ariaLabel}}
       aria-required="{{if @requiredLabel true false}}"

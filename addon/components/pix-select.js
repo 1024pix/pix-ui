@@ -46,9 +46,7 @@ export default class PixSelect extends Component {
     if (this.args.errorMessage) {
       classes.push('pix-select-button--error');
     }
-    if (this.args.isDisabled) {
-      classes.push('pix-select-button--disabled');
-    }
+
     return classes.join(' ');
   }
 

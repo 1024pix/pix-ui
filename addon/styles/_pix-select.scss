@@ -3,11 +3,11 @@
   display: inline-block;
 
   &__label {
-    @include label();
+    @extend %pix-label;
   }
 
   &__sub-label {
-    @include subLabel();
+    @extend %pix-sublabel;
   }
 
   &__dropdown {
@@ -79,12 +79,13 @@
   }
 
   &__error-message {
-    @include errorMessage();
+    @extend %pix-input-error-message;
   }
 }
 
 .pix-select-button {
   @extend %pix-body-s;
+  @extend %pix-form-element-state;
 
   position: relative;
   display: flex;
@@ -98,20 +99,10 @@
   background-color: var(--pix-neutral-0);
   border: 1px var(--pix-neutral-500) solid;
   border-radius: var(--pix-spacing-1x);
-  outline: none;
   cursor: pointer;
 
-  @include hoverFormElement();
-  @include focusWithinFormElement();
-  @include activeFormElement();
-
-  &--disabled {
-    @include formElementDisabled();
-    @include hoverFormElementDisabled();
-  }
-
   &--error {
-    @include formElementInError();
+    @extend %pix-form-error-state;
   }
 
   &__text {
