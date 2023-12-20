@@ -46,6 +46,16 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
     id: {
       name: 'id',
       description:
@@ -193,6 +203,7 @@ export const Template = (args) => {
   @className={{this.className}}
   @options={{this.options}}
   @isSearchable={{this.isSearchable}}
+  @labelSize={{this.labelSize}}
   @onChange={{this.onChange}}
   @label={{this.label}}
   @placeholder={{this.placeholder}}

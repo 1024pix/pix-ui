@@ -1,13 +1,13 @@
 <div id={{this.mainId}} ...attributes>
-  <label class={{this.classLabel}} for={{this.pixSelectId}}>
-    {{#if @requiredText}}
-      <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
-    {{/if}}
+  <PixLabel
+    @for={{this.pixSelectId}}
+    @requiredLabel={{@requiredText}}
+    @labelSize={{@labelSize}}
+    @subLabel={{@subLabel}}
+    @screenReaderOnly={{@screenReaderOnly}}
+  >
     {{@label}}
-    {{#if @subLabel}}
-      <span class="pix-select__sub-label">{{@subLabel}}</span>
-    {{/if}}
-  </label>
+  </PixLabel>
   <div
     class="pix-filterable-and-searchable-select{{if
         @errorMessage

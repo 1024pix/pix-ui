@@ -20,6 +20,16 @@ export default {
         type: { summary: 'string' },
       },
     },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
     options: {
       name: 'options',
       description:
@@ -142,6 +152,7 @@ const Template = (args) => {
     template: hbs`<PixFilterableAndSearchableSelect
   @label={{this.label}}
   @subLabel={{this.subLabel}}
+  @labelSize={{this.labelSize}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @placeholder={{this.placeholder}}
   @hideDefaultOption={{this.hideDefaultOption}}

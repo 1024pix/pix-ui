@@ -19,6 +19,7 @@ export default {
   @label={{this.label}}
   @placeholder={{this.placeholder}}
   @screenReaderOnly={{this.screenReaderOnly}}
+  @labelSize={{this.labelSize}}
   @onChange={{this.onChange}}
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
@@ -48,6 +49,16 @@ export default {
       description:
         "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran. **⚠️ Le`label` est obligatoire que si l'`id` n'est pas donné. ⚠️**",
       type: { name: 'string' },
+    },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
     },
     screenReaderOnly: {
       name: 'screenReaderOnly',

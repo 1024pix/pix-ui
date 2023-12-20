@@ -9,19 +9,17 @@
   ...attributes
 >
   {{#if @label}}
-    <div class="{{if @screenReaderOnly 'screen-reader-only'}}">
-      <label for={{this.selectId}} class="pix-select__label">
-        {{#if @requiredText}}
-          <abbr class="mandatory-mark" title="{{@requiredText}}" aria-hidden="true">*</abbr>
-        {{/if}}
-        {{@label}}
-      </label>
-
-      {{#if @subLabel}}
-        <span class="pix-select__sub-label">{{@subLabel}}</span>
-      {{/if}}
-    </div>
+    <PixLabel
+      @for={{this.selectId}}
+      @requiredLabel={{@requiredText}}
+      @subLabel={{@subLabel}}
+      @labelSize={{@labelSize}}
+      @screenReaderOnly={{@screenReaderOnly}}
+    >
+      {{@label}}
+    </PixLabel>
   {{/if}}
+
   <PopperJS @placement={{@placement}} as |reference popover|>
     <button
       {{reference}}
