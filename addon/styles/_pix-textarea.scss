@@ -25,10 +25,6 @@
     font-size: 12px;
   }
 
-  &__label {
-    @extend %pix-label;
-  }
-
   &__error-message {
     @extend %pix-input-error-message;
   }

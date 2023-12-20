@@ -23,6 +23,21 @@ export default {
       description: 'Donne un label au champ.',
       type: { name: 'string', required: false },
     },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Donne un sous label au champ.',
+      type: { name: 'string', required: false },
+    },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
     requiredLabel: {
       name: 'requiredLabel',
       description:
@@ -44,6 +59,8 @@ const Template = (args) => {
   @value={{this.value}}
   @maxlength={{this.maxlength}}
   @label={{this.label}}
+  @labelSize={{this.labelSize}}
+  @subLabel={{this.subLabel}}
   @requiredLabel={{this.requiredLabel}}
   @errorMessage={{this.errorMessage}}
 />`,
