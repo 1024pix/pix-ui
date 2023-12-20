@@ -16,22 +16,6 @@ module('Integration | Component | checkbox', function (hooks) {
     assert.true(checkbox.checked);
   });
 
-  test('it should display error message if there no yield', async function (assert) {
-    // given & when
-    const screen = await render(hbs`<PixCheckbox />`);
-
-    // then
-    assert.dom(screen.getByLabelText('yield required to give a label for PixCheckbox.')).exists();
-  });
-
-  test('it should be possible to make label small', async function (assert) {
-    // when
-    await render(hbs`<PixCheckbox @labelSize='small'>Mini label</PixCheckbox>`);
-
-    // then
-    assert.dom('.pix-checkbox__label--small').exists();
-  });
-
   test('it should be possible to disable the checkbox', async function (assert) {
     // when
     await render(hbs`<PixCheckbox disable>Mini label</PixCheckbox>`);

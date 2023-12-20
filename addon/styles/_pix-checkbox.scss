@@ -2,28 +2,11 @@
   position: relative;
   z-index: 0;
   display: flex;
+  gap: var(--pix-spacing-3x);
   align-items: center;
 
   & + .pix-checkbox {
     margin-top: var(--pix-spacing-4x);
-  }
-
-  /* Label */
-  &__label {
-    @extend %pix-body-m;
-
-    padding-left: var(--pix-spacing-3x);
-    color: var(--pix-neutral-900);
-    font-weight: var(--pix-font-normal);
-    cursor: pointer;
-
-    &--small {
-      font-size: 0.875rem;
-    }
-
-    &--large {
-      font-size: 1.125rem;
-    }
   }
 
   /* Input */

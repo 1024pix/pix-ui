@@ -28,6 +28,16 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'default'],
+    },
     isIndeterminate: {
       name: 'isIndeterminate',
       description:
@@ -38,16 +48,6 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'default', 'large'],
-    },
     checked: {
       name: 'checked',
       description: 'Permet de cocher la checkbox',
@@ -57,8 +57,8 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    disabled: {
-      name: 'disabled',
+    isDisabled: {
+      name: 'isDisabled',
       description: 'Permet de désactiver la checkbox',
       type: { name: 'boolean', required: false },
       table: {
@@ -78,7 +78,8 @@ export const Template = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
   @checked={{this.checked}}
-  disabled={{this.disabled}}
+  @isDisabled={{this.isDisabled}}
+  disabled={{this.isDisabled}}
 >
   {{this.label}}
 </PixCheckbox>`,
@@ -147,7 +148,8 @@ export const MultipleTemplate = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
   @checked={{this.checked}}
-  disabled={{this.disabled}}
+  disabled={{this.isDisabled}}
+  @isDisabled={{this.isDisabled}}
 >
   {{this.label}}
 </PixCheckbox>
@@ -158,7 +160,8 @@ export const MultipleTemplate = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @labelSize={{this.labelSize}}
   @checked={{this.checked}}
-  disabled={{this.disabled}}
+  disabled={{this.isDisabled}}
+  @isDisabled={{this.isDisabled}}
 >
   {{this.label}}
 </PixCheckbox>`,
