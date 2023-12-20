@@ -22,14 +22,15 @@ export default {
         type: { summary: 'string' },
       },
     },
-    ariaLabel: {
-      name: 'ariaLabel',
-      description:
-        "Label du champ. ** ⚠️ L'`ariaLabel` est obligatoire si le `label` n'est pas donné. ⚠️ **",
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
-        type: { summary: 'string' },
+        defaultValue: { summary: 'default' },
       },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
     },
     placeholder: {
       name: 'placeholder',
@@ -62,7 +63,7 @@ export const Template = (args) => {
     template: hbs`<PixSearchInput
   @id={{this.id}}
   @label={{this.label}}
-  @ariaLabel={{this.ariaLabel}}
+  @labelSize={{this.labelSize}}
   @placeholder={{this.placeholder}}
   @debounceTimeInMs={{this.debounceTimeInMs}}
   @triggerFiltering={{this.triggerFiltering}}
@@ -75,7 +76,6 @@ export const Default = Template.bind({});
 Default.args = {
   id: null,
   label: 'Filtrer un fruit',
-  ariaLabel: null,
   placeholder: 'un placeholder',
   debounceTimeInMs: 500,
   triggerFiltering: action('triggerFiltering'),

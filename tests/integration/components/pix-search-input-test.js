@@ -33,7 +33,7 @@ module('Integration | Component | search-input', function (hooks) {
     // when
     await render(hbs`<PixSearchInput
   @id={{123}}
-  @ariaLabel='Champ de recherche de fruits'
+  @label='Champ de recherche de fruits'
   @debounceTimeInMs='0'
   @triggerFiltering={{this.triggerFiltering}}
 />`);

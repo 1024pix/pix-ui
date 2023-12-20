@@ -18,10 +18,15 @@ export default {
       description: "Label de l'input. Requis si ariaLabel n'est pas définit.",
       type: { name: 'string', required: true },
     },
-    ariaLabel: {
-      name: 'ariaLabel',
-      description: "L'action du champ, pour l'accessibilité. Requis si label n'est pas définit.",
-      type: { name: 'string', required: true },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
     },
     information: {
       name: 'information',
@@ -62,9 +67,9 @@ export default {
 const Template = (args) => {
   return {
     template: hbs`<PixInputPassword
-  @ariaLabel={{this.ariaLabel}}
   @id={{this.id}}
   @label={{this.label}}
+  @labelSize={{this.labelSize}}
   @information={{this.information}}
   @errorMessage={{this.errorMessage}}
   @prefix={{this.prefix}}

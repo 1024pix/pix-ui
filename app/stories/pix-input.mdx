@@ -9,11 +9,9 @@ Le PixInput permet de créer un champ de texte.
 
 ## Accessibilité
 
-Si vous utilisez le `PixInput` sans label alors il faut renseigner le paramètre `ariaLabel`. Il est possible d'ajouter un label en dehors du composant en précisant bien un attribut `for` correspondant à l'`@id` passé au PixInput.
+Si vous utilisez le `PixInput` sans vouloir afficher le label, il faudra renseigner `screenReaderOnly` à `true`. Il est possible d'ajouter un label en dehors du composant en précisant bien un attribut `for` correspondant à l'`@id` passé au PixInput.
 
-> Si vous renseignez les paramètres label et ariaLabel ensemble, ariaLabel sera nullifié.
-
-Pour acceder à l'élément via son label/aria-label avec testing-library:
+Pour acceder à l'élément via son label avec testing-library:
 
 ```html
 <PixInput @id="firstName" @label="Prénom" />
@@ -23,7 +21,7 @@ Pour acceder à l'élément via son label/aria-label avec testing-library:
 screen.getByLabelText('Prénom');
 ```
 
-Si le paramètre @information est utilisé, il faudra concatener les valeurs de `@label`/`@ariaLabel` et `@information`
+Si le paramètre @information est utilisé, il faudra concatener les valeurs de `@label` et `@information`
 
 ```html
 <PixInput @id="firstName" @label="Prénom" @information="exemple: Barry" />

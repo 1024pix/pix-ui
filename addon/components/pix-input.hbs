@@ -1,24 +1,19 @@
 <div class="pix-input">
-  {{#if @label}}
-    <label for={{this.id}} class="pix-input__label">
-      {{#if @requiredLabel}}
-        <abbr title={{@requiredLabel}} class="mandatory-mark" aria-hidden="true">*</abbr>
-      {{/if}}
-
-      {{@label}}
-
-      {{#if @information}}
-        <span class="pix-input__sub-label">{{@information}}</span>
-      {{/if}}
-    </label>
-  {{/if}}
+  <PixLabel
+    @for={{this.id}}
+    @requiredLabel={{@requiredLabel}}
+    @subLabel={{@information}}
+    @labelSize={{@labelSize}}
+    @screenReaderOnly={{@screenReaderOnly}}
+  >
+    {{@label}}
+  </PixLabel>
 
   <div class="pix-input__container">
     <input
       id={{this.id}}
       class="pix-input__input {{this.validationStatusClassName}}"
       value={{@value}}
-      aria-label={{this.ariaLabel}}
       aria-required="{{if @requiredLabel true false}}"
       required={{if @requiredLabel true false}}
       aria-describedby={{if (eq @validationStatus "error") "text-input-error"}}

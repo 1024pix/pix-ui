@@ -3,11 +3,6 @@ import { hbs } from 'ember-cli-htmlbars';
 export default {
   title: 'Form/Inputs/Input',
   argTypes: {
-    ariaLabel: {
-      name: 'ariaLabel',
-      description: "L'action du champ, pour l'accessibilité. Requis si label n'est pas définit.",
-      type: { name: 'string', required: false },
-    },
     id: {
       name: 'id',
       description: 'Identifiant du champ permettant de lui attacher un label',
@@ -51,6 +46,16 @@ export default {
         type: { summary: 'string' },
       },
     },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
   },
 };
 
@@ -63,8 +68,8 @@ const Template = (args) => {
   @errorMessage={{this.errorMessage}}
   placeholder='Jeanne, Pierre ...'
   @requiredLabel={{this.requiredLabel}}
-  @ariaLabel={{this.ariaLabel}}
   @validationStatus={{this.validationStatus}}
+  @labelSize={{this.labelSize}}
   disabled={{this.disabled}}
   readonly={{this.readonly}}
 />`,

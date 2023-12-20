@@ -14,14 +14,6 @@ export default class PixInput extends Component {
     return this.args.id;
   }
 
-  get label() {
-    return this.args.label;
-  }
-
-  get ariaLabel() {
-    return this.args.label ? null : this.args.ariaLabel;
-  }
-
   get validationStatusClassName() {
     return INPUT_VALIDATION_STATUS_MAP[this.args.validationStatus] || '';
   }
