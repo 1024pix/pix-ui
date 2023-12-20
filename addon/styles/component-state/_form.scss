@@ -61,24 +61,6 @@
   }
 }
 
-%pix-label {
-  @extend %pix-body-s;
-
-  display: block;
-  margin-bottom: var(--pix-spacing-1x);
-  color: var(--pix-neutral-900);
-  font-weight: var(--pix-font-medium);
-}
-
-%pix-sublabel {
-  @extend %pix-body-s;
-
-  display: block;
-  margin-bottom: var(--pix-spacing-1x);
-  color: var(--pix-neutral-500);
-}
-
-
 // Only on StoryBook
 .pix-form__label {
   @extend %pix-body-m;
