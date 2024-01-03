@@ -1,5 +1,31 @@
 # Pix-UI Changelog
 
+## v42.0.0 (03/01/2024)
+
+
+### :rocket: Amélioration
+- [#510](https://github.com/1024pix/pix-ui/pull/510) [FEATURE] Mutualiser l'usage des mixins dans un placeholder (PIX-10359).
+
+### :building_construction: Tech
+- [#515](https://github.com/1024pix/pix-ui/pull/515) [TECH] Retirer les attributs déprécié du PixButton (PIX-10483).
+- [#500](https://github.com/1024pix/pix-ui/pull/500) [TECH] Simplifier la procédure de test en local.
+- [#508](https://github.com/1024pix/pix-ui/pull/508) [TECH] Ajouter les explications de migration des couleurs et espacements dans le changelog.
+
+### :bug: Correction
+- [#519](https://github.com/1024pix/pix-ui/pull/519) [BUGFIX] Corriger le soucis de hover sur le bouton de retour. (PIX-10553).
+
+### :arrow_up: Montée de version
+- [#521](https://github.com/1024pix/pix-ui/pull/521) [BUMP] Update dependency @glimmer/syntax to ^0.87.0 (dossier racine).
+- [#517](https://github.com/1024pix/pix-ui/pull/517) [BUMP] Update dependency @glimmer/syntax to ^0.86.0 (dossier racine).
+- [#520](https://github.com/1024pix/pix-ui/pull/520) [BUMP] Lock file maintenance (dossier racine).
+- [#516](https://github.com/1024pix/pix-ui/pull/516) [BUMP] Lock file maintenance (dossier racine).
+- [#511](https://github.com/1024pix/pix-ui/pull/511) [BUMP] Update dependency stylelint to v16 (dossier racine).
+- [#512](https://github.com/1024pix/pix-ui/pull/512) [BUMP] Lock file maintenance (dossier racine).
+- [#473](https://github.com/1024pix/pix-ui/pull/473) [BUMP] Update dependency @fortawesome/ember-fontawesome to v2 (dossier racine).
+- [#400](https://github.com/1024pix/pix-ui/pull/400) [BUMP] Update dependency ember-template-lint to v5 (dossier racine).
+- [#509](https://github.com/1024pix/pix-ui/pull/509) [BUMP] Lock file maintenance (dossier racine).
+- [#507](https://github.com/1024pix/pix-ui/pull/507) [BUMP] Update dependency chromatic to v10 (dossier racine).
+
 ## v41.2.0 (08/12/2023)
 
 
