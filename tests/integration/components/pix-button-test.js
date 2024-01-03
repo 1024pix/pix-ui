@@ -119,26 +119,6 @@ module('Integration | Component | button', function (hooks) {
     });
   });
 
-  test('it renders the PixButton link component', async function (assert) {
-    // when
-    await render(hbs`<PixButton @route='profile' class='very-small'>
-  Mon lien
-</PixButton>`);
-
-    // then
-    assert.dom('a.very-small').exists();
-  });
-
-  test('it renders the PixButton link component with model', async function (assert) {
-    // when
-    await render(hbs`<PixButton @route='profile' class='smaller' @model={{1}}>
-  Mon lien
-</PixButton>`);
-
-    // then
-    assert.dom('a.smaller').exists();
-  });
-
   module('when the button has a trigger action with a promise', function (hooks) {
     let clock;
 

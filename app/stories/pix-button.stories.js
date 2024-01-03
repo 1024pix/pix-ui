@@ -147,16 +147,6 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
-    route: {
-      name: 'route',
-      description: 'Déprécié et remplacé par le composant PixButtonLink',
-      type: { name: 'string', required: false },
-    },
-    model: {
-      name: 'model',
-      description: 'Déprécié et remplacé par le composant PixButtonLink',
-      type: { required: false },
-    },
   },
 };
 
@@ -236,23 +226,23 @@ colors.args = {
   extraButtons: [
     {
       ...Default.args,
-      label: 'Bouton avec background green',
-      backgroundColor: 'green',
+      label: 'Bouton avec background success',
+      backgroundColor: 'success',
     },
     {
       ...Default.args,
-      label: 'Bouton avec background yellow',
-      backgroundColor: 'yellow',
+      label: 'Bouton avec background secondary',
+      backgroundColor: 'secondary',
     },
     {
       ...Default.args,
-      label: 'Bouton avec background red',
-      backgroundColor: 'red',
+      label: 'Bouton avec background error',
+      backgroundColor: 'error',
     },
     {
       ...Default.args,
-      label: 'Bouton avec background grey',
-      backgroundColor: 'grey',
+      label: 'Bouton avec background neutral',
+      backgroundColor: 'neutral',
     },
     {
       ...Default.args,
