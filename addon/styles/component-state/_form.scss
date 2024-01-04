@@ -58,11 +58,12 @@
 }
 
 %pix-label {
-  @extend %pix-body-m;
+  @extend %pix-body-s;
 
   display: block;
   margin-bottom: var(--pix-spacing-1x);
   color: var(--pix-neutral-900);
+  font-weight: var(--pix-font-medium);
 }
 
 %pix-sublabel {
