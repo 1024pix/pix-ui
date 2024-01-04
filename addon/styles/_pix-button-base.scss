@@ -12,12 +12,12 @@
   outline: none;
   cursor: pointer;
 
-  &[aria-disabled] {
+  &[aria-disabled="true"] {
     cursor: not-allowed;
     opacity: 0.5;
   }
 
-  &:not([aria-disabled]) {
+  &:not([aria-disabled="true"]) {
     &:hover {
       background-color: var(--pix-primary-700);
     }
@@ -58,7 +58,7 @@
   &--blue, &--primary {
     background-color: var(--pix-primary-500);
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         background-color: var(--pix-primary-700);
       }
@@ -80,7 +80,7 @@
   &--green, &--success {
     background-color: var(--pix-success-500);
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         background-color: var(--pix-success-700);
       }
@@ -103,7 +103,7 @@
     color: var(--pix-neutral-900);
     background-color: var(--pix-secondary-500);
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         color: var(--pix-neutral-0);
         background-color: var(--pix-secondary-700);
@@ -129,7 +129,7 @@
     color: var(--pix-neutral-0);
     background-color: var(--pix-error-500);
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         background-color: var(--pix-error-700);
       }
@@ -152,7 +152,7 @@
     color: var(--pix-neutral-900);
     background-color: var(--pix-neutral-20);
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         background-color: var(--pix-neutral-100);
       }
@@ -188,7 +188,7 @@
       border: 2px solid var(--pix-primary-700);
     }
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         color: var(--pix-neutral-0);
         background-color: var(--pix-primary-500);
@@ -218,7 +218,7 @@
       border: 1px solid var(--pix-neutral-0);
     }
 
-    &:not([aria-disabled]) {
+    &:not([aria-disabled="true"]) {
       &:hover {
         color: var(--pix-neutral-900);
         background-color: var(--pix-neutral-20);
