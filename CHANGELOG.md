@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v42.0.1 (04/01/2024)
+
+
+### :bug: Correction
+- [#522](https://github.com/1024pix/pix-ui/pull/522) [BUGFIX] Ajouter la font-weight medium pour les Label des inputs (PIX-10622).
+
 ## v42.0.0 (03/01/2024)
 
 
