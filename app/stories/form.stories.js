@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form',
+  title: 'Form/Exemple de formulaire',
 };
 
 export const form = (args) => {
@@ -83,16 +83,21 @@ export const form = (args) => {
 
   <br /><br />
 
-  <div class='pix-form__actions'>
-    <PixButton
-      @triggerAction={{this.cancel}}
-      @backgroundColor='transparent-light'
-      @isBorderVisible={{true}}
-    >
-      Annuler
-    </PixButton>
-    <PixButton @type='submit'>Envoyer mes réponses</PixButton>
-  </div>
+  <ul class='pix-form__actions'>
+    <li>
+      <PixButtonLink
+        @route=''
+        @model=''
+        @backgroundColor='transparent-light'
+        @isBorderVisible={{true}}
+      >
+        Annuler
+      </PixButtonLink>
+    </li>
+    <li>
+      <PixButton @type='submit'>Envoyer mes réponses</PixButton>
+    </li>
+  </ul>
 </form>`,
     context: args,
   };

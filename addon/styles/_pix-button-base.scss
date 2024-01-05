@@ -8,7 +8,7 @@
   white-space: nowrap;
   text-decoration: none;
   background-color: var(--pix-primary-500);
-  border: 1px solid transparent;
+  border: 2px solid transparent;
   outline: none;
   cursor: pointer;
 
@@ -239,4 +239,8 @@
       }
     }
   }
+}
+
+.pix-button-link {
+  line-height: initial;
 }
