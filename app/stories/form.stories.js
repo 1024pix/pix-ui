@@ -97,6 +97,11 @@ export const form = (args) => {
     <li>
       <PixButton @type='submit'>Envoyer mes réponses</PixButton>
     </li>
+    <li>
+      <PixButtonUpload @id='file-upload' accept='.csv'>
+        Importer un fichier
+      </PixButtonUpload>
+    </li>
   </ul>
 </form>`,
     context: args,
