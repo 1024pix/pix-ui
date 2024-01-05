@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v42.0.2 (05/01/2024)
+
+
+### :bug: Correction
+- [#523](https://github.com/1024pix/pix-ui/pull/523) [BUGFIX] Mauvaise affichage des boutons / input avec un aria-diasbled false (PIX-10629).
+
 ## v42.0.1 (04/01/2024)
 
 
