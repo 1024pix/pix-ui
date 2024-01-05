@@ -1,12 +1,11 @@
 import { Meta, Story, Canvas } from '@storybook/addon-docs';
-import * as stories from './form.stories.js';
+import * as stories from './form.stories';
 
-<Meta title="Form/Example" />
+<Meta of={stories} />
 
 # Formulaire avec les composants Pix UI
 
 Un formulaire complet avec les composants Pix UI :
 
-<Canvas>
-  <Story name="Form" story={stories.form} height={700} />
-</Canvas>
+<Story of={stories.form} height={700} />
+
