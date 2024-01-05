@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v42.0.3 (05/01/2024)
+
+
+### :bug: Correction
+- [#524](https://github.com/1024pix/pix-ui/pull/524) [BUGFIX] Harmoniser la taille des boutons (PIX-10623).
+
 ## v42.0.2 (05/01/2024)
 
 
