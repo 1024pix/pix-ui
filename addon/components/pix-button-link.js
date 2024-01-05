@@ -5,6 +5,6 @@ export default class PixButtonLink extends PixButtonBase {
   defaultParams = {};
 
   get className() {
-    return super.baseClassNames.join(' ');
+    return [...super.baseClassNames, 'pix-button-link'].join(' ');
   }
 }
