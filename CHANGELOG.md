@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v42.0.4 (05/01/2024)
+
+
+### :bug: Correction
+- [#525](https://github.com/1024pix/pix-ui/pull/525) [BUGFIX] Harmoniser la taille du PixButtonUpload avec les autres boutons (PIX-10669).
+
 ## v42.0.3 (05/01/2024)
 
 
