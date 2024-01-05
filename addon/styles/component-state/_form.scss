@@ -86,6 +86,7 @@
 
 .pix-form__actions {
   display: flex;
+  gap: 4px;
   justify-content: center;
 
   & > .pix-button:first-child {
