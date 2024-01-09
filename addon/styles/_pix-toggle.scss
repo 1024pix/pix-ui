@@ -2,15 +2,8 @@
   display: flex;
   flex-direction: column;
 
-  &__label {
-    color: var(--pix-neutral-900);
-
-    @extend %pix-body-m;
-  }
-
   &__button {
     width: fit-content;
-    margin-top: var(--pix-spacing-1x);
     padding: var(--pix-spacing-1x);
     background-color: transparent;
     border: 1px solid var(--pix-neutral-500);
@@ -30,21 +23,6 @@
   &__off {
     color: var(--pix-neutral-20);
     background-color: var(--pix-neutral-800);
-  }
-
-  &--inline {
-    flex-direction: row;
-    gap: var(--pix-spacing-1x);
-    align-items: center;
-  }
-
-  &--inline,
-  &--screen-reader-only {
-    .pix-toggle {
-      &__button {
-        margin-top: 0;
-      }
-    }
   }
 
   &--pressed {
