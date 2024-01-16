@@ -8,7 +8,7 @@
   "license": "MIT",
   "author": "GIP Pix",
   "engines": {
-    "node": "^20.10.0"
+    "node": "^20.11.0"
   },
   "ember": {
     "edition": "octane"
