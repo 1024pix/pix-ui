@@ -15,9 +15,9 @@ module('Integration | Component | multi-select', function (hooks) {
   setupRenderingTest(hooks);
 
   const DEFAULT_OPTIONS = [
-    { value: '1', label: 'Salade' },
-    { value: '2', label: 'Tomate' },
-    { value: '3', label: 'Oignon' },
+    { value: '1', label: 'Salade', checked: false },
+    { value: '2', label: 'Tomate', checked: true },
+    { value: '3', label: 'Oignon', checked: false },
   ];
 
   module('common cases', function () {
@@ -786,7 +786,6 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // when
       await fillByLabel('multiSelectLabel', 'Oi');
-
       await screen.findByRole('menu');
 
       await clickByName('Oignon');
@@ -795,6 +794,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       const listElement = screen.getAllByRole('checkbox');
+
       assert.strictEqual(listElement.length, 3);
       assert.strictEqual(listElement[0].labels[0].innerText.trim(), 'Oignon');
       assert.strictEqual(listElement[1].labels[0].innerText.trim(), 'Salade');

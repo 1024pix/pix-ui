@@ -95,12 +95,13 @@ export default class PixMultiSelect extends Component {
   }
 
   @action
-  onSelect(event) {
+  onSelect(targetChecked, targetValue) {
     let selected = [...(this.args.values || [])];
-    if (event.target.checked) {
-      selected.push(event.target.value);
+
+    if (targetChecked) {
+      selected.push(targetValue);
     } else {
-      selected = selected.filter((value) => value !== event.target.value);
+      selected = selected.filter((value) => value !== targetValue);
     }
 
     if (this.args.onChange) {

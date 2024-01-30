@@ -1,10 +1,11 @@
 <div class="pix-checkbox {{@class}}">
-  <input
-    type="checkbox"
+  <Input
+    @type="checkbox"
     id={{this.id}}
+    @checked={{@checked}}
     class={{this.inputClasses}}
-    checked={{@checked}}
     aria-disabled={{@isDisabled}}
+    {{on "change" this.toggleChecked}}
     ...attributes
   />
 

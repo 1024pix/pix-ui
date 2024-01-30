@@ -115,6 +115,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
+
     await click(await screen.findByRole('checkbox', { name: 'Hamburger' }));
     await click(await screen.findByRole('checkbox', { name: 'Sushi' }));
 
