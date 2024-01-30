@@ -26,12 +26,14 @@ export default {
     },
     checked: {
       name: 'checked',
-      description: 'Permet de cocher la checkbox',
-      type: { name: 'boolean', required: false },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
+      description: 'Détermine si la checkbox est cochée',
+      type: { name: 'boolean', required: true, defaultValue: false },
+    },
+    onChange: {
+      name: 'onChange',
+      description: "Fonction à appeler quand la checkbox change d'état",
+      type: { required: true },
+      control: { disable: true },
     },
     isDisabled: {
       name: 'isDisabled',
@@ -99,6 +101,7 @@ const Template = (args) => {
   @size={{this.size}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
+  @onChange={{this.onChange}}
 >
   <:label>{{this.label}}</:label>
 </PixCheckbox>`,
@@ -176,6 +179,7 @@ const MultipleTemplate = (args) => {
   @checked={{this.checked}}
   disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
+  @onChange={{this.onChange}}
 >
   <:label>{{this.label}}</:label>
 </PixCheckbox>
@@ -188,6 +192,7 @@ const MultipleTemplate = (args) => {
   @checked={{this.checked}}
   disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
+  @onChange={{this.onChange}}
 >
   <:label>{{this.label}}</:label>
 </PixCheckbox>`,
