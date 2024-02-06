@@ -1,5 +1,23 @@
 # Pix-UI Changelog
 
+## v43.0.0 (06/02/2024)
+
+
+### :rocket: Amélioration
+- [#514](https://github.com/1024pix/pix-ui/pull/514) [FEATURE] Ajouter un nouveau composant PixLabel (PIX-10453).
+
+### :arrow_up: Montée de version
+- [#532](https://github.com/1024pix/pix-ui/pull/532) [BUMP] Update dependency eslint-plugin-ember to v12 (dossier racine).
+- [#538](https://github.com/1024pix/pix-ui/pull/538) [BUMP] Update dependency @glimmer/syntax to ^0.88.0 (dossier racine).
+- [#536](https://github.com/1024pix/pix-ui/pull/536) [BUMP] Update dependency npm-run-all2 to v6 (dossier racine).
+- [#530](https://github.com/1024pix/pix-ui/pull/530) [BUMP] Update dependency node to v20.11.0.
+- [#534](https://github.com/1024pix/pix-ui/pull/534) [BUMP] Replace dependency npm-run-all with npm-run-all2 ^5.0.0 (dossier racine).
+- [#533](https://github.com/1024pix/pix-ui/pull/533) [BUMP] Lock file maintenance (dossier racine).
+- [#529](https://github.com/1024pix/pix-ui/pull/529) [BUMP] Update dependency node to v20.11.0.
+- [#528](https://github.com/1024pix/pix-ui/pull/528) [BUMP] Lock file maintenance (dossier racine).
+- [#527](https://github.com/1024pix/pix-ui/pull/527) [BUMP] Update dependency stylelint-config-standard-scss to v13 (dossier racine).
+- [#526](https://github.com/1024pix/pix-ui/pull/526) [BUMP] Lock file maintenance (dossier racine).
+
 ## v42.0.4 (05/01/2024)
 
 
