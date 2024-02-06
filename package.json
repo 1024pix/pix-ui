@@ -74,7 +74,7 @@
     "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@glimmer/component": "^1.1.2",
-    "@glimmer/syntax": "^0.87.0",
+    "@glimmer/syntax": "^0.88.0",
     "@glimmer/tracking": "^1.1.2",
     "@storybook/addon-a11y": "7.1.0",
     "@storybook/addon-controls": "7.1.0",
