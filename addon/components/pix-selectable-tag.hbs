@@ -1,9 +1,9 @@
-<div class="pix-selectable-tag {{if this.isChecked ' pix-selectable-tag--checked'}}">
+<div class="pix-selectable-tag {{if @checked ' pix-selectable-tag--checked'}}">
   <input
     type="checkbox"
     id={{@id}}
-    onChange={{this.toggleIsChecked}}
-    checked={{this.isChecked}}
+    {{on "change" this.toggleIsChecked}}
+    checked={{@checked}}
     ...attributes
   />
   <label for={{@id}}>{{@label}}</label>
