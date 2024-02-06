@@ -5,13 +5,16 @@
   {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
   {{on-escape-action this.hideDropDown this.multiSelectId}}
 >
+  <PixLabel
+    @for={{this.multiSelectId}}
+    @requiredLabel={{@requiredText}}
+    @subLabel={{@subLabel}}
+    @labelSize={{@labelSize}}
+    @screenReaderOnly={{@screenReaderOnly}}
+  >
+    {{@label}}
+  </PixLabel>
 
-  {{#if @label}}
-    <label
-      for={{this.multiSelectId}}
-      class="pix-multi-select__label{{if @screenReaderOnly ' screen-reader-only'}}"
-    >{{@label}}</label>
-  {{/if}}
   <PopperJS @placement={{@placement}} as |reference popover|>
 
     {{#if @isSearchable}}

@@ -1,10 +1,6 @@
 .pix-multi-select {
   position: relative;
   display: inline-block;
-
-  &__label {
-    @extend %pix-label;
-  }
 }
 
 .pix-multi-select-header {

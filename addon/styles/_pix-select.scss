@@ -2,14 +2,6 @@
   position: relative;
   display: inline-block;
 
-  &__label {
-    @extend %pix-label;
-  }
-
-  &__sub-label {
-    @extend %pix-sublabel;
-  }
-
   &__dropdown {
     @extend %pix-shadow-sm;
 

@@ -1,18 +1,10 @@
 .pix-radio-button {
   display: flex;
+  gap: var(--pix-spacing-3x);
   align-items: center;
 
   & + .pix-radio-button {
     margin-top: var(--pix-spacing-4x);
-  }
-
-  &__label {
-    @extend %pix-body-m;
-
-    padding-left: var(--pix-spacing-3x);
-    color: var(--pix-neutral-900);
-    font-weight: var(--pix-font-normal);
-    cursor: pointer;
   }
 
   &__input {

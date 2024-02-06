@@ -50,10 +50,6 @@
       margin-left: var(--pix-spacing-1x);
     }
 
-    &::placeholder {
-      color: var(--pix-neutral-500);
-    }
-
     &.filled {
       background-color: var(--pix-neutral-0);
     }

@@ -7,14 +7,6 @@
     @extend %pix-form-error-state;
   }
 
-  &__label {
-    @extend %pix-label;
-  }
-
-  &__sub-label {
-    @extend %pix-sublabel;
-  }
-
   &__error-message {
     @extend %pix-input-error-message;
   }

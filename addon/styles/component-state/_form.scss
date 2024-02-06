@@ -1,7 +1,7 @@
 %pix-input-default {
   @extend %pix-body-s;
 
-  padding: 0 var(--pix-spacing-3x);
+  padding: var(--pix-spacing-2x) var(--pix-spacing-3x);
   color: var(--pix-neutral-900);
   border-radius: var(--pix-spacing-1x);
 }
@@ -22,6 +22,10 @@
 }
 
 %pix-form-element-state {
+  &::placeholder {
+    color: var(--pix-neutral-500);
+  }
+
   &:hover {
     background-color: var(--pix-neutral-20);
     border-color: var(--pix-neutral-900);
@@ -56,24 +60,6 @@
     cursor: default;
   }
 }
-
-%pix-label {
-  @extend %pix-body-s;
-
-  display: block;
-  margin-bottom: var(--pix-spacing-1x);
-  color: var(--pix-neutral-900);
-  font-weight: var(--pix-font-medium);
-}
-
-%pix-sublabel {
-  @extend %pix-body-s;
-
-  display: block;
-  margin-bottom: var(--pix-spacing-1x);
-  color: var(--pix-neutral-500);
-}
-
 
 // Only on StoryBook
 .pix-form__label {

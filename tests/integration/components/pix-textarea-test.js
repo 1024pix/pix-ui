@@ -3,7 +3,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { triggerEvent } from '@ember/test-helpers';
 import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | textarea', function (hooks) {
@@ -102,34 +101,6 @@ module('Integration | Component | textarea', function (hooks) {
 
     // then
     assert.contains('Décrivez votre problème');
-  });
-
-  test('it should throw an error if no id is provided when there is a label', async function (assert) {
-    // given & when
-    const componentParams = { id: '   ', label: 'Décrivez votre problème' };
-    const component = createGlimmerComponent('pix-textarea', componentParams);
-
-    // then
-    const expectedError = new Error(
-      'ERROR in PixTextarea component, @id param is necessary when giving @label',
-    );
-    assert.throws(function () {
-      component.label;
-    }, expectedError);
-  });
-
-  test('it should throw an error if no label is provided when there is a requiredLabel', async function (assert) {
-    // given & when
-    const componentParams = { label: '   ', requiredLabel: 'Obligatoire' };
-    const component = createGlimmerComponent('pix-textarea', componentParams);
-
-    // then
-    const expectedError = new Error(
-      'ERROR in PixTextarea component, @label param is necessary when giving @requiredLabel',
-    );
-    assert.throws(function () {
-      component.requiredLabel;
-    }, expectedError);
   });
 
   test('it should be possible to show an error message', async function (assert) {

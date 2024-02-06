@@ -3,15 +3,6 @@
   display: flex;
   flex-direction: column;
 
-  &__label {
-    @extend %pix-label;
-  }
-
-  &__sub-label {
-    @extend %pix-sublabel;
-  }
-
-
   &__container {
     position: relative;
   }
@@ -41,11 +32,10 @@
   }
 
   &__input {
-    @extend %pix-form-element-state;
     @extend %pix-input-default;
+    @extend %pix-form-element-state;
 
     width: 100%;
-    height: 36px;
     border: 1px solid var(--pix-neutral-500);
 
     &--error {

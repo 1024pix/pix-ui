@@ -9,6 +9,21 @@ export default {
       description: 'Le label du PixToggle',
       type: { name: 'string', required: true },
     },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Le sous label du PixToggle',
+      type: { name: 'string', required: true },
+    },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
     onLabel: {
       name: 'onLabel',
       description: "Le label de l'état actif du PixToggle",
@@ -57,6 +72,8 @@ export const Template = (args) => {
   return {
     template: hbs`<PixToggle
   @label={{this.label}}
+  @labelSize={{this.labelSize}}
+  @subLabel={{this.subLabel}}
   @onLabel={{this.onLabel}}
   @offLabel={{this.offLabel}}
   @toggled={{this.toggled}}

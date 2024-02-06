@@ -12,9 +12,6 @@ export default class PixSelect extends Component {
   constructor(...args) {
     super(...args);
 
-    if (!this.args.label && !this.args.id)
-      throw new Error('ERROR in PixSelect, a @label or an @id was not provided');
-
     const categories = [];
     this.args.options.forEach((element) => {
       if (!categories.includes(element.category) && element.category !== undefined) {

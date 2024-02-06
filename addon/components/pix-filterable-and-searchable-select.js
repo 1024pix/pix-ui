@@ -15,14 +15,6 @@ export default class PixFilterableAndSearchableSelect extends Component {
     this.selectedCategories = categories;
   }
 
-  get classLabel() {
-    const cssClass = ['pix-filterable-and-searchable-select__label'];
-
-    if (this.args.screenReaderOnly) cssClass.push('screen-reader-only');
-
-    return cssClass.join(' ');
-  }
-
   get categories() {
     const categoryNames = [];
     this.args.options.forEach((option) => {

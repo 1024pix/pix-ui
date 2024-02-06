@@ -19,18 +19,4 @@ export default class PixCheckbox extends Component {
 
     return classes.join(' ');
   }
-
-  get labelClasses() {
-    const classes = ['pix-checkbox__label'];
-
-    if (this.args.labelSize) {
-      classes.push(`${classes[0]}--${this.args.labelSize}`);
-    }
-
-    if (this.args.screenReaderOnly) {
-      classes.push('screen-reader-only');
-    }
-
-    return classes.join(' ');
-  }
 }

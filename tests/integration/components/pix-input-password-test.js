@@ -4,26 +4,12 @@ import { render } from '@1024pix/ember-testing-library';
 import { click } from '@ember/test-helpers';
 
 import { hbs } from 'ember-cli-htmlbars';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | pix-input-password', function (hooks) {
   setupRenderingTest(hooks);
 
   const INPUT_SELECTOR = '.pix-input-password input[type=password]';
-  const INFORMATION_SELECTOR = '.pix-input__sub-label';
   const BUTTON_SELECTOR = '.pix-input-password__button';
-
-  test('it should throw an error if there is no id', async function (assert) {
-    // given & when
-    const componentParams = { id: '   ' };
-    const component = createGlimmerComponent('pix-input-password', componentParams);
-
-    // then
-    const expectedError = new Error('ERROR in PixInput component, @id param is not provided');
-    assert.throws(function () {
-      component.id;
-    }, expectedError);
-  });
 
   test('it should be possible to have an input label', async function (assert) {
     // given & when
@@ -35,15 +21,12 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to add extra information to input', async function (assert) {
     // given & when
-    await render(
+    const screen = await render(
       hbs`<PixInputPassword @label='Mot de passe' @id='password' @information='une brève information' />`,
     );
 
     // then
-    const selectorElement = this.element.querySelector(INFORMATION_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(selectorElement.innerHTML, 'une brève information');
+    assert.ok(screen.getByLabelText('Mot de passe une brève information'));
   });
 
   test('it should be possible to associate an error message to input', async function (assert) {
@@ -89,23 +72,6 @@ module('Integration | Component | pix-input-password', function (hooks) {
     assert.dom(passwordVisibilityButton).exists();
   });
 
-  test('it should throw an error if PixInputPassword has neither a label nor an ariaLabel param', async function (assert) {
-    // given & when
-    const componentParams = { label: null, ariaLabel: null };
-    const component = createGlimmerComponent('pix-input-password', componentParams);
-
-    // then
-    const expectedError = new Error(
-      'ERROR in PixInputPassword component, you must provide @label or @ariaLabel params',
-    );
-    assert.throws(function () {
-      component.label;
-    }, expectedError);
-    assert.throws(function () {
-      component.ariaLabel;
-    }, expectedError);
-  });
-
   test('it should be possible to track value of input', async function (assert) {
     // given && when
     await render(hbs`<PixInputPassword @id='password' @label='Mot de passe' @value='pix123' />`);
@@ -139,7 +105,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
       await click(screen.getByRole('button', { name: 'Afficher le mot de passe' }));
 
       // then
-      assert.dom(screen.getByRole('textbox', { name: 'Mot de passe' })).isFocused();
+      assert.dom(screen.getByLabelText('* Mot de passe')).isFocused();
     });
   });
 });
