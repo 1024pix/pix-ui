@@ -1,43 +1,30 @@
-# See https://help.github.com/ignore-files/ for more about ignoring files.
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
 
-# compiled output
-/dist/
-/tmp/
-/storybook-static
-
-#pack
-1024pix-pix-ui-*.tgz
-
-# dependencies
-/bower_components/
-/node_modules/
-
-# misc
-/.env*
-/.pnp*
-/.sass-cache
-/connect.lock
-/coverage/
-/libpeerconnection.log
-/npm-debug.log*
-/testem.log
-/yarn-error.log
-
-# system
+node_modules
 .DS_Store
+dist
+dist-ssr
+coverage
+*.local
 
-# ember-try
-/.node_modules.ember-try/
-/bower.json.ember-try
-/package.json.ember-try
+/cypress/videos/
+/cypress/screenshots/
 
-# storybook / chromatic
-.storybook/preview-head.html
-build-storybook.log
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
 
-# IDE
-**/.idea
-!.idea/runConfigurations/*.xml
-*.iml
-*.code-workspace
-.history
+*.tsbuildinfo

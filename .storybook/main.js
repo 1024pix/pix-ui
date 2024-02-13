@@ -1,10 +1,17 @@
+/** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
-  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y'],
-  stories: ['../docs/**/*.@(mdx|stories.@(mdx))', '../app/*/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
-  staticDirs: ['../dist'],
+  stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
+  addons: [
+    '@storybook/addon-links',
+    '@storybook/addon-essentials',
+    '@storybook/addon-interactions'
+  ],
   framework: {
-    name: '@1024pix/storybook-ember',
-    options: {},
+    name: '@storybook/vue3-vite',
+    options: {}
   },
-};
-export default config;
+  docs: {
+    autodocs: 'tag'
+  }
+}
+export default config

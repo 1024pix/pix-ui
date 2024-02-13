@@ -1,58 +1,41 @@
-- [Présentation de Pix-UI](#Pix-UI)
-- [Installation de l'addon Pix-UI](#Addon)
-- [Développment de Pix-UI](#Developpement)
-  - [Lancement de storybook en local](#Storybook)
+# vue-project
 
+This template should help get you started developing with Vue 3 in Vite.
 
-Pix-UI <a id="Pix-UI"></a>
-==============================================================================
+## Recommended IDE Setup
 
-Pix-UI c'est l'implémentation des principes du design system de Pix. Cela se matérialise par :
-- **un addon ember**, permettant l'utilisation composants UI Pix sur des applications ember externes
-- **un site statique**, présentant les composants UI Pix : https://1024pix.github.io/pix-ui/
+[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-![Capture d'écran du storybook en ligne](./docs/assets/screen-pix-storybook.png)
+## Customize configuration
 
-##### Version du projet : 
+See [Vite Configuration Reference](https://vitejs.dev/config/).
 
-* Ember CLI v3.24 or above
-* Node 12 or above
+## Project Setup
 
+```sh
+npm install
+```
 
-## Installation de l'addon Pix-UI <a id="Addon"></a>
+### Compile and Hot-Reload for Development
 
-Pour utiliser les composants sur une application Ember externe, il faut installer l'addon ember Pix-UI avec la commande : 
-- `npm install @1024pix/pix-ui@<tag_souhaité>`
+```sh
+npm run dev
+```
 
-##### Quel tag choisir ?
+### Compile and Minify for Production
 
-`<tag_souhaité>` doit correspondre au numéro de version à installer. Ce numéro de version correspond à une release.
-*Par exemple, on peut remplacer `<tag_souhaité>` par `v0.1.1`.*
-Pour voir la liste des tags de Pix-UI, [c'est par ici.](https://github.com/1024pix/pix-ui/tags)
+```sh
+npm run build
+```
 
-##### Installation par défaut
+### Run Unit Tests with [Vitest](https://vitest.dev/)
 
-Il est possible d'installer Pix UI sans `#<tag_souhaité>`, auquel cas ce sera la dernière version qui sera installée. 
+```sh
+npm run test:unit
+```
 
-Plus d'informations sur les [tags git ici](https://git-scm.com/book/fr/v2/Les-bases-de-Git-%C3%89tiquetage).
+### Lint with [ESLint](https://eslint.org/)
 
-
-## Développement de Pix-UI <a id="Developpement"></a>
-
-* `git clone https://github.com/1024pix/pix-ui.git`
-* `cd pix-ui`
-* `npm install`
-
-##### Création d'un composant Pix-UI
-
-* `ember g pix-component <nom_du_composant>`
-
-Plus d'informations sur [la création de composant ici](/?path=/docs/create-component.stories.mdx).
-
-
-##### Lancement de storybook en local <a id="Storybook"></a>
-
-Pour visualiser les composants créés, il faut lancer storybook :
-* `npm run storybook`
-
-
+```sh
+npm run lint
+```
