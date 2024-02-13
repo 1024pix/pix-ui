@@ -1,5 +1,5 @@
 <template>
-  <label>
+  <label class="pix-label">
     <abbr title="" class="mandatory-mark" v-if="requiredLabel">*</abbr>
 
     {{label}}
@@ -12,7 +12,7 @@
 
 <script setup>
 import { defineProps } from 'vue';
-import './label.css';
+import './PixLabel.css';
 
 defineProps({
   label: {

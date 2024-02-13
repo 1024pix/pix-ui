@@ -1,6 +1,7 @@
-@import '../global.css';
+@import '../../stories/global.css';
 
 .pix-label {
+    font-family: 'Roboto', 'Arial', sans-serif;
     display: block;
     margin-bottom: 4px;
     color: #122647;
@@ -8,7 +9,6 @@
 }
 .pix-label__sub-label {
     font-weight: 400;
-    font-family: 'Roboto', 'Arial', sans-serif;
     font-size: 0.75rem;
     line-height: 1.5;
     letter-spacing: 0.02em;
