@@ -1,5 +1,14 @@
 # Pix-UI Changelog
 
+## v43.0.1 (15/02/2024)
+
+
+### :building_construction: Tech
+- [#541](https://github.com/1024pix/pix-ui/pull/541) [TECH] Utiliser le padding au lieu de définir une height pour les composant select.
+
+### :arrow_up: Montée de version
+- [#535](https://github.com/1024pix/pix-ui/pull/535) [BUMP] Lock file maintenance (dossier racine).
+
 ## v43.0.0 (06/02/2024)
 
 
