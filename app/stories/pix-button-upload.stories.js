@@ -29,13 +29,21 @@ export default {
     backgroundColor: {
       name: 'backgroundColor',
       description:
-        'color: `blue`, `green`, `yellow`, `red`, `grey`, `transparent-light`, `transparent-dark`',
-      options: ['blue', 'green', 'yellow', 'red', 'grey', 'transparent-light', 'transparent-dark'],
+        'color: `primary`, `success`, `secondary`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
+      options: [
+        'primary',
+        'success',
+        'secondary',
+        'error',
+        'neutral',
+        'transparent-light',
+        'transparent-dark',
+      ],
       type: { name: 'string', required: false },
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'blue' },
+        defaultValue: { summary: 'primary' },
       },
     },
     size: {

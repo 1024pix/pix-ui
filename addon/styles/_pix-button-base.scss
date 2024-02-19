@@ -55,7 +55,7 @@
     padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
   }
 
-  &--blue, &--primary {
+  &--primary {
     background-color: var(--pix-primary-500);
 
     &:not([aria-disabled="true"]) {
@@ -77,7 +77,7 @@
     }
   }
 
-  &--green, &--success {
+  &--success {
     background-color: var(--pix-success-500);
 
     &:not([aria-disabled="true"]) {
@@ -99,7 +99,7 @@
     }
   }
 
-  &--yellow, &--secondary {
+  &--secondary {
     color: var(--pix-neutral-900);
     background-color: var(--pix-secondary-500);
 
@@ -125,7 +125,7 @@
     }
   }
 
-  &--red, &--error {
+  &--error {
     color: var(--pix-neutral-0);
     background-color: var(--pix-error-500);
 
@@ -148,7 +148,7 @@
     }
   }
 
-  &--grey, &--neutral {
+  &--neutral {
     color: var(--pix-neutral-900);
     background-color: var(--pix-neutral-20);
 
@@ -171,13 +171,6 @@
         outline: none;
       }
     }
-  }
-
-  /* deprecated in favor of --transparent-light + --border */
-  &--transparent {
-    color: var(--pix-neutral-500);
-    background-color: transparent;
-    border: 1px solid var(--pix-neutral-500);
   }
 
   &--transparent-light {
