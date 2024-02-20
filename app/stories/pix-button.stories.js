@@ -30,17 +30,6 @@ export default {
         defaultValue: { summary: 'white' },
       },
     },
-    shape: {
-      name: 'shape',
-      description: 'forme: `rounded`,`squircle`',
-      type: { name: 'string', required: false },
-      options: ['rounded', 'squircle'],
-      control: { type: 'select' },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'squircle' },
-      },
-    },
     backgroundColor: {
       name: 'backgroundColor',
       description:
@@ -155,7 +144,6 @@ const Template = (args) => ({
   <PixButton
     @triggerAction={{this.triggerAction}}
     @loadingColor={{this.loadingColor}}
-    @shape={{this.shape}}
     @backgroundColor={{this.backgroundColor}}
     @isDisabled={{this.isDisabled}}
     @isLoading={{this.isLoading}}
@@ -174,7 +162,6 @@ const Template = (args) => ({
     <PixButton
       @triggerAction={{this.triggerAction}}
       @loadingColor={{button.loadingColor}}
-      @shape={{button.shape}}
       @backgroundColor={{button.backgroundColor}}
       @isDisabled={{button.isDisabled}}
       @isLoading={{button.isLoading}}
@@ -195,7 +182,6 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   loadingColor: 'white',
-  shape: 'squircle',
   size: 'big',
   backgroundColor: 'primary',
   label: 'Bouton',
@@ -294,13 +280,6 @@ loader.args = {
       isLoading: true,
     },
   ],
-};
-
-export const shape = Template.bind({});
-shape.args = {
-  ...Default.args,
-  label: 'Bouton rounded',
-  shape: 'rounded',
 };
 
 export const size = Template.bind({});
