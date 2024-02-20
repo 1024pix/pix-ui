@@ -1,5 +1,15 @@
 # Pix-UI Changelog
 
+## v43.1.0 (20/02/2024)
+
+
+### :building_construction: Tech
+- [#543](https://github.com/1024pix/pix-ui/pull/543) [TECH] Retirer les propriété déprécié des Pix Button (PIX-11291).
+
+### :arrow_up: Montée de version
+- [#542](https://github.com/1024pix/pix-ui/pull/542) [BUMP] Lock file maintenance (dossier racine).
+- [#540](https://github.com/1024pix/pix-ui/pull/540) [BUMP] Lock file maintenance (dossier racine).
+
 ## v43.0.1 (15/02/2024)
 
 
