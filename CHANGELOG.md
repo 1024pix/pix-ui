@@ -1,5 +1,11 @@
 # Pix-UI Changelog
 
+## v44.0.0 (21/02/2024)
+
+
+### :boom: BREAKING CHANGE
+- [#544](https://github.com/1024pix/pix-ui/pull/544) [BREAKING] Retirer la shape Squircle sur les buttons (PIX-11327).
+
 ## v43.1.0 (20/02/2024)
 
 
