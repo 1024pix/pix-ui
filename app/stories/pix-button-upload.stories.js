@@ -15,17 +15,6 @@ export default {
         "fonction à exécuter au moment de l'upload du fichier, elle prend en entrée la liste des fichiers uploadés.",
       type: { name: 'function', required: true },
     },
-    shape: {
-      name: 'shape',
-      description: 'forme: `rounded`,`squircle`',
-      type: { name: 'string', required: false },
-      options: ['rounded', 'squircle'],
-      control: { type: 'select' },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'squircle' },
-      },
-    },
     backgroundColor: {
       name: 'backgroundColor',
       description:
@@ -76,7 +65,6 @@ export const buttonUpload = (args) => {
     template: hbs`<PixButtonUpload
   @id={{this.id}}
   @onChange={{this.onChange}}
-  @shape={{this.shape}}
   @backgroundColor={{this.backgroundColor}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}

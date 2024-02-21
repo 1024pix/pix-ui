@@ -26,17 +26,6 @@ export default {
         "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
       type: { required: false },
     },
-    shape: {
-      name: 'shape',
-      description: 'forme: `rounded`,`squircle`',
-      type: { name: 'string', required: false },
-      options: ['rounded', 'squircle'],
-      control: { type: 'select' },
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'squircle' },
-      },
-    },
     backgroundColor: {
       name: 'backgroundColor',
       description:
@@ -96,7 +85,6 @@ export const htmlLink = {
     template: hbs`<PixButtonLink
   @href='https://pix.fr'
   target='NEW'
-  @shape={{this.shape}}
   @backgroundColor={{this.backgroundColor}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
@@ -114,7 +102,6 @@ export const emberLink = (args) => {
   @route=''
   @model=''
   @query={{this.query}}
-  @shape={{this.shape}}
   @backgroundColor={{this.backgroundColor}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}

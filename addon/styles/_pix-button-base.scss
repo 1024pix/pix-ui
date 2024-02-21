@@ -9,6 +9,7 @@
   text-decoration: none;
   background-color: var(--pix-primary-500);
   border: 2px solid transparent;
+  border-radius: 25px;
   outline: none;
   cursor: pointer;
 
@@ -35,24 +36,12 @@
     }
   }
 
-  &--shape-rounded {
-    border-radius: 25px;
-  }
-
-  &--shape-squircle {
-    border-radius: 4px;
-  }
-
   &--size-big {
     padding: var(--pix-spacing-3x) var(--pix-spacing-6x);
   }
 
-  &--size-small.pix-button--shape-rounded {
+  &--size-small {
     padding: var(--pix-spacing-2x) var(--pix-spacing-6x);
-  }
-
-  &--size-small.pix-button--shape-squircle {
-    padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
   }
 
   &--primary {
