@@ -414,8 +414,9 @@ WithIcon.args = {
   label: 'With icon',
   onChange: action('onChange'),
   options: [
+    { value: 'nl', label: 'Nederlaaaaaaands' },
     { value: 'en', label: 'English' },
     { value: 'fr', label: 'Français' },
   ],
-  value: 'fr',
+  value: 'en',
 };
