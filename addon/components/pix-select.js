@@ -156,14 +156,51 @@ export default class PixSelect extends Component {
     }
   }
 
+  _getTextWidth(text, font = 'Roboto') {
+    const canvas = (this._getTextWidth.canvas = document.createElement('canvas'));
+    const context = canvas.getContext('2d');
+    context.font = font;
+    const metrics = context.measureText(text);
+    return metrics.width;
+  }
+
+  _getCssStyle(element, prop) {
+    return window.getComputedStyle(element, null).getPropertyValue(prop);
+  }
+
+  _getCanvasFont(el = document.body) {
+    const fontWeight = this._getCssStyle(el, 'font-weight') || 'normal';
+    const fontSize = this._getCssStyle(el, 'font-size') || '0.875rem';
+    const fontFamily = this._getCssStyle(el, 'font-family') || 'Roboto';
+
+    return `${fontWeight} ${fontSize} ${fontFamily}`;
+  }
+
   @action
   setSelectWidth() {
     if (!this.args.isComputeWidthDisabled) {
       const baseFontRemRatio = Number(
         getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
       );
+
       const checkIconWidth = 1.125 * baseFontRemRatio;
-      const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
+
+      const options = document.querySelectorAll("li[role='option']");
+
+      // let listWidth = this._getTextWidth(options[0], this._getCanvasFont(options[0]));
+      let listWidth = options[0].getBoundingClientRect().width * 1.125;
+      console.log({ listWidth });
+
+      console.log(options[0]);
+
+      // for (let i = 1; i < this.args.options.length; i++) {
+      //   const optionWidth = this._getTextWidth(options[i], this._getCanvasFont(options[i]));
+      //   if (optionWidth > listWidth) {
+      //     listWidth = optionWidth;
+      //   }
+      //   console.log({ option: optionWidth }, { list: listWidth });
+      // }
+
       const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
 
       const className = `sizing-select-${this.selectId}`;
