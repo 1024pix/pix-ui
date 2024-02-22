@@ -201,7 +201,12 @@ export default class PixSelect extends Component {
       //   console.log({ option: optionWidth }, { list: listWidth });
       // }
 
-      const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
+      const buttonGap = getComputedStyle(document.getElementById(this.selectId)).gap.match(
+        /\d+(\.\d+)?/,
+      )[0];
+
+      console.log({ buttonGap });
+      const selectWidth = (listWidth + checkIconWidth + buttonGap * 2) / baseFontRemRatio;
 
       const className = `sizing-select-${this.selectId}`;
       createClass(`.${className}`, `width: ${selectWidth}rem;`);
