@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import debounce from 'lodash.debounce';
+import { debounceTask } from 'ember-lifeline';
 
 export default class PixSearchInput extends Component {
   constructor() {
@@ -21,10 +21,6 @@ export default class PixSearchInput extends Component {
     }
 
     this.searchInputId = this.args.id || guidFor(this);
-    this.debouncedTriggerFiltering = debounce(
-      this.args.triggerFiltering,
-      this.debounceTimeBeforeSearch,
-    );
   }
 
   get label() {
@@ -35,8 +31,17 @@ export default class PixSearchInput extends Component {
     return this.args.label ? null : this.args.ariaLabel;
   }
 
+  debouncedTriggerFiltering(value) {
+    this.args.triggerFiltering(this.searchInputId, value);
+  }
+
   @action
-  async onSearch(event) {
-    await this.debouncedTriggerFiltering(this.searchInputId, event.target.value);
+  onSearch(event) {
+    debounceTask(
+      this,
+      'debouncedTriggerFiltering',
+      event.target.value,
+      this.debounceTimeBeforeSearch,
+    );
   }
 }
