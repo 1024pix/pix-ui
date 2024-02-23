@@ -4,6 +4,8 @@ import { guidFor } from '@ember/object/internals';
 import { debounceTask } from 'ember-lifeline';
 
 export default class PixSearchInput extends Component {
+  initialValue = this.args.value;
+
   constructor() {
     super(...arguments);
 
