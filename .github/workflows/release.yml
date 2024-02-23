@@ -3,7 +3,7 @@ name: release
 on:
   push:
     branches:
-      - main
+      - dev
   repository_dispatch:
     types: [ 'deploy' ]
   workflow_dispatch:
