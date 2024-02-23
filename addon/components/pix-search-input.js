@@ -8,7 +8,7 @@ export default class PixSearchInput extends Component {
     super(...arguments);
 
     this.debounceTimeBeforeSearch = parseInt(this.args.debounceTimeInMs);
-    if (isNaN(this.debounceTimeBeforeSearch)) {
+    if (Number.isNaN(this.debounceTimeBeforeSearch)) {
       throw new Error('ERROR in PixSearchInput component, @debounceTimeInMs param is not provided');
     }
     if (!this.args.triggerFiltering) {
