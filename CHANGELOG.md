@@ -1,3 +1,9 @@
+## [44.0.2](https://github.com/1024pix/pix-ui/compare/v44.0.1...v44.0.2) (2024-02-26)
+
+### :building_construction: Tech
+
+- [#553](https://github.com/1024pix/pix-ui/pull/553) Prévenir les mauvais titre de PR.
+
 ## [44.0.1](https://github.com/1024pix/pix-ui/compare/v44.0.0...v44.0.1) (2024-02-26)
 
 ### :building_construction: Tech
