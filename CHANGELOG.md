@@ -1,3 +1,18 @@
+## [44.0.1](https://github.com/1024pix/pix-ui/compare/v44.0.0...v44.0.1) (2024-02-26)
+
+### :building_construction: Tech
+
+- [#546](https://github.com/1024pix/pix-ui/pull/546) Déclencher le workflow release sur la branche dev 
+- [#548](https://github.com/1024pix/pix-ui/pull/548) Donner les droits à l'action `release` de pusher sur dev 
+- [#547](https://github.com/1024pix/pix-ui/pull/547) Faire en sorte que l'action `auto-merge` fasse un push sur dev qui déclenche les autres actions.   
+- [#539](https://github.com/1024pix/pix-ui/pull/539) Proposer un nouveau workflow de déploiement continue.  
+- [#549](https://github.com/1024pix/pix-ui/pull/549) Utiliser le bon token GitHub pour l'action `release` 
+
+### :arrow_up: Montée de version
+
+-  Lock file maintenance (dossier racine)
+- [#551](https://github.com/1024pix/pix-ui/pull/551) Lock file maintenance (dossier racine)
+
 # Pix-UI Changelog
 
 ## v44.0.0 (21/02/2024)
