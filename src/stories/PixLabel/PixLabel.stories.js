@@ -1,16 +1,9 @@
-import PixLabel from '@/components/PixLabel/PixLabel.vue';
+import '../../index.js'
 
 export default {
-  component: PixLabel,
+  component: 'pix-label',
 };
 export const Primary = {
-  render: (args) => ({
-    components: { PixLabel },
-    setup() {
-      return { args };
-    },
-    template: '<pixLabel v-bind="args" />',
-  }),
   args: {
     label: 'PixLabel',
     requiredLabel: true,

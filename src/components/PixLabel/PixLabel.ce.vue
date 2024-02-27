@@ -7,6 +7,10 @@
     <span class="pix-label__sub-label" v-if="subLabel">
       {{subLabel}}
     </span>
+
+    <span class="pix-label__sub-label" v-if="subLabel">
+      LabelSize {{labelSize}}
+    </span>
   </label>
 </template>
 
