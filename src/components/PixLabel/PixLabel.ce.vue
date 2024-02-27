@@ -12,7 +12,6 @@
 
 <script setup>
 import { defineProps } from 'vue';
-import './PixLabel.css';
 
 defineProps({
   label: {
@@ -41,3 +40,7 @@ defineProps({
   }
 });
 </script>
+
+<style>
+@import "PixLabel.css";
+</style>
