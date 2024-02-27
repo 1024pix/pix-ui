@@ -14,6 +14,17 @@ export const Primary = {
   args: {
     label: 'PixLabel',
     requiredLabel: true,
-    subLabel: 'toto'
+    subLabel: 'toto',
+    screenReaderOnly: false,
+    labelSize: 'default',
+    inlineLabel: false,
+  },
+  argTypes: {
+    labelSize: {
+      control: {
+        type: 'select',
+      },
+      options: ['small', 'large', 'default'],
+    },
   },
 };

@@ -26,6 +26,18 @@ defineProps({
   },
   subLabel: {
     type: String,
+  },
+  screenReaderOnly: {
+    type: Boolean,
+  },
+  labelSize: {
+    type: String,
+    validator(value) {
+      return ['small', 'large', 'default'].includes(value)
+    }
+  },
+  inlineLabel: {
+    type: Boolean,
   }
 });
 </script>
