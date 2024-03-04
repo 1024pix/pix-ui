@@ -1,3 +1,10 @@
+## [44.0.5](https://github.com/1024pix/pix-ui/compare/v44.0.4...v44.0.5) (2024-03-04)
+
+### :arrow_up: Montée de version
+
+-  Update browser-tools orb to v1.4.8 (.circleci)
+- [#558](https://github.com/1024pix/pix-ui/pull/558) Update browser-tools orb to v1.4.8 (.circleci)
+
 ## [44.0.4](https://github.com/1024pix/pix-ui/compare/v44.0.3...v44.0.4) (2024-03-04)
 
 ### :arrow_up: Montée de version
