@@ -1,3 +1,12 @@
+## [44.0.4](https://github.com/1024pix/pix-ui/compare/v44.0.3...v44.0.4) (2024-03-04)
+
+### :arrow_up: Montée de version
+
+-  Update browser-tools orb to v1.4.7 (.circleci)
+- [#554](https://github.com/1024pix/pix-ui/pull/554) Update browser-tools orb to v1.4.7 (.circleci) 
+-  Update dependency chromatic to v11 (dossier racine)
+- [#555](https://github.com/1024pix/pix-ui/pull/555) Update dependency chromatic to v11 (dossier racine)
+
 ## [44.0.3](https://github.com/1024pix/pix-ui/compare/v44.0.2...v44.0.3) (2024-03-04)
 
 ### :arrow_up: Montée de version
