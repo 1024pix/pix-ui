@@ -1,3 +1,10 @@
+## [44.0.3](https://github.com/1024pix/pix-ui/compare/v44.0.2...v44.0.3) (2024-03-04)
+
+### :arrow_up: Montée de version
+
+-  Lock file maintenance (dossier racine)
+- [#557](https://github.com/1024pix/pix-ui/pull/557) Lock file maintenance (dossier racine)
+
 ## [44.0.2](https://github.com/1024pix/pix-ui/compare/v44.0.1...v44.0.2) (2024-02-26)
 
 ### :building_construction: Tech
