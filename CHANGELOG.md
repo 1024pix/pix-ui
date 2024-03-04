@@ -1,3 +1,9 @@
+# [44.1.0](https://github.com/1024pix/pix-ui/compare/v44.0.5...v44.1.0) (2024-03-04)
+
+### :rocket: Amélioration
+
+- [#556](https://github.com/1024pix/pix-ui/pull/556) Alléger nos polices d'écriture (PIX-11485)
+
 ## [44.0.5](https://github.com/1024pix/pix-ui/compare/v44.0.4...v44.0.5) (2024-03-04)
 
 ### :arrow_up: Montée de version
