@@ -1,3 +1,9 @@
+# [44.2.0](https://github.com/1024pix/pix-ui/compare/v44.1.0...v44.2.0) (2024-03-06)
+
+### :rocket: Amélioration
+
+- [#559](https://github.com/1024pix/pix-ui/pull/559) Migre les fonts vers woff2
+
 # [44.1.0](https://github.com/1024pix/pix-ui/compare/v44.0.5...v44.1.0) (2024-03-04)
 
 ### :rocket: Amélioration
