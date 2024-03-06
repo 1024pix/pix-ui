@@ -1,3 +1,9 @@
+## [44.2.1](https://github.com/1024pix/pix-ui/compare/v44.2.0...v44.2.1) (2024-03-06)
+
+### :building_construction: Tech
+
+- [#560](https://github.com/1024pix/pix-ui/pull/560) Réparer le déploiement de storybook
+
 # [44.2.0](https://github.com/1024pix/pix-ui/compare/v44.1.0...v44.2.0) (2024-03-06)
 
 ### :rocket: Amélioration
