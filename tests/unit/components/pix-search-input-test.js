@@ -3,7 +3,7 @@ import { setupTest } from 'ember-qunit';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
 
-module('Unit | Component | pix-search-select', function (hooks) {
+module('Unit | Component | pix-search-input', function (hooks) {
   setupTest(hooks);
 
   module('when there are errors in params', function () {

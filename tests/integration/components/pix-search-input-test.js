@@ -42,4 +42,26 @@ module('Integration | Component | search-input', function (hooks) {
     // then
     assert.ok(triggerFiltering.calledWith(123, 'Mangue'));
   });
+
+  test("doesn't update value when input value is udpated", async function (assert) {
+    // given
+    this.set('triggerFiltering', sinon.stub());
+    this.set('dynamicValue', 'init');
+    const screen = await render(hbs`<PixSearchInput
+  @id={{123}}
+  @label='Champ de recherche de fruits'
+  @debounceTimeInMs='0'
+  @triggerFiltering={{this.triggerFiltering}}
+  @value={{this.dynamicValue}}
+/>`);
+
+    // when
+    await fillByLabel('Champ de recherche de fruits', 'Mangue');
+    this.set('dynamicValue', 'dynamicValue');
+
+    // then
+    const inputFound = screen.getByLabelText('Champ de recherche de fruits');
+    assert.dom(inputFound).exists();
+    assert.strictEqual(inputFound.value, 'Mangue');
+  });
 });

@@ -16,8 +16,8 @@
       class="pix-search-input__input"
       name={{@inputName}}
       placeholder={{@placeholder}}
-      value={{@value}}
-      oninput={{this.onSearch}}
+      value={{this.initialValue}}
+      {{on "input" this.onSearch}}
       ...attributes
     />
   </div>
