@@ -1,3 +1,9 @@
+## [44.2.6](https://github.com/1024pix/pix-ui/compare/v44.2.5...v44.2.6) (2024-03-08)
+
+### :bug: Correction
+
+- [#550](https://github.com/1024pix/pix-ui/pull/550) Le `PixSearchInput` est sujet à des suppressions de caractères (PIX-11403)
+
 ## [44.2.5](https://github.com/1024pix/pix-ui/compare/v44.2.4...v44.2.5) (2024-03-08)
 
 ### :arrow_up: Montée de version
