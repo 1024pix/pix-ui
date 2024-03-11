@@ -1,3 +1,9 @@
+## [44.2.8](https://github.com/1024pix/pix-ui/compare/v44.2.7...v44.2.8) (2024-03-11)
+
+### :arrow_up: Montée de version
+
+- [#567](https://github.com/1024pix/pix-ui/pull/567) Update dependency @1024pix/eslint-config to ^1.2.3 (dossier racine)
+
 ## [44.2.7](https://github.com/1024pix/pix-ui/compare/v44.2.6...v44.2.7) (2024-03-11)
 
 ### :arrow_up: Montée de version
