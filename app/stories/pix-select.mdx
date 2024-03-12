@@ -56,7 +56,6 @@ Ici nous avons forcé le placement de la dropdown en haut du select mais sachez 
 ```html
 <PixSelect
   @className="{{className}}"
-  @label="{{label}}"
   @subLabel="{{subLabel}}"
   @placeholder="{{placeholder}}"
   @options="{{options}}"
@@ -67,11 +66,13 @@ Ici nous avons forcé le placement de la dropdown en haut du select mais sachez 
   @searchPlaceholder="{{searchPlaceholder}}"
   @emptySearchMessage="{{emptySearchMessage}}"
   @screenReaderOnly="{{screenReaderOnly}}"
-  @requiredText="{{requiredText}}"
+  @requiredLabel="{{requiredLabel}}"
   @errorMessage="{{errorMessage}}"
   @placement="{{placement}}"
   @icon="{{icon}}"
-/>
+>
+<:label>{{label}}</:label>
+</PixSelect>
 ```
 
 ## Arguments

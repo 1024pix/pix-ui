@@ -212,7 +212,6 @@ export const multiSelectWithId = {
 const TemplateWithYield = (args) => ({
   template: hbs`<PixMultiSelect
   @id={{this.id}}
-  @label={{this.label}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @onChange={{this.onChange}}
   @emptyMessage={{this.emptyMessage}}
@@ -222,6 +221,7 @@ const TemplateWithYield = (args) => ({
   @values={{this.values}}
   @options={{this.options}}
 >
+  <:label>{{this.label}}</:label>
   <:placeholder>filtres (2)</:placeholder>
   <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`,

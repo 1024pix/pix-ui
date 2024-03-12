@@ -8,15 +8,15 @@
   {{on "keydown" this.lockTab}}
   ...attributes
 >
-  {{#if @label}}
+  {{#if (has-block "label")}}
     <PixLabel
       @for={{this.selectId}}
-      @requiredLabel={{@requiredText}}
+      @requiredLabel={{@requiredLabel}}
       @subLabel={{@subLabel}}
       @labelSize={{@labelSize}}
       @screenReaderOnly={{@screenReaderOnly}}
     >
-      {{@label}}
+      {{yield to="label"}}
     </PixLabel>
   {{/if}}
 
