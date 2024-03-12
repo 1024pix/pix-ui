@@ -13,26 +13,6 @@ export default {
       description: "Valeur de l'input",
       type: { name: 'string', required: false },
     },
-    label: {
-      name: 'label',
-      description: "Label de l'input. Requis si ariaLabel n'est pas définit.",
-      type: { name: 'string', required: true },
-    },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'large', 'default'],
-    },
-    information: {
-      name: 'information',
-      description: 'Un descriptif complétant le label',
-      type: { name: 'string', required: false },
-    },
     validationStatus: {
       name: 'validationStatus',
       description:
@@ -52,14 +32,53 @@ export default {
       description: 'Affiche un préfixe avant la zone de saisie du champ',
       type: { name: 'string', required: false },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
     requiredLabel: {
       name: 'requiredLabel',
-      description:
-        'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
+      description: 'Label indiquant que le champ est requis.',
       type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
       },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Permet de ne pas afficher la marge pour les éléments de formulaire inline',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
     },
   },
 };
@@ -68,14 +87,17 @@ const Template = (args) => {
   return {
     template: hbs`<PixInputPassword
   @id={{this.id}}
-  @label={{this.label}}
-  @labelSize={{this.labelSize}}
-  @information={{this.information}}
   @errorMessage={{this.errorMessage}}
   @prefix={{this.prefix}}
-  @requiredLabel={{this.requiredLabel}}
   @validationStatus={{this.validationStatus}}
-/>`,
+  @labelSize={{this.labelSize}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+>
+  <:label>{{this.label}}</:label>
+</PixInputPassword>`,
     context: args,
   };
 };
@@ -90,7 +112,7 @@ export const withLabelAndInformation = Template.bind({});
 withLabelAndInformation.args = {
   id: 'password',
   label: 'Mot de passe',
-  information: 'Une brève information',
+  subLabel: 'Une brève information',
 };
 
 export const errorState = Template.bind({});

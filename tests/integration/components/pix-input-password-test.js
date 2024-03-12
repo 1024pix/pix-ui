@@ -13,16 +13,18 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to have an input label', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' />`);
+    const screen = await render(
+      hbs`<PixInputPassword @id='password'><:label>Mot de passe</:label></PixInputPassword>`,
+    );
 
     // then
-    assert.contains('Mot de passe');
+    assert.ok(screen.getByLabelText('Mot de passe'));
   });
 
   test('it should be possible to add extra information to input', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInputPassword @label='Mot de passe' @id='password' @information='une brève information' />`,
+      hbs`<PixInputPassword @id='password' @subLabel='une brève information'><:label>Mot de passe</:label></PixInputPassword>`,
     );
 
     // then
@@ -33,11 +35,10 @@ module('Integration | Component | pix-input-password', function (hooks) {
     // given & when
     const screen = await render(
       hbs`<PixInputPassword
-  @label='Mot de passe'
   @id='password'
   @errorMessage="Un message d'erreur."
   @validationStatus='error'
-/>`,
+><:label>Mot de passe</:label></PixInputPassword>`,
     );
 
     // then
@@ -46,7 +47,9 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should display an input prefix if necessary', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' @prefix='A prefix' />`);
+    await render(
+      hbs`<PixInputPassword @id='password' @prefix='A prefix'><:label>Mot de passe</:label></PixInputPassword>`,
+    );
 
     // then
     assert.contains('A prefix');
@@ -54,7 +57,9 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to add more params to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' autocomplete='off' />`);
+    await render(
+      hbs`<PixInputPassword @id='password' autocomplete='off'><:label>Mot de passe</:label></PixInputPassword>`,
+    );
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -65,7 +70,9 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it renders PixInputPassword with password visibility button', async function (assert) {
     // given & when
-    await render(hbs`<PixInputPassword @label='Mot de passe' @id='password' />`);
+    await render(
+      hbs`<PixInputPassword @id='password'><:label>Mot de passe</:label></PixInputPassword>`,
+    );
 
     // then
     const passwordVisibilityButton = this.element.querySelector(BUTTON_SELECTOR);
@@ -74,7 +81,9 @@ module('Integration | Component | pix-input-password', function (hooks) {
 
   test('it should be possible to track value of input', async function (assert) {
     // given && when
-    await render(hbs`<PixInputPassword @id='password' @label='Mot de passe' @value='pix123' />`);
+    await render(
+      hbs`<PixInputPassword @id='password' @value='pix123'><:label>Mot de passe</:label></PixInputPassword>`,
+    );
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -86,7 +95,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
   test('it should be possible to make pix input password required', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`,
+      hbs`<PixInputPassword @id='password' @requiredLabel='Champ obligatoire'><:label>Mot de passe</:label></PixInputPassword>`,
     );
 
     // then
@@ -98,7 +107,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
     test('it should focus on input', async function (assert) {
       // given
       const screen = await render(
-        hbs`<PixInputPassword @id='password' @label='Mot de passe' @requiredLabel='Champ obligatoire' />`,
+        hbs`<PixInputPassword @id='password' @requiredLabel='Champ obligatoire'><:label>Mot de passe</:label></PixInputPassword>`,
       );
 
       // when

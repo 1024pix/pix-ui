@@ -1,9 +1,6 @@
-import PixInput from './pix-input';
+import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
-
-const ERROR_MESSAGE =
-  'ERROR in PixInputPassword component, you must provide @label or @ariaLabel params';
 
 const INPUT_VALIDATION_STATUS_MAP = {
   default: '',
@@ -11,21 +8,14 @@ const INPUT_VALIDATION_STATUS_MAP = {
   success: 'pix-input-password__success-container',
 };
 
-export default class PixInputPassword extends PixInput {
+export default class PixInputPassword extends Component {
   @tracked isPasswordVisible = false;
 
-  get label() {
-    if (!this.args.label && !this.args.ariaLabel) {
-      throw new Error(ERROR_MESSAGE);
+  get id() {
+    if (!this.args.id || !this.args.id.toString().trim()) {
+      throw new Error('ERROR in PixInput component, @id param is not provided');
     }
-    return this.args.label;
-  }
-
-  get ariaLabel() {
-    if (!this.args.label && !this.args.ariaLabel) {
-      throw new Error(ERROR_MESSAGE);
-    }
-    return this.args.label ? null : this.args.ariaLabel;
+    return this.args.id;
   }
 
   @action
@@ -39,5 +29,21 @@ export default class PixInputPassword extends PixInput {
 
   get validationStatusClassName() {
     return INPUT_VALIDATION_STATUS_MAP[this.args.validationStatus] || '';
+  }
+
+  get ariaDescribedBy() {
+    return this.args.validationStatus === 'error' ? 'text-input-password-error' : null;
+  }
+
+  get hasError() {
+    return this.args.validationStatus === 'error';
+  }
+
+  get hasErrorMessage() {
+    return this.hasError && !!this.args.errorMessage;
+  }
+
+  get hasSuccess() {
+    return this.args.validationStatus === 'success';
   }
 }
