@@ -16,11 +16,6 @@ export default class PixSearchInput extends Component {
     if (!this.args.triggerFiltering) {
       throw new Error('ERROR in PixSearchInput component, @triggerFiltering param is not provided');
     }
-    if (!this.args.label && !this.args.ariaLabel) {
-      throw new Error(
-        'ERROR in PixSearchInput component, you must provide @label or @ariaLabel params',
-      );
-    }
 
     this.searchInputId = this.args.id || guidFor(this);
   }

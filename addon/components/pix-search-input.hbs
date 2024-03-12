@@ -1,12 +1,12 @@
 <div class="pix-search-input">
   <PixLabel
     @for={{this.searchInputId}}
-    @requiredLabel={{@requiredText}}
+    @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
   >
-    {{@label}}
+    {{yield to="label"}}
   </PixLabel>
 
   <div class="pix-search-input__input-container">

@@ -17,7 +17,9 @@ Ce composant permet d'appeler la fonction triggerFiltering passée en paramètre
 Si vous utilisez le `PixSearchInput` sans vouloir afficher le label, il faudra renseigner `screenReaderOnly` à `true`.
 
 ```html
-<PixSearchInput @label="{{label}}" @screenReaderOnly={{true}} @id="{{id}}" />
+<PixSearchInput @screenReaderOnly={{true}} @id="{{id}}">
+  <:label>{{label}}</:label>
+</PixSearchInput>
 ```
 
 <Story of={ComponentStories.Default} height={80} />
@@ -27,11 +29,11 @@ Si vous utilisez le `PixSearchInput` sans vouloir afficher le label, il faudra r
 ```html
 <PixSearchInput
   @id="{{this.id}}"
-  @label="{{this.label}}"
   @placeholder="{{this.placeholder}}"
   @debounceTimeInMs="{{this.debounceTimeInMs}}"
-  @triggerFiltering="{{this.triggerFiltering}}"
-/>
+  @triggerFiltering="{{this.triggerFiltering}}">
+  <:label>{{this.label}}</:label>
+</PixSearchInput>
 ```
 
 ## Arguments
