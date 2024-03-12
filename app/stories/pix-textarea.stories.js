@@ -5,8 +5,8 @@ export default {
   argTypes: {
     id: {
       name: 'id',
-      description: 'Identifiant du champ permettant de lui attacher un label',
-      type: { name: 'string', required: true },
+      description: 'id généré automatiquement, peut être définit manuellement si besoin',
+      type: { name: 'string', required: false },
     },
     value: {
       name: 'value',
@@ -18,15 +18,39 @@ export default {
       description: 'Nombre de caractères maximal à taper dans le champ',
       type: { name: 'number', required: false },
     },
+    errorMessage: {
+      name: 'errorMessage',
+      description: 'Affiche une erreur en dessous du champ.',
+      type: { name: 'string', required: false },
+    },
+
     label: {
       name: 'label',
       description: 'Donne un label au champ.',
-      type: { name: 'string', required: false },
+      type: { name: 'string', required: true },
     },
     subLabel: {
       name: 'subLabel',
-      description: 'Donne un sous label au champ.',
+      description: 'Un descriptif complétant le label',
       type: { name: 'string', required: false },
+    },
+    requiredLabel: {
+      name: 'requiredLabel',
+      description: 'Label indiquant que le champ est requis.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
     },
     labelSize: {
       name: 'labelSize',
@@ -38,16 +62,14 @@ export default {
       control: { type: 'select' },
       options: ['small', 'large', 'default'],
     },
-    requiredLabel: {
-      name: 'requiredLabel',
-      description:
-        'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
-      type: { name: 'string', required: false },
-    },
-    errorMessage: {
-      name: 'errorMessage',
-      description: 'Affiche une erreur en dessous du champ.',
-      type: { name: 'string', required: false },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Permet de ne pas afficher la marge pour les éléments de formulaire inline',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
     },
   },
 };
@@ -58,12 +80,12 @@ const Template = (args) => {
   @id={{this.id}}
   @value={{this.value}}
   @maxlength={{this.maxlength}}
-  @label={{this.label}}
+  @errorMessage={{this.errorMessage}}
   @labelSize={{this.labelSize}}
   @subLabel={{this.subLabel}}
   @requiredLabel={{this.requiredLabel}}
-  @errorMessage={{this.errorMessage}}
-/>`,
+  @inlineLabel={{this.inlineLabel}}
+><:label>{{this.label}}</:label></PixTextarea>`,
     context: args,
   };
 };

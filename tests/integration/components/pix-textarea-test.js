@@ -16,7 +16,7 @@ module('Integration | Component | textarea', function (hooks) {
     const newContent = 'Bonjour Pix !';
 
     // when
-    await render(hbs`<PixTextarea @id='7' @value='old value' @label='label' />`);
+    await render(hbs`<PixTextarea @id='7' @value='old value'><:label>label</:label></PixTextarea>`);
     await fillInByLabel('label', newContent);
 
     // then
@@ -34,7 +34,8 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when
     await render(
-      hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id' @label='label' />`,
+      hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
     );
     await fillInByLabel('label', 'Hello Pix !');
 
@@ -52,7 +53,9 @@ module('Integration | Component | textarea', function (hooks) {
     this.set('value', defaultValue);
 
     // when
-    await render(hbs`<PixTextarea @value={{this.value}} required='true' />`);
+    await render(
+      hbs`<PixTextarea @value={{this.value}} required='true'><:label>label</:label></PixTextarea>`,
+    );
 
     // then
     const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
@@ -66,12 +69,8 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when{{
     await render(
-      hbs`<PixTextarea
-  @value={{this.value}}
-  @id='pix-textarea'
-  @label='label'
-  @requiredLabel={{this.requiredLabel}}
-/>`,
+      hbs`<PixTextarea @value={{this.value}} @id='pix-textarea' @requiredLabel={{this.requiredLabel}}><:label
+  >label</:label></PixTextarea>`,
     );
 
     // then
@@ -86,7 +85,8 @@ module('Integration | Component | textarea', function (hooks) {
 
     // when
     await render(
-      hbs`<PixTextarea @value={{this.value}} @requiredLabel='Obligatoire' @label='label' @id='id' />`,
+      hbs`<PixTextarea @value={{this.value}} @requiredLabel='Obligatoire' @id='id'><:label
+  >label</:label></PixTextarea>`,
     );
 
     // then
@@ -97,7 +97,9 @@ module('Integration | Component | textarea', function (hooks) {
 
   test('it should be possible to give a label', async function (assert) {
     // given & when
-    await render(hbs`<PixTextarea @id='pix-select-with-label' @label='Décrivez votre problème' />`);
+    await render(
+      hbs`<PixTextarea @id='pix-select-with-label'><:label>Décrivez votre problème</:label></PixTextarea>`,
+    );
 
     // then
     assert.contains('Décrivez votre problème');
@@ -106,7 +108,8 @@ module('Integration | Component | textarea', function (hooks) {
   test('it should be possible to show an error message', async function (assert) {
     // given & when
     await render(
-      hbs`<PixTextarea @id='pix-textarea-with-error' @errorMessage='Veuillez remplir ce champ.' />`,
+      hbs`<PixTextarea @id='pix-textarea-with-error' @errorMessage='Veuillez remplir ce champ.'><:label
+  >label</:label></PixTextarea>`,
     );
 
     // then

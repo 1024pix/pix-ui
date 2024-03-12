@@ -1,16 +1,16 @@
 <div class="pix-textarea">
   <PixLabel
-    @for={{@id}}
+    @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
   >
-    {{@label}}
+    {{yield to="label"}}
   </PixLabel>
 
   <textarea
-    id={{@id}}
+    id={{this.id}}
     maxlength={{if @maxlength @maxlength}}
     aria-required="{{if @requiredLabel true false}}"
     required={{if @requiredLabel true false}}
