@@ -29,7 +29,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @onChange={{this.onChange}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     const items = await screen.findAllByRole('menuitem');
@@ -51,7 +54,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await clickByName(this.label);
     const options = await screen.findAllByRole('option');
@@ -79,7 +85,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
 
@@ -108,7 +117,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @onChange={{this.onChange}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
     await click(await screen.findByRole('checkbox', { name: 'Hamburger' }));
@@ -133,7 +145,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
 
@@ -161,7 +176,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
 
@@ -194,7 +212,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
     await click(await screen.findByRole('option', { name: 'Tomate' }));
@@ -222,7 +243,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
     await fillByLabel(this.searchLabel, 'Tom');
@@ -256,7 +280,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
     const option = await screen.findByRole('option', { selected: true });
@@ -283,7 +310,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
       const label = await screen.getByLabelText(this.label);
 
@@ -310,7 +340,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @categoriesId={{this.categoriesId}}
   @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
       // then
       assert.dom(screen.getByText('Mon subLabel')).exists();
@@ -337,7 +370,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
   @requiredText={{this.requiredText}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
       // then
       assert.dom(screen.getByLabelText('* Label de mon big composant trop compliqué')).exists();
@@ -367,7 +403,10 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @isSearchable={{true}}
   @requiredText={{this.requiredText}}
   @errorMessage={{this.errorMessage}}
-/>`);
+>
+  <:label>{{this.label}}</:label>
+  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+</PixFilterableAndSearchableSelect>`);
 
     // then
     assert.dom(screen.getByText(this.errorMessage)).exists();

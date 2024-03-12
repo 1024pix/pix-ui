@@ -24,7 +24,7 @@ export const form = (args) => {
   <br />
 
   <PixMultiSelect
-    @innerText='Votre notation en étoiles...'
+    @placeholder='Votre notation en étoiles...'
     @id='form__pix-multi-select'
     @label='A quel point aimez-vous Pix UI ?'
     @onSelect={{this.onSelect}}
@@ -37,7 +37,7 @@ export const form = (args) => {
   <br /><br />
 
   <PixMultiSelect
-    @innerText='Mes condiments'
+    @placeholder='Mes condiments'
     @id='form__pix-multi-select-searchable'
     @label='Choississez vos condiments'
     @onSelect={{this.onSelect}}

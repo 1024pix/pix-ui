@@ -6,7 +6,7 @@
     @subLabel={{@subLabel}}
     @screenReaderOnly={{@screenReaderOnly}}
   >
-    {{@label}}
+    {{yield to="label"}}
   </PixLabel>
   <div
     class="pix-filterable-and-searchable-select{{if
@@ -17,12 +17,12 @@
     <PixMultiSelect
       id={{this.pixMultiSelectId}}
       @values={{this.selectedCategories}}
-      @label={{@categoriesLabel}}
       @options={{this.categories}}
       @onChange={{this.selectCategories}}
       @screenReaderOnly={{true}}
       @className="pix-filterable-and-searchable-select__pix-multi-select"
     >
+      <:label>{{yield to="categorieLabel"}}</:label>
       <:placeholder>{{this.categoriesPlaceholder}}</:placeholder>
       <:default as |option|>{{option.label}}</:default>
     </PixMultiSelect>

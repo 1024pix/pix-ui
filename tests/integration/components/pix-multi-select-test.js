@@ -23,6 +23,7 @@ module('Integration | Component | multi-select', function (hooks) {
   module('common cases', function () {
     test('it renders PixMultiSelect with hidden list', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
@@ -36,12 +37,12 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='multiSelectLabel'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+
 </PixMultiSelect>`);
 
       // then
@@ -50,6 +51,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should updates selected items when @values is reset', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = ['2'];
       this.onChange = (values) => this.set('values', values);
@@ -62,17 +64,16 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
       this.set('values', []);
-      await clickByName('labelMultiSelect');
+      await clickByName('multiSelectLabel');
 
       await screen.findByRole('menu');
       // then
@@ -85,6 +86,7 @@ module('Integration | Component | multi-select', function (hooks) {
     module('onClick', function () {
       test('it renders PixMultiSelect list', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
         this.values = [];
         this.onChange = () => {};
@@ -98,15 +100,14 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
-        await clickByName('labelMultiSelect');
+        await clickByName('multiSelectLabel');
 
         await screen.findByRole('menu');
 
@@ -116,6 +117,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test('it renders the PixMultiSelect with empty message', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = [];
         this.values = [];
         this.onChange = () => {};
@@ -128,16 +130,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
-  @label='labelMultiSelect'
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
-        await clickByName('labelMultiSelect');
+        await clickByName('multiSelectLabel');
 
         await screen.findByRole('menu');
         // then
@@ -147,6 +148,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test('it renders the PixMultiSelect with default checked', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
         this.onChange = () => {};
         this.values = ['2'];
@@ -160,15 +162,14 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
-        await clickByName('labelMultiSelect');
+        await clickByName('multiSelectLabel');
 
         await userEvent.keyboard('[ArrowDown]');
 
@@ -186,6 +187,7 @@ module('Integration | Component | multi-select', function (hooks) {
     module('display main text', function () {
       test('it should display selected labels on MultiSelect', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
         this.onChange = () => {};
         this.values = ['2', '3'];
@@ -199,16 +201,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @isSearchable={{true}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
         // then
-        const inputElement = screen.getByLabelText('labelMultiSelect');
+        const inputElement = screen.getByLabelText('multiSelectLabel');
         assert.strictEqual(inputElement.placeholder, 'Tomate, Oignon');
       });
     });
@@ -216,6 +217,7 @@ module('Integration | Component | multi-select', function (hooks) {
     module('onChange', function () {
       test('it should trigger onChange function when an item is selected', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -227,16 +229,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await clickByName('labelMultiSelect');
+        await clickByName('multiSelectLabel');
 
         await screen.findByRole('menu');
 
@@ -250,6 +251,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test('it should unselect item and return selected item of the updated list', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -262,16 +264,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await clickByName('labelMultiSelect');
+        await clickByName('multiSelectLabel');
 
         await screen.findByRole('menu');
 
@@ -286,6 +287,7 @@ module('Integration | Component | multi-select', function (hooks) {
     module('a11y', function () {
       test('it should display list, focus first element on arrow down press', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -297,16 +299,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await screen.getByLabelText('labelMultiSelect').focus();
+        await screen.getByLabelText('multiSelectLabel').focus();
 
         await userEvent.keyboard('[ArrowDown]');
 
@@ -321,6 +322,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test('it should display list, focus last element on arrow up press', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -332,16 +334,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await screen.getByLabelText('labelMultiSelect').focus();
+        await screen.getByLabelText('multiSelectLabel').focus();
 
         await userEvent.keyboard('[ArrowUp]');
 
@@ -356,6 +357,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test('it should focus first element on arrow down press', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -367,16 +369,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await screen.getByLabelText('labelMultiSelect').focus();
+        await screen.getByLabelText('multiSelectLabel').focus();
 
         await userEvent.keyboard('[Enter]');
 
@@ -390,6 +391,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test('it should focus last element on arrow up press', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -401,16 +403,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await screen.getByLabelText('labelMultiSelect').focus();
+        await screen.getByLabelText('multiSelectLabel').focus();
 
         await userEvent.keyboard('[Enter]');
 
@@ -425,6 +426,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       test.skip('it should call on select on enter press', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -436,16 +438,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        await screen.getByLabelText('labelMultiSelect').focus();
+        await screen.getByLabelText('multiSelectLabel').focus();
 
         await userEvent.keyboard('[ArrowDown]');
 
@@ -459,11 +460,12 @@ module('Integration | Component | multi-select', function (hooks) {
         await waitForElementToBeRemoved(() => screen.queryByRole('menu'));
         assert.strictEqual(screen.queryByRole('menu'), null);
         assert.ok(this.onChange.calledOnce, 'the callback should be called once');
-        assert.strictEqual(document.activeElement, screen.getByLabelText('labelMultiSelect'));
+        assert.strictEqual(document.activeElement, screen.getByLabelText('multiSelectLabel'));
       });
 
       test('it should close menu on escape press, focus multiselect element', async function (assert) {
         // given
+        this.label = 'multiSelectLabel';
         this.options = DEFAULT_OPTIONS;
 
         this.placeholder = 'MultiSelectTest';
@@ -475,16 +477,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
         // when
-        screen.getByLabelText('labelMultiSelect').focus();
+        screen.getByLabelText('multiSelectLabel').focus();
 
         await userEvent.keyboard('[ArrowDown]');
 
@@ -493,7 +494,7 @@ module('Integration | Component | multi-select', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
-        assert.strictEqual(document.activeElement, screen.getByLabelText('labelMultiSelect'));
+        assert.strictEqual(document.activeElement, screen.getByLabelText('multiSelectLabel'));
         await waitForElementToBeRemoved(() => screen.queryByRole('menu'));
         assert.strictEqual(screen.queryByRole('menu'), null);
       });
@@ -503,6 +504,7 @@ module('Integration | Component | multi-select', function (hooks) {
   module('When it is a searchable multiselect', function () {
     test('it should renders searchable PixMultiSelect multi select list', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
@@ -518,26 +520,26 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='label'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
-      await fillByLabel('label', '');
+      await fillByLabel('multiSelectLabel', '');
 
       await screen.findByRole('menu');
 
       // then
 
-      assert.strictEqual(screen.getByLabelText('label').placeholder, this.placeholder);
+      assert.strictEqual(screen.getByLabelText('multiSelectLabel').placeholder, this.placeholder);
       assert.strictEqual(screen.getAllByRole('checkbox').length, 3);
     });
 
     test('it should renders filtered given case insensitive', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
@@ -554,15 +556,14 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
-  @label='Mon multi select'
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('Mon multi select', 'tomate');
+      await fillByLabel('multiSelectLabel', 'tomate');
 
       await screen.findByRole('menu');
 
@@ -573,6 +574,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should renders no result given case sensitive', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
@@ -591,15 +593,14 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
-  @label='Mon multi select'
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('Mon multi select', 'tomate');
+      await fillByLabel('multiSelectLabel', 'tomate');
 
       await screen.findByRole('menu');
 
@@ -609,13 +610,13 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should display list PixMultiSelect on focus', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
       this.emptyMessage = 'no result';
       this.placeholder = 'MultiSelectTest';
       this.id = 'id-MultiSelectTest';
-      this.label = 'label';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
 
@@ -624,17 +625,16 @@ module('Integration | Component | multi-select', function (hooks) {
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
-  @label={{this.label}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('label', '');
+      await fillByLabel('multiSelectLabel', '');
 
       await screen.findByRole('menu');
 
@@ -644,6 +644,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should sort default selected items when focused', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = ['3'];
       this.onChange = () => {};
@@ -659,16 +660,15 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='label'
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('label', '');
+      await fillByLabel('multiSelectLabel', '');
 
       await screen.findByRole('menu');
 
@@ -682,6 +682,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should not sort when user select item', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
@@ -696,17 +697,16 @@ module('Integration | Component | multi-select', function (hooks) {
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
-  @label='labelMultiSelect'
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('labelMultiSelect', '');
+      await fillByLabel('multiSelectLabel', '');
 
       await screen.findByRole('menu');
 
@@ -722,6 +722,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should not sort when user search and select item', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = () => {};
@@ -738,20 +739,19 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
-  @label='Mon multi select'
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('Mon multi select', 'Oi');
+      await fillByLabel('multiSelectLabel', 'Oi');
 
       await screen.findByRole('menu');
 
       await clickByName('Oignon');
-      await fillByLabel('Mon multi select', 'o');
+      await fillByLabel('multiSelectLabel', 'o');
       // then
       const listElement = screen.getAllByRole('checkbox');
       assert.strictEqual(listElement.length, 2);
@@ -761,6 +761,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('it should sort items when search is cleaned', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = [];
       this.onChange = (values) => this.set('values', values);
@@ -777,21 +778,20 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
-  @label='Mon multi select'
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('Mon multi select', 'Oi');
+      await fillByLabel('multiSelectLabel', 'Oi');
 
       await screen.findByRole('menu');
 
       await clickByName('Oignon');
 
-      await fillByLabel('Mon multi select', '');
+      await fillByLabel('multiSelectLabel', '');
 
       // then
       const listElement = screen.getAllByRole('checkbox');
@@ -803,6 +803,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
     test('should not sort when there are default items selected and a new selected item', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.values = ['2'];
       this.onChange = () => {};
@@ -818,17 +819,16 @@ module('Integration | Component | multi-select', function (hooks) {
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @showOptionsOnInput={{true}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('labelMultiSelect', '');
+      await fillByLabel('multiSelectLabel', '');
 
       await screen.findByRole('menu');
 
@@ -849,6 +849,7 @@ module('Integration | Component | multi-select', function (hooks) {
   module('custom class name', function () {
     test('it should use the added class name', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.onChange = () => {};
       this.values = ['2', '3'];
@@ -863,14 +864,13 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @label='labelMultiSelect'
   @emptyMessage={{this.emptyMessage}}
   @isSearchable={{true}}
   @className={{this.className}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
       // then
       assert.dom('.custom').exists();
@@ -880,6 +880,7 @@ module('Integration | Component | multi-select', function (hooks) {
   module('label', function () {
     test('it focus the input on click on the label', async function (assert) {
       // given
+      this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
       this.onChange = () => {};
       this.values = [];
@@ -891,18 +892,17 @@ module('Integration | Component | multi-select', function (hooks) {
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @values={{this.values}}
-  @label='labelMultiSelect'
   @isSearchable={{false}}
   @options={{this.options}}
-  as |option|
 >
-  {{option.label}}
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
-      await clickByName('labelMultiSelect');
+      await clickByName('multiSelectLabel');
 
       // then
-      assert.dom(screen.getByLabelText('labelMultiSelect')).isFocused();
+      assert.dom(screen.getByLabelText('multiSelectLabel')).isFocused();
     });
   });
 });

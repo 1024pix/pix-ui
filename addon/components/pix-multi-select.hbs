@@ -7,12 +7,12 @@
 >
   <PixLabel
     @for={{this.multiSelectId}}
-    @requiredLabel={{@requiredText}}
+    @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
   >
-    {{@label}}
+    {{yield to="label"}}
   </PixLabel>
 
   <PopperJS @placement={{@placement}} as |reference popover|>
@@ -78,7 +78,7 @@
               {{on-enter-action this.hideDropDown this.multiSelectId}}
               tabindex={{if this.isExpanded "0" "-1"}}
             >
-              {{yield option}}
+              <:label>{{yield option}}</:label>
             </PixCheckbox>
           </li>
         {{/each}}
