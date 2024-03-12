@@ -45,8 +45,8 @@ export default {
       type: { required: true },
       control: { disable: true },
     },
-    inline: {
-      name: 'inline',
+    inlineLabel: {
+      name: 'inlineLabel',
       description: "Permet d'afficher le PixToggle sur une seule ligne",
       control: { type: 'boolean' },
       type: { name: 'boolean', required: false },
@@ -71,23 +71,25 @@ export default {
 export const Template = (args) => {
   return {
     template: hbs`<PixToggle
-  @label={{this.label}}
-  @labelSize={{this.labelSize}}
-  @subLabel={{this.subLabel}}
   @onLabel={{this.onLabel}}
   @offLabel={{this.offLabel}}
   @toggled={{this.toggled}}
   @onChange={{this.onChange}}
-  @inline={{this.inline}}
+  @labelSize={{this.labelSize}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
-/>`,
+>
+  <:label>{{this.label}}</:label>
+</PixToggle>`,
     context: args,
   };
 };
 
 export const TemplateWithYields = (args) => {
   return {
-    template: hbs`<PixToggle @label={{this.label}} @toggled={{this.toggled}} @onChange={{this.onChange}}>
+    template: hbs`<PixToggle @toggled={{this.toggled}} @onChange={{this.onChange}}>
+  <:label>{{this.label}}</:label>
   <:on><FaIcon @icon='sun' /></:on>
   <:off><FaIcon @icon='moon' /></:off>
 </PixToggle>`,

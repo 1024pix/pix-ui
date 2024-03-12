@@ -4,8 +4,8 @@
     @screenReaderOnly={{@screenReaderOnly}}
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
-    @inlineLabel={{@inline}}
-  >{{@label}}</PixLabel>
+    @inlineLabel={{@inlineLabel}}
+  >{{yield to="label"}}</PixLabel>
   <button
     class="pix-toggle__button"
     id={{this.id}}

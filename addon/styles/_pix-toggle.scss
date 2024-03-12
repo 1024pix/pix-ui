@@ -2,6 +2,12 @@
   display: flex;
   flex-direction: column;
 
+  &--inline {
+    flex-direction: row;
+    align-items:center;
+    gap: var(--pix-spacing-6x)
+  }
+
   &__button {
     width: fit-content;
     padding: var(--pix-spacing-1x);
