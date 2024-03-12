@@ -2,11 +2,11 @@
   <PixLabel
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
-    @subLabel={{@information}}
+    @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
   >
-    {{@label}}
+    {{yield to="label"}}
   </PixLabel>
 
   <div class="pix-input__container">
@@ -16,19 +16,19 @@
       value={{@value}}
       aria-required="{{if @requiredLabel true false}}"
       required={{if @requiredLabel true false}}
-      aria-describedby={{if (eq @validationStatus "error") "text-input-error"}}
+      aria-describedby={{this.ariaDescribedBy}}
       ...attributes
     />
 
-    {{#if (eq @validationStatus "error")}}
+    {{#if this.hasError}}
       <FaIcon @icon="xmark" class="pix-input__error-icon" />
     {{/if}}
-    {{#if (eq @validationStatus "success")}}
+    {{#if this.hasSuccess}}
       <FaIcon @icon="check" class="pix-input__success-icon" />
     {{/if}}
   </div>
 
-  {{#if (and (eq @validationStatus "error") @errorMessage)}}
+  {{#if this.hasErrorMessage}}
     <p id="text-input-error" class="pix-input__error-message">{{@errorMessage}}</p>
   {{/if}}
 </div>

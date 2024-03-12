@@ -9,22 +9,27 @@ Le PixInput permet de créer un champ de texte.
 
 ## Accessibilité
 
-Si vous utilisez le `PixInput` sans vouloir afficher le label, il faudra renseigner `screenReaderOnly` à `true`. Il est possible d'ajouter un label en dehors du composant en précisant bien un attribut `for` correspondant à l'`@id` passé au PixInput.
+Si vous utilisez le `PixInput` sans vouloir afficher le label, il faudra renseigner `screenReaderOnly` à `true`.
+Il est possible d'ajouter un label en dehors du composant en précisant bien un attribut `for` correspondant à l'`@id` passé au PixInput.
 
 Pour acceder à l'élément via son label avec testing-library:
 
 ```html
-<PixInput @id="firstName" @label="Prénom" />
+<PixInput @id="firstName" />
+  <:label>Prénom</:label>
+</PixInput>
 ```
 
 ```javascript
 screen.getByLabelText('Prénom');
 ```
 
-Si le paramètre @information est utilisé, il faudra concatener les valeurs de `@label` et `@information`
+Si le paramètre @subLabel est utilisé, il faudra concatener les valeurs de `label` et `@subLabel`
 
 ```html
-<PixInput @id="firstName" @label="Prénom" @information="exemple: Barry" />
+<PixInput @id="firstName" @subLabel="exemple: Barry">
+  <:label>Prénom</:label>
+</PixInput>
 ```
 
 ```javascript
@@ -35,7 +40,7 @@ screen.getByLabelText('Prénom exemple: Barry');
 
 <Story of={ComponentStories.Default} height={100} />
 
-## With label and information
+## With label and subLabel
 
 <Story of={ComponentStories.withLabel} height={110} />
 
@@ -72,12 +77,13 @@ En readonly, l'input n'est pas modifiable, mais il est toujours focusable et est
 ```html
 <PixInput
   @id="firstName"
-  @label="Prénom"
-  @information="Complément du label"
+  @subLabel="Complément du label"
   @errorMessage="Un message d`erreur"
   @validationStatus="default"
   @requiredLabel="Champ obligatoire"
-/>
+>
+  <:label>Prénom</:label>
+</PixInput>
 ```
 
 ## Arguments

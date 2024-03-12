@@ -17,4 +17,20 @@ export default class PixInput extends Component {
   get validationStatusClassName() {
     return INPUT_VALIDATION_STATUS_MAP[this.args.validationStatus] || '';
   }
+
+  get ariaDescribedBy() {
+    return this.args.validationStatus === 'error' ? 'text-input-error' : null;
+  }
+
+  get hasError() {
+    return this.args.validationStatus === 'error';
+  }
+
+  get hasErrorMessage() {
+    return this.hasError && !!this.args.errorMessage;
+  }
+
+  get hasSuccess() {
+    return this.args.validationStatus === 'success';
+  }
 }

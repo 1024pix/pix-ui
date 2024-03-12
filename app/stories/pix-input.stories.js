@@ -13,16 +13,6 @@ export default {
       description: "Valeur de l'input",
       type: { name: 'string', required: false },
     },
-    label: {
-      name: 'label',
-      description: "Le label de l'input",
-      type: { name: 'string', required: false },
-    },
-    information: {
-      name: 'information',
-      description: 'Un descriptif complétant le label',
-      type: { name: 'string', required: false },
-    },
     validationStatus: {
       name: 'validationStatus',
       description:
@@ -37,13 +27,36 @@ export default {
         "Affiche le message d'erreur donné. Doit s'accompagner du paramètre validationStatus en 'error'",
       type: { name: 'string', required: false },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
     requiredLabel: {
       name: 'requiredLabel',
-      description:
-        'Label indiquant que le champ est requis, le paramètre @label devient obligatoire avec ce paramètre.',
+      description: 'Label indiquant que le champ est requis.',
       type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
     },
     labelSize: {
@@ -56,6 +69,15 @@ export default {
       control: { type: 'select' },
       options: ['small', 'large', 'default'],
     },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Permet de ne pas afficher la marge pour les éléments de formulaire inline',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -63,16 +85,19 @@ const Template = (args) => {
   return {
     template: hbs`<PixInput
   @id={{this.id}}
-  @label={{this.label}}
-  @information={{this.information}}
   @errorMessage={{this.errorMessage}}
   placeholder='Jeanne, Pierre ...'
-  @requiredLabel={{this.requiredLabel}}
   @validationStatus={{this.validationStatus}}
   @labelSize={{this.labelSize}}
   disabled={{this.disabled}}
   readonly={{this.readonly}}
-/>`,
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+>
+  <:label>{{this.label}}</:label>
+</PixInput>`,
     context: args,
   };
 };
@@ -80,14 +105,14 @@ const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   id: 'first-name',
-  ariaLabel: 'Prénom',
+  label: 'Prénom',
 };
 
 export const withLabel = Template.bind({});
 withLabel.args = {
   id: 'first-name',
   label: 'Prénom',
-  information: 'a small information',
+  subLabel: 'a small information',
 };
 
 export const errorState = Template.bind({});
