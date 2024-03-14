@@ -10,7 +10,7 @@ const config = {
   staticDirs: ['../dist'],
 
   framework: {
-    name: '@1024pix/storybook-ember',
+    name: '@storybook/ember',
     options: {},
   },
 
