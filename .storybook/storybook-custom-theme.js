@@ -14,10 +14,6 @@ export default create({
   appBorderColor: 'white',
   appBorderRadius: 4,
 
-  // Typography
-  fontBase: '"Open Sans", sans-serif',
-  fontCode: 'monospace',
-
   // Text colors of the left menu
   textColor: 'black',
   textInverseColor: 'black',
