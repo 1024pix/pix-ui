@@ -1,29 +1,33 @@
-<div class="pix-textarea">
+<div class="pix-textarea {{if @inlineLabel ' pix-textarea--inline'}}">
   <PixLabel
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
+    @inlineLabel={{@inlineLabel}}
   >
     {{yield to="label"}}
   </PixLabel>
 
-  <textarea
-    id={{this.id}}
-    maxlength={{if @maxlength @maxlength}}
-    aria-required="{{if @requiredLabel true false}}"
-    required={{if @requiredLabel true false}}
-    class="{{if @errorMessage 'pix-textarea--error'}}"
-    {{on "keyup" this.updateValue}}
-    ...attributes
-  >{{@value}}</textarea>
+  <div>
+    <textarea
+      id={{this.id}}
+      maxlength={{if @maxlength @maxlength}}
+      aria-required="{{if @requiredLabel true false}}"
+      required={{if @requiredLabel true false}}
+      class="{{if @errorMessage 'pix-textarea--error'}}"
+      {{on "keyup" this.updateValue}}
+      ...attributes
+    >{{@value}}</textarea>
 
-  {{#if @maxlength}}
-    <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
-  {{/if}}
+    {{#if @maxlength}}
+      <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
+    {{/if}}
 
-  {{#if @errorMessage}}
-    <label for={{this.id}} class="pix-textarea__error-message">{{@errorMessage}}</label>
-  {{/if}}
+    {{#if @errorMessage}}
+      <label for={{this.id}} class="pix-textarea__error-message">{{@errorMessage}}</label>
+    {{/if}}
+  </div>
+
 </div>

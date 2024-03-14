@@ -1,10 +1,11 @@
-<div class="pix-search-input">
+<div class="pix-search-input {{if @inlineLabel ' pix-search-input--inline'}}">
   <PixLabel
     @for={{this.searchInputId}}
     @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
+    @inlineLabel={{@inlineLabel}}
   >
     {{yield to="label"}}
   </PixLabel>

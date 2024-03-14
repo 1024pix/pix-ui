@@ -1,5 +1,5 @@
 <div
-  class="pix-multi-select"
+  class="pix-multi-select {{if @inlineLabel ' pix-multi-select--inline'}}"
   ...attributes
   {{on-click-outside this.hideDropDown}}
   {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
@@ -11,6 +11,7 @@
     @subLabel={{@subLabel}}
     @labelSize={{@labelSize}}
     @screenReaderOnly={{@screenReaderOnly}}
+    @inlineLabel={{@inlineLabel}}
   >
     {{yield to="label"}}
   </PixLabel>
