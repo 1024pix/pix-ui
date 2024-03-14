@@ -64,6 +64,7 @@ const Template = (args) => {
     template: hbs`<PixLabel
   @id={{this.id}}
   @subLabel={{this.subLabel}}
+  @labelSize={{this.labelSize}}
   @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @inlineLabel={{this.inlineLabel}}
