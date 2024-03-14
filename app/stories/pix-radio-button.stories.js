@@ -9,21 +9,6 @@ export default {
         'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
       type: { name: 'string' },
     },
-    label: {
-      name: 'label',
-      description: 'Le label du bouton radio',
-      type: { name: 'string', required: true },
-    },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'large', 'default'],
-    },
     class: {
       name: 'class',
       description: "Permet d'ajouter une classe CSS au parent du composant.",
@@ -42,15 +27,47 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
+    requiredLabel: {
+      name: 'requiredLabel',
+      description: 'Label indiquant que le champ est requis.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
     screenReaderOnly: {
       name: 'screenReaderOnly',
-      description:
-        "Permet de ne pas afficher le label à l'écran. Sert à garder un label qui sera lisible par les lecteurs d'écran.",
-      type: { name: 'boolean', required: true },
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
       table: {
         type: { summary: 'boolean' },
         defaultValue: { summary: false },
       },
+    },
+    labelSize: {
+      name: 'labelSize',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
     },
   },
 };
@@ -65,8 +82,10 @@ const Template = (args) => {
   disabled={{this.isDisabled}}
   @isDisabled={{this.isDisabled}}
   @labelSize={{this.labelSize}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+  @requiredLabel={{this.requiredLabel}}
 >
-  {{this.label}}
+  <:label>{{this.label}}</:label>
 </PixRadioButton>`,
     context: args,
   };
@@ -86,11 +105,8 @@ isDisabled.args = {
 /* Checked stories */
 const checked = (args) => {
   return {
-    template: hbs`<PixRadioButton
-  @value={{this.value}}
-  disabled={{this.disabled}}
-  checked
->{{this.label}}</PixRadioButton>`,
+    template: hbs`<PixRadioButton @value={{this.value}} disabled={{this.disabled}} checked><:label
+  >{{this.label}}</:label></PixRadioButton>`,
     context: args,
   };
 };
@@ -107,21 +123,12 @@ defaultChecked.args = Default.args;
 /* Multiple components story */
 const multipleTemplate = (args) => {
   return {
-    template: hbs`<PixRadioButton
-  disabled={{this.isDisabled}}
-  @isDisabled={{this.isDisabled}}
-  name='radio'
->{{this.label}}</PixRadioButton>
-<PixRadioButton
-  disabled={{this.isDisabled}}
-  @isDisabled={{this.isDisabled}}
-  name='radio'
->{{this.label}}</PixRadioButton>
-<PixRadioButton
-  disabled={{this.isDisabled}}
-  @isDisabled={{this.isDisabled}}
-  name='radio'
->{{this.label}}</PixRadioButton>`,
+    template: hbs`<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
+  >{{this.label}}</:label></PixRadioButton>
+<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
+  >{{this.label}}</:label></PixRadioButton>
+<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
+  >{{this.label}}</:label></PixRadioButton>`,
     context: args,
   };
 };
