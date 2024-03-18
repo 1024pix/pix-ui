@@ -1,3 +1,9 @@
+# [44.3.0](https://github.com/1024pix/pix-ui/compare/v44.2.10...v44.3.0) (2024-03-18)
+
+### :rocket: Amélioration
+
+- [#531](https://github.com/1024pix/pix-ui/pull/531) Ajout de paramètres sur le composant Pix Collapsible pour afficher un tag (PIX-10851).
+
 ## [44.2.10](https://github.com/1024pix/pix-ui/compare/v44.2.9...v44.2.10) (2024-03-18)
 
 ### :arrow_up: Montée de version
