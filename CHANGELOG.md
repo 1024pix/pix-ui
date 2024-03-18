@@ -1,3 +1,9 @@
+## [44.3.2](https://github.com/1024pix/pix-ui/compare/v44.3.1...v44.3.2) (2024-03-18)
+
+### :building_construction: Tech
+
+- [#552](https://github.com/1024pix/pix-ui/pull/552) Monter Storybook en version 8
+
 ## [44.3.1](https://github.com/1024pix/pix-ui/compare/v44.3.0...v44.3.1) (2024-03-18)
 
 ### :arrow_up: Montée de version
