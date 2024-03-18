@@ -1,6 +1,7 @@
 import { createIntl } from '@formatjs/intl';
 import en from './en';
 import fr from './fr';
+import nl from './nl';
 
 export function formatMessage(locale, message, values) {
   const intl = locales[locale] || locales.en;
@@ -15,6 +16,10 @@ const locales = {
   en: createIntl({
     locale: 'en',
     messages: flattenObject(en),
+  }),
+  nl: createIntl({
+    locale: 'nl',
+    messages: flattenObject(nl),
   }),
 };
 
