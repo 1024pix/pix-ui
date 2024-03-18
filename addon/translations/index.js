@@ -3,7 +3,8 @@ import en from './en';
 import fr from './fr';
 
 export function formatMessage(locale, message, values) {
-  return locales[locale].formatMessage({ id: message }, values);
+  const intl = locales[locale] || locales.en;
+  return intl.formatMessage({ id: message }, values);
 }
 
 const locales = {
