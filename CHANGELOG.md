@@ -1,3 +1,9 @@
+## [44.2.9](https://github.com/1024pix/pix-ui/compare/v44.2.8...v44.2.9) (2024-03-18)
+
+### :arrow_up: Montée de version
+
+- [#571](https://github.com/1024pix/pix-ui/pull/571) Update dependency @1024pix/stylelint-config to ^5.1.3 (dossier racine)
+
 ## [44.2.8](https://github.com/1024pix/pix-ui/compare/v44.2.7...v44.2.8) (2024-03-11)
 
 ### :arrow_up: Montée de version
