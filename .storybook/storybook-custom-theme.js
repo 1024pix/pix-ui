@@ -14,10 +14,6 @@ export default create({
   appBorderColor: 'white',
   appBorderRadius: 4,
 
-  // Typography
-  fontBase: '"Open Sans", sans-serif',
-  fontCode: 'monospace',
-
   // Text colors of the left menu
   textColor: 'black',
   textInverseColor: 'black',
@@ -25,7 +21,6 @@ export default create({
   // Toolbar default and active colors
   barTextColor: 'white',
   barSelectedColor: 'white', // Selected tab when multiple tabs
-  barBg: 'linear-gradient(135deg, #3D68FF 0%, #8845FF 100%)',
 
   // Form colors
   // inputBg: 'white',
