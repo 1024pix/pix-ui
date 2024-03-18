@@ -8,7 +8,7 @@
     aria-expanded={{if this.isUnCollapsed "true" "false"}}
     ...attributes
   >
-    <span class="pix-collapsible-title__label">
+    <span>
       {{#if @titleIcon}}
         <FaIcon class="pix-collapsible-title__icon" @icon={{@titleIcon}} />
       {{/if}}
@@ -20,10 +20,17 @@
       {{/if}}
     </span>
 
-    <FaIcon
-      class="pix-collapsible-title__toggle-icon"
-      @icon="{{if this.isCollapsed 'chevron-down' 'chevron-up'}}"
-    />
+    <span class="pix-collapsible-title__container">
+      {{#if @tagContent}}
+        <PixTag @compact={{false}} @color={{@tagColor}}>
+          {{@tagContent}}
+        </PixTag>
+      {{/if}}
+      <FaIcon
+        class="pix-collapsible-title-container__toggle-icon"
+        @icon="{{if this.isCollapsed 'chevron-down' 'chevron-up'}}"
+      />
+    </span>
   </button>
 
   <div
