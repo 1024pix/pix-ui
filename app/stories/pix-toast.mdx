@@ -1,0 +1,43 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-toast.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Toast
+
+Une notification avec icône et un bouton pour fermer.
+
+## Success
+
+La notification en cas de succès.
+
+<Story of={ComponentStories.success} height={300} />
+
+## Error
+
+La notification en cas de d'erreur.
+
+<Story of={ComponentStories.error} height={300} />
+
+## Information
+
+La notification pour une partager une information.
+
+<Story of={ComponentStories.information} height={300} />
+
+## Warning
+
+La notification pour une partager un avertissement.
+
+<Story of={ComponentStories.warning} height={300} />
+
+
+## Usage
+
+```html
+<PixToast @type="success"> Ceci est une notification de succès </PixToast>
+```
+
+## Arguments
+
+<ArgTypes />
