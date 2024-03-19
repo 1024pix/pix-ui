@@ -1,3 +1,9 @@
+## [44.3.4](https://github.com/1024pix/pix-ui/compare/v44.3.3...v44.3.4) (2024-03-19)
+
+### :arrow_up: Montée de version
+
+- [#577](https://github.com/1024pix/pix-ui/pull/577) Update dependency node to v20.11.1
+
 ## [44.3.3](https://github.com/1024pix/pix-ui/compare/v44.3.2...v44.3.3) (2024-03-19)
 
 ### :bug: Correction
