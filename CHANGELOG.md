@@ -1,3 +1,9 @@
+## [44.3.5](https://github.com/1024pix/pix-ui/compare/v44.3.4...v44.3.5) (2024-03-19)
+
+### :arrow_up: Montée de version
+
+- [#572](https://github.com/1024pix/pix-ui/pull/572) Update dependency @glimmer/syntax to ^0.89.0 (dossier racine)
+
 ## [44.3.4](https://github.com/1024pix/pix-ui/compare/v44.3.3...v44.3.4) (2024-03-19)
 
 ### :arrow_up: Montée de version
