@@ -30,7 +30,7 @@
     </div>
 
     {{#if this.hasErrorMessage}}
-      <p id="text-input-error" class="pix-input__error-message">{{@errorMessage}}</p>
+      <p id={{this.ariaDescribedBy}} class="pix-input__error-message">{{@errorMessage}}</p>
     {{/if}}
   </div>
 </div>

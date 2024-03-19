@@ -1,22 +1,21 @@
-import Component from '@glimmer/component';
+import PixInputBase from './pix-input-base';
+
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
-const INPUT_VALIDATION_STATUS_MAP = {
-  default: '',
-  error: 'pix-input-password__error-container',
-  success: 'pix-input-password__success-container',
-};
+export default class PixInputPassword extends PixInputBase {
+  constructor() {
+    super(...arguments);
 
-export default class PixInputPassword extends Component {
-  @tracked isPasswordVisible = false;
-
-  get id() {
-    if (!this.args.id || !this.args.id.toString().trim()) {
-      throw new Error('ERROR in PixInput component, @id param is not provided');
-    }
-    return this.args.id;
+    this.prefix = 'pix-input-password';
+    this.inputValidationError = {
+      default: '',
+      error: 'pix-input-password__container--error',
+      success: 'pix-input-password__container--success',
+    };
   }
+
+  @tracked isPasswordVisible = false;
 
   @action
   togglePasswordVisibility() {
@@ -25,25 +24,5 @@ export default class PixInputPassword extends Component {
     if (InputElement) {
       InputElement.focus();
     }
-  }
-
-  get validationStatusClassName() {
-    return INPUT_VALIDATION_STATUS_MAP[this.args.validationStatus] || '';
-  }
-
-  get ariaDescribedBy() {
-    return this.args.validationStatus === 'error' ? 'text-input-password-error' : null;
-  }
-
-  get hasError() {
-    return this.args.validationStatus === 'error';
-  }
-
-  get hasErrorMessage() {
-    return this.hasError && !!this.args.errorMessage;
-  }
-
-  get hasSuccess() {
-    return this.args.validationStatus === 'success';
   }
 }

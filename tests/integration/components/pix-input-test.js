@@ -4,7 +4,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { render } from '@1024pix/ember-testing-library';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
-module('Integration | Component | input', function (hooks) {
+module('Integration | Component | PixInput', function (hooks) {
   setupRenderingTest(hooks);
 
   const INPUT_SELECTOR = '.pix-input input';
@@ -16,18 +16,6 @@ module('Integration | Component | input', function (hooks) {
 
     // then
     assert.contains('Jeanne');
-  });
-
-  test('it should throw an error if there is no id', async function (assert) {
-    // given & when
-    const componentParams = { id: '   ' };
-    const component = createGlimmerComponent('pix-input', componentParams);
-
-    // then
-    const expectedError = new Error('ERROR in PixInput component, @id param is not provided');
-    assert.throws(function () {
-      component.id;
-    }, expectedError);
   });
 
   test('it should be possible to give a number as id', async function (assert) {

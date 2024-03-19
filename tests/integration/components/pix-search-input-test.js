@@ -4,7 +4,7 @@ import { render, fillByLabel } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-module('Integration | Component | search-input', function (hooks) {
+module('Integration | Component | PixSearchInput', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the default PixSearchInput with given id and label', async function (assert) {
@@ -35,6 +35,7 @@ module('Integration | Component | search-input', function (hooks) {
   @debounceTimeInMs='0'
   @triggerFiltering={{this.triggerFiltering}}
 ><:label>Champ de recherche de fruits</:label></PixSearchInput>`);
+
     await fillByLabel('Champ de recherche de fruits', 'Mangue');
 
     // then

@@ -1,13 +1,15 @@
-import Component from '@glimmer/component';
+import PixInputBase from './pix-input-base';
+
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 import { debounceTask } from 'ember-lifeline';
 
-export default class PixSearchInput extends Component {
+export default class PixSearchInput extends PixInputBase {
   initialValue = this.args.value;
 
   constructor() {
     super(...arguments);
+
+    this.prefix = 'pix-search-input';
 
     this.debounceTimeBeforeSearch = parseInt(this.args.debounceTimeInMs);
     if (Number.isNaN(this.debounceTimeBeforeSearch)) {
@@ -16,20 +18,10 @@ export default class PixSearchInput extends Component {
     if (!this.args.triggerFiltering) {
       throw new Error('ERROR in PixSearchInput component, @triggerFiltering param is not provided');
     }
-
-    this.searchInputId = this.args.id || guidFor(this);
-  }
-
-  get label() {
-    return this.args.label;
-  }
-
-  get ariaLabel() {
-    return this.args.label ? null : this.args.ariaLabel;
   }
 
   debouncedTriggerFiltering(value) {
-    this.args.triggerFiltering(this.searchInputId, value);
+    this.args.triggerFiltering(this.id, value);
   }
 
   @action
