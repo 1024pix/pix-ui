@@ -1,3 +1,9 @@
+## [44.3.3](https://github.com/1024pix/pix-ui/compare/v44.3.2...v44.3.3) (2024-03-19)
+
+### :bug: Correction
+
+- [#575](https://github.com/1024pix/pix-ui/pull/575) Ajouter une fallback sur la pagination.
+
 ## [44.3.2](https://github.com/1024pix/pix-ui/compare/v44.3.1...v44.3.2) (2024-03-18)
 
 ### :building_construction: Tech
