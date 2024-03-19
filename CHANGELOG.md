@@ -1,3 +1,9 @@
+## [44.3.6](https://github.com/1024pix/pix-ui/compare/v44.3.5...v44.3.6) (2024-03-19)
+
+### :building_construction: Tech
+
+- [#578](https://github.com/1024pix/pix-ui/pull/578) Supprimer les transition de tickets Jira via Github Actions
+
 ## [44.3.5](https://github.com/1024pix/pix-ui/compare/v44.3.4...v44.3.5) (2024-03-19)
 
 ### :arrow_up: Montée de version
