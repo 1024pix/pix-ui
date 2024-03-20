@@ -1,7 +1,7 @@
 <div id={{this.mainId}} ...attributes>
   <PixLabel
     @for={{this.pixSelectId}}
-    @requiredLabel={{@requiredText}}
+    @requiredLabel={{@requiredLabel}}
     @labelSize={{@labelSize}}
     @subLabel={{@subLabel}}
     @screenReaderOnly={{@screenReaderOnly}}
@@ -23,7 +23,7 @@
       @screenReaderOnly={{true}}
       @className="pix-filterable-and-searchable-select__pix-multi-select"
     >
-      <:label>{{yield to="categorieLabel"}}</:label>
+      <:label>{{yield to="categoriesLabel"}}</:label>
       <:placeholder>{{this.categoriesPlaceholder}}</:placeholder>
       <:default as |option|>{{option.label}}</:default>
     </PixMultiSelect>

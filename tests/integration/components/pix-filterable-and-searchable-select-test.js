@@ -23,15 +23,13 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   test('it displays the categories', async function (assert) {
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
@@ -47,16 +45,14 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   test('it displays the select options', async function (assert) {
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await clickByName(this.label);
@@ -78,16 +74,14 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
@@ -111,15 +105,13 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
@@ -138,16 +130,14 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
@@ -169,16 +159,14 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByText(`${this.categoriesPlaceholder} (0)`));
@@ -205,16 +193,14 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
@@ -234,18 +220,16 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
@@ -270,19 +254,17 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @value={{'2'}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
@@ -302,17 +284,15 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
       // given & when
       const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @value={{'2'}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
       const label = await screen.getByLabelText(this.label);
@@ -331,18 +311,16 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 
       // given & when
       const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @subLabel={{this.subLabel}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @value={{'2'}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
       // then
@@ -355,24 +333,22 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
         { value: '2', label: 'Tomate', category: 'Hamburger' },
       ];
       this.label = 'Label de mon big composant trop compliqué';
-      this.requiredText = 'Sélectionner un aliment';
+      this.requiredLabel = 'Sélectionner un aliment';
 
       // given & when
       const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @value={{'2'}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
-  @requiredText={{this.requiredText}}
+  @requiredLabel={{this.requiredLabel}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
       // then
@@ -386,26 +362,24 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
     this.label = 'Label de mon big composant trop compliqué';
-    this.requiredText = 'Sélectionner un aliment';
+    this.requiredLabel = 'Sélectionner un aliment';
     this.errorMessage = 'Aliment non saisi. Veuillez en renseigner un !';
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
   @value={{'2'}}
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
-  @requiredText={{this.requiredText}}
+  @requiredLabel={{this.requiredLabel}}
   @errorMessage={{this.errorMessage}}
 >
   <:label>{{this.label}}</:label>
-  <:categoryLabel>{{this.categoriesLabel}}</:categoryLabel>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
 </PixFilterableAndSearchableSelect>`);
 
     // then
