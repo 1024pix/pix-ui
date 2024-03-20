@@ -1,3 +1,9 @@
+## [44.3.7](https://github.com/1024pix/pix-ui/compare/v44.3.6...v44.3.7) (2024-03-20)
+
+### :building_construction: Tech
+
+- [#579](https://github.com/1024pix/pix-ui/pull/579) Supprime la dépendance à notre fork de `@storybook-ember`
+
 ## [44.3.6](https://github.com/1024pix/pix-ui/compare/v44.3.5...v44.3.6) (2024-03-19)
 
 ### :building_construction: Tech
