@@ -1,3 +1,9 @@
+## [44.3.8](https://github.com/1024pix/pix-ui/compare/v44.3.7...v44.3.8) (2024-03-20)
+
+### :building_construction: Tech
+
+- [#569](https://github.com/1024pix/pix-ui/pull/569) Améliorer le debug des polices d'écriture (PIX-5249)
+
 ## [44.3.7](https://github.com/1024pix/pix-ui/compare/v44.3.6...v44.3.7) (2024-03-20)
 
 ### :building_construction: Tech
