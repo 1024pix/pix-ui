@@ -3,7 +3,9 @@
 // Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
 %-pix-title {
   font-weight: 700;
-  font-family: 'Nunito', 'Arial', sans-serif;
+
+  // stylelint-disable-next-line custom-property-pattern
+  font-family: var(--_pix-font-family-title);
 }
 
 %pix-title-l,
@@ -78,7 +80,9 @@
 
 %-pix-body {
   font-weight: 400;
-  font-family: 'Roboto', 'Arial', sans-serif;
+
+  // stylelint-disable-next-line custom-property-pattern
+  font-family: var(--_pix-font-family-body);
 }
 
 %pix-body-xs,

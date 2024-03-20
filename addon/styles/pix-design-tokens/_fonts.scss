@@ -45,4 +45,14 @@ $font-bold: 700;
   --pix-font-normal: 400;
   --pix-font-medium: 500;
   --pix-font-bold: 700;
+
+  // Private property, do not use directly
+  // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
+  // stylelint-disable-next-line custom-property-pattern
+  --_pix-font-family-title: 'Nunito', Arial, sans-serif;
+
+  // Private property, do not use directly
+  // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
+  // stylelint-disable-next-line custom-property-pattern
+  --_pix-font-family-body: 'Roboto', Arial, sans-serif;
 }
