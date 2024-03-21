@@ -59,8 +59,8 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -81,7 +81,7 @@ const Template = (args) => {
   @class={{this.class}}
   disabled={{this.isDisabled}}
   @isDisabled={{this.isDisabled}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @requiredLabel={{this.requiredLabel}}
 >

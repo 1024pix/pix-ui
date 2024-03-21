@@ -8,11 +8,9 @@ export default class PixLabel extends Component {
     if (this.args.inlineLabel) classes.push('pix-label--inline-label');
     if (this.args.isDisabled) classes.push('pix-label--disabled');
 
-    const labelSize = ['small', 'large'].includes(this.args.labelSize)
-      ? this.args.labelSize
-      : 'default';
+    const size = ['small', 'large'].includes(this.args.size) ? this.args.size : 'default';
 
-    classes.push(`pix-label--${labelSize}`);
+    classes.push(`pix-label--${size}`);
 
     return classes.join(' ');
   }

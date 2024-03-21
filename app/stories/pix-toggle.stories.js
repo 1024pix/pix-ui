@@ -14,8 +14,8 @@ export default {
       description: 'Le sous label du PixToggle',
       type: { name: 'string', required: true },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -75,7 +75,7 @@ export const Template = (args) => {
   @offLabel={{this.offLabel}}
   @toggled={{this.toggled}}
   @onChange={{this.onChange}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}

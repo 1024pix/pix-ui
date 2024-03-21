@@ -74,8 +74,8 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -96,7 +96,7 @@ export const Template = (args) => {
   @checked={{this.checked}}
   @isDisabled={{this.isDisabled}}
   disabled={{this.isDisabled}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >
@@ -124,14 +124,14 @@ export const checkboxWithSmallLabel = Template.bind({});
 checkboxWithSmallLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  labelSize: 'small',
+  size: 'small',
 };
 
 export const checkboxWithLargeLabel = Template.bind({});
 checkboxWithLargeLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  labelSize: 'large',
+  size: 'large',
 };
 
 export const checkboxDisabled = Template.bind({});
@@ -165,7 +165,7 @@ export const MultipleTemplate = (args) => {
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @checked={{this.checked}}
   disabled={{this.isDisabled}}
   @isDisabled={{this.isDisabled}}
@@ -177,7 +177,7 @@ export const MultipleTemplate = (args) => {
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @checked={{this.checked}}
   disabled={{this.isDisabled}}
   @isDisabled={{this.isDisabled}}

@@ -36,8 +36,8 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -64,7 +64,7 @@ const Template = (args) => {
     template: hbs`<PixLabel
   @id={{this.id}}
   @subLabel={{this.subLabel}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @inlineLabel={{this.inlineLabel}}

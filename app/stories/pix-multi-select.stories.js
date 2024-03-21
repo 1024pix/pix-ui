@@ -18,7 +18,7 @@ export default {
   @id={{this.id}}
   @placeholder={{this.placeholder}}
   @screenReaderOnly={{this.screenReaderOnly}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @onChange={{this.onChange}}
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
@@ -131,8 +131,8 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -187,7 +187,7 @@ export const multiSelectWithChildComponent = (args) => {
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @options={{this.options}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -253,7 +253,7 @@ const TemplateWithYield = (args) => ({
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @options={{this.options}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @requiredLabel={{this.requiredLabel}}

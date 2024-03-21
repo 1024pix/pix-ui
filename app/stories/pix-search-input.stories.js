@@ -68,8 +68,8 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -97,7 +97,7 @@ export const Template = (args) => {
   @placeholder={{this.placeholder}}
   @debounceTimeInMs={{this.debounceTimeInMs}}
   @triggerFiltering={{this.triggerFiltering}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @requiredLabel={{this.requiredLabel}}

@@ -20,8 +20,8 @@ export default {
         type: { summary: 'string' },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -158,7 +158,7 @@ const Template = (args) => {
   @isSearchable={{this.isSearchable}}
   @value={{this.value}}
   @errorMessage={{this.errorMessage}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @requiredLabel={{this.requiredLabel}}

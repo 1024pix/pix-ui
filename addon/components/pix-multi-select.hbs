@@ -9,7 +9,7 @@
     @for={{this.multiSelectId}}
     @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
-    @labelSize={{@labelSize}}
+    @size={{@size}}
     @screenReaderOnly={{@screenReaderOnly}}
     @inlineLabel={{@inlineLabel}}
   >
@@ -72,7 +72,7 @@
             <PixCheckbox
               @id={{concat this.multiSelectId "-" option.value}}
               @checked={{option.checked}}
-              @labelSize="small"
+              @size="small"
               @class="pix-multi-select-list__item-label"
               value={{option.value}}
               {{on "change" this.onSelect}}
