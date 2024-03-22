@@ -1,3 +1,9 @@
+# [45.0.0](https://github.com/1024pix/pix-ui/compare/v44.3.8...v45.0.0) (2024-03-22)
+
+### :boom: BREAKING CHANGE
+
+- [#568](https://github.com/1024pix/pix-ui/pull/568) Permettre l'usage de balise HTML dans les label des formulaire (PIX-11719)
+
 ## [44.3.8](https://github.com/1024pix/pix-ui/compare/v44.3.7...v44.3.8) (2024-03-20)
 
 ### :building_construction: Tech
