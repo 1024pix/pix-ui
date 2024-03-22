@@ -1,4 +1,4 @@
-import { Meta, Typeset, Markdown } from '@storybook/blocks';
+import { Meta, Markdown, Unstyled } from '@storybook/blocks';
 
 <Meta title="Utiliser Pix UI/Design Tokens/Typographie" />
 
@@ -22,63 +22,61 @@ Des **placeholder SCSS** équivalents aux tokens de Figma sont disponibles. C'es
 
 ### Titres
 
-<Typeset
-  fontSizes={['3rem']}
-  fontWeight={700}
-  sampleText={'@extend %pix-title-l;'}
-  fontFamily={'var(--_pix-font-family-title)'}
-/>
-
-<Typeset
-  fontSizes={['2.25rem']}
-  fontWeight={700}
-  sampleText={'@extend %pix-title-m;'}
-  fontFamily={'var(--_pix-font-family-title)'}
-/>
-
-<Typeset
-  fontSizes={['1.75rem']}
-  fontWeight={700}
-  sampleText={'@extend %pix-title-s;'}
-  fontFamily={'var(--_pix-font-family-title)'}
-/>
-
-<Typeset
-  fontSizes={['1.25rem']}
-  fontWeight={700}
-  sampleText={'@extend %pix-title-xs;'}
-  fontFamily={'var(--_pix-font-family-title)'}
-/>
+<Unstyled>
+  <div
+    class="pix-title-l pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-title-l;
+  </div>
+  <div
+    class="pix-title-m pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-title-m;
+  </div>
+  <div
+    class="pix-title-s pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-title-s;
+  </div>
+  <div
+    class="pix-title-xs pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-title-xs;
+  </div>
+</Unstyled>
 
 ### Corps de texte
 
-<Typeset
-  fontSizes={[18]}
-  fontWeight={400}
-  sampleText={'@extend %pix-body-l;'}
-  fontFamily={'var(--_pix-font-family-body)'}
-/>
-
-<Typeset
-  fontSizes={[16]}
-  fontWeight={400}
-  sampleText={'@extend %pix-body-m;'}
-  fontFamily={'var(--_pix-font-family-body)'}
-/>
-
-<Typeset
-  fontSizes={[14]}
-  fontWeight={400}
-  sampleText={'@extend %pix-body-s;'}
-  fontFamily={'var(--_pix-font-family-body)'}
-/>
-
-<Typeset
-  fontSizes={[12]}
-  fontWeight={400}
-  sampleText={'@extend %pix-body-xs;'}
-  fontFamily={'var(--_pix-font-family-body)'}
-/>
+<Unstyled>
+  <div
+    class="pix-body-l pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-body-l;
+  </div>
+  <div
+    class="pix-body-m pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-body-m;
+  </div>
+  <div
+    class="pix-body-s pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-body-s;
+  </div>
+  <div
+    class="pix-body-xs pix-shadow-sm"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-6x)' }}
+  >
+    @extend %pix-body-xs;
+  </div>
+</Unstyled>
 
 ### Comment utiliser un placeholder SCSS ?
 
@@ -126,13 +124,37 @@ Des variables SCSS existent pour certaines propriétés de typographie.
 
 ### Font-weight
 
-ℹ️ Ces variables ne devraient pas être utilisées pour modifier la graisse d'un titre car les classes utilitaires et les placeholders ci-dessus s'en occupent déjà.
+ℹ️ Ces variables sont utilisables uniquement sur les corps de texte.
 
-`--pix-font-normal: 400;`
+```css
+font-weight: var(--pix-font-normal);
+```
 
-`--pix-font-medium: 500;`
+<Unstyled>
+  <div class="pix-body-m" style={{ fontWeight: 'var(--pix-font-normal)' }}>
+    --pix-font-normal
+  </div>
+</Unstyled>
 
-`--pix-font-bold: 700;`
+```css
+font-weight: var(--pix-font-medium);
+```
+
+<Unstyled>
+  <div class="pix-body-m" style={{ fontWeight: 'var(--pix-font-medium)' }}>
+    --pix-font-medium
+  </div>
+</Unstyled>
+
+```css
+font-weight: var(--pix-font-bold);
+```
+
+<Unstyled>
+  <div class="pix-body-m" style={{ fontWeight: 'var(--pix-font-bold)' }}>
+    --pix-font-bold
+  </div>
+</Unstyled>
 
 ### Font-family
 
