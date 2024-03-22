@@ -27,9 +27,6 @@ export default class PixMultiSelect extends Component {
   constructor(...args) {
     super(...args);
 
-    if (!this.args.label && !this.args.id)
-      throw new Error('ERROR in PixMultiSelect, a @label or an @id was not provided');
-
     this.options = [...(this.args.options || [])];
   }
 

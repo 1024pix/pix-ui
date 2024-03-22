@@ -1,6 +1,14 @@
 .pix-select {
   position: relative;
-  display: inline-block;
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--pix-spacing-1x);
+
+  &--inline {
+    flex-direction: row;
+    gap: var(--pix-spacing-2x);
+    align-items: center;
+  }
 
   &__dropdown {
     @extend %pix-shadow-sm;

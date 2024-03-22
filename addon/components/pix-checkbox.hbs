@@ -11,11 +11,11 @@
   <PixLabel
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
-    @labelSize={{@labelSize}}
+    @size={{@size}}
     @inlineLabel={{true}}
     @screenReaderOnly={{@screenReaderOnly}}
     @isDisabled={{@isDisabled}}
   >
-    {{yield}}
+    {{yield to="label"}}
   </PixLabel>
 </div>

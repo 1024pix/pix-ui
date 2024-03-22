@@ -2,38 +2,25 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import { render } from '@1024pix/ember-testing-library';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
-module('Integration | Component | input', function (hooks) {
+module('Integration | Component | PixInput', function (hooks) {
   setupRenderingTest(hooks);
 
   const INPUT_SELECTOR = '.pix-input input';
 
   test('it renders the default PixInput', async function (assert) {
     // when
-    await render(hbs`<PixInput @id='first-name' @label='Prénom' />`);
+    await render(hbs`<PixInput @id='first-name'><:label>Prénom</:label></PixInput>`);
     await fillInByLabel('Prénom', 'Jeanne');
 
     // then
     assert.contains('Jeanne');
   });
 
-  test('it should throw an error if there is no id', async function (assert) {
-    // given & when
-    const componentParams = { id: '   ' };
-    const component = createGlimmerComponent('pix-input', componentParams);
-
-    // then
-    const expectedError = new Error('ERROR in PixInput component, @id param is not provided');
-    assert.throws(function () {
-      component.id;
-    }, expectedError);
-  });
-
   test('it should be possible to give a number as id', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @id={{123}} @label='Prénom' />`);
+    await render(hbs`<PixInput @id={{123}}><:label>Prénom</:label></PixInput>`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -44,20 +31,20 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give a label to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @label='Prénom' @id='firstName' />`);
+    const screen = await render(hbs`<PixInput @id='firstName'><:label>Prénom</:label></PixInput>`);
 
     // then
-    assert.contains('Prénom');
+    assert.ok(screen.getByLabelText('Prénom'));
   });
 
   test('it should be possible to give an extra information to input', async function (assert) {
     // given & when
-    await render(
-      hbs`<PixInput @id='firstName' @label='Prénom' @information='a small information' />`,
+    const screen = await render(
+      hbs`<PixInput @id='firstName' @subLabel='a small information'><:label>Prénom</:label></PixInput>`,
     );
 
     // then
-    assert.contains('a small information');
+    assert.ok(screen.getByLabelText('Prénom a small information'));
   });
 
   test('it should be possible to give an error message to input', async function (assert) {
@@ -65,10 +52,9 @@ module('Integration | Component | input', function (hooks) {
     const screen = await render(
       hbs`<PixInput
   @id='firstName'
-  @label='Prénom'
   @errorMessage='Seul les caractères alphanumériques sont autorisés'
   @validationStatus='error'
-/>`,
+><:label>Prénom</:label></PixInput>`,
     );
 
     // then
@@ -77,7 +63,7 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to track value from input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @label='Prénom' @id='firstName' @value='Jeanne' />`);
+    await render(hbs`<PixInput @id='firstName' @value='Jeanne'><:label>Prénom</:label></PixInput>`);
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -88,7 +74,9 @@ module('Integration | Component | input', function (hooks) {
 
   test('it should be possible to give more params to input', async function (assert) {
     // given & when
-    await render(hbs`<PixInput @label='Prénom' @id='firstName' autocomplete='on' />`);
+    await render(
+      hbs`<PixInput @id='firstName' autocomplete='on'><:label>Prénom</:label></PixInput>`,
+    );
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
@@ -100,7 +88,7 @@ module('Integration | Component | input', function (hooks) {
   test('it should be possible to make pix input required', async function (assert) {
     // given & when
     const screen = await render(
-      hbs`<PixInput @label='Prénom' @id='firstName' @requiredLabel='Champ obligatoire' />`,
+      hbs`<PixInput @id='firstName' @requiredLabel='Champ obligatoire'><:label>Prénom</:label></PixInput>`,
     );
 
     // then

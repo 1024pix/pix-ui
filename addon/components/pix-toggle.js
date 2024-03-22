@@ -8,6 +8,11 @@ export default class PixToggle extends Component {
     if (this.args.toggled) {
       classes.push('pix-toggle--pressed');
     }
+
+    if (this.args.inlineLabel) {
+      classes.push('pix-toggle--inline');
+    }
+
     return classes.join(' ');
   }
 

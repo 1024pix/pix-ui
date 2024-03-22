@@ -1,12 +1,13 @@
 <div id={{this.mainId}} ...attributes>
   <PixLabel
     @for={{this.pixSelectId}}
-    @requiredLabel={{@requiredText}}
-    @labelSize={{@labelSize}}
+    @requiredLabel={{@requiredLabel}}
+    @size={{@size}}
     @subLabel={{@subLabel}}
     @screenReaderOnly={{@screenReaderOnly}}
+    @inlineLabel={{@inlineLabel}}
   >
-    {{@label}}
+    {{yield to="label"}}
   </PixLabel>
   <div
     class="pix-filterable-and-searchable-select{{if
@@ -17,12 +18,12 @@
     <PixMultiSelect
       id={{this.pixMultiSelectId}}
       @values={{this.selectedCategories}}
-      @label={{@categoriesLabel}}
       @options={{this.categories}}
       @onChange={{this.selectCategories}}
       @screenReaderOnly={{true}}
       @className="pix-filterable-and-searchable-select__pix-multi-select"
     >
+      <:label>{{yield to="categoriesLabel"}}</:label>
       <:placeholder>{{this.categoriesPlaceholder}}</:placeholder>
       <:default as |option|>{{option.label}}</:default>
     </PixMultiSelect>

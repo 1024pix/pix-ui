@@ -9,34 +9,10 @@ export default {
         'Identifiant du champ permettant de lui attacher un label. Généré automatiquement si non renseigné.',
       type: { name: 'string' },
     },
-    label: {
-      name: 'label',
-      description: "Le label de l'input",
-    },
     class: {
       name: 'class',
       description: "Permet d'ajouter une classe au parent du composant.",
       type: { name: 'string' },
-    },
-    screenReaderOnly: {
-      name: 'screenReaderOnly',
-      description:
-        "Permet de ne pas afficher le label à l'écran. Sert à garder un label qui sera lisible par les lecteurs d'écran.",
-      type: { name: 'boolean', required: true },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'default'],
     },
     isIndeterminate: {
       name: 'isIndeterminate',
@@ -66,6 +42,48 @@ export default {
         defaultValue: { summary: false },
       },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
+    requiredLabel: {
+      name: 'requiredLabel',
+      description: 'Label indiquant que le champ est requis.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      name: 'size',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
   },
 };
 
@@ -74,14 +92,15 @@ export const Template = (args) => {
     template: hbs`<PixCheckbox
   @id={{this.id}}
   @class={{this.class}}
-  @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
-  @labelSize={{this.labelSize}}
   @checked={{this.checked}}
   @isDisabled={{this.isDisabled}}
   disabled={{this.isDisabled}}
+  @size={{this.size}}
+  @inlineLabel={{this.inlineLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
 >
-  {{this.label}}
+  <:label>{{this.label}}</:label>
 </PixCheckbox>`,
     context: args,
   };
@@ -105,14 +124,14 @@ export const checkboxWithSmallLabel = Template.bind({});
 checkboxWithSmallLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  labelSize: 'small',
+  size: 'small',
 };
 
 export const checkboxWithLargeLabel = Template.bind({});
 checkboxWithLargeLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  labelSize: 'large',
+  size: 'large',
 };
 
 export const checkboxDisabled = Template.bind({});
@@ -146,24 +165,24 @@ export const MultipleTemplate = (args) => {
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @checked={{this.checked}}
   disabled={{this.isDisabled}}
   @isDisabled={{this.isDisabled}}
 >
-  {{this.label}}
+  <:label>{{this.label}}</:label>
 </PixCheckbox>
 <PixCheckbox
   @id='two'
   @class={{this.class}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isIndeterminate={{this.isIndeterminate}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @checked={{this.checked}}
   disabled={{this.isDisabled}}
   @isDisabled={{this.isDisabled}}
 >
-  {{this.label}}
+  <:label>{{this.label}}</:label>
 </PixCheckbox>`,
     context: args,
   };

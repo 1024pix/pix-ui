@@ -33,27 +33,28 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 
 ```html
 <PixFilterableAndSearchableSelect
-  @label="{{label}}"
-  @sublabel="{{sublabel}}"
   @selectLabel="{{selectLabel}}"
   @placeholder="{{placeholder}}"
   @options="{{options}}"
   @value="{{value}}"
   @isSearchable="{{isSearchable}}"
   @hideDefaultOption="{{hideDefaultOption}}"
-  @screenReaderOnly="{{screenReaderOnly}}"
-  @searchLabel="{{searchLabel}}"
   @searchPlaceholder="{{searchPlaceholder}}"
   @emptySearchMessage="{{emptySearchMessage}}"
-  @requiredText="{{requiredText}}"
   @errorMessage="{{errorMessage}}"
   @onChange="{{onChange}}"
-  @categoriesLabel="{{categoriesLabel}}"
   @categoriesPlaceholder="{{categoriesPlaceholder}}"
   @categoriesEmptyMessage="{{categoriesEmptyMessage}}"
-  @requiredText="{{requiredText}}"
   @errorMessage="{{errorMessage}}"
-/>
+
+  @sublabel="{{sublabel}}"
+  @screenReaderOnly="{{screenReaderOnly}}"
+  @inlineLabel="{{inlineLabel}}"
+  @searchLabel="{{searchLabel}}"
+  @requiredLabel="{{requiredLabel}}">
+  <:label>{{label}}</:label>
+  <:categoriesLabel>{{categoriesLabel}}</:categoriesLabel>
+</PixFilterableAndSearchableSelect>
 ```
 
 ## Arguments

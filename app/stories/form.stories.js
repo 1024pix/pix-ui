@@ -10,75 +10,82 @@ export const form = (args) => {
     template: hbs`<form>
   <PixInput
     @id='firstName'
-    @label='Prénom'
     @errorMessage={{this.genericErrorMessage}}
     @requiredLabel='champ obligatoire'
     @validationStatus={{this.validationStatus}}
-  />
+  >
+    <:label>Prénom</:label>
+  </PixInput>
   <br />
-  <PixInputPassword
-    @id='password'
-    @label='Mot de passe'
-    @errorMessage={{this.genericErrorMessage}}
-  />
+  <PixInputPassword @id='password' @errorMessage={{this.genericErrorMessage}}>
+    <:label>Mot de passe</:label>
+  </PixInputPassword>
   <br />
 
   <PixMultiSelect
-    @innerText='Votre notation en étoiles...'
     @id='form__pix-multi-select'
-    @label='A quel point aimez-vous Pix UI ?'
     @onSelect={{this.onSelect}}
     @selected={{this.selected}}
     @options={{this.options}}
-    as |star|
   >
-    <PixStars @count={{star.value}} @total={{star.total}} />
+    <:label>A quel point aimez-vous Pix UI ?</:label>
+    <:placeholder>Votre notation en étoiles...</:placeholder>
+    <:default as |star|>
+      <PixStars @count={{star.value}} @total={{star.total}} />
+    </:default>
   </PixMultiSelect>
   <br /><br />
 
   <PixMultiSelect
-    @innerText='Mes condiments'
     @id='form__pix-multi-select-searchable'
-    @label='Choississez vos condiments'
     @onSelect={{this.onSelect}}
     @selected={{this.selected}}
     @isSearchable={{true}}
     @options={{this.optionsSearch}}
-    as |condiment|
   >
-    {{condiment.label}}
+    <:label>Choississez vos condiments</:label>
+    <:placeholder>Mes condiments</:placeholder>
+    <:default as |condiment|>
+      {{condiment.label}}
+    </:default>
   </PixMultiSelect>
   <br /><br />
   {{! template-lint-disable no-inline-styles }}
 
   <PixSelect
     @id='form__searchable-pix-select'
-    @label='Votre fruit préféré est : '
     @options={{this.selectOptions}}
     @isSearchable={{true}}
     @isValidationActive={{true}}
     placeholder='Fraises, Mangues...'
     style='width:100%'
-  />
+  >
+    <:label>Votre fruit préféré est :</:label>
+  </PixSelect>
   <br />
 
   <PixTextarea
     @id='form__pix-textarea'
-    @value=''
     @maxlength={{200}}
-    @label='Un commentaire ?'
     @requiredLabel='Champ obligatoire'
     @errorMessage={{this.genericErrorMessage}}
-  />
+  >
+    <:label>Un commentaire ?</:label>
+  </PixTextarea>
   <br />
 
   <label class='pix-form__label'> Votre légume préféré est : </label>
-  <PixRadioButton @label='Chou' @value='chou' name='légume' />
-  <PixRadioButton @label='Carotte' @value='carotte' name='légume' />
+  <PixRadioButton @value='chou' name='légume'>
+    <:label>Chou</:label>
+  </PixRadioButton>
+  <PixRadioButton @value='carotte' name='légume'>
+    <:label>Carotte</:label>
+  </PixRadioButton>
+
   <br />
 
-  <PixCheckbox @id='spam-pub' @labelSize='small'>
-    Acceptez-vous de vous faire spammer de PUB ?
+  <PixCheckbox @id='spam-pub' @size='small'>
+    <:label>Acceptez-vous de vous faire spammer de PUB ?</:label>
   </PixCheckbox>
 
   <br /><br />

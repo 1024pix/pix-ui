@@ -16,10 +16,9 @@ export default {
 {{/if}}
 <PixMultiSelect
   @id={{this.id}}
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @screenReaderOnly={{this.screenReaderOnly}}
-  @labelSize={{this.labelSize}}
+  @size={{this.size}}
   @onChange={{this.onChange}}
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
@@ -27,8 +26,10 @@ export default {
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @options={{this.options}}
-  as |option|
->{{option.label}}</PixMultiSelect>`,
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`,
     context: args,
   }),
   argTypes: {
@@ -43,28 +44,6 @@ export default {
       description:
         'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
       type: { name: 'string', required: true },
-    },
-    label: {
-      name: 'label',
-      description:
-        "Donne un label au champ qui sera celui vocalisé par le lecteur d'écran. **⚠️ Le`label` est obligatoire que si l'`id` n'est pas donné. ⚠️**",
-      type: { name: 'string' },
-    },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'large', 'default'],
-    },
-    screenReaderOnly: {
-      name: 'screenReaderOnly',
-      description: "Permet de cacher à l'écran le label tout en restant vocalisable",
-      type: { name: 'boolean', required: false },
-      table: { defaultValue: { summary: false } },
     },
     emptyMessage: {
       name: 'emptyMessage',
@@ -120,6 +99,57 @@ export default {
         defaultValue: { summary: null },
       },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
+    requiredLabel: {
+      name: 'requiredLabel',
+      description: 'Label indiquant que le champ est requis.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      name: 'size',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Permet de ne pas afficher la marge pour les éléments de formulaire inline',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -152,20 +182,24 @@ export const multiSelectWithChildComponent = (args) => {
   return {
     template: hbs`<h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
 <PixMultiSelect
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
-  @screenReaderOnly={{this.screenReaderOnly}}
   @onChange={{this.onChange}}
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @options={{this.options}}
-  as |option|
+  @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
 >
-  <PixStars
-    @alt={{concat 'Étoiles ' option.value ' sur ' option.total}}
-    @count={{option.value}}
-    @total={{option.total}}
-  />
+  <:label>{{this.label}}</:label>
+  <:default as |option|>
+    <PixStars
+      @alt={{concat 'Étoiles ' option.value ' sur ' option.total}}
+      @count={{option.value}}
+      @total={{option.total}}
+    />
+  </:default>
 </PixMultiSelect>`,
     context: args,
   };
@@ -212,8 +246,6 @@ export const multiSelectWithId = {
 const TemplateWithYield = (args) => ({
   template: hbs`<PixMultiSelect
   @id={{this.id}}
-  @label={{this.label}}
-  @screenReaderOnly={{this.screenReaderOnly}}
   @onChange={{this.onChange}}
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
@@ -221,7 +253,13 @@ const TemplateWithYield = (args) => ({
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @options={{this.options}}
+  @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
 >
+  <:label>{{this.label}}</:label>
   <:placeholder>filtres (2)</:placeholder>
   <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`,

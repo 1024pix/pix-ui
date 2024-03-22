@@ -49,24 +49,27 @@ export const filterBanner = (args) => {
   <PixSelect
     @options={{this.options}}
     @onChange={{this.onChange}}
-    @label='mon label'
     @screenReaderOnly={{true}}
     @placeholder='placeholer'
-  />
+  >
+    <:label>mon label</:label>
+  </PixSelect>
   <PixSelect
     @options={{this.options}}
     @onChange={{this.onChange}}
-    @label='mon label'
     @screenReaderOnly={{true}}
     @placeholder='placeholer'
-  />
+  >
+    <:label>mon label</:label>
+  </PixSelect>
   <PixSelect
     @options={{this.options}}
     @onChange={{this.onChange}}
-    @label='mon label'
     @screenReaderOnly={{true}}
     @placeholder='placeholer'
-  />
+  >
+    <:label>mon label</:label>
+  </PixSelect>
 </PixFilterBanner>`,
     context: args,
   };

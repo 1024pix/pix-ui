@@ -13,25 +13,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    label: {
-      name: 'label',
-      description:
-        "Label du champ. ** ⚠️ Le `label` est obligatoire si l'`ariaLabel` n'est pas donné. ⚠️ **",
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'large', 'default'],
-    },
     placeholder: {
       name: 'placeholder',
       description: 'Placeholder du champ.',
@@ -55,6 +36,57 @@ export default {
       type: { required: true },
       control: { disable: true },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
+    requiredLabel: {
+      name: 'requiredLabel',
+      description: 'Label indiquant que le champ est requis.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      name: 'size',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Permet de ne pas afficher la marge pour les éléments de formulaire inline',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -62,12 +94,15 @@ export const Template = (args) => {
   return {
     template: hbs`<PixSearchInput
   @id={{this.id}}
-  @label={{this.label}}
-  @labelSize={{this.labelSize}}
   @placeholder={{this.placeholder}}
   @debounceTimeInMs={{this.debounceTimeInMs}}
   @triggerFiltering={{this.triggerFiltering}}
-/>`,
+  @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+><:label>{{this.label}}</:label></PixSearchInput>`,
     context: args,
   };
 };

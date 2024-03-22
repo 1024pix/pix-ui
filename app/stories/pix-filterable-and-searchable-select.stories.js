@@ -20,8 +20,8 @@ export default {
         type: { summary: 'string' },
       },
     },
-    labelSize: {
-      name: 'labelSize',
+    size: {
+      name: 'size',
       description: 'Correspond à la taille de la police du label.',
       type: { name: 'string', required: false },
       table: {
@@ -116,8 +116,8 @@ export default {
         type: { summary: 'string' },
       },
     },
-    requiredText: {
-      name: 'requiredText',
+    requiredLabel: {
+      name: 'requiredLabel',
       description: "Affiche l'astérisque au label et ajoute sa signification",
       type: { name: 'string', required: false },
       table: {
@@ -150,21 +150,23 @@ export default {
 const Template = (args) => {
   return {
     template: hbs`<PixFilterableAndSearchableSelect
-  @label={{this.label}}
-  @subLabel={{this.subLabel}}
-  @labelSize={{this.labelSize}}
-  @screenReaderOnly={{this.screenReaderOnly}}
   @placeholder={{this.placeholder}}
   @hideDefaultOption={{this.hideDefaultOption}}
   @options={{this.options}}
   @onChange={{this.onChange}}
-  @categoriesLabel={{this.categoriesLabel}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
   @isSearchable={{this.isSearchable}}
   @value={{this.value}}
-  @requiredText={{this.requiredText}}
   @errorMessage={{this.errorMessage}}
-/>`,
+  @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+>
+  <:label>{{this.label}}</:label>
+  <:categoriesLabel>{{this.categoriesLabel}}</:categoriesLabel>
+</PixFilterableAndSearchableSelect>`,
     context: args,
   };
 };

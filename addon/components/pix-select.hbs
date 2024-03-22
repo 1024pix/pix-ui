@@ -1,5 +1,5 @@
 <div
-  class="pix-select"
+  class="pix-select {{if @inlineLabel ' pix-select--inline'}}"
   id="container-{{this.selectId}}"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
@@ -8,146 +8,152 @@
   {{on "keydown" this.lockTab}}
   ...attributes
 >
-  {{#if @label}}
+  {{#if (has-block "label")}}
     <PixLabel
       @for={{this.selectId}}
-      @requiredLabel={{@requiredText}}
+      @requiredLabel={{@requiredLabel}}
       @subLabel={{@subLabel}}
-      @labelSize={{@labelSize}}
+      @size={{@size}}
       @screenReaderOnly={{@screenReaderOnly}}
+      @inlineLabel={{@inlineLabel}}
     >
-      {{@label}}
+      {{yield to="label"}}
     </PixLabel>
   {{/if}}
 
-  <PopperJS @placement={{@placement}} as |reference popover|>
-    <button
-      {{reference}}
-      type="button"
-      id={{this.selectId}}
-      class={{this.className}}
-      {{on "click" this.toggleDropdown}}
-      aria-expanded={{this.isAriaExpanded}}
-      aria-controls={{this.listId}}
-      aria-disabled={{@isDisabled}}
-    >
-      {{#if @icon}}
-        <FaIcon @icon={{@icon}} />
-      {{/if}}
-
-      <span class="pix-select-button__text">{{this.placeholder}}</span>
-
-      <FaIcon
-        class="pix-select-button__dropdown-icon"
-        @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
-      />
-    </button>
-    <div
-      {{popover}}
-      class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
-      id={{this.dropDownId}}
-      {{on "transitionend" this.focus}}
-    >
-      {{#if @isSearchable}}
-        <div class="pix-select__search">
-          <FaIcon class="pix-select-search__icon" @icon="magnifying-glass" />
-          <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
-          <input
-            class="pix-select-search__input"
-            id={{this.searchId}}
-            autocomplete="off"
-            tabindex={{if this.isExpanded "0" "-1"}}
-            placeholder={{@searchPlaceholder}}
-            {{on "input" this.setSearchValue}}
-          />
-        </div>
-      {{/if}}
-      <ul role="listbox" id={{this.listId}} class="pix-select__options">
-        <li
-          class="pix-select-options-category__option{{unless
-              @value
-              ' pix-select-options-category__option--selected'
-            }}{{unless this.displayDefaultOption ' pix-select-options-category__option--hidden'}}"
-          role="option"
-          tabindex={{if this.isDefaultOptionHidden "-1" "0"}}
-          aria-selected={{if @value "false" "true"}}
-          {{on "click" (fn this.onChange this.defaultOption)}}
-          {{on-enter-action (fn this.onChange this.defaultOption)}}
-          {{on-space-action (fn this.onChange this.defaultOption)}}
-        >
-          {{@placeholder}}
-        </li>
-        {{#if this.results}}
-          {{#if this.displayCategory}}
-            {{#each this.results as |element index|}}
-              <ul
-                class="pix-select-options__category"
-                role="group"
-                aria-labelledby={{if this.displayCategory (concat "cat-" this.selectId "-" index)}}
-              >
-                {{#if this.displayCategory}}
-                  <li
-                    class="pix-select-options-category__name"
-                    role="presentation"
-                    id={{concat "cat-" this.selectId "-" index}}
-                  >
-                    {{element.category}}
-                  </li>
-                {{/if}}
-
-                {{#each element.options as |option|}}
-                  {{! template-lint-disable require-context-role }}
-                  {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
-                  <li
-                    class="pix-select-options-category__option{{if
-                        (eq option.value @value)
-                        ' pix-select-options-category__option--selected'
-                      }}"
-                    role="option"
-                    tabindex={{if this.isExpanded "0" "-1"}}
-                    aria-selected={{if (eq option.value @value) "true" "false"}}
-                    {{on "click" (fn this.onChange option)}}
-                    {{on-enter-action (fn this.onChange option)}}
-                    {{on-space-action (fn this.onChange option)}}
-                  >
-                    {{option.label}}
-
-                    {{#if (eq option.value @value)}}
-                      <FaIcon @icon="check" role="presentation" />
-                    {{/if}}
-                  </li>
-                {{/each}}
-              </ul>
-            {{/each}}
-          {{else}}
-            {{#each this.results as |option|}}
-              <li
-                class="pix-select-options-category__option{{if
-                    (eq option.value @value)
-                    ' pix-select-options-category__option--selected'
-                  }}"
-                role="option"
-                tabindex={{if this.isExpanded "0" "-1"}}
-                aria-selected={{if (eq option.value @value) "true" "false"}}
-                {{on "click" (fn this.onChange option)}}
-                {{on-enter-action (fn this.onChange option)}}
-                {{on-space-action (fn this.onChange this.defaultOption)}}
-              >
-                {{option.label}}
-
-                {{#if (eq option.value @value)}}
-                  <FaIcon @icon="check" role="presentation" />
-                {{/if}}
-              </li>
-            {{/each}}
-          {{/if}}
-        {{else}}
-          <li class="pix-select__empty-search-message">{{@emptySearchMessage}}</li>
+  <div>
+    <PopperJS @placement={{@placement}} as |reference popover|>
+      <button
+        {{reference}}
+        type="button"
+        id={{this.selectId}}
+        class={{this.className}}
+        {{on "click" this.toggleDropdown}}
+        aria-expanded={{this.isAriaExpanded}}
+        aria-controls={{this.listId}}
+        aria-disabled={{@isDisabled}}
+      >
+        {{#if @icon}}
+          <FaIcon @icon={{@icon}} />
         {{/if}}
-      </ul>
-    </div>
-  </PopperJS>
-  {{#if @errorMessage}}
-    <p class="pix-select__error-message">{{@errorMessage}}</p>
-  {{/if}}
+
+        <span class="pix-select-button__text">{{this.placeholder}}</span>
+
+        <FaIcon
+          class="pix-select-button__dropdown-icon"
+          @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+        />
+      </button>
+      <div
+        {{popover}}
+        class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+        id={{this.dropDownId}}
+        {{on "transitionend" this.focus}}
+      >
+        {{#if @isSearchable}}
+          <div class="pix-select__search">
+            <FaIcon class="pix-select-search__icon" @icon="magnifying-glass" />
+            <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
+            <input
+              class="pix-select-search__input"
+              id={{this.searchId}}
+              autocomplete="off"
+              tabindex={{if this.isExpanded "0" "-1"}}
+              placeholder={{@searchPlaceholder}}
+              {{on "input" this.setSearchValue}}
+            />
+          </div>
+        {{/if}}
+        <ul role="listbox" id={{this.listId}} class="pix-select__options">
+          <li
+            class="pix-select-options-category__option{{unless
+                @value
+                ' pix-select-options-category__option--selected'
+              }}{{unless this.displayDefaultOption ' pix-select-options-category__option--hidden'}}"
+            role="option"
+            tabindex={{if this.isDefaultOptionHidden "-1" "0"}}
+            aria-selected={{if @value "false" "true"}}
+            {{on "click" (fn this.onChange this.defaultOption)}}
+            {{on-enter-action (fn this.onChange this.defaultOption)}}
+            {{on-space-action (fn this.onChange this.defaultOption)}}
+          >
+            {{@placeholder}}
+          </li>
+          {{#if this.results}}
+            {{#if this.displayCategory}}
+              {{#each this.results as |element index|}}
+                <ul
+                  class="pix-select-options__category"
+                  role="group"
+                  aria-labelledby={{if
+                    this.displayCategory
+                    (concat "cat-" this.selectId "-" index)
+                  }}
+                >
+                  {{#if this.displayCategory}}
+                    <li
+                      class="pix-select-options-category__name"
+                      role="presentation"
+                      id={{concat "cat-" this.selectId "-" index}}
+                    >
+                      {{element.category}}
+                    </li>
+                  {{/if}}
+
+                  {{#each element.options as |option|}}
+                    {{! template-lint-disable require-context-role }}
+                    {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
+                    <li
+                      class="pix-select-options-category__option{{if
+                          (eq option.value @value)
+                          ' pix-select-options-category__option--selected'
+                        }}"
+                      role="option"
+                      tabindex={{if this.isExpanded "0" "-1"}}
+                      aria-selected={{if (eq option.value @value) "true" "false"}}
+                      {{on "click" (fn this.onChange option)}}
+                      {{on-enter-action (fn this.onChange option)}}
+                      {{on-space-action (fn this.onChange option)}}
+                    >
+                      {{option.label}}
+
+                      {{#if (eq option.value @value)}}
+                        <FaIcon @icon="check" role="presentation" />
+                      {{/if}}
+                    </li>
+                  {{/each}}
+                </ul>
+              {{/each}}
+            {{else}}
+              {{#each this.results as |option|}}
+                <li
+                  class="pix-select-options-category__option{{if
+                      (eq option.value @value)
+                      ' pix-select-options-category__option--selected'
+                    }}"
+                  role="option"
+                  tabindex={{if this.isExpanded "0" "-1"}}
+                  aria-selected={{if (eq option.value @value) "true" "false"}}
+                  {{on "click" (fn this.onChange option)}}
+                  {{on-enter-action (fn this.onChange option)}}
+                  {{on-space-action (fn this.onChange this.defaultOption)}}
+                >
+                  {{option.label}}
+
+                  {{#if (eq option.value @value)}}
+                    <FaIcon @icon="check" role="presentation" />
+                  {{/if}}
+                </li>
+              {{/each}}
+            {{/if}}
+          {{else}}
+            <li class="pix-select__empty-search-message">{{@emptySearchMessage}}</li>
+          {{/if}}
+        </ul>
+      </div>
+    </PopperJS>
+    {{#if @errorMessage}}
+      <p class="pix-select__error-message">{{@errorMessage}}</p>
+    {{/if}}
+  </div>
 </div>

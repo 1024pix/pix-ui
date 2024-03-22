@@ -36,47 +36,9 @@ export default {
         defaultValue: { summary: false },
       },
     },
-    screenReaderOnly: {
-      name: 'screenReaderOnly',
-      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
-      control: { type: 'boolean' },
-      type: { name: 'boolean', required: false },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-      },
-    },
-    labelSize: {
-      name: 'labelSize',
-      description: 'Correspond à la taille de la police du label.',
-      type: { name: 'string', required: false },
-      table: {
-        defaultValue: { summary: 'default' },
-      },
-      control: { type: 'select' },
-      options: ['small', 'large', 'default'],
-    },
     id: {
       name: 'id',
-      description:
-        "Un identifiant unique placé sur le composant. **⚠️ L'`id` est obligatoire que si le `label` n'est pas donné. ⚠️**",
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-    label: {
-      name: 'label',
-      description:
-        "Label du menu déroulant. ** ⚠️ Le `label` est obligatoire que si l'`id` n'est pas donné. ⚠️ **",
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-    subLabel: {
-      name: 'subLabel',
-      description: 'Sous Label explicatif du menu déroulant',
+      description: 'id généré automatiquement, peut être définit manuellement si besoin',
       type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
@@ -134,14 +96,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    requiredText: {
-      name: 'requiredText',
-      description: "Affiche l'astérisque au label et ajoute sa signification",
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
     errorMessage: {
       name: 'errorMessage',
       description: 'Message affiché si une erreur survient',
@@ -188,6 +142,57 @@ export default {
         type: { summary: false },
       },
     },
+
+    label: {
+      name: 'label',
+      description: 'Le label du champ',
+      type: { name: 'string', required: true },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    subLabel: {
+      name: 'subLabel',
+      description: 'Un descriptif complétant le label',
+      type: { name: 'string', required: false },
+    },
+    requiredLabel: {
+      name: 'requiredLabel',
+      description: 'Label indiquant que le champ est requis.',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
+    screenReaderOnly: {
+      name: 'screenReaderOnly',
+      description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
+    size: {
+      name: 'size',
+      description: 'Correspond à la taille de la police du label.',
+      type: { name: 'string', required: false },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      control: { type: 'select' },
+      options: ['small', 'large', 'default'],
+    },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Permet de ne pas afficher la marge pour les éléments de formulaire inline',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -203,23 +208,24 @@ export const Template = (args) => {
   @className={{this.className}}
   @options={{this.options}}
   @isSearchable={{this.isSearchable}}
-  @labelSize={{this.labelSize}}
-  @onChange={{this.onChange}}
-  @label={{this.label}}
   @placeholder={{this.placeholder}}
   @hideDefaultOption={{this.hideDefaultOption}}
-  @subLabel={{this.subLabel}}
   @searchLabel={{this.searchLabel}}
   @value={{this.value}}
   @searchPlaceholder={{this.searchPlaceholder}}
-  @screenReaderOnly={{this.screenReaderOnly}}
   @emptySearchMessage={{this.emptySearchMessage}}
-  @requiredText={{this.requiredText}}
   @errorMessage={{this.errorMessage}}
   @isDisabled={{this.isDisabled}}
   @placement={{this.placement}}
   @icon={{this.icon}}
-/>`,
+  @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @screenReaderOnly={{this.screenReaderOnly}}
+>
+  <:label>{{this.label}}</:label>
+</PixSelect>`,
     context: args,
   };
 };
@@ -240,7 +246,6 @@ export const TemplatePopover = (args) => {
       @options={{this.options}}
       @isSearchable={{this.isSearchable}}
       @onChange={{this.onChange}}
-      @label={{this.label}}
       @placeholder={{this.placeholder}}
       @hideDefaultOption={{this.hideDefaultOption}}
       @subLabel={{this.subLabel}}
@@ -249,11 +254,13 @@ export const TemplatePopover = (args) => {
       @searchPlaceholder={{this.searchPlaceholder}}
       @screenReaderOnly={{this.screenReaderOnly}}
       @emptySearchMessage={{this.emptySearchMessage}}
-      @requiredText={{this.requiredText}}
+      @requiredLabel={{this.requiredLabel}}
       @errorMessage={{this.errorMessage}}
       @isDisabled={{this.isDisabled}}
       @placement={{this.placement}}
-    />
+    >
+      <:label>{{this.label}}</:label>
+    </PixSelect>
   </div>
 </div>`,
     context: args,

@@ -1,7 +1,14 @@
 .pix-input {
   position: relative;
-  display: flex;
+  display: inline-flex;
   flex-direction: column;
+  gap: var(--pix-spacing-1x);
+
+  &--inline {
+    flex-direction: row;
+    gap: var(--pix-spacing-2x);
+    align-items: center;
+  }
 
   &__container {
     position: relative;
@@ -10,7 +17,7 @@
   svg {
     position: absolute;
     right: 12px;
-    bottom: 11px;
+    bottom: calc(50% - 7px); // height/2 + padding
     width: 10px;
     height: 10px;
     padding: 2px;

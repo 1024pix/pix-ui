@@ -2,7 +2,6 @@
   <section class="pix-pagination__size">
     <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
     <PixSelect
-      @label={{this.selectPageSizeLabel}}
       @placeholder={{this.pageSize}}
       @screenReaderOnly={{true}}
       class="pagination-size__choice"
@@ -10,7 +9,9 @@
       @hideDefaultOption={{true}}
       @onChange={{this.changePageSize}}
       @options={{this.pageOptions}}
-    />
+    >
+      <:label>{{this.selectPageSizeLabel}}</:label>
+    </PixSelect>
   </section>
   <section class="pix-pagination__navigation">
     <span>
