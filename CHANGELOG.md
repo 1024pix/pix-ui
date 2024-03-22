@@ -1,3 +1,9 @@
+## [45.0.1](https://github.com/1024pix/pix-ui/compare/v45.0.0...v45.0.1) (2024-03-22)
+
+### :building_construction: Tech
+
+- [#583](https://github.com/1024pix/pix-ui/pull/583) Déployer Storybook à chaque release
+
 # [45.0.0](https://github.com/1024pix/pix-ui/compare/v44.3.8...v45.0.0) (2024-03-22)
 
 ### :boom: BREAKING CHANGE
