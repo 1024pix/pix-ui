@@ -1,11 +1,8 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import { action } from '@ember/object';
 
 export default class PixCheckbox extends Component {
-  constructor() {
-    super(...arguments);
-  }
-
   get id() {
     return this.args.id || guidFor(this);
   }
@@ -18,5 +15,12 @@ export default class PixCheckbox extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  @action
+  toggleChecked() {
+    if (this.args.onChange) {
+      return this.args.onChange(!this.args.checked, this.args.value);
+    }
   }
 }

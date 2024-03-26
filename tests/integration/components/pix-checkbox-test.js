@@ -3,10 +3,11 @@ import { setupRenderingTest } from 'ember-qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import { render, clickByText } from '@1024pix/ember-testing-library';
 
-module('Integration | Component | checkbox', function (hooks) {
+module('Integration | Component | PixCheckbox', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should be possible to check the checkbox', async function (assert) {
+    // given
     // when
     await render(hbs`<PixCheckbox><:label>Recevoir la newsletter</:label></PixCheckbox>`);
     await clickByText('Recevoir la newsletter');

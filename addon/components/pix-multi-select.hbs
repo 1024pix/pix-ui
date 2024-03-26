@@ -74,10 +74,11 @@
               @checked={{option.checked}}
               @size="small"
               @class="pix-multi-select-list__item-label"
-              value={{option.value}}
-              {{on "change" this.onSelect}}
+              @value={{option.value}}
+              @onChange={{this.onSelect}}
               {{on-enter-action this.hideDropDown this.multiSelectId}}
               tabindex={{if this.isExpanded "0" "-1"}}
+              option={{option}}
             >
               <:label>{{yield option}}</:label>
             </PixCheckbox>
