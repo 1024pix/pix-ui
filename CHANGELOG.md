@@ -1,3 +1,9 @@
+## [45.0.4](https://github.com/1024pix/pix-ui/compare/v45.0.3...v45.0.4) (2024-04-04)
+
+### :bug: Correction
+
+- [#590](https://github.com/1024pix/pix-ui/pull/590) corrige la position du chevron dans le multiselect (pix-11962)
+
 ## [45.0.3](https://github.com/1024pix/pix-ui/compare/v45.0.2...v45.0.3) (2024-04-02)
 
 ### :arrow_up: Montée de version
