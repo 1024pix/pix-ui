@@ -1,3 +1,9 @@
+## [45.0.5](https://github.com/1024pix/pix-ui/compare/v45.0.4...v45.0.5) (2024-04-04)
+
+### :arrow_up: Montée de version
+
+- [#580](https://github.com/1024pix/pix-ui/pull/580) Replace dependency eslint-plugin-node with eslint-plugin-n ^14.0.0 (dossier racine)
+
 ## [45.0.4](https://github.com/1024pix/pix-ui/compare/v45.0.3...v45.0.4) (2024-04-04)
 
 ### :bug: Correction
