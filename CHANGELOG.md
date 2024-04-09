@@ -1,3 +1,10 @@
+## [45.0.8](https://github.com/1024pix/pix-ui/compare/v45.0.7...v45.0.8) (2024-04-09)
+
+### :arrow_up: Montée de version
+
+- [#595](https://github.com/1024pix/pix-ui/pull/595) Update dependency @glimmer/syntax to ^0.91.0 (dossier racine) 
+- [#592](https://github.com/1024pix/pix-ui/pull/592) Update dependency eslint-plugin-n to v16 (dossier racine)
+
 ## [45.0.7](https://github.com/1024pix/pix-ui/compare/v45.0.6...v45.0.7) (2024-04-09)
 
 ### :arrow_up: Montée de version
