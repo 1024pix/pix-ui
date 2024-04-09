@@ -1,3 +1,9 @@
+## [45.0.10](https://github.com/1024pix/pix-ui/compare/v45.0.9...v45.0.10) (2024-04-09)
+
+### :arrow_up: Montée de version
+
+- [#597](https://github.com/1024pix/pix-ui/pull/597) Update dependency @testing-library/dom to v10 (dossier racine)
+
 ## [45.0.9](https://github.com/1024pix/pix-ui/compare/v45.0.8...v45.0.9) (2024-04-09)
 
 ### :arrow_up: Montée de version
