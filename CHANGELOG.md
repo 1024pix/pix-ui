@@ -1,3 +1,9 @@
+## [45.0.14](https://github.com/1024pix/pix-ui/compare/v45.0.13...v45.0.14) (2024-04-09)
+
+### :building_construction: Tech
+
+- [#604](https://github.com/1024pix/pix-ui/pull/604) Vérifier que la version de nodeJs soit disponible sur scalingo
+
 ## [45.0.13](https://github.com/1024pix/pix-ui/compare/v45.0.12...v45.0.13) (2024-04-09)
 
 ### :arrow_up: Montée de version
