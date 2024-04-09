@@ -1,3 +1,9 @@
+## [45.0.6](https://github.com/1024pix/pix-ui/compare/v45.0.5...v45.0.6) (2024-04-09)
+
+### :arrow_up: Montée de version
+
+- [#586](https://github.com/1024pix/pix-ui/pull/586) Update dependency @glimmer/syntax to ^0.90.0 (dossier racine)
+
 ## [45.0.5](https://github.com/1024pix/pix-ui/compare/v45.0.4...v45.0.5) (2024-04-04)
 
 ### :arrow_up: Montée de version
