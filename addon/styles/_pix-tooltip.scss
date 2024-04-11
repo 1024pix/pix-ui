@@ -49,7 +49,7 @@
 
   &--light {
     color: var(--pix-neutral-900);
-    font-weight: $font-medium;
+    font-weight: var(--pix-font-medium);
     background-color: var(--pix-neutral-0);
 
     &::before {
