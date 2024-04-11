@@ -16,22 +16,26 @@
     font-size: 2.5rem;
     border-radius: 8px 0 0 8px;
 
-    &--grey, &--neutral {
+    &--grey,
+    &--neutral {
       color: var(--pix-neutral-500);
       background-color: var(--pix-neutral-20);
     }
 
-    &--blue, &--primary {
+    &--blue,
+    &--primary {
       color: var(--pix-primary-700);
       background-color: var(--pix-primary-10);
     }
 
-    &--green, &--success {
+    &--green,
+    &--success {
       color: var(--pix-success-700);
       background-color: var(--pix-success-50);
     }
 
-    &--purple, &--tertiary {
+    &--purple,
+    &--tertiary {
       color: var(--pix-tertiary-900);
       background-color: var(--pix-tertiary-100);
     }
@@ -57,7 +61,7 @@
     align-items: center;
     margin-bottom: var(--pix-spacing-1x);
     color: var(--pix-neutral-800);
-    font-weight: $font-medium;
+    font-weight: var(--pix-font-medium);
     font-size: 1rem;
     line-height: 1.375rem;
   }
@@ -74,11 +78,11 @@
 
     display: flex;
     gap: 10px;
-    font-weight: $font-normal;
+    font-weight: var(--pix-font-normal);
   }
 
   &__tooltip {
-    font-weight: $font-normal;
+    font-weight: var(--pix-font-normal);
   }
 
   &__tooltip-icon {

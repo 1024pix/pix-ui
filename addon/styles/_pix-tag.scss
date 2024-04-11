@@ -4,7 +4,7 @@
   display: inline-block;
   padding: var(--pix-spacing-1x) var(--pix-spacing-4x);
   color: var(--pix-primary-900);
-  font-weight: $font-medium;
+  font-weight: var(--pix-font-medium);
   white-space: nowrap;
   text-align: center;
   vertical-align: baseline;
@@ -19,22 +19,26 @@
     text-transform: uppercase;
   }
 
-  &--grey-light, &--neutral {
+  &--grey-light,
+  &--neutral {
     color: var(--pix-neutral-900);
     background-color: var(--pix-neutral-20);
   }
 
-  &--yellow-light, &--secondary {
+  &--yellow-light,
+  &--secondary {
     color: var(--pix-secondary-900);
     background-color: var(--pix-secondary-100);
   }
 
-  &--purple-light, &--tertiary {
+  &--purple-light,
+  &--tertiary {
     color: var(--pix-tertiary-900);
     background-color: var(--pix-tertiary-100);
   }
 
-  &--green-light, &--success {
+  &--green-light,
+  &--success {
     color: var(--pix-success-900);
     background-color: var(--pix-success-100);
   }
@@ -48,7 +52,6 @@
     color: var(--pix-orga-50);
     background-color: var(--pix-orga-500);
   }
-
 
   &--green {
     /** Deprecated color **/
