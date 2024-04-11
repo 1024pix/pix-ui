@@ -1,3 +1,9 @@
+## [45.0.16](https://github.com/1024pix/pix-ui/compare/v45.0.15...v45.0.16) (2024-04-11)
+
+### :building_construction: Tech
+
+- [#606](https://github.com/1024pix/pix-ui/pull/606) Utiliser les variables CSS plutôt que SCSS
+
 ## [45.0.15](https://github.com/1024pix/pix-ui/compare/v45.0.14...v45.0.15) (2024-04-10)
 
 ### :arrow_up: Montée de version
