@@ -1,11 +1,4 @@
 <div class="pix-radio-button {{@class}}">
-  <input
-    type="radio"
-    id={{this.id}}
-    class="pix-radio-button__input"
-    value={{@value}}
-    ...attributes
-  />
   <PixLabel
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
@@ -13,7 +6,15 @@
     @screenReaderOnly={{@screenReaderOnly}}
     @isDisabled={{@isDisabled}}
     @inlineLabel={{true}}
+    @wrappedElement={{true}}
   >
+    <input
+      type="radio"
+      id={{this.id}}
+      class="pix-radio-button__input"
+      value={{@value}}
+      ...attributes
+    />
     {{yield to="label"}}
   </PixLabel>
 </div>

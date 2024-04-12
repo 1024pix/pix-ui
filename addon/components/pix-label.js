@@ -5,6 +5,7 @@ export default class PixLabel extends Component {
     const classes = ['pix-label'];
 
     if (this.args.screenReaderOnly) classes.push('screen-reader-only');
+    if (this.args.wrappedElement) classes.push('pix-label--wrapped-element');
     if (this.args.inlineLabel) classes.push('pix-label--inline-label');
     if (this.args.isDisabled) classes.push('pix-label--disabled');
 

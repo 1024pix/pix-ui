@@ -56,6 +56,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    wrappedElement: {
+      name: 'wrappedElement',
+      description: "Permet de définir si le label englobe l'input associé",
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
