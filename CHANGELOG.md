@@ -1,3 +1,13 @@
+## [45.0.17](https://github.com/1024pix/pix-ui/compare/v45.0.16...v45.0.17) (2024-04-15)
+
+### :arrow_up: Montée de version
+
+- [#609](https://github.com/1024pix/pix-ui/pull/609) Update dependency @1024pix/stylelint-config to ^5.1.7 (dossier racine) 
+
+### :coffee: Autre
+
+- [#582](https://github.com/1024pix/pix-ui/pull/582) Remise à jour de la doc de typographies
+
 ## [45.0.16](https://github.com/1024pix/pix-ui/compare/v45.0.15...v45.0.16) (2024-04-11)
 
 ### :building_construction: Tech
