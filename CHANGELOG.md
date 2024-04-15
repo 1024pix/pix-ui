@@ -1,3 +1,9 @@
+# [45.1.0](https://github.com/1024pix/pix-ui/compare/v45.0.17...v45.1.0) (2024-04-15)
+
+### :rocket: Amélioration
+
+- [#608](https://github.com/1024pix/pix-ui/pull/608) Permettre d'ajouter une composante d'opacité sur les couleurs (PIX-10838)
+
 ## [45.0.17](https://github.com/1024pix/pix-ui/compare/v45.0.16...v45.0.17) (2024-04-15)
 
 ### :arrow_up: Montée de version
