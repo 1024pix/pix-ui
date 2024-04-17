@@ -1,30 +1,47 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+import { inject as service } from '@ember/service';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import { createClass } from '../common/add-dynamic-style-tag';
 
 export default class PixSelect extends Component {
+  @service elementHelper;
   @tracked isExpanded = false;
   @tracked searchValue = null;
-  searchId = 'search-input-' + guidFor(this);
 
   constructor(...args) {
     super(...args);
 
     const categories = [];
+
+    this.searchId = 'search-input-' + guidFor(this);
+    this.selectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
+    this.listId = `listbox-${this.selectId}`;
+
     this.args.options.forEach((element) => {
       if (!categories.includes(element.category) && element.category !== undefined) {
         categories.push(element.category);
       }
     });
-
     this.displayCategory = categories.length > 0;
-  }
 
-  get selectId() {
-    if (this.args.id) return this.args.id;
-    return 'select-' + guidFor(this);
+    if (!this.args.isComputeWidthDisabled) {
+      this.elementHelper.waitForElement(this.selectId).then((elementList) => {
+        const baseFontRemRatio = Number(
+          getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+        );
+        const checkIconWidth = 1.125 * baseFontRemRatio;
+        const listWidth = elementList.getBoundingClientRect().width;
+        const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
+
+        const className = `sizing-select-${this.selectId}`;
+        this.elementHelper.createClass(`.${className}`, `width: ${selectWidth}rem;`);
+
+        const element = document.getElementById(`container-${this.selectId}`);
+
+        element.className = element.className + ' ' + className;
+      });
+    }
   }
 
   get displayDefaultOption() {
@@ -49,14 +66,6 @@ export default class PixSelect extends Component {
 
   get isAriaExpanded() {
     return this.isExpanded ? 'true' : 'false';
-  }
-
-  get listId() {
-    return `listbox-${this.selectId}`;
-  }
-
-  get dropDownId() {
-    return `dropdown-${this.selectId}`;
   }
 
   get placeholder() {
@@ -153,25 +162,6 @@ export default class PixSelect extends Component {
       } else if (this.displayDefaultOption) {
         document.querySelector("[aria-selected='true']").focus();
       }
-    }
-  }
-
-  @action
-  setSelectWidth() {
-    if (!this.args.isComputeWidthDisabled) {
-      const baseFontRemRatio = Number(
-        getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
-      );
-      const checkIconWidth = 1.125 * baseFontRemRatio;
-      const listWidth = document.getElementById(this.listId).getBoundingClientRect().width;
-      const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
-
-      const className = `sizing-select-${this.selectId}`;
-      createClass(`.${className}`, `width: ${selectWidth}rem;`);
-
-      const element = document.getElementById(`container-${this.selectId}`);
-
-      element.className = element.className + ' ' + className;
     }
   }
 }

@@ -1,14 +1,38 @@
 import Component from '@glimmer/component';
+import { inject as service } from '@ember/service';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
-import { createClass } from '../common/add-dynamic-style-tag';
 
 export default class PixFilterableAndSearchableSelect extends Component {
+  @service elementHelper;
   @tracked selectedCategories = [];
-  mainId = 'pix-pfass-' + guidFor(this);
-  pixSelectId = 'pix-pfass-select-' + guidFor(this);
-  pixMultiSelectId = 'pix-pfass-multi-select-' + guidFor(this);
+
+  constructor(...args) {
+    super(...args);
+    this.mainId = 'pix-pfass-' + guidFor(this);
+    this.pixSelectId = 'pix-pfass-select-' + guidFor(this);
+    this.pixMultiSelectId = 'pix-pfass-multi-select-' + guidFor(this);
+
+    this.elementHelper.waitForElement(this.pixSelectId).then(() => {
+      const baseFontRemRatio = Number(
+        getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+      );
+
+      const multiSelectWidth = document
+        .getElementById(this.pixMultiSelectId)
+        .getBoundingClientRect().width;
+
+      const selectWidth = Math.ceil(multiSelectWidth / baseFontRemRatio);
+
+      const className = `sizing-select-${this.pixSelectId}`;
+      this.elementHelper.createClass(`.${className}`, `width: calc(100% - ${selectWidth}rem);`);
+
+      const element = document.getElementById(`container-${this.pixSelectId}`);
+
+      element.className = element.className + ' ' + className;
+    });
+  }
 
   @action
   selectCategories(categories) {
@@ -46,23 +70,5 @@ export default class PixFilterableAndSearchableSelect extends Component {
     });
 
     return selectableOptions;
-  }
-
-  @action
-  setSelectWidth(element) {
-    const baseFontRemRatio = Number(
-      getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
-    );
-
-    const multiSelectWidth = document
-      .getElementById(this.pixMultiSelectId)
-      .getBoundingClientRect().width;
-
-    const selectWidth = Math.ceil(multiSelectWidth / baseFontRemRatio);
-
-    const className = `sizing-select-${this.pixSelectId}`;
-    createClass(`.${className}`, `width: calc(100% - ${selectWidth}rem);`);
-
-    element.className = element.className + ' ' + className;
   }
 }
