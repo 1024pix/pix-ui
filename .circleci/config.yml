@@ -18,12 +18,25 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - lint-and-test:
+      - pix_ui_install
+      - pix_ui_lint:
+          requires:
+            - pix_ui_install
+          filters:
+            branches:
+              ignore:
+                - gh-pages
+
+      - pix_ui_test:
+          requires:
+            - pix_ui_install
           filters:
             branches:
               ignore:
                 - gh-pages
       - try-scenarios:
+          requires:
+            - pix_ui_install
           matrix:
             parameters:
               try-scenario:
@@ -40,34 +53,56 @@ workflows:
                 - gh-pages
 
 jobs:
-  lint-and-test:
-    executor: node-browsers-docker
-    resource_class: medium
+  pix_ui_install:
+    executor:
+      name: node-docker
     steps:
-      - browser-tools/install-chrome
       - checkout
       - run: npm ci
+      - persist_to_workspace:
+          root: ~/pix-ui
+          paths:
+            - .
+
+  pix_ui_lint:
+    executor:
+      name: node-docker
+    working_directory: ~/pix-ui
+    steps:
+      - attach_workspace:
+          at: ~/pix-ui
       - run: npm run lint:js
       - run: npm run lint:hbs
       - run: npm run lint:scss
+
+  pix_ui_test:
+    executor: node-browsers-docker
+    working_directory: ~/pix-ui
+    resource_class: medium
+    steps:
+      - attach_workspace:
+          at: ~/pix-ui
+      - browser-tools/install-chrome
       - run: npm test
 
   try-scenarios:
     executor: node-browsers-docker
+    working_directory: ~/pix-ui
     parameters:
       try-scenario:
         type: string
     resource_class: large
     steps:
+      - attach_workspace:
+          at: ~/pix-ui
       - browser-tools/install-chrome
-      - checkout
-      - run: npm ci
       - run: npx ember try:one << parameters.try-scenario >>
 
   chromatic-deployment:
     executor: node-browsers-docker
+    working_directory: ~/pix-ui
     resource_class: medium
     steps:
-      - checkout
-      - run: npm ci
+      - attach_workspace:
+          at: ~/pix-ui
       - run: npm run chromatic -- --auto-accept-changes
