@@ -90,8 +90,30 @@ const Template = (args) => {
   };
 };
 
+const TemplateWithoutlabel = (args) => {
+  return {
+    template: hbs`<PixTextarea
+  @id={{this.id}}
+  @value={{this.value}}
+  @maxlength={{this.maxlength}}
+  @errorMessage={{this.errorMessage}}
+  @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @requiredLabel={{this.requiredLabel}}
+  @inlineLabel={{this.inlineLabel}}
+/>`,
+    context: args,
+  };
+};
+
 export const textarea = Template.bind({});
 textarea.args = {
   id: 'textarea',
+  value: 'Contenu du textarea',
+};
+
+export const textareaWithoutLabel = TemplateWithoutlabel.bind({});
+textarea.args = {
+  id: 'textarea-without-label',
   value: 'Contenu du textarea',
 };
