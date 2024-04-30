@@ -23,16 +23,6 @@ workflows:
             branches:
               ignore:
                 - gh-pages
-      - try-scenarios:
-          matrix:
-            parameters:
-              try-scenario:
-                - embroider-safe
-                - embroider-optimized
-          filters:
-            branches:
-              ignore:
-                - gh-pages
       - chromatic-deployment:
           filters:
             branches:
@@ -51,18 +41,6 @@ jobs:
       - run: npm run lint:hbs
       - run: npm run lint:scss
       - run: npm test
-
-  try-scenarios:
-    executor: node-browsers-docker
-    parameters:
-      try-scenario:
-        type: string
-    resource_class: large
-    steps:
-      - browser-tools/install-chrome
-      - checkout
-      - run: npm ci
-      - run: npx ember try:one << parameters.try-scenario >>
 
   chromatic-deployment:
     executor: node-browsers-docker
