@@ -1,14 +1,16 @@
 <div class="pix-input {{if @inlineLabel ' pix-input--inline'}}">
-  <PixLabel
-    @for={{this.id}}
-    @requiredLabel={{@requiredLabel}}
-    @subLabel={{@subLabel}}
-    @size={{@size}}
-    @screenReaderOnly={{@screenReaderOnly}}
-    @inlineLabel={{@inlineLabel}}
-  >
-    {{yield to="label"}}
-  </PixLabel>
+  {{#if (has-block "label")}}
+    <PixLabel
+      @for={{this.id}}
+      @requiredLabel={{@requiredLabel}}
+      @subLabel={{@subLabel}}
+      @size={{@size}}
+      @screenReaderOnly={{@screenReaderOnly}}
+      @inlineLabel={{@inlineLabel}}
+    >
+      {{yield to="label"}}
+    </PixLabel>
+  {{/if}}
   <div>
     <div class="pix-input__container">
       <input
