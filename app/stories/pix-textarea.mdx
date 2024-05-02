@@ -9,13 +9,19 @@ Un textarea permettant d'avoir un champ de saisie libre.
 
 Optionellement, il peut afficher le nombre de caractères tapés ainsi que le nombre de caractères maximum.
 
+<Story of={ComponentStories.textarea} height={150} />
+
 ## Accessibilité
 
-Si vous utilisez le `PixTextarea` sans vouloir afficher le label, il faudra renseigner `screenReaderOnly` à `true`.
+La propriété label est optionnelle pour le composant.
 
-<Story of={ComponentStories.textarea} height={100} />
+Mais au niveau de l'accessibilité, il est quand même nécessaire que le champ soit rattaché à un label.
 
-## Without Label
+Il y a alors plusieurs possibilités :
+
+- Vous pouvez cacher le label visuellement mais le rendre disponible pour les lecteurs d'écran via la propriété `screenReaderOnly` à `true`.
+- Les attributs `aria-label` et `aria-labelledby` sont utilisables.
+- Un attribut `@for` pointant vers l'id du textarea peut être ajouté à un composant `<PixLabel />` extérieur.
 
 <Story of={ComponentStories.textareaWithoutLabel} height={100} />
 

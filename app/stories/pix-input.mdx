@@ -9,8 +9,17 @@ Le PixInput permet de créer un champ de texte.
 
 ## Accessibilité
 
-Si vous utilisez le `PixInput` sans vouloir afficher le label, il faudra renseigner `screenReaderOnly` à `true`.
-Il est possible d'ajouter un label en dehors du composant en précisant bien un attribut `for` correspondant à l'`@id` passé au PixInput.
+La propriété label est optionnelle pour le composant.
+
+Mais au niveau de l'accessibilité, il est quand même nécessaire que le champ soit rattaché à un label.
+
+Il y a alors plusieurs possibilités :
+
+- Vous pouvez cacher le label visuellement mais le rendre disponible pour les lecteurs d'écran via la propriété `screenReaderOnly` à `true`.
+- Les attributs `aria-label` et `aria-labelledby` sont utilisables.
+- Un attribut `@for` pointant vers l'id de l'input peut être ajouté à un composant `<PixLabel />` extérieur.
+
+## Tests
 
 Pour acceder à l'élément via son label avec testing-library:
 

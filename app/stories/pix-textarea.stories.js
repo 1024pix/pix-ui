@@ -11,7 +11,7 @@ export default {
     value: {
       name: 'value',
       description: 'Valeur du champ',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
     },
     maxlength: {
       name: 'maxlength',
@@ -23,11 +23,10 @@ export default {
       description: 'Affiche une erreur en dessous du champ.',
       type: { name: 'string', required: false },
     },
-
     label: {
       name: 'label',
       description: 'Donne un label au champ.',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
     },
     subLabel: {
       name: 'subLabel',
@@ -109,11 +108,13 @@ const TemplateWithoutlabel = (args) => {
 export const textarea = Template.bind({});
 textarea.args = {
   id: 'textarea',
+  label: 'Label du textarea',
+  subLabel: 'Sous-label',
   value: 'Contenu du textarea',
 };
 
 export const textareaWithoutLabel = TemplateWithoutlabel.bind({});
-textarea.args = {
+textareaWithoutLabel.args = {
   id: 'textarea-without-label',
-  value: 'Contenu du textarea',
+  value: 'Contenu du textarea sans label affiché',
 };
