@@ -1,3 +1,9 @@
+## [45.1.5](https://github.com/1024pix/pix-ui/compare/v45.1.4...v45.1.5) (2024-05-02)
+
+### :arrow_up: Montée de version
+
+- [#614](https://github.com/1024pix/pix-ui/pull/614) Update dependency @1024pix/stylelint-config to ^5.1.10 (dossier racine)
+
 ## [45.1.4](https://github.com/1024pix/pix-ui/compare/v45.1.3...v45.1.4) (2024-05-02)
 
 ### :building_construction: Tech
