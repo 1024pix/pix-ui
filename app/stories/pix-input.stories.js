@@ -31,7 +31,7 @@ export default {
     label: {
       name: 'label',
       description: 'Le label du champ',
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
       },
