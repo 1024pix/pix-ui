@@ -1,3 +1,9 @@
+## [45.2.1](https://github.com/1024pix/pix-ui/compare/v45.2.0...v45.2.1) (2024-05-02)
+
+### :building_construction: Tech
+
+- [#620](https://github.com/1024pix/pix-ui/pull/620) Amélioration de la documentation des composants PixInput et PixTextarea (PIX-12403).
+
 # [45.2.0](https://github.com/1024pix/pix-ui/compare/v45.1.5...v45.2.0) (2024-05-02)
 
 ### :rocket: Amélioration
