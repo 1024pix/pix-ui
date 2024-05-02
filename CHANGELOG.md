@@ -1,3 +1,9 @@
+# [45.2.0](https://github.com/1024pix/pix-ui/compare/v45.1.5...v45.2.0) (2024-05-02)
+
+### :rocket: Amélioration
+
+- [#617](https://github.com/1024pix/pix-ui/pull/617) Gérer l'abscence de label pour les inputs et textarea
+
 ## [45.1.5](https://github.com/1024pix/pix-ui/compare/v45.1.4...v45.1.5) (2024-05-02)
 
 ### :arrow_up: Montée de version
