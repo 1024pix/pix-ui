@@ -1,3 +1,9 @@
+## [45.1.4](https://github.com/1024pix/pix-ui/compare/v45.1.3...v45.1.4) (2024-05-02)
+
+### :building_construction: Tech
+
+- [#618](https://github.com/1024pix/pix-ui/pull/618) Avoir une CI déterministe
+
 ## [45.1.3](https://github.com/1024pix/pix-ui/compare/v45.1.2...v45.1.3) (2024-04-17)
 
 ### :arrow_up: Montée de version
