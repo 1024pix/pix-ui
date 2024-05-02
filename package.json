@@ -126,8 +126,6 @@
     "sass": "^1.56.1",
     "storybook": "^8.0.0",
     "stylelint": "^16.0.2",
-    "stylelint-config-rational-order": "^0.1.2",
-    "stylelint-config-standard-scss": "^13.0.0",
     "webpack": "^5.75.0"
   },
   "bugs": {
