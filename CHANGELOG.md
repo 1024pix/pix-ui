@@ -1,3 +1,9 @@
+## [45.3.2](https://github.com/1024pix/pix-ui/compare/v45.3.1...v45.3.2) (2024-05-02)
+
+### :arrow_up: Montée de version
+
+- [#615](https://github.com/1024pix/pix-ui/pull/615) Update dependency @embroider/test-setup to v4 (dossier racine)
+
 ## [45.3.1](https://github.com/1024pix/pix-ui/compare/v45.3.0...v45.3.1) (2024-05-02)
 
 ### :arrow_up: Montée de version
