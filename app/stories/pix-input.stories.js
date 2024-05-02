@@ -102,6 +102,24 @@ const Template = (args) => {
   };
 };
 
+const TemplateWithoutLabel = (args) => {
+  return {
+    template: hbs`<PixInput
+  @id={{this.id}}
+  @errorMessage={{this.errorMessage}}
+  placeholder='Jeanne, Pierre ...'
+  @validationStatus={{this.validationStatus}}
+  @size={{this.size}}
+  disabled={{this.disabled}}
+  readonly={{this.readonly}}
+  @subLabel={{this.subLabel}}
+  @inlineLabel={{this.inlineLabel}}
+  @requiredLabel={{this.requiredLabel}}
+/>`,
+    context: args,
+  };
+};
+
 export const Default = Template.bind({});
 Default.args = {
   id: 'first-name',
@@ -149,4 +167,9 @@ withRequiredLabel.args = {
   id: 'first-name',
   label: 'Prénom',
   requiredLabel: 'Champ obligatoire',
+};
+
+export const withoutLabel = TemplateWithoutLabel.bind({});
+withoutLabel.args = {
+  id: 'first-name',
 };

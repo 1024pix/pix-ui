@@ -1,14 +1,16 @@
 <div class="pix-textarea {{if @inlineLabel ' pix-textarea--inline'}}">
-  <PixLabel
-    @for={{this.id}}
-    @requiredLabel={{@requiredLabel}}
-    @subLabel={{@subLabel}}
-    @size={{@size}}
-    @screenReaderOnly={{@screenReaderOnly}}
-    @inlineLabel={{@inlineLabel}}
-  >
-    {{yield to="label"}}
-  </PixLabel>
+  {{#if (has-block "label")}}
+    <PixLabel
+      @for={{this.id}}
+      @requiredLabel={{@requiredLabel}}
+      @subLabel={{@subLabel}}
+      @size={{@size}}
+      @screenReaderOnly={{@screenReaderOnly}}
+      @inlineLabel={{@inlineLabel}}
+    >
+      {{yield to="label"}}
+    </PixLabel>
+  {{/if}}
 
   <div>
     <textarea
