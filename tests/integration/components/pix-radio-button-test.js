@@ -8,14 +8,10 @@ module('Integration | Component | pix-radio-button', function (hooks) {
 
   test('it renders the default PixRadioButton', async function (assert) {
     // when
-    await render(hbs`<PixRadioButton><:label>Abricot</:label></PixRadioButton>`);
+    const screen = await render(hbs`<PixRadioButton><:label>Abricot</:label></PixRadioButton>`);
 
     // then
-    const componentInputElement = this.element.querySelector('.pix-radio-button__input');
-    assert.contains('Abricot');
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(componentInputElement.type, 'radio');
+    assert.strictEqual(screen.getByLabelText('Abricot').type, 'radio');
   });
 
   test('it should be possible to aria-disabled the radiobutton', async function (assert) {
@@ -30,19 +26,21 @@ module('Integration | Component | pix-radio-button', function (hooks) {
 
   test('it renders the PixRadioButton component with disabled attribute', async function (assert) {
     // given & when
-    await render(hbs`<PixRadioButton disabled><:label>Abricot</:label></PixRadioButton>`);
+    const screen = await render(
+      hbs`<PixRadioButton disabled><:label>Abricot</:label></PixRadioButton>`,
+    );
 
     // then
-    const componentInputElement = this.element.querySelector('.pix-radio-button__input');
-    assert.true(componentInputElement.disabled);
+    assert.true(screen.getByLabelText('Abricot').disabled);
   });
 
   test('it should be possible to add more params to PixRadioButton', async function (assert) {
     // given
-    await render(hbs`<PixRadioButton disabled checked><:label>Abricot</:label></PixRadioButton>`);
+    const screen = await render(
+      hbs`<PixRadioButton disabled checked><:label>Abricot</:label></PixRadioButton>`,
+    );
 
     // when & then
-    const componentInput = this.element.querySelector('.pix-radio-button__input');
-    assert.true(componentInput.checked);
+    assert.true(screen.getByLabelText('Abricot').checked);
   });
 });
