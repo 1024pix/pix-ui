@@ -63,4 +63,39 @@ module('Integration | Component | checkbox', function (hooks) {
     // then
     assert.true(checkbox.checked);
   });
+
+  test('it should not be possible to control state when disabled', async function (assert) {
+    // given
+    const screen = await render(
+      hbs`<PixCheckbox checked disabled><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+    );
+    const checkbox = screen.getByLabelText('Recevoir la newsletter');
+    assert.true(checkbox.checked);
+
+    // when
+    try {
+      await clickByName('Recevoir la newsletter');
+
+      // should have thrown an error
+      assert.true(false);
+    } catch (error) {
+      // then
+      assert.true(checkbox.checked);
+    }
+  });
+
+  test('it should not be possible to control state when aria-disabled', async function (assert) {
+    // given
+    const screen = await render(
+      hbs`<PixCheckbox checked @isDisabled={{true}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+    );
+    const checkbox = screen.getByLabelText('Recevoir la newsletter');
+    assert.true(checkbox.checked);
+
+    // when
+    await clickByName('Recevoir la newsletter');
+
+    // then
+    assert.true(checkbox.checked);
+  });
 });
