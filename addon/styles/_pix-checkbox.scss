@@ -98,7 +98,9 @@
     }
 
     // Disabled state
+    &[aria-disabled],
     &:disabled,
+    &--indeterminate[aria-disabled],
     &--indeterminate:disabled {
       background: var(--pix-neutral-100);
       border-color: var(--pix-neutral-100);

@@ -70,6 +70,7 @@
     }
 
     // Disabled state
+    &[aria-disabled],
     &:disabled {
       background: var(--pix-neutral-20);
       border-color: var(--pix-neutral-100);
