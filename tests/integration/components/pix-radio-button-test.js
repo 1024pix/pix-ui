@@ -1,6 +1,6 @@
 import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
-import { render } from '@1024pix/ember-testing-library';
+import { render, clickByName } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 
 module('Integration | Component | pix-radio-button', function (hooks) {
@@ -42,5 +42,40 @@ module('Integration | Component | pix-radio-button', function (hooks) {
 
     // when & then
     assert.true(screen.getByLabelText('Abricot').checked);
+  });
+
+  test('it should not be possible to control state when disabled', async function (assert) {
+    // given
+    const screen = await render(
+      hbs`<PixRadioButton disabled><:label>Abricot</:label></PixRadioButton>`,
+    );
+    const radio = screen.getByLabelText('Abricot');
+    assert.false(radio.checked);
+
+    // when
+    try {
+      await clickByName('Abricot');
+
+      // should have thrown an error
+      assert.true(false);
+    } catch (error) {
+      // then
+      assert.false(radio.checked);
+    }
+  });
+
+  test('it should not be possible to control state when aria-disabled', async function (assert) {
+    // given
+    const screen = await render(
+      hbs`<PixRadioButton @isDisabled={{true}}><:label>Abricot</:label></PixRadioButton>`,
+    );
+    const radio = screen.getByLabelText('Abricot');
+    assert.false(radio.checked);
+
+    // when
+    await clickByName('Abricot');
+
+    // then
+    assert.false(radio.checked);
   });
 });

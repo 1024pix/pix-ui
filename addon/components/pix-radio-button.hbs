@@ -14,6 +14,7 @@
       class="pix-radio-button__input"
       value={{@value}}
       aria-disabled={{@isDisabled}}
+      {{on "click" this.avoidCheckedStateChangeIfDisabled}}
       ...attributes
     />
     {{yield to="label"}}
