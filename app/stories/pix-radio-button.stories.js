@@ -19,6 +19,15 @@ export default {
       description: "Valeur permettant d'identifier l'option sélectionnée",
       type: { name: 'string', required: false },
     },
+    checked: {
+      name: 'checked',
+      description: 'Permet de cocher la radio',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     isDisabled: {
       name: 'isDisabled',
       description: 'Pour désactiver/activer le bouton radio',
@@ -79,6 +88,7 @@ const Template = (args) => {
   @value={{this.value}}
   @id={{this.id}}
   @class={{this.class}}
+  checked={{this.checked}}
   disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
   @size={{this.size}}
@@ -102,23 +112,18 @@ isDisabled.args = {
   isDisabled: true,
 };
 
-/* Checked stories */
-const checked = (args) => {
-  return {
-    template: hbs`<PixRadioButton @value={{this.value}} disabled={{this.disabled}} @isDisabled={{this.isDisabled}} checked><:label
-  >{{this.label}}</:label></PixRadioButton>`,
-    context: args,
-  };
-};
-
-export const disabledChecked = checked.bind({});
+export const disabledChecked = Template.bind({});
 disabledChecked.args = {
   ...Default.args,
   isDisabled: true,
+  checked: true,
 };
 
-export const defaultChecked = checked.bind({});
-defaultChecked.args = Default.args;
+export const defaultChecked = Template.bind({});
+defaultChecked.args = {
+  ...Default.args,
+  checked: true,
+};
 
 /* Multiple components story */
 const multipleTemplate = (args) => {
