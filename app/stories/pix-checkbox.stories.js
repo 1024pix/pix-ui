@@ -138,14 +138,14 @@ export const checkboxDisabled = Template.bind({});
 checkboxDisabled.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  disabled: true,
+  isDisabled: true,
 };
 
 export const checkboxCheckedDisabled = Template.bind({});
 checkboxCheckedDisabled.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  disabled: true,
+  isDisabled: true,
   checked: true,
 };
 
@@ -153,7 +153,7 @@ export const checkboxInterminateDisabled = Template.bind({});
 checkboxInterminateDisabled.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  disabled: true,
+  isDisabled: true,
   checked: true,
   isIndeterminate: true,
 };

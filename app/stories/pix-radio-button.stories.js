@@ -99,13 +99,13 @@ Default.args = {
 export const isDisabled = Template.bind({});
 isDisabled.args = {
   ...Default.args,
-  disabled: true,
+  isDisabled: true,
 };
 
 /* Checked stories */
 const checked = (args) => {
   return {
-    template: hbs`<PixRadioButton @value={{this.value}} disabled={{this.disabled}} checked><:label
+    template: hbs`<PixRadioButton @value={{this.value}} disabled={{this.disabled}} @isDisabled={{this.isDisabled}} checked><:label
   >{{this.label}}</:label></PixRadioButton>`,
     context: args,
   };
@@ -114,7 +114,7 @@ const checked = (args) => {
 export const disabledChecked = checked.bind({});
 disabledChecked.args = {
   ...Default.args,
-  disabled: true,
+  isDisabled: true,
 };
 
 export const defaultChecked = checked.bind({});
