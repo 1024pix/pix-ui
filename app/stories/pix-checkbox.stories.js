@@ -87,7 +87,7 @@ export default {
   },
 };
 
-export const Template = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixCheckbox
   @id={{this.id}}
@@ -158,7 +158,7 @@ checkboxInterminateDisabled.args = {
   isIndeterminate: true,
 };
 
-export const MultipleTemplate = (args) => {
+const MultipleTemplate = (args) => {
   return {
     template: hbs`<PixCheckbox
   @id='one'

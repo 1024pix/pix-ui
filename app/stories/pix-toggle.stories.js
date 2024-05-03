@@ -68,7 +68,7 @@ export default {
   },
 };
 
-export const Template = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixToggle
   @onLabel={{this.onLabel}}
@@ -86,7 +86,7 @@ export const Template = (args) => {
   };
 };
 
-export const TemplateWithYields = (args) => {
+const TemplateWithYields = (args) => {
   return {
     template: hbs`<PixToggle @toggled={{this.toggled}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>

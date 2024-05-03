@@ -55,7 +55,7 @@ export default {
   },
 };
 
-export const Template = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixInputCode
   @ariaLabel={{this.ariaLabel}}
