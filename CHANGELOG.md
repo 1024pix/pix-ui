@@ -1,3 +1,9 @@
+## [45.3.4](https://github.com/1024pix/pix-ui/compare/v45.3.3...v45.3.4) (2024-05-03)
+
+### :arrow_up: Montée de version
+
+- [#627](https://github.com/1024pix/pix-ui/pull/627) Update dependency ember-cli to v5 (dossier racine)
+
 ## [45.3.3](https://github.com/1024pix/pix-ui/compare/v45.3.2...v45.3.3) (2024-05-02)
 
 ### :arrow_up: Montée de version
