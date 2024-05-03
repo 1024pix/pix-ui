@@ -7,18 +7,16 @@ import * as ComponentStories from './pix-checkbox.stories';
 
 La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (checkbox servant d'indicateur lors d'une sélection multiple).
 
+<Story of={ComponentStories.Default} height={60} />
 
- <Story of={ComponentStories.Default} height={60} />
-
+<Story of={ComponentStories.DefaultChecked} height={60} />
 
 ### Liste de checkboxes
 
 Il n'est pas rare d'avoir plusieurs champs checkbox qui se suivent.<br/>
 En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composants qui se suivent.
 
-
-  <Story of={ComponentStories.multiple} height={140} />
-
+<Story of={ComponentStories.multiple} height={140} />
 
 ## États de la Checkbox
 
@@ -26,16 +24,13 @@ En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composan
 
 ### Checkbox interminée
 
-
-  <Story of={ComponentStories.indeterminateCheckbox} height={60} />
-
+<Story of={ComponentStories.isIndeterminate} height={60} />
 
 ### Checkbox désactivée
 
-  <Story of={ComponentStories.checkboxDisabled} height={60} />
-  <Story of={ComponentStories.checkboxCheckedDisabled} height={60} />
-  <Story of={ComponentStories.checkboxInterminateDisabled} height={60} />
-
+<Story of={ComponentStories.isDisabled} height={60} />
+<Story of={ComponentStories.checkedIsDisabled} height={60} />
+<Story of={ComponentStories.isIndeterminateIsDisabled} height={60} />
 
 ## Autres tailles de police du label
 
@@ -43,9 +38,7 @@ En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composan
 
 ### Small
 
-
-  <Story of={ComponentStories.checkboxWithSmallLabel} height={60} />
-
+<Story of={ComponentStories.withSmallLabel} height={60} />
 
 ## Usage
 

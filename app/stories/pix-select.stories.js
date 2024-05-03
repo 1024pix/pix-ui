@@ -196,7 +196,7 @@ export default {
   },
 };
 
-export const Template = (args) => {
+const Template = (args) => {
   return {
     template: hbs`{{#if this.id}}
   <div>
@@ -230,7 +230,7 @@ export const Template = (args) => {
   };
 };
 
-export const TemplatePopover = (args) => {
+const TemplatePopover = (args) => {
   return {
     template: hbs`{{! template-lint-disable no-inline-styles }}
 <div style='display:flex;height:330px'>

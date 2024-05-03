@@ -87,7 +87,7 @@ export default {
   },
 };
 
-export const Template = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixCheckbox
   @id={{this.id}}
@@ -95,7 +95,7 @@ export const Template = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @checked={{this.checked}}
   @isDisabled={{this.isDisabled}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @size={{this.size}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -112,53 +112,60 @@ Default.args = {
   label: 'Recevoir la newsletter',
 };
 
-export const indeterminateCheckbox = Template.bind({});
-indeterminateCheckbox.args = {
+export const DefaultChecked = Template.bind({});
+DefaultChecked.args = {
+  id: 'accept-newsletter',
+  label: 'Recevoir la newsletter',
+  checked: true,
+};
+
+export const isIndeterminate = Template.bind({});
+isIndeterminate.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   isIndeterminate: true,
   checked: true,
 };
 
-export const checkboxWithSmallLabel = Template.bind({});
-checkboxWithSmallLabel.args = {
+export const withSmallLabel = Template.bind({});
+withSmallLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   size: 'small',
 };
 
-export const checkboxWithLargeLabel = Template.bind({});
-checkboxWithLargeLabel.args = {
+export const withLargeLabel = Template.bind({});
+withLargeLabel.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   size: 'large',
 };
 
-export const checkboxDisabled = Template.bind({});
-checkboxDisabled.args = {
+export const isDisabled = Template.bind({});
+isDisabled.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  disabled: true,
+  isDisabled: true,
 };
 
-export const checkboxCheckedDisabled = Template.bind({});
-checkboxCheckedDisabled.args = {
+export const checkedIsDisabled = Template.bind({});
+checkedIsDisabled.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  disabled: true,
+  isDisabled: true,
   checked: true,
 };
 
-export const checkboxInterminateDisabled = Template.bind({});
-checkboxInterminateDisabled.args = {
+export const isIndeterminateIsDisabled = Template.bind({});
+isIndeterminateIsDisabled.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  disabled: true,
+  isDisabled: true,
   checked: true,
   isIndeterminate: true,
 };
 
-export const MultipleTemplate = (args) => {
+const MultipleTemplate = (args) => {
   return {
     template: hbs`<PixCheckbox
   @id='one'
@@ -167,7 +174,7 @@ export const MultipleTemplate = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @size={{this.size}}
   @checked={{this.checked}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
 >
   <:label>{{this.label}}</:label>
@@ -179,7 +186,7 @@ export const MultipleTemplate = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @size={{this.size}}
   @checked={{this.checked}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
 >
   <:label>{{this.label}}</:label>

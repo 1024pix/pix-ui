@@ -19,6 +19,15 @@ export default {
       description: "Valeur permettant d'identifier l'option sélectionnée",
       type: { name: 'string', required: false },
     },
+    checked: {
+      name: 'checked',
+      description: 'Permet de cocher la radio',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     isDisabled: {
       name: 'isDisabled',
       description: 'Pour désactiver/activer le bouton radio',
@@ -79,7 +88,8 @@ const Template = (args) => {
   @value={{this.value}}
   @id={{this.id}}
   @class={{this.class}}
-  disabled={{this.isDisabled}}
+  checked={{this.checked}}
+  disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
   @size={{this.size}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -96,39 +106,37 @@ Default.args = {
   label: 'Poivron',
 };
 
+export const defaultChecked = Template.bind({});
+defaultChecked.args = {
+  ...Default.args,
+  checked: true,
+};
+
 export const isDisabled = Template.bind({});
 isDisabled.args = {
   ...Default.args,
-  disabled: true,
+  isDisabled: true,
 };
 
-/* Checked stories */
-const checked = (args) => {
-  return {
-    template: hbs`<PixRadioButton @value={{this.value}} disabled={{this.disabled}} checked><:label
-  >{{this.label}}</:label></PixRadioButton>`,
-    context: args,
-  };
-};
-
-export const disabledChecked = checked.bind({});
-disabledChecked.args = {
+export const checkedIsDisabled = Template.bind({});
+checkedIsDisabled.args = {
   ...Default.args,
-  disabled: true,
+  isDisabled: true,
+  checked: true,
 };
-
-export const defaultChecked = checked.bind({});
-defaultChecked.args = Default.args;
 
 /* Multiple components story */
 const multipleTemplate = (args) => {
   return {
-    template: hbs`<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
-  >{{this.label}}</:label></PixRadioButton>
-<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
-  >{{this.label}}</:label></PixRadioButton>
-<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
-  >{{this.label}}</:label></PixRadioButton>`,
+    template: hbs`<PixRadioButton disabled={{this.disabled}} @isDisabled={{this.isDisabled}} name='radio'>
+  <:label>{{this.label}}</:label>
+</PixRadioButton>
+<PixRadioButton disabled={{this.disabled}} @isDisabled={{this.isDisabled}} name='radio'>
+  <:label>{{this.label}}</:label>
+</PixRadioButton>
+<PixRadioButton disabled={{this.disabled}} @isDisabled={{this.isDisabled}} name='radio'>
+  <:label>{{this.label}}</:label>
+</PixRadioButton>`,
     context: args,
   };
 };
