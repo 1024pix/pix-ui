@@ -95,7 +95,7 @@ const Template = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @checked={{this.checked}}
   @isDisabled={{this.isDisabled}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @size={{this.size}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -167,7 +167,7 @@ const MultipleTemplate = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @size={{this.size}}
   @checked={{this.checked}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
 >
   <:label>{{this.label}}</:label>
@@ -179,7 +179,7 @@ const MultipleTemplate = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @size={{this.size}}
   @checked={{this.checked}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
 >
   <:label>{{this.label}}</:label>

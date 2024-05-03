@@ -79,7 +79,7 @@ const Template = (args) => {
   @value={{this.value}}
   @id={{this.id}}
   @class={{this.class}}
-  disabled={{this.isDisabled}}
+  disabled={{this.disabled}}
   @isDisabled={{this.isDisabled}}
   @size={{this.size}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -123,12 +123,15 @@ defaultChecked.args = Default.args;
 /* Multiple components story */
 const multipleTemplate = (args) => {
   return {
-    template: hbs`<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
-  >{{this.label}}</:label></PixRadioButton>
-<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
-  >{{this.label}}</:label></PixRadioButton>
-<PixRadioButton disabled={{this.isDisabled}} @isDisabled={{this.isDisabled}} name='radio'><:label
-  >{{this.label}}</:label></PixRadioButton>`,
+    template: hbs`<PixRadioButton disabled={{this.disabled}} @isDisabled={{this.isDisabled}} name='radio'>
+  <:label>{{this.label}}</:label>
+</PixRadioButton>
+<PixRadioButton disabled={{this.disabled}} @isDisabled={{this.isDisabled}} name='radio'>
+  <:label>{{this.label}}</:label>
+</PixRadioButton>
+<PixRadioButton disabled={{this.disabled}} @isDisabled={{this.isDisabled}} name='radio'>
+  <:label>{{this.label}}</:label>
+</PixRadioButton>`,
     context: args,
   };
 };
