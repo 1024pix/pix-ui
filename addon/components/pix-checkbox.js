@@ -21,6 +21,10 @@ export default class PixCheckbox extends Component {
     return classes.join(' ');
   }
 
+  get isDisabled() {
+    return this.args.isDisabled || this.args.disabled;
+  }
+
   @action
   avoidCheckedStateChangeIfIsDisabled(event) {
     if (this.args.isDisabled) {
