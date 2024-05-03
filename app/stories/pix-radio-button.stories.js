@@ -106,22 +106,22 @@ Default.args = {
   label: 'Poivron',
 };
 
+export const defaultChecked = Template.bind({});
+defaultChecked.args = {
+  ...Default.args,
+  checked: true,
+};
+
 export const isDisabled = Template.bind({});
 isDisabled.args = {
   ...Default.args,
   isDisabled: true,
 };
 
-export const disabledChecked = Template.bind({});
-disabledChecked.args = {
+export const checkedIsDisabled = Template.bind({});
+checkedIsDisabled.args = {
   ...Default.args,
   isDisabled: true,
-  checked: true,
-};
-
-export const defaultChecked = Template.bind({});
-defaultChecked.args = {
-  ...Default.args,
   checked: true,
 };
 
