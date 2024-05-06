@@ -1,8 +1,4 @@
 .pix-radio-button {
-  display: flex;
-  gap: var(--pix-spacing-3x);
-  align-items: center;
-
   & + .pix-radio-button {
     margin-top: var(--pix-spacing-4x);
   }

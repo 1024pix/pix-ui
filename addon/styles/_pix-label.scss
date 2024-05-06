@@ -3,6 +3,12 @@
   color: var(--pix-neutral-900);
   font-weight: var(--pix-font-medium);
 
+  &--wrapped-element {
+    display: flex;
+    gap: var(--pix-spacing-3x);
+    align-items: center;
+  }
+
   &--disabled {
     color: var(--pix-neutral-500);
   }

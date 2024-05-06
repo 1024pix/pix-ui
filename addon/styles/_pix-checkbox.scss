@@ -1,9 +1,6 @@
 .pix-checkbox {
   position: relative;
   z-index: 0;
-  display: flex;
-  gap: var(--pix-spacing-3x);
-  align-items: center;
 
   & + .pix-checkbox {
     margin-top: var(--pix-spacing-4x);
