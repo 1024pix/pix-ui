@@ -97,6 +97,8 @@ const Template = (args) => {
   @isDisabled={{this.isDisabled}}
   disabled={{this.disabled}}
   @size={{this.size}}
+  @subLabel={{this.subLabel}}
+  @requiredLabel={{this.requiredLabel}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >

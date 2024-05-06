@@ -94,6 +94,7 @@ const Template = (args) => {
   @size={{this.size}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @requiredLabel={{this.requiredLabel}}
+  @subLabel={{this.subLabel}}
 >
   <:label>{{this.label}}</:label>
 </PixRadioButton>`,
