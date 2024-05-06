@@ -1,3 +1,9 @@
+## [45.4.1](https://github.com/1024pix/pix-ui/compare/v45.4.0...v45.4.1) (2024-05-06)
+
+### :bug: Correction
+
+- [#607](https://github.com/1024pix/pix-ui/pull/607) Permet le clique entre les input `radio` ou `checkbox` et leur label
+
 # [45.4.0](https://github.com/1024pix/pix-ui/compare/v45.3.5...v45.4.0) (2024-05-06)
 
 ### :rocket: Amélioration
