@@ -1,3 +1,10 @@
+## [45.4.2](https://github.com/1024pix/pix-ui/compare/v45.4.1...v45.4.2) (2024-05-06)
+
+### :arrow_up: Montée de version
+
+- [#629](https://github.com/1024pix/pix-ui/pull/629) Lock file maintenance (dossier racine) 
+- [#631](https://github.com/1024pix/pix-ui/pull/631) Update dependency @1024pix/stylelint-config to ^5.1.11 (dossier racine)
+
 ## [45.4.1](https://github.com/1024pix/pix-ui/compare/v45.4.0...v45.4.1) (2024-05-06)
 
 ### :bug: Correction
