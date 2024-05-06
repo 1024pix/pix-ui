@@ -1,3 +1,9 @@
+# [45.4.0](https://github.com/1024pix/pix-ui/compare/v45.3.5...v45.4.0) (2024-05-06)
+
+### :rocket: Amélioration
+
+- [#624](https://github.com/1024pix/pix-ui/pull/624) Modifier l'aspect du bouton transparent light (PIX-12416)
+
 ## [45.3.5](https://github.com/1024pix/pix-ui/compare/v45.3.4...v45.3.5) (2024-05-06)
 
 ### :arrow_up: Montée de version
