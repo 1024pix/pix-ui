@@ -92,7 +92,7 @@ export const form = (args) => {
 
   <ul class='pix-form__actions'>
     <li>
-      <PixButtonLink @route='' @model='' @variant='transparent-light' @isBorderVisible={{true}}>
+      <PixButtonLink @route='' @model='' @variant='secondary' @isBorderVisible={{true}}>
         Annuler
       </PixButtonLink>
     </li>

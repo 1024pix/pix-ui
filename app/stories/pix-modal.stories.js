@@ -25,7 +25,7 @@ export default {
       style='display: flex; justify-content: flex-end; flex-wrap: wrap; gap: 16px; margin-bottom: 16px'
     >
       <PixButton
-        @variant='transparent-light'
+        @variant='secondary'
         @isBorderVisible='true'
         @triggerAction={{fn (mut this.showModal) (not this.showModal)}}
       >Annuler</PixButton>

@@ -11,17 +11,11 @@ Le bouton par défaut qui empêche les clics multiples.
 
   <Story of={ComponentStories.Default} />
 
-## Borders
+## Variants
 
-Le bouton avec bordures et fond transparent
+Le bouton avec toutes ses variations
 
-  <Story of={ComponentStories.borders} height={150} />
-
-## Colors
-
-Le bouton avec toutes ses variations de couleur
-
-  <Story of={ComponentStories.colors} height={500} />
+  <Story of={ComponentStories.variants} height={500} />
 
 ## Icons
 
@@ -71,7 +65,7 @@ Un petit bouton avec les bords arrondis en fond transparent avec une bordure
   @triggerAction="{{action"
   triggerAction}}
   @loadingColor="white"
-  @variant="transparent-light"
+  @variant="secondary"
   @isDisabled="{{false}}"
   @size="small"
   @isBorderVisible="{{true}}"

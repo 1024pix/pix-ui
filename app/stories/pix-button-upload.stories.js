@@ -18,14 +18,14 @@ export default {
     variant: {
       name: 'variant',
       description:
-        'color: `primary`, `success`, `secondary`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
+        'color: `primary`, `primary-bis`, `secondary`,`tertiary`, `success`, `error`, `transparent-dark`',
       options: [
         'primary',
-        'success',
+        'primary-bis',
         'secondary',
+        'tertiary',
+        'success',
         'error',
-        'neutral',
-        'transparent-light',
         'transparent-dark',
       ],
       type: { name: 'string', required: false },
@@ -49,7 +49,7 @@ export default {
     isBorderVisible: {
       name: 'isBorderVisible',
       description:
-        'Paramètre utilisé seulement quand le `variant` est `transparent-light` ou `transparent-dark`',
+        'Paramètre utilisé seulement quand le `variant` est `secondary` ou `transparent-dark`',
       type: { name: 'boolean', required: false },
       control: { type: 'boolean' },
       table: {
