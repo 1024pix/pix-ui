@@ -45,7 +45,7 @@ const Template = (args) => {
     {{! template-lint-disable no-inline-styles }}
     <div style='display: flex; gap: 8px'>
       <PixButton
-        @backgroundColor='transparent-light'
+        @variant='transparent-light'
         @isBorderVisible='true'
         @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
       >Annuler</PixButton>

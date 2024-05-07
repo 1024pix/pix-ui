@@ -26,8 +26,8 @@ export default {
         "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
       type: { required: false },
     },
-    backgroundColor: {
-      name: 'backgroundColor',
+    variant: {
+      name: 'variant',
       description:
         'color: `primary`, `secondary`, `success`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
       options: [
@@ -60,7 +60,7 @@ export default {
     isBorderVisible: {
       name: 'isBorderVisible',
       description:
-        'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+        'Paramètre utilisé seulement quand le `variant` est `transparent-light` ou `transparent-dark`',
       type: { name: 'boolean', required: false },
       control: { type: 'boolean' },
       table: {
@@ -85,7 +85,7 @@ export const htmlLink = {
     template: hbs`<PixButtonLink
   @href='https://pix.fr'
   target='NEW'
-  @backgroundColor={{this.backgroundColor}}
+  @variant={{this.variant}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
   @isDisabled={{this.isDisabled}}
@@ -102,7 +102,7 @@ export const emberLink = (args) => {
   @route=''
   @model=''
   @query={{this.query}}
-  @backgroundColor={{this.backgroundColor}}
+  @variant={{this.variant}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
   @isDisabled={{this.isDisabled}}
