@@ -116,13 +116,13 @@ export default {
     },
     size: {
       name: 'size',
-      description: 'taille: `big`,`small`',
-      options: ['big', 'small'],
+      description: 'taille: `large`,`small`',
+      options: ['large', 'small'],
       type: { name: 'string', required: false },
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'big' },
+        defaultValue: { summary: 'large' },
       },
     },
     isBorderVisible: {
@@ -182,7 +182,7 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   loadingColor: 'white',
-  size: 'big',
+  size: 'large',
   variant: 'primary',
   label: 'Bouton',
 };
