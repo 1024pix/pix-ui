@@ -13,8 +13,8 @@
       id={{this.id}}
       class={{this.inputClasses}}
       checked={{@checked}}
-      aria-disabled={{@isDisabled}}
-      {{on "click" this.avoidCheckedStateChangeIfDisabled}}
+      aria-disabled={{this.isDisabled}}
+      {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
       ...attributes
     />
 
