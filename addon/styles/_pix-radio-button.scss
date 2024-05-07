@@ -70,14 +70,11 @@
     }
 
     // Disabled state
+    &[aria-disabled],
     &:disabled {
       background: var(--pix-neutral-20);
       border-color: var(--pix-neutral-100);
       cursor: not-allowed;
-
-      & + .pix-radio-button__label {
-        cursor: not-allowed;
-      }
 
       &::before {
         display: none;

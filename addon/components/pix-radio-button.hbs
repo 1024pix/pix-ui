@@ -4,7 +4,7 @@
     @requiredLabel={{@requiredLabel}}
     @size={{@size}}
     @screenReaderOnly={{@screenReaderOnly}}
-    @isDisabled={{@isDisabled}}
+    @isDisabled={{this.isDisabled}}
     @inlineLabel={{true}}
     @wrappedElement={{true}}
   >
@@ -13,6 +13,8 @@
       id={{this.id}}
       class="pix-radio-button__input"
       value={{@value}}
+      aria-disabled={{this.isDisabled}}
+      {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
       ...attributes
     />
     {{yield to="label"}}

@@ -42,9 +42,9 @@
     outline: 2px solid var(--pix-primary-300);
   }
 
-  &[aria-disabled="true"],
-  &[disabled="true"],
-  &[readonly="true"] {
+  &[aria-disabled],
+  &[disabled],
+  &[readonly] {
     color: var(--pix-neutral-500);
     background-color: var(--pix-neutral-20);
     border-color:  var(--pix-neutral-100);
@@ -56,7 +56,7 @@
     }
   }
 
-  &[readonly="true"] {
+  &[readonly] {
     cursor: default;
   }
 }

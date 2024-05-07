@@ -1,5 +1,6 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import { action } from '@ember/object';
 
 export default class PixCheckbox extends Component {
   constructor() {
@@ -18,5 +19,16 @@ export default class PixCheckbox extends Component {
     }
 
     return classes.join(' ');
+  }
+
+  get isDisabled() {
+    return this.args.isDisabled || this.args.disabled;
+  }
+
+  @action
+  avoidCheckedStateChangeIfIsDisabled(event) {
+    if (this.args.isDisabled) {
+      event.preventDefault();
+    }
   }
 }

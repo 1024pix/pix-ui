@@ -5,7 +5,7 @@
     @size={{@size}}
     @inlineLabel={{true}}
     @screenReaderOnly={{@screenReaderOnly}}
-    @isDisabled={{@isDisabled}}
+    @isDisabled={{this.isDisabled}}
     @wrappedElement={{true}}
   >
     <input
@@ -13,7 +13,8 @@
       id={{this.id}}
       class={{this.inputClasses}}
       checked={{@checked}}
-      aria-disabled={{@isDisabled}}
+      aria-disabled={{this.isDisabled}}
+      {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
       ...attributes
     />
 
