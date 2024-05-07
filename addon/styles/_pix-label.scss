@@ -25,10 +25,9 @@
     @extend %pix-body-l;
   }
 
-
   &--inline-label {
     margin: 0;
-    font-weight: var(--pix-font-normal)
+    font-weight: var(--pix-font-normal);
   }
 
   &__sub-label {

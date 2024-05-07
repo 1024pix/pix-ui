@@ -106,11 +106,6 @@
       border-color: var(--pix-neutral-100);
       cursor: not-allowed;
 
-      & + .pix-checkbox__label {
-        color: var(--pix-neutral-500);
-        cursor: not-allowed;
-      }
-
       &:checked {
         background: var(--pix-neutral-100);
         border-color: var(--pix-neutral-100);

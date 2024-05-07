@@ -76,10 +76,6 @@
       border-color: var(--pix-neutral-100);
       cursor: not-allowed;
 
-      & + .pix-radio-button__label {
-        cursor: not-allowed;
-      }
-
       &::before {
         display: none;
       }
