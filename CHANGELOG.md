@@ -1,3 +1,9 @@
+# [45.5.0](https://github.com/1024pix/pix-ui/compare/v45.4.4...v45.5.0) (2024-05-07)
+
+### :rocket: Amélioration
+
+- [#626](https://github.com/1024pix/pix-ui/pull/626) Améliorations états `disabled` des champs de formulaire
+
 ## [45.4.4](https://github.com/1024pix/pix-ui/compare/v45.4.3...v45.4.4) (2024-05-07)
 
 ### :arrow_up: Montée de version
