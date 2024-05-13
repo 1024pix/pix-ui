@@ -1,3 +1,10 @@
+## [45.5.1](https://github.com/1024pix/pix-ui/compare/v45.5.0...v45.5.1) (2024-05-13)
+
+### :arrow_up: Montée de version
+
+- [#637](https://github.com/1024pix/pix-ui/pull/637) Lock file maintenance (dossier racine) 
+- [#636](https://github.com/1024pix/pix-ui/pull/636) Update dependency @1024pix/eslint-config to ^1.2.12 (dossier racine)
+
 # [45.5.0](https://github.com/1024pix/pix-ui/compare/v45.4.4...v45.5.0) (2024-05-07)
 
 ### :rocket: Amélioration
