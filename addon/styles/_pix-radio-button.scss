@@ -1,4 +1,7 @@
 .pix-radio-button {
+  position: relative;
+  z-index: 0;
+
   & + .pix-radio-button {
     margin-top: var(--pix-spacing-4x);
   }
