@@ -1,3 +1,9 @@
+# [46.0.0](https://github.com/1024pix/pix-ui/compare/v45.5.2...v46.0.0) (2024-05-13)
+
+### :boom: BREAKING CHANGE
+
+- [#633](https://github.com/1024pix/pix-ui/pull/633) Renommer les attributs des boutons (PIX-12417)
+
 ## [45.5.2](https://github.com/1024pix/pix-ui/compare/v45.5.1...v45.5.2) (2024-05-13)
 
 ### :bug: Correction
