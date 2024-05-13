@@ -2,21 +2,24 @@
   <PixLabel
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
+    @subLabel={{@subLabel}}
     @size={{@size}}
     @screenReaderOnly={{@screenReaderOnly}}
     @isDisabled={{this.isDisabled}}
     @inlineLabel={{true}}
     @wrappedElement={{true}}
   >
-    <input
-      type="radio"
-      id={{this.id}}
-      class="pix-radio-button__input"
-      value={{@value}}
-      aria-disabled={{this.isDisabled}}
-      {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
-      ...attributes
-    />
-    {{yield to="label"}}
+    <:inputElement>
+      <input
+        type="radio"
+        id={{this.id}}
+        class="pix-radio-button__input"
+        value={{@value}}
+        aria-disabled={{this.isDisabled}}
+        {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
+        ...attributes
+      />
+    </:inputElement>
+    <:default>{{yield to="label"}}</:default>
   </PixLabel>
 </div>
