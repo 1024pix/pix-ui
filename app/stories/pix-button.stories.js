@@ -30,17 +30,17 @@ export default {
         defaultValue: { summary: 'white' },
       },
     },
-    backgroundColor: {
-      name: 'backgroundColor',
+    variant: {
+      name: 'variant',
       description:
-        'color: `primary`, `secondary`, `success`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
+        'color: `primary`, `primary-bis`, `secondary`,`tertiary`, `success`, `error`, `transparent-dark`',
       options: [
         'primary',
+        'primary-bis',
         'secondary',
+        'tertiary',
         'success',
         'error',
-        'neutral',
-        'transparent-light',
         'transparent-dark',
       ],
       type: { name: 'string', required: false },
@@ -116,19 +116,19 @@ export default {
     },
     size: {
       name: 'size',
-      description: 'taille: `big`,`small`',
-      options: ['big', 'small'],
+      description: 'taille: `large`,`small`',
+      options: ['large', 'small'],
       type: { name: 'string', required: false },
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'big' },
+        defaultValue: { summary: 'large' },
       },
     },
     isBorderVisible: {
       name: 'isBorderVisible',
       description:
-        'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+        'Paramètre utilisé seulement quand le `variant` est `secondary` ou `transparent-dark`',
       type: { name: 'boolean', required: false },
       control: { type: 'boolean' },
       table: {
@@ -144,7 +144,7 @@ const Template = (args) => ({
   <PixButton
     @triggerAction={{this.triggerAction}}
     @loadingColor={{this.loadingColor}}
-    @backgroundColor={{this.backgroundColor}}
+    @variant={{this.variant}}
     @isDisabled={{this.isDisabled}}
     @isLoading={{this.isLoading}}
     @size={{this.size}}
@@ -162,7 +162,7 @@ const Template = (args) => ({
     <PixButton
       @triggerAction={{this.triggerAction}}
       @loadingColor={{button.loadingColor}}
-      @backgroundColor={{button.backgroundColor}}
+      @variant={{button.variant}}
       @isDisabled={{button.isDisabled}}
       @isLoading={{button.isLoading}}
       @size={{button.size}}
@@ -182,66 +182,47 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   loadingColor: 'white',
-  size: 'big',
-  backgroundColor: 'primary',
+  size: 'large',
+  variant: 'primary',
   label: 'Bouton',
 };
 
-export const borders = Template.bind({});
-borders.args = {
+export const variants = Template.bind({});
+variants.args = {
   ...Default.args,
-  label: 'Bouton avec bordure sur fond clair',
-  backgroundColor: 'transparent-light',
-  loadingColor: 'grey',
-  isBorderVisible: true,
+  label: 'Bouton primary (default)',
   extraButtons: [
     {
       ...Default.args,
-      label: 'Bouton avec bordure sur fond sombre',
-      style: 'background-color: #775555',
-      backgroundColor: 'transparent-dark',
-      isBorderVisible: true,
-    },
-  ],
-};
-
-export const colors = Template.bind({});
-colors.args = {
-  ...Default.args,
-  label: 'Bouton avec background primary (default)',
-  extraButtons: [
-    {
-      ...Default.args,
-      label: 'Bouton avec background success',
-      backgroundColor: 'success',
-    },
-    {
-      ...Default.args,
-      label: 'Bouton avec background secondary',
-      backgroundColor: 'secondary',
-    },
-    {
-      ...Default.args,
-      label: 'Bouton avec background error',
-      backgroundColor: 'error',
-    },
-    {
-      ...Default.args,
-      label: 'Bouton avec background neutral',
-      backgroundColor: 'neutral',
-    },
-    {
-      ...Default.args,
-      label: 'Bouton avec bordure sur fond clair',
-      backgroundColor: 'transparent-light',
+      label: 'Bouton primary-bis',
+      variant: 'primary-bis',
       loadingColor: 'grey',
-      isBorderVisible: true,
     },
     {
       ...Default.args,
-      label: 'Bouton avec bordure sur fond sombre',
+      label: 'Bouton secondary',
+      variant: 'secondary',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton tertiary',
+      variant: 'tertiary',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton success',
+      variant: 'success',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton error',
+      variant: 'error',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton avec bordure sur fond sombre (DEPRECATED)',
       style: 'background-color: #775555',
-      backgroundColor: 'transparent-dark',
+      variant: 'transparent-dark',
       isBorderVisible: true,
     },
   ],
@@ -265,7 +246,7 @@ export const loader = Template.bind({});
 loader.args = {
   ...Default.args,
   label: 'Bouton avec loader au clic',
-  backgroundColor: 'yellow',
+  variant: 'primary-bis',
   loadingColor: 'grey',
   triggerAction: () => {
     return new Promise((resolve) => {

@@ -26,17 +26,17 @@ export default {
         "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
       type: { required: false },
     },
-    backgroundColor: {
-      name: 'backgroundColor',
+    variant: {
+      name: 'variant',
       description:
-        'color: `primary`, `secondary`, `success`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
+        'color: `primary`, `primary-bis`, `secondary`,`tertiary`, `success`, `error`, `transparent-dark`',
       options: [
         'primary',
+        'primary-bis',
         'secondary',
+        'tertiary',
         'success',
         'error',
-        'neutral',
-        'transparent-light',
         'transparent-dark',
       ],
       type: { name: 'string', required: false },
@@ -48,19 +48,19 @@ export default {
     },
     size: {
       name: 'size',
-      description: 'taille: `big`,`small`',
-      options: ['big', 'small'],
+      description: 'taille: `large`,`small`',
+      options: ['large', 'small'],
       type: { name: 'string', required: false },
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'big' },
+        defaultValue: { summary: 'large' },
       },
     },
     isBorderVisible: {
       name: 'isBorderVisible',
       description:
-        'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+        'Paramètre utilisé seulement quand le `variant` est `secondary` ou `transparent-dark`',
       type: { name: 'boolean', required: false },
       control: { type: 'boolean' },
       table: {
@@ -85,7 +85,7 @@ export const htmlLink = {
     template: hbs`<PixButtonLink
   @href='https://pix.fr'
   target='NEW'
-  @backgroundColor={{this.backgroundColor}}
+  @variant={{this.variant}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
   @isDisabled={{this.isDisabled}}
@@ -102,7 +102,7 @@ export const emberLink = (args) => {
   @route=''
   @model=''
   @query={{this.query}}
-  @backgroundColor={{this.backgroundColor}}
+  @variant={{this.variant}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
   @isDisabled={{this.isDisabled}}

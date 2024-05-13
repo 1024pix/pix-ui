@@ -1,19 +1,19 @@
 import Component from '@glimmer/component';
 
 export default class PixButtonBase extends Component {
-  get backgroundColor() {
-    return this.args.backgroundColor || 'primary';
+  get variant() {
+    return this.args.variant || 'primary';
   }
 
   get size() {
-    return this.args.size || 'big';
+    return this.args.size || 'large';
   }
 
   get baseClassNames() {
     const classNames = [
       'pix-button',
       `pix-button--size-${this.size}`,
-      `pix-button--${this.backgroundColor}`,
+      `pix-button--${this.variant}`,
     ];
 
     this.args.isBorderVisible && classNames.push('pix-button--border');

@@ -15,17 +15,17 @@ export default {
         "fonction à exécuter au moment de l'upload du fichier, elle prend en entrée la liste des fichiers uploadés.",
       type: { name: 'function', required: true },
     },
-    backgroundColor: {
-      name: 'backgroundColor',
+    variant: {
+      name: 'variant',
       description:
-        'color: `primary`, `success`, `secondary`, `error`, `neutral`, `transparent-light`, `transparent-dark`',
+        'color: `primary`, `primary-bis`, `secondary`,`tertiary`, `success`, `error`, `transparent-dark`',
       options: [
         'primary',
-        'success',
+        'primary-bis',
         'secondary',
+        'tertiary',
+        'success',
         'error',
-        'neutral',
-        'transparent-light',
         'transparent-dark',
       ],
       type: { name: 'string', required: false },
@@ -38,18 +38,18 @@ export default {
     size: {
       name: 'size',
       description: 'taille: `big`,`small`',
-      options: ['big', 'small'],
+      options: ['large', 'small'],
       type: { name: 'string', required: false },
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'big' },
+        defaultValue: { summary: 'large' },
       },
     },
     isBorderVisible: {
       name: 'isBorderVisible',
       description:
-        'Paramètre utilisé seulement quand le `backgroundColor` est `transparent-light` ou `transparent-dark`',
+        'Paramètre utilisé seulement quand le `variant` est `secondary` ou `transparent-dark`',
       type: { name: 'boolean', required: false },
       control: { type: 'boolean' },
       table: {
@@ -65,7 +65,7 @@ export const buttonUpload = (args) => {
     template: hbs`<PixButtonUpload
   @id={{this.id}}
   @onChange={{this.onChange}}
-  @backgroundColor={{this.backgroundColor}}
+  @variant={{this.variant}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
 >
