@@ -1,3 +1,9 @@
+## [45.5.2](https://github.com/1024pix/pix-ui/compare/v45.5.1...v45.5.2) (2024-05-13)
+
+### :bug: Correction
+
+- [#632](https://github.com/1024pix/pix-ui/pull/632) Corriger l'affichage des Checkbox/radioButton dans le cas du screen reader only
+
 ## [45.5.1](https://github.com/1024pix/pix-ui/compare/v45.5.0...v45.5.1) (2024-05-13)
 
 ### :arrow_up: Montée de version
