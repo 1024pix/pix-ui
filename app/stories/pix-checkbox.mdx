@@ -28,6 +28,8 @@ En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composan
 
 ### Checkbox désactivée
 
+L'attribut `@isDisabled` permet de désactiver la checkbox en conservant la possibilité de naviguer avec le clavier ou le lecteur d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
+
 <Story of={ComponentStories.isDisabled} height={60} />
 <Story of={ComponentStories.checkedIsDisabled} height={60} />
 <Story of={ComponentStories.isIndeterminateIsDisabled} height={60} />
@@ -44,10 +46,10 @@ En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composan
 
 ```html
 <PixCheckbox
-  @screenReaderOnly="{{false}}"
-  @isIndeterminate="{{false}}"
+  @screenReaderOnly={{false}}
+  @isIndeterminate={{false}}
   @size="small"
-  disabled
+  @isDisabled={{true}}
 >
   <:label>Recevoir la newsletter</:label>
 </PixCheckbox>
