@@ -1,3 +1,9 @@
+## [46.0.2](https://github.com/1024pix/pix-ui/compare/v46.0.1...v46.0.2) (2024-05-14)
+
+### :bug: Correction
+
+- [#639](https://github.com/1024pix/pix-ui/pull/639) Correction de l'effet hover du RadioButton
+
 ## [46.0.1](https://github.com/1024pix/pix-ui/compare/v46.0.0...v46.0.1) (2024-05-14)
 
 ### :arrow_up: Montée de version
