@@ -85,6 +85,22 @@
   font-family: var(--_pix-font-family-body);
 }
 
+%pix-cta-s {
+  @extend %-pix-body;
+
+  font-weight: var(--pix-font-bold);
+  font-size: 0.875rem;
+  line-height: 1.429;
+}
+
+%pix-cta-l {
+  @extend %-pix-body;
+
+  font-weight: var(--pix-font-bold);
+  font-size: 1.125rem;
+  line-height: 1.556;
+}
+
 %pix-body-xs,
 .pix-body-xs {
   @extend %-pix-body;

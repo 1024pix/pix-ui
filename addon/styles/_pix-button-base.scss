@@ -2,14 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  color: var(--pix-neutral-0);
-  font-weight: var(--pix-font-bold);
-  font-size: 0.875rem;
   white-space: nowrap;
   text-decoration: none;
-  background-color: var(--pix-primary-500);
   border: 2px solid transparent;
-  border-radius: 25px;
   outline: none;
   cursor: pointer;
 
@@ -37,14 +32,21 @@
   }
 
   &--size-large {
+    @extend %pix-cta-l;
+
     padding: var(--pix-spacing-3x) var(--pix-spacing-6x);
+    border-radius: 50px;
   }
 
   &--size-small {
+    @extend %pix-cta-s;
+
     padding: var(--pix-spacing-2x) var(--pix-spacing-6x);
+    border-radius: 25px;
   }
 
   &--primary {
+    color: var(--pix-neutral-0);
     background-color: var(--pix-primary-500);
 
     &:not([aria-disabled="true"]) {
@@ -145,6 +147,7 @@
   }
 
   &--success {
+    color: var(--pix-neutral-0);
     background-color: var(--pix-success-500);
 
     &:not([aria-disabled="true"]) {
