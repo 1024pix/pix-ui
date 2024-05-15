@@ -8,15 +8,28 @@ import sinon from 'sinon';
 module('Integration | Component | checkbox', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it should be possible to check the checkbox', async function (assert) {
-    // when
-    const screen = await render(
-      hbs`<PixCheckbox><:label>Recevoir la newsletter</:label></PixCheckbox>`,
-    );
-    await clickByName('Recevoir la newsletter');
+  module('it should be possible to check the checkbox', function () {
+    test('when label is displayed', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixCheckbox><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+      );
+      await clickByName('Recevoir la newsletter');
 
-    // then
-    assert.true(screen.getByLabelText('Recevoir la newsletter').checked);
+      // then
+      assert.true(screen.getByLabelText('Recevoir la newsletter').checked);
+    });
+
+    test('when label is hidden', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixCheckbox @screenReaderOnly={{true}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+      );
+      await clickByName('Recevoir la newsletter');
+
+      // then
+      assert.true(screen.getByLabelText('Recevoir la newsletter').checked);
+    });
   });
 
   test('it should be possible to insert html in label', async function (assert) {

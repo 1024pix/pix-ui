@@ -8,12 +8,26 @@ import sinon from 'sinon';
 module('Integration | Component | pix-radio-button', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the default PixRadioButton', async function (assert) {
-    // when
-    const screen = await render(hbs`<PixRadioButton><:label>Abricot</:label></PixRadioButton>`);
+  module('it should be possible to check the radiobutton', function () {
+    test('when label is displayed', async function (assert) {
+      // when
+      const screen = await render(hbs`<PixRadioButton><:label>Abricot</:label></PixRadioButton>`);
+      await clickByName('Abricot');
 
-    // then
-    assert.strictEqual(screen.getByLabelText('Abricot').type, 'radio');
+      // then
+      assert.true(screen.getByLabelText('Abricot').checked);
+    });
+
+    test('when label is hidden', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixRadioButton @screenReaderOnly={{true}}><:label>Abricot</:label></PixRadioButton>`,
+      );
+      await clickByName('Abricot');
+
+      // then
+      assert.true(screen.getByLabelText('Abricot').checked);
+    });
   });
 
   test('it should be possible to add more params to PixRadioButton', async function (assert) {
