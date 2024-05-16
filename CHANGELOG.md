@@ -1,3 +1,9 @@
+## [46.0.3](https://github.com/1024pix/pix-ui/compare/v46.0.2...v46.0.3) (2024-05-16)
+
+### :arrow_up: Montée de version
+
+- [#643](https://github.com/1024pix/pix-ui/pull/643) Update dependency node to v20.13.1
+
 ## [46.0.2](https://github.com/1024pix/pix-ui/compare/v46.0.1...v46.0.2) (2024-05-14)
 
 ### :bug: Correction
