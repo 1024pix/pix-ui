@@ -1,3 +1,13 @@
+# [46.2.0](https://github.com/1024pix/pix-ui/compare/v46.1.0...v46.2.0) (2024-05-17)
+
+### :rocket: Amélioration
+
+- [#642](https://github.com/1024pix/pix-ui/pull/642) Mise à jour des tailles des boutons (PIX-12418) 
+
+### :coffee: Autre
+
+- [#644](https://github.com/1024pix/pix-ui/pull/644) Ne plus passer un un wrapped label pour les checkbox/radiobutton (PIX-12562)
+
 # [46.1.0](https://github.com/1024pix/pix-ui/compare/v46.0.3...v46.1.0) (2024-05-17)
 
 ### :rocket: Amélioration
