@@ -1,4 +1,14 @@
 <div class="pix-radio-button {{@class}}">
+  <input
+    type="radio"
+    id={{this.id}}
+    class="pix-radio-button__input"
+    value={{@value}}
+    aria-disabled={{this.isDisabled}}
+    {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
+    ...attributes
+  />
+
   <PixLabel
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
@@ -7,19 +17,7 @@
     @screenReaderOnly={{@screenReaderOnly}}
     @isDisabled={{this.isDisabled}}
     @inlineLabel={{true}}
-    @wrappedElement={{true}}
   >
-    <:inputElement>
-      <input
-        type="radio"
-        id={{this.id}}
-        class="pix-radio-button__input"
-        value={{@value}}
-        aria-disabled={{this.isDisabled}}
-        {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
-        ...attributes
-      />
-    </:inputElement>
-    <:default>{{yield to="label"}}</:default>
+    {{yield to="label"}}
   </PixLabel>
 </div>
