@@ -1,6 +1,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 import { action } from '@ember/object';
+import { warn } from '@ember/debug';
 
 export default class PixCheckbox extends Component {
   constructor() {
@@ -22,7 +23,15 @@ export default class PixCheckbox extends Component {
   }
 
   get isDisabled() {
-    return this.args.isDisabled || this.args.disabled;
+    warn(
+      'PixCheckbox: @isDisabled attribute should be a boolean.',
+      [true, false, undefined, null].includes(this.args.isDisabled),
+      {
+        id: 'pix-ui.checkbox.is-disabled.not-boolean',
+      },
+    );
+
+    return this.args.isDisabled || this.args.disabled ? 'true' : null;
   }
 
   @action

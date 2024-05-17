@@ -73,7 +73,7 @@
     }
 
     // Disabled state
-    &[aria-disabled],
+    &[aria-disabled='true'],
     &:disabled {
       background: var(--pix-neutral-20);
       border-color: var(--pix-neutral-100);
