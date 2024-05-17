@@ -1,3 +1,9 @@
+# [46.1.0](https://github.com/1024pix/pix-ui/compare/v46.0.3...v46.1.0) (2024-05-17)
+
+### :rocket: Amélioration
+
+- [#638](https://github.com/1024pix/pix-ui/pull/638) Mieux gérer les valeurs acceptées d'`isDisabled` des Checkbox/Radio
+
 ## [46.0.3](https://github.com/1024pix/pix-ui/compare/v46.0.2...v46.0.3) (2024-05-16)
 
 ### :arrow_up: Montée de version
