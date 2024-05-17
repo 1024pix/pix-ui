@@ -2,7 +2,7 @@
 
 // Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
 %-pix-title {
-  font-weight: 700;
+  font-weight: var(--pix-font-bold);
 
   // stylelint-disable-next-line custom-property-pattern
   font-family: var(--_pix-font-family-title);
@@ -79,10 +79,26 @@
 }
 
 %-pix-body {
-  font-weight: 400;
+  font-weight: var(--pix-font-normal);
 
   // stylelint-disable-next-line custom-property-pattern
   font-family: var(--_pix-font-family-body);
+}
+
+%pix-cta-s {
+  @extend %-pix-body;
+
+  font-weight: var(--pix-font-bold);
+  font-size: 0.875rem;
+  line-height: 1.429;
+}
+
+%pix-cta-l {
+  @extend %-pix-body;
+
+  font-weight: var(--pix-font-bold);
+  font-size: 1.125rem;
+  line-height: 1.556;
 }
 
 %pix-body-xs,
