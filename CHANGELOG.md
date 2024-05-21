@@ -1,3 +1,9 @@
+# [46.3.0](https://github.com/1024pix/pix-ui/compare/v46.2.2...v46.3.0) (2024-05-21)
+
+### :rocket: Amélioration
+
+- [#648](https://github.com/1024pix/pix-ui/pull/648) Rendre la taille des boutons à small par défaut.
+
 ## [46.2.2](https://github.com/1024pix/pix-ui/compare/v46.2.1...v46.2.2) (2024-05-20)
 
 ### :arrow_up: Montée de version
