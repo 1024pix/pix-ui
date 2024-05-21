@@ -122,7 +122,7 @@ export default {
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'large' },
+        defaultValue: { summary: 'small' },
       },
     },
     isBorderVisible: {
@@ -182,7 +182,6 @@ const Template = (args) => ({
 export const Default = Template.bind({});
 Default.args = {
   loadingColor: 'white',
-  size: 'large',
   variant: 'primary',
   label: 'Bouton',
 };
@@ -266,6 +265,6 @@ loader.args = {
 export const size = Template.bind({});
 size.args = {
   ...Default.args,
-  label: 'Bouton small',
-  size: 'small',
+  label: 'Bouton large',
+  size: 'large',
 };

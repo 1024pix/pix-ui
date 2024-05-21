@@ -43,7 +43,7 @@ export default {
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
-        defaultValue: { summary: 'large' },
+        defaultValue: { summary: 'small' },
       },
     },
     isBorderVisible: {
