@@ -86,8 +86,8 @@ Default.args = {
   triggerAction,
 };
 
-export const small = Template.bind({});
-small.args = {
+export const size = Template.bind({});
+size.args = {
   ...Default.args,
   size: 'small',
   triggerAction,

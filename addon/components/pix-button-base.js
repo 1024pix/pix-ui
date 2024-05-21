@@ -6,7 +6,7 @@ export default class PixButtonBase extends Component {
   }
 
   get size() {
-    return this.args.size || 'large';
+    return this.args.size || 'small';
   }
 
   get baseClassNames() {
