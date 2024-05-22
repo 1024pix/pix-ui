@@ -1,3 +1,9 @@
+# [46.4.0](https://github.com/1024pix/pix-ui/compare/v46.3.2...v46.4.0) (2024-05-22)
+
+### :rocket: Amélioration
+
+- [#650](https://github.com/1024pix/pix-ui/pull/650) Modifier le Design du bouton tertiaire (PIX-12615)
+
 ## [46.3.2](https://github.com/1024pix/pix-ui/compare/v46.3.1...v46.3.2) (2024-05-22)
 
 ### :building_construction: Tech
