@@ -1,0 +1,15 @@
+<label for={{@for}} class={{this.className}} ...attributes>
+  {{yield to="inputElement"}}
+
+  <span class="{{if @screenReaderOnly 'screen-reader-only'}}">
+    {{#if @requiredLabel}}
+      <abbr title={{@requiredLabel}} class="mandatory-mark">*</abbr>
+    {{/if}}
+
+    {{yield}}
+
+    {{#if @subLabel}}
+      <span class="pix-label__sub-label">{{@subLabel}}</span>
+    {{/if}}
+  </span>
+</label>

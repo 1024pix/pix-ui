@@ -102,6 +102,18 @@ const Template = (args) => {
   };
 };
 
+const FullWidthTemplate = (args) => {
+  return {
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div
+  style='border: 1px solid var(--pix-neutral-500); background: var(--pix-neutral-20); padding: var(--pix-spacing-4x); width: 500px'
+><PixRadioButton @id={{this.id}}>
+    <:label>{{this.label}}</:label>
+  </PixRadioButton></div>`,
+    context: args,
+  };
+};
+
 export const Default = Template.bind({});
 Default.args = {
   label: 'Poivron',
@@ -111,6 +123,11 @@ export const defaultChecked = Template.bind({});
 defaultChecked.args = {
   ...Default.args,
   checked: true,
+};
+
+export const FullWidth = FullWidthTemplate.bind({});
+FullWidth.args = {
+  label: 'Une réponse',
 };
 
 export const isDisabled = Template.bind({});

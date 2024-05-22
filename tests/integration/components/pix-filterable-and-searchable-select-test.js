@@ -36,7 +36,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     const items = await screen.findAllByRole('menuitem');
 
     const categories = items.map((item) => {
-      return item.innerText;
+      return item.innerText.trim();
     });
     // then
     assert.deepEqual(categories, ['Kebab', 'Hamburger']);
@@ -89,7 +89,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     const items = await screen.findAllByRole('menuitem');
 
     const categories = items.map((item) => {
-      return item.innerText;
+      return item.innerText.trim();
     });
 
     // then

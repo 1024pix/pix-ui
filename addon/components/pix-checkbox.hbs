@@ -1,15 +1,5 @@
 <div class="pix-checkbox {{@class}}">
-  <input
-    type="checkbox"
-    id={{this.id}}
-    class={{this.inputClasses}}
-    checked={{@checked}}
-    aria-disabled={{this.isDisabled}}
-    {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
-    ...attributes
-  />
-
-  <PixLabel
+  <PixLabelWrapped
     @for={{this.id}}
     @requiredLabel={{@requiredLabel}}
     @subLabel={{@subLabel}}
@@ -18,6 +8,19 @@
     @screenReaderOnly={{@screenReaderOnly}}
     @isDisabled={{this.isDisabled}}
   >
-    {{yield to="label"}}
-  </PixLabel>
+    <:inputElement>
+      <input
+        type="checkbox"
+        id={{this.id}}
+        class={{this.inputClasses}}
+        checked={{@checked}}
+        aria-disabled={{this.isDisabled}}
+        {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
+        ...attributes
+      />
+    </:inputElement>
+    <:default>
+      {{yield to="label"}}
+    </:default>
+  </PixLabelWrapped>
 </div>
