@@ -108,6 +108,18 @@ const Template = (args) => {
   };
 };
 
+const FullWidthTemplate = (args) => {
+  return {
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div
+  style='border: 1px solid var(--pix-neutral-500); background: var(--pix-neutral-20); padding: var(--pix-spacing-4x); width: 500px'
+><PixCheckbox @id={{this.id}} @isIndeterminate={{false}}>
+    <:label>{{this.label}}</:label>
+  </PixCheckbox></div>`,
+    context: args,
+  };
+};
+
 export const Default = Template.bind({});
 Default.args = {
   id: 'accept-newsletter',
@@ -119,6 +131,12 @@ DefaultChecked.args = {
   id: 'accept-newsletter',
   label: 'Recevoir la newsletter',
   checked: true,
+};
+
+export const FullWidth = FullWidthTemplate.bind({});
+FullWidth.args = {
+  id: 'proposal',
+  label: 'Une réponse',
 };
 
 export const isIndeterminate = Template.bind({});
