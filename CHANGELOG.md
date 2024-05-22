@@ -1,3 +1,9 @@
+## [46.3.2](https://github.com/1024pix/pix-ui/compare/v46.3.1...v46.3.2) (2024-05-22)
+
+### :building_construction: Tech
+
+- [#647](https://github.com/1024pix/pix-ui/pull/647) Ajouter un composant PixLabelWrapped pour les Checkbox|RadioButton
+
 ## [46.3.1](https://github.com/1024pix/pix-ui/compare/v46.3.0...v46.3.1) (2024-05-21)
 
 ### :arrow_up: Montée de version
