@@ -118,13 +118,4 @@ export default class PixPagination extends Component {
   goToPreviousPage() {
     this.router.replaceWith({ queryParams: { pageNumber: this.previousPage } });
   }
-
-  @action
-  checkCurrentPageAgainstPageCount() {
-    const pageCount = this.args.pagination.pageCount;
-    if (pageCount === 0) return;
-    if (this.currentPage > pageCount) {
-      this.router.replaceWith({ queryParams: { pageNumber: pageCount } });
-    }
-  }
 }

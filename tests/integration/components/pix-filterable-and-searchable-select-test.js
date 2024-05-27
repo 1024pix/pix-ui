@@ -256,7 +256,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
   @placeholder={{this.placeholder}}
   @options={{this.options}}
-  @value={{'2'}}
+  @value='2'
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
@@ -286,7 +286,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       const screen = await render(hbs`<PixFilterableAndSearchableSelect
   @placeholder={{this.placeholder}}
   @options={{this.options}}
-  @value={{'2'}}
+  @value='2'
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
@@ -314,7 +314,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @subLabel={{this.subLabel}}
   @placeholder={{this.placeholder}}
   @options={{this.options}}
-  @value={{'2'}}
+  @value='2'
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
@@ -339,7 +339,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       const screen = await render(hbs`<PixFilterableAndSearchableSelect
   @placeholder={{this.placeholder}}
   @options={{this.options}}
-  @value={{'2'}}
+  @value='2'
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
@@ -369,7 +369,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
   @placeholder={{this.placeholder}}
   @options={{this.options}}
-  @value={{'2'}}
+  @value='2'
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}

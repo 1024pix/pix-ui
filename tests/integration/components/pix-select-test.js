@@ -144,7 +144,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should display list, focus selected element on arrow up press', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @value={{'3'}} @placeholder={{this.placeholder}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @value='3' @placeholder={{this.placeholder}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -164,7 +164,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should display list, focus selected element on arrow down press', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @value={{'2'}} @placeholder={{this.placeholder}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @value='2' @placeholder={{this.placeholder}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -184,7 +184,7 @@ module('Integration | Component | PixSelect', function (hooks) {
       test('it should display list, focus selected element on space press', async function (assert) {
         // given
         const screen =
-          await render(hbs`<PixSelect @options={{this.options}} @value={{'1'}} @placeholder={{this.placeholder}}><:label
+          await render(hbs`<PixSelect @options={{this.options}} @value='1' @placeholder={{this.placeholder}}><:label
   >{{this.label}}</:label></PixSelect>`);
 
         // when

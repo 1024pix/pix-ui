@@ -4,7 +4,6 @@
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
   {{on-escape-action this.hideDropdown this.selectId}}
-  {{did-insert this.setSelectWidth}}
   {{on "keydown" this.lockTab}}
   ...attributes
 >
@@ -47,7 +46,6 @@
       <div
         {{popover}}
         class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
-        id={{this.dropDownId}}
         {{on "transitionend" this.focus}}
       >
         {{#if @isSearchable}}
