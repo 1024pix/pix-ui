@@ -1,3 +1,9 @@
+## [46.4.3](https://github.com/1024pix/pix-ui/compare/v46.4.2...v46.4.3) (2024-05-27)
+
+### :arrow_up: Montée de version
+
+- [#593](https://github.com/1024pix/pix-ui/pull/593) Update dependency ember-template-lint to v6 (dossier racine) (PIX-12410)
+
 ## [46.4.2](https://github.com/1024pix/pix-ui/compare/v46.4.1...v46.4.2) (2024-05-27)
 
 ### :arrow_up: Montée de version
