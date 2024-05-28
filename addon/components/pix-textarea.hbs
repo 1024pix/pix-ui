@@ -12,23 +12,24 @@
     </PixLabel>
   {{/if}}
 
-  <div>
+  <div class="pix-textarea__container">
     <textarea
       id={{this.id}}
       maxlength={{if @maxlength @maxlength}}
       aria-required="{{if @requiredLabel true false}}"
       required={{if @requiredLabel true false}}
-      class="{{if @errorMessage 'pix-textarea--error'}}"
+      class="pix-textarea-container__input {{if @errorMessage 'pix-textarea--error'}}"
       {{on "keyup" this.updateValue}}
       ...attributes
     >{{@value}}</textarea>
 
     {{#if @maxlength}}
-      <p>{{this.textLengthIndicator}} / {{@maxlength}}</p>
+      {{! prettier-ignore }}
+      <p class="pix-textarea-container__text-length-indicator">{{this.textLengthIndicator}} / {{@maxlength}}</p>
     {{/if}}
 
     {{#if @errorMessage}}
-      <label for={{this.id}} class="pix-textarea__error-message">{{@errorMessage}}</label>
+      <label for={{this.id}} class="pix-textarea-container__error-message">{{@errorMessage}}</label>
     {{/if}}
   </div>
 

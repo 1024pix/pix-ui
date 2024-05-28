@@ -1,5 +1,5 @@
-.pix-textarea {
-  textarea {
+.pix-textarea-container {
+  &__input {
     @extend %pix-form-element-state;
 
     width: 100%;
@@ -16,7 +16,7 @@
     }
   }
 
-  p {
+  &__text-length-indicator {
     display: flex;
     flex-direction: row-reverse;
     margin-top: 6px;
