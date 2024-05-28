@@ -1,10 +1,5 @@
 const config = {
-  addons: [
-    '@storybook/addon-essentials',
-    '@storybook/addon-a11y',
-    '@storybook/addon-mdx-gfm',
-    '@storybook/addon-webpack5-compiler-babel',
-  ],
+  addons: ['@storybook/addon-essentials', '@storybook/addon-a11y', '@storybook/addon-webpack5-compiler-babel'],
 
   stories: ['../docs/**/*.@(mdx|stories.@(mdx))', '../app/*/*.@(mdx|stories.@(js|jsx|ts|tsx))'],
   staticDirs: ['../dist'],
