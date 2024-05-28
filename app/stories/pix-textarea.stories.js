@@ -113,6 +113,32 @@ textarea.args = {
   value: 'Contenu du textarea',
 };
 
+const FullWidthTemplate = (args) => {
+  return {
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div
+  style='border: 1px solid var(--pix-neutral-500); background: var(--pix-neutral-20); padding: var(--pix-spacing-4x); width: 500px; height: 250px;'
+>
+  <PixTextarea
+    @id={{this.id}}
+    @value={{this.value}}
+    @subLabel={{this.subLabel}}
+    @maxlength={{this.maxlength}}
+  ><:label>{{this.label}}</:label></PixTextarea>
+</div>`,
+    context: args,
+  };
+};
+
+export const FullWidth = FullWidthTemplate.bind({});
+FullWidth.args = {
+  id: 'textarea',
+  label: 'Label du textarea',
+  subLabel: 'Sous-label',
+  value: 'Contenu du textarea',
+  maxlength: 120,
+};
+
 export const textareaWithoutLabel = TemplateWithoutlabel.bind({});
 textareaWithoutLabel.args = {
   id: 'textarea-without-label',
