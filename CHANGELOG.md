@@ -1,3 +1,9 @@
+# [46.5.0](https://github.com/1024pix/pix-ui/compare/v46.4.3...v46.5.0) (2024-05-28)
+
+### :rocket: Amélioration
+
+- [#652](https://github.com/1024pix/pix-ui/pull/652) Mis à jour du composant PixToggle (PIX-12672)
+
 ## [46.4.3](https://github.com/1024pix/pix-ui/compare/v46.4.2...v46.4.3) (2024-05-27)
 
 ### :arrow_up: Montée de version
