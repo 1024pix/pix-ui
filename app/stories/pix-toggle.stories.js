@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/Toggle',
+  title: 'Basics/Toggle',
   argTypes: {
     label: {
       name: 'label',
@@ -100,8 +100,8 @@ const TemplateWithYields = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   label: 'Mon toggle',
-  onLabel: 'Oui',
-  offLabel: 'Non',
+  onLabel: 'Option A',
+  offLabel: 'Option B',
   toggled: false,
   onChange: action('onChange'),
 };
@@ -110,8 +110,8 @@ export const Inline = Template.bind({});
 Inline.args = {
   inline: true,
   label: 'Mon toggle',
-  onLabel: 'Oui',
-  offLabel: 'Non',
+  onLabel: 'Option A',
+  offLabel: 'Option B',
   toggled: false,
   onChange: action('onChange'),
 };
@@ -120,8 +120,8 @@ export const ScreenReaderOnly = Template.bind({});
 ScreenReaderOnly.args = {
   screenReaderOnly: true,
   label: 'Mon toggle',
-  onLabel: 'Oui',
-  offLabel: 'Non',
+  onLabel: 'Option A',
+  offLabel: 'Option B',
   toggled: false,
   onChange: action('onChange'),
 };

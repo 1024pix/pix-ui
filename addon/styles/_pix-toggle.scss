@@ -10,9 +10,13 @@
   }
 
   &__button {
+    @extend %pix-body-s;
+
     width: fit-content;
     padding: var(--pix-spacing-1x);
-    background-color: transparent;
+    font-weight: var(--pix-font-bold);
+    line-height: 1.572;
+    background: var(--pix-neutral-20);
     border: 1px solid var(--pix-neutral-500);
     border-radius: 4px;
   }
@@ -20,11 +24,13 @@
   &__on,
   &__off {
     display: inline-block;
-    padding: var(--pix-spacing-2x);
-    color: var(--pix-neutral-800);
+    padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
     border-radius: 4px;
+  }
 
-    @extend %pix-body-s;
+  &__on {
+    color: var(--pix-neutral-800);
+    font-weight: var(--pix-font-normal);
   }
 
   &__off {
@@ -36,11 +42,13 @@
     .pix-toggle {
       &__on {
         color: var(--pix-neutral-20);
+        font-weight: inherit;
         background-color: var(--pix-neutral-800);
       }
 
       &__off {
         color: inherit;
+        font-weight: var(--pix-font-normal);
         background-color: transparent;
       }
     }
