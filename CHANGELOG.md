@@ -1,3 +1,9 @@
+## [46.5.1](https://github.com/1024pix/pix-ui/compare/v46.5.0...v46.5.1) (2024-05-29)
+
+### :building_construction: Tech
+
+- [#657](https://github.com/1024pix/pix-ui/pull/657) Nettoyage de Storybook
+
 # [46.5.0](https://github.com/1024pix/pix-ui/compare/v46.4.3...v46.5.0) (2024-05-28)
 
 ### :rocket: Amélioration
