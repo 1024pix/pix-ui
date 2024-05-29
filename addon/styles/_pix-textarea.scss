@@ -1,7 +1,20 @@
 .pix-textarea {
-  textarea {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+  }
+}
+
+.pix-textarea-container {
+  &__input {
     @extend %pix-form-element-state;
 
+    flex-grow: 1;
     width: 100%;
     padding: 10px var(--pix-spacing-4x);
     color: var(--pix-neutral-900);
@@ -16,7 +29,7 @@
     }
   }
 
-  p {
+  &__text-length-indicator {
     display: flex;
     flex-direction: row-reverse;
     margin-top: 6px;
