@@ -1,3 +1,9 @@
+## [46.5.2](https://github.com/1024pix/pix-ui/compare/v46.5.1...v46.5.2) (2024-05-29)
+
+### :bug: Correction
+
+- [#656](https://github.com/1024pix/pix-ui/pull/656) `PixTextarea` prend tout l'espace à sa disposition (PIX-12468)
+
 ## [46.5.1](https://github.com/1024pix/pix-ui/compare/v46.5.0...v46.5.1) (2024-05-29)
 
 ### :building_construction: Tech
