@@ -1,3 +1,9 @@
+# [46.6.0](https://github.com/1024pix/pix-ui/compare/v46.5.2...v46.6.0) (2024-05-30)
+
+### :rocket: Amélioration
+
+- [#655](https://github.com/1024pix/pix-ui/pull/655) Ajout et usage d'une police Monospace
+
 ## [46.5.2](https://github.com/1024pix/pix-ui/compare/v46.5.1...v46.5.2) (2024-05-29)
 
 ### :bug: Correction
