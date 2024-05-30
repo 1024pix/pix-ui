@@ -1,5 +1,8 @@
 .pix-input-code {
+  @extend %pix-monospace;
+
   display: flex;
+  line-height: 1.15;
 
   // hide up/down cursors
   input[type='number'] {
@@ -40,7 +43,8 @@
     border: 1.4px solid var(--pix-neutral-500);
     border-radius: 4px;
 
-    &:focus, &:active {
+    &:focus,
+    &:active {
       &::placeholder {
         opacity: 0;
       }

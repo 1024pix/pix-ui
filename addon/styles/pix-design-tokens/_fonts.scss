@@ -34,6 +34,13 @@
   src: url('../@1024pix/pix-ui/fonts/Roboto/Roboto-Bold.woff2');
 }
 
+@font-face {
+  font-weight: 400;
+  font-family: 'Roboto Mono';
+  font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/RobotoMono/RobotoMono-Regular.woff2');
+}
+
 /* @deprecated - use Design Tokens */
 $font-open-sans: 'Open Sans', Arial, sans-serif;
 $font-roboto: 'Roboto', Arial, sans-serif;
@@ -55,4 +62,9 @@ $font-bold: 700;
   // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
   // stylelint-disable-next-line custom-property-pattern
   --_pix-font-family-body: 'Roboto', Arial, sans-serif;
+
+  // Private property, do not use directly
+  // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
+  // stylelint-disable-next-line custom-property-pattern
+  --_pix-font-family-monospace: 'Roboto Mono', monospace;
 }
