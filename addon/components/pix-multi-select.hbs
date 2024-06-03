@@ -16,7 +16,7 @@
     {{yield to="label"}}
   </PixLabel>
 
-  <PopperJS @placement={{@placement}} as |reference popover|>
+  <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
 
     {{#if @isSearchable}}
       <span {{reference}} class={{this.headerClassName}}>
