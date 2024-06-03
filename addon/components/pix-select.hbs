@@ -21,7 +21,7 @@
   {{/if}}
 
   <div>
-    <PopperJS @placement={{@placement}} as |reference popover|>
+    <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
       <button
         {{reference}}
         type="button"
