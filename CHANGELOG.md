@@ -1,3 +1,9 @@
+## [46.6.3](https://github.com/1024pix/pix-ui/compare/v46.6.2...v46.6.3) (2024-06-03)
+
+### :bug: Correction
+
+- [#660](https://github.com/1024pix/pix-ui/pull/660) Aligner à gauche la liste des options des selects (PIX-12803).
+
 ## [46.6.2](https://github.com/1024pix/pix-ui/compare/v46.6.1...v46.6.2) (2024-06-03)
 
 ### :arrow_up: Montée de version
