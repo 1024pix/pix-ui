@@ -2,4 +2,39 @@
   display: flex;
   gap: var(--pix-spacing-2x);
   align-items: center;
+
+  &--variant-tile {
+    position: relative;
+    z-index: -2;
+    padding: var(--pix-spacing-3x) var(--pix-spacing-4x);
+    background: var(--pix-neutral-0);
+    border: 1px solid var(--pix-neutral-100);
+    border-radius: 4px;
+
+    &:focus-within {
+      border: 1px solid var(--pix-primary-500);
+      outline: 2px solid var(--pix-primary-300);
+    }
+
+    &:hover,
+    &:active {
+      background: var(--pix-primary-10);
+    }
+
+    &.pix-label-wrapped {
+      &--disabled {
+        background: var(--pix-neutral-20);
+        border-color: var(--pix-neutral-100);
+
+        &:hover,
+        &:active {
+          background: var(--pix-neutral-20);
+        }
+      }
+    }
+  }
+
+  &--disabled {
+    cursor: not-allowed;
+  }
 }

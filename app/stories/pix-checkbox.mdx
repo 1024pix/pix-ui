@@ -18,11 +18,15 @@ En ce sens, nous avons déjà prévu un espace vertical pour séparer 2 composan
 
 <Story of={ComponentStories.multiple} height={140} />
 
-### Dimensions du label
+### Variations graphiques du composant
 
-La PixCheckbox prend tout l'espace à sa disposition.
+La PixCheckbox prend toute la largeur à sa disposition.
 
 <Story of={ComponentStories.FullWidth} height={100} />
+
+Si le paramètre `variant` est précisé avec la valeur `tile`, la checkbox et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
+
+<Story of={ComponentStories.VariantTile} height={100} />
 
 ## États de la Checkbox
 
@@ -39,6 +43,10 @@ L'attribut `@isDisabled` permet de désactiver la checkbox en conservant la poss
 <Story of={ComponentStories.isDisabled} height={60} />
 <Story of={ComponentStories.checkedIsDisabled} height={60} />
 <Story of={ComponentStories.isIndeterminateIsDisabled} height={60} />
+
+<Story of={ComponentStories.isDisabledVariantTile} height={100} />
+<Story of={ComponentStories.checkedIsDisabledVariantTile} height={100} />
+<Story of={ComponentStories.isIndeterminateIsDisabledVariantTile} height={100} />
 
 ## Autres tailles de police du label
 
