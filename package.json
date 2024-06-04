@@ -69,7 +69,6 @@
     "@embroider/macros": "^1.11.0",
     "@embroider/test-setup": "^4.0.0",
     "@fortawesome/ember-fontawesome": "^2.0.0",
-    "@fortawesome/free-regular-svg-icons": "^6.2.1",
     "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/syntax": "^0.92.0",
