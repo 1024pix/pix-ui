@@ -1,3 +1,9 @@
+# [46.8.0](https://github.com/1024pix/pix-ui/compare/v46.7.0...v46.8.0) (2024-06-05)
+
+### :rocket: Amélioration
+
+- [#664](https://github.com/1024pix/pix-ui/pull/664) Ajouter un variant tile au composant PixRadioButton (PIX-12828)
+
 # [46.7.0](https://github.com/1024pix/pix-ui/compare/v46.6.4...v46.7.0) (2024-06-05)
 
 ### :rocket: Amélioration
