@@ -114,6 +114,23 @@ const FullWidthTemplate = (args) => {
   };
 };
 
+const VariantTileTemplate = (args) => {
+  return {
+    template: hbs`{{! template-lint-disable no-inline-styles }}
+<div
+  style='border: 1px solid var(--pix-neutral-500); background: var(--pix-neutral-20); padding: var(--pix-spacing-4x); width: 500px'
+><PixRadioButton
+    @id={{this.id}}
+    @isDisabled={{this.isDisabled}}
+    checked={{this.checked}}
+    @variant='tile'
+  >
+    <:label>{{this.label}}</:label>
+  </PixRadioButton></div>`,
+    context: args,
+  };
+};
+
 export const Default = Template.bind({});
 Default.args = {
   label: 'Poivron',
@@ -130,15 +147,36 @@ FullWidth.args = {
   label: 'Une réponse',
 };
 
+export const VariantTile = VariantTileTemplate.bind({});
+VariantTile.args = {
+  id: 'proposal',
+  label: 'Une réponse',
+};
+
 export const isDisabled = Template.bind({});
 isDisabled.args = {
   ...Default.args,
   isDisabled: true,
 };
 
+export const isDisabledVariantTile = VariantTileTemplate.bind({});
+isDisabledVariantTile.args = {
+  id: 'accept-newsletter-2',
+  label: 'Recevoir la newsletter',
+  isDisabled: true,
+};
+
 export const checkedIsDisabled = Template.bind({});
 checkedIsDisabled.args = {
   ...Default.args,
+  isDisabled: true,
+  checked: true,
+};
+
+export const checkedIsDisabledVariantTile = VariantTileTemplate.bind({});
+checkedIsDisabledVariantTile.args = {
+  id: 'accept-newsletter-2',
+  label: 'Recevoir la newsletter',
   isDisabled: true,
   checked: true,
 };
