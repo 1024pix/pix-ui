@@ -1,6 +1,21 @@
-module.exports = function () {
-  return {
-    'free-solid-svg-icons': 'all',
-    'free-regular-svg-icons': 'all',
-  };
-};
+module.exports = () => ({
+  'free-solid-svg-icons': [
+    'arrow-right',
+    'bullhorn',
+    'check',
+    'chevron-up',
+    'chevron-down',
+    'circle-check',
+    'circle-exclamation',
+    'circle-info',
+    'circle-question',
+    'earth-europe',
+    'eye',
+    'eye-slash',
+    'plus',
+    'triangle-exclamation',
+    'up-right-from-square',
+    'user',
+    'xmark',
+  ],
+});
