@@ -1,3 +1,9 @@
+# [46.9.0](https://github.com/1024pix/pix-ui/compare/v46.8.0...v46.9.0) (2024-06-05)
+
+### :rocket: Amélioration
+
+- [#663](https://github.com/1024pix/pix-ui/pull/663) Détailler les icônes utilisées par Pix UI
+
 # [46.8.0](https://github.com/1024pix/pix-ui/compare/v46.7.0...v46.8.0) (2024-06-05)
 
 ### :rocket: Amélioration
