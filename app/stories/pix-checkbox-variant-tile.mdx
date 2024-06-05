@@ -1,0 +1,42 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-checkbox-variant-tile.stories';
+
+<Meta of={ComponentStories} />
+
+# PixCheckbox `@variant="title"`
+
+La PixCheckbox permet de créer des checkbox basiques ou des checkbox mixées (checkbox servant d'indicateur lors d'une sélection multiple).
+Un cursor `pointer` est défini sur la checkbox et son label par défaut.
+
+La checkbox et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
+
+<Story of={ComponentStories.VariantTile} height={120} />
+
+## États de la Checkbox
+
+### Checkbox désactivée
+
+L'attribut `@isDisabled` permet de désactiver la checkbox en conservant la possibilité de naviguer avec le clavier ou le lecteur d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
+Un cursor `not-allowed` est défini sur la checkbox et son label lorsqu'elle est dans un état `disabled`.
+
+<Story of={ComponentStories.isDisabledVariantTile} height={120} />
+<Story of={ComponentStories.checkedIsDisabledVariantTile} height={120} />
+<Story of={ComponentStories.isIndeterminateIsDisabledVariantTile} height={120} />
+
+## Usage
+
+```html
+<PixCheckbox
+  @screenReaderOnly={{false}}
+  @isIndeterminate={{false}}
+  @size="small"
+  @isDisabled={{true}}
+  @variant="tile"
+>
+  <:label>Recevoir la newsletter</:label>
+</PixCheckbox>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

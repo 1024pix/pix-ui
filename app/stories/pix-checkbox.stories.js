@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Form/Checkbox',
+  title: 'Form/Inputs/Checkbox',
   argTypes: {
     id: {
       name: 'id',
@@ -120,24 +120,6 @@ const FullWidthTemplate = (args) => {
   };
 };
 
-const VariantTileTemplate = (args) => {
-  return {
-    template: hbs`{{! template-lint-disable no-inline-styles }}
-<div
-  style='border: 1px solid var(--pix-neutral-500); padding: var(--pix-spacing-4x); width: 500px'
-><PixCheckbox
-    @id={{this.id}}
-    @isIndeterminate={{this.isIndeterminate}}
-    @checked={{this.checked}}
-    @isDisabled={{this.isDisabled}}
-    @variant='tile'
-  >
-    <:label>{{this.label}}</:label>
-  </PixCheckbox></div>`,
-    context: args,
-  };
-};
-
 export const Default = Template.bind({});
 Default.args = {
   id: 'accept-newsletter',
@@ -153,12 +135,6 @@ DefaultChecked.args = {
 
 export const FullWidth = FullWidthTemplate.bind({});
 FullWidth.args = {
-  id: 'proposal',
-  label: 'Une réponse',
-};
-
-export const VariantTile = VariantTileTemplate.bind({});
-VariantTile.args = {
   id: 'proposal',
   label: 'Une réponse',
 };
@@ -202,30 +178,6 @@ checkedIsDisabled.args = {
 
 export const isIndeterminateIsDisabled = Template.bind({});
 isIndeterminateIsDisabled.args = {
-  id: 'accept-newsletter-2',
-  label: 'Recevoir la newsletter',
-  isDisabled: true,
-  checked: true,
-  isIndeterminate: true,
-};
-
-export const isDisabledVariantTile = VariantTileTemplate.bind({});
-isDisabledVariantTile.args = {
-  id: 'accept-newsletter-2',
-  label: 'Recevoir la newsletter',
-  isDisabled: true,
-};
-
-export const checkedIsDisabledVariantTile = VariantTileTemplate.bind({});
-checkedIsDisabledVariantTile.args = {
-  id: 'accept-newsletter-2',
-  label: 'Recevoir la newsletter',
-  isDisabled: true,
-  checked: true,
-};
-
-export const isIndeterminateIsDisabledVariantTile = VariantTileTemplate.bind({});
-isIndeterminateIsDisabledVariantTile.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
   isDisabled: true,
