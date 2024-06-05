@@ -1,3 +1,9 @@
+# [46.7.0](https://github.com/1024pix/pix-ui/compare/v46.6.4...v46.7.0) (2024-06-05)
+
+### :rocket: Amélioration
+
+- [#662](https://github.com/1024pix/pix-ui/pull/662) Ajouter un variant `tile` au composant `PixCheckbox` (PIX-12120)
+
 ## [46.6.4](https://github.com/1024pix/pix-ui/compare/v46.6.3...v46.6.4) (2024-06-04)
 
 ### :arrow_up: Montée de version
