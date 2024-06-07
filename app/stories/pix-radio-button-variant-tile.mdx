@@ -1,0 +1,39 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-radio-button-variant-tile.stories.js';
+
+<Meta of={ComponentStories} />
+
+# PixRadioButton `@variant="title"`
+
+Un bouton radio permettant de sélectionner une seule option dans une liste.
+
+⚠️ Le bouton radio ne peut pas être utilisé seul : il faut au minimum **2 options**.<br/>
+Il est préférable de ne pas sélectionner d’option par défaut pour que le choix de l’utilisateur soit conscient (en particulier si le choix est obligatoire).
+
+Un cursor `pointer` est défini sur le RadioButton et son label par défaut.
+
+Le RadioButton et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
+
+<Story of={ComponentStories.VariantTile} height={120} />
+
+## États du RadioButton
+
+### RadioButton désactivé
+
+L'attribut `@isDisabled` permet de désactiver le RadioButton en conservant la possibilité de naviguer avec le clavier ou le lecteur d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
+Un cursor `not-allowed` est défini sur le RadioButton et son label lorsqu'il est dans un état `disabled`.
+
+<Story of={ComponentStories.isDisabledVariantTile} height={120} />
+<Story of={ComponentStories.checkedIsDisabledVariantTile} height={120} />
+
+## Usage
+
+```html
+<PixRadioButton name="input-name" @value="{{value}}" @variant="tile">
+  <:label>Exemple de label</:label>
+</PixRadioButton>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
