@@ -24,12 +24,29 @@
 
     &.pix-label-wrapped {
       &--disabled {
-        background: var(--pix-neutral-20);
-        border-color: var(--pix-neutral-100);
+        --state-background-color: var(--pix-neutral-20);
+        --state-border-color: var(--pix-neutral-100);
+
+        &.pix-label-wrapped--state-success {
+          --state-background-color: var(--pix-neutral-0);
+          --state-border-color: var(--pix-success-300);
+
+          color: var(--pix-success-700);
+        }
+
+        &.pix-label-wrapped--state-error {
+          --state-background-color: var(--pix-neutral-0);
+          --state-border-color: var(--pix-error-500);
+
+          color: var(--pix-error-700);
+        }
+
+        background: var(--state-background-color);
+        border-color: var(--state-border-color);
 
         &:hover,
         &:active {
-          background: var(--pix-neutral-20);
+          background: var(--state-background-color);
         }
       }
     }
