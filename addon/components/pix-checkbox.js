@@ -19,6 +19,14 @@ export default class PixCheckbox extends Component {
       classes.push(`${classes[0]}--indeterminate`);
     }
 
+    if (this.args.state === 'success') {
+      classes.push(`${classes[0]}--state-success`);
+    }
+
+    if (this.args.state === 'error') {
+      classes.push(`${classes[0]}--state-error`);
+    }
+
     return classes.join(' ');
   }
 
