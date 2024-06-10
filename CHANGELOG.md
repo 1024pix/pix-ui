@@ -1,3 +1,9 @@
+## [46.9.3](https://github.com/1024pix/pix-ui/compare/v46.9.2...v46.9.3) (2024-06-10)
+
+### :building_construction: Tech
+
+- [#665](https://github.com/1024pix/pix-ui/pull/665) Améliorer la docs des `Checkbox` et `RadioButton`
+
 ## [46.9.2](https://github.com/1024pix/pix-ui/compare/v46.9.1...v46.9.2) (2024-06-10)
 
 ### :arrow_up: Montée de version
