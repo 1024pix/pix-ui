@@ -1,5 +1,6 @@
 import { Meta, Story, ArgTypes } from '@storybook/blocks';
 import * as ComponentStories from './pix-checkbox.stories';
+import * as VariantTileStories from './pix-checkbox-variant-tile.stories';
 
 <Meta of={ComponentStories} />
 
@@ -27,7 +28,9 @@ La PixCheckbox prend toute la largeur à sa disposition par défaut.
 
 Si le paramètre `variant` est précisé avec la valeur `tile`, la checkbox et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
 
-<Story of={ComponentStories.VariantTile} height={100} />
+<Story of={VariantTileStories.VariantTile} height={120} />
+
+Voir la [documentation de la variante `tile`](?path=/docs/form-inputs-checkbox-variant-tile--docs).
 
 ## États de la Checkbox
 
@@ -45,10 +48,6 @@ Un cursor `not-allowed` est défini sur la checkbox et son label lorsqu'elle est
 <Story of={ComponentStories.isDisabled} height={60} />
 <Story of={ComponentStories.checkedIsDisabled} height={60} />
 <Story of={ComponentStories.isIndeterminateIsDisabled} height={60} />
-
-<Story of={ComponentStories.isDisabledVariantTile} height={100} />
-<Story of={ComponentStories.checkedIsDisabledVariantTile} height={100} />
-<Story of={ComponentStories.isIndeterminateIsDisabledVariantTile} height={100} />
 
 ## Autres tailles de police du label
 
