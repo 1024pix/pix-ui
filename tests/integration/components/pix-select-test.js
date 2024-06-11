@@ -95,8 +95,12 @@ module('Integration | Component | PixSelect', function (hooks) {
       await screen.findByRole('listbox');
 
       // then
-      assert.strictEqual(screen.queryByText(this.placeholder, { selector: 'li' }).tabIndex, -1);
+      assert.strictEqual(
+        screen.queryByRole('listbox').querySelector('li:first-child').tabIndex,
+        -1,
+      );
       assert.strictEqual(screen.queryByRole('option', { name: this.placeholder }), null);
+      assert.strictEqual(screen.queryAllByRole('option').length, 3);
     });
   });
 
@@ -284,7 +288,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await screen.findByRole('listbox');
 
-        await screen.getByText('Tomate').focus();
+        await screen.getByText('Tomate').parentNode.focus();
 
         await userEvent.keyboard('[Enter]');
 
@@ -310,7 +314,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await screen.findByRole('listbox');
 
-        await screen.getByText('Tomate').focus();
+        await screen.getByText('Tomate').parentNode.focus();
 
         await click(screen.getByRole('button', { name: 'Focus me' }));
 
@@ -335,7 +339,7 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await screen.findByRole('listbox');
 
-        await screen.getByText('Tomate').focus();
+        await screen.getByText('Tomate').parentNode.focus();
 
         await userEvent.keyboard('[Space]');
 

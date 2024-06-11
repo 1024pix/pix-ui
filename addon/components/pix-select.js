@@ -25,23 +25,7 @@ export default class PixSelect extends Component {
     });
     this.displayCategory = categories.length > 0;
 
-    if (!this.args.isComputeWidthDisabled) {
-      this.elementHelper.waitForElement(this.selectId).then((elementList) => {
-        const baseFontRemRatio = Number(
-          getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
-        );
-        const checkIconWidth = 1.125 * baseFontRemRatio;
-        const listWidth = elementList.getBoundingClientRect().width;
-        const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
-
-        const className = `sizing-select-${this.selectId}`;
-        this.elementHelper.createClass(`.${className}`, `width: ${selectWidth}rem;`);
-
-        const element = document.getElementById(`container-${this.selectId}`);
-
-        element.className = element.className + ' ' + className;
-      });
-    }
+    this._setSelectWidth();
   }
 
   get displayDefaultOption() {
@@ -162,6 +146,27 @@ export default class PixSelect extends Component {
       } else if (this.displayDefaultOption) {
         document.querySelector("[aria-selected='true']").focus();
       }
+    }
+  }
+
+  _setSelectWidth() {
+    if (!this.args.isComputeWidthDisabled) {
+      this.elementHelper.waitForElement(this.selectId).then(() => {
+        const baseFontRemRatio = Number(
+          getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+        );
+
+        const listWidth = document
+          .getElementById(this.listId)
+          .parentNode.getBoundingClientRect().width;
+        const selectWidth = listWidth / baseFontRemRatio;
+
+        const className = `sizing-select-${this.selectId}`;
+        this.elementHelper.createClass(`.${className}`, `max-width: ${selectWidth}rem;`);
+
+        const element = document.getElementById(`container-${this.selectId}`);
+        element.className = element.className + ' ' + className;
+      });
     }
   }
 }

@@ -1,5 +1,5 @@
 <div
-  class="pix-select {{if @inlineLabel ' pix-select--inline'}}"
+  class="pix-select {{if @inlineLabel 'pix-select--inline'}} {{if @icon 'pix-select--with-icon'}}"
   id="container-{{this.selectId}}"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
@@ -33,19 +33,19 @@
         aria-disabled={{@isDisabled}}
       >
         {{#if @icon}}
-          <FaIcon @icon={{@icon}} />
+          <FaIcon class="pix-select-button__icon pix-select-button__icon--prefix" @icon={{@icon}} />
         {{/if}}
 
         <span class="pix-select-button__text">{{this.placeholder}}</span>
 
         <FaIcon
-          class="pix-select-button__dropdown-icon"
+          class="pix-select-button__icon pix-select-button__icon--arrow"
           @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
         />
       </button>
       <div
         {{popover}}
-        class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+        class="pix-select__dropdown{{if this.isExpanded ' pix-select__dropdown--expanded'}}"
         {{on "transitionend" this.focus}}
       >
         {{#if @isSearchable}}
@@ -75,7 +75,8 @@
             {{on-enter-action (fn this.onChange this.defaultOption)}}
             {{on-space-action (fn this.onChange this.defaultOption)}}
           >
-            {{@placeholder}}
+            <span class="pix-select-option__text">{{@placeholder}}</span>
+            <FaIcon class="icon" @icon="check" role="presentation" />
           </li>
           {{#if this.results}}
             {{#if this.displayCategory}}
@@ -113,11 +114,9 @@
                       {{on-enter-action (fn this.onChange option)}}
                       {{on-space-action (fn this.onChange option)}}
                     >
-                      {{option.label}}
+                      <span class="pix-select-option__text">{{option.label}}</span>
 
-                      {{#if (eq option.value @value)}}
-                        <FaIcon @icon="check" role="presentation" />
-                      {{/if}}
+                      <FaIcon class="icon" @icon="check" role="presentation" />
                     </li>
                   {{/each}}
                 </ul>
@@ -136,11 +135,9 @@
                   {{on-enter-action (fn this.onChange option)}}
                   {{on-space-action (fn this.onChange this.defaultOption)}}
                 >
-                  {{option.label}}
+                  <span class="pix-select-option__text">{{option.label}}</span>
 
-                  {{#if (eq option.value @value)}}
-                    <FaIcon @icon="check" role="presentation" />
-                  {{/if}}
+                  <FaIcon @icon="check" role="presentation" />
                 </li>
               {{/each}}
             {{/if}}
