@@ -297,6 +297,27 @@ Default.args = {
   onChange: action('onChange'),
 };
 
+export const ExtraLongPlaceholder = Template.bind({});
+ExtraLongPlaceholder.args = {
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '2', label: 'Bananes' },
+    { value: '4', label: 'Mangues' },
+    { value: '5', label: 'Kaki' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+    },
+  ],
+  label: 'Mon label',
+  placeholder:
+    '- This is a very super long placeholder - lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas -',
+  isSearchable: false,
+  hideDefaultOption: false,
+  onChange: action('onChange'),
+};
+
 export const WithCategories = Template.bind({});
 WithCategories.args = {
   options: [
