@@ -1,3 +1,5 @@
+import './storybook.css';
+
 const preview = {
   parameters: {
     layout: 'centered',
@@ -33,11 +35,11 @@ const preview = {
             'Breaking changes',
             'Faire une release',
             'Architecture',
-            'Storybook'
+            'Storybook',
           ],
         ],
       },
     },
-  }
+  },
 };
 export default preview;
