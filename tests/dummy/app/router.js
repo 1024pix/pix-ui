@@ -11,4 +11,5 @@ Router.map(function () {
   this.route('bye', { path: '/bye/:id' });
   this.route('modal-page', { path: '/modal' });
   this.route('sidebar-page', { path: '/sidebar' });
+  this.route('select-page', { path: '/select' });
 });
