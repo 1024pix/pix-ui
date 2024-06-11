@@ -211,6 +211,9 @@ export default {
       control: { type: 'boolean' },
     },
   },
+  parameters: {
+    layout: 'padded',
+  },
 };
 
 const Template = (args) => {
@@ -250,7 +253,7 @@ const Template = (args) => {
 const TemplatePopover = (args) => {
   return {
     template: hbs`{{! template-lint-disable no-inline-styles }}
-<div style='display:flex;height:330px'>
+<div style='display:flex;height:260px'>
   <div style='align-self:flex-end'>
     {{#if this.id}}
       <div>
