@@ -218,12 +218,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`{{#if this.id}}
-  <div>
-    <label for={{this.id}}>Un label en dehors du composant</label>
-  </div>
-{{/if}}
-<PixSelect
+    template: hbs`<PixSelect
   @id={{this.id}}
   @className={{this.className}}
   @options={{this.options}}
@@ -255,11 +250,6 @@ const TemplatePopover = (args) => {
     template: hbs`{{! template-lint-disable no-inline-styles }}
 <div style='display:flex;height:260px'>
   <div style='align-self:flex-end'>
-    {{#if this.id}}
-      <div>
-        <label for={{this.id}}>Un label en dehors du composant</label>
-      </div>
-    {{/if}}
     <PixSelect
       @id={{this.id}}
       @className={{this.className}}
@@ -285,46 +275,6 @@ const TemplatePopover = (args) => {
 </div>`,
     context: args,
   };
-};
-
-export const WithId = Template.bind({});
-WithId.args = {
-  id: 'custom',
-  options: [
-    { value: '1', label: 'Figues' },
-    { value: '3', label: 'Fraises' },
-    { value: '2', label: 'Bananes' },
-    { value: '4', label: 'Mangues' },
-    { value: '5', label: 'Kaki' },
-    {
-      value: '6',
-      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
-    },
-  ],
-  placeholder: 'Mon innerText',
-  isSearchable: false,
-  onChange: action('onChange'),
-};
-
-export const WithCustomClass = Template.bind({});
-WithCustomClass.args = {
-  className: 'custom',
-  options: [
-    { value: '1', label: 'Figues' },
-    { value: '3', label: 'Fraises' },
-    { value: '2', label: 'Bananes' },
-    { value: '4', label: 'Mangues' },
-    { value: '5', label: 'Kaki' },
-    {
-      value: '6',
-      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
-    },
-  ],
-  label: 'Mon label',
-  placeholder: 'Mon innerText',
-  subLabel: 'Mon sous label',
-  isSearchable: false,
-  onChange: action('onChange'),
 };
 
 export const Default = Template.bind({});
