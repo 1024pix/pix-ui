@@ -1,4 +1,10 @@
 export default {
+  input: {
+    state: {
+      success: 'Sélection correcte',
+      error: 'Sélection incorrecte',
+    },
+  },
   pagination: {
     beforeResultsPerPage: 'Voir',
     selectPageSizeLabel: "Nombre d'élément à afficher par page",

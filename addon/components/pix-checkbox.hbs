@@ -17,6 +17,7 @@
         class={{this.inputClasses}}
         checked={{@checked}}
         aria-disabled={{this.isDisabled}}
+        aria-describedby={{this.stateId}}
         {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
         ...attributes
       />
@@ -25,4 +26,12 @@
       {{yield to="label"}}
     </:default>
   </PixLabelWrapped>
+
+  <span class="screen-reader-only" id={{this.stateId}}>
+    {{#if this.hasSuccessState}}
+      {{this.stateSuccessMessage}}
+    {{else if this.hasErrorState}}
+      {{this.stateErrorMessage}}
+    {{/if}}
+  </span>
 </div>
