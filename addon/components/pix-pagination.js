@@ -1,7 +1,6 @@
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
-import { formatMessage } from '../translations';
 
 const DEFAULT_PAGE_OPTIONS = [
   { label: '10', value: 10 },
@@ -56,7 +55,7 @@ export default class PixPagination extends Component {
   }
 
   formatMessage(message, values) {
-    return formatMessage(this.args.locale ?? 'fr', `pagination.${message}`, values);
+    return 'allo';
   }
 
   get currentPage() {
