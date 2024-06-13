@@ -1,5 +1,6 @@
 module.exports = () => ({
   'free-solid-svg-icons': [
+    'arrow-left',
     'arrow-right',
     'bullhorn',
     'check',
