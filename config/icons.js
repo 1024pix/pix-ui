@@ -10,6 +10,7 @@ module.exports = () => ({
     'circle-exclamation',
     'circle-info',
     'circle-question',
+    'circle-xmark',
     'earth-europe',
     'eye',
     'eye-slash',

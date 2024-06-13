@@ -16,4 +16,12 @@ export default class PixLabelWrapped extends Component {
 
     return classes.join(' ');
   }
+
+  get hasError() {
+    return this.args.state === 'error';
+  }
+
+  get hasSuccess() {
+    return this.args.state === 'success';
+  }
 }

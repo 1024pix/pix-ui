@@ -116,6 +116,7 @@ module('Integration | Component | checkbox', function (hooks) {
         .dom(
           screen.getByRole('checkbox', {
             description: 'Sélection correcte',
+            hidden: true,
           }),
         )
         .exists();
@@ -135,6 +136,7 @@ module('Integration | Component | checkbox', function (hooks) {
         .dom(
           screen.getByRole('checkbox', {
             description: 'Sélection incorrecte',
+            hidden: true,
           }),
         )
         .exists();

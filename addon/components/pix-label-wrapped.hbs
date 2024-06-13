@@ -1,4 +1,11 @@
 <label for={{@for}} class={{this.className}} ...attributes>
+  {{#if this.hasError}}
+    <FaIcon @icon="circle-xmark" />
+  {{/if}}
+  {{#if this.hasSuccess}}
+    <FaIcon @icon="circle-check" />
+  {{/if}}
+
   {{yield to="inputElement"}}
 
   <span class="{{if @screenReaderOnly 'screen-reader-only'}}">
