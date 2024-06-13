@@ -55,7 +55,7 @@ export default {
       description: `Nom de l'icône font-awesome à afficher **avant** le label`,
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['trash-can', 'heart', 'magnifying-glass', 'plus', 'xmark'],
+      options: ['magnifying-glass', 'plus', 'xmark'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: null },
@@ -66,7 +66,7 @@ export default {
       description: `Nom de l'icône font-awesome à afficher **après** le label`,
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['trash-can', 'heart', 'magnifying-glass', 'plus', 'xmark'],
+      options: ['magnifying-glass', 'plus', 'xmark'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: null },
@@ -231,7 +231,7 @@ export const icons = Template.bind({});
 icons.args = {
   ...Default.args,
   iconBefore: 'magnifying-glass',
-  iconAfter: 'heart',
+  iconAfter: 'plus',
 };
 
 export const disabled = Template.bind({});
