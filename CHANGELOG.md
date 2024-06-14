@@ -1,3 +1,9 @@
+## [46.9.5](https://github.com/1024pix/pix-ui/compare/v46.9.4...v46.9.5) (2024-06-14)
+
+### :bug: Correction
+
+- [#674](https://github.com/1024pix/pix-ui/pull/674) Ajoute des icônes manquantes `magnifying-glass` et `arrow-left`
+
 ## [46.9.4](https://github.com/1024pix/pix-ui/compare/v46.9.3...v46.9.4) (2024-06-13)
 
 ### :arrow_up: Montée de version
