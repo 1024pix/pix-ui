@@ -1,3 +1,9 @@
+# [46.10.0](https://github.com/1024pix/pix-ui/compare/v46.9.5...v46.10.0) (2024-06-14)
+
+### :rocket: Amélioration
+
+- [#669](https://github.com/1024pix/pix-ui/pull/669) Ajouter des états succès/erreur au Checkbox `tile` (PIX-12834)
+
 ## [46.9.5](https://github.com/1024pix/pix-ui/compare/v46.9.4...v46.9.5) (2024-06-14)
 
 ### :bug: Correction
