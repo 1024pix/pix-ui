@@ -90,8 +90,8 @@ const TemplateWithYields = (args) => {
   return {
     template: hbs`<PixToggle @toggled={{this.toggled}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
-  <:on><FaIcon @icon='sun' /></:on>
-  <:off><FaIcon @icon='moon' /></:off>
+  <:on><FaIcon @icon='eye' /></:on>
+  <:off><FaIcon @icon='eye-slash' /></:off>
 </PixToggle>`,
     context: args,
   };

@@ -1,5 +1,6 @@
 module.exports = () => ({
   'free-solid-svg-icons': [
+    'arrow-left',
     'arrow-right',
     'bullhorn',
     'check',
@@ -12,6 +13,7 @@ module.exports = () => ({
     'earth-europe',
     'eye',
     'eye-slash',
+    'magnifying-glass',
     'plus',
     'triangle-exclamation',
     'up-right-from-square',
