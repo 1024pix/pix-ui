@@ -42,7 +42,6 @@ export default {
         defaultValue: { summary: false },
       },
     },
-
     label: {
       name: 'label',
       description: 'Le label du champ',

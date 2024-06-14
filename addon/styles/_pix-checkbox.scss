@@ -114,6 +114,11 @@
       &::before {
         display: none;
       }
+
+      &.pix-checkbox__input--state {
+        position: absolute;
+        visibility: hidden;
+      }
     }
   }
 }
