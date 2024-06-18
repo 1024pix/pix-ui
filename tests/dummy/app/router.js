@@ -10,5 +10,6 @@ Router.map(function () {
   this.route('hello', { path: '/hello-world' });
   this.route('bye', { path: '/bye/:id' });
   this.route('modal-page', { path: '/modal' });
+  this.route('select-page', { path: '/select' });
   this.route('sidebar-page', { path: '/sidebar' });
 });
