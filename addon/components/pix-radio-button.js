@@ -22,6 +22,12 @@ export default class PixRadioButton extends Component {
     return this.args.isDisabled || this.args.disabled ? 'true' : null;
   }
 
+  get inputClasses() {
+    const classes = ['pix-radio-button__input'];
+
+    return classes.join(' ');
+  }
+
   @action
   avoidCheckedStateChangeIfIsDisabled(event) {
     if (this.args.isDisabled) {

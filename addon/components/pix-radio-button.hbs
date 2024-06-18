@@ -13,7 +13,7 @@
       <input
         type="radio"
         id={{this.id}}
-        class="pix-radio-button__input"
+        class={{this.inputClasses}}
         value={{@value}}
         aria-disabled={{this.isDisabled}}
         {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
