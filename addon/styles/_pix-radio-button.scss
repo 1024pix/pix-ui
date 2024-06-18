@@ -86,6 +86,11 @@
       &:checked::after {
         background-color: var(--pix-neutral-100);
       }
+
+      &.pix-radio-button__input--state {
+        position: absolute;
+        visibility: hidden;
+      }
     }
   }
 }

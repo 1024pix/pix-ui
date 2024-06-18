@@ -25,6 +25,10 @@ export default class PixRadioButton extends Component {
   get inputClasses() {
     const classes = ['pix-radio-button__input'];
 
+    if (this.args.state === 'success' || this.args.state === 'error') {
+      classes.push(`${classes[0]}--state`);
+    }
+
     return classes.join(' ');
   }
 
