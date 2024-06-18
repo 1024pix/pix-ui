@@ -1,3 +1,9 @@
+## [46.10.3](https://github.com/1024pix/pix-ui/compare/v46.10.2...v46.10.3) (2024-06-18)
+
+### :bug: Correction
+
+- [#678](https://github.com/1024pix/pix-ui/pull/678) Réparer la largeur du Select (PIX-12845).
+
 ## [46.10.2](https://github.com/1024pix/pix-ui/compare/v46.10.1...v46.10.2) (2024-06-17)
 
 ### :arrow_up: Montée de version
