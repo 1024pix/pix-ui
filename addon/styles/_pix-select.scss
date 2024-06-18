@@ -3,6 +3,8 @@
   display: inline-flex;
   flex-direction: column;
   gap: var(--pix-spacing-1x);
+  width: var(--pix-select-width);
+  max-width: 100%;
 
   &--inline {
     flex-direction: row;
@@ -136,10 +138,8 @@
   &__option {
     @extend %pix-body-s;
 
-    display: flex;
-    gap: var(--pix-spacing-6x);
-    justify-content: space-between;
-    padding: var(--pix-spacing-2x) var(--pix-spacing-6x);
+    position: relative;
+    padding: var(--pix-spacing-2x) var(--pix-spacing-8x) var(--pix-spacing-2x) var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
 
     &:hover,
@@ -150,7 +150,11 @@
     }
 
     svg {
+      position: absolute;
+      top: 50%;
+      right: var(--pix-spacing-2x);
       font-size: 1.125rem;
+      transform: translateY(-50%);
       visibility: hidden;
       opacity: 0;
     }

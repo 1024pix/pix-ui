@@ -1,0 +1,14 @@
+<h1>PixSelect</h1>
+
+<PixSelect
+  @options={{this.options}}
+  @onChange={{this.onChange}}
+  @value={{this.selectedOption}}
+  @hideDefaultOption={{true}}
+  @placeholder="Select an option"
+  @isSearchable={{true}}
+>
+  <:label>Label</:label>
+</PixSelect>
+
+<PixPagination @pagination={{this.pagination}} />

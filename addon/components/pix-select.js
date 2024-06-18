@@ -26,20 +26,15 @@ export default class PixSelect extends Component {
     this.displayCategory = categories.length > 0;
 
     if (!this.args.isComputeWidthDisabled) {
-      this.elementHelper.waitForElement(this.selectId).then((elementList) => {
+      this.elementHelper.waitForElement(this.listId).then((elementList) => {
         const baseFontRemRatio = Number(
           getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
         );
-        const checkIconWidth = 1.125 * baseFontRemRatio;
         const listWidth = elementList.getBoundingClientRect().width;
-        const selectWidth = (listWidth + checkIconWidth) / baseFontRemRatio;
-
-        const className = `sizing-select-${this.selectId}`;
-        this.elementHelper.createClass(`.${className}`, `width: ${selectWidth}rem;`);
+        const selectWidth = listWidth / baseFontRemRatio;
 
         const element = document.getElementById(`container-${this.selectId}`);
-
-        element.className = element.className + ' ' + className;
+        element.style.setProperty('--pix-select-width', `${selectWidth}rem`);
       });
     }
   }
