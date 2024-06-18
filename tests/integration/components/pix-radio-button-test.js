@@ -83,6 +83,48 @@ module('Integration | Component | pix-radio-button', function (hooks) {
       assert.false(radiobutton.checked, "Radiobutton has changed state, but shouldn't have");
     });
 
+    test(`it should read success state info if given`, async function (assert) {
+      // given
+      this.set('isDisabled', true);
+
+      // when
+      const screen = await render(
+        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='success'><:label>Recevoir la
+    newsletter</:label></PixRadioButton>`,
+      );
+
+      // then
+      assert
+        .dom(
+          screen.getByRole('radio', {
+            description: 'Sélection correcte',
+            hidden: true,
+          }),
+        )
+        .exists();
+    });
+
+    test(`it should read error state info if given`, async function (assert) {
+      // given
+      this.set('isDisabled', true);
+
+      // when
+      const screen = await render(
+        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='error'><:label>Recevoir la
+    newsletter</:label></PixRadioButton>`,
+      );
+
+      // then
+      assert
+        .dom(
+          screen.getByRole('radio', {
+            description: 'Sélection incorrecte',
+            hidden: true,
+          }),
+        )
+        .exists();
+    });
+
     ['true', 'false', 'null', 'undefined'].forEach(function (testCase) {
       test(`it should not be possible to interact when @isDisabled="${testCase}"`, async function (assert) {
         // given
