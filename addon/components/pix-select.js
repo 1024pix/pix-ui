@@ -59,10 +59,6 @@ export default class PixSelect extends Component {
     return classes.join(' ');
   }
 
-  get isAriaExpanded() {
-    return this.isExpanded ? 'true' : 'false';
-  }
-
   get placeholder() {
     if (!this.args.value) return this.args.placeholder;
     const option = this.args.options.find((option) => option.value === this.args.value);

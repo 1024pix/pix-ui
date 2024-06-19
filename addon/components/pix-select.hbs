@@ -9,7 +9,7 @@
 >
   {{#if (has-block "label")}}
     <PixLabel
-      @for={{this.selectId}}
+      id="label-{{this.selectId}}"
       @requiredLabel={{@requiredLabel}}
       @subLabel={{@subLabel}}
       @size={{@size}}
@@ -22,14 +22,19 @@
 
   <div>
     <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
-      <button
+      <div
         {{reference}}
-        type="button"
+        role="combobox"
         id={{this.selectId}}
         class={{this.className}}
+        tabindex="0"
         {{on "click" this.toggleDropdown}}
-        aria-expanded={{this.isAriaExpanded}}
+        {{on-enter-action this.toggleDropdown}}
+        {{on-space-action this.toggleDropdown}}
+        aria-haspopup="listbox"
         aria-controls={{this.listId}}
+        aria-expanded="{{this.isExpanded}}"
+        aria-labelledby="label-{{this.selectId}}"
         aria-disabled={{@isDisabled}}
       >
         {{#if @icon}}
@@ -42,7 +47,7 @@
           class="pix-select-button__dropdown-icon"
           @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
         />
-      </button>
+      </div>
       <div
         {{popover}}
         class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
