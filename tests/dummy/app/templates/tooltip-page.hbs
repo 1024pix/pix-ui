@@ -1,0 +1,29 @@
+{{! template-lint-disable no-inline-styles }}
+<PixBlock style="margin: 3vmin; padding: 3vmin;">
+  <PixTooltip @id="id">
+    <:triggerElement>
+      <PixButton aria-describedby="id">
+        Label
+      </PixButton>
+    </:triggerElement>
+
+    <:tooltip>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas molestie mauris vel
+      viverra.
+    </:tooltip>
+  </PixTooltip>
+</PixBlock>
+<PixBlock style="margin: 3vmin; padding: 3vmin;">
+  <PixTooltip @id="id2">
+    <:triggerElement>
+      <PixInput @id="id3" @type="text" @placeholder="Placeholder">
+        Label
+      </PixInput>
+    </:triggerElement>
+
+    <:tooltip>
+      Lorem ipsum dolor sit amet, consectetur adipiscing elit. Ut egestas molestie mauris vel
+      viverra.
+    </:tooltip>
+  </PixTooltip>
+</PixBlock>

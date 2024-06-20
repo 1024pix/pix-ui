@@ -60,21 +60,20 @@ module('Integration | Component | pix-tooltip', function (hooks) {
 
   test('it dismissed tooltip on escape keyup', async function (assert) {
     // given
-    const screen = await render(hbs`<PixTooltip>
+    const screen = await render(hbs`<PixTooltip @position='bottom'>
   <:triggerElement>
-    template block text
+    <PixButton>Trigger</PixButton>
   </:triggerElement>
-  <:tooltip></:tooltip>
+  <:tooltip>Some tooltip</:tooltip>
 </PixTooltip>`);
 
     // when
-    await screen.getByText('template block text').focus();
+    await screen.getByRole('button', { name: 'Trigger' }).focus();
 
     await userEvent.keyboard('[Escape]');
 
     // then
-    assert.contains('template block text');
-    assert.dom('.pix-tooltip__content').isNotVisible();
+    assert.dom('.pix-tooltip').doesNotHaveClass('pix-tooltip--visible');
   });
 
   module('tooltip position', function () {

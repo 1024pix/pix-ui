@@ -118,6 +118,23 @@ const TemplateWithIconElement = (args) => {
   };
 };
 
+const TemplateWithInputElement = (args) => {
+  return {
+    template: hbs`<PixTooltip @id={{this.id}} @isInline='true'>
+  <:triggerElement>
+    <PixInput @id='some-id'>
+      <:label>{{this.label}}</:label>
+    </PixInput>
+  </:triggerElement>
+
+  <:tooltip>
+    {{this.text}}
+  </:tooltip>
+</PixTooltip>`,
+    context: args,
+  };
+};
+
 export const Default = Template.bind({});
 Default.args = {
   text: 'Hello World',
@@ -180,6 +197,12 @@ WithHTML.args = {
 
 export const WithIcon = TemplateWithIconElement.bind({});
 WithIcon.args = {
+  text: 'Hello World',
+  label: 'À survoler pour voir la tooltip',
+};
+
+export const WithInput = TemplateWithInputElement.bind({});
+WithInput.args = {
   text: 'Hello World',
   label: 'À survoler pour voir la tooltip',
 };
