@@ -1,3 +1,9 @@
+## [46.10.5](https://github.com/1024pix/pix-ui/compare/v46.10.4...v46.10.5) (2024-06-20)
+
+### :building_construction: Tech
+
+- [#673](https://github.com/1024pix/pix-ui/pull/673) Gérer l'apparition du tooltip en CSS (PIX-12955).
+
 ## [46.10.4](https://github.com/1024pix/pix-ui/compare/v46.10.3...v46.10.4) (2024-06-20)
 
 ### :arrow_up: Montée de version
