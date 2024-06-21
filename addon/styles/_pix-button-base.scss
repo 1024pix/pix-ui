@@ -104,6 +104,8 @@
   }
 
   &--tertiary {
+    padding-right: 0;
+    padding-left: 0;
     color: var(--pix-neutral-800);
     text-decoration: underline;
     background-color: transparent;
