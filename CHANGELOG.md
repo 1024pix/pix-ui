@@ -1,3 +1,9 @@
+## [46.10.8](https://github.com/1024pix/pix-ui/compare/v46.10.7...v46.10.8) (2024-06-24)
+
+### :bug: Correction
+
+- [#681](https://github.com/1024pix/pix-ui/pull/681) Retirer le padding gauche / droite du bouton tertiaire (PIX-13037)
+
 ## [46.10.7](https://github.com/1024pix/pix-ui/compare/v46.10.6...v46.10.7) (2024-06-24)
 
 ### :arrow_up: Montée de version
