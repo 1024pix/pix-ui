@@ -1,3 +1,9 @@
+# [46.11.0](https://github.com/1024pix/pix-ui/compare/v46.10.8...v46.11.0) (2024-06-24)
+
+### :rocket: Amélioration
+
+- [#679](https://github.com/1024pix/pix-ui/pull/679)  Ajouter des états succès/erreur au RadioButton tile (PIX-12836)
+
 ## [46.10.8](https://github.com/1024pix/pix-ui/compare/v46.10.7...v46.10.8) (2024-06-24)
 
 ### :bug: Correction
