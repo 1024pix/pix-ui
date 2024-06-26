@@ -64,11 +64,11 @@
       {{popover}}
       class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
       id={{this.listId}}
-      role="menu"
+      role="listbox"
     >
       {{#if (gt this.results.length 0)}}
         {{#each this.results as |option|}}
-          <li class="pix-multi-select-list__item" role="menuitem">
+          <li class="pix-multi-select-list__item" role="option">
             <PixCheckbox
               @id={{concat this.multiSelectId "-" option.value}}
               @checked={{option.checked}}
