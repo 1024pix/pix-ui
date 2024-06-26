@@ -1,0 +1,33 @@
+<div class="pix-tabs" id={{this.id}}>
+  <div
+    class="pix-tabs__tablist"
+    role="tablist"
+    aria-label={{@ariaLabel}}
+    {{on "keyup" this.handleTablistKeyUp}}
+  >
+    {{#if this.isLeftArrowVisible}}
+      <span
+        class="pix-tabs-tablist__scroll-button pix-tabs-tablist__scroll-button--left"
+        tabindex="-1"
+        {{on "click" (fn this.handleArrowClick "left")}}
+      ></span>
+    {{/if}}
+    <div>
+      {{yield
+        (component
+          this.Tab currentTab=this.currentTabIndex id=this.id onTabClick=this.handleTabChange
+        )
+        to="tabs"
+      }}
+    </div>
+    {{#if this.isRightArrowVisible}}
+      <span
+        class="pix-tabs-tablist__scroll-button pix-tabs-tablist__scroll-button--right"
+        tabindex="-1"
+        {{on "click" (fn this.handleArrowClick "right")}}
+      ></span>
+    {{/if}}
+  </div>
+
+  {{yield (component this.Panel currentTab=this.currentTabIndex id=this.id) to="panels"}}
+</div>

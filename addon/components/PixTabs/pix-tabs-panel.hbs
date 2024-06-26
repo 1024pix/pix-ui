@@ -1,0 +1,10 @@
+<div
+  class="pix-tabs__tabpanel"
+  id="{{@id}}-panel-{{@index}}"
+  role="tabpanel"
+  tabindex={{if (eq @currentTab @index) "0" "-1"}}
+  aria-labelledby="{{@id}}-{{@index}}"
+  hidden={{not-eq @currentTab @index}}
+>
+  {{yield}}
+</div>

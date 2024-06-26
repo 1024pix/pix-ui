@@ -1,0 +1,23 @@
+<PixTabs @ariaLabel="Sample tabs" @initialTabIndex={{1}} @onTabChange={{this.handleTabChange}}>
+  <:tabs as |Tab|>
+    <Tab @index={{0}}>Sed do eiusmod tempor incididunt</Tab>
+    <Tab @index={{1}}>Dolor sit amet</Tab>
+    <Tab @index={{2}}>Consectetur adipiscing elit</Tab>
+    <Tab @index={{3}}>Lorem ipsum</Tab>
+  </:tabs>
+
+  <:panels as |Panel|>
+    <Panel @index={{0}}>
+      <h2>Panel content</h2>
+    </Panel>
+    <Panel @index={{1}}>
+      <h2>Another panel</h2>
+    </Panel>
+    <Panel @index={{2}}>
+      <h2>Coucou</h2>
+    </Panel>
+    <Panel @index={{3}}>
+      <h2>Last one</h2>
+    </Panel>
+  </:panels>
+</PixTabs>

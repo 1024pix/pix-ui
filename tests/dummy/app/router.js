@@ -12,5 +12,6 @@ Router.map(function () {
   this.route('modal-page', { path: '/modal' });
   this.route('select-page', { path: '/select' });
   this.route('sidebar-page', { path: '/sidebar' });
+  this.route('tabs-page', { path: '/tabs' });
   this.route('tooltip-page', { path: '/tooltip' });
 });
