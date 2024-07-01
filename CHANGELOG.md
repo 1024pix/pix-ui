@@ -1,3 +1,9 @@
+## [46.11.6](https://github.com/1024pix/pix-ui/compare/v46.11.5...v46.11.6) (2024-07-01)
+
+### :arrow_up: Montée de version
+
+- [#691](https://github.com/1024pix/pix-ui/pull/691) Update dependency @1024pix/ember-testing-library to ^2.0.5 (dossier racine)
+
 ## [46.11.5](https://github.com/1024pix/pix-ui/compare/v46.11.4...v46.11.5) (2024-07-01)
 
 ### :arrow_up: Montée de version
