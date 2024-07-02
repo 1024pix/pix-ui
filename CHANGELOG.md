@@ -1,3 +1,9 @@
+## [46.11.7](https://github.com/1024pix/pix-ui/compare/v46.11.6...v46.11.7) (2024-07-02)
+
+### :bug: Correction
+
+- [#693](https://github.com/1024pix/pix-ui/pull/693) retarde l'appel à hideTootltip
+
 ## [46.11.6](https://github.com/1024pix/pix-ui/compare/v46.11.5...v46.11.6) (2024-07-01)
 
 ### :arrow_up: Montée de version
