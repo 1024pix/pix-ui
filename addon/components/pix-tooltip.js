@@ -30,7 +30,7 @@ export default class PixTooltip extends Component {
 
   @action
   hideTooltip() {
-    this.isTooltipVisible = false;
+    setTimeout(() => (this.isTooltipVisible = false));
   }
 
   @action
