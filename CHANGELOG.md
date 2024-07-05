@@ -1,3 +1,9 @@
+# [46.12.0](https://github.com/1024pix/pix-ui/compare/v46.11.7...v46.12.0) (2024-07-05)
+
+### :rocket: Amélioration
+
+- [#692](https://github.com/1024pix/pix-ui/pull/692) Supprimer l'option compact du composant PixTag (PIX-11127).
+
 ## [46.11.7](https://github.com/1024pix/pix-ui/compare/v46.11.6...v46.11.7) (2024-07-02)
 
 ### :bug: Correction
