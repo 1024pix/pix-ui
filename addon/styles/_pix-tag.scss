@@ -12,13 +12,6 @@
   border: 1px solid transparent;
   border-radius: 0.95rem;
 
-  &--compact {
-    @extend %pix-body-xs;
-
-    line-height: inherit;
-    text-transform: uppercase;
-  }
-
   &--grey-light,
   &--neutral {
     color: var(--pix-neutral-900);

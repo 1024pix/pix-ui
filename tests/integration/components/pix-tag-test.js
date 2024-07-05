@@ -19,19 +19,9 @@ module('Integration | Component | pix-tag', function (hooks) {
     assert.ok(pixTagElement.classList.contains('pix-tag--primary'));
   });
 
-  test('it renders a compact tag', async function (assert) {
-    await render(hbs`<PixTag @compact={{true}} />`);
-
-    const pixTagElement = this.element.querySelector('.pix-tag');
-    assert.ok(pixTagElement.classList.contains('pix-tag--compact'));
-  });
-
   test('it renders with attributes override', async function (assert) {
-    await render(hbs`<PixTag @color='secondary' aria-label='world' />`);
+    const screen = await render(hbs`<PixTag @color='secondary' aria-label='world' />`);
 
-    const pixTagElement = this.element.querySelector('.pix-tag');
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(pixTagElement.getAttribute('aria-label'), 'world');
+    assert.dom(screen.getByLabelText('world')).exists();
   });
 });
