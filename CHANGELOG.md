@@ -1,3 +1,10 @@
+## [46.12.1](https://github.com/1024pix/pix-ui/compare/v46.12.0...v46.12.1) (2024-07-08)
+
+### :arrow_up: Montée de version
+
+- [#695](https://github.com/1024pix/pix-ui/pull/695) Lock file maintenance (dossier racine) 
+- [#694](https://github.com/1024pix/pix-ui/pull/694) Update dependency @1024pix/ember-testing-library to ^2.0.6 (dossier racine)
+
 # [46.12.0](https://github.com/1024pix/pix-ui/compare/v46.11.7...v46.12.0) (2024-07-05)
 
 ### :rocket: Amélioration
