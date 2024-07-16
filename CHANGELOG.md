@@ -1,3 +1,9 @@
+## [46.12.5](https://github.com/1024pix/pix-ui/compare/v46.12.4...v46.12.5) (2024-07-16)
+
+### :building_construction: Tech
+
+- [#699](https://github.com/1024pix/pix-ui/pull/699) Ajoute le support node@v22
+
 ## [46.12.4](https://github.com/1024pix/pix-ui/compare/v46.12.3...v46.12.4) (2024-07-16)
 
 ### :arrow_up: Montée de version
