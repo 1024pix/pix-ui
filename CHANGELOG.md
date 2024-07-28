@@ -1,3 +1,9 @@
+## [46.12.12](https://github.com/1024pix/pix-ui/compare/v46.12.11...v46.12.12) (2024-07-28)
+
+### :building_construction: Tech
+
+- [#707](https://github.com/1024pix/pix-ui/pull/707) Corriger les alertes SASS
+
 ## [46.12.11](https://github.com/1024pix/pix-ui/compare/v46.12.10...v46.12.11) (2024-07-22)
 
 ### :arrow_up: Montée de version
