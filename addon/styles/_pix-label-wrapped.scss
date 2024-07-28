@@ -41,8 +41,11 @@
           color: var(--pix-error-700);
         }
 
-        background: var(--state-background-color);
-        border-color: var(--state-border-color);
+        // stylelint-disable-next-line no-duplicate-selectors
+        & {
+          background: var(--state-background-color);
+          border-color: var(--state-border-color);
+        }
 
         &:hover,
         &:active {
