@@ -48,15 +48,21 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
   &--checked {
     @include checkmarkColor(var(--pix-neutral-800));
 
-    padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
-    background-color: var(--pix-neutral-20);
+    // stylelint-disable-next-line no-duplicate-selectors
+    & {
+      padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
+      background-color: var(--pix-neutral-20);
+    }
 
     &:hover {
       @include checkmarkColor(var(--pix-neutral-900));
 
-      color: var(--pix-neutral-900);
-      background-color: var(--pix-neutral-20);
-      border: var(--pix-neutral-500) solid 1px;
+      // stylelint-disable-next-line no-duplicate-selectors
+      & {
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-20);
+        border: var(--pix-neutral-500) solid 1px;
+      }
     }
 
     & label {
@@ -67,18 +73,24 @@ $checkmark-width-with-space: $checkmark-width + 0.438rem;
   &:focus-within {
     @include checkmarkColor(var(--pix-neutral-0));
 
-    color: var(--pix-neutral-0);
-    background-color: var(--pix-neutral-900);
-    border-color: var(--pix-neutral-0);
-    outline: none;
-    box-shadow: 0 0 0 1px var(--pix-neutral-900);
+    // stylelint-disable-next-line no-duplicate-selectors
+    & {
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-neutral-900);
+      border-color: var(--pix-neutral-0);
+      outline: none;
+      box-shadow: 0 0 0 1px var(--pix-neutral-900);
+    }
 
     &:hover {
       @include checkmarkColor(var(--pix-neutral-900));
 
-      color: var(--pix-neutral-900);
-      background-color: var(--pix-neutral-20);
-      border: var(--pix-neutral-500) solid 1px;
+      // stylelint-disable-next-line no-duplicate-selectors
+      & {
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-20);
+        border: var(--pix-neutral-500) solid 1px;
+      }
     }
 
     &:active {
