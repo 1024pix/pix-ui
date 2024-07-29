@@ -12,6 +12,7 @@ export default modifier(function trapFocus(element, [isOpen]) {
   } else if (sourceActiveElement) {
     allowPageScrolling();
     focusElement(sourceActiveElement, element);
+    sourceActiveElement = null;
   }
 
   element.addEventListener('keydown', (event) => {
