@@ -1,3 +1,9 @@
+## [46.12.14](https://github.com/1024pix/pix-ui/compare/v46.12.13...v46.12.14) (2024-07-29)
+
+### :bug: Correction
+
+- [#706](https://github.com/1024pix/pix-ui/pull/706) Corrige le scroll involontaire dans une page avec plusieurs modales (PIX-13529)
+
 ## [46.12.13](https://github.com/1024pix/pix-ui/compare/v46.12.12...v46.12.13) (2024-07-29)
 
 ### :arrow_up: Montée de version
