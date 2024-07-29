@@ -1,3 +1,9 @@
+## [46.12.13](https://github.com/1024pix/pix-ui/compare/v46.12.12...v46.12.13) (2024-07-29)
+
+### :arrow_up: Montée de version
+
+- [#708](https://github.com/1024pix/pix-ui/pull/708) Lock file maintenance (dossier racine)
+
 ## [46.12.12](https://github.com/1024pix/pix-ui/compare/v46.12.11...v46.12.12) (2024-07-28)
 
 ### :building_construction: Tech
