@@ -26,7 +26,7 @@
     "build-ember": "ember build --environment=production",
     "serve-ember": "ember serve",
     "build-storybook": "ember build && cp -v CNAME dist && storybook build",
-    "serve-storybook": "storybook dev --port 9001",
+    "serve-storybook": "storybook dev --port 9001 --no-open",
     "clean": "rm -rf dist node_modules",
     "deploy-storybook": "storybook-to-ghpages",
     "lint": "npm-run-all --aggregate-output --parallel --continue-on-error 'lint:!(fix)'",
