@@ -1,3 +1,9 @@
+## [46.12.16](https://github.com/1024pix/pix-ui/compare/v46.12.15...v46.12.16) (2024-07-31)
+
+### :arrow_up: Montée de version
+
+- [#710](https://github.com/1024pix/pix-ui/pull/710) Update dependency node to v20.16.0
+
 ## [46.12.15](https://github.com/1024pix/pix-ui/compare/v46.12.14...v46.12.15) (2024-07-29)
 
 ### :arrow_up: Montée de version
