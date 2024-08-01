@@ -1,3 +1,9 @@
+## [46.12.18](https://github.com/1024pix/pix-ui/compare/v46.12.17...v46.12.18) (2024-08-01)
+
+### :building_construction: Tech
+
+- [#711](https://github.com/1024pix/pix-ui/pull/711) Ne pas ouvrir de nouvel onglet au lancement de Storybook en développement
+
 ## [46.12.17](https://github.com/1024pix/pix-ui/compare/v46.12.16...v46.12.17) (2024-08-01)
 
 ### :bug: Correction
