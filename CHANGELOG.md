@@ -1,3 +1,9 @@
+## [46.12.17](https://github.com/1024pix/pix-ui/compare/v46.12.16...v46.12.17) (2024-08-01)
+
+### :bug: Correction
+
+- [#712](https://github.com/1024pix/pix-ui/pull/712) Corrige la couleur de texte du bouton secondary hover
+
 ## [46.12.16](https://github.com/1024pix/pix-ui/compare/v46.12.15...v46.12.16) (2024-07-31)
 
 ### :arrow_up: Montée de version
