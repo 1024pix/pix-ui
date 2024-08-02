@@ -35,6 +35,19 @@
 
   &--background {
     background-color: var(--pix-neutral-20);
+
+    &:hover:enabled {
+      background-color: var(--pix-neutral-100);
+    }
+
+    &:focus:enabled {
+      background-color: var(--pix-neutral-800);
+    }
+
+    &:active:enabled {
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-neutral-500);
+    }
   }
 
   &--small {
