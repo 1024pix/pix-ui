@@ -1,3 +1,9 @@
+## [46.12.21](https://github.com/1024pix/pix-ui/compare/v46.12.20...v46.12.21) (2024-08-16)
+
+### :bug: Correction
+
+- [#719](https://github.com/1024pix/pix-ui/pull/719) Permettre le focus sur les `variants` `tile` `isDisabled` avec un `state`
+
 ## [46.12.20](https://github.com/1024pix/pix-ui/compare/v46.12.19...v46.12.20) (2024-08-12)
 
 ### :arrow_up: Montée de version
