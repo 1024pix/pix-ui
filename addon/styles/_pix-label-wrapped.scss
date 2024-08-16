@@ -41,6 +41,15 @@
           color: var(--pix-error-700);
         }
 
+        & .pix-label-wrapped__state-icon {
+          z-index: 1;
+          width: 1rem;
+          height: 1rem;
+          padding: 0;
+          background-color: var(--state-background-color);
+          border: 0;
+        }
+
         // stylelint-disable-next-line no-duplicate-selectors
         & {
           background: var(--state-background-color);
