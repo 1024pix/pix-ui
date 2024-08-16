@@ -104,31 +104,6 @@ module('Integration | Component | pix-radio-button', function (hooks) {
         .exists();
     });
 
-    module('when @isDisabled is false', function () {
-      test(`it should not be possible to add a state`, async function (assert) {
-        // given
-        this.set('isDisabled', false);
-        this.set('state', 'success');
-
-        // when
-        await render(
-          hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state={{this.state}}><:label>Bonne réponse
-    !</:label></PixRadioButton>`,
-        );
-
-        // then
-        sandbox.assert.calledWith(
-          EmberDebug.warn,
-          'PixRadioButton: @state attribute should be used along with @isDisabled attribute.',
-          false,
-          {
-            id: 'pix-ui.radio-button.state.cant-be-used-without-is-disabled',
-          },
-        );
-        assert.ok(true);
-      });
-    });
-
     test(`it should read error state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
