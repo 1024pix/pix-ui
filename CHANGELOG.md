@@ -1,3 +1,9 @@
+## [46.12.22](https://github.com/1024pix/pix-ui/compare/v46.12.21...v46.12.22) (2024-08-19)
+
+### :arrow_up: Montée de version
+
+- [#720](https://github.com/1024pix/pix-ui/pull/720) Lock file maintenance
+
 ## [46.12.21](https://github.com/1024pix/pix-ui/compare/v46.12.20...v46.12.21) (2024-08-16)
 
 ### :bug: Correction
