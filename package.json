@@ -1,6 +1,6 @@
 {
   "name": "@1024pix/pix-ui",
-  "version": "46.12.24",
+  "version": "46.12.25",
   "description": "Pix-UI is the implementation of Pix design principles and guidelines for its products.",
   "keywords": [
     "ember-addon"
