@@ -45,6 +45,10 @@
     "test": "ember test",
     "test:ember": "ember test",
     "test:ember-compatibility": "ember try:each",
+    "svg:generate-sprite": "npm run svg:compile && npm run svg:optimize && npm run svg:rename-id",
+    "svg:compile": "svg-sprite -C 'svgs/svg-sprite.config.json' 'svgs/icons/*.svg'",
+    "svg:optimize": "svgo --config='svgs/svgo.config.js' -i 'public/svg/' -o 'public/svg/'",
+    "svg:rename-id": "bash ./svgs/rename-icon-id-in-sprite.sh",
     "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --only-changed"
   },
   "dependencies": {
@@ -123,6 +127,8 @@
     "sass": "^1.56.1",
     "storybook": "^8.0.0",
     "stylelint": "^16.0.2",
+    "svg-sprite": "^2.0.4",
+    "svgo": "^3.3.2",
     "webpack": "^5.75.0"
   },
   "bugs": {
