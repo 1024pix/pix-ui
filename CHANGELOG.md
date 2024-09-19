@@ -1,3 +1,9 @@
+# [46.13.0](https://github.com/1024pix/pix-ui/compare/v46.12.27...v46.13.0) (2024-09-19)
+
+### :rocket: Amélioration
+
+- [#726](https://github.com/1024pix/pix-ui/pull/726) Générer un sprite SVG à partir d'un dossier (PIX-10401)
+
 ## [46.12.27](https://github.com/1024pix/pix-ui/compare/v46.12.26...v46.12.27) (2024-09-09)
 
 ### :arrow_up: Montée de version
