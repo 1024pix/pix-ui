@@ -1,3 +1,9 @@
+## [46.13.1](https://github.com/1024pix/pix-ui/compare/v46.13.0...v46.13.1) (2024-09-19)
+
+### :arrow_up: Montée de version
+
+- [#729](https://github.com/1024pix/pix-ui/pull/729) Update dependency ember-resolver to v13 (dossier racine)
+
 # [46.13.0](https://github.com/1024pix/pix-ui/compare/v46.12.27...v46.13.0) (2024-09-19)
 
 ### :rocket: Amélioration
