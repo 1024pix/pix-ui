@@ -1,0 +1,20 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-icon.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Icon
+
+> Permet d'utiliser les icônes disponible du Design System.
+
+<Story of={ComponentStories.icon} height={60} />
+
+## Usage
+
+```html
+  <PixIcon @name="powerSettings", @plainIcon={{true}} />
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

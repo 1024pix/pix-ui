@@ -1,0 +1,15 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Développement/Mis à jour du sprite.svg" />
+
+# Mise à jour du Sprites SVG
+
+## Récupération des nouveaux svg flat ( pas de téléchargement via Figma ou autre outils )
+
+Ensuite générer le `pix-sprite.svg`
+
+```shell
+npm run svg:generate-sprite
+```
+
+Effectuer le re-mapping des icons dans le composant `helpers/icons.js` si besoin.

@@ -1,0 +1,11 @@
+{
+  "log": "info",
+  "mode": {
+    "defs": {
+      "dest": "public",
+      "sprite": "svg/pix-sprite.svg",
+      "inline": true,
+      "bust": false
+    }
+  }
+}
