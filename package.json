@@ -141,11 +141,11 @@
   },
   "files": [
     "addon/",
-    "app/",
+    "app/components",
+    "app/modifiers",
+    "app/services",
     "config/icons.js",
-    "public/",
-    "scripts/migrate-colors-scss-vars-to-css-vars.sh",
-    "scripts/migrate-spacing-scss-vars-to-css-vars.sh"
+    "public/"
   ],
   "storybook-deployer": {
     "commitMessage": "Deploy Storybook [skip ci]"
