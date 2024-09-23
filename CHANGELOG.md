@@ -1,3 +1,9 @@
+## [46.13.2](https://github.com/1024pix/pix-ui/compare/v46.13.1...v46.13.2) (2024-09-23)
+
+### :building_construction: Tech
+
+- [#730](https://github.com/1024pix/pix-ui/pull/730) Ne plus embarquer les .mdx / stories.js (PIX-14450)
+
 ## [46.13.1](https://github.com/1024pix/pix-ui/compare/v46.13.0...v46.13.1) (2024-09-19)
 
 ### :arrow_up: Montée de version
