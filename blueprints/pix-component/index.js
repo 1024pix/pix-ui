@@ -17,12 +17,8 @@ module.exports = {
 };
 
 async function importNewStyleInGlobalStyle(dasherizedName) {
-  const importName = '@import \'' + dasherizedName + '\';';
+  const importName = "@import '" + dasherizedName + "';";
 
-  await insertIntoFile(
-    'addon/styles/addon.scss',
-    importName,
-    { before: '\nhtml {' + EOL }
-  )
+  await insertIntoFile('addon/styles/addon.scss', importName, { before: '\nhtml {' + EOL });
   console.log('  update addon/styles/addon.scss');
 }
