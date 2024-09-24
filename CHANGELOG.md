@@ -1,3 +1,9 @@
+## [46.13.3](https://github.com/1024pix/pix-ui/compare/v46.13.2...v46.13.3) (2024-09-24)
+
+### :rewind: Retour en arrière
+
+- [#733](https://github.com/1024pix/pix-ui/pull/733) Update dependency ember-resolver to v13 (dossier racine)
+
 ## [46.13.2](https://github.com/1024pix/pix-ui/compare/v46.13.1...v46.13.2) (2024-09-23)
 
 ### :building_construction: Tech
