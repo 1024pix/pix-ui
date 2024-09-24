@@ -20,7 +20,7 @@ export default class PixIcon extends Component {
 
   get iconName() {
     warn(
-      `PixIcon: @name must be one of these : ${Object.keys(ICONS).join(' | ')}`,
+      `PixIcon: @name "${this.args.name}" is not one of these : ${Object.keys(ICONS).join(' | ')}`,
       Object.keys(ICONS).includes(this.args.name),
       {
         id: 'pix-ui.icon.not-valid',
