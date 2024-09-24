@@ -39,6 +39,8 @@ module.exports = {
       files: [
         'scripts/*.js',
         '.eslintrc.js',
+        './.prettierrc.js',
+        './.stylelintrc.js',
         '.template-lintrc.js',
         'ember-cli-build.js',
         'index.js',
@@ -48,13 +50,16 @@ module.exports = {
         'tests/dummy/config/**/*.js',
       ],
       excludedFiles: ['addon/**', 'addon-test-support/**', 'app/**', 'tests/dummy/app/**'],
-      parserOptions: {
-        sourceType: 'script',
-      },
       env: {
         browser: false,
         node: true,
       },
+      extends: ['plugin:n/recommended'],
+    },
+    {
+      // test files
+      files: ['tests/**/*-test.{js,ts}'],
+      extends: ['plugin:qunit/recommended'],
     },
   ],
 };
