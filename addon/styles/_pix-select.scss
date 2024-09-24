@@ -102,6 +102,10 @@
   border-radius: var(--pix-spacing-1x);
   cursor: pointer;
 
+  &__icon {
+    fill: var(--pix-neutral-900);
+  }
+
   &--error {
     @extend %pix-form-error-state;
   }
@@ -115,8 +119,8 @@
   &__dropdown-icon {
     @extend %pix-body-s;
 
-    color: var(--pix-neutral-900);
     pointer-events: none;
+    fill: var(--pix-neutral-900);
   }
 }
 
@@ -153,7 +157,6 @@
       position: absolute;
       top: 50%;
       right: var(--pix-spacing-2x);
-      font-size: 1.125rem;
       transform: translateY(-50%);
       visibility: hidden;
       opacity: 0;
@@ -195,5 +198,6 @@
 
   &__icon {
     margin: auto var(--pix-spacing-1x);
+    fill: var(--pix-neutral-100)
   }
 }
