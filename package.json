@@ -57,6 +57,7 @@
     "ember-cli-babel": "^8.0.0",
     "ember-cli-htmlbars": "^6.1.1",
     "ember-cli-sass": "^11.0.1",
+    "ember-cli-update": "^2.0.1",
     "ember-click-outside": "^6.0.1",
     "ember-lifeline": "^7.0.0",
     "ember-popperjs": "^3.0.0",
