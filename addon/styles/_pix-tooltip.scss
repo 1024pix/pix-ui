@@ -45,7 +45,6 @@
   z-index: 100;
   padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
   color: var(--pix-neutral-0);
-  fill: var(--pix-neutral-0);
   font-size: 0.875rem;
   line-height: 1.4rem;
   background-color: var(--pix-neutral-900);
@@ -54,6 +53,7 @@
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
+  fill: var(--pix-neutral-0);
 
   > .pix-icon {
     width: 1rem;
