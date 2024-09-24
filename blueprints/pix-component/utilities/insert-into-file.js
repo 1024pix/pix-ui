@@ -103,7 +103,10 @@ async function insertIntoFile(fullPath, contentsToInsert, providedOptions) {
           }
 
           contentsToWrite =
-            contentsToWrite.slice(0, insertIndex) + contentsToInsert + EOL + contentsToWrite.slice(insertIndex);
+            contentsToWrite.slice(0, insertIndex) +
+            contentsToInsert +
+            EOL +
+            contentsToWrite.slice(insertIndex);
         }
       }
     }
