@@ -18,12 +18,12 @@ const types = [
 ];
 
 const icons = {
-  [TYPE_INFO]: 'circle-info',
-  [TYPE_ERROR]: 'triangle-exclamation',
-  [TYPE_WARNING]: 'circle-exclamation',
-  [TYPE_COMMUNICATION]: 'bullhorn',
-  [TYPE_COMMUNICATION_ORGA]: 'bullhorn',
-  [TYPE_COMMUNICATION_CERTIF]: 'bullhorn',
+  [TYPE_INFO]: 'info',
+  [TYPE_ERROR]: 'error',
+  [TYPE_WARNING]: 'warning',
+  [TYPE_COMMUNICATION]: 'campaign',
+  [TYPE_COMMUNICATION_ORGA]: 'campaign',
+  [TYPE_COMMUNICATION_CERTIF]: 'campaign',
 };
 
 export default class PixBanner extends Component {

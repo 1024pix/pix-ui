@@ -1,6 +1,6 @@
 {{#if this.displayBanner}}
   <div class="pix-banner pix-banner--{{this.type}}" role="alert" ...attributes>
-    <FaIcon @icon={{this.icon}} class="pix-banner__icon" />
+    <PixIcon @name={{this.icon}} @plainIcon={{true}} @ariaHidden="true" class="pix-banner__icon" />
     <div>
       {{yield}}
       {{#if this.displayAction}}
@@ -12,7 +12,7 @@
             rel="noopener noreferrer"
           >
             {{@actionLabel}}
-            <FaIcon class="external-link" @icon="up-right-from-square" />
+            <PixIcon @name="openNew" class="external-link" />
           </a>
         {{else}}
           <LinkTo class="pix-banner__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
@@ -23,7 +23,7 @@
       <div class="pix-banner__close">
         <PixIconButton
           @ariaLabel="Fermer"
-          @icon="xmark"
+          @iconName="close"
           @size="small"
           @triggerAction={{this.closeBanner}}
         />

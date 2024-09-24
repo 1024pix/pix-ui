@@ -8,6 +8,12 @@ export default {
       description: 'Nom de l‘action',
       type: { name: 'string', required: false },
     },
+    closeButtonLabel: {
+      name: 'closeButtonLabel',
+      description: 'Nom du bouton de fermeture de la banner',
+      type: { name: 'string', required: false },
+      table: { defaultValue: { summary: 'Fermer' } },
+    },
     actionUrl: {
       name: 'actionUrl',
       description: 'Lien de l‘action',
@@ -54,6 +60,7 @@ const Template = (args) => {
     template: hbs`<PixBanner
   @type={{this.type}}
   @actionLabel={{this.actionLabel}}
+  @closeButtonLabel={{this.closeButtonLabel}}
   @actionUrl={{this.actionUrl}}
   @canCloseBanner={{this.canCloseBanner}}
 >
@@ -109,4 +116,5 @@ export const withCloseIcon = Template.bind({});
 withCloseIcon.args = {
   type: 'information',
   canCloseBanner: true,
+  closeButtonLabel: 'Fermer',
 };

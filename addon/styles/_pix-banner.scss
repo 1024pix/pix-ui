@@ -7,13 +7,20 @@
   border: 1px solid currentcolor;
   border-radius: var(--pix-spacing-2x);
 
+  &__icon {
+    flex-shrink: 0;
+  }
+
   &__action {
+    display: inline-flex;
+    align-items: center;
     color: inherit;
     text-decoration: underline;
 
     .external-link {
+      width: 1rem;
+      height: 1rem;
       margin-left: var(--pix-spacing-1x);
-      font-size: 0.875rem;
     }
   }
 
@@ -22,17 +29,14 @@
     margin-left: auto;
   }
 
-  &__icon {
-    font-size: 1.125rem;
-  }
-
   &--information {
     color: var(--pix-info-700);
     background-color: var(--pix-info-50);
+    fill: var(--pix-info-700);
 
     .pix-icon-button {
-      color: var(--pix-neutral-800);
       background-color: var(--pix-info-50);
+      fill: var(--pix-neutral-800);
 
       &:hover:enabled,
       &:focus:enabled,
@@ -49,9 +53,9 @@
   &--warning {
     color: var(--pix-warning-700);
     background-color: var(--pix-warning-50);
+    fill: var(--pix-warning-700);
 
     .pix-icon-button {
-      color: var(--pix-neutral-800);
       background-color: var(--pix-warning-50);
 
       &:hover:enabled,
@@ -69,9 +73,9 @@
   &--error {
     color: var(--pix-error-700);
     background-color: var(--pix-error-50);
+    fill: var(--pix-error-700);
 
     .pix-icon-button {
-      color: var(--pix-neutral-800);
       background-color: var(--pix-error-50);
 
       &:hover:enabled,
@@ -89,15 +93,18 @@
   &--communication {
     color: var(--pix-neutral-0);
     background-color: var(--pix-primary-500);
+    fill: var(--pix-neutral-0);
 
     &-orga {
       color: var(--pix-neutral-0);
       background-color: var(--pix-orga-500);
+      fill: var(--pix-neutral-0);
     }
 
     &-certif {
       color: var(--pix-neutral-0);
       background-color: var(--pix-certif-500);
+      fill: var(--pix-neutral-0);
     }
   }
 }
