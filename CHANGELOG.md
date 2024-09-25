@@ -1,3 +1,9 @@
+## [46.13.4](https://github.com/1024pix/pix-ui/compare/v46.13.3...v46.13.4) (2024-09-25)
+
+### :bug: Correction
+
+- [#735](https://github.com/1024pix/pix-ui/pull/735) Corriger le chemin du sprite.svg (PIX-14493)
+
 ## [46.13.3](https://github.com/1024pix/pix-ui/compare/v46.13.2...v46.13.3) (2024-09-24)
 
 ### :rewind: Retour en arrière
