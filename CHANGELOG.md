@@ -1,3 +1,9 @@
+# [46.14.0](https://github.com/1024pix/pix-ui/compare/v46.13.4...v46.14.0) (2024-10-01)
+
+### :rocket: Amélioration
+
+- [#736](https://github.com/1024pix/pix-ui/pull/736) Ajouter des icônes au composant PixIcon
+
 ## [46.13.4](https://github.com/1024pix/pix-ui/compare/v46.13.3...v46.13.4) (2024-09-25)
 
 ### :bug: Correction
