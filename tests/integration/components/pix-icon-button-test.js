@@ -16,7 +16,11 @@ module('Integration | Component | icon-button', function (hooks) {
       this.count = this.count + 1;
     });
     await render(
-      hbs`<PixIconButton @triggerAction={{this.triggerAction}} @ariaLabel='action du bouton'  @iconName="add" />`,
+      hbs`<PixIconButton
+  @triggerAction={{this.triggerAction}}
+  @ariaLabel='action du bouton'
+  @iconName='add'
+/>`,
     );
     await clickByLabel('action du bouton');
 
@@ -31,7 +35,7 @@ module('Integration | Component | icon-button', function (hooks) {
     //when
     await render(hbs`<PixIconButton
   @triggerAction={{this.triggerAction}}
-  @iconName="add"
+  @iconName='add'
   disabled={{true}}
   @ariaLabel="L'action du bouton"
 />`);
