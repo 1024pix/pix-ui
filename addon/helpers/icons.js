@@ -75,6 +75,7 @@ export const ICONS = {
   uploadFile: { default: 'upload_file', plainIcon: 'upload_file_plainIcon' },
   userCircle: { default: 'account_circle', plainIcon: 'account_circle_plainIcon' },
   users: { default: 'group', plainIcon: 'group_plainIcon' },
+  videoCam: { default: 'videocam', plainIcon: 'videocam_plainIcon' },
   volumeOff: { default: 'volume_off', plainIcon: 'volume_off_plainIcon' },
   volumeOn: { default: 'volume_up', plainIcon: 'volume_up_plainIcon' },
   warning: { default: 'warning', plainIcon: 'warning_plainIcon' },
