@@ -1,3 +1,9 @@
+# [46.15.0](https://github.com/1024pix/pix-ui/compare/v46.14.0...v46.15.0) (2024-10-07)
+
+### :rocket: Amélioration
+
+- [#737](https://github.com/1024pix/pix-ui/pull/737) Ajout de l'icon videoCam (Pix-14628)
+
 # [46.14.0](https://github.com/1024pix/pix-ui/compare/v46.13.4...v46.14.0) (2024-10-01)
 
 ### :rocket: Amélioration
