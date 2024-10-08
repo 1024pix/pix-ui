@@ -1,0 +1,24 @@
+/* on utilise un fichier css car on a pas de loader scss */
+.icon-list {
+  display: grid;
+  grid-template-columns: repeat(9, 1fr);
+  gap: .4rem;
+}
+
+.icon-list__cell {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height:60px;
+  padding-bottom: .3rem;
+}
+
+.icon-list__cell svg {
+  width: 2rem;
+  height: 2rem;
+}
+
+.icon-name {
+  color:var(--pix-neutral-800);
+  font-size: .75rem
+}
