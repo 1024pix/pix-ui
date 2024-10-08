@@ -1,6 +1,10 @@
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
+import {FaIcon} from '@fortawesome/ember-fontawesome/components/fa-icon'
+import { LinkTo } from '@ember/routing';
+import PixIconButton from './pix-icon-button';
+
 const TYPE_INFO = 'information';
 const TYPE_ERROR = 'error';
 const TYPE_WARNING = 'warning';
@@ -28,6 +32,7 @@ const icons = {
 
 export default class PixBanner extends Component {
   @tracked isBannerVisible = true;
+
   get type() {
     return types.includes(this.args.type) ? this.args.type : TYPE_INFO;
   }
@@ -59,4 +64,42 @@ export default class PixBanner extends Component {
     }
     this.isBannerVisible = false;
   }
+
+
+
+<template>
+{{#if this.displayBanner}}
+  <div class="pix-banner pix-banner--{{this.type}}" role="alert" ...attributes>
+    <FaIcon @icon={{this.icon}} class="pix-banner__icon" />
+    <div>
+      {{yield}}
+      {{#if this.displayAction}}
+        {{#if this.isExternalLink}}
+          <a
+            class="pix-banner__action"
+            href={{@actionUrl}}
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            {{@actionLabel}}
+            <FaIcon class="external-link" @icon="up-right-from-square" />
+          </a>
+        {{else}}
+          <LinkTo class="pix-banner__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
+        {{/if}}
+      {{/if}}
+    </div>
+    {{#if this.canCloseBanner}}
+      <div class="pix-banner__close">
+        <PixIconButton
+          @ariaLabel="Fermer"
+          @icon="xmark"
+          @size="small"
+          @triggerAction={{this.closeBanner}}
+        />
+      </div>
+    {{/if}}
+  </div>
+{{/if}}
+</template>
 }
