@@ -49,3 +49,34 @@ export const icon = (args) => ({
 />`,
   context: args,
 });
+
+const icons = Object.entries(ICONS).flatMap(([name, icon]) =>
+  icon.plainIcon
+    ? [
+        { iconName: name, variant: false },
+        { iconName: name, variant: true },
+      ]
+    : { iconName: name, variant: false },
+);
+
+export const allIcons = (args) => {
+  return {
+    template: hbs`<ul class='icon-list'>
+  {{#each this.icons as |icon|}}
+    <li class='icon-list__cell'>
+      <PixIcon
+        @name={{icon.iconName}}
+        @plainIcon={{icon.variant}}
+        @alternativeText={{icon.iconName}}
+        @ariaHidden={{true}}
+      />
+      <p class='icon-name'>{{icon.iconName}}&nbsp;{{if icon.variant '(plain)'}}</p>
+    </li>
+  {{/each}}
+</ul>`,
+    context: args,
+  };
+};
+
+allIcons.bind({});
+allIcons.args = { icons };
