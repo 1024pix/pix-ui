@@ -1,3 +1,9 @@
+## [46.15.1](https://github.com/1024pix/pix-ui/compare/v46.15.0...v46.15.1) (2024-10-09)
+
+### :building_construction: Tech
+
+- [#738](https://github.com/1024pix/pix-ui/pull/738) Affiche toutes les icônes dans la story de PixIcon
+
 # [46.15.0](https://github.com/1024pix/pix-ui/compare/v46.14.0...v46.15.0) (2024-10-07)
 
 ### :rocket: Amélioration
