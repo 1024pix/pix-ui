@@ -5,5 +5,4 @@ do
   echo "parsing file" $f
   sed -i '' -e 's/_24dp_E8EAED_FILL0_wght500_GRAD0_opsz24//g' "$f"
   sed -i '' -e 's/_24dp_E8EAED_FILL1_wght500_GRAD0_opsz24/_plainIcon/g' "$f"
-  sed -i '' -e 's/ fill="#e8eaed"//g' "$f"
 done

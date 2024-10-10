@@ -10,6 +10,7 @@ export const ICONS = {
   book: { default: 'menu_book', plainIcon: 'menu_book_plainIcon' },
   bookmark: { default: 'bookmark', plainIcon: 'bookmark_plainIcon' },
   buildings: { default: 'location_city' },
+  calendar: { default: 'today', plainIcon: 'today_plainIcon' },
   campaign: { default: 'campaign', plainIcon: 'campaign_plainIcon' },
   cancel: { default: 'cancel', plainIcon: 'cancel_plainIcon' },
   check: { default: 'check' },
