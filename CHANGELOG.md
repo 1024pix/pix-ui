@@ -1,3 +1,9 @@
+## [46.15.2](https://github.com/1024pix/pix-ui/compare/v46.15.1...v46.15.2) (2024-10-10)
+
+### :building_construction: Tech
+
+- [#739](https://github.com/1024pix/pix-ui/pull/739) Ajout de l'icone calendar (PIX-14734)
+
 ## [46.15.1](https://github.com/1024pix/pix-ui/compare/v46.15.0...v46.15.1) (2024-10-09)
 
 ### :building_construction: Tech
