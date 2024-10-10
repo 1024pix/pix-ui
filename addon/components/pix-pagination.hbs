@@ -1,6 +1,6 @@
 <footer class={{this.isCondensed}}>
   <section class="pix-pagination__size">
-    <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
+    <span class="pagination-size__label">{{t "pagination.beforeResultsPerPage"}}</span>
     <PixSelect
       @placeholder={{this.pageSize}}
       @screenReaderOnly={{true}}
@@ -10,7 +10,7 @@
       @onChange={{this.changePageSize}}
       @options={{this.pageOptions}}
     >
-      <:label>{{this.selectPageSizeLabel}}</:label>
+      <:label>{{t "pagination.selectPageSizeLabel"}}</:label>
     </PixSelect>
   </section>
   <section class="pix-pagination__navigation">
@@ -25,7 +25,7 @@
       <PixIconButton
         class="pix-pagination-navigation__action-button"
         @icon="arrow-left"
-        aria-label={{this.previousPageLabel}}
+        aria-label={{t "pagination.previousPageLabel"}}
         @triggerAction={{this.goToPreviousPage}}
         @withBackground={{false}}
         @size="big"
@@ -39,7 +39,7 @@
       <PixIconButton
         class="pix-pagination-navigation__action-button"
         @icon="arrow-right"
-        aria-label={{this.nextPageLabel}}
+        aria-label={{t "pagination.nextPageLabel"}}
         @triggerAction={{this.goToNextPage}}
         @withBackground={{false}}
         @size="big"
