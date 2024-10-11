@@ -31,8 +31,6 @@ export const ICONS = {
   extension: { default: 'extension', plainIcon: 'extension_plainIcon' },
   eye: { default: 'visibility', plainIcon: 'visibility_plainIcon' },
   eyeOff: { default: 'visibility_off', plainIcon: 'visibility_off_plainIcon' },
-  fatTriangleDown: { default: 'arrow_drop_down' },
-  fatTriangleUp: { default: 'arrow_drop_up' },
   favorite: { default: 'favorite', plainIcon: 'favorite_plainIcon' },
   flag: { default: 'flag', plainIcon: 'flag_plainIcon' },
   globe: { default: 'globe' },
