@@ -4,7 +4,6 @@
     <legend>{{this.legend}}</legend>
     {{#each this.numberOfIterations as |i|}}
       <input
-        ...attributes
         id="code-input-{{i}}"
         type="{{this.inputType}}"
         aria-label="{{this.ariaLabel}} {{i}}"
@@ -18,6 +17,7 @@
         {{on "input" (fn this.handleCodeInput i)}}
         {{on "paste" (fn this.handlePaste i)}}
         {{on "focus" (fn this.handleFocus i)}}
+        ...attributes
       />
     {{/each}}
   </fieldset>
