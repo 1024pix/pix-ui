@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { ICONS } from '../../addon/helpers/icons.js';
 
 export default {
   title: 'Others/Indicator Card',
@@ -14,25 +15,35 @@ export default {
       control: { type: 'select' },
       options: ['neutral', 'primary', 'tertiary', 'success', 'warning'],
     },
-    icon: {
-      name: 'Icon',
+    iconName: {
+      name: 'iconName',
       description: "Icone dans l'encart",
-    },
-    iconPrefix: {
-      name: 'IconPrefix',
-      description:
-        "Préfixe pour l'icone dans l'encart - permet d'utiliser une variation de l'icone font awesome différente de celle par défaut.",
-      table: { defaultValue: { summary: 'fas' } },
+      table: { defaultValue: { summary: 'help' } },
+      type: { name: 'string', required: true },
       control: { type: 'select' },
-      options: ['far', 'fas'],
+      options: Object.keys(ICONS),
+    },
+    plainIcon: {
+      name: 'plainIcon',
+      description: "Permet d'utiliser la version pleine de l'icône",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
     },
     value: {
-      name: 'Value',
+      name: 'value',
       description: 'Contenu principal',
     },
     info: {
-      name: 'Info',
+      name: 'info',
       description: "Contenu de la bulle d'info",
+    },
+    infoLabel: {
+      name: 'infoLabel',
+      description: "Donne l'information du bouton de la tooltip",
     },
   },
 };
@@ -44,9 +55,10 @@ const Template = (args) => {
   <PixIndicatorCard
     @title={{this.title}}
     @color={{this.color}}
-    @icon={{this.icon}}
-    @iconPrefix={{this.iconPrefix}}
+    @iconName={{this.iconName}}
+    @plainIcon={{this.plainIcon}}
     @info={{this.info}}
+    @infoLabel={{this.infoLabel}}
     @isLoading={{this.isLoading}}
     @loadingMessage={{this.loadingMessage}}
   >
@@ -64,15 +76,10 @@ export const Default = Template.bind({});
 Default.args = {
   title: 'Hello Dedans',
   color: 'purple',
-  icon: 'circle-question',
   value: '42',
-  info: "Coucou la bulle d'infos",
+  iconName: 'help',
+  info: 'La réponse à presque tout !',
+  infoLabel: 'Details du pourquoi 42 ?',
   isLoading: false,
   loadingMessage: 'texte de chargement ScreenReader',
-};
-
-export const withIconPrefix = Template.bind({});
-withIconPrefix.args = {
-  ...Default.args,
-  iconPrefix: 'far',
 };

@@ -91,7 +91,7 @@ const TemplateWithHTMLElement = (args) => {
   </:triggerElement>
 
   <:tooltip>
-    <FaIcon @icon='up-right-from-square' />
+    <PixIcon @name='openNew' />
     <strong>HTML/Ember</strong>
   </:tooltip>
 </PixTooltip>`,
@@ -104,10 +104,7 @@ const TemplateWithIconElement = (args) => {
     template: hbs`<PixTooltip @id={{this.id}} @isInline='true'>
   <:triggerElement>
     {{! template-lint-disable no-inline-styles }}
-
-    <button style='padding:0; margin-left:4px; line-height:0;' type='button'>
-      <FaIcon class='external-link' @icon='up-right-from-square' />
-    </button>
+    <PixIcon class='external-link' @name='openNew' style='widh:2.5rem;height:2.5rem' />
   </:triggerElement>
 
   <:tooltip>

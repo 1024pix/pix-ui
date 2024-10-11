@@ -1,9 +1,19 @@
 <label for={{@for}} class={{this.className}} ...attributes>
   {{#if this.hasError}}
-    <FaIcon @icon="circle-xmark" class="pix-label-wrapped__state-icon" />
+    <PixIcon
+      @name="cancel"
+      @plainIcon={{true}}
+      @ariaHidden={{true}}
+      class="pix-label-wrapped__state-icon"
+    />
   {{/if}}
   {{#if this.hasSuccess}}
-    <FaIcon @icon="circle-check" class="pix-label-wrapped__state-icon" />
+    <PixIcon
+      @name="checkCircle"
+      @plainIcon={{true}}
+      @ariaHidden={{true}}
+      class="pix-label-wrapped__state-icon"
+    />
   {{/if}}
 
   {{yield to="inputElement"}}

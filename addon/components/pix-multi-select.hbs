@@ -20,7 +20,7 @@
 
     {{#if @isSearchable}}
       <span {{reference}} class={{this.headerClassName}}>
-        <FaIcon @icon="magnifying-glass" class="pix-multi-select-header__search-icon" />
+        <PixIcon @name="search" class="pix-multi-select-header__search-icon" />
 
         <input
           class="pix-multi-select-header__search-input"
@@ -52,10 +52,10 @@
         {{else if @placeholder}}
           {{this.placeholder}}
         {{/if}}
-        <FaIcon
+        <PixIcon
           class="pix-multi-select-header__dropdown-icon
             {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
-          @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+          @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
         />
       </button>
     {{/if}}

@@ -9,8 +9,9 @@
 
   &__icon {
     position: relative;
+    width: 2.3rem;
+    height: 2.3rem;
     padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
-    font-size: 1rem;
   }
 
   &:focus,
@@ -29,11 +30,11 @@
     &:hover,
     &:active {
       .pix-return-to__icon {
-        color: $arrowHoverColor;
         background-color: $arrowBgColor;
         border-radius: 50%;
         outline: 1px solid var(--pix-neutral-0);
         outline-offset: -3px;
+        fill: $arrowHoverColor;
       }
     }
   }

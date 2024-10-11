@@ -33,7 +33,7 @@
   }
 
   &__search-icon {
-    color: var(--pix-neutral-900);
+    fill: var(--pix-neutral-900);
   }
 
   &__title {
@@ -58,8 +58,8 @@
   &__dropdown-icon {
     @extend %pix-body-s;
 
-    color: var(--pix-neutral-900);
     pointer-events: none;
+    fill: var(--pix-neutral-900);
   }
 }
 

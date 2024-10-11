@@ -40,14 +40,14 @@ module('Integration | Component | modal', function (hooks) {
         this.onCloseButtonClick = sinon.stub();
 
         // when
-        await render(hbs`<PixModal
+        const screen = await render(hbs`<PixModal
   @title={{this.title}}
   @onCloseButtonClick={{this.onCloseButtonClick}}
   @showModal={{this.showModal}}
 >
   content
 </PixModal>`);
-        await click('[aria-label="Fermer"]');
+        await click(screen.getByRole('button', { name: /Fermer/ }));
 
         // then
         assert.ok(this.onCloseButtonClick.calledOnce);

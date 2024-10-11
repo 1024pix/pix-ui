@@ -38,49 +38,41 @@ module('Integration | Component | pix-message', function (hooks) {
 
   test('it renders with an icon', async function (assert) {
     // given & when
-    await render(hbs`<PixMessage @withIcon='true' />`);
+    const screen = await render(hbs`<PixMessage @withIcon='true' />`);
 
     // then
-    const icon = this.element.querySelector('.pix-message svg');
-    assert.dom('.pix-message svg').exists();
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(icon.getAttribute('data-icon'), 'circle-info');
+    const icon = screen.getByRole('img', { hidden: true });
+
+    assert.true(icon.innerHTML.includes('info'));
   });
 
   test('it renders with a warning icon for warning type', async function (assert) {
     // given & when
-    await render(hbs`<PixMessage @type='warning' @withIcon='true' />`);
+    const screen = await render(hbs`<PixMessage @type='warning' @withIcon='true' />`);
 
     // then
-    const icon = this.element.querySelector('.pix-message svg');
-    assert.dom('.pix-message svg').exists();
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(icon.getAttribute('data-icon'), 'circle-exclamation');
+    const icon = screen.getByRole('img', { hidden: true });
+
+    assert.true(icon.innerHTML.includes('#warning'));
   });
 
   test('it renders with a success icon for success type', async function (assert) {
     // given & when
-    await render(hbs`<PixMessage @type='success' @withIcon='true' />`);
+    const screen = await render(hbs`<PixMessage @type='success' @withIcon='true' />`);
 
     // then
-    const icon = this.element.querySelector('.pix-message svg');
-    assert.dom('.pix-message svg').exists();
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(icon.getAttribute('data-icon'), 'circle-check');
+    const icon = screen.getByRole('img', { hidden: true });
+
+    assert.true(icon.innerHTML.includes('#check_circle'));
   });
 
   test('it renders with a alert icon for error type', async function (assert) {
     // given & when
-    await render(hbs`<PixMessage @type='error' @withIcon='true' />`);
+    const screen = await render(hbs`<PixMessage @type='error' @withIcon='true' />`);
 
     // then
-    const icon = this.element.querySelector('.pix-message svg');
-    assert.dom('.pix-message svg').exists();
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(icon.getAttribute('data-icon'), 'triangle-exclamation');
+    const icon = screen.getByRole('img', { hidden: true });
+
+    assert.true(icon.innerHTML.includes('#error'));
   });
 });

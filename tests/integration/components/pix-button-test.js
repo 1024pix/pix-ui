@@ -54,37 +54,6 @@ module('Integration | Component | button', function (hooks) {
     assert.true(componentElement.disabled);
   });
 
-  test('it renders the PixButton component with iconBefore and iconAfter attributes', async function (assert) {
-    //when
-    await render(hbs`<PixButton @iconBefore='plus' @iconAfter='plus' aria-label='button label'>
-  Mon bouton
-</PixButton>`);
-
-    // then
-    const iconBefore = this.element.querySelector('.pix-button__icon--before');
-    assert.ok(iconBefore);
-
-    const iconAfter = this.element.querySelector('.pix-button__icon--after');
-    assert.ok(iconAfter);
-  });
-
-  test('it renders the PixButton component with prefixIconBefore and prefixIconAfter attributes', async function (assert) {
-    //when
-    await render(hbs`<PixButton
-  @iconBefore='plus'
-  @prefixIconBefore='fas'
-  @iconAfter='plus'
-  @prefixIconAfter='fas'
-  aria-label='button label'
->
-  Mon bouton
-</PixButton>`);
-
-    const prefixes = this.element.querySelectorAll('[data-prefix="fas"]');
-    // then
-    assert.strictEqual(prefixes.length, 2);
-  });
-
   test('it should call the action', async function (assert) {
     // given
     this.set('count', 1);

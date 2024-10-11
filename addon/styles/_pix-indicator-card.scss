@@ -8,42 +8,46 @@
   background-color: var(--pix-neutral-0);
   border-radius: 8px;
 
-  &__icon {
+  &__icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 96px;
-    font-size: 2.5rem;
     border-radius: 8px 0 0 8px;
 
     &--grey,
     &--neutral {
-      color: var(--pix-neutral-500);
       background-color: var(--pix-neutral-20);
+      fill: var(--pix-neutral-500);
     }
 
     &--blue,
     &--primary {
-      color: var(--pix-primary-700);
       background-color: var(--pix-primary-10);
+      fill: var(--pix-primary-700);
     }
 
     &--green,
     &--success {
-      color: var(--pix-success-700);
       background-color: var(--pix-success-50);
+      fill: var(--pix-success-700);
     }
 
     &--purple,
     &--tertiary {
-      color: var(--pix-tertiary-900);
       background-color: var(--pix-tertiary-100);
+      fill: var(--pix-tertiary-900);
     }
 
     &--warning {
-      color: var(--pix-warning-700);
       background-color: var(--pix-warning-50);
+      fill: var(--pix-warning-700);
     }
+  }
+
+  &__icon {
+    width: 2.5rem;
+    height: 2.5rem;
   }
 
   &__content {
@@ -86,7 +90,9 @@
   }
 
   &__tooltip-icon {
+    width: 1rem;
+    height:1rem;
     margin: 0 var(--pix-spacing-2x);
-    color: var(--pix-neutral-500);
+    fill: var(--pix-neutral-500);
   }
 }

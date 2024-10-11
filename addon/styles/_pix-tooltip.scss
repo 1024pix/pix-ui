@@ -7,6 +7,12 @@
   &__trigger-element {
     display: block;
     width: 100%;
+
+    > svg {
+      width: 1rem;
+      height: 1rem;
+      fill:var(--pix-neutral-500);
+    }
   }
 
   &__trigger-element:hover + .pix-tooltip__content {
@@ -47,6 +53,12 @@
   opacity: 0;
   transition: opacity 0.3s;
   pointer-events: none;
+  fill: var(--pix-neutral-0);
+
+  > .pix-icon {
+    width: 1rem;
+    height: 1rem;
+  }
 
   &--inline {
     white-space: nowrap;

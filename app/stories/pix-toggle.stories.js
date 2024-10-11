@@ -24,14 +24,19 @@ export default {
       control: { type: 'select' },
       options: ['small', 'large', 'default'],
     },
+    useIcons: {
+      name: 'useIcons',
+      description: "Définit si l'on utilise des icons dans le PixToggle",
+      type: { name: 'boolean', required: true },
+    },
     onLabel: {
       name: 'onLabel',
-      description: "Le label de l'état actif du PixToggle",
+      description: "Le label de l'état actif du PixToggle à placer dans les yield <:on>",
       type: { name: 'string', required: false },
     },
     offLabel: {
       name: 'offLabel',
-      description: "Le label de l'état non actif du PixToggle",
+      description: "Le label de l'état non actif du PixToggle à placer dans les yield <:off>",
       type: { name: 'string', required: false },
     },
     toggled: {
@@ -71,16 +76,18 @@ export default {
 const Template = (args) => {
   return {
     template: hbs`<PixToggle
-  @onLabel={{this.onLabel}}
-  @offLabel={{this.offLabel}}
   @toggled={{this.toggled}}
   @onChange={{this.onChange}}
   @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
+  @useIcons={{this.useIcons}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
+
 </PixToggle>`,
     context: args,
   };
@@ -88,10 +95,12 @@ const Template = (args) => {
 
 const TemplateWithYields = (args) => {
   return {
-    template: hbs`<PixToggle @toggled={{this.toggled}} @onChange={{this.onChange}}>
+    template: hbs`<PixToggle @toggled={{this.toggled}} @onChange={{this.onChange}} @useIcons={{this.useIcons}}>
   <:label>{{this.label}}</:label>
-  <:on><FaIcon @icon='eye' /></:on>
-  <:off><FaIcon @icon='eye-slash' /></:off>
+  {{! template-lint-disable no-inline-styles }}
+  <:on><PixIcon @name='eye' /></:on>
+  {{! template-lint-disable no-inline-styles }}
+  <:off><PixIcon @name='eyeOff' /></:off>
 </PixToggle>`,
     context: args,
   };
@@ -130,5 +139,6 @@ export const WithYields = TemplateWithYields.bind({});
 WithYields.args = {
   label: 'Mon toggle',
   toggled: false,
+  useIcons: true,
   onChange: action('onChange'),
 };

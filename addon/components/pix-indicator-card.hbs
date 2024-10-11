@@ -4,8 +4,13 @@
     <div class="indicator-card__icon" aria-hidden="true"></div>
     <div class="indicator-card__content" aria-hidden="true"></div>
   {{else}}
-    <div id={{this.iconId}} class="indicator-card__icon {{this.color}}" aria-hidden="true">
-      <FaIcon @icon={{@icon}} @prefix={{@iconPrefix}} />
+    <div id={{this.iconId}} class="indicator-card__icon-wrapper {{this.color}}">
+      <PixIcon
+        @name={{@iconName}}
+        @plainIcon={{@plainIcon}}
+        @ariaHidden={{true}}
+        class="indicator-card__icon"
+      />
     </div>
     <dl class="indicator-card__content">
       <div class="indicator-card__title">
@@ -18,10 +23,12 @@
             class="indicator-card__tooltip hide-on-mobile"
           >
             <:triggerElement>
-              <FaIcon
-                @icon="circle-question"
+              <PixIcon
+                @name="info"
+                @plainIcon={{true}}
                 class="indicator-card__tooltip-icon"
                 tabindex="0"
+                aria-label={{@infoLabel}}
                 aria-describedby={{this.tooltipId}}
               />
             </:triggerElement>

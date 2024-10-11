@@ -44,7 +44,7 @@ L'attribut `aria-label` étant indispensable pour l'accessibilité de ce composa
 Par défaut
 
 ```html
-<PixIconButton @ariaLabel="L'action du bouton" @icon="icon" @triggerAction="{{triggerAction}}" />
+<PixIconButton @ariaLabel="L'action du bouton" @iconName="icon" @triggerAction="{{triggerAction}}" />
 ```
 
 Bouton de fermeture
@@ -52,7 +52,7 @@ Bouton de fermeture
 ```html
 <PixIconButton
   @ariaLabel="L'action du bouton"
-  @icon="xmark"
+  @iconName="add"
   @triggerAction="{{triggerAction}}"
   @withBackground="{{true}}"
 />
@@ -63,7 +63,7 @@ Bouton d'action
 ```html
 <PixIconButton
   @ariaLabel="L'action du bouton"
-  @icon="arrow-right"
+  @iconName="ChevronRight"
   @triggerAction="{{triggerAction}}"
   @size="small"
   @withBackground="{{true}}"
@@ -75,7 +75,7 @@ Bouton d'action
 ```html
 <PixIconButton
   @ariaLabel="L'action du bouton"
-  @icon="xmark"
+  @iconName="add"
   disabled="{{true}}"
   aria-disabled="{{true}}"
 />

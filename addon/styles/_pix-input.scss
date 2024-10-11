@@ -18,12 +18,11 @@
     position: absolute;
     right: 12px;
     bottom: calc(50% - 7px); // height/2 + padding
-    width: 10px;
-    height: 10px;
+    width: 1rem;
+    height: 1rem;
     padding: 2px;
-    color: var(--pix-neutral-0);
-    font-size: 0.6rem;
     border-radius: 50%;
+    fill: var(--pix-neutral-0);
 
     &.pix-input__error-icon {
       background: var(--pix-error-700);

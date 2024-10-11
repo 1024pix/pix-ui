@@ -19,7 +19,7 @@ export default {
       type: { name: 'string', required: false },
       table: { defaultValue: { summary: 'info' } },
       control: { type: 'select' },
-      options: ['info', 'success', 'warning', 'alert', 'error'],
+      options: ['info', 'success', 'warning', 'error'],
     },
     withIcon: {
       name: 'withIcon',

@@ -15,13 +15,9 @@
 
     svg {
       position: absolute;
-      bottom: calc(50% - 8px);
-      left: 12px;
-      width: 12px;
-      height: 12px;
-      padding: 2px;
-      color: var(--pix-neutral-500);
-      font-size: 0.6rem;
+      bottom: calc(50% - 0.8rem);
+      left: var(--pix-spacing-2x);
+      fill: var(--pix-neutral-500);
     }
   }
 

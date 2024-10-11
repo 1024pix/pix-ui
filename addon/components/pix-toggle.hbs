@@ -7,25 +7,17 @@
     @inlineLabel={{@inlineLabel}}
   >{{yield to="label"}}</PixLabel>
   <button
-    class="pix-toggle__button"
+    class="pix-toggle__button{{if @useIcons ' pix-toggle__button--icon'}}"
     id={{this.id}}
     aria-pressed={{if @toggled "true" "false"}}
     type="button"
     {{on "click" this.onToggle}}
   >
-    <span class="pix-toggle__on">
-      {{#if @onLabel}}
-        {{@onLabel}}
-      {{else}}
-        {{yield to="on"}}
-      {{/if}}
+    <span class="pix-toggle__on{{if @useIcons ' pix-toggle__with-icon'}}">
+      {{yield to="on"}}
     </span>
-    <span class="pix-toggle__off">
-      {{#if @offLabel}}
-        {{@offLabel}}
-      {{else}}
-        {{yield to="off"}}
-      {{/if}}
+    <span class="pix-toggle__off{{if @useIcons ' pix-toggle__with-icon'}}">
+      {{yield to="off"}}
     </span>
   </button>
 </div>

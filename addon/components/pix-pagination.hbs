@@ -24,8 +24,8 @@
     <div class="pix-pagination-navigation__action">
       <PixIconButton
         class="pix-pagination-navigation__action-button"
-        @icon="arrow-left"
-        aria-label={{this.previousPageLabel}}
+        @iconName="arrowLeft"
+        @ariaLabel={{this.previousPageLabel}}
         @triggerAction={{this.goToPreviousPage}}
         @withBackground={{false}}
         @size="big"
@@ -38,8 +38,8 @@
       </span>
       <PixIconButton
         class="pix-pagination-navigation__action-button"
-        @icon="arrow-right"
-        aria-label={{this.nextPageLabel}}
+        @iconName="arrowRight"
+        @ariaLabel={{this.nextPageLabel}}
         @triggerAction={{this.goToNextPage}}
         @withBackground={{false}}
         @size="big"

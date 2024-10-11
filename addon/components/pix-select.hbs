@@ -32,15 +32,15 @@
         aria-controls={{this.listId}}
         aria-disabled={{@isDisabled}}
       >
-        {{#if @icon}}
-          <FaIcon @icon={{@icon}} />
+        {{#if @iconName}}
+          <PixIcon @name={{@iconName}} @plainIcon={{@plainIcon}} class="pix-select-button__icon" />
         {{/if}}
 
         <span class="pix-select-button__text">{{this.placeholder}}</span>
 
-        <FaIcon
+        <PixIcon
           class="pix-select-button__dropdown-icon"
-          @icon={{if this.isExpanded "chevron-up" "chevron-down"}}
+          @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
         />
       </button>
       <div
@@ -50,7 +50,7 @@
       >
         {{#if @isSearchable}}
           <div class="pix-select__search">
-            <FaIcon class="pix-select-search__icon" @icon="magnifying-glass" />
+            <PixIcon class="pix-select-search__icon" @name="search" />
             <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
             <input
               class="pix-select-search__input"
@@ -116,7 +116,7 @@
                       {{option.label}}
 
                       {{#if (eq option.value @value)}}
-                        <FaIcon @icon="check" role="presentation" />
+                        <PixIcon @name="check" role="presentation" />
                       {{/if}}
                     </li>
                   {{/each}}
@@ -139,7 +139,7 @@
                   {{option.label}}
 
                   {{#if (eq option.value @value)}}
-                    <FaIcon @icon="check" role="presentation" />
+                    <PixIcon @name="check" role="presentation" />
                   {{/if}}
                 </li>
               {{/each}}

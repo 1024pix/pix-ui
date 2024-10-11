@@ -15,20 +15,6 @@ module('Integration | Component | PixToggle', function (hooks) {
 
   test('it renders PixToggle', async function (assert) {
     // given & when
-    const screen = await render(
-      hbs`<PixToggle @onLabel={{this.onLabel}} @offLabel={{this.offLabel}}>
-  <:label>{{this.label}}</:label>
-</PixToggle>`,
-    );
-
-    // then
-    assert.dom(screen.getByText(this.label)).exists();
-    assert.dom(screen.getByText(this.onLabel)).exists();
-    assert.dom(screen.getByText(this.offLabel)).exists();
-  });
-
-  test('it renders PixToggle with labels yielded', async function (assert) {
-    // given & when
     const screen = await render(hbs`<PixToggle>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
@@ -42,9 +28,10 @@ module('Integration | Component | PixToggle', function (hooks) {
 
   test('it pressed PixToggle', async function (assert) {
     // given & when
-    const screen =
-      await render(hbs`<PixToggle @onLabel={{this.onLabel}} @offLabel={{this.offLabel}} @toggled={{true}}>
+    const screen = await render(hbs`<PixToggle @toggled={{true}}>
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
 </PixToggle>`);
 
     // then
@@ -53,9 +40,10 @@ module('Integration | Component | PixToggle', function (hooks) {
 
   test('it does not press PixToggle', async function (assert) {
     // given & when
-    const screen =
-      await render(hbs`<PixToggle @onLabel={{this.onLabel}} @offLabel={{this.offLabel}} @toggled={{false}}>
+    const screen = await render(hbs`<PixToggle @toggled={{false}}>
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
 </PixToggle>`);
 
     // then
@@ -66,13 +54,11 @@ module('Integration | Component | PixToggle', function (hooks) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen = await render(hbs`<PixToggle
-  @onLabel={{this.onLabel}}
-  @offLabel={{this.offLabel}}
-  @toggled={{false}}
-  @onChange={{this.onChange}}
->
+    const screen = await render(hbs`<PixToggle @toggled={{false}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
+
 </PixToggle>`);
 
     await click(screen.getByRole('button'));
@@ -86,13 +72,10 @@ module('Integration | Component | PixToggle', function (hooks) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen = await render(hbs`<PixToggle
-  @onLabel={{this.onLabel}}
-  @offLabel={{this.offLabel}}
-  @toggled={{true}}
-  @onChange={{this.onChange}}
->
+    const screen = await render(hbs`<PixToggle @toggled={{true}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
 </PixToggle>`);
 
     await click(screen.getByRole('button'));
@@ -106,9 +89,11 @@ module('Integration | Component | PixToggle', function (hooks) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen =
-      await render(hbs`<PixToggle @onLabel={{this.onLabel}} @offLabel={{this.offLabel}} @onChange={{this.onChange}}>
+    const screen = await render(hbs`<PixToggle @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
+
 </PixToggle>`);
 
     await screen.getByRole('button').focus();
@@ -122,9 +107,11 @@ module('Integration | Component | PixToggle', function (hooks) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen =
-      await render(hbs`<PixToggle @onLabel={{this.onLabel}} @offLabel={{this.offLabel}} @onChange={{this.onChange}}>
+    const screen = await render(hbs`<PixToggle @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
+  <:on>{{this.onLabel}}</:on>
+  <:off>{{this.offLabel}}</:off>
+
 </PixToggle>`);
 
     await screen.getByRole('button').focus();

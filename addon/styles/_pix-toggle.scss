@@ -19,6 +19,15 @@
     background: var(--pix-neutral-20);
     border: 1px solid var(--pix-neutral-500);
     border-radius: 4px;
+
+    &--icon {
+      font-size: 0;
+    }
+  }
+
+  &__with-icon > svg {
+    width: 1.4rem;
+    height: 1.4rem;
   }
 
   &__on,
@@ -31,11 +40,13 @@
   &__on {
     color: var(--pix-neutral-800);
     font-weight: var(--pix-font-normal);
+    fill: var(--pix-neutral-800);
   }
 
   &__off {
     color: var(--pix-neutral-20);
     background-color: var(--pix-neutral-800);
+    fill: var(--pix-neutral-20);
   }
 
   &--pressed {
@@ -44,12 +55,14 @@
         color: var(--pix-neutral-20);
         font-weight: inherit;
         background-color: var(--pix-neutral-800);
+        fill: var(--pix-neutral-20);
       }
 
       &__off {
-        color: inherit;
+        color: var(--pix-neutral-800);
         font-weight: var(--pix-font-normal);
         background-color: transparent;
+        fill: var(--pix-neutral-800);
       }
     }
   }

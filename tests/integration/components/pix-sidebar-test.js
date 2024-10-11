@@ -41,12 +41,13 @@ module('Integration | Component | Sidebar', function (hooks) {
         this.onClose = sinon.stub();
 
         // when
-        await render(hbs`<PixSidebar @title={{this.title}} @onClose={{this.onClose}} @showSidebar={{this.showSidebar}}>
+        const screen =
+          await render(hbs`<PixSidebar @title={{this.title}} @onClose={{this.onClose}} @showSidebar={{this.showSidebar}}>
   <:content>
     content
   </:content>
 </PixSidebar>`);
-        await click('[aria-label="Fermer"]');
+        await click(screen.getByRole('button', { name: /Fermer/ }));
 
         // then
         assert.ok(this.onClose.calledOnce);

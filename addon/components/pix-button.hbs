@@ -15,18 +15,18 @@
     <span class="loader__not-visible-text">{{yield}}</span>
   {{else}}
     {{#if @iconBefore}}
-      <FaIcon
+      <PixIcon
         class="pix-button__icon pix-button__icon--before"
-        @icon={{@iconBefore}}
-        @prefix={{@prefixIconBefore}}
+        @name={{@iconBefore}}
+        @plainIcon={{@plainIconBefore}}
       />
     {{/if}}
     {{yield}}
     {{#if @iconAfter}}
-      <FaIcon
+      <PixIcon
         class="pix-button__icon pix-button__icon--after"
-        @icon={{@iconAfter}}
-        @prefix={{@prefixIconAfter}}
+        @name={{@iconAfter}}
+        @plainIcon={{@plainIconAfter}}
       />
     {{/if}}
   {{/if}}

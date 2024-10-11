@@ -1,5 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
+import { ICONS } from '../../addon/helpers/icons';
 
 export default {
   title: 'Basics/Icon button',
@@ -9,18 +10,21 @@ export default {
       description: "l'action du bouton, pour l'accessibilité",
       type: { name: 'string', required: true },
     },
-    icon: {
-      name: 'icon',
-      description: 'Icône font-awesome',
+    iconName: {
+      name: 'iconName',
+      description: 'Icône a utiliser sur le bouton',
       type: { name: 'string', required: true },
-      table: { defaultValue: { summary: 'plus' } },
-    },
-    iconPrefix: {
-      name: 'iconPrefix',
-      description: "Prefix de l'icône font-awesome",
-      type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['far', 'fas'],
+      options: Object.keys(ICONS),
+    },
+    plainIcon: {
+      name: 'plainIcon',
+      description: "Change le type de l'icône fill/plain",
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
     },
     triggerAction: {
       name: 'triggerAction',
@@ -38,24 +42,13 @@ export default {
     },
     size: {
       name: 'size',
-      description: 'Size: `small`, `big`',
+      description: 'Size: `small`',
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['big', 'small'],
+      options: ['small'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'big' },
-      },
-    },
-    color: {
-      name: 'color',
-      description: ' ⚠️ **Propriété dépréciée** ⚠️ Color: `light-grey`, `dark-grey`',
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: ['light-grey', 'dark-grey'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'light-grey' },
       },
     },
   },
@@ -65,7 +58,7 @@ const Template = (args) => {
   return {
     template: hbs`<PixIconButton
   @ariaLabel={{this.ariaLabel}}
-  @icon={{this.icon}}
+  @iconName={{this.icon}}
   @iconPrefix={{this.iconPrefix}}
   @triggerAction={{this.triggerAction}}
   @withBackground={{this.withBackground}}
@@ -82,7 +75,7 @@ const triggerAction = action('triggerAction');
 export const Default = Template.bind({});
 Default.args = {
   ariaLabel: 'Action du bouton',
-  icon: 'xmark',
+  icon: 'close',
   triggerAction,
 };
 

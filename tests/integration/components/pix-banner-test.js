@@ -124,14 +124,13 @@ module('Integration | Component | Pix Banner', function (hooks) {
     this.set('canCloseBanner', true);
 
     //when
-    await render(hbs`<PixBanner @type='warning' @canCloseBanner={{this.canCloseBanner}}>
+    const screen =
+      await render(hbs`<PixBanner @type='warning' @canCloseBanner={{this.canCloseBanner}}>
   Mon texte
 </PixBanner>`);
 
     // then
-    assert.dom('.pix-banner__close').exists();
-    assert.dom('[aria-label="Fermer"]').exists();
-    await click('[aria-label="Fermer"]');
-    assert.dom('.pix-banner').doesNotExist();
+    await click(screen.getByRole('button', { name: /Fermer/ }));
+    assert.notOk(screen.queryByText('Mon texte'));
   });
 });

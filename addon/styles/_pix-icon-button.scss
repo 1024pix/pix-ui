@@ -2,13 +2,26 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  width: 2.375rem;
+  min-width: 2.375rem;
+  height: 2.375rem;
   padding: 0;
-  color: var(--pix-neutral-800);
   background-color: transparent;
   border: none;
   border-radius: 50%;
   outline: none;
   cursor: pointer;
+  fill: var(--pix-neutral-800);
+
+  &__icon {
+    width: 1.35rem;
+    height: 1.35rem;
+
+    &--small {
+      width: 1.18rem;
+      height: 1.18rem;
+    }
+  }
 
   &:disabled {
     cursor: not-allowed;
@@ -21,16 +34,16 @@
   }
 
   &:focus:enabled {
-    color: var(--pix-neutral-0);
     background-color: var(--pix-neutral-800);
     outline: 1px solid var(--pix-neutral-0);
     outline-offset: -3px;
+    fill: var(--pix-neutral-0);
   }
 
   &:active:enabled {
-    color: var(--pix-neutral-800);
     background-color: var(--pix-neutral-100);
     outline: 0;
+    fill: var(--pix-neutral-800);
   }
 
   &--background {
@@ -41,13 +54,5 @@
     width: 2rem;
     min-width: 2rem;
     height: 2rem;
-    font-size: 1rem;
-  }
-
-  &--big {
-    width: 2.375rem;
-    min-width: 2.375rem;
-    height: 2.375rem;
-    font-size: 1.25rem;
   }
 }

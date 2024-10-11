@@ -1,13 +1,9 @@
 import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import { warn } from '@ember/debug';
 
 export default class PixIconButton extends Component {
   text = 'pix-icon-button';
-
-  get icon() {
-    const defaultIcon = 'plus';
-    return this.args.icon ? this.args.icon : defaultIcon;
-  }
 
   get size() {
     return this.args.size || 'big';
@@ -18,9 +14,14 @@ export default class PixIconButton extends Component {
   }
 
   get ariaLabel() {
-    if (!this.args.ariaLabel || !this.args.ariaLabel.trim()) {
-      throw new Error('ERROR in PixIconButton component, @ariaLabel param is not provided.');
-    }
+    warn(
+      'PixIconButton: @label attribute should be a string.',
+      !['', null, undefined].includes(this.args.ariaLabel),
+      {
+        id: 'pix-ui.icon-button.close-button-label.not-string',
+      },
+    );
+
     return this.args.ariaLabel;
   }
 

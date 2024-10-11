@@ -1,11 +1,15 @@
 <button
   type="button"
-  aria-label={{this.ariaLabel}}
   class="pix-icon-button pix-icon-button--{{this.size}}
-    pix-icon-button--{{this.color}}
     {{if @withBackground ' pix-icon-button--background'}}"
   {{on "click" this.triggerAction}}
   ...attributes
 >
-  <FaIcon @icon={{this.icon}} @prefix={{@iconPrefix}} />
+  <span class="screen-reader-only">{{this.ariaLabel}}</span>
+  <PixIcon
+    class="pix-icon-button__icon pix-icon-button__icon--{{this.size}}"
+    @ariaHidden={{true}}
+    @name={{@iconName}}
+    @plainIcon={{@plainIcon}}
+  />
 </button>

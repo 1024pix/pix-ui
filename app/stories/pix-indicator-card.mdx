@@ -15,19 +15,16 @@ Une carte est un bloc en 2 parties dont les bords sont arrondis et ayant une omb
 
 <Story of={ComponentStories.Default} height={200} />
 
-## WithIconPrefix
-
-<Story of={ComponentStories.withIconPrefix} height={200} />
-
 ## Usage
 
 ```html
     <PixIndicatorCard
       @title={{this.title}}
       @color={{this.color}}
-      @icon={{this.icon}}
-      @iconPrefix={{this.iconPrefix}}
+      @iconName={{this.icon}}
+      @plainIcon={{this.plainIcon}}
       @info={{this.info}}
+      @infoLabel={{this.infoLabel}}
       @isLoading={{this.isLoading}}
       @loadingMessage={{this.loadingMessage}}
     >

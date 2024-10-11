@@ -13,25 +13,30 @@
   &.pix-message--info {
     color: var(--pix-info-700);
     background-color: var(--pix-info-50);
+    fill: var(--pix-info-700);
   }
 
   &.pix-message--alert {
     color: var(--pix-error-700);
     background-color: var(--pix-error-50);
+    fill: var(--pix-info-700);
   }
 
   &.pix-message--error {
     color: var(--pix-error-700);
     background-color: var(--pix-error-50);
+    fill: var(--pix-error-700);
   }
 
   &.pix-message--success {
     color: var(--pix-success-700);
     background-color: var(--pix-success-50);
+    fill: var(--pix-success-700);
   }
 
   &.pix-message--warning {
     color: var(--pix-warning-700);
     background-color: var(--pix-warning-50);
+    fill: var(--pix-warning-700);
   }
 }
