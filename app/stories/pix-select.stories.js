@@ -1,5 +1,6 @@
 import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
+import { ICONS } from '../../addon/helpers/icons';
 
 export default {
   title: 'Form/Select',
@@ -140,14 +141,22 @@ export default {
         defaultValue: { summary: 'bottom-start' },
       },
     },
-    icon: {
-      name: 'icon',
+    iconName: {
+      name: 'iconName',
       description:
-        "Permet l'affichage d'une icône FontAwesome avant le placeholder ou le label de l'option sélectionnée.",
-      type: { name: 'string', required: false },
+        "Permet l'affichage d'une icône **avant** le placeholder ou le label de l'option sélectionnée.",
+      type: { name: 'string', required: true },
+      control: { type: 'select' },
+      options: Object.keys(ICONS),
+    },
+    plainIcon: {
+      name: 'plainIcon',
+      description: "Permet d'utiliser la version pleine de l'icône",
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: null },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
       },
     },
     isComputeWidthDisabled: {
@@ -159,7 +168,6 @@ export default {
         type: { summary: false },
       },
     },
-
     label: {
       name: 'label',
       description: 'Le label du champ',
@@ -234,7 +242,8 @@ const Template = (args) => {
   @errorMessage={{this.errorMessage}}
   @isDisabled={{this.isDisabled}}
   @placement={{this.placement}}
-  @icon={{this.icon}}
+  @iconName={{this.iconName}}
+  @plainIcon={{this.plainIcon}}
   @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
@@ -433,7 +442,7 @@ WithDropDownAtTheTop.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: 'earth-europe',
+  iconName: 'users',
   isSearchable: false,
   label: 'With icon',
   onChange: action('onChange'),

@@ -4,13 +4,18 @@ import { render, clickByText } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
-module('Integration | Component | collapsible', function (hooks) {
+module('Integration | Component | PixCollapsible', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it should only render PixCollapsible title by default', async function (assert) {
     // when
-    const screen = await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable'>
-  <p>Contenu de mon élément</p>
+    const screen = await render(hbs`<PixCollapsible>
+  <:title>
+    Titre de mon élément déroulable
+  </:title>
+  <:default>
+    <p>Contenu de mon élément</p>
+  </:default>
 </PixCollapsible>`);
 
     // then
@@ -20,9 +25,13 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should render and show content on click on PixCollapsible title', async function (assert) {
     // when
-    const screen =
-      await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
-  <p>Contenu de mon élément</p>
+    const screen = await render(hbs`<PixCollapsible aria-label='collapsible label'>
+  <:title>
+    Titre de mon élément déroulable
+  </:title>
+  <:default>
+    <p>Contenu de mon élément</p>
+  </:default>
 </PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
 
@@ -47,9 +56,13 @@ module('Integration | Component | collapsible', function (hooks) {
 
   test('it should not destroy content when uncollapsed then collapsed again', async function (assert) {
     // when
-    const screen =
-      await render(hbs`<PixCollapsible @title='Titre de mon élément déroulable' aria-label='collapsible label'>
-  <p>Contenu de mon élément</p>
+    const screen = await render(hbs`<PixCollapsible aria-label='collapsible label'>
+  <:title>
+    Titre de mon élément déroulable
+  </:title>
+  <:default>
+    <p>Contenu de mon élément</p>
+  </:default>
 </PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
     await clickByText('Titre de mon élément déroulable');

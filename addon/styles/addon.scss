@@ -1,6 +1,7 @@
 @import 'pix-design-tokens';
 @import 'normalize-reset';
 @import 'a11y';
+@import 'pix-icon';
 @import 'pix-background-header';
 @import 'pix-banner';
 @import 'pix-block';
@@ -34,6 +35,7 @@
 @import 'pix-indicator-card';
 @import 'trap-focus';
 @import 'pix-search-input';
+
 
 // at the end so it can override it's children scss
 @import 'pix-filterable-and-searchable-select';

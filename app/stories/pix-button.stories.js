@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+import { ICONS } from '../../addon/helpers/icons';
 
 export default {
   title: 'Basics/Button',
@@ -52,46 +53,34 @@ export default {
     },
     iconBefore: {
       name: 'iconBefore',
-      description: `Nom de l'icône font-awesome à afficher **avant** le label`,
+      description: `Nom de l'icône à afficher **avant** le label`,
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['magnifying-glass', 'plus', 'xmark'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: null },
-      },
+      options: Object.keys(ICONS),
     },
     iconAfter: {
       name: 'iconAfter',
-      description: `Nom de l'icône font-awesome à afficher **après** le label`,
+      description: `Nom de l'icône à afficher **après** le label`,
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['magnifying-glass', 'plus', 'xmark'],
+      options: Object.keys(ICONS),
+    },
+    plainIconBefore: {
+      name: 'plainIconBefore',
+      description: `Change le type de l'icône **avant** le label en fill/plain`,
+      type: { name: 'boolean', required: false },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: null },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
       },
     },
-    prefixIconBefore: {
-      name: 'prefixIconBefore',
-      description: `Permet d'ajouter un préfix à l'icone devant le label pour appliquer un style particulier`,
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: ['fas', 'far'],
+    plainIconAfter: {
+      name: 'plainIconAfter',
+      description: `Change le type de l'icône **après** le label fill/plain`,
+      type: { name: 'boolean', required: false },
       table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: null },
-      },
-    },
-    prefixIconAfter: {
-      name: 'prefixIconAfter',
-      description: `Permet d'ajouter un préfix à l'icone derrière le label pour appliquer un style particulier`,
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: ['fas', 'far'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: null },
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
       },
     },
     isDisabled: {
@@ -230,8 +219,8 @@ variants.args = {
 export const icons = Template.bind({});
 icons.args = {
   ...Default.args,
-  iconBefore: 'magnifying-glass',
-  iconAfter: 'plus',
+  iconBefore: 'add',
+  iconAfter: 'minus',
 };
 
 export const disabled = Template.bind({});

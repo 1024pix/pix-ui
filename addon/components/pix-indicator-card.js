@@ -8,7 +8,7 @@ export default class PixIndicatorCard extends Component {
 
   get color() {
     const { color } = this.args;
-    if (!color) return `indicator-card__icon--grey`;
-    return `indicator-card__icon--${color}`;
+    if (!color) return `indicator-card__icon-wrapper--grey`;
+    return `indicator-card__icon-wrapper--${color}`;
   }
 }

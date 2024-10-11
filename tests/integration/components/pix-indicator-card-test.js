@@ -8,13 +8,13 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
 
   this.title = 'Hello Dedans';
   this.color = 'blue';
-  this.icon = 'circle-question';
+  this.icon = 'help';
   this.info = "Coucou la bulle d'info";
   this.loadingMessage = 'texte de chargement sr';
 
   test('it renders', async function (assert) {
     const screen =
-      await render(hbs`<PixIndicatorCard @title={{this.title}} @color={{this.color}} @icon={{this.icon}}>
+      await render(hbs`<PixIndicatorCard @title={{this.title}} @color={{this.color}} @iconName={{this.icon}}>
   <:default>42</:default>
   <:sub>
     En cours : 1
@@ -30,16 +30,16 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
     const screen = await render(hbs`<PixIndicatorCard
   @title={{this.title}}
   @color={{this.color}}
-  @icon={{this.icon}}
+  @iconName={{this.icon}}
   @info={{this.info}}
+  @infoLabel='En savoir plus'
 >
   <:default>42</:default>
   <:sub>
     En cours : 1
   </:sub>
 </PixIndicatorCard>`);
-
-    screen.getAllByRole('img', { hidden: true })[1].focus();
+    screen.getByLabelText('En savoir plus').focus();
 
     const tooltip = await screen.findByRole('tooltip');
     assert.strictEqual(tooltip.innerText, this.info);
@@ -50,7 +50,7 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
       const screen = await render(hbs`<PixIndicatorCard
   @title={{this.title}}
   @color={{this.color}}
-  @icon={{this.icon}}
+  @iconName={{this.icon}}
   @info={{this.info}}
   @isLoading={{true}}
   @loadingMessage={{this.loadingMessage}}
@@ -69,7 +69,7 @@ module('Integration | Component | PixIndicatorCard', function (hooks) {
       const screen = await render(hbs`<PixIndicatorCard
   @title={{this.title}}
   @color={{this.color}}
-  @icon={{this.icon}}
+  @iconName={{this.icon}}
   @info={{this.info}}
   @isLoading={{true}}
   @loadingMessage={{this.loadingMessage}}

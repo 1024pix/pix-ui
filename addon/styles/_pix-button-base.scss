@@ -30,6 +30,7 @@
   &--primary {
     color: var(--pix-neutral-0);
     background-color: var(--pix-primary-500);
+    fill: var(--pix-neutral-0);
 
     &:not([aria-disabled="true"]) {
       &:hover {
@@ -53,11 +54,13 @@
   &--primary-bis {
     color: var(--pix-neutral-900);
     background-color: var(--pix-secondary-500);
+    fill: var(--pix-neutral-900);
 
     &:not([aria-disabled="true"]) {
       &:hover {
         color: var(--pix-neutral-0);
         background-color: var(--pix-secondary-700);
+        fill: var(--pix-neutral-0);
       }
 
       &:focus,
@@ -66,12 +69,14 @@
         background-color: var(--pix-secondary-700);
         outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
+        fill: var(--pix-neutral-0);
       }
 
       &:active {
         color: var(--pix-neutral-0);
         background-color: var(--pix-secondary-900);
         outline: none;
+        fill: var(--pix-neutral-0);
       }
     }
   }
@@ -80,6 +85,7 @@
     color: var(--pix-primary-700);
     background-color: transparent;
     border: 2px solid var(--pix-primary-700);
+    fill: var(--pix-primary-700);
 
     &:not([aria-disabled="true"]) {
       &:hover {
@@ -109,6 +115,7 @@
     color: var(--pix-neutral-800);
     text-decoration: underline;
     background-color: transparent;
+    fill: var(--pix-neutral-800);
 
     &:not([aria-disabled="true"]) {
       &:hover,
@@ -126,6 +133,7 @@
   &--success {
     color: var(--pix-neutral-0);
     background-color: var(--pix-success-500);
+    fill: var(--pix-neutral-0);
 
     &:not([aria-disabled="true"]) {
       &:hover {
@@ -149,6 +157,7 @@
   &--error {
     color: var(--pix-neutral-0);
     background-color: var(--pix-error-500);
+    fill: var(--pix-neutral-0);
 
     &:not([aria-disabled="true"]) {
       &:hover {

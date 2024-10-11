@@ -24,10 +24,10 @@
       />
 
       {{#if this.hasError}}
-        <FaIcon @icon="xmark" class="pix-input__error-icon" />
+        <PixIcon @name="close" class="pix-input__error-icon" />
       {{/if}}
       {{#if this.hasSuccess}}
-        <FaIcon @icon="check" class="pix-input__success-icon" />
+        <PixIcon @name="check" class="pix-input__success-icon" />
       {{/if}}
     </div>
 

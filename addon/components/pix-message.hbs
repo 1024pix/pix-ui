@@ -1,6 +1,11 @@
 <p class="pix-message {{concat 'pix-message--' this.type}}" ...attributes>
   {{#if @withIcon}}
-    <FaIcon @icon={{this.iconClass}} />
+    <PixIcon
+      @name={{this.iconName}}
+      @ariaHidden={{true}}
+      @plainIcon={{true}}
+      class="pix-message__icon"
+    />
   {{/if}}
   <span class="pix-message__content">
     {{yield}}
