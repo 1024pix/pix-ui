@@ -1,3 +1,9 @@
+# [47.0.0](https://github.com/1024pix/pix-ui/compare/v46.15.2...v47.0.0) (2024-10-14)
+
+### :boom: BREAKING CHANGE
+
+- [#731](https://github.com/1024pix/pix-ui/pull/731) Utiliser les composants MS au lieu de FontAwesome (PIX-14433)
+
 ## [46.15.2](https://github.com/1024pix/pix-ui/compare/v46.15.1...v46.15.2) (2024-10-10)
 
 ### :building_construction: Tech
