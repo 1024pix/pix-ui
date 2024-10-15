@@ -1,3 +1,9 @@
+## [47.0.1](https://github.com/1024pix/pix-ui/compare/v47.0.0...v47.0.1) (2024-10-15)
+
+### :bug: Correction
+
+- [#740](https://github.com/1024pix/pix-ui/pull/740) Permettre de surcharger l'attribut aria-disabled sur PixButton (PIX-14785)
+
 # [47.0.0](https://github.com/1024pix/pix-ui/compare/v46.15.2...v47.0.0) (2024-10-14)
 
 ### :boom: BREAKING CHANGE
