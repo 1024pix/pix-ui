@@ -2,9 +2,9 @@
   type={{this.type}}
   class={{this.className}}
   {{on "click" this.triggerAction}}
-  ...attributes
   disabled={{this.isDisabled}}
   aria-disabled="{{this.isDisabled}}"
+  ...attributes
 >
   {{#if this.isLoading}}
     <div class="loader loader--{{this.loadingColor}}">
