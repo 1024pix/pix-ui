@@ -47,7 +47,7 @@ Plus d'informations sur les [tags git ici](https://git-scm.com/book/fr/v2/Les-ba
 
 * `ember g pix-component <nom_du_composant>`
 
-Plus d'informations sur [la création de composant ici](/?path=/docs/create-component.stories.mdx).
+Plus d'informations sur [la création de composant ici](./docs/create-component.mdx).
 
 
 ##### Lancement de storybook en local <a id="Storybook"></a>
