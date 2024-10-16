@@ -37,6 +37,10 @@ export default class PixSelect extends Component {
         element.style.setProperty('--pix-select-width', `${selectWidth}rem`);
       });
     }
+
+    this.elementHelper.waitForElement(`container-${this.selectId}`).then((element) => {
+      this.rootElement = element;
+    });
   }
 
   get displayDefaultOption() {
@@ -151,11 +155,11 @@ export default class PixSelect extends Component {
   focus() {
     if (this.isExpanded) {
       if (this.args.value) {
-        document.querySelector("[aria-selected='true']").focus();
+        this.rootElement.querySelector("[aria-selected='true']").focus();
       } else if (this.args.isSearchable) {
         document.getElementById(this.searchId).focus();
       } else if (this.displayDefaultOption) {
-        document.querySelector("[aria-selected='true']").focus();
+        this.rootElement.querySelector("[aria-selected='true']").focus();
       }
     }
   }

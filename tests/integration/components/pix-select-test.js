@@ -391,6 +391,34 @@ module('Integration | Component | PixSelect', function (hooks) {
         // then
         assert.dom(select).isFocused();
       });
+
+      test("it should focus first element of Pix Select even when there's an aria-selected=true somewhere", async function (assert) {
+        // given
+        const screen = await render(
+          hbs`<div class='tab-interface'>
+  <div role='tablist' aria-label='Sample Tabs'>
+    <span role='tab' aria-selected='true' aria-controls='panel-1' id='tab-1' tabindex='0'>
+      Je ne dois pas être focus !
+    </span>
+  </div>
+</div>
+<PixSelect @options={{this.options}} @placeholder={{this.placeholder}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+        );
+
+        // when
+        await screen.getByLabelText('Mon menu déroulant').focus();
+
+        await userEvent.keyboard('[ArrowDown]');
+
+        await screen.findByRole('listbox');
+        fireEvent(document.querySelector('.pix-select__dropdown'), new Event('transitionend'));
+
+        const option = screen.getByRole('option', { name: 'Choisissez une option' });
+
+        // then
+        assert.dom(option).isFocused();
+      });
     });
   });
 
