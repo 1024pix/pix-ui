@@ -1,3 +1,9 @@
+## [47.0.3](https://github.com/1024pix/pix-ui/compare/v47.0.2...v47.0.3) (2024-10-16)
+
+### :bug: Correction
+
+- [#743](https://github.com/1024pix/pix-ui/pull/743) Le focus de Pix Select ne fonctionne pas dans tous les cas (PIX-14876)
+
 ## [47.0.2](https://github.com/1024pix/pix-ui/compare/v47.0.1...v47.0.2) (2024-10-16)
 
 ### :coffee: Autre
