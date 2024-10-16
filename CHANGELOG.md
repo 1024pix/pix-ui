@@ -1,3 +1,9 @@
+## [47.0.2](https://github.com/1024pix/pix-ui/compare/v47.0.1...v47.0.2) (2024-10-16)
+
+### :coffee: Autre
+
+- [#742](https://github.com/1024pix/pix-ui/pull/742) Réparer le lien dans le README qui mène vers la documentation pour la création d'un nouveau composant
+
 ## [47.0.1](https://github.com/1024pix/pix-ui/compare/v47.0.0...v47.0.1) (2024-10-15)
 
 ### :bug: Correction
