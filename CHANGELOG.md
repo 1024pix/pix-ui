@@ -1,3 +1,9 @@
+# [47.1.0](https://github.com/1024pix/pix-ui/compare/v47.0.3...v47.1.0) (2024-10-18)
+
+### :rocket: Amélioration
+
+- [#741](https://github.com/1024pix/pix-ui/pull/741) Ajout d'icône manquante pour les différentes APP (PIX-14875)
+
 ## [47.0.3](https://github.com/1024pix/pix-ui/compare/v47.0.2...v47.0.3) (2024-10-16)
 
 ### :bug: Correction
