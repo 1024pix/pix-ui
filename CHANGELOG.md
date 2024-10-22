@@ -1,3 +1,9 @@
+# [47.2.0](https://github.com/1024pix/pix-ui/compare/v47.1.0...v47.2.0) (2024-10-22)
+
+### :rocket: Amélioration
+
+- [#744](https://github.com/1024pix/pix-ui/pull/744) ajoute des nouvelles icônes
+
 # [47.1.0](https://github.com/1024pix/pix-ui/compare/v47.0.3...v47.1.0) (2024-10-18)
 
 ### :rocket: Amélioration
