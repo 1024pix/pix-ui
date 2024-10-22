@@ -63,7 +63,7 @@ module('Integration | Component | pix-message', function (hooks) {
     // then
     const icon = screen.getByRole('img', { hidden: true });
 
-    assert.true(icon.innerHTML.includes('#check_circle'));
+    assert.true(icon.innerHTML.includes('#checkCircle'));
   });
 
   test('it renders with a alert icon for error type', async function (assert) {

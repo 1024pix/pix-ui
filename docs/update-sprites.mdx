@@ -4,12 +4,16 @@ import { Meta } from '@storybook/blocks';
 
 # Mise à jour du Sprites SVG
 
-## Récupération des nouveaux svg flat ( pas de téléchargement via Figma ou autre outils )
+Copier les nouvelles icônes fournies par le design dans le dossier `./svgs/icons`
 
-Ensuite générer le `pix-sprite.svg`
+Ensuite mettre à jour le fichier `pix-sprite.svg` avec la commande
 
 ```shell
 npm run svg:generate-sprite
 ```
 
-Effectuer le re-mapping des icons dans le composant `helpers/icons.js` si besoin.
+Modifier ensuite le fichier de mapping `addon/helpers/icons.js` pour ajouter les nouvelles icônes si besoin.
+
+## Remarques
+
+Le design fournit toujours les deux versions (`fill_false` / `fill_true`) pour chaque icône, mais il n'est pas nécessaire de copier les 2 dans le dossier des `svgs/icons`.
