@@ -43,12 +43,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
   module('@isDisabled', function (hooks) {
     let sandbox;
     hooks.beforeEach(function () {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(EmberDebug, 'warn');
-    });
-
-    hooks.afterEach(function () {
-      sandbox.restore();
+      sandbox = sinon.stub(EmberDebug, 'warn');
     });
 
     test(`it should not be possible to interact when @isDisabled={{true}}`, async function (assert) {
@@ -57,7 +52,8 @@ module('Integration | Component | pix-radio-button', function (hooks) {
       const screen = await render(
         hbs`<PixRadioButton @isDisabled={{this.isDisabled}}><:label>Abricot</:label></PixRadioButton>`,
       );
-      sandbox.assert.calledWith(
+
+      sandbox.calledWith(
         EmberDebug.warn,
         'PixRadioButton: @isDisabled attribute should be a boolean.',
         true,
@@ -132,7 +128,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
         const screen = await render(
           hbs`<PixRadioButton @isDisabled={{this.isDisabled}}><:label>Abricot</:label></PixRadioButton>`,
         );
-        sandbox.assert.calledWith(
+        sandbox.calledWith(
           EmberDebug.warn,
           'PixRadioButton: @isDisabled attribute should be a boolean.',
           false,
@@ -166,7 +162,7 @@ module('Integration | Component | pix-radio-button', function (hooks) {
         const screen = await render(
           hbs`<PixRadioButton @isDisabled={{this.isDisabled}}><:label>Abricot</:label></PixRadioButton>`,
         );
-        sandbox.assert.calledWith(
+        sandbox.calledWith(
           EmberDebug.warn,
           'PixRadioButton: @isDisabled attribute should be a boolean.',
           true,
