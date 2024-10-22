@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { hbs } from 'ember-cli-htmlbars';
 import { render, clickByName } from '@1024pix/ember-testing-library';
-import EmberDebug from '@ember/debug';
 import sinon from 'sinon';
 
 module('Integration | Component | checkbox', function (hooks) {
@@ -60,14 +59,14 @@ module('Integration | Component | checkbox', function (hooks) {
   });
 
   module('@isDisabled', function (hooks) {
-    let sandbox;
+    let warnStub;
+
     hooks.beforeEach(function () {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(EmberDebug, 'warn');
+      warnStub = sinon.stub(console, 'warn');
     });
 
     hooks.afterEach(function () {
-      sandbox.restore();
+      warnStub.restore();
     });
 
     test(`it should not be possible to interact when @isDisabled={{true}}`, async function (assert) {
@@ -76,18 +75,12 @@ module('Integration | Component | checkbox', function (hooks) {
       const screen = await render(
         hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
       );
-      sandbox.assert.calledWith(
-        EmberDebug.warn,
-        'PixCheckbox: @isDisabled attribute should be a boolean.',
-        true,
-        {
-          id: 'pix-ui.checkbox.is-disabled.not-boolean',
-        },
-      );
       const checkbox = screen.getByRole('checkbox', {
         name: 'Recevoir la newsletter',
         disabled: true,
       });
+
+      assert.false(warnStub.called);
       assert.true(checkbox.checked, 'Checkbox has been set to checked by default');
       assert.strictEqual(
         checkbox.getAttribute('aria-disabled'),
@@ -149,18 +142,16 @@ module('Integration | Component | checkbox', function (hooks) {
         const screen = await render(
           hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
         );
-        sandbox.assert.calledWith(
-          EmberDebug.warn,
-          'PixCheckbox: @isDisabled attribute should be a boolean.',
-          false,
-          {
-            id: 'pix-ui.checkbox.is-disabled.not-boolean',
-          },
-        );
         const checkbox = screen.getByRole('checkbox', {
           name: 'Recevoir la newsletter',
           disabled: true,
         });
+
+        assert.ok(
+          warnStub.calledWithExactly(
+            'WARNING: PixCheckbox: @isDisabled attribute should be a boolean.',
+          ),
+        );
         assert.true(checkbox.checked, 'Checkbox has been set to checked by default');
         assert.strictEqual(
           checkbox.getAttribute('aria-disabled'),
@@ -183,18 +174,12 @@ module('Integration | Component | checkbox', function (hooks) {
         const screen = await render(
           hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
         );
-        sandbox.assert.calledWith(
-          EmberDebug.warn,
-          'PixCheckbox: @isDisabled attribute should be a boolean.',
-          true,
-          {
-            id: 'pix-ui.checkbox.is-disabled.not-boolean',
-          },
-        );
         const checkbox = screen.getByRole('checkbox', {
           name: 'Recevoir la newsletter',
           disabled: true,
         });
+
+        assert.false(warnStub.called);
         assert.true(checkbox.checked, 'Checkbox has been set to checked by default');
         assert.strictEqual(
           checkbox.getAttribute('aria-disabled'),

@@ -4,7 +4,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
 import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
-import EmberDebug from '@ember/debug';
 import sinon from 'sinon';
 
 module('Integration | Component | table', function (hooks) {
@@ -266,14 +265,13 @@ module('Integration | Component | table', function (hooks) {
   });
 
   module('#warn', function (hooks) {
-    let sandbox;
+    let warnStub;
     hooks.beforeEach(function () {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(EmberDebug, 'warn');
+      warnStub = sinon.stub(console, 'warn');
     });
 
     hooks.afterEach(function () {
-      sandbox.restore();
+      warnStub.restore();
     });
 
     test('it should warn when @variant is incorrect', async function (assert) {
@@ -285,21 +283,9 @@ module('Integration | Component | table', function (hooks) {
 
       // then
       assert.ok(
-        EmberDebug.warn
-          .getCalls()
-          .find((call) => {
-            return (
-              call.args[0] ===
-              'PixTable: @variant "wrong variant" should be certif, orga or primary'
-            );
-          })
-          .calledWith(
-            'PixTable: @variant "wrong variant" should be certif, orga or primary',
-            false,
-            {
-              id: 'pix-ui.pix-table.variant.not-valid',
-            },
-          ),
+        warnStub.calledWithExactly(
+          'WARNING: PixTable: @variant "wrong variant" should be certif, orga or primary',
+        ),
       );
     });
 
@@ -309,16 +295,7 @@ module('Integration | Component | table', function (hooks) {
       await render(hbs`<PixTable @data={{this.data}} />`);
 
       // then
-      assert.ok(
-        EmberDebug.warn
-          .getCalls()
-          .find((call) => {
-            return call.args[0] === 'PixTable: @caption is required';
-          })
-          .calledWith('PixTable: @caption is required', false, {
-            id: 'pix-ui.pix-table.caption.required',
-          }),
-      );
+      assert.ok(warnStub.calledWithExactly('WARNING: PixTable: @caption is required'));
     });
 
     test('it should warn when @sortOrder is incorrect', async function (assert) {
@@ -335,14 +312,9 @@ module('Integration | Component | table', function (hooks) {
 
       // then
       assert.ok(
-        EmberDebug.warn
-          .getCalls()
-          .find((call) => {
-            return call.args[2].id === 'pix-ui.table-column.sortOrder.not-valid';
-          })
-          .calledWith('PixTableColumn: you need to provide a valid sortOrder', false, {
-            id: 'pix-ui.table-column.sortOrder.not-valid',
-          }),
+        warnStub.calledWithExactly(
+          'WARNING: PixTableColumn: you need to provide a valid sortOrder',
+        ),
       );
     });
 
@@ -386,21 +358,9 @@ module('Integration | Component | table', function (hooks) {
 
         // then
         assert.ok(
-          EmberDebug.warn
-            .getCalls()
-            .find((call) => {
-              return (
-                call.args[0] ===
-                'PixTableColumn: parameters `@ariaLabelDefaultSort`, `@ariaLabelSortDesc` and `@ariaLabelSortAsc` are required for sort buttons'
-              );
-            })
-            .calledWith(
-              'PixTableColumn: parameters `@ariaLabelDefaultSort`, `@ariaLabelSortDesc` and `@ariaLabelSortAsc` are required for sort buttons',
-              false,
-              {
-                id: 'pix-ui.pix-table-column.sortAriaLabels.required',
-              },
-            ),
+          warnStub.calledWithExactly(
+            'WARNING: PixTableColumn: parameters `@ariaLabelDefaultSort`, `@ariaLabelSortDesc` and `@ariaLabelSortAsc` are required for sort buttons',
+          ),
         );
       });
     });

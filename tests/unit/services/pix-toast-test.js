@@ -2,20 +2,20 @@ import { module, test } from 'qunit';
 import { setupTest } from 'ember-qunit';
 import ToastService from '@1024pix/pix-ui/services/pix-toast';
 import sinon from 'sinon';
-import EmberDebug from '@ember/debug';
 
 module('Unit | Service | toast', function (hooks) {
   setupTest(hooks);
 
   let toastService;
 
+  let warnStub;
   hooks.beforeEach(function () {
     toastService = new ToastService();
-    sinon.stub(EmberDebug, 'warn');
+    warnStub = sinon.stub(console, 'warn');
   });
 
   hooks.afterEach(function () {
-    sinon.restore();
+    warnStub.restore();
   });
 
   module('#addNotification', function () {
@@ -44,10 +44,8 @@ module('Unit | Service | toast', function (hooks) {
         toastService.addNotification(invalidNotification);
 
         // then
-        sinon.assert.calledWith(EmberDebug.warn, 'Message mandatory attribute is missing', false, {
-          id: 'pix-ui.toast.not-message',
-        });
-        assert.ok(EmberDebug.warn.calledOnce);
+        sinon.assert.calledWith(warnStub, 'WARNING: Message mandatory attribute is missing');
+        assert.ok(warnStub.calledOnce);
         assert.strictEqual(toastService.content.length, 0);
       });
     });
