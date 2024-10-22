@@ -62,12 +62,7 @@ module('Integration | Component | checkbox', function (hooks) {
   module('@isDisabled', function (hooks) {
     let sandbox;
     hooks.beforeEach(function () {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(EmberDebug, 'warn');
-    });
-
-    hooks.afterEach(function () {
-      sandbox.restore();
+      sandbox = sinon.stub(EmberDebug, 'warn');
     });
 
     test(`it should not be possible to interact when @isDisabled={{true}}`, async function (assert) {
@@ -76,7 +71,7 @@ module('Integration | Component | checkbox', function (hooks) {
       const screen = await render(
         hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
       );
-      sandbox.assert.calledWith(
+      sandbox.calledWith(
         EmberDebug.warn,
         'PixCheckbox: @isDisabled attribute should be a boolean.',
         true,
@@ -149,7 +144,7 @@ module('Integration | Component | checkbox', function (hooks) {
         const screen = await render(
           hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
         );
-        sandbox.assert.calledWith(
+        sandbox.calledWith(
           EmberDebug.warn,
           'PixCheckbox: @isDisabled attribute should be a boolean.',
           false,
@@ -183,7 +178,7 @@ module('Integration | Component | checkbox', function (hooks) {
         const screen = await render(
           hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}}><:label>Recevoir la newsletter</:label></PixCheckbox>`,
         );
-        sandbox.assert.calledWith(
+        sandbox.calledWith(
           EmberDebug.warn,
           'PixCheckbox: @isDisabled attribute should be a boolean.',
           true,
