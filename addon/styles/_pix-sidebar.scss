@@ -1,3 +1,5 @@
+@use "pix-design-tokens/breakpoints";
+
 .pix-sidebar__overlay {
   position: fixed;
   top: 0;
@@ -46,7 +48,7 @@
   &__close-button {
     flex-shrink: 0;
 
-    @include device-is('tablet') {
+    @include breakpoints.device-is('tablet') {
       width: var(--tablet-close-button-size);
       height: var(--tablet-close-button-size);
     }
@@ -64,7 +66,7 @@
     padding-right: var(--mobile-close-button-size) + var(--space-between-title-and-close-button);
     color: var(--pix-neutral-900);
 
-    @include device-is('tablet') {
+    @include breakpoints.device-is('tablet') {
       padding-right: var(--tablet-close-button-size) + var(--space-between-title-and-close-button);
     }
   }

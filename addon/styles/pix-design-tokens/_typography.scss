@@ -1,3 +1,5 @@
+@use "breakpoints";
+
 // See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=24%3A8
 
 // Placeholder pour permettre l'utilisation dans une classe css si jamais le tag html a trop de classe
@@ -18,11 +20,11 @@
   line-height: 1.3;
   letter-spacing: calc(-0.02 * var(--font-size-title));
 
-  @include device-is('tablet') {
+  @include breakpoints.device-is('tablet') {
     --font-size-title: 2.5rem;
   }
 
-  @include device-is('desktop') {
+  @include breakpoints.device-is('desktop') {
     --font-size-title: 3rem;
   }
 }
@@ -38,11 +40,11 @@
   line-height: 1.3;
   letter-spacing: calc(var(--letter-spacing-title) * var(--font-size-title));
 
-  @include device-is('tablet') {
+  @include breakpoints.device-is('tablet') {
     --font-size-title: 2rem;
   }
 
-  @include device-is('desktop') {
+  @include breakpoints.device-is('desktop') {
     --font-size-title: 2.25rem;
     --letter-spacing-title: -0.01;
   }
@@ -58,11 +60,11 @@
   line-height: 1.3;
   letter-spacing: calc(-0.01 * var(--font-size-title));
 
-  @include device-is('tablet') {
+  @include breakpoints.device-is('tablet') {
     --font-size-title: 1.5rem;
   }
 
-  @include device-is('desktop') {
+  @include breakpoints.device-is('desktop') {
     --font-size-title: 1.75rem;
   }
 }
@@ -125,7 +127,7 @@
   font-size: 0.875rem;
   line-height: 1.5;
 
-  @include device-is('tablet') {
+  @include breakpoints.device-is('tablet') {
     font-size: 1rem;
   }
 }
@@ -137,7 +139,7 @@
   font-size: 1rem;
   line-height: 1.5;
 
-  @include device-is('tablet') {
+  @include breakpoints.device-is('tablet') {
     font-size: 1.125rem;
   }
 }

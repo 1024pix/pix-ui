@@ -1,3 +1,5 @@
+@use "pix-design-tokens/breakpoints";
+
 .pix-filter-banner {
   @extend %pix-shadow-sm;
 
@@ -46,7 +48,7 @@
   padding-right: var(--pix-spacing-1x);
 }
 
-@include device-is('tablet') {
+@include breakpoints.device-is('tablet') {
   .pix-filter-banner {
     flex-direction: row;
     gap: var(--pix-spacing-6x);

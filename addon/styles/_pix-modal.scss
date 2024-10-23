@@ -1,3 +1,5 @@
+@use "pix-design-tokens/breakpoints";
+
 .pix-modal__overlay {
   position: fixed;
   top: 0;
@@ -58,7 +60,7 @@
     flex-shrink: 0;
     margin-top: -4px;
 
-    @include device-is('tablet') {
+    @include breakpoints.device-is('tablet') {
       width: var(--pix-spacing-10x);
       height: var(--pix-spacing-10x);
     }
@@ -71,7 +73,7 @@
     padding-right: var(--pix-spacing-8x) + var(--pix-spacing-2x);
     color: var(--pix-neutral-900);
 
-    @include device-is('tablet') {
+    @include breakpoints.device-is('tablet') {
       padding-right: var(--pix-spacing-10x) + var(--pix-spacing-2x);
     }
   }
