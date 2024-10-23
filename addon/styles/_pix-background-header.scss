@@ -1,3 +1,5 @@
+@use "pix-design-tokens/colors";
+
 .pix-background-header {
   position: relative;
   padding: 68px var(--pix-spacing-6x) 0;
@@ -10,7 +12,7 @@
     width: 100%;
     min-height: 270px;
     color: var(--pix-neutral-0);
-    background: $pix-primary-app-gradient;
+    background: colors.$pix-primary-app-gradient;
     box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.1);
   }
 
