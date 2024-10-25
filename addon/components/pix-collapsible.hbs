@@ -8,16 +8,17 @@
     aria-expanded={{if this.isUnCollapsed "true" "false"}}
     ...attributes
   >
-    {{#if @iconName}}
-      <PixIcon
-        class="pix-collapsible-title__icon"
-        @name={{@iconName}}
-        @plainIcon={{@plainIcon}}
-        @ariaHidden={{true}}
-      />
-    {{/if}}
 
-    <span>
+    <span class="pix-collapsible-title__container">
+      {{#if @iconName}}
+        <PixIcon
+          class="pix-collapsible-title__icon"
+          @name={{@iconName}}
+          @plainIcon={{@plainIcon}}
+          @ariaHidden={{true}}
+        />
+      {{/if}}
+
       {{yield to="title"}}
     </span>
 
@@ -40,7 +41,7 @@
     aria-hidden={{if this.isCollapsed "true" "false"}}
   >
     {{#if this.isContentRendered}}
-      {{yield}}
+      {{yield to="content"}}
     {{/if}}
   </div>
 </div>

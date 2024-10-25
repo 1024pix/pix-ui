@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, clickByText } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | PixCollapsible', function (hooks) {
   setupRenderingTest(hooks);
@@ -13,9 +12,9 @@ module('Integration | Component | PixCollapsible', function (hooks) {
   <:title>
     Titre de mon élément déroulable
   </:title>
-  <:default>
+  <:content>
     <p>Contenu de mon élément</p>
-  </:default>
+  </:content>
 </PixCollapsible>`);
 
     // then
@@ -29,9 +28,9 @@ module('Integration | Component | PixCollapsible', function (hooks) {
   <:title>
     Titre de mon élément déroulable
   </:title>
-  <:default>
+  <:content>
     <p>Contenu de mon élément</p>
-  </:default>
+  </:content>
 </PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
 
@@ -40,29 +39,15 @@ module('Integration | Component | PixCollapsible', function (hooks) {
     assert.dom(screen.queryByText('Contenu de mon élément')).isVisible();
   });
 
-  test('it should not show PixCollapsible if title is not provided', async function (assert) {
-    // given
-    const componentParams = { title: '  ' };
-    const component = createGlimmerComponent('pix-collapsible', componentParams);
-
-    // when & then
-    const expectedError = new Error(
-      'ERROR in PixCollapsible component, @title param is not provided',
-    );
-    assert.throws(function () {
-      component.title;
-    }, expectedError);
-  });
-
   test('it should not destroy content when uncollapsed then collapsed again', async function (assert) {
     // when
     const screen = await render(hbs`<PixCollapsible aria-label='collapsible label'>
   <:title>
     Titre de mon élément déroulable
   </:title>
-  <:default>
+  <:content>
     <p>Contenu de mon élément</p>
-  </:default>
+  </:content>
 </PixCollapsible>`);
     await clickByText('Titre de mon élément déroulable');
     await clickByText('Titre de mon élément déroulable');
