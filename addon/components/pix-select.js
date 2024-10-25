@@ -155,11 +155,11 @@ export default class PixSelect extends Component {
   focus() {
     if (this.isExpanded) {
       if (this.args.value) {
-        this.rootElement.querySelector("[aria-selected='true']").focus();
+        this.rootElement.querySelector("[aria-selected='true']")?.focus();
       } else if (this.args.isSearchable) {
         document.getElementById(this.searchId).focus();
       } else if (this.displayDefaultOption) {
-        this.rootElement.querySelector("[aria-selected='true']").focus();
+        this.rootElement.querySelector("[aria-selected='true']")?.focus();
       }
     }
   }
