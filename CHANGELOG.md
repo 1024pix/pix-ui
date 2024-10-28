@@ -1,3 +1,9 @@
+## [48.0.1](https://github.com/1024pix/pix-ui/compare/v48.0.0...v48.0.1) (2024-10-28)
+
+### :arrow_up: Montée de version
+
+- [#748](https://github.com/1024pix/pix-ui/pull/748) Update dependency node to v20.18.0
+
 # [48.0.0](https://github.com/1024pix/pix-ui/compare/v47.2.0...v48.0.0) (2024-10-28)
 
 ### :boom: BREAKING CHANGE
