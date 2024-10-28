@@ -4,15 +4,10 @@ import { ICONS } from '../../addon/helpers/icons';
 export default {
   title: 'Others/Collapsible',
   argTypes: {
-    title: {
-      name: 'title',
-      description: 'Intitulé du contenu du PixCollapsible',
-      type: { name: 'string', required: true },
-    },
     iconName: {
       name: 'iconName',
       description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
-      type: { name: 'string', required: true },
+      type: { name: 'string', required: false },
       control: { type: 'select' },
       options: Object.keys(ICONS),
     },
@@ -52,9 +47,9 @@ const Template = (args) => {
   <:title>
     {{this.title}}
   </:title>
-  <:default>
+  <:content>
     <div>Contenu du PixCollapsible</div>
-  </:default>
+  </:content>
 </PixCollapsible>`,
     context: args,
   };
@@ -73,27 +68,27 @@ export const multipleCollapsible = (args) => {
     <:title>
       Titre A
     </:title>
-    <:default>
+    <:content>
       <div>Contenu A</div>
-    </:default>
+    </:content>
   </PixCollapsible>
 
   <PixCollapsible @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
     <:title>
       Titre B
     </:title>
-    <:default>
+    <:content>
       <div>Contenu B</div>
-    </:default>
+    </:content>
   </PixCollapsible>
 
   <PixCollapsible @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
     <:title>
       Titre C
     </:title>
-    <:default>
+    <:content>
       <div>Contenu C</div>
-    </:default>
+    </:content>
   </PixCollapsible>
 </div>`,
     context: args,
@@ -114,9 +109,9 @@ export const collapsibleWithTag = (args) => {
     <:title>
       Titre A
     </:title>
-    <:default>
+    <:content>
       <div>Contenu A</div>
-    </:default>
+    </:content>
   </PixCollapsible>
 
   <PixCollapsible
@@ -128,9 +123,9 @@ export const collapsibleWithTag = (args) => {
     <:title>
       Titre B
     </:title>
-    <:default>
+    <:content>
       <div>Contenu B</div>
-    </:default>
+    </:content>
   </PixCollapsible>
 </div>`,
     context: args,
