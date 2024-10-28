@@ -1,3 +1,9 @@
+# [48.0.0](https://github.com/1024pix/pix-ui/compare/v47.2.0...v48.0.0) (2024-10-28)
+
+### :boom: BREAKING CHANGE
+
+- [#747](https://github.com/1024pix/pix-ui/pull/747) Corriger l'affichage du label en cas d'icône sur PixCollapsible
+
 # [47.2.0](https://github.com/1024pix/pix-ui/compare/v47.1.0...v47.2.0) (2024-10-22)
 
 ### :rocket: Amélioration
