@@ -3,8 +3,12 @@ import { warn } from '@ember/debug';
 import { ICONS } from '@1024pix/pix-ui/helpers/icons';
 
 export default class PixIcon extends Component {
-  get alternativeText() {
-    return this.args.alternativeText || '';
+  get title() {
+    warn('PixIcon: @alternativeText is deprecated use @title instead', !this.args.alternativeText, {
+      id: 'pix-ui.icon.alternativeText.deprecated',
+    });
+
+    return this.args.title || this.args.alternativeText || null;
   }
 
   get ariaHidden() {
