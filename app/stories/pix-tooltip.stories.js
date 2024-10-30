@@ -104,7 +104,7 @@ const TemplateWithIconElement = (args) => {
     template: hbs`<PixTooltip @id={{this.id}} @isInline='true'>
   <:triggerElement>
     {{! template-lint-disable no-inline-styles }}
-    <PixIcon class='external-link' @name='openNew' style='widh:2.5rem;height:2.5rem' />
+    <PixIcon class='external-link' @name='openNew' style='width:1.5rem;height:1.5rem' />
   </:triggerElement>
 
   <:tooltip>
