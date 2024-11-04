@@ -33,13 +33,19 @@
         aria-disabled={{@isDisabled}}
       >
         {{#if @iconName}}
-          <PixIcon @name={{@iconName}} @plainIcon={{@plainIcon}} class="pix-select-button__icon" />
+          <PixIcon
+            @name={{@iconName}}
+            @plainIcon={{@plainIcon}}
+            @ariaHidden={{true}}
+            class="pix-select-button__icon"
+          />
         {{/if}}
 
         <span class="pix-select-button__text">{{this.placeholder}}</span>
 
         <PixIcon
           class="pix-select-button__dropdown-icon"
+          @ariaHidden={{true}}
           @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
         />
       </button>
@@ -50,7 +56,7 @@
       >
         {{#if @isSearchable}}
           <div class="pix-select__search">
-            <PixIcon class="pix-select-search__icon" @name="search" />
+            <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
             <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
             <input
               class="pix-select-search__input"
