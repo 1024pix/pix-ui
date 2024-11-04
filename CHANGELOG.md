@@ -1,3 +1,9 @@
+## [48.0.2](https://github.com/1024pix/pix-ui/compare/v48.0.1...v48.0.2) (2024-11-04)
+
+### :bug: Correction
+
+- [#753](https://github.com/1024pix/pix-ui/pull/753) Ajouter des ariaHidden sur les PixIcon décorative (PIX-15154)
+
 ## [48.0.1](https://github.com/1024pix/pix-ui/compare/v48.0.0...v48.0.1) (2024-10-28)
 
 ### :arrow_up: Montée de version
