@@ -1,6 +1,11 @@
 {{#if this.displayBanner}}
   <div class="pix-banner pix-banner--{{this.type}}" role="alert" ...attributes>
-    <PixIcon @name={{this.icon}} @plainIcon={{true}} @ariaHidden="true" class="pix-banner__icon" />
+    <PixIcon
+      @name={{this.icon}}
+      @plainIcon={{true}}
+      @ariaHidden={{true}}
+      class="pix-banner__icon"
+    />
     <div>
       {{yield}}
       {{#if this.displayAction}}

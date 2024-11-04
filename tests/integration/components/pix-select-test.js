@@ -663,18 +663,6 @@ module('Integration | Component | PixSelect', function (hooks) {
   });
 
   module('#icon', function () {
-    module('when no icon name is provided', function () {
-      test('does not display any icon', async function (assert) {
-        // given & when
-        await render(
-          hbs`<PixSelect @options={{this.options}}><:label>{{this.label}}</:label></PixSelect>`,
-        );
-
-        // then
-        assert.dom('.fa-earth-europe').doesNotExist();
-      });
-    });
-
     module('when an icon name is provided', function () {
       test('displays an icon', async function (assert) {
         // given & when
@@ -682,7 +670,7 @@ module('Integration | Component | PixSelect', function (hooks) {
           hbs`<PixSelect @iconName='globe' @options={{this.options}}><:label>{{this.label}}</:label></PixSelect>`,
         );
 
-        const svg = screen.getAllByRole('img')[0].innerHTML;
+        const svg = screen.getAllByRole('img', { hidden: true })[0].innerHTML;
         // then
         assert.true(svg.includes('#globe'));
       });

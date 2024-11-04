@@ -20,7 +20,7 @@
 
     {{#if @isSearchable}}
       <span {{reference}} class={{this.headerClassName}}>
-        <PixIcon @name="search" class="pix-multi-select-header__search-icon" />
+        <PixIcon @name="search" class="pix-multi-select-header__search-icon" @ariaHidden={{true}} />
 
         <input
           class="pix-multi-select-header__search-input"
@@ -56,6 +56,7 @@
           class="pix-multi-select-header__dropdown-icon
             {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
           @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
+          @ariaHidden={{true}}
         />
       </button>
     {{/if}}
