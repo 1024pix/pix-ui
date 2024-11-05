@@ -1,3 +1,9 @@
+## [48.0.3](https://github.com/1024pix/pix-ui/compare/v48.0.2...v48.0.3) (2024-11-05)
+
+### :bug: Correction
+
+- [#750](https://github.com/1024pix/pix-ui/pull/750) Remplacer le alt par la balise title du svg (PIX-15105)
+
 ## [48.0.2](https://github.com/1024pix/pix-ui/compare/v48.0.1...v48.0.2) (2024-11-04)
 
 ### :bug: Correction
