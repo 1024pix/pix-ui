@@ -23,7 +23,13 @@ export default {
     },
     alternativeText: {
       name: 'alternativeText',
-      description: "Permet d'ajouter un texte alternatif pour illustrer l'icône si besoin",
+      description:
+        "DEPRECATED: Permet d'ajouter un texte alternatif pour illustrer l'icône si besoin",
+      type: { name: 'string', required: false },
+    },
+    title: {
+      name: 'title',
+      description: "Permet d'ajouter un texte title pour illustrer l'icône si besoin",
       type: { name: 'string', required: false },
     },
     ariaHidden: {
@@ -45,6 +51,7 @@ export const icon = (args) => ({
   @name={{this.name}}
   @plainIcon={{this.plainIcon}}
   @alternativeText={{this.alternativeText}}
+  @title={{this.title}}
   @ariaHidden={{this.ariaHidden}}
 />`,
   context: args,
@@ -67,7 +74,7 @@ export const allIcons = (args) => {
       <PixIcon
         @name={{icon.iconName}}
         @plainIcon={{icon.variant}}
-        @alternativeText={{icon.iconName}}
+        @title={{icon.iconName}}
         @ariaHidden={{true}}
       />
       <p class='icon-name'>{{icon.iconName}}&nbsp;{{if icon.variant '(plain)'}}</p>
