@@ -1,3 +1,9 @@
+## [48.0.4](https://github.com/1024pix/pix-ui/compare/v48.0.3...v48.0.4) (2024-11-05)
+
+### :bug: Correction
+
+- [#751](https://github.com/1024pix/pix-ui/pull/751) Ne pas surcharger le PixIcon via le composant Tooltip (PIX-15123)
+
 ## [48.0.3](https://github.com/1024pix/pix-ui/compare/v48.0.2...v48.0.3) (2024-11-05)
 
 ### :bug: Correction
