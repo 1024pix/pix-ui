@@ -22,3 +22,8 @@
   color:var(--pix-neutral-800);
   font-size: .75rem
 }
+
+#storybook-root.ember-application:has(.pix-app-layout) {
+  /* remove padding for the pix-navigation story to mimic in-app behaviour */
+  padding: 0
+}

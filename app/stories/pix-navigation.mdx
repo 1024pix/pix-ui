@@ -7,48 +7,56 @@ import * as ComponentStories from './pix-navigation.stories';
 
 Le composant `<PixNavigation/>` comporte 3 placeholders
 
-- `<:brand>` permet d'afficher le block marque
+- `<:brand>` permet d'afficher l'identité de l'application (logo)
 - `<:navElements>` permet d'afficher les boutons de navigation
 - `<:footer>` permet d'afficher des infos et d'autres boutons (selecteur d'orga, déconnexion)
 
-En complément, les composants `<PixNavigationButton/>` et `<PixNavigationSeparator/>` permette de composer la navigation souhaitée.
+Ce composant doit être utilisé avec le composant `<PixAppLayout>` afin de pouvoir occuper tout la hauteur de la page et être toujours visible.
+
+En complément, les composants `<PixNavigationButton/>` et `<PixNavigationSeparator/>` permettent de composer la navigation souhaitée.
 
 ## Usage
 
 ```html
-<PixNavigation @variant="orga" @navigationAriaLabel="navigation principale">
-   <:brand>
-      <!-- Affichage du block indentité -->
-      <a href="/">
-        <img src="/pix-orga.svg" alt="pix orga" />
-      </a>
-    </:brand>
-    <:navElements>
-      <!-- Affichage du block de navigation -->
-      <PixNavigationButton
-        @route="navigation-sidebar-page"
-        @icon="conversionPath"
-      >Campagnes</PixNavigationButton>
-      <PixNavigationButton @href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
-      <PixNavigationButton
-        @href="https://pix.fr"
-        @title="Pix.fr"
-        @target="_blank"
-        @icon="help"
-        @newWindowLabel="ouvre une nouvelle fenêtre"
-      >Centre d'aide</PixNavigationButton>
-    </:navElements>
-    <:footer>
-      <!-- Affichage du block indentité -->
-      <p>
-        1 000 places disponibles
-      </p>
-      <PixNavigationSeparator />
-      <p>
-        Martin Dupond
-      </p>
-    </:footer>
-</PixNavigation>
+<PixAppLayout>
+  <PixNavigation @variant="orga" @navigationAriaLabel="navigation principale">
+    <:brand>
+        <!-- Affichage du bloc identité -->
+        <a href="/">
+          <img src="/pix-orga.svg" alt="pix orga" />
+        </a>
+      </:brand>
+      <:navElements>
+        <!-- Affichage du bloc de navigation -->
+        <PixNavigationButton
+          @route="navigation-sidebar-page"
+          @icon="conversionPath"
+        >Campagnes</PixNavigationButton>
+        <PixNavigationButton @href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+        <PixNavigationButton
+          @href="https://pix.fr"
+          @title="Pix.fr"
+          @target="_blank"
+          @icon="help"
+          @newWindowLabel="ouvre une nouvelle fenêtre"
+        >Centre d'aide</PixNavigationButton>
+      </:navElements>
+      <:footer>
+        <!-- Affichage du bloc de pied de page de la navigation -->
+        <p>
+          1 000 places disponibles
+        </p>
+        <PixNavigationSeparator />
+        <p>
+          Martin Dupond
+        </p>
+      </:footer>
+  </PixNavigation>
+  <div>
+    <!-- Placeholder pour afficher le contenus des routes  -->
+    {{yield}}
+  </div>
+</PixAppLayout>
 ```
 
 ## Arguments
