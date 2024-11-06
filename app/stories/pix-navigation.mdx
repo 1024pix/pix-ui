@@ -1,0 +1,56 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-navigation.stories';
+
+<Meta of={ComponentStories} />
+
+# PixNavigation
+
+Le composant `<PixNavigation/>` comporte 3 placeholders
+
+- `<:brand>` permet d'afficher le block marque
+- `<:navElements>` permet d'afficher les boutons de navigation
+- `<:footer>` permet d'afficher des infos et d'autres boutons (selecteur d'orga, déconnexion)
+
+En complément, les composants `<PixNavigationButton/>` et `<PixNavigationSeparator/>` permette de composer la navigation souhaitée.
+
+## Usage
+
+```html
+<PixNavigation @variant="orga" @navigationAriaLabel="navigation principale">
+   <:brand>
+      <!-- Affichage du block indentité -->
+      <a href="/">
+        <img src="/pix-orga.svg" alt="pix orga" />
+      </a>
+    </:brand>
+    <:navElements>
+      <!-- Affichage du block de navigation -->
+      <PixNavigationButton
+        @route="navigation-sidebar-page"
+        @icon="conversionPath"
+      >Campagnes</PixNavigationButton>
+      <PixNavigationButton @href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+      <PixNavigationButton
+        @href="https://pix.fr"
+        @title="Pix.fr"
+        @target="_blank"
+        @icon="help"
+        @newWindowLabel="ouvre une nouvelle fenêtre"
+      >Centre d'aide</PixNavigationButton>
+    </:navElements>
+    <:footer>
+      <!-- Affichage du block indentité -->
+      <p>
+        1 000 places disponibles
+      </p>
+      <PixNavigationSeparator />
+      <p>
+        Martin Dupond
+      </p>
+    </:footer>
+</PixNavigation>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
