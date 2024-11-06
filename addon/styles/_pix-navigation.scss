@@ -1,0 +1,122 @@
+.pix-navigation {
+  position: sticky;
+  bottom: var(--pix-spacing-6x);
+  display: flex;
+  flex-direction: column;
+  gap:var(--pix-spacing-6x);
+  align-items: center;
+  min-width: 214px;
+  height: fit-content;
+  min-height: calc(100vh - var(--pix-spacing-6x) * 2);
+
+  // using a margin top / bottom allow user to discover rapidly
+  // the part of sidebar that is above the fold
+  margin-top: auto;
+  padding: var(--pix-spacing-6x) var(--pix-spacing-4x);
+  color: var(--pix-navigation-text-color);
+  background-color: var(--pix-navigation-color);
+  border-radius: var(--pix-spacing-6x);
+
+  --pix-navigation-button-bgcolor-hover: rgb(205, 209, 217, .3);
+  --pix-navigation-button-bgcolor-active: rgb(205, 209, 217, .5);
+
+  &--orga {
+    --pix-navigation-color: var(--pix-orga-500);
+    --pix-navigation-text-color: var(--pix-neutral-0);
+
+  }
+
+  &--certif {
+    --pix-navigation-color: var(--pix-certif-500);
+    --pix-navigation-text-color: var(--pix-neutral-0);
+  }
+
+  &--primary {
+    --pix-navigation-color: var(--pix-primary-700);
+    --pix-navigation-text-color: var(--pix-neutral-0);
+  }
+
+  &__brand {
+    margin-bottom: 0;
+    padding:0;
+    line-height: 0;
+
+  }
+
+  &__nav {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pix-spacing-2x);
+    align-self: stretch;
+  }
+
+  &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pix-spacing-2x);
+    margin-top: auto;
+    text-align: center;
+
+    @extend %pix-body-s;
+
+    & .pix-button--primary {
+      color: var(--pix-navigation-color);
+      background-color:var(--pix-navigation-text-color);
+
+      &:hover {
+        color: currentcolor;
+        background-color: var(--pix-navigation-button-bgcolor-hover);
+        fill: currentcolor;
+      }
+
+      &:focus,
+      &:focus-visible {
+        color: currentcolor;
+        background-color: var(--pix-navigation-button-bgcolor-hover);
+        outline-color: currentcolor;
+      }
+
+      &:active {
+        color: currentcolor;
+        background-color: var(--pix-navigation-button-bgcolor-active);
+      }
+    }
+
+    & .pix-button--secondary {
+      color: currentcolor;
+      border-color: currentcolor;
+
+      &:hover {
+        color: currentcolor;
+        background-color: var(--pix-navigation-button-bgcolor-hover);
+        fill: currentcolor;
+      }
+
+      &:focus,
+      &:focus-visible {
+        color: currentcolor;
+        background-color: var(--pix-navigation-button-bgcolor-hover);
+        outline-color: currentcolor;
+      }
+
+      &:active {
+        color: currentcolor;
+        background-color: var(--pix-navigation-button-bgcolor-active);
+      }
+    }
+
+    & .pix-button--tertiary {
+      padding: 0;
+      color: currentcolor;
+
+      &:hover,
+      &:focus,
+      &:active,
+      &:focus-visible {
+        color: currentcolor;
+      }
+    }
+  }
+
+}
+
