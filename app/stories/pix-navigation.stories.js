@@ -29,33 +29,17 @@ export const Navigation = (args) => {
       </a>
     </:brand>
     <:navElements>
-      <PixButtonLink @variant='tertiary' @route='hello' class='active'><PixIcon
-          @name='conversionPath'
-          @ariaHidden={{true}}
-        />Campagnes</PixButtonLink>
-      <PixButtonLink @variant='tertiary' @route='hello'><PixIcon
-          @name='infoUser'
-          @ariaHidden={{true}}
-        />Participants</PixButtonLink>
-      <PixButtonLink @variant='tertiary' @route='hello'><PixIcon
-          @name='users'
-          @ariaHidden={{true}}
-        />Équipe</PixButtonLink>
-      <PixButtonLink @variant='tertiary' @route='hello'><PixIcon
-          @name='seat'
-          @ariaHidden={{true}}
-        />Places</PixButtonLink>
-      <PixButtonLink @variant='tertiary' @href='https://pix.fr'><PixIcon
-          @name='book'
-          @ariaHidden={{true}}
-        />Documentation</PixButtonLink>
-      <PixButtonLink
-        @variant='tertiary'
-        @href='https://pix.fr'
-        title='Pix.fr'
-        target='_blank'
-        @newWindowLabel='ouvre une nouvelle fenêtre'
-      ><PixIcon @name='help' @ariaHidden={{true}} />Centre d'aide</PixButtonLink>
+      <PixNavigationButton
+        @route='hello'
+        @icon='conversionPath'
+        class='active'
+      >Campagnes</PixNavigationButton>
+      <PixNavigationButton @route='hello' @icon='infoUser'>Participants</PixNavigationButton>
+      <PixNavigationButton @route='hello' @icon='users'>Équipe</PixNavigationButton>
+      <PixNavigationButton @route='hello' @icon='seat'> Places</PixNavigationButton>
+      <PixNavigationButton href='https://pix.fr' @icon='book'> Documentation</PixNavigationButton>
+      <PixNavigationButton @icon='help' @target='_blank' href='https://pix.fr' title='Pix.fr'>Centre
+        d'aide</PixNavigationButton>
     </:navElements>
     <:footer>
       <p>
@@ -68,6 +52,7 @@ export const Navigation = (args) => {
           Organisation Test Pix (UAI003)
         </span>
       </p>
+      <PixNavigationSeparator />
       <PixButton @variant='primary' @iconBefore='codeNumber' @size='small'>
         J'ai un code
       </PixButton>
