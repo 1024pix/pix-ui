@@ -116,16 +116,11 @@ export default class ToastService extends Service {
   removeNotification(toast) {
     if (!toast) return;
 
-    const toastIndex = this.content.findIndex(
+    this.content = this.content.filter(
       (value) =>
-        toast.ariaLabel === value.ariaLabel &&
-        toast.message === value.message &&
-        toast.type === value.type,
+        toast.ariaLabel !== value.ariaLabel ||
+        toast.message !== value.message ||
+        toast.type !== value.type,
     );
-
-    if (toastIndex < 0) return;
-
-    this.content.splice(toastIndex, 1);
-    this.content = [...this.content];
   }
 }
