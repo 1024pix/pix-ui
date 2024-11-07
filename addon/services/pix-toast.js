@@ -8,21 +8,19 @@ export default class ToastService extends Service {
   /**
    * Creates and returns a new toast notification.
    * @param{string} message content to display
-   * @param{string} ariaLabel aria label of the toast icon
    * @param{'error' | 'information' | 'success' | 'warning'} type type of toast notification
    * @returns {EmberObject | void}
    */
-  addNotification({ message, ariaLabel, type }) {
-    const isToastValid = Boolean(message && ariaLabel);
+  addNotification({ message, type }) {
+    const isToastValid = Boolean(message);
 
-    warn('Mandatory attributes are missing: message and ariaLabel', isToastValid, {
-      id: 'pix-ui.toast.not-message-or-ariaLabel',
+    warn('Message mandatory attribute is missing', isToastValid, {
+      id: 'pix-ui.toast.not-message',
     });
 
     if (!isToastValid) return;
 
     const toast = {
-      ariaLabel,
       message,
       type: type || 'success',
     };
@@ -38,29 +36,22 @@ export default class ToastService extends Service {
 
   /**
    * Check if toast already exist in content array
-   * @param{object} toast
+   * @param{{message: string, type: string}} toast
    * @returns {boolean}
    */
   exists(toast) {
     return Boolean(
-      this.content.find(
-        (value) =>
-          toast.ariaLabel === value.ariaLabel &&
-          toast.message === value.message &&
-          toast.type === value.type,
-      ),
+      this.content.find((value) => toast.message === value.message && toast.type === value.type),
     );
   }
 
   /**
    * Creates and returns a new error toast notification.
    * @param{string} message content to display
-   * @param{string} ariaLabel aria label of the toast icon
    * @returns {EmberObject | void}
    */
-  sendErrorNotification({ message, ariaLabel }) {
+  sendErrorNotification({ message }) {
     return this.addNotification({
-      ariaLabel,
       message,
       type: 'error',
     });
@@ -69,12 +60,10 @@ export default class ToastService extends Service {
   /**
    * Creates and returns a new success toast notification.
    * @param{string} message content to display
-   * @param{string} ariaLabel aria label of the toast icon
    * @returns {EmberObject | void}
    */
-  sendSuccessNotification({ message, ariaLabel }) {
+  sendSuccessNotification({ message }) {
     return this.addNotification({
-      ariaLabel,
       message,
       type: 'success',
     });
@@ -83,12 +72,10 @@ export default class ToastService extends Service {
   /**
    * Creates and returns a new information toast notification.
    * @param{string} message content to display
-   * @param{string} ariaLabel aria label of the toast icon
    * @returns {EmberObject | void}
    */
-  sendInformationNotification({ message, ariaLabel }) {
+  sendInformationNotification({ message }) {
     return this.addNotification({
-      ariaLabel,
       message,
       type: 'information',
     });
@@ -97,12 +84,10 @@ export default class ToastService extends Service {
   /**
    * Creates and returns a new warning toast notification.
    * @param{string} message content to display
-   * @param{string} ariaLabel aria label of the toast icon
    * @returns {EmberObject | void}
    */
-  sendWarningNotification({ message, ariaLabel }) {
+  sendWarningNotification({ message }) {
     return this.addNotification({
-      ariaLabel,
       message,
       type: 'warning',
     });
@@ -110,17 +95,14 @@ export default class ToastService extends Service {
 
   /**
    * Remove toast notification from content list
-   * @param{{message: string, ariaLabel: string, type: string}} toast toast to remove
+   * @param{{message: string, type: string}} toast toast to remove
    * @returns {EmberObject | void}
    */
   removeNotification(toast) {
     if (!toast) return;
 
     this.content = this.content.filter(
-      (value) =>
-        toast.ariaLabel !== value.ariaLabel ||
-        toast.message !== value.message ||
-        toast.type !== value.type,
+      (value) => toast.message !== value.message || toast.type !== value.type,
     );
   }
 }

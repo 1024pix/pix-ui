@@ -18,7 +18,6 @@ export default class ToastExample extends Component {
 
     this.pixToast.addNotification({
       message: messages[randomNumber],
-      ariaLabel: 'Fermer',
       type: types[randomNumber],
     });
   }

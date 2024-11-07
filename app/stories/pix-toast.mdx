@@ -12,7 +12,7 @@ Une notification avec icône et un bouton de fermeture.
 > **⚠️** **Pour utiliser `<PixToast />` sur l'application, utiliser `<PixToastContainer />`**
 
 ```html
-<PixToastContainer />
+<PixToastContainer @closeButtonAriaLabel="Fermer la notification"/>
 ```
 
 Quatre styles de notification sont disponibles.
@@ -21,17 +21,22 @@ Quatre styles de notification sont disponibles.
 @service pixToast;
 
 this.pixToast.sendErrorNotification({
-  message: 'Une erreur est survenue',
-  ariaLabel: 'Fermer la notification'
+  message: "Une erreur est survenue"
 });
 
-this.pixToast.sendSuccessNotification();
+this.pixToast.sendSuccessNotification({
+  message: "L'action a bien été effectuée !"
+});
 
-this.pixToast.sendInformationNotification();
+this.pixToast.sendInformationNotification({
+  message: "Les détails sont disponibles sur ce lien..."
+});
 
-this.pixToast.sendWarningNotification();
+this.pixToast.sendWarningNotification({
+  message: "Votre session expire dans cinq minutes."
+});
 ```
 
 ## Comportement
 
-<Story of={ComponentStories.Default} height={600} />
+<Story of={ComponentStories.Default} height={500} />

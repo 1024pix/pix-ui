@@ -1,5 +1,5 @@
 <div class="pix-toast-container">
   {{#each this.pixToast.content as |toast|}}
-    <PixToast @toast={{toast}} />
+    <PixToast @toast={{toast}} @closeButtonAriaLabel={{@closeButtonAriaLabel}} />
   {{/each}}
 </div>

@@ -15,16 +15,18 @@ module('Integration | Component | toast', function (hooks) {
     message = 'message';
 
     toast = {
-      ariaLabel,
       message,
       type: 'success',
     };
 
     this.set('toast', toast);
+    this.set('closeButtonAriaLabel', ariaLabel);
   });
   test('renders a component with a container, an icon, a message and a "close" icon button', async function (assert) {
     // when
-    const screen = await render(hbs`<PixToast @toast={{this.toast}} />`);
+    const screen = await render(
+      hbs`<PixToast @toast={{this.toast}} @closeButtonAriaLabel={{this.closeButtonAriaLabel}} />`,
+    );
 
     // then
     const icons = await screen.getAllByRole('img', { hidden: true });

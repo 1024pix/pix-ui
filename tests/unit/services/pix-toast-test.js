@@ -22,7 +22,6 @@ module('Unit | Service | toast', function (hooks) {
     test('it adds a new toast object in content array', function (assert) {
       // given
       const notification = {
-        ariaLabel: 'icon test label',
         message: 'test success message',
         type: 'success',
       };
@@ -35,7 +34,7 @@ module('Unit | Service | toast', function (hooks) {
       assert.deepEqual(toastService.content, [notification]);
     });
 
-    module("when there is no 'ariaLabel' or 'message' in the parameters", function () {
+    module("when there is no 'message' in the parameters", function () {
       test("it calls 'EmberDebug.warn' method and does not insert invalid notification", function (assert) {
         // given
         const invalidNotification = {
@@ -45,14 +44,9 @@ module('Unit | Service | toast', function (hooks) {
         toastService.addNotification(invalidNotification);
 
         // then
-        sinon.assert.calledWith(
-          EmberDebug.warn,
-          'Mandatory attributes are missing: message and ariaLabel',
-          false,
-          {
-            id: 'pix-ui.toast.not-message-or-ariaLabel',
-          },
-        );
+        sinon.assert.calledWith(EmberDebug.warn, 'Message mandatory attribute is missing', false, {
+          id: 'pix-ui.toast.not-message',
+        });
         assert.ok(EmberDebug.warn.calledOnce);
         assert.strictEqual(toastService.content.length, 0);
       });
@@ -61,16 +55,13 @@ module('Unit | Service | toast', function (hooks) {
     module('when toast to be added already exist in content array', function () {
       test('it removes existing toast and insert the new one at the end of the content array', function (assert) {
         // given
-        const ariaLabel = 'ariaLabel';
         const message = 'message';
 
         const errorNotification = {
-          ariaLabel,
           message,
           type: 'error',
         };
         const informationNotification = {
-          ariaLabel,
           message,
           type: 'information',
         };
@@ -92,16 +83,13 @@ module('Unit | Service | toast', function (hooks) {
     let errorNotification, informationNotification;
 
     hooks.beforeEach(function () {
-      const ariaLabel = 'ariaLabel';
       const message = 'message';
 
       errorNotification = {
-        ariaLabel,
         message,
         type: 'error',
       };
       informationNotification = {
-        ariaLabel,
         message,
         type: 'information',
       };
@@ -131,7 +119,6 @@ module('Unit | Service | toast', function (hooks) {
     test("it adds a new toast object with type 'error' in content array", function (assert) {
       // given
       const notification = {
-        ariaLabel: 'icon test label',
         message: 'test success message',
       };
 
@@ -149,7 +136,6 @@ module('Unit | Service | toast', function (hooks) {
     test("it adds a new toast object with type 'success' in content array", function (assert) {
       // given
       const notification = {
-        ariaLabel: 'icon test label',
         message: 'test success message',
       };
 
@@ -167,7 +153,6 @@ module('Unit | Service | toast', function (hooks) {
     test("it adds a new toast object with type 'information' in content array", function (assert) {
       // given
       const notification = {
-        ariaLabel: 'icon test label',
         message: 'test success message',
       };
 
@@ -185,7 +170,6 @@ module('Unit | Service | toast', function (hooks) {
     test("it adds a new toast object with type 'warning' in content array", function (assert) {
       // given
       const notification = {
-        ariaLabel: 'icon test label',
         message: 'test success message',
       };
 
@@ -202,26 +186,21 @@ module('Unit | Service | toast', function (hooks) {
   module('#removeNotification', function () {
     test('it removes correct toast notification from content array', function (assert) {
       // given
-      const ariaLabel = 'ariaLabel';
       const message = 'message';
 
       const notificationToBeRemove = {
-        ariaLabel,
         message,
         type: 'success',
       };
       const errorNotification = {
-        ariaLabel,
         message,
         type: 'error',
       };
       const informationNotification = {
-        ariaLabel,
         message,
         type: 'information',
       };
       const warningNotification = {
-        ariaLabel,
         message,
         type: 'warning',
       };
@@ -246,16 +225,13 @@ module('Unit | Service | toast', function (hooks) {
     module('when toast notification does not exist', function () {
       test('it does nothing', function (assert) {
         // given
-        const ariaLabel = 'ariaLabel';
         const message = 'message';
 
         const notExistingNotification = {
-          ariaLabel,
           message,
           type: 'success',
         };
         const errorNotification = {
-          ariaLabel,
           message,
           type: 'error',
         };
@@ -274,11 +250,9 @@ module('Unit | Service | toast', function (hooks) {
     module('when toast notification in parameter is undefined', function () {
       test('it does nothing', function (assert) {
         // given
-        const ariaLabel = 'ariaLabel';
         const message = 'message';
 
         const errorNotification = {
-          ariaLabel,
           message,
           type: 'error',
         };

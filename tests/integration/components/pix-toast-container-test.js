@@ -11,12 +11,10 @@ module('Integration | Component | toast-container', function (hooks) {
     hooks.beforeEach(function () {
       toasts.push(
         {
-          ariaLabel: 'close',
           message: 'this is a toast',
           type: 'success',
         },
         {
-          ariaLabel: 'close',
           message: 'this is another toast',
           type: 'error',
         },
@@ -29,11 +27,14 @@ module('Integration | Component | toast-container', function (hooks) {
 
     test('it renders its content as toast component', async function (assert) {
       // when
-      const screen = await render(hbs`<PixToastContainer />`);
+      const screen = await render(
+        hbs`<PixToastContainer @closeButtonAriaLabel='Fermer la notification' />`,
+      );
       // then
       assert.dom(screen.queryByText(toasts[0].message)).exists();
       assert.dom(screen.queryByText(toasts[1].message)).exists();
       assert.strictEqual(screen.getAllByRole('alert').length, 2);
+      assert.strictEqual(screen.getAllByText('Fermer la notification').length, 2);
     });
   });
 });

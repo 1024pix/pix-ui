@@ -5,7 +5,7 @@ export default {
   argTypes: {
     toast: {
       name: 'toast',
-      description: 'Un objet notification qui contient un type, un message et un ariaLabel',
+      description: 'Un objet notification qui contient un type et un message',
       type: { name: 'object', required: true },
     },
   },
