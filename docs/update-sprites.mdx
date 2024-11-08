@@ -4,7 +4,16 @@ import { Meta } from '@storybook/blocks';
 
 # Mise à jour du Sprites SVG
 
+## Récupérer le ZIP
+Télécharger le `.zip` fourni par l'équipe Design contenant le delta/mis à jour des nouvelles icônes
+
 Copier les nouvelles icônes fournies par le design dans le dossier `./svgs/icons`
+
+## Remarques
+
+⚠️ Le design fournit toujours les deux versions (`fill_false` / `fill_true`) pour chaque icône, mais il n'est pas nécessaire de copier les 2 dans le dossier des `svgs/icons`.
+
+## Mettre à jour le Sprite
 
 Ensuite mettre à jour le fichier `pix-sprite.svg` avec la commande
 
@@ -12,8 +21,6 @@ Ensuite mettre à jour le fichier `pix-sprite.svg` avec la commande
 npm run svg:generate-sprite
 ```
 
+## Modifier la constante de déclaration des icons
+
 Modifier ensuite le fichier de mapping `addon/helpers/icons.js` pour ajouter les nouvelles icônes si besoin.
-
-## Remarques
-
-Le design fournit toujours les deux versions (`fill_false` / `fill_true`) pour chaque icône, mais il n'est pas nécessaire de copier les 2 dans le dossier des `svgs/icons`.
