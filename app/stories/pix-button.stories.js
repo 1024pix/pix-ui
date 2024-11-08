@@ -140,8 +140,8 @@ const Template = (args) => ({
     @isBorderVisible={{this.isBorderVisible}}
     @iconBefore={{this.iconBefore}}
     @iconAfter={{this.iconAfter}}
-    @prefixIconBefore={{this.prefixIconBefore}}
-    @prefixIconAfter={{this.prefixIconAfter}}
+    @plainIconBefore={{this.plainIconBefore}}
+    @plainIconAfter={{this.plainIconAfter}}
   >
     {{this.label}}
   </PixButton>
@@ -158,8 +158,8 @@ const Template = (args) => ({
       @isBorderVisible={{button.isBorderVisible}}
       @iconBefore={{button.iconBefore}}
       @iconAfter={{button.iconAfter}}
-      @prefixIconBefore={{this.prefixIconBefore}}
-      @prefixIconAfter={{this.prefixIconAfter}}
+      @plainIconBefore={{this.plainIconBefore}}
+      @plainIconAfter={{this.plainIconAfter}}
     >
       {{button.label}}
     </PixButton>
