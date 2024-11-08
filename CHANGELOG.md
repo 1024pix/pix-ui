@@ -1,3 +1,9 @@
+# [48.1.0](https://github.com/1024pix/pix-ui/compare/v48.0.4...v48.1.0) (2024-11-08)
+
+### :rocket: Amélioration
+
+- [#758](https://github.com/1024pix/pix-ui/pull/758) Ajout de nouvelles icones (Pix-14991)
+
 ## [48.0.4](https://github.com/1024pix/pix-ui/compare/v48.0.3...v48.0.4) (2024-11-05)
 
 ### :bug: Correction
