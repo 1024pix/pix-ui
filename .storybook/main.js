@@ -9,8 +9,6 @@ const config = {
     options: {},
   },
 
-  docs: {
-    autodocs: true,
-  },
+  docs: {},
 };
 export default config;
