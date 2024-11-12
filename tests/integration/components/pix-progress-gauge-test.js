@@ -69,6 +69,16 @@ module('Integration | Component | progress-gauge', function (hooks) {
         component.label;
       }, expectedError);
     });
+
+    test('it should not throw an error if there is no label and if @isDecorative is true', async function (assert) {
+      // given & when
+      const componentParams = { label: null, isDecorative: true };
+      const component = createGlimmerComponent('pix-progress-gauge', componentParams);
+
+      // then
+      component.label;
+      assert.ok(true);
+    });
   });
 
   module('Attributes @color', function () {
@@ -207,6 +217,16 @@ module('Integration | Component | progress-gauge', function (hooks) {
 
       // then
       assert.dom('.progress-gauge__text').doesNotExist();
+    });
+  });
+
+  module('Attributes @isDecorative', () => {
+    test('it sets gauge aria-hidden to "true"', async function (assert) {
+      // when
+      await render(hbs`<PixProgressGauge @value='50' @isDecorative='true' />`);
+
+      // then
+      assert.dom('.progress-gauge').hasAria('hidden', 'true');
     });
   });
 });

@@ -1,4 +1,8 @@
-<div class="progress-gauge {{this.themeMode}} {{this.colorClass}}" ...attributes>
+<div
+  class="progress-gauge {{this.themeMode}} {{this.colorClass}}"
+  aria-hidden={{if @isDecorative "true"}}
+  ...attributes
+>
   {{#unless @hidePercentage}}
     <div class="progress-gauge__text" role="presentation">{{this.percentageValue}}</div>
   {{/unless}}

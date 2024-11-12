@@ -46,6 +46,13 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: 'false' } },
     },
+    isDecorative: {
+      name: 'isDecorative',
+      description:
+        'Indiquer que la barre de progression est utilisée pour de la présentation et doit être ignorée par les lecteurs d’écran',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: 'false' } },
+    },
   },
 };
 
