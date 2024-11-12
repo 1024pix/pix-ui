@@ -156,7 +156,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
     });
   });
 
-  module('Attibutes @subtitle', function () {
+  module('Attributes @subtitle', function () {
     test('it does not render the progress gauge sub-title', async function (assert) {
       // given & when
       await render(hbs`<PixProgressGauge @value='50' />`);
