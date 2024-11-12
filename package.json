@@ -141,7 +141,7 @@
   },
   "files": [
     "addon/",
-    "app/components",
+    "app/components/pix-*.js",
     "app/modifiers",
     "app/services",
     "config/icons.js",

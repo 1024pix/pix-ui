@@ -1,0 +1,42 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-toast.stories';
+
+<Meta of={ComponentStories} />
+
+# Pix Toast
+
+Une notification avec icône et un bouton de fermeture.
+
+## Usage
+
+> **⚠️** **Pour utiliser `<PixToast />` sur l'application, utiliser `<PixToastContainer />`**
+
+```html
+<PixToastContainer @closeButtonAriaLabel="Fermer la notification"/>
+```
+
+Quatre styles de notification sont disponibles.
+
+```js
+@service pixToast;
+
+this.pixToast.sendErrorNotification({
+  message: "Une erreur est survenue"
+});
+
+this.pixToast.sendSuccessNotification({
+  message: "L'action a bien été effectuée !"
+});
+
+this.pixToast.sendInformationNotification({
+  message: "Les détails sont disponibles sur ce lien..."
+});
+
+this.pixToast.sendWarningNotification({
+  message: "Votre session expire dans cinq minutes."
+});
+```
+
+## Comportement
+
+<Story of={ComponentStories.Default} height={500} />
