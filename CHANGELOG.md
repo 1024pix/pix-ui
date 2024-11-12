@@ -1,3 +1,9 @@
+## [48.1.1](https://github.com/1024pix/pix-ui/compare/v48.1.0...v48.1.1) (2024-11-12)
+
+### :building_construction: Tech
+
+- [#755](https://github.com/1024pix/pix-ui/pull/755) met à jour le dépendances storybook (pix-15222)
+
 # [48.1.0](https://github.com/1024pix/pix-ui/compare/v48.0.4...v48.1.0) (2024-11-08)
 
 ### :rocket: Amélioration
