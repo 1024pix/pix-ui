@@ -39,6 +39,7 @@ export const ICONS = {
   favorite: { default: 'heart', plainIcon: 'heart_plain' },
   flag: { default: 'flag', plainIcon: 'flag_plain' },
   globe: { default: 'globe' },
+  hearing: { default: 'hearing' },
   help: { default: 'helpCircle', plainIcon: 'helpCircle_plain' },
   home: { default: 'home', plainIcon: 'home_plain' },
   image: { default: 'image', plainIcon: 'image_plain' },
