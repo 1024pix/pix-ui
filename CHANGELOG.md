@@ -1,3 +1,9 @@
+# [48.3.0](https://github.com/1024pix/pix-ui/compare/v48.2.0...v48.3.0) (2024-11-13)
+
+### :rocket: Amélioration
+
+- [#754](https://github.com/1024pix/pix-ui/pull/754) Ajouter la nouvelle navigation des app (pix-14553)
+
 # [48.2.0](https://github.com/1024pix/pix-ui/compare/v48.1.1...v48.2.0) (2024-11-12)
 
 ### :rocket: Amélioration
