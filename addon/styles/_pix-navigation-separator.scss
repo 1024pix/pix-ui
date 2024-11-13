@@ -1,0 +1,14 @@
+.pix-navigation-separator {
+  @extend %pix-body-l;
+
+  height: 1.25rem;
+  margin: 0;
+  color: inherit;
+  line-height: 1.25rem;
+  border: none;
+
+  &::after {
+    font-weight: var(--pix-font-medium);
+    content: '–';
+  }
+}

@@ -1,0 +1,6 @@
+.pix-app-layout{
+  display: grid;
+  grid-template-columns: minmax(214px, auto) 1fr;
+  gap: var(--pix-spacing-6x);
+  padding: var(--pix-spacing-6x);
+}
