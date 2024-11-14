@@ -1,3 +1,9 @@
+# [48.4.0](https://github.com/1024pix/pix-ui/compare/v48.3.0...v48.4.0) (2024-11-14)
+
+### :rocket: Amélioration
+
+- [#760](https://github.com/1024pix/pix-ui/pull/760) Ajout de l'icon hearing utilisé pour l'oralisation (Pix-15289)
+
 # [48.3.0](https://github.com/1024pix/pix-ui/compare/v48.2.0...v48.3.0) (2024-11-13)
 
 ### :rocket: Amélioration
