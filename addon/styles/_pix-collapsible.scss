@@ -38,7 +38,6 @@
   font-size: 1rem;
   line-height: 1.25;
   border: none;
-  fill: var(--pix-neutral-800);
 
   &:hover,
   &[aria-expanded='true'] {
@@ -59,7 +58,7 @@
 
   &__icon {
     margin-right: var(--pix-spacing-2x);
-    fill: var(--pix-neutral-500);
+    color: var(--pix-neutral-500);
   }
 }
 
