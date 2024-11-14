@@ -25,23 +25,35 @@ const preview = {
     options: {
       storySort: {
         order: [
-          'Utiliser Pix UI',
-          ['Installation', 'Utiliser un composant'],
-          'Développement',
+          'CHANGELOG',
+          'Pix UI',
           [
-            'Design System',
-            'Créer un composant',
-            'Bonnes pratiques',
-            'Breaking changes',
-            'Faire une release',
-            'Architecture',
-            'Storybook',
+            'Installation',
+            'Utiliser un composant',
+            'Développement',
+            [
+              'Design System',
+              'Créer un composant',
+              'Bonnes pratiques',
+              'Breaking changes',
+              'Faire une release',
+              'Architecture',
+              'Storybook',
+            ],
           ],
+          'Design Tokens',
+          'Actions',
+          'Forms',
+          'Navigation',
+          'Feedback',
+          'Data display',
+          'Overlay',
+          'Other',
         ],
       },
     },
   },
 
-  tags: ['autodocs']
+  tags: ['autodocs'],
 };
 export default preview;
