@@ -1,6 +1,6 @@
 import { Meta } from '@storybook/blocks';
 
-<Meta title="Développement/Tester localement Pix UI dans un app" />
+<Meta title="Pix UI/Développement/Tester localement Pix UI dans un app" />
 
 # Tester localement Pix UI dans un app
 
@@ -30,6 +30,7 @@ Pour cela, dans le répertoire de l'application Pix UI, éxecuter la commande:
 ```shell
 npm pack
 ```
+
 cela va creer une archive `.tgz` de la librairie
 
 Se déplacer dans le répertoire de l'application dans laquelle l'on veut tester la librairie
@@ -38,6 +39,7 @@ puis installer la version compilée localement :
 ```shell
 npm install --save-dev "file:../../pix-ui/1024pix-pix-ui-<X.Y.Z>.tgz"
 ```
+
 on notera la présence de `file:` suivi du chemin vers l'archive.
 
 Puis lancer l'application
