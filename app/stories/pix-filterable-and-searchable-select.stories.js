@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/Filterable and searchable select',
+  title: 'Other/Filterable and searchable select',
   argTypes: {
     label: {
       name: 'label',

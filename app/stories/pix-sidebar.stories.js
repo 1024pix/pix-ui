@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Sidebar',
+  title: 'Navigation/Sidebar',
   argTypes: {
     showSidebar: {
       name: 'showSidebar',

@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Tooltip',
+  title: 'Overlay/Tooltip',
   argTypes: {
     id: {
       name: 'id',

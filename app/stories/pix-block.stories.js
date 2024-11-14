@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Layout/Block',
+  title: 'Other/Contenu',
   argTypes: {
     shadow: {
       name: 'shadow',

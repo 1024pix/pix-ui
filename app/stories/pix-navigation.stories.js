@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Layout/Navigation',
+  title: 'Navigation/Navigation',
   argTypes: {
     variant: {
       description: 'Variante de la navigation',

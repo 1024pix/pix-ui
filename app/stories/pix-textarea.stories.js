@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Form/Textarea',
+  title: 'Forms/Textarea',
   argTypes: {
     id: {
       name: 'id',

@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import pixRadioButtonStories from './pix-radio-button.stories.js';
 
 export default {
-  title: 'Form/Inputs/Radio Button/Variant Tile',
+  title: 'Forms/Radio Button/Variant Tile',
   argTypes: {
     variant: {
       name: 'variant',

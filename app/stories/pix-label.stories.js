@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Form/Label',
+  title: 'Forms/Label',
   argTypes: {
     for: {
       name: 'for',

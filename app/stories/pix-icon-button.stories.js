@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
-  title: 'Basics/Icon button',
+  title: 'Actions/Icon button',
   argTypes: {
     ariaLabel: {
       name: 'ariaLabel',

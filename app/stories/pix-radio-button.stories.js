@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Form/Inputs/Radio Button',
+  title: 'Forms/Radio Button',
   argTypes: {
     id: {
       name: 'id',

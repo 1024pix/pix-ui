@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Layout/Background Header',
+  title: 'Other/Background Header',
 };
 
 export const backgroundHeader = (args) => {

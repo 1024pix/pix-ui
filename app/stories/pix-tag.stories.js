@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Tag',
+  title: 'Data display/Tag',
   render: (args) => ({
     template: hbs`<PixTag @color={{this.color}}>
   Contenu du tag

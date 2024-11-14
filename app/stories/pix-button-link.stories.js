@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/ButtonLink',
+  title: 'Actions/ButtonLink',
 
   argTypes: {
     href: {

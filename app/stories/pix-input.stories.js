@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Form/Inputs/Input',
+  title: 'Forms/Input',
   argTypes: {
     id: {
       name: 'id',

@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Notification/Toast',
+  title: 'Feedback/Toast',
   argTypes: {
     toast: {
       name: 'toast',
