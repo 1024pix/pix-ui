@@ -34,6 +34,7 @@
     background-color: var(--pix-info-50);
 
     .pix-icon-button {
+      color: currentcolor;
       background-color: var(--pix-info-50);
 
       &:hover:enabled,
@@ -53,6 +54,7 @@
     background-color: var(--pix-warning-50);
 
     .pix-icon-button {
+      color: currentcolor;
       background-color: var(--pix-warning-50);
 
       &:hover:enabled,
@@ -72,6 +74,7 @@
     background-color: var(--pix-error-50);
 
     .pix-icon-button {
+      color: currentcolor;
       background-color: var(--pix-error-50);
 
       &:hover:enabled,
@@ -90,14 +93,45 @@
     color: var(--pix-neutral-0);
     background-color: var(--pix-primary-500);
 
-    &-orga {
-      color: var(--pix-neutral-0);
-      background-color: var(--pix-orga-500);
-    }
+    .pix-icon-button {
+      color: currentcolor;
 
-    &-certif {
-      color: var(--pix-neutral-0);
-      background-color: var(--pix-certif-500);
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: var(--pix-primary-300);
+      }
     }
   }
-}
+
+    &--communication-orga {
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-orga-500);
+
+      .pix-icon-button {
+        color: currentcolor;
+
+        &:hover:enabled,
+        &:focus:enabled,
+        &:active:enabled {
+          background-color: var(--pix-communication-light);
+        }
+      }
+    }
+
+    &--communication-certif {
+      color: var(--pix-neutral-0);
+      background-color: var(--pix-certif-500);
+
+      .pix-icon-button {
+        color: currentcolor;
+
+        &:hover:enabled,
+        &:focus:enabled,
+        &:active:enabled {
+          background-color: var(--pix-content-light);
+        }
+      }
+    }
+  }
+
