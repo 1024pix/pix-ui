@@ -1,3 +1,9 @@
+# [48.6.0](https://github.com/1024pix/pix-ui/compare/v48.5.0...v48.6.0) (2024-11-18)
+
+### :rocket: Amélioration
+
+- [#762](https://github.com/1024pix/pix-ui/pull/762) Organiser les composants comme dans Figma (PIX-14598)
+
 # [48.5.0](https://github.com/1024pix/pix-ui/compare/v48.4.0...v48.5.0) (2024-11-18)
 
 ### :rocket: Amélioration
