@@ -1,3 +1,9 @@
+# [48.5.0](https://github.com/1024pix/pix-ui/compare/v48.4.0...v48.5.0) (2024-11-18)
+
+### :rocket: Amélioration
+
+- [#759](https://github.com/1024pix/pix-ui/pull/759) Améliorer la barre de progression (PIX-15260)
+
 # [48.4.0](https://github.com/1024pix/pix-ui/compare/v48.3.0...v48.4.0) (2024-11-14)
 
 ### :rocket: Amélioration
