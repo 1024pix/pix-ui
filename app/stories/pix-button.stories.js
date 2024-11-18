@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
-  title: 'Basics/Button',
+  title: 'Actions/Button',
   argTypes: {
     type: {
       name: 'type',

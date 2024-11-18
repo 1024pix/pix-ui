@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Basics/Return To',
+  title: 'Other/Return To',
   render: (args) => ({
     template: hbs`<PixReturnTo
   @route='profile'

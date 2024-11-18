@@ -3,4 +3,7 @@ import storybookCustomTheme from './storybook-custom-theme';
 
 addons.setConfig({
   theme: storybookCustomTheme,
+  sidebar: {
+    showRoots: true,
+  },
 });

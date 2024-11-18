@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Basics/ButtonUpload',
+  title: 'Actions/ButtonUpload',
   argTypes: {
     id: {
       name: 'id',

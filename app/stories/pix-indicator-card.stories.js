@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { ICONS } from '../../addon/helpers/icons.js';
 
 export default {
-  title: 'Others/Indicator Card',
+  title: 'Other/Indicator Card',
   argTypes: {
     title: {
       name: 'Title',

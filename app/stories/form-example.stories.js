@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/Exemple de formulaire',
+  title: 'Forms/Exemple de formulaire',
 };
 
 export const form = (args) => {

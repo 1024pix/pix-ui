@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
-  title: 'Others/Collapsible',
+  title: 'Data display/Collapsible',
   argTypes: {
     iconName: {
       name: 'iconName',

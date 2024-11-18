@@ -3,7 +3,7 @@ import { action } from '@storybook/addon-actions';
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
-  title: 'Form/Select',
+  title: 'Forms/Select',
   argTypes: {
     options: {
       name: 'options',

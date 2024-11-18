@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Form/Inputs/Checkbox',
+  title: 'Forms/Checkbox',
   argTypes: {
     id: {
       name: 'id',

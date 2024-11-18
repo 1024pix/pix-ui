@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import pixCheckboxStories from './pix-checkbox.stories.js';
 
 export default {
-  title: 'Form/Inputs/Checkbox/Variant Tile',
+  title: 'Forms/Checkbox/Variant Tile',
   argTypes: {
     variant: {
       name: 'variant',

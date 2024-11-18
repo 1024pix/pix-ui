@@ -2,7 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Form/Filter banner',
+  title: 'Other/Filter banner',
   argTypes: {
     title: {
       name: 'title',

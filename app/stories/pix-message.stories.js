@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Notification/Message',
+  title: 'Feedback/Message',
   render: (args) => ({
     template: hbs`<PixMessage @type={{this.type}} @withIcon={{this.withIcon}}>
   Ceci est un message
