@@ -28,12 +28,12 @@ module('Integration | Component | progress-gauge', function (hooks) {
       // given & when
       const screen = await render(hbs`<PixProgressGauge @value='50' />`);
 
+      const localizedPercentage = Number(50 / 100).toLocaleString(navigator.language, {
+        style: 'percent',
+      });
+
       // then
-      const frenchLocale = String(navigator.language).toLowerCase() === 'fr-fr';
-      assert.strictEqual(
-        screen.getByRole('presentation').innerText,
-        frenchLocale ? '50\xA0%' : '50%',
-      );
+      assert.strictEqual(screen.getByRole('presentation').innerText, localizedPercentage);
     });
 
     test('it renders the progress gauge with correct width never exceed 100%', async function (assert) {
@@ -68,6 +68,16 @@ module('Integration | Component | progress-gauge', function (hooks) {
       assert.throws(function () {
         component.label;
       }, expectedError);
+    });
+
+    test('it should not throw an error if there is no label and if @isDecorative is true', async function (assert) {
+      // given & when
+      const componentParams = { label: null, isDecorative: true };
+      const component = createGlimmerComponent('pix-progress-gauge', componentParams);
+
+      // then
+      component.label;
+      assert.ok(true);
     });
   });
 
@@ -156,7 +166,7 @@ module('Integration | Component | progress-gauge', function (hooks) {
     });
   });
 
-  module('Attibutes @subtitle', function () {
+  module('Attributes @subtitle', function () {
     test('it does not render the progress gauge sub-title', async function (assert) {
       // given & when
       await render(hbs`<PixProgressGauge @value='50' />`);
@@ -173,6 +183,50 @@ module('Integration | Component | progress-gauge', function (hooks) {
       // then
       const componentElement = this.element.querySelector('.progress-gauge__sub-title');
       assert.strictEqual(componentElement.textContent.trim(), 'toto');
+    });
+  });
+
+  module('Attributes @hidePercentage', function () {
+    test('it renders the progress gauge percentage by default', async function (assert) {
+      // when
+      const screen = await render(hbs`<PixProgressGauge @value='50' />`);
+
+      const localizedPercentage = Number(50 / 100).toLocaleString(navigator.language, {
+        style: 'percent',
+      });
+
+      // then
+      assert.dom(screen.getByRole('presentation', { hidden: true })).hasText(localizedPercentage);
+    });
+
+    test('it renders the progress gauge percentage when attribute is false', async function (assert) {
+      // when
+      const screen = await render(hbs`<PixProgressGauge @value='50' @hidePercentage={{false}} />`);
+      const localizedPercentage = Number(50 / 100).toLocaleString(navigator.language, {
+        style: 'percent',
+      });
+
+      // then
+
+      assert.dom(screen.getByRole('presentation', { hidden: true })).hasText(localizedPercentage);
+    });
+
+    test('it does not render the progress gauge percentage when attribute is true', async function (assert) {
+      // when
+      await render(hbs`<PixProgressGauge @value='50' @hidePercentage={{true}} />`);
+
+      // then
+      assert.dom('.progress-gauge__text').doesNotExist();
+    });
+  });
+
+  module('Attributes @isDecorative', () => {
+    test('it sets gauge aria-hidden to "true"', async function (assert) {
+      // when
+      await render(hbs`<PixProgressGauge @value='50' @isDecorative='true' />`);
+
+      // then
+      assert.dom('.progress-gauge').hasAria('hidden', 'true');
     });
   });
 });

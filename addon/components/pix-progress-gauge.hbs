@@ -1,5 +1,11 @@
-<div class="progress-gauge {{this.themeMode}} {{this.colorClass}}" ...attributes>
-  <div class="progress-gauge__text" role="presentation">{{this.percentageValue}}</div>
+<div
+  class="progress-gauge {{this.themeMode}} {{this.colorClass}}"
+  aria-hidden={{if @isDecorative "true"}}
+  ...attributes
+>
+  {{#unless @hidePercentage}}
+    <div class="progress-gauge__text" role="presentation">{{this.percentageValue}}</div>
+  {{/unless}}
   <label for={{this.id}} class="screen-reader-only">{{@label}}</label>
   <progress
     class="progress-gauge__bar"

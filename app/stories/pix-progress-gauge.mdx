@@ -9,7 +9,7 @@ import * as ComponentStories from './pix-progress-gauge.stories';
 
 Permet d'afficher un barre de progression sur un barème de 100%. Des paramètres existent pour changer le mode (dark ou light) ou la couleur du composant.
 
-> **⚠️** **Il est nécessaire d'avoir un `label` pour rendre le composant accessible !**
+> **⚠️** **Il est nécessaire d'avoir un `label` pour rendre le composant accessible, sauf si le composant est utilisé uniquement pour de la décoration. Dans ce cas, mettre le paramètre `@isDecorative` à `true`.**
 
 <Story of={ComponentStories.Default} height={60} />
 
@@ -32,6 +32,8 @@ Démonstration d'une barre de progression blanche en dark mode avec un sous titr
   @color="sucess"
   @themeMode="dark"
   @subTitle="Un sous titre"
+  @hidePercentage=false
+  @isDecorative={{true}}
 />
 ```
 

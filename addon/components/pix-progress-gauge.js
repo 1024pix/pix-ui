@@ -20,7 +20,9 @@ export default class PixProgressGauge extends Component {
   }
 
   get label() {
-    if (!this.args.label || !this.args.label.trim()) {
+    const thereIsNoLabel = !this.args.label || !this.args.label.trim();
+
+    if (thereIsNoLabel && !this.args.isDecorative) {
       throw new Error('ERROR in PixProgressGauge component, @label param is not provided.');
     }
     return this.args.label;

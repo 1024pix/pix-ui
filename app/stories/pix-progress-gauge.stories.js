@@ -40,6 +40,19 @@ export default {
       type: { name: 'string', required: false },
       table: { defaultValue: { summary: 'null' } },
     },
+    hidePercentage: {
+      name: 'hidePercentage',
+      description: 'Cacher le pourcentage affiché à gauche de la barre de progression',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: 'false' } },
+    },
+    isDecorative: {
+      name: 'isDecorative',
+      description:
+        'Indiquer que la barre de progression est utilisée pour de la présentation et doit être ignorée par les lecteurs d’écran',
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: 'false' } },
+    },
   },
 };
 
@@ -114,4 +127,23 @@ darkModeProgressGauge.args = {
   color: 'primary',
   themeMode: 'dark',
   subtitle: 'Avancement',
+};
+
+export const WithoutPercentage = (args) => {
+  return {
+    template: hbs`<PixProgressGauge
+  @value={{this.value}}
+  @color={{this.color}}
+  @themeMode={{this.themeMode}}
+  @subtitle={{this.subtitle}}
+  @label={{this.label}}
+  @hidePercentage={{this.hidePercentage}}
+/>`,
+    context: args,
+  };
+};
+WithoutPercentage.args = {
+  value: '50',
+  color: 'primary',
+  hidePercentage: true,
 };
