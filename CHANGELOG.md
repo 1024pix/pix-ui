@@ -1,3 +1,9 @@
+## [48.6.2](https://github.com/1024pix/pix-ui/compare/v48.6.1...v48.6.2) (2024-11-19)
+
+### :bug: Correction
+
+- [#763](https://github.com/1024pix/pix-ui/pull/763) Améliorer le style d'un PixInput avec état (PIX-15196).
+
 ## [48.6.1](https://github.com/1024pix/pix-ui/compare/v48.6.0...v48.6.1) (2024-11-19)
 
 ### :bug: Correction
