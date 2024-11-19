@@ -40,13 +40,11 @@
   &__on {
     color: var(--pix-neutral-800);
     font-weight: var(--pix-font-normal);
-    fill: var(--pix-neutral-800);
   }
 
   &__off {
     color: var(--pix-neutral-20);
     background-color: var(--pix-neutral-800);
-    fill: var(--pix-neutral-20);
   }
 
   &--pressed {
@@ -55,14 +53,12 @@
         color: var(--pix-neutral-20);
         font-weight: inherit;
         background-color: var(--pix-neutral-800);
-        fill: var(--pix-neutral-20);
       }
 
       &__off {
         color: var(--pix-neutral-800);
         font-weight: var(--pix-font-normal);
         background-color: transparent;
-        fill: var(--pix-neutral-800);
       }
     }
   }

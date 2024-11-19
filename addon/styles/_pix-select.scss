@@ -103,7 +103,7 @@
   cursor: pointer;
 
   &__icon {
-    fill: var(--pix-neutral-900);
+    color: var(--pix-neutral-900);
   }
 
   &--error {
@@ -119,8 +119,8 @@
   &__dropdown-icon {
     @extend %pix-body-s;
 
+    color: var(--pix-neutral-900);
     pointer-events: none;
-    fill: var(--pix-neutral-900);
   }
 }
 
@@ -198,6 +198,6 @@
 
   &__icon {
     margin: auto var(--pix-spacing-1x);
-    fill: var(--pix-neutral-100)
+    color: var(--pix-neutral-100)
   }
 }
