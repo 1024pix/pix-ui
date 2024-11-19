@@ -44,17 +44,20 @@
     width: 100%;
     border: 1px solid var(--pix-neutral-500);
 
-    &--error {
-      @extend %pix-form-error-state;
-    }
-
-    &--success {
-      @extend %pix-form-success-state;
-    }
-
     &::placeholder {
       color: var(--pix-neutral-500);
     }
-
   }
+}
+
+.pix-input .pix-input__input--error {
+  @extend %pix-form-error-state;
+
+  padding-right: 2rem;
+}
+
+.pix-input .pix-input__input--success {
+  @extend %pix-form-success-state;
+
+  padding-right: 2rem;
 }
