@@ -632,7 +632,7 @@ module('Integration | Component | PixSelect', function (hooks) {
   @placeholder={{this.placeholder}}
   @requiredLabel={{this.requiredLabel}}
 ><:label>{{this.label}}</:label></PixSelect>`);
-      assert.dom(screen.getByLabelText('* Mon menu déroulant')).exists();
+      assert.dom(screen.getByLabelText('Mon menu déroulant *')).exists();
     });
   });
 

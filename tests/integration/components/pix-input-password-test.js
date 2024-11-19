@@ -99,7 +99,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
     );
 
     // then
-    const requiredPasswordInput = screen.getByLabelText('* Mot de passe');
+    const requiredPasswordInput = screen.getByLabelText('Mot de passe *');
     assert.dom(requiredPasswordInput).isRequired();
   });
 
@@ -114,7 +114,7 @@ module('Integration | Component | pix-input-password', function (hooks) {
       await click(screen.getByRole('button', { name: 'Afficher le mot de passe' }));
 
       // then
-      assert.dom(screen.getByLabelText('* Mot de passe')).isFocused();
+      assert.dom(screen.getByLabelText('Mot de passe *')).isFocused();
     });
   });
 });

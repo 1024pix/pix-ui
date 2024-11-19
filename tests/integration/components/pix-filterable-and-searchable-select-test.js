@@ -352,7 +352,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 </PixFilterableAndSearchableSelect>`);
 
       // then
-      assert.dom(screen.getByLabelText('* Label de mon big composant trop compliqué')).exists();
+      assert.dom(screen.getByLabelText('Label de mon big composant trop compliqué *')).exists();
     });
   });
 
