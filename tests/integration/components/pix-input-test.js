@@ -92,7 +92,7 @@ module('Integration | Component | PixInput', function (hooks) {
     );
 
     // then
-    const requiredInput = screen.getByLabelText('* Prénom');
+    const requiredInput = screen.getByLabelText('Prénom *');
     assert.dom(requiredInput).isRequired();
   });
 });

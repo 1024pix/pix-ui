@@ -53,7 +53,7 @@ module('Integration | Component | PixLabel', function (hooks) {
     );
 
     // then
-    assert.ok(screen.getByLabelText(['*', label].join(' ')));
+    assert.ok(screen.getByLabelText([label, '*'].join(' ')));
   });
 
   test('it still accessible when hidden label', async function (assert) {
