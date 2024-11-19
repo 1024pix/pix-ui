@@ -1,3 +1,9 @@
+# [48.7.0](https://github.com/1024pix/pix-ui/compare/v48.6.2...v48.7.0) (2024-11-19)
+
+### :rocket: Amélioration
+
+- [#764](https://github.com/1024pix/pix-ui/pull/764) Déplacer l'indicateur de requirement de PixLabel (PIX-15143).
+
 ## [48.6.2](https://github.com/1024pix/pix-ui/compare/v48.6.1...v48.6.2) (2024-11-19)
 
 ### :bug: Correction
