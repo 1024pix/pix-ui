@@ -1,3 +1,9 @@
+## [48.6.1](https://github.com/1024pix/pix-ui/compare/v48.6.0...v48.6.1) (2024-11-19)
+
+### :bug: Correction
+
+- [#761](https://github.com/1024pix/pix-ui/pull/761) Corriger l'affichage des icônes sur les composants (PIX-15304)
+
 # [48.6.0](https://github.com/1024pix/pix-ui/compare/v48.5.0...v48.6.0) (2024-11-18)
 
 ### :rocket: Amélioration
