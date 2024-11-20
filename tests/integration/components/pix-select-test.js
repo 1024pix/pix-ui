@@ -1,5 +1,5 @@
 import { module, test } from 'qunit';
-import { click } from '@ember/test-helpers';
+import { click, fillIn } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import {
   render,
@@ -93,7 +93,6 @@ module('Integration | Component | PixSelect', function (hooks) {
       await clickByName('Mon menu déroulant');
 
       await screen.findByRole('listbox');
-
       // then
       assert.strictEqual(screen.queryByText(this.placeholder, { selector: 'li' }).tabIndex, -1);
       assert.strictEqual(screen.queryByRole('option', { name: this.placeholder }), null);
@@ -606,7 +605,7 @@ module('Integration | Component | PixSelect', function (hooks) {
     test('when there is no options found it displays the empty search result message', async function (assert) {
       this.isSearchable = true;
       this.emptySearchMessage = 'Aucune option';
-      await render(hbs`<PixSelect
+      const screen = await render(hbs`<PixSelect
   @options={{this.options}}
   @placeholder={{this.placeholder}}
   @searchLabel={{this.searchLabel}}
@@ -616,10 +615,10 @@ module('Integration | Component | PixSelect', function (hooks) {
 ><:label>{{this.label}}</:label></PixSelect>`);
 
       // when
-      await clickByName('Mon menu déroulant');
+      await click(screen.getByRole('button', { name: 'Mon menu déroulant' }));
 
-      await fillByLabel('Rechercher', 'Cheddar');
-      assert.contains('Aucune option');
+      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), 'Cheddar');
+      assert.ok(screen.getByText('Aucune option'));
     });
   });
 

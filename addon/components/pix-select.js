@@ -12,18 +12,9 @@ export default class PixSelect extends Component {
   constructor(...args) {
     super(...args);
 
-    const categories = [];
-
     this.searchId = 'search-input-' + guidFor(this);
     this.selectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
     this.listId = `listbox-${this.selectId}`;
-
-    this.args.options.forEach((element) => {
-      if (!categories.includes(element.category) && element.category !== undefined) {
-        categories.push(element.category);
-      }
-    });
-    this.displayCategory = categories.length > 0;
 
     if (!this.args.isComputeWidthDisabled) {
       this.elementHelper.waitForElement(this.listId).then((elementList) => {
@@ -41,10 +32,6 @@ export default class PixSelect extends Component {
 
   get displayDefaultOption() {
     return !this.searchValue && !this.args.hideDefaultOption;
-  }
-
-  get isDefaultOptionHidden() {
-    return !this.isExpanded || this.args.hideDefaultOption;
   }
 
   get className() {
@@ -73,29 +60,6 @@ export default class PixSelect extends Component {
     return {
       value: '',
     };
-  }
-
-  get results() {
-    let results = [];
-    let options = this.args.options;
-
-    if (this.searchValue) {
-      options = this.args.options.filter((option) =>
-        option.label.toLowerCase().includes(this.searchValue.toLowerCase()),
-      );
-    }
-
-    if (!this.displayCategory) return options;
-
-    options.forEach(({ category, value, label }) => {
-      const categoryIndex = results.findIndex((result) => result.category === category);
-      if (categoryIndex !== -1) {
-        results[categoryIndex].options.push({ value, label });
-      } else {
-        results.push({ category, options: [{ label, value }] });
-      }
-    });
-    return results;
   }
 
   @action
