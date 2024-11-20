@@ -70,7 +70,7 @@
           title={{option.label}}
           {{on "click" (fn @onChange option)}}
           {{on-enter-action (fn @onChange option)}}
-          {{on-space-action (fn @onChange @defaultOption)}}
+          {{on-space-action (fn @onChange option)}}
         >
           {{option.label}}
 

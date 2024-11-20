@@ -13,7 +13,7 @@
   }
 
   &__dropdown {
-    @extend %pix-shadow-sm;
+    @extend %pix-shadow-xs;
 
     position: absolute;
     z-index: 200;

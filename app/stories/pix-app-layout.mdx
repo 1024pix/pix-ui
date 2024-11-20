@@ -1,0 +1,19 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-app-layout.stories';
+
+<Meta of={ComponentStories} />
+
+# PixAppLayout
+
+Le composant `<PixAppLayout @variant="orga" />` permet d'afficher correctement la navigation principale d'une application.
+C'est ce composant qui va porter la variante de couleur (orga, certif, primary) et qui permettra de mettre à jour les couleurs de la navigation.
+
+```html
+<PixAppLayout @variant="orga">
+  <PixNavigation @navigationAriaLabel="navigation principale"> </PixNavigation>
+</PixAppLayout>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

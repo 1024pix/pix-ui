@@ -1,0 +1,47 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-structure-switcher.stories';
+
+<Meta of={ComponentStories} />
+
+# PixStructureSwitcher
+
+Composant pour changer d'organisation ou de centre de certification.
+
+## Usage
+
+```html
+<PixStructureSwitcher
+  @label="Changer de structure"
+  @structures="{{this.structures}}"
+  @value="{{this.selectedStructure.value}}"
+  @onChange="{{this.setStructure}}"
+/>
+```
+
+La propriété `label` permet définir le texte du bouton qui affiche le menu.
+
+La liste des structures est une liste d'objets contenant 2 propriétés `label`et `value`.
+
+```js
+const structures = [
+  { label: 'Structure 1', value: 's1' },
+  { label: 'Structure 2', value: 's2' },
+  { label: 'Structure 3', value: 's3' },
+];
+```
+
+Le handler `onChange` recoit l'option sélectionnée, c'est à dire l'objet complet avec `label` et `value`.
+
+La propriété `value` doit contenir la valeur du champ `value` correspondant à la structure sélectionnée.
+
+```js
+// ex avec la "Structure 2" active
+const value = structures[1].value;
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
+
+## Possibilités de test
+Possibilité de tester le composant en lancant Pix UI en local puis en allant sur la page localhost:4204/select.

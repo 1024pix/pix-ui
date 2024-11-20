@@ -4,10 +4,16 @@ import { action } from '@ember/object';
 
 export default class SelectPage extends Controller {
   @tracked selectedOption = null;
+  @tracked structure = this.structures[1];
 
   @action
   onChange(option) {
     this.selectedOption = option;
+  }
+
+  @action
+  setStructure(option) {
+    this.structure = option;
   }
 
   get options() {
