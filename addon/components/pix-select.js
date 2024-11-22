@@ -37,10 +37,6 @@ export default class PixSelect extends Component {
         element.style.setProperty('--pix-select-width', `${selectWidth}rem`);
       });
     }
-
-    this.elementHelper.waitForElement(`container-${this.selectId}`).then((element) => {
-      this.rootElement = element;
-    });
   }
 
   get displayDefaultOption() {
@@ -152,15 +148,16 @@ export default class PixSelect extends Component {
   }
 
   @action
-  focus() {
-    if (this.isExpanded) {
-      if (this.args.value) {
-        this.rootElement.querySelector("[aria-selected='true']")?.focus();
-      } else if (this.args.isSearchable) {
-        document.getElementById(this.searchId).focus();
-      } else if (this.displayDefaultOption) {
-        this.rootElement.querySelector("[aria-selected='true']")?.focus();
-      }
+  focus(event) {
+    if (!event.target) return;
+    if (!this.isExpanded) return;
+
+    if (this.args.value) {
+      event.target.querySelector("[aria-selected='true']")?.focus();
+    } else if (this.args.isSearchable) {
+      event.target.querySelector(`#${this.searchId}`)?.focus();
+    } else if (this.displayDefaultOption) {
+      event.target.querySelector("[aria-selected='true']")?.focus();
     }
   }
 }
