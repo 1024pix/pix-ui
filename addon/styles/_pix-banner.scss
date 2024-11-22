@@ -4,8 +4,7 @@
   align-items: center;
   padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
   font-size: 0.875rem;
-  border: 1px solid currentcolor;
-  border-radius: var(--pix-spacing-2x);
+  border-bottom: 1px solid currentcolor;
 
   &__icon {
     flex-shrink: 0;
