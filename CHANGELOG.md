@@ -1,3 +1,9 @@
+## [48.7.1](https://github.com/1024pix/pix-ui/compare/v48.7.0...v48.7.1) (2024-11-22)
+
+### :bug: Correction
+
+- [#746](https://github.com/1024pix/pix-ui/pull/746) Éviter de `throw` si l'élément `aria-selected` de `PixSelect` n'existe plus ou pas encore (PIX-15018)
+
 # [48.7.0](https://github.com/1024pix/pix-ui/compare/v48.6.2...v48.7.0) (2024-11-19)
 
 ### :rocket: Amélioration
