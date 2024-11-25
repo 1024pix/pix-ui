@@ -1,4 +1,37 @@
 .pix-table {
-  
+  width: 100%;
+  padding: var(--pix-spacing-4x);
+  border: solid 1px var(--pix-neutral-100);
+  border-radius: var(--pix-spacing-2x);
+  @extend %pix-body-s;
 
+  table {
+    border-collapse: collapse;
+
+    thead tr {
+      background: var(--pix-primary-10);
+      text-align: center;
+    }
+
+    tbody > tr:nth-of-type(even) {
+      background-color: var(--pix-neutral-20);
+    }
+
+    th {
+      text-align: start;
+    }
+
+    td, th {
+      padding: var(--pix-spacing-6x) var(--pix-spacing-4x);
+
+      &:first-child {
+        border-radius: var(--pix-spacing-2x) 0 0 var(--pix-spacing-2x);
+      }
+
+      &:last-child {
+        border-radius: 0 var(--pix-spacing-2x) var(--pix-spacing-2x) 0;
+      }
+    }
+  }
 }
+
