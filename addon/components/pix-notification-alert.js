@@ -5,7 +5,7 @@ const TYPE_SUCCESS = 'success';
 const TYPE_WARNING = 'warning';
 const TYPE_ERROR = 'error';
 
-export default class PixMessage extends Component {
+export default class PixNotificationAlert extends Component {
   get type() {
     const correctTypes = [TYPE_INFO, TYPE_SUCCESS, TYPE_WARNING, TYPE_ERROR];
 

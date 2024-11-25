@@ -47,14 +47,14 @@ Ces derniers permettent ainsi d'afficher un aperçu des composants ainsi que leu
 
 ## Comment écrire une story ?
 
-Voici par exemple la story du composant PixMessage :
+Voici par exemple la story du composant PixNotificationAlert :
 
 ```javascript
-// pix-message.stories.js
+// pix-notification-alert.stories.js
 import { hbs } from 'ember-cli-htmlbars'; // import nécessaire pour 'canvasContent'
 
 export default {
-  title: 'Docs/Message',
+  title: 'Docs/Notification Alert',
   // Ici on définit et on documente les arguments du composant
   argTypes: {
     type: {
@@ -72,9 +72,9 @@ export default {
 export const message = (args) => {
   return {
     template: hbs`
-      <PixMessage @type={{type}} @withIcon={{withIcon}}>
+      <PixNotificationAlert @type={{type}} @withIcon={{withIcon}}>
         Ceci est un message {{type}}
-      </PixMessage>
+      </PixNotificationAlert>
     `,
     context: args,
   };
@@ -82,27 +82,27 @@ export const message = (args) => {
 ```
 
 `````markdown
-{/_ pix-message.stories.mdx _/}
+{/_ pix-notification-alert.stories.mdx _/}
 import { Meta, Story, ArgTypes } from '@storybook/blocks';
-import \* as ComponentStories from './pix-message.stories';
+import \* as ComponentStories from './pix-notification-alert.stories';
 
 {/_ Titre de la section affichée dans le menu de storybook _/}
 
 <Meta of={ComponentStories} />
 
-# Pix Message
+# PixNotificationAlert
 
 Un bandeau d'information, par défaut de type info, avec une icône facultative.
 
-{/_ Affiche la prévisualisation du composant telle que définie dans pix-message.stories.js _/}
+{/_ Affiche la prévisualisation du composant telle que définie dans pix-notification-alert.stories.js _/}
 
 <Story of={ComponentStories.message} height={140} />
 
 ## Usage
 
 ````html
-<PixMessage @type="info" @withIcon="true"> Ceci est un message à caractère informatif. </PixMessage>
-\``` ## Arguments {/* Affiche le tableau des arguments tels que définis dans pix-message.stories.js
+<PixNotificationAlert @type="info" @withIcon="true"> Ceci est un message à caractère informatif. </PixNotificationAlert>
+\``` ## Arguments {/* Affiche le tableau des arguments tels que définis dans pix-notification-alert.stories.js
 */}
 
 <ArgTypes />

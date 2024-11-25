@@ -1,15 +1,15 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Feedback/Message',
+  title: 'Feedback/Notification Alert',
   render: (args) => ({
-    template: hbs`<PixMessage @type={{this.type}} @withIcon={{this.withIcon}}>
+    template: hbs`<PixNotificationAlert @type={{this.type}} @withIcon={{this.withIcon}}>
   Ceci est un message
   {{this.type}}
   avec un texte tellement long qu'il est nécessaire
   <br />
   de l'afficher sur deux lignes.
-</PixMessage>`,
+</PixNotificationAlert>`,
     context: args,
   }),
   argTypes: {

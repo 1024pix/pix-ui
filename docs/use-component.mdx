@@ -6,13 +6,13 @@ import { Meta } from '@storybook/blocks';
 
 Pour utiliser un composant dans une application Ember, on peut se référer à la documentation de ce composant.
 
-Par exemple, pour `PixMessage`, [la documentation](https://ui.pix.fr/?path=/docs/notification-message--docs)
+Par exemple, pour `PixNotificationAlert`, [la documentation](https://ui.pix.fr/?path=/docs/feedback-notification-alert--docs)
 nous indique :
 
 ```hbs
-<PixMessage @type='info' @withIcon='true'>
+<PixNotificationAlert @type='info' @withIcon='true'>
   Ceci est un message à caractère informatif.
-</PixMessage>
+</PixNotificationAlert>
 ```
 
 La documentation d'un composant liste tous les arguments acceptés par le composant, notamment les arguments requis
@@ -31,16 +31,16 @@ composant dans Pix UI, en ouvrant une pull request, plutôt que de surcharger un
 Dans le cas où le changement est très spécifique, il est recommandé de ne pas surchager les classes CSS du composant
 Pix UI.
 
-Par exemple, le rendu du composant PixMessage sera :
+Par exemple, le rendu du composant PixNotificationAlert sera :
 
 ```html
-<div class="pix-message"></div>
+<div class="pix-notification-alert"></div>
 ```
 
 ⚠️ NE PAS surcharger directement la classe du composant en faisant :
 
 ```css
-.pix-message {
+.pix-notification-alert {
   color: pink;
 }
 ```
@@ -48,13 +48,13 @@ Par exemple, le rendu du composant PixMessage sera :
 👍🏻 Ajouter plutôt une nouvelle classe au composant avec l'attribut `class` :
 
 ```hbs
-<PixMessage @type='info' @withIcon='true' class='message-rose'>
+<PixNotificationAlert @type='info' @withIcon='true' class='message-rose'>
   Ceci est un message à caractère informatif rose.
-</PixMessage>
+</PixNotificationAlert>
 ```
 
 ```css
-.message-rose {
+.notification-alert-rose {
   color: pink;
 }
 ```
@@ -63,7 +63,7 @@ Si cela ne fonctionne pas, vérifier dans Pix UI que le composant hérite des at
 et que cet argument soit placé en dernier pour qu'il puisse surchager les attributs par défaut du composant.
 
 ```hbs
-<p class='pix-message {{concat "pix-message--" this.type}}' ...attributes>
+<p class='pix-notification-alert {{concat "pix-notification-alert--" this.type}}' ...attributes>
   ...
 </p>
 ```
