@@ -1,3 +1,9 @@
+## [48.8.1](https://github.com/1024pix/pix-ui/compare/v48.8.0...v48.8.1) (2024-11-25)
+
+### :building_construction: Tech
+
+- [#767](https://github.com/1024pix/pix-ui/pull/767) Gestion de la transparence cross navigateur (PIX-15411)
+
 # [48.8.0](https://github.com/1024pix/pix-ui/compare/v48.7.1...v48.8.0) (2024-11-25)
 
 ### :rocket: Amélioration
