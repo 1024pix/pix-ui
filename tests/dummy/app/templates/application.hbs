@@ -1,5 +1,41 @@
 {{page-title "Dummy"}}
 
-<h2 id="title">Welcome to Ember</h2>
+<PixAppLayout @variant="primary">
+  <PixNavigation @navigationAriaLabel="navigation principale">
+    <:brand>
+      <a href="/">
+        <img src="/pix-orga.svg" alt="pix orga" />
+      </a>
+    </:brand>
+    <:navElements>
+      <PixNavigationButton @route="modal-page" @icon="campaign">
+        Modal
+      </PixNavigationButton>
+      <PixNavigationButton @route="select-page" @icon="book">select</PixNavigationButton>
+      <PixNavigationButton @route="sidebar-page" @icon="doorOpen">Sidebar</PixNavigationButton>
+      <PixNavigationButton @route="tooltip-page" @icon="signpost">tooltip</PixNavigationButton>
 
-{{outlet}}
+      <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+      <PixNavigationButton href="https://pix.fr" title="Pix.fr" @target="_blank" @icon="help">Centre
+        d'aide</PixNavigationButton>
+    </:navElements>
+    <:footer>
+      <p>
+        1 000 places disponibles
+      </p>
+      <PixNavigationSeparator />
+      <p>
+        Martin Dupond
+      </p>
+      <PixStructureSwitcher
+        @label="Changer de structure"
+        @structures={{this.structures}}
+        @value={{this.structure.value}}
+        @onChange={{this.setStructure}}
+      />
+    </:footer>
+  </PixNavigation>
+  <div>
+    {{outlet}}
+  </div>
+</PixAppLayout>

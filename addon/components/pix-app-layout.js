@@ -1,20 +1,20 @@
 import Component from '@glimmer/component';
 import { warn } from '@ember/debug';
 
-export default class PixNavigation extends Component {
+export default class PixAppLayout extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';
     warn(
-      `PixNavigation: @variant "${value}" should be certif, orga or primary`,
+      `PixAppLayout: @variant "${value}" should be certif, orga or primary`,
       ['primary', 'orga', 'certif'].includes(value),
       {
-        id: 'pix-ui.pix-navigation.variant.not-valid',
+        id: 'pix-ui.pix-app-layout.variant.not-valid',
       },
     );
 
     return value;
   }
   get classNames() {
-    return ['pix-navigation', `pix-navigation--${this.variant}`].join(' ');
+    return ['pix-app-layout', `pix-app-layout--${this.variant}`].join(' ');
   }
 }

@@ -1,0 +1,64 @@
+.pix-structure-switcher {
+  --pix-structure-bg-hover: var(--pix-primary-100);
+
+  .pix-app-layout--orga & {
+    --pix-structure-bg-hover: var(--pix-orga-50);
+  }
+
+  .pix-app-layout--certif & {
+    --pix-structure-bg-hover: var(--pix-certif-50);
+  }
+
+  .pix-button {
+    width: 100%;
+  }
+
+  .pix-select__dropdown {
+    @extend %pix-shadow-xs;
+
+    position: static;
+    width: auto;
+    min-width: 100%;
+    max-width: 316px;
+    max-height: 80vh;
+    margin-left: var(--pix-spacing-6x) !important; // we need to override popperjs inline styles
+    overflow-y: auto;
+    border-radius: 8px;
+  }
+
+  .pix-select_list {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pix-spacing-2x);
+    padding: var(--pix-spacing-2x);
+  }
+
+  .pix-select-list-category__option--hidden {
+    display: none
+  }
+
+  .pix-select-list-category__option {
+    padding: var(--pix-spacing-2x) var(--pix-spacing-8x) var(--pix-spacing-2x) var(--pix-spacing-4x);
+    overflow-x: hidden;
+    // stylelint-disable-next-line custom-property-pattern
+    font-family: var(--_pix-font-family-title);
+    white-space: nowrap;
+    text-align: left;
+    text-overflow: ellipsis;
+    border-radius: var(--border-radius-2x);
+
+    &:hover {
+      background-color: var(--pix-structure-bg-hover);
+    }
+  }
+
+  .pix-select-list-category__option--selected {
+    color: var(--pix-navigation-text-color);
+    font-weight: var(--pix-font-bold);
+    background-color: var(--pix-navigation-color);
+
+    &:hover {
+      background-color: var(--pix-navigation-color);
+    }
+  }
+}

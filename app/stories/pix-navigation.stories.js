@@ -3,26 +3,20 @@ import { hbs } from 'ember-cli-htmlbars';
 export default {
   title: 'Navigation/Navigation',
   argTypes: {
-    variant: {
+    navigationAriaLabel: {
       description: 'Variante de la navigation',
-      type: { name: 'string', required: false },
-      options: ['primary', 'orga', 'certif'],
-      control: { type: 'select' },
-      table: {
-        defaultValue: { summary: 'primary' },
-      },
+      type: { name: 'string', required: true },
     },
   },
   args: {
-    variant: 'primary',
     navigationAriaLabel: 'Navigation Principale',
   },
 };
 
 export const Navigation = (args) => {
   return {
-    template: hbs`<PixAppLayout>
-  <PixNavigation @variant={{this.variant}} @navigationAriaLabel={{this.navigationAriaLabel}}>
+    template: hbs`<PixAppLayout @variant='primary'>
+  <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}}>
     <:brand>
       <a href='/'>
         <img src='/pix-orga.svg' alt='pix orga' />
@@ -55,9 +49,6 @@ export const Navigation = (args) => {
       <PixNavigationSeparator />
       <PixButton @variant='primary' @iconBefore='codeNumber' @size='small'>
         J'ai un code
-      </PixButton>
-      <PixButton @variant='secondary' @size='small'>
-        Changer d'organisation
       </PixButton>
       <PixButton @variant='tertiary' @size='small' @triggerAction={{this.onDisconnect}}>
         Se déconnecter

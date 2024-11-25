@@ -51,7 +51,7 @@
       </button>
       <div
         {{popover}}
-        class="pix-select__dropdown{{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+        class="pix-select__dropdown {{unless this.isExpanded ' pix-select__dropdown--closed'}}"
         {{on "transitionend" this.focus}}
       >
         {{#if @isSearchable}}
@@ -68,92 +68,20 @@
             />
           </div>
         {{/if}}
-        <ul role="listbox" id={{this.listId}} class="pix-select__options">
-          <li
-            class="pix-select-options-category__option{{unless
-                @value
-                ' pix-select-options-category__option--selected'
-              }}{{unless this.displayDefaultOption ' pix-select-options-category__option--hidden'}}"
-            role="option"
-            tabindex={{if this.isDefaultOptionHidden "-1" "0"}}
-            aria-selected={{if @value "false" "true"}}
-            {{on "click" (fn this.onChange this.defaultOption)}}
-            {{on-enter-action (fn this.onChange this.defaultOption)}}
-            {{on-space-action (fn this.onChange this.defaultOption)}}
-          >
-            {{@placeholder}}
-          </li>
-          {{#if this.results}}
-            {{#if this.displayCategory}}
-              {{#each this.results as |element index|}}
-                <ul
-                  class="pix-select-options__category"
-                  role="group"
-                  aria-labelledby={{if
-                    this.displayCategory
-                    (concat "cat-" this.selectId "-" index)
-                  }}
-                >
-                  {{#if this.displayCategory}}
-                    <li
-                      class="pix-select-options-category__name"
-                      role="presentation"
-                      id={{concat "cat-" this.selectId "-" index}}
-                    >
-                      {{element.category}}
-                    </li>
-                  {{/if}}
-
-                  {{#each element.options as |option|}}
-                    {{! template-lint-disable require-context-role }}
-                    {{!https://www.w3.org/WAI/ARIA/apg/example-index/listbox/listbox-grouped.html}}
-                    <li
-                      class="pix-select-options-category__option{{if
-                          (eq option.value @value)
-                          ' pix-select-options-category__option--selected'
-                        }}"
-                      role="option"
-                      tabindex={{if this.isExpanded "0" "-1"}}
-                      aria-selected={{if (eq option.value @value) "true" "false"}}
-                      {{on "click" (fn this.onChange option)}}
-                      {{on-enter-action (fn this.onChange option)}}
-                      {{on-space-action (fn this.onChange option)}}
-                    >
-                      {{option.label}}
-
-                      {{#if (eq option.value @value)}}
-                        <PixIcon @name="check" role="presentation" />
-                      {{/if}}
-                    </li>
-                  {{/each}}
-                </ul>
-              {{/each}}
-            {{else}}
-              {{#each this.results as |option|}}
-                <li
-                  class="pix-select-options-category__option{{if
-                      (eq option.value @value)
-                      ' pix-select-options-category__option--selected'
-                    }}"
-                  role="option"
-                  tabindex={{if this.isExpanded "0" "-1"}}
-                  aria-selected={{if (eq option.value @value) "true" "false"}}
-                  {{on "click" (fn this.onChange option)}}
-                  {{on-enter-action (fn this.onChange option)}}
-                  {{on-space-action (fn this.onChange this.defaultOption)}}
-                >
-                  {{option.label}}
-
-                  {{#if (eq option.value @value)}}
-                    <PixIcon @name="check" role="presentation" />
-                  {{/if}}
-                </li>
-              {{/each}}
-            {{/if}}
-          {{else}}
-            <li class="pix-select__empty-search-message">{{@emptySearchMessage}}</li>
-          {{/if}}
-        </ul>
+        <PixSelectList
+          @hideDefaultOption={{@hideDefaultOption}}
+          @listId={{this.listId}}
+          @value={{@value}}
+          @displayDefaultOption={{this.displayDefaultOption}}
+          @searchValue={{this.searchValue}}
+          @onChange={{this.onChange}}
+          @defaultOption={{this.defaultOption}}
+          @selectId={{this.selectId}}
+          @isExpanded={{this.isExpanded}}
+          @options={{@options}}
+          @defaultOptionValue={{@placeholder}}
+          @emptySearchMessage={{@emptySearchMessage}}
+        />
       </div>
     </PopperJS>
     {{#if @errorMessage}}

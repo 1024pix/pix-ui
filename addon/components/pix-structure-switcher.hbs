@@ -1,0 +1,40 @@
+<div
+  id="container-{{this.switcherId}}"
+  class="pix-structure-switcher"
+  {{on-click-outside this.closeMenu}}
+  {{on-arrow-down-up-action this.listId this.openMenu this.isMenuOpen}}
+  {{on-escape-action this.closeMenu this.switcherId}}
+  {{on "keydown" this.lockTab}}
+  ...attributes
+>
+  <PopperJS @placement="right-end" as |reference popover|>
+
+    <PixButton
+      {{reference}}
+      @size="small"
+      @variant="secondary"
+      aria-controls={{this.listId}}
+      id={{this.switcherId}}
+      @triggerAction={{this.toggleMenu}}
+      aria-expanded={{this.isMenuOpen}}
+    >{{@label}}</PixButton>
+    <div
+      {{popover}}
+      class="pix-select__dropdown {{unless this.isMenuOpen 'pix-select__dropdown--closed'}}"
+    >
+      <PixSelectList
+        aria-labelledby={{this.switcherId}}
+        {{on "transitionend" this.focus}}
+        @hideDefaultOption={{true}}
+        @listId={{this.listId}}
+        @selectId={{this.switcherId}}
+        @value={{@value}}
+        @onChange={{this.onSelectListChange}}
+        @defaultOption={{@defaultOption}}
+        @isExpanded={{this.isMenuOpen}}
+        @options={{@structures}}
+        @defaultOptionValue={{@label}}
+      />
+    </div>
+  </PopperJS>
+</div>
