@@ -1,18 +1,18 @@
-<div class="pix-collapsible">
+<div class="pix-accordions">
 
   <button
-    class="pix-collapsible__title"
+    class="pix-accordions__title"
     type="button"
-    {{on "click" this.toggleCollapsible}}
+    {{on "click" this.toggleAccordions}}
     aria-controls={{this.contentId}}
     aria-expanded={{if this.isUnCollapsed "true" "false"}}
     ...attributes
   >
 
-    <span class="pix-collapsible-title__container">
+    <span class="pix-accordions-title__container">
       {{#if @iconName}}
         <PixIcon
-          class="pix-collapsible-title__icon"
+          class="pix-accordions-title__icon"
           @name={{@iconName}}
           @plainIcon={{@plainIcon}}
           @ariaHidden={{true}}
@@ -22,14 +22,14 @@
       {{yield to="title"}}
     </span>
 
-    <span class="pix-collapsible-title__container">
+    <span class="pix-accordions-title__container">
       {{#if @tagContent}}
         <PixTag @color={{@tagColor}}>
           {{@tagContent}}
         </PixTag>
       {{/if}}
       <PixIcon
-        class="pix-collapsible-title-container__toggle-icon"
+        class="pix-accordions-title-container__toggle-icon"
         @ariaHidden={{true}}
         @name="{{if this.isCollapsed 'chevronBottom' 'chevronTop'}}"
       />
@@ -38,7 +38,7 @@
 
   <div
     id={{this.contentId}}
-    class="pix-collapsible__content"
+    class="pix-accordions__content"
     aria-hidden={{if this.isCollapsed "true" "false"}}
   >
     {{#if this.isContentRendered}}

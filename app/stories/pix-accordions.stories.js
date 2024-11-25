@@ -2,11 +2,11 @@ import { hbs } from 'ember-cli-htmlbars';
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
-  title: 'Data display/Collapsible',
+  title: 'Data display/Accordions',
   argTypes: {
     iconName: {
       name: 'iconName',
-      description: "Ajoute l'icône donnée en paramètre avant le titre du PixCollapsible",
+      description: "Ajoute l'icône donnée en paramètre avant le titre du PixAccordions",
       type: { name: 'string', required: false },
       control: { type: 'select' },
       options: Object.keys(ICONS),
@@ -38,7 +38,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixCollapsible
+    template: hbs`<PixAccordions
   @iconName={{this.iconName}}
   @plainIcon={{this.plainIcon}}
   @tagContent={{this.tagContent}}
@@ -48,59 +48,59 @@ const Template = (args) => {
     {{this.title}}
   </:title>
   <:content>
-    <div>Contenu du PixCollapsible</div>
+    <div>Contenu du PixAccordions</div>
   </:content>
-</PixCollapsible>`,
+</PixAccordions>`,
     context: args,
   };
 };
 
-export const collapsible = Template.bind({});
-collapsible.args = {
+export const accordions = Template.bind({});
+accordions.args = {
   title: 'Titre du contenu à dérouler en cliquant',
   iconName: 'users',
 };
 
-export const multipleCollapsible = (args) => {
+export const multipleAccordions = (args) => {
   return {
     template: hbs`<div>
-  <PixCollapsible @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
+  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
     <:title>
       Titre A
     </:title>
     <:content>
       <div>Contenu A</div>
     </:content>
-  </PixCollapsible>
+  </PixAccordions>
 
-  <PixCollapsible @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
+  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
     <:title>
       Titre B
     </:title>
     <:content>
       <div>Contenu B</div>
     </:content>
-  </PixCollapsible>
+  </PixAccordions>
 
-  <PixCollapsible @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
+  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
     <:title>
       Titre C
     </:title>
     <:content>
       <div>Contenu C</div>
     </:content>
-  </PixCollapsible>
+  </PixAccordions>
 </div>`,
     context: args,
   };
 };
 
-export const collapsibleWithTag = (args) => {
+export const accordionsWithTag = (args) => {
   return {
     template: hbs`{{! template-lint-disable no-inline-styles }}
 <div style='width:800px'>
   {{! template-lint-disable no-inline-styles }}
-  <PixCollapsible
+  <PixAccordions
     @iconName={{this.iconName}}
     @plainIcon={{this.plainIcon}}
     @tagColor='success'
@@ -112,9 +112,9 @@ export const collapsibleWithTag = (args) => {
     <:content>
       <div>Contenu A</div>
     </:content>
-  </PixCollapsible>
+  </PixAccordions>
 
-  <PixCollapsible
+  <PixAccordions
     @iconName={{this.iconName}}
     @plainIcon={{this.plainIcon}}
     @tagColor='error'
@@ -126,7 +126,7 @@ export const collapsibleWithTag = (args) => {
     <:content>
       <div>Contenu B</div>
     </:content>
-  </PixCollapsible>
+  </PixAccordions>
 </div>`,
     context: args,
   };

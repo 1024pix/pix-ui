@@ -3,9 +3,9 @@ import { tracked } from '@glimmer/tracking';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
-export default class PixCollapsible extends Component {
-  text = 'pix-collapsible';
-  contentId = 'pix-collapsible-' + guidFor(this);
+export default class PixAccordions extends Component {
+  text = 'pix-accordions';
+  contentId = 'pix-accordions-' + guidFor(this);
 
   @tracked isCollapsed = true;
   @tracked hasUnCollapsedOnce = false;
@@ -19,7 +19,7 @@ export default class PixCollapsible extends Component {
   }
 
   @action
-  toggleCollapsible() {
+  toggleAccordions() {
     this.isCollapsed = !this.isCollapsed;
     this.hasUnCollapsedOnce = true;
   }
