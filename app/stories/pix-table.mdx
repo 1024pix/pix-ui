@@ -1,0 +1,25 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-table.stories';
+
+<Meta of={ComponentStories} />
+
+# PixTable
+
+Une table qui prend en argument des headers et des data.
+
+<Story of={ComponentStories.Default} height={200} />
+
+## Usage
+
+```html
+<PixTable
+  @data={{this.data}}
+  @headers={{this.headers}}
+  @caption={{this.caption}}
+/>
+```
+
+## Arguments
+
+<ArgTypes />
