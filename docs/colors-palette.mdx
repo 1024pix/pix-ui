@@ -11,7 +11,14 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 > Les variables css présentes dans le fichier `_colors.scss` reprennent les noms des symboles utilisés sur les maquettes dans Figma,
 > on préconise d'utiliser ses noms de variables plutôt que le code hexa.
 
-#### SOLID
+## Transparence
+
+> Pour utiliser la transparence des couleurs, il suffit d'utiliser la valeur "privée" `pix-primary-900-inline` de cette manière :
+>
+> `background-color: rgb(var(--pix-primary-900-inline, 0.5));`
+> et vous voilà avec un fond avec la gestion de la transparence
+
+## SOLID
 
 <ColorPalette>
   <ColorItem
