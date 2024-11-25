@@ -1,3 +1,9 @@
+# [48.9.0](https://github.com/1024pix/pix-ui/compare/v48.8.1...v48.9.0) (2024-11-25)
+
+### :rocket: Amélioration
+
+- [#757](https://github.com/1024pix/pix-ui/pull/757) Ajouter le composant pour changer de structure (Pix-15220)
+
 ## [48.8.1](https://github.com/1024pix/pix-ui/compare/v48.8.0...v48.8.1) (2024-11-25)
 
 ### :building_construction: Tech
