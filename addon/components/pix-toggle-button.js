@@ -2,15 +2,15 @@ import Component from '@glimmer/component';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 
-export default class PixToggle extends Component {
+export default class PixToggleButton extends Component {
   get className() {
-    const classes = ['pix-toggle'];
+    const classes = ['pix-toggle-button'];
     if (this.args.toggled) {
-      classes.push('pix-toggle--pressed');
+      classes.push('pix-toggle-button--pressed');
     }
 
     if (this.args.inlineLabel) {
-      classes.push('pix-toggle--inline');
+      classes.push('pix-toggle-button--inline');
     }
 
     return classes.join(' ');

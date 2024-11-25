@@ -6,60 +6,60 @@ import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 import userEvent from '@testing-library/user-event';
 
-module('Integration | Component | PixToggle', function (hooks) {
+module('Integration | Component | PixToggleButton', function (hooks) {
   setupRenderingTest(hooks);
 
   this.label = 'Mon bouton toggle';
   this.onLabel = 'Oui';
   this.offLabel = 'Non';
 
-  test('it renders PixToggle', async function (assert) {
+  test('it renders PixToggleButton', async function (assert) {
     // given & when
-    const screen = await render(hbs`<PixToggle>
+    const screen = await render(hbs`<PixToggleButton>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
-</PixToggle>`);
+</PixToggleButton>`);
 
     assert.dom(screen.getByText(this.label)).exists();
     assert.dom(screen.getByText(this.onLabel)).exists();
     assert.dom(screen.getByText(this.offLabel)).exists();
   });
 
-  test('it pressed PixToggle', async function (assert) {
+  test('it pressed PixToggleButton', async function (assert) {
     // given & when
-    const screen = await render(hbs`<PixToggle @toggled={{true}}>
+    const screen = await render(hbs`<PixToggleButton @toggled={{true}}>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
-</PixToggle>`);
+</PixToggleButton>`);
 
     // then
     assert.dom(screen.getByRole('button', { pressed: true })).exists();
   });
 
-  test('it does not press PixToggle', async function (assert) {
+  test('it does not press PixToggleButton', async function (assert) {
     // given & when
-    const screen = await render(hbs`<PixToggle @toggled={{false}}>
+    const screen = await render(hbs`<PixToggleButton @toggled={{false}}>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
-</PixToggle>`);
+</PixToggleButton>`);
 
     // then
     assert.dom(screen.getByRole('button', { pressed: false })).exists();
   });
 
-  test('it calls onChange when PixToggle is not pressed with value true', async function (assert) {
+  test('it calls onChange when PixToggleButton is not pressed with value true', async function (assert) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen = await render(hbs`<PixToggle @toggled={{false}} @onChange={{this.onChange}}>
+    const screen = await render(hbs`<PixToggleButton @toggled={{false}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
 
-</PixToggle>`);
+</PixToggleButton>`);
 
     await click(screen.getByRole('button'));
 
@@ -68,15 +68,15 @@ module('Integration | Component | PixToggle', function (hooks) {
     assert.ok(this.onChange.called);
   });
 
-  test('it calls onChange when PixToggle is pressed with value false', async function (assert) {
+  test('it calls onChange when PixToggleButton is pressed with value false', async function (assert) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen = await render(hbs`<PixToggle @toggled={{true}} @onChange={{this.onChange}}>
+    const screen = await render(hbs`<PixToggleButton @toggled={{true}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
-</PixToggle>`);
+</PixToggleButton>`);
 
     await click(screen.getByRole('button'));
 
@@ -89,12 +89,12 @@ module('Integration | Component | PixToggle', function (hooks) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen = await render(hbs`<PixToggle @onChange={{this.onChange}}>
+    const screen = await render(hbs`<PixToggleButton @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
 
-</PixToggle>`);
+</PixToggleButton>`);
 
     await screen.getByRole('button').focus();
     await userEvent.keyboard('[Enter]');
@@ -107,12 +107,12 @@ module('Integration | Component | PixToggle', function (hooks) {
     // given & when
     this.onChange = sinon.spy();
 
-    const screen = await render(hbs`<PixToggle @onChange={{this.onChange}}>
+    const screen = await render(hbs`<PixToggleButton @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
 
-</PixToggle>`);
+</PixToggleButton>`);
 
     await screen.getByRole('button').focus();
     await userEvent.keyboard('[Space]');

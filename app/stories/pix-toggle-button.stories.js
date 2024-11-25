@@ -2,16 +2,16 @@ import { hbs } from 'ember-cli-htmlbars';
 import { action } from '@storybook/addon-actions';
 
 export default {
-  title: 'Navigation/Toggle',
+  title: 'Navigation/Toggle Button',
   argTypes: {
     label: {
       name: 'label',
-      description: 'Le label du PixToggle',
+      description: 'Le label du PixToggleButton',
       type: { name: 'string', required: true },
     },
     subLabel: {
       name: 'subLabel',
-      description: 'Le sous label du PixToggle',
+      description: 'Le sous label du PixToggleButton',
       type: { name: 'string', required: true },
     },
     size: {
@@ -26,33 +26,33 @@ export default {
     },
     useIcons: {
       name: 'useIcons',
-      description: "Définit si l'on utilise des icons dans le PixToggle",
+      description: "Définit si l'on utilise des icons dans le PixToggleButton",
       type: { name: 'boolean', required: true },
     },
     onLabel: {
       name: 'onLabel',
-      description: "Le label de l'état actif du PixToggle à placer dans les yield <:on>",
+      description: "Le label de l'état actif du PixToggleButton à placer dans les yield <:on>",
       type: { name: 'string', required: false },
     },
     offLabel: {
       name: 'offLabel',
-      description: "Le label de l'état non actif du PixToggle à placer dans les yield <:off>",
+      description: "Le label de l'état non actif du PixToggleButton à placer dans les yield <:off>",
       type: { name: 'string', required: false },
     },
     toggled: {
       name: 'toggled',
-      description: 'Détermine si le PixToggle est activé',
+      description: 'Détermine si le PixToggleButton est activé',
       type: { name: 'boolean', required: true },
     },
     onChange: {
       name: 'onChange',
-      description: "Fonction à appeler quand le PixToggle change d'état.",
+      description: "Fonction à appeler quand le PixToggleButton change d'état.",
       type: { required: true },
       control: { disable: true },
     },
     inlineLabel: {
       name: 'inlineLabel',
-      description: "Permet d'afficher le PixToggle sur une seule ligne",
+      description: "Permet d'afficher le PixToggleButton sur une seule ligne",
       control: { type: 'boolean' },
       type: { name: 'boolean', required: false },
       table: {
@@ -75,7 +75,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixToggle
+    template: hbs`<PixToggleButton
   @toggled={{this.toggled}}
   @onChange={{this.onChange}}
   @size={{this.size}}
@@ -88,20 +88,20 @@ const Template = (args) => {
   <:on>{{this.onLabel}}</:on>
   <:off>{{this.offLabel}}</:off>
 
-</PixToggle>`,
+</PixToggleButton>`,
     context: args,
   };
 };
 
 const TemplateWithYields = (args) => {
   return {
-    template: hbs`<PixToggle @toggled={{this.toggled}} @onChange={{this.onChange}} @useIcons={{this.useIcons}}>
+    template: hbs`<PixToggleButton @toggled={{this.toggled}} @onChange={{this.onChange}} @useIcons={{this.useIcons}}>
   <:label>{{this.label}}</:label>
   {{! template-lint-disable no-inline-styles }}
   <:on><PixIcon @name='eye' /></:on>
   {{! template-lint-disable no-inline-styles }}
   <:off><PixIcon @name='eyeOff' /></:off>
-</PixToggle>`,
+</PixToggleButton>`,
     context: args,
   };
 };

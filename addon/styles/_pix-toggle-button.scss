@@ -1,4 +1,4 @@
-.pix-toggle {
+.pix-toggle-button {
   display: inline-flex;
   flex-direction: column;
   gap: var(--pix-spacing-1x);
@@ -48,7 +48,7 @@
   }
 
   &--pressed {
-    .pix-toggle {
+    .pix-toggle-button {
       &__on {
         color: var(--pix-neutral-20);
         font-weight: inherit;
