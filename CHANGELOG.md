@@ -1,3 +1,9 @@
+# [48.8.0](https://github.com/1024pix/pix-ui/compare/v48.7.1...v48.8.0) (2024-11-25)
+
+### :rocket: Amélioration
+
+- [#766](https://github.com/1024pix/pix-ui/pull/766) Mise à jour des border-radius sur la PixBanner (PIX-15403)
+
 ## [48.7.1](https://github.com/1024pix/pix-ui/compare/v48.7.0...v48.7.1) (2024-11-22)
 
 ### :bug: Correction
