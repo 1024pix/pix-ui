@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Feedback/Banner',
+  title: 'Feedback/Banner Alert',
   argTypes: {
     actionLabel: {
       name: 'actionLabel',
@@ -57,7 +57,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixBanner
+    template: hbs`<PixBannerAlert
   @type={{this.type}}
   @actionLabel={{this.actionLabel}}
   @closeButtonLabel={{this.closeButtonLabel}}
@@ -66,7 +66,7 @@ const Template = (args) => {
 >
   Parcours de rentrée 2020 : les codes sont disponibles dans l'onglet campagne. N’oubliez pas de les
   diffuser aux élèves avant la Toussaint.
-</PixBanner>`,
+</PixBannerAlert>`,
     context: args,
   };
 };

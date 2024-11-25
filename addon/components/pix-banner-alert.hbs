@@ -1,17 +1,17 @@
 {{#if this.displayBanner}}
-  <div class="pix-banner pix-banner--{{this.type}}" role="alert" ...attributes>
+  <div class="pix-banner-alert pix-banner-alert--{{this.type}}" role="alert" ...attributes>
     <PixIcon
       @name={{this.icon}}
       @plainIcon={{true}}
       @ariaHidden={{true}}
-      class="pix-banner__icon"
+      class="pix-banner-alert__icon"
     />
     <div>
       {{yield}}
       {{#if this.displayAction}}
         {{#if this.isExternalLink}}
           <a
-            class="pix-banner__action"
+            class="pix-banner-alert__action"
             href={{@actionUrl}}
             target="_blank"
             rel="noopener noreferrer"
@@ -20,12 +20,12 @@
             <PixIcon @name="openNew" class="external-link" />
           </a>
         {{else}}
-          <LinkTo class="pix-banner__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
+          <LinkTo class="pix-banner-alert__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
         {{/if}}
       {{/if}}
     </div>
     {{#if this.canCloseBanner}}
-      <div class="pix-banner__close">
+      <div class="pix-banner-alert__close">
         <PixIconButton
           @ariaLabel="Fermer"
           @iconName="close"

@@ -26,7 +26,7 @@ const icons = {
   [TYPE_COMMUNICATION_CERTIF]: 'campaign',
 };
 
-export default class PixBanner extends Component {
+export default class PixBannerAlert extends Component {
   @tracked isBannerVisible = true;
   get type() {
     return types.includes(this.args.type) ? this.args.type : TYPE_INFO;

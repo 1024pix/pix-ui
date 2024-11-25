@@ -3,7 +3,7 @@ import { setupTest } from 'ember-qunit';
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import sinon from 'sinon';
 
-module('Unit | Component | PixBanner', function (hooks) {
+module('Unit | Component | PixBannerAlert', function (hooks) {
   setupTest(hooks);
 
   module('#closeBanner', function () {
@@ -13,7 +13,7 @@ module('Unit | Component | PixBanner', function (hooks) {
         const params = Symbol();
         const onCloseBannerTriggerAction = sinon.stub();
         const componentParams = { canCloseBanner: true, onCloseBannerTriggerAction };
-        const component = createGlimmerComponent('pix-banner', componentParams);
+        const component = createGlimmerComponent('pix-banner-alert', componentParams);
 
         // when
         await component.closeBanner(params);

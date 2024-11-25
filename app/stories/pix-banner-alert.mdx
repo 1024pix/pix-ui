@@ -1,13 +1,13 @@
 import { Meta, Story, ArgTypes } from '@storybook/blocks';
-import * as ComponentStories from './pix-banner.stories';
+import * as ComponentStories from './pix-banner-alert.stories';
 
 <Meta of={ComponentStories} />
 
-# Pix Banner
+# PixBannerAlert
 
-Une `Banner` permet de mettre en avant une information importante.
+Une `PixBannerAlert` permet de mettre en avant une information importante.
 
-> Il est possible de surcharger le style d'une `<PixBanner>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
+> Il est possible de surcharger le style d'une `<PixBannerAlert>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
 
 ## Default
 
@@ -60,25 +60,25 @@ Bannière contenant un bouton qui permet de fermer la bannière.
 ## Usage
 
 ```html
-<PixBanner> Bannière Info par défaut </PixBanner>
+<PixBannerAlert> Bannière Info par défaut </PixBannerAlert>
 
-<PixBanner @type="communication"> Bannière Communication pour Pix App </PixBanner>
+<PixBannerAlert @type="communication"> Bannière Communication pour Pix App </PixBannerAlert>
 
-<PixBanner @type="warning"> Bannière Warning </PixBanner>
+<PixBannerAlert @type="warning"> Bannière Warning </PixBannerAlert>
 
-<PixBanner @type="error"> Bannière Error </PixBanner>
+<PixBannerAlert @type="error"> Bannière Error </PixBannerAlert>
 
-<PixBanner @actionLabel="Liste des campagnes" @actionUrl="authenticated.campaigns">
+<PixBannerAlert @actionLabel="Liste des campagnes" @actionUrl="authenticated.campaigns">
   Bannière avec une route pour lien
-</PixBanner>
+</PixBannerAlert>
 
-<PixBanner @actionLabel="Ajouter des élèves" @actionUrl="https://orga.pix.fr/eleves">
+<PixBannerAlert @actionLabel="Ajouter des élèves" @actionUrl="https://orga.pix.fr/eleves">
   Bannière avec une route externe
-</PixBanner>
+</PixBannerAlert>
 
-<PixBanner @type="warning" @canCloseBanner="true">
+<PixBannerAlert @type="warning" @canCloseBanner="true">
   Bannière possédant un bouton de fermeture
-</PixBanner>
+</PixBannerAlert>
 ```
 
 ## Arguments
