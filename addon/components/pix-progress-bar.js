@@ -1,7 +1,7 @@
 import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
 
-export default class PixProgressGauge extends Component {
+export default class PixProgressBar extends Component {
   get id() {
     return guidFor(this);
   }
@@ -10,7 +10,7 @@ export default class PixProgressGauge extends Component {
     if (Number(this.args.value) <= 0) return 0;
     if (Number(this.args.value) > 100) return 100;
     if (!this.args.value) {
-      throw new Error('ERROR in PixProgressGauge component, @value param is not provided.');
+      throw new Error('ERROR in PixProgressBar component, @value param is not provided.');
     }
     return Number(this.args.value);
   }
@@ -23,7 +23,7 @@ export default class PixProgressGauge extends Component {
     const thereIsNoLabel = !this.args.label || !this.args.label.trim();
 
     if (thereIsNoLabel && !this.args.isDecorative) {
-      throw new Error('ERROR in PixProgressGauge component, @label param is not provided.');
+      throw new Error('ERROR in PixProgressBar component, @label param is not provided.');
     }
     return this.args.label;
   }
@@ -36,7 +36,7 @@ export default class PixProgressGauge extends Component {
         ? this.args.themeMode
         : 'light';
 
-    return `progress-gauge--theme-${themeMode}`;
+    return `progress-bar--theme-${themeMode}`;
   }
 
   get colorClass() {
@@ -53,6 +53,6 @@ export default class PixProgressGauge extends Component {
     const color =
       this.args.color && availableColor.includes(this.args.color) ? this.args.color : 'primary';
 
-    return `progress-gauge--content-${color}`;
+    return `progress-bar--content-${color}`;
   }
 }

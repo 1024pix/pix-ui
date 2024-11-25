@@ -1,4 +1,4 @@
-.progress-gauge {
+.progress-bar {
   position: relative;
   display: grid;
   grid-template-areas:
@@ -60,68 +60,68 @@
 }
 
 // THEME DARK
-.progress-gauge--theme-dark {
-  .progress-gauge__bar {
+.progress-bar--theme-dark {
+  .progress-bar__bar {
     border: 2px solid var(--pix-neutral-0);
   }
 
-  .progress-gauge__bar::-webkit-progress-bar {
+  .progress-bar__bar::-webkit-progress-bar {
     background-color: var(--pix-neutral-0);
   }
 
-  .progress-gauge__text,
-  .progress-gauge__sub-title {
+  .progress-bar__text,
+  .progress-bar__sub-title {
     color: var(--pix-neutral-0);
   }
 }
 
 // SPECIFIC BAR COLORS
-.progress-gauge--content-blue, .progress-gauge--content-primary {
-  .progress-gauge__bar::-webkit-progress-value {
+.progress-bar--content-blue, .progress-bar--content-primary {
+  .progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-primary-500);
   }
 
-  .progress-gauge__bar::-moz-progress-bar {
+  .progress-bar__bar::-moz-progress-bar {
     background-color: var(--pix-primary-500);
   }
 
-  &:not(.progress-gauge--theme-dark) {
-    .progress-gauge__text,
-    .progress-gauge__sub-title {
+  &:not(.progress-bar--theme-dark) {
+    .progress-bar__text,
+    .progress-bar__sub-title {
       color: var(--pix-primary-500);
     }
   }
 }
 
-.progress-gauge--content-green, .progress-gauge--content-success {
-  .progress-gauge__bar::-webkit-progress-value {
+.progress-bar--content-green, .progress-bar--content-success {
+  .progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-success-700);
   }
 
-  .progress-gauge__bar::-moz-progress-bar {
+  .progress-bar__bar::-moz-progress-bar {
     background-color: var(--pix-success-700);
   }
 
-  &:not(.progress-gauge--theme-dark) {
-    .progress-gauge__text,
-    .progress-gauge__sub-title {
+  &:not(.progress-bar--theme-dark) {
+    .progress-bar__text,
+    .progress-bar__sub-title {
       color: var(--pix-success-700);
     }
   }
 }
 
-.progress-gauge--content-purple, .progress-gauge--content-tertiary {
-  .progress-gauge__bar::-webkit-progress-value {
+.progress-bar--content-purple, .progress-bar--content-tertiary {
+  .progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-tertiary-900);
   }
 
-  .progress-gauge__bar::-moz-progress-bar {
+  .progress-bar__bar::-moz-progress-bar {
     background-color: var(--pix-tertiary-900);
   }
 
-  &:not(.progress-gauge--theme-dark) {
-    .progress-gauge__text,
-    .progress-gauge__sub-title {
+  &:not(.progress-bar--theme-dark) {
+    .progress-bar__text,
+    .progress-bar__sub-title {
       color: var(--pix-tertiary-900);
     }
   }

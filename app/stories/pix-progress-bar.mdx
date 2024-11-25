@@ -1,9 +1,9 @@
 import { Meta, Story, ArgTypes } from '@storybook/blocks';
-import * as ComponentStories from './pix-progress-gauge.stories';
+import * as ComponentStories from './pix-progress-bar.stories';
 
 <Meta of={ComponentStories} />
 
-# PixProgressGauge
+# PixProgressBar
 
 ## Default
 
@@ -21,12 +21,12 @@ Permet d'afficher un barre de progression sur un barème de 100%. Des paramètre
 
 Démonstration d'une barre de progression blanche en dark mode avec un sous titre.
 
-<Story of={ComponentStories.darkModeProgressGauge} height={100} />
+<Story of={ComponentStories.darkModeProgressBar} height={100} />
 
 ## Usage
 
 ```html
-<PixProgressGauge
+<PixProgressBar
   @value="50"
   @label="Chargement"
   @color="sucess"

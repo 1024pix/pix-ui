@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Data display/Progress Gauge',
+  title: 'Data display/Progress Bar',
   argTypes: {
     value: {
       name: 'value',
@@ -58,7 +58,7 @@ export default {
 
 export const Default = (args) => {
   return {
-    template: hbs`<PixProgressGauge
+    template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
   @themeMode={{this.themeMode}}
@@ -74,7 +74,7 @@ Default.args = {
 
 export const Success = (args) => {
   return {
-    template: hbs`<PixProgressGauge
+    template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
   @themeMode={{this.themeMode}}
@@ -91,7 +91,7 @@ Success.args = {
 
 export const Tertiary = (args) => {
   return {
-    template: hbs`<PixProgressGauge
+    template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
   @themeMode={{this.themeMode}}
@@ -106,11 +106,11 @@ Tertiary.args = {
   color: 'tertiary',
 };
 
-export const darkModeProgressGauge = (args) => {
+export const darkModeProgressBar = (args) => {
   return {
     template: hbs`{{! template-lint-disable no-inline-styles }}
 <section style='width: 100%; padding: 35px 35px 5px;background-color: #253858'>
-  <PixProgressGauge
+  <PixProgressBar
     @value={{this.value}}
     @color={{this.color}}
     @label={{this.label}}
@@ -121,7 +121,7 @@ export const darkModeProgressGauge = (args) => {
     context: args,
   };
 };
-darkModeProgressGauge.args = {
+darkModeProgressBar.args = {
   value: '50',
   label: 'Chargement',
   color: 'primary',
@@ -131,7 +131,7 @@ darkModeProgressGauge.args = {
 
 export const WithoutPercentage = (args) => {
   return {
-    template: hbs`<PixProgressGauge
+    template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
   @themeMode={{this.themeMode}}
