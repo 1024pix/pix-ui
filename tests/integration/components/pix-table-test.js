@@ -7,8 +7,7 @@ import { hbs } from 'ember-cli-htmlbars';
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('it renders the default PixTable', async function (assert) {
-    // given
+  hooks.beforeEach(function () {
     this.data = [
       {
         name: 'jean',
@@ -36,7 +35,9 @@ module('Integration | Component | table', function (hooks) {
         key: 'age',
       },
     ];
+  });
 
+  test('it renders the default PixTable', async function (assert) {
     // when
     const screen = await render(
       hbs`<PixTable
@@ -56,5 +57,25 @@ module('Integration | Component | table', function (hooks) {
     assert
       .dom(screen.queryByRole('caption', { name: 'Ceci est le caption de notre table' }))
       .exists();
+  });
+
+  ['orga', 'primary', 'certif'].forEach(function (variant) {
+    test(`it add the correct className from ${variant}`, async function (assert) {
+      // when
+      this.variant = variant;
+      const screen = await render(
+        hbs`<PixTable
+  @caption='Ceci est le caption de notre table'
+  @data={{this.data}}
+  @headers={{this.headers}}
+  @variant={{this.variant}}
+/>`,
+      );
+      // then
+      assert.strictEqual(
+        screen.queryByRole('columnheader', { name: 'Nom' }).getAttribute('class'),
+        `pix-table-header--${variant}`,
+      );
+    });
   });
 });

@@ -4,7 +4,7 @@
     <thead>
       <tr>
         {{#each @headers as |header|}}
-          <th scope="col">{{header.name}}</th>
+          <th scope="col" class={{this.headerClass}}>{{header.name}}</th>
         {{/each}}
       </tr>
     </thead>

@@ -3,15 +3,11 @@
   padding: var(--pix-spacing-4x);
   border: solid 1px var(--pix-neutral-100);
   border-radius: var(--pix-spacing-2x);
+
   @extend %pix-body-s;
 
   table {
     border-collapse: collapse;
-
-    thead tr {
-      background: var(--pix-primary-10);
-      text-align: center;
-    }
 
     tbody > tr:nth-of-type(even) {
       background-color: var(--pix-neutral-20);
@@ -19,6 +15,20 @@
 
     th {
       text-align: start;
+
+      &.pix-table-header {
+        &--primary {
+          background: var(--pix-primary-10);
+        }
+
+        &--orga {
+          background: var(--pix-orga-50);
+        }
+
+        &--certif {
+          background: var(--pix-certif-50);
+        }
+      }
     }
 
     td, th {

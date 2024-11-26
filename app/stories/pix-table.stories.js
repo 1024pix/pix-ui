@@ -14,6 +14,20 @@ export default {
       description: 'Nom des colonnes',
       type: { name: 'array', required: true },
     },
+    variant: {
+      name: 'variant',
+      description: "Afficher le bon variant pour l'application",
+      options: ['orga', 'certif', 'primary'],
+      control: {
+        type: 'select',
+      },
+      table: {
+        defaultValue: {
+          summary: 'primary',
+        },
+      },
+      type: { name: 'string', required: false },
+    },
     caption: {
       name: 'caption',
       description: "Description du tableau (lisible uniquement par les lecteurs d'écran)",
@@ -24,7 +38,12 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixTable @data={{this.data}} @headers={{this.headers}} @caption={{this.caption}} />`,
+    template: hbs`<PixTable
+  @variant={{this.variant}}
+  @data={{this.data}}
+  @headers={{this.headers}}
+  @caption={{this.caption}}
+/>`,
     context: args,
   };
 };
