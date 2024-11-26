@@ -75,6 +75,30 @@ Default.args = {
       name: 'Age',
       key: 'age',
     },
+    {
+      name: 'Nom',
+      key: 'name',
+    },
+    {
+      name: 'Description',
+      key: 'description',
+    },
+    {
+      name: 'Age',
+      key: 'age',
+    },
+    {
+      name: 'Nom',
+      key: 'name',
+    },
+    {
+      name: 'Description',
+      key: 'description',
+    },
+    {
+      name: 'Age',
+      key: 'age',
+    },
   ],
   caption: 'Description du tableau',
 };
