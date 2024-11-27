@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Data display/PixStars',
+  title: 'Data display/Stars',
   argTypes: {
     count: {
       name: 'count',

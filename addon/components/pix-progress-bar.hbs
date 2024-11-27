@@ -1,0 +1,19 @@
+<div
+  class="progress-bar {{this.themeMode}} {{this.colorClass}}"
+  aria-hidden={{if @isDecorative "true"}}
+  ...attributes
+>
+  {{#unless @hidePercentage}}
+    <div class="progress-bar__text" role="presentation">{{this.percentageValue}}</div>
+  {{/unless}}
+  <label for={{this.id}} class="screen-reader-only">{{@label}}</label>
+  <progress
+    class="progress-bar__bar"
+    id={{this.id}}
+    max="100"
+    value={{this.value}}
+  >{{this.value}}%</progress>
+  {{#if @subtitle}}
+    <p class="progress-bar__sub-title">{{@subtitle}}</p>
+  {{/if}}
+</div>

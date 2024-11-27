@@ -1,0 +1,86 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-banner-alert.stories';
+
+<Meta of={ComponentStories} />
+
+# PixBannerAlert
+
+Une `PixBannerAlert` permet de mettre en avant une information importante.
+
+> Il est possible de surcharger le style d'une `<PixBannerAlert>` via l'attribut `class` ainsi que de passer n'importe quel attribut sur sa `div` wrapper (par exemple, un `aria-label`)
+
+## Default
+
+Bannière Information (par défaut).
+
+<Story of={ComponentStories.Default} height={75}/>
+
+## Warning
+
+Bannière pour les alertes.
+
+<Story of={ComponentStories.warning} height={75} />
+
+## Error
+
+Bannière pour les erreurs.
+
+<Story of={ComponentStories.error} height={75} />
+
+## Communication
+
+Bannière pour Pix App
+<Story of={ComponentStories.communicationPixApp} height={75} />
+Bannière pour Pix Orga
+<Story of={ComponentStories.communicationPixOrga} height={75} />
+Bannière pour Pix Certif
+<Story of={ComponentStories.communicationPixCertif} height={75} />
+
+## With Internal Link
+
+Bannière contenant un lien interne.
+
+<Story of={ComponentStories.withInternalLink} height={100} />
+
+
+## With External Link
+
+Bannière contenant un lien externe.
+
+<Story of={ComponentStories.withExternalLink} height={100} />
+
+
+## With Close Icon
+
+Bannière contenant un bouton qui permet de fermer la bannière.
+
+<Story of={ComponentStories.withCloseIcon} height={100} />
+
+
+## Usage
+
+```html
+<PixBannerAlert> Bannière Info par défaut </PixBannerAlert>
+
+<PixBannerAlert @type="communication"> Bannière Communication pour Pix App </PixBannerAlert>
+
+<PixBannerAlert @type="warning"> Bannière Warning </PixBannerAlert>
+
+<PixBannerAlert @type="error"> Bannière Error </PixBannerAlert>
+
+<PixBannerAlert @actionLabel="Liste des campagnes" @actionUrl="authenticated.campaigns">
+  Bannière avec une route pour lien
+</PixBannerAlert>
+
+<PixBannerAlert @actionLabel="Ajouter des élèves" @actionUrl="https://orga.pix.fr/eleves">
+  Bannière avec une route externe
+</PixBannerAlert>
+
+<PixBannerAlert @type="warning" @canCloseBanner="true">
+  Bannière possédant un bouton de fermeture
+</PixBannerAlert>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

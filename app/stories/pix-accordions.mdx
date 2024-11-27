@@ -1,0 +1,43 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-accordions.stories';
+
+<Meta of={ComponentStories} />
+
+# PixAccordions
+
+Un `PixAccordions` est un élément comprenant un libellé et un contenu.
+Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer le contenu du `PixAccordions`.
+
+> Il est possible de cumuler les `PixAccordions` de sorte à former un accordéon, il suffit de les mettre dans une même div parente.
+
+Ce composant possède deux `yield` :
+
+- `:title`, destiné à accueillir le label de l'accordéon
+- `:content`, destiné à accueillir le contenu lorsque l'accordéon est déroulé
+
+
+<Story of={ComponentStories.accordions} height={150} />
+
+<Story of={ComponentStories.multipleAccordions} height={260} />
+
+### PixAccordions avec tag
+Les paramètres `tagContent` et `tagColor` permettent d'afficher un `Pix Tag` près du chevron.
+
+
+<Story of={ComponentStories.accordionsWithTag} height={260} />
+
+
+## Usage
+
+```html
+<PixAccordions @iconName="users">`
+  <:title>Titre du contenu à dérouler en cliquant</:title>
+  <:content>
+    <div>Contenu du PixAccordions</div>
+  </:content>
+</PixAccordions>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

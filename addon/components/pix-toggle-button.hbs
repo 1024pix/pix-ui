@@ -1,0 +1,23 @@
+<div class={{this.className}}>
+  <PixLabel
+    @for={{this.id}}
+    @screenReaderOnly={{@screenReaderOnly}}
+    @subLabel={{@subLabel}}
+    @size={{@size}}
+    @inlineLabel={{@inlineLabel}}
+  >{{yield to="label"}}</PixLabel>
+  <button
+    class="pix-toggle-button__button{{if @useIcons ' pix-toggle-button__button--icon'}}"
+    id={{this.id}}
+    aria-pressed={{if @toggled "true" "false"}}
+    type="button"
+    {{on "click" this.onToggle}}
+  >
+    <span class="pix-toggle-button__on{{if @useIcons ' pix-toggle-button__with-icon'}}">
+      {{yield to="on"}}
+    </span>
+    <span class="pix-toggle-button__off{{if @useIcons ' pix-toggle-button__with-icon'}}">
+      {{yield to="off"}}
+    </span>
+  </button>
+</div>
