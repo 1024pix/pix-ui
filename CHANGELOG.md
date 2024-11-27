@@ -1,3 +1,9 @@
+# [49.1.0](https://github.com/1024pix/pix-ui/compare/v49.0.0...v49.1.0) (2024-11-27)
+
+### :rocket: Amélioration
+
+- [#769](https://github.com/1024pix/pix-ui/pull/769) Mise à jour de l'icône tabletOff (PIX-15426)
+
 # [49.0.0](https://github.com/1024pix/pix-ui/compare/v48.9.0...v49.0.0) (2024-11-27)
 
 ### :boom: BREAKING CHANGE
