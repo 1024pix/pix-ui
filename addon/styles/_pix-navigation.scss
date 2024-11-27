@@ -17,8 +17,6 @@
   background-color: var(--pix-navigation-color);
   border-radius: var(--pix-spacing-6x);
 
-  --pix-navigation-button-bgcolor-hover: rgb(205, 209, 217, .3);
-  --pix-navigation-button-bgcolor-active: rgb(205, 209, 217, .5);
 
   &__brand {
     margin-bottom: 0;
@@ -43,26 +41,29 @@
 
     @extend %pix-body-s;
 
+    --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
+    --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
+
     & .pix-button--primary {
       color: var(--pix-navigation-color);
       background-color:var(--pix-navigation-text-color);
 
       &:hover {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         fill: currentcolor;
       }
 
       &:focus,
       &:focus-visible {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         outline-color: currentcolor;
       }
 
       &:active {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-active);
+        background-color: var(--bg-color-active);
       }
     }
 
@@ -72,20 +73,20 @@
 
       &:hover {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         fill: currentcolor;
       }
 
       &:focus,
       &:focus-visible {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         outline-color: currentcolor;
       }
 
       &:active {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-active);
+        background-color: var(--bg-color-active);
       }
     }
 
@@ -101,6 +102,5 @@
       }
     }
   }
-
 }
 
