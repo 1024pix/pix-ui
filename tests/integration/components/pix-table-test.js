@@ -12,27 +12,12 @@ module('Integration | Component | table', function (hooks) {
       {
         name: 'jean',
         description: 'fort au jungle speed',
-        age: 'il a 15ans',
+        age: 15,
       },
       {
         name: 'brian',
         description: 'travail au peach pit',
-        age: 'il a 25ans',
-      },
-    ];
-
-    this.headers = [
-      {
-        name: 'Nom',
-        key: 'name',
-      },
-      {
-        name: 'Description',
-        key: 'description',
-      },
-      {
-        name: 'Age',
-        key: 'age',
+        age: 25,
       },
     ];
   });
@@ -40,11 +25,36 @@ module('Integration | Component | table', function (hooks) {
   test('it renders the default PixTable', async function (assert) {
     // when
     const screen = await render(
-      hbs`<PixTable
-  @caption='Ceci est le caption de notre table'
-  @data={{this.data}}
-  @headers={{this.headers}}
-/>`,
+      hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
+  <:columns as |context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell as |row|>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell as |row|>
+        {{row.description}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Age
+      </:header>
+      <:cell as |row|>
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
     );
 
     // then
@@ -53,46 +63,55 @@ module('Integration | Component | table', function (hooks) {
     assert.dom(screen.queryByRole('columnheader', { name: 'Age' })).exists();
     assert.dom(screen.queryByRole('cell', { name: 'jean' })).exists();
     assert.dom(screen.queryByRole('cell', { name: 'fort au jungle speed' })).exists();
-    assert.dom(screen.queryByRole('cell', { name: 'il a 15ans' })).exists();
+    assert.dom(screen.queryByRole('cell', { name: 'il a 15 ans' })).exists();
     assert
       .dom(screen.queryByRole('caption', { name: 'Ceci est le caption de notre table' }))
       .exists();
-    assert.dom(this.element.querySelector('colgroup')).doesNotExist();
-  });
-
-  test('it should renders the colgroup', async function (assert) {
-    // when
-    await render(
-      hbs`<PixTable
-  @caption='Ceci est le caption de notre table'
-  @data={{this.data}}
-  @headers={{this.headers}}
->
-  <:colgroup>
-    <col /><col /><col />
-  </:colgroup>
-</PixTable>`,
-    );
-    // then
-
-    assert.dom(this.element.querySelector('colgroup')).exists();
   });
 
   ['orga', 'primary', 'certif'].forEach(function (variant) {
     test(`it add the correct className from ${variant}`, async function (assert) {
       // when
       this.variant = variant;
-      const screen = await render(
+      await render(
         hbs`<PixTable
   @caption='Ceci est le caption de notre table'
   @data={{this.data}}
-  @headers={{this.headers}}
   @variant={{this.variant}}
-/>`,
+>
+  <:columns as |context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell as |row|>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell as |row|>
+        {{row.description}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Age
+      </:header>
+      <:cell as |row|>
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
       );
       // then
       assert.strictEqual(
-        screen.queryByRole('columnheader', { name: 'Nom' }).getAttribute('class'),
+        this.element.querySelector('thead').getAttribute('class'),
         `pix-table-header--${variant}`,
       );
     });

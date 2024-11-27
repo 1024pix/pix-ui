@@ -9,10 +9,16 @@ export default {
       description: 'Liste des données du tableau',
       type: { name: 'array', required: true },
     },
-    headers: {
-      name: 'headers',
-      description: 'Nom des colonnes',
-      type: { name: 'array', required: true },
+    caption: {
+      name: 'caption',
+      description: "Description du tableau (lisible uniquement par les lecteurs d'écran)",
+      type: { name: 'string', required: true },
+    },
+    columns: {
+      name: '<:columns>',
+      description:
+        'Définition du rendu des différentes colonnes de la table en utilisant `<PixTableColumn>`',
+      type: { name: 'block content', required: true },
     },
     variant: {
       name: 'variant',
@@ -26,46 +32,53 @@ export default {
           summary: 'primary',
         },
       },
-      type: { name: 'string', required: false },
-    },
-    caption: {
-      name: 'caption',
-      description: "Description du tableau (lisible uniquement par les lecteurs d'écran)",
-      type: { name: 'string', required: true },
-    },
-    colgroup: {
-      name: '<:colgroup>',
-      description:
-        'Permet de gérer la taille des colonnes, [Donald Doc](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)',
-      type: { name: 'block content', required: false },
+      type: {
+        name: '"primary" | "orga" | "certif"',
+        required: false,
+      },
     },
   },
 };
 
 const Template = (args) => {
   return {
-    template: hbs`<PixTable
-  @variant={{this.variant}}
-  @data={{this.data}}
-  @headers={{this.headers}}
-  @caption={{this.caption}}
-/>`,
-    context: args,
-  };
-};
-const Template2 = (args) => {
-  return {
-    template: hbs`<PixTable
-  @variant={{this.variant}}
-  @data={{this.data}}
-  @headers={{this.headers}}
-  @caption={{this.caption}}
->
-  <:colgroup>
-    <col />
-    <col class='table__column--wide' />
-    <col />
-  </:colgroup>
+    template: hbs`<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell as |row|>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell as |row|>
+        <i>{{row.description}}</i>
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}} class='table__column--wide'>
+      <:header>
+        Age
+      </:header>
+      <:cell as |row|>
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Info
+      </:header>
+      <:cell as |row|>
+        <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
+      </:cell>
+    </PixTableColumn>
+  </:columns>
 </PixTable>
 {{! template-lint-disable no-forbidden-elements}}
 <style>
@@ -76,34 +89,18 @@ const Template2 = (args) => {
 };
 
 export const Default = Template.bind({});
-export const ColGroup = Template2.bind({});
 Default.args = {
+  caption: 'Description du tableau',
   data: [
     {
       name: 'jean',
       description: 'fort au jungle speed',
-      age: 'il a 15ans',
+      age: 15,
     },
     {
       name: 'brian',
       description: 'travail au peach pit',
-      age: 'il a 25ans',
+      age: 25,
     },
   ],
-  headers: [
-    {
-      name: 'Nom',
-      key: 'name',
-    },
-    {
-      name: 'Description',
-      key: 'description',
-    },
-    {
-      name: 'Age',
-      key: 'age',
-    },
-  ],
-  caption: 'Description du tableau',
 };
-ColGroup.args = Default.args;

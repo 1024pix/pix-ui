@@ -1,0 +1,9 @@
+{{#if @context.isHeader}}
+  <th scope="col" ...attributes>
+    {{yield to="header"}}
+  </th>
+{{else}}
+  <td ...attributes>
+    {{yield @context.row to="cell"}}
+  </td>
+{{/if}}

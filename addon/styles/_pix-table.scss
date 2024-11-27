@@ -15,22 +15,22 @@
       background-color: var(--pix-neutral-20);
     }
 
+    thead.pix-table-header {
+      &--primary {
+        background: var(--pix-primary-10);
+      }
+
+      &--orga {
+        background: var(--pix-orga-50);
+      }
+
+      &--certif {
+        background: var(--pix-certif-50);
+      }
+    }
+
     th {
       text-align: start;
-
-      &.pix-table-header {
-        &--primary {
-          background: var(--pix-primary-10);
-        }
-
-        &--orga {
-          background: var(--pix-orga-50);
-        }
-
-        &--certif {
-          background: var(--pix-certif-50);
-        }
-      }
     }
 
     td, th {

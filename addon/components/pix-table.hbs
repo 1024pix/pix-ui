@@ -1,24 +1,15 @@
 <div class="pix-table">
-  <table ...attributes>
+  <table>
     <caption class="screen-reader-only">{{@caption}}</caption>
-    {{#if (has-block "colgroup")}}
-      <colgroup>
-        {{yield to="colgroup"}}
-      </colgroup>
-    {{/if}}
-    <thead>
+    <thead class={{this.headerClass}}>
       <tr>
-        {{#each @headers as |header|}}
-          <th scope="col" class={{this.headerClass}}>{{header.name}}</th>
-        {{/each}}
+        {{yield this.headerContext to="columns"}}
       </tr>
     </thead>
     <tbody>
-      {{#each this.computedData as |row|}}
+      {{#each @data as |row|}}
         <tr>
-          {{#each row as |value|}}
-            <td>{{value}}</td>
-          {{/each}}
+          {{yield (this.getRowContext row) to="columns"}}
         </tr>
       {{/each}}
     </tbody>

@@ -6,40 +6,54 @@ import * as ComponentStories from './pix-table.stories';
 
 # PixTable
 
-Une table qui prend en argument des headers et des data.
+Une table qui prend en argument des data et en `block content` des [PixTableColumn](/docs/data-display-table-tablecolumn--docs).
 
 ## Exemple basique
 <Story of={ComponentStories.Default} height={400} />
 
 ```html
-<PixTable
-  @data={{this.data}}
-  @headers={{this.headers}}
-  @caption={{this.caption}}
-/>
-```
-
-## Exemple avec un colgroup
-<Story of={ComponentStories.ColGroup} height={400} />
-
-```html
-<PixTable
-  @data={{this.data}}
-  @headers={{this.headers}}
-  @caption={{this.caption}}
->
-  <:colgroup>
-    <col />
-    <col class="table__column--wide" />
-    <col />
-  </:colgroup>
+<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell as |row| >
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell as |row|>
+        <i>{{row.description}}</i>
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}} class='table__column--wide'>
+      <:header>
+        Age
+      </:header>
+      <:cell as |row| >
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Info
+      </:header>
+      <:cell as |row|>
+        <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
+      </:cell>
+    </PixTableColumn>
+  </:columns>
 </PixTable>
 <style>
   .table__column--wide { width: 500px; }
 </style>
 ```
-
-
 
 ## Arguments
 

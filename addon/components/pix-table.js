@@ -2,14 +2,6 @@ import Component from '@glimmer/component';
 import { warn } from '@ember/debug';
 
 export default class PixTable extends Component {
-  get computedData() {
-    return this.args.data.map((data) => {
-      return this.args.headers.map((header) => {
-        return data[header.key];
-      });
-    });
-  }
-
   get variant() {
     const value = this.args.variant ?? 'primary';
     warn(
@@ -24,5 +16,18 @@ export default class PixTable extends Component {
   }
   get headerClass() {
     return `pix-table-header--${this.variant}`;
+  }
+
+  get headerContext() {
+    return {
+      isHeader: true,
+    };
+  }
+
+  getRowContext(row) {
+    return {
+      isHeader: false,
+      row,
+    };
   }
 }
