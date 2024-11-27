@@ -1,4 +1,9 @@
 .pix-navigation {
+
+  --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
+  --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
+
+
   position: sticky;
   bottom: var(--pix-spacing-6x);
   display: flex;
