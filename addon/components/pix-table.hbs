@@ -1,6 +1,11 @@
 <div class="pix-table">
   <table ...attributes>
     <caption class="screen-reader-only">{{@caption}}</caption>
+    {{#if (has-block "colgroup")}}
+      <colgroup>
+        {{yield to="colgroup"}}
+      </colgroup>
+    {{/if}}
     <thead>
       <tr>
         {{#each @headers as |header|}}

@@ -33,6 +33,12 @@ export default {
       description: "Description du tableau (lisible uniquement par les lecteurs d'écran)",
       type: { name: 'string', required: true },
     },
+    colgroup: {
+      name: '<:colgroup>',
+      description:
+        'Permet de gérer la taille des colonnes, [Donald Doc](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/colgroup)',
+      type: { name: 'block content', required: false },
+    },
   },
 };
 
@@ -47,8 +53,30 @@ const Template = (args) => {
     context: args,
   };
 };
+const Template2 = (args) => {
+  return {
+    template: hbs`<PixTable
+  @variant={{this.variant}}
+  @data={{this.data}}
+  @headers={{this.headers}}
+  @caption={{this.caption}}
+>
+  <:colgroup>
+    <col />
+    <col class='table__column--wide' />
+    <col />
+  </:colgroup>
+</PixTable>
+{{! template-lint-disable no-forbidden-elements}}
+<style>
+  .table__column--wide { width: 500px; }
+</style>`,
+    context: args,
+  };
+};
 
 export const Default = Template.bind({});
+export const ColGroup = Template2.bind({});
 Default.args = {
   data: [
     {
@@ -75,30 +103,7 @@ Default.args = {
       name: 'Age',
       key: 'age',
     },
-    {
-      name: 'Nom',
-      key: 'name',
-    },
-    {
-      name: 'Description',
-      key: 'description',
-    },
-    {
-      name: 'Age',
-      key: 'age',
-    },
-    {
-      name: 'Nom',
-      key: 'name',
-    },
-    {
-      name: 'Description',
-      key: 'description',
-    },
-    {
-      name: 'Age',
-      key: 'age',
-    },
   ],
   caption: 'Description du tableau',
 };
+ColGroup.args = Default.args;

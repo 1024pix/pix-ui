@@ -57,6 +57,25 @@ module('Integration | Component | table', function (hooks) {
     assert
       .dom(screen.queryByRole('caption', { name: 'Ceci est le caption de notre table' }))
       .exists();
+    assert.dom(this.element.querySelector('colgroup')).doesNotExist();
+  });
+
+  test('it should renders the colgroup', async function (assert) {
+    // when
+    await render(
+      hbs`<PixTable
+  @caption='Ceci est le caption de notre table'
+  @data={{this.data}}
+  @headers={{this.headers}}
+>
+  <:colgroup>
+    <col /><col /><col />
+  </:colgroup>
+</PixTable>`,
+    );
+    // then
+
+    assert.dom(this.element.querySelector('colgroup')).exists();
   });
 
   ['orga', 'primary', 'certif'].forEach(function (variant) {

@@ -8,9 +8,8 @@ import * as ComponentStories from './pix-table.stories';
 
 Une table qui prend en argument des headers et des data.
 
+## Exemple basique
 <Story of={ComponentStories.Default} height={400} />
-
-## Usage
 
 ```html
 <PixTable
@@ -19,6 +18,28 @@ Une table qui prend en argument des headers et des data.
   @caption={{this.caption}}
 />
 ```
+
+## Exemple avec un colgroup
+<Story of={ComponentStories.ColGroup} height={400} />
+
+```html
+<PixTable
+  @data={{this.data}}
+  @headers={{this.headers}}
+  @caption={{this.caption}}
+>
+  <:colgroup>
+    <col />
+    <col class="table__column--wide" />
+    <col />
+  </:colgroup>
+</PixTable>
+<style>
+  .table__column--wide { width: 500px; }
+</style>
+```
+
+
 
 ## Arguments
 
