@@ -1,3 +1,9 @@
+# [49.0.0](https://github.com/1024pix/pix-ui/compare/v48.9.0...v49.0.0) (2024-11-27)
+
+### :boom: BREAKING CHANGE
+
+- [#768](https://github.com/1024pix/pix-ui/pull/768) Renommer plusieurs composants Pix UI pour être iso avec le design system (PIX-14599).
+
 # [48.9.0](https://github.com/1024pix/pix-ui/compare/v48.8.1...v48.9.0) (2024-11-25)
 
 ### :rocket: Amélioration
