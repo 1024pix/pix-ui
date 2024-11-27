@@ -9,8 +9,17 @@
     --pix-structure-bg-hover: var(--pix-certif-50);
   }
 
+  @include device-is("mobile") {
+    width: 100%;
+  }
+
   .pix-button {
     width: 100%;
+
+    .pix-navigation--opened & {
+      width: auto;
+      margin:auto;
+    }
   }
 
   .pix-select__dropdown {
@@ -24,13 +33,32 @@
     margin-left: var(--pix-spacing-6x) !important; // we need to override popperjs inline styles
     overflow-y: auto;
     border-radius: 8px;
+
+    @include device-is('mobile') {
+      position: static !important;
+      display: none;
+      width: 0; // force dropdown to resize to its parent
+      max-width: none;
+      max-height: none;
+      margin-left:0 !important;
+      overflow-y: visible;
+      transform: none !important;
+      transition: none;
+
+      .pix-navigation--opened &:not(.pix-select__dropdown--closed) {
+        display: block;
+        margin-top: var(--pix-spacing-4x) !important;
+      }
+    }
   }
 
   .pix-select_list {
     display: flex;
     flex-direction: column;
     gap: var(--pix-spacing-2x);
+    min-width: 100%;
     padding: var(--pix-spacing-2x);
+    border-top: none;
   }
 
   .pix-select-list-category__option--hidden {

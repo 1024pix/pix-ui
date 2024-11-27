@@ -1,7 +1,23 @@
-<aside ...attributes class="pix-navigation">
-  <header class="pix-navigation__brand">{{yield to="brand"}}</header>
-  <nav class="pix-navigation__nav" aria-label={{@navigationAriaLabel}}>{{yield
-      to="navElements"
-    }}</nav>
-  <footer class="pix-navigation__footer">{{yield to="footer"}}</footer>
+<aside
+  ...attributes
+  class="pix-navigation {{if this.navigationMenuOpened 'pix-navigation--opened'}}"
+>
+  <header class="pix-navigation__brand">{{yield to="brand"}}
+    <div class="pix-navigation__burger-menu"><PixButton
+        aria-controls="{{this.navigationId}} {{this.footerId}}"
+        aria-expanded={{this.navigationMenuOpened}}
+        @iconBefore={{if this.navigationMenuOpened "close" "menu"}}
+        @triggerAction={{this.toggleNavigationMenu}}
+      >{{@menuLabel}}</PixButton>
+    </div>
+  </header>
+  <nav
+    class="pix-navigation__nav"
+    {{on "click" this.handleNavigationClick}}
+    aria-label={{@navigationAriaLabel}}
+    id={{this.navigationId}}
+  >
+    {{yield to="navElements"}}
+  </nav>
+  <footer class="pix-navigation__footer" id={{this.footerId}}>{{yield to="footer"}}</footer>
 </aside>

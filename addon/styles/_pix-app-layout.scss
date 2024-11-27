@@ -4,6 +4,10 @@
   gap: var(--pix-spacing-6x);
   padding: var(--pix-spacing-6x);
 
+  @include device-is('mobile') {
+    display: block
+  }
+
   &--orga {
     background-color: var(--pix-orga-50);
 

@@ -20,7 +20,7 @@ export default {
 export const AppLayout = (args) => {
   return {
     template: hbs`<PixAppLayout @variant={{this.variant}}>
-  <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}}>
+  <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}} @menuLabel='Menu'>
     <:brand>
       <a href='/'>
         <img src='/pix-orga.svg' alt='pix orga' />
@@ -39,6 +39,9 @@ export const AppLayout = (args) => {
       <PixNavigationButton @icon='help' @target='_blank' href='https://pix.fr' title='Pix.fr'>Centre
         d'aide</PixNavigationButton>
     </:navElements>
+    <:burgerMenu>
+      <PixNavigationButton @route='hello' @icon='infoUser'>Menu</PixNavigationButton>
+    </:burgerMenu>
     <:footer>
       <p>
         <b>1 000 places disponibles</b>
@@ -66,32 +69,32 @@ export const AppLayout = (args) => {
     </:footer>
   </PixNavigation>
   <div>
-    <svg class='svg' width='600px' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='IndianRed' />
+    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='IndianRed' />
     </svg>
 
-    <svg width='90%' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='DeepPink' />
+    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='DeepPink' />
     </svg>
 
-    <svg width='90%' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='Khaki' />
+    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='Khaki' />
     </svg>
 
-    <svg width='90%' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='RebeccaPurple' />
+    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='RebeccaPurple' />
     </svg>
 
-    <svg width='90%' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='YellowGreen' />
+    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='YellowGreen' />
     </svg>
 
-    <svg width='90%' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='LightCoral' />
+    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='LightCoral' />
     </svg>
 
-    <svg width='90%' height='400px' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600px' height='400px' fill='PowderBlue' />
+    <svg viewbox='0 0 600 400' width='100%' xmlns='http://www.w3.org/2000/svg'>
+      <rect width='600' height='400' fill='PowderBlue' />
     </svg>
   </div>
 </PixAppLayout>`,
