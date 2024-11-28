@@ -75,6 +75,10 @@
     text-overflow: ellipsis;
     border-radius: var(--border-radius-2x);
 
+    &:focus:not(.pix-select-list-category__option--selected )  {
+      background-color: var(--pix-structure-bg-hover);
+    }
+
     &:hover {
       background-color: var(--pix-structure-bg-hover);
     }
@@ -87,6 +91,10 @@
 
     &:hover {
       background-color: var(--pix-navigation-color);
+    }
+
+    &:focus {
+      color: var(--pix-neutral-800)
     }
   }
 }

@@ -11,7 +11,7 @@
   gap:var(--pix-spacing-6x);
   align-items: center;
   justify-content: space-between;
-  min-width: 214px;
+  min-width: var(--pix-navigation-width);
   height: auto;
   min-height: calc(100vh - var(--pix-spacing-6x) * 2);
 
@@ -118,6 +118,10 @@
     text-align: center;
 
     @extend %pix-body-s;
+
+    p {
+      word-break: break-all;
+    }
 
     @include device-is('mobile') {
       display: none;
