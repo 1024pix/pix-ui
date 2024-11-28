@@ -14,12 +14,13 @@ Le composant `<PixNavigation/>` comporte 3 placeholders
 Ce composant doit être utilisé avec le composant `<PixAppLayout>` afin de pouvoir occuper tout la hauteur de la page et être toujours visible.
 
 En complément, les composants `<PixNavigationButton/>` et `<PixNavigationSeparator/>` permettent de composer la navigation souhaitée.
+Il est possible de definir le label ARIA de la navigation principale avec l'attribut `@navigationAriaLabel` et le label du Menu avec `@menuLabel`.
 
 ## Usage
 
 ```html
 <PixAppLayout @variant="orga">
-  <PixNavigation @variant="orga" @navigationAriaLabel="navigation principale">
+  <PixNavigation @navigationAriaLabel="navigation principale" @menuLabel="Menu">
     <:brand>
         <!-- Affichage du bloc identité -->
         <a href="/">

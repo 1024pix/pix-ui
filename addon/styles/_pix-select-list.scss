@@ -22,15 +22,14 @@
   &__option {
     @extend %pix-body-s;
 
-    &:nth-child(even) {
-      background-color: var(--pix-neutral-20);
-    }
-
     position: relative;
     padding: var(--pix-spacing-2x) var(--pix-spacing-8x) var(--pix-spacing-2x) var(--pix-spacing-4x);
     color: var(--pix-neutral-900);
     border-radius: 8px;
 
+    &:nth-child(even) {
+      background-color: var(--pix-neutral-20);
+    }
 
     &:hover,
     &:focus {

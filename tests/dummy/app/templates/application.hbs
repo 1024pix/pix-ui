@@ -1,7 +1,7 @@
 {{page-title "Dummy"}}
 
-<PixAppLayout @variant="primary">
-  <PixNavigation @navigationAriaLabel="navigation principale">
+<PixAppLayout @variant="orga">
+  <PixNavigation @menuLabel="Menu" @navigationAriaLabel="navigation principale">
     <:brand>
       <a href="/">
         <img src="/pix-orga.svg" alt="pix orga" />
@@ -27,12 +27,14 @@
       <p>
         Martin Dupond
       </p>
+      <p>{{this.structure.label}}</p>
       <PixStructureSwitcher
         @label="Changer de structure"
         @structures={{this.structures}}
         @value={{this.structure.value}}
         @onChange={{this.setStructure}}
       />
+      <PixButton @triggerAction={{this.disconnect}} @variant="tertiary">Se déconnecter</PixButton>
     </:footer>
   </PixNavigation>
   <div>

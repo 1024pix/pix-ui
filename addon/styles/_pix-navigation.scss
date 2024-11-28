@@ -1,12 +1,18 @@
 .pix-navigation {
+  --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
+  --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
+
+
   position: sticky;
   bottom: var(--pix-spacing-6x);
+  z-index: 1;
   display: flex;
   flex-direction: column;
   gap:var(--pix-spacing-6x);
   align-items: center;
-  min-width: 214px;
-  height: fit-content;
+  justify-content: space-between;
+  min-width: var(--pix-navigation-width);
+  height: auto;
   min-height: calc(100vh - var(--pix-spacing-6x) * 2);
 
   // using a margin top / bottom allow user to discover rapidly
@@ -17,14 +23,72 @@
   background-color: var(--pix-navigation-color);
   border-radius: var(--pix-spacing-6x);
 
-  --pix-navigation-button-bgcolor-hover: rgb(205, 209, 217, .3);
-  --pix-navigation-button-bgcolor-active: rgb(205, 209, 217, .5);
+
+  @include device-is('mobile') {
+    position: static;
+    flex-direction: column;
+    align-items: stretch;
+    width: 100%;
+    min-height: auto;
+    padding: 0;
+
+    &--opened {
+      justify-content: flex-start;
+    }
+  }
+
 
   &__brand {
     margin-bottom: 0;
     padding:0;
     line-height: 0;
 
+    img {
+      width: 132px;
+      height: 48px;
+    }
+
+    @include device-is('mobile') {
+      display:flex;
+      flex-direction: row;
+      align-items: center;
+      padding: var(--pix-spacing-4x) var(--pix-spacing-2x) var(--pix-spacing-4x) var(--pix-spacing-10x);
+
+      img {
+        width: 85px;
+        height: 32px;
+      }
+
+      .pix-navigation--opened & {
+        padding-bottom: 0
+      }
+    }
+  }
+
+  &__burger-menu {
+    display: none;
+
+    @include device-is('mobile') {
+      display: block;
+      margin-left:auto;
+
+      .pix-button {
+        background-color: transparent;
+
+        &:focus, &:focus-visible {
+          background-color: rgb(var(--pix-neutral-800-inline), 20%);
+          outline: none;
+        }
+
+        &:hover {
+          background-color: rgb(var(--pix-neutral-800-inline), 20%);
+        }
+
+        &:active {
+          background-color: rgb(var(--pix-neutral-800-inline), 30%);
+        }
+      }
+    }
   }
 
   &__nav {
@@ -32,6 +96,17 @@
     flex-direction: column;
     gap: var(--pix-spacing-2x);
     align-self: stretch;
+
+    @include device-is('mobile') {
+      display: none;
+      padding: 0 var(--pix-spacing-6x);
+
+      .pix-navigation--opened & {
+        display: block;
+      }
+    }
+
+
   }
 
   &__footer {
@@ -39,9 +114,39 @@
     flex-direction: column;
     gap: var(--pix-spacing-2x);
     margin-top: auto;
+    padding: 0;
     text-align: center;
 
     @extend %pix-body-s;
+
+    p {
+      word-break: break-all;
+    }
+
+    @include device-is('mobile') {
+      display: none;
+
+      .pix-navigation--opened & {
+        display: flex;
+        justify-content: stretch;
+        padding: 0 var(--pix-spacing-6x) var(--pix-spacing-4x);
+
+        &::before {
+          width: 80px;
+          margin: var(--pix-spacing-6x) auto;
+          border-top: 1px solid var(--pix-neutral-100);
+          content: "";
+        }
+      }
+    }
+
+    .pix-button {
+      width: 100%;
+
+      @include device-is('mobile') {
+        width: auto;
+      }
+    }
 
     & .pix-button--primary {
       color: var(--pix-navigation-color);
@@ -49,20 +154,20 @@
 
       &:hover {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         fill: currentcolor;
       }
 
       &:focus,
       &:focus-visible {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         outline-color: currentcolor;
       }
 
       &:active {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-active);
+        background-color: var(--bg-color-active);
       }
     }
 
@@ -72,20 +177,20 @@
 
       &:hover {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         fill: currentcolor;
       }
 
       &:focus,
       &:focus-visible {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-hover);
+        background-color: var(--bg-color-focus);
         outline-color: currentcolor;
       }
 
       &:active {
         color: currentcolor;
-        background-color: var(--pix-navigation-button-bgcolor-active);
+        background-color: var(--bg-color-active);
       }
     }
 
@@ -101,6 +206,5 @@
       }
     }
   }
-
 }
 
