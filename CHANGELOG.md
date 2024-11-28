@@ -1,3 +1,13 @@
+# [49.2.0](https://github.com/1024pix/pix-ui/compare/v49.1.0...v49.2.0) (2024-11-28)
+
+### :rocket: Amélioration
+
+- [#770](https://github.com/1024pix/pix-ui/pull/770) ajoute une declinaison de la navigation pour mobile (pix-15284) 
+
+### :coffee: Autre
+
+- [#772](https://github.com/1024pix/pix-ui/pull/772) Mettre à jour la documentation "Faire une release"
+
 # [49.1.0](https://github.com/1024pix/pix-ui/compare/v49.0.0...v49.1.0) (2024-11-27)
 
 ### :rocket: Amélioration
