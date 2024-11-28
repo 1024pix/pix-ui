@@ -11,31 +11,34 @@ Une release est la publication d'un nouvelle version du projet.
 Autrement dit, on crée un tag git pour nommer cette version. Les nouveautés embarquées par cette version sont donc
 uniquement celles déjà présentes sur `dev` au moment de la release.
 
-Les applications se servant de Pix UI pourront alors se mettre à jour et utiliser les nouveaux composants et des
+Les applications qui utilisent Pix UI pourront alors se mettre à jour et utiliser les nouveaux composants et des
 dernières features en précisant le numéro de la version.
 
-Par ailleurs, sur Pix UI une release signifie aussi la mise à jour automatique de [notre storybook en ligne](https://ui.pix.fr/).
+Par ailleurs, sur Pix UI, une release signifie aussi la mise à jour automatique de [notre storybook en ligne](https://ui.pix.fr/).
 
-## Effectuer la release via slack
+## Comment sont faites les releases ?
 
-Aller dans le canal slack dédié aux releases : [#tech-releases](https://1024pix.slack.com/archives/CVAMDQYHY), puis taper la commande suivante :
+Les releases de Pix UI sont déclenchées automatiquement à chaque merge d'une pull request sur GitHub, grâce au
+[workflow release](https://github.com/1024pix/pix-ui/blob/dev/.github/workflows/release.yml). On peut voir l'historique
+des déclenchements du workflow, et le déclencher manuellement, sur
+[la page Actions du dépôt Github](https://github.com/1024pix/pix-ui/actions/workflows/release.yml).
 
-- `/publish-pix-ui <version_souhaitée>`
-  `<version_souhaitée>` peut prendre 3 valeurs :
-  - `patch` : correctif de bug
-  - `minor` : modifications n'apportant pas de changement dans l'utilisation de Pix UI
-  - `major` : modifications apportant des breaking changes
+## Comment est déterminé le numéro de version ?
 
-Vous devriez voir apparaître dans le canal un premier message (visible uniquement par vous) de Pix-bot vous indiquant
-que la demande de déploiement pour Pix UI a bien été prise en compte.
+Pix UI suit la convention [semver](https://semver.org/), le numéro de version dépend donc du type de release (major,
+minor, patch).
 
-Ensuite, Pix-Bot vous confirmera à nouveau via deux messages (un privé et un public) du bon déploiement de Pix UI en
-indiquant le numéro de sa nouvelle version.
+Le type sémantique de la release est déterminé par le préfixe entre crochets dans le titre de la PR. Le préfixe
+`[BREAKING]` va déclencher une release majeure, le préfixe `[FEATURE]` va déclencher une release mineure, tous les
+autres (`[BUGFIX]`, `[BUMP]`, `[DOC]` et `[TECH]` un patch.
 
-Et voilà 🎉
+Il est donc important de bien
+[identifier les breaking changes](https://ui.pix.fr/?path=/docs/pix-ui-d%C3%A9veloppement-breaking-changes--docs) dès
+l'étape de la pull request.
 
-Si vous souhaitez suivre le déroulement de la release, consulter les [logs](https://github.com/1024pix/pix-ui/actions/workflows/deploy-storybook.yml)
-de la GitHub action `Deploy Pix UI Storybook`.
+Les règles de correspondances préfixe / type de release sont définies dans
+[https://github.com/1024pix/pix-actions/blob/main/release/release.config.cjs](la configuration de la Github Action "release")
+qui est appelée par le workflow release de Pix UI.
 
 ## Constater le bon fonctionnement de la release
 
