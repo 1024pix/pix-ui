@@ -33,12 +33,16 @@ export default class PixStructureSwitcher extends Component {
 
   @action
   openMenu(event) {
+    if (this.isMenuOpen) return;
+
     event.preventDefault();
     this.isMenuOpen = true;
   }
 
   @action
   closeMenu(event) {
+    if (!this.isMenuOpen) return;
+
     event.preventDefault();
     this.isMenuOpen = false;
   }

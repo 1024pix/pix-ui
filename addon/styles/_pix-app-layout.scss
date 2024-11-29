@@ -1,8 +1,6 @@
 .pix-app-layout {
-  --pix-navigation-width:  13.375rem;
-
   display: grid;
-  grid-template-columns: var(--pix-navigation-width) 1fr;
+  grid-template-columns: min-content 1fr;
   gap: var(--pix-spacing-6x);
   padding: var(--pix-spacing-6x);
 
