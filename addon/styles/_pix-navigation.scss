@@ -1,7 +1,7 @@
 .pix-navigation {
   --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
   --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
-
+  --pix-navigation-width:  15rem;
 
   position: sticky;
   bottom: var(--pix-spacing-6x);
@@ -9,9 +9,9 @@
   display: flex;
   flex-direction: column;
   gap:var(--pix-spacing-6x);
-  align-items: center;
+  align-items: stretch;
   justify-content: space-between;
-  min-width: var(--pix-navigation-width);
+  width: var(--pix-navigation-width);
   height: auto;
   min-height: calc(100vh - var(--pix-spacing-6x) * 2);
 
@@ -29,6 +29,7 @@
     flex-direction: column;
     align-items: stretch;
     width: 100%;
+    max-width: none;
     min-height: auto;
     padding: 0;
 
@@ -44,15 +45,17 @@
     line-height: 0;
 
     img {
+      display: block;
       width: 132px;
       height: 48px;
+      margin:0 auto;
     }
 
     @include device-is('mobile') {
       display:flex;
       flex-direction: row;
       align-items: center;
-      padding: var(--pix-spacing-4x) var(--pix-spacing-2x) var(--pix-spacing-4x) var(--pix-spacing-10x);
+      padding: var(--pix-spacing-4x) var(--pix-spacing-2x) var(--pix-spacing-4x) var(--pix-spacing-9x);
 
       img {
         width: 85px;
@@ -120,7 +123,7 @@
     @extend %pix-body-s;
 
     p {
-      word-break: break-all;
+      word-break: break-word;
     }
 
     @include device-is('mobile') {
@@ -142,6 +145,8 @@
 
     .pix-button {
       width: 100%;
+      padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
+      white-space: unset;
 
       @include device-is('mobile') {
         width: auto;
