@@ -1,3 +1,9 @@
+## [49.2.1](https://github.com/1024pix/pix-ui/compare/v49.2.0...v49.2.1) (2024-11-29)
+
+### :bug: Correction
+
+- [#775](https://github.com/1024pix/pix-ui/pull/775) fixe la navigation
+
 # [49.2.0](https://github.com/1024pix/pix-ui/compare/v49.1.0...v49.2.0) (2024-11-28)
 
 ### :rocket: Amélioration
