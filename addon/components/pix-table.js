@@ -17,17 +17,4 @@ export default class PixTable extends Component {
   get headerClass() {
     return `pix-table-header--${this.variant}`;
   }
-
-  get headerContext() {
-    return {
-      isHeader: true,
-    };
-  }
-
-  getRowContext(row) {
-    return {
-      isHeader: false,
-      row,
-    };
-  }
 }

@@ -17,7 +17,7 @@ export default {
     columns: {
       name: '<:columns>',
       description:
-        'Définition du rendu des différentes colonnes de la table en utilisant `<PixTableColumn>`',
+        'Définition du rendu des différentes colonnes de la table en utilisant `<PixTableColumn>`. Expose les paramètres `row` et `context` (correspondant aux données de la ligne actuelle)',
       type: { name: 'block content', required: true },
     },
     variant: {
@@ -43,12 +43,12 @@ export default {
 const Template = (args) => {
   return {
     template: hbs`<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
-  <:columns as |context|>
+  <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
         Nom
       </:header>
-      <:cell as |row|>
+      <:cell>
         {{row.name}}
       </:cell>
     </PixTableColumn>
@@ -56,7 +56,7 @@ const Template = (args) => {
       <:header>
         Description
       </:header>
-      <:cell as |row|>
+      <:cell>
         <i>{{row.description}}</i>
       </:cell>
     </PixTableColumn>
@@ -64,7 +64,7 @@ const Template = (args) => {
       <:header>
         Age
       </:header>
-      <:cell as |row|>
+      <:cell>
         il a
         {{row.age}}
         ans
@@ -74,7 +74,7 @@ const Template = (args) => {
       <:header>
         Info
       </:header>
-      <:cell as |row|>
+      <:cell>
         <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
       </:cell>
     </PixTableColumn>

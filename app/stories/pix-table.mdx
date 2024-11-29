@@ -13,12 +13,12 @@ Une table qui prend en argument des data et en `block content` des [PixTableColu
 
 ```html
 <PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
-  <:columns as |context|>
+  <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
         Nom
       </:header>
-      <:cell as |row| >
+      <:cell>
         {{row.name}}
       </:cell>
     </PixTableColumn>
@@ -26,7 +26,7 @@ Une table qui prend en argument des data et en `block content` des [PixTableColu
       <:header>
         Description
       </:header>
-      <:cell as |row|>
+      <:cell>
         <i>{{row.description}}</i>
       </:cell>
     </PixTableColumn>
@@ -34,7 +34,7 @@ Une table qui prend en argument des data et en `block content` des [PixTableColu
       <:header>
         Age
       </:header>
-      <:cell as |row| >
+      <:cell>
         il a
         {{row.age}}
         ans
@@ -44,7 +44,7 @@ Une table qui prend en argument des data et en `block content` des [PixTableColu
       <:header>
         Info
       </:header>
-      <:cell as |row|>
+      <:cell>
         <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
       </:cell>
     </PixTableColumn>

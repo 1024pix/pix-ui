@@ -3,13 +3,13 @@
     <caption class="screen-reader-only">{{@caption}}</caption>
     <thead class={{this.headerClass}}>
       <tr>
-        {{yield this.headerContext to="columns"}}
+        {{yield null "header" to="columns"}}
       </tr>
     </thead>
     <tbody>
       {{#each @data as |row|}}
         <tr>
-          {{yield (this.getRowContext row) to="columns"}}
+          {{yield row "cell" to="columns"}}
         </tr>
       {{/each}}
     </tbody>

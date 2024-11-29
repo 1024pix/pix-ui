@@ -5,19 +5,18 @@ export default {
   argTypes: {
     context: {
       name: 'context',
-      description: 'Propriété a récupérer depuis le block element <:columns> du pixTable parent',
-      type: { name: 'object', required: true },
+      description: 'Propriété a récupérer depuis le block element `<:columns>` du PixTable parent.',
+      type: { name: 'privé', required: true },
     },
     header: {
       name: '<:header>',
       description: 'En-tête de la colonne',
-      type: { name: 'object', required: true },
+      type: { name: 'block content', required: true },
     },
     cell: {
       name: '<:cell>',
-      description:
-        'Cellule de la colonne. Expose la propriété `row` correspondant aux données de la ligne',
-      type: { name: 'object', required: true },
+      description: 'Cellule de la colonne.',
+      type: { name: 'block content', required: true },
     },
   },
 };
@@ -25,12 +24,12 @@ export default {
 const Template = (args) => {
   return {
     template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
-  <:columns as |context|>
+  <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
         Info
       </:header>
-      <:cell as |row|>
+      <:cell>
         <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
       </:cell>
     </PixTableColumn>

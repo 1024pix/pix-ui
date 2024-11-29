@@ -1,9 +1,9 @@
-{{#if @context.isHeader}}
+{{#if this.displayHeader}}
   <th scope="col" ...attributes>
     {{yield to="header"}}
   </th>
 {{else}}
   <td ...attributes>
-    {{yield @context.row to="cell"}}
+    {{yield to="cell"}}
   </td>
 {{/if}}

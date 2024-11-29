@@ -14,12 +14,12 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
 
 ```html
 <PixTable @data={{this.data}} @caption={{this.caption}}>
-  <:columns as |context|>
+  <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
         Info
       </:header>
-      <:cell as |row|>
+      <:cell>
         <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
       </:cell>
     </PixTableColumn>

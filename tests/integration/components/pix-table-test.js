@@ -26,12 +26,12 @@ module('Integration | Component | table', function (hooks) {
     // when
     const screen = await render(
       hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
-  <:columns as |context|>
+  <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
         Nom
       </:header>
-      <:cell as |row|>
+      <:cell>
         {{row.name}}
       </:cell>
     </PixTableColumn>
@@ -39,7 +39,7 @@ module('Integration | Component | table', function (hooks) {
       <:header>
         Description
       </:header>
-      <:cell as |row|>
+      <:cell>
         {{row.description}}
       </:cell>
     </PixTableColumn>
@@ -47,7 +47,7 @@ module('Integration | Component | table', function (hooks) {
       <:header>
         Age
       </:header>
-      <:cell as |row|>
+      <:cell>
         il a
         {{row.age}}
         ans
@@ -79,12 +79,12 @@ module('Integration | Component | table', function (hooks) {
   @data={{this.data}}
   @variant={{this.variant}}
 >
-  <:columns as |context|>
+  <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
         Nom
       </:header>
-      <:cell as |row|>
+      <:cell>
         {{row.name}}
       </:cell>
     </PixTableColumn>
@@ -92,7 +92,7 @@ module('Integration | Component | table', function (hooks) {
       <:header>
         Description
       </:header>
-      <:cell as |row|>
+      <:cell>
         {{row.description}}
       </:cell>
     </PixTableColumn>
@@ -100,7 +100,7 @@ module('Integration | Component | table', function (hooks) {
       <:header>
         Age
       </:header>
-      <:cell as |row|>
+      <:cell>
         il a
         {{row.age}}
         ans
