@@ -6,16 +6,25 @@ import * as ComponentStories from './pix-table-basic-column.stories';
 
 # PixTableBasicColumn
 
-TODO: insert component description
+Un composant enfant du PixTable qui affiche une colonne de type `text` ou `number`
 
-<Story of={ComponentStories.Default} height={60} />
+<Story of={ComponentStories.Default} height={400} />
 
 ## Usage
 
 ```html
-<PixTableBasicColumn
-  <!-- TODO -->
-/>
+<PixTable @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Info
+      </:header>
+      <:cell>
+        <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>
 ```
 
 ## Arguments

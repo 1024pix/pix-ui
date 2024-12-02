@@ -1,4 +1,5 @@
-.pix-table-basic-column {
-  
-
+td.pix-table-basic-column {
+  &--number{
+    text-align: right;
+  }
 }

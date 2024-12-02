@@ -28,16 +28,35 @@ module('Integration | Component | table-basic-column', function (hooks) {
       const screen = await render(
         hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
   <:columns as |row context|>
-    <PixTableBasicColumn @context={{context}} @name="Nom" @value={{row.name}} />
+    <PixTableBasicColumn @context={{context}} @name='Nom' @value={{row.name}} />
   </:columns>
 </PixTable>`,
       );
 
       // then
       const cell = screen.queryByRole('cell', { name: 'jean' });
-      const textAlign = window.getComputedStyle(cell).getPropertyValue('text-align');
       assert.dom(cell).exists();
+      const textAlign = window.getComputedStyle(cell).getPropertyValue('text-align');
       assert.strictEqual(textAlign, 'start');
+    });
+  });
+
+  module('when type is number', function () {
+    test('it renders a number column', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
+  <:columns as |row context|>
+    <PixTableBasicColumn @context={{context}} @name='Âge' @value={{row.age}} @type='number' />
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      const cell = screen.queryByRole('cell', { name: '15' });
+      assert.dom(cell).exists();
+      const textAlign = window.getComputedStyle(cell).getPropertyValue('text-align');
+      assert.strictEqual(textAlign, 'right');
     });
   });
 });
