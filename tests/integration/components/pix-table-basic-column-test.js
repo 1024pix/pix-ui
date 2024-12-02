@@ -3,6 +3,9 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import sinon from 'sinon';
+
+import EmberDebug from '@ember/debug';
 
 module('Integration | Component | table-basic-column', function (hooks) {
   setupRenderingTest(hooks);
@@ -20,6 +23,48 @@ module('Integration | Component | table-basic-column', function (hooks) {
         age: 25,
       },
     ];
+  });
+
+  module('#warn', function (hooks) {
+    let sandbox;
+    hooks.beforeEach(function () {
+      sandbox = sinon.createSandbox();
+      sandbox.stub(EmberDebug, 'warn');
+    });
+
+    hooks.afterEach(function () {
+      sandbox.restore();
+    });
+
+    test('should warn when provided incorrect type', async function (assert) {
+      this.wrongType = 'wrong type';
+
+      // when
+      await render(
+        hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
+  <:columns as |row context|>
+    <PixTableBasicColumn
+      @context={{context}}
+      @name='Nom'
+      @value={{row.name}}
+      @type={{this.wrongType}}
+    />
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      assert.ok(
+        EmberDebug.warn
+          .getCalls()
+          .find((call) => {
+            return call.args[0] === 'PixTableBasicColumn: you need to provide a valid type';
+          })
+          .calledWith('PixTableBasicColumn: you need to provide a valid type', false, {
+            id: 'pix-ui.table-basic-column.type.incorrect',
+          }),
+      );
+    });
   });
 
   module('when type is text', function () {

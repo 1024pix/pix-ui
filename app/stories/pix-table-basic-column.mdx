@@ -15,14 +15,19 @@ Un composant enfant du PixTable qui affiche une colonne de type `text` ou `numbe
 ```html
 <PixTable @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
-    <PixTableColumn @context={{context}}>
-      <:header>
-        Info
-      </:header>
-      <:cell>
-        <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
-      </:cell>
-    </PixTableColumn>
+    <PixTableBasicColumn
+      @context={{context}}
+      class={{this.typeClass}}
+      @name='Nom'
+      @value={{row.name}}
+    />
+    <PixTableBasicColumn
+      @context={{context}}
+      class={{this.typeClass}}
+      @name='Âge'
+      @value={{row.age}}
+      @type='number'
+    />
   </:columns>
 </PixTable>
 ```

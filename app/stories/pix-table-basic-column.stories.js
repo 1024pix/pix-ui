@@ -8,6 +8,10 @@ export default {
       defaultValue: {
         summary: 'text',
       },
+      options: ['text', 'number'],
+      control: {
+        type: 'select',
+      },
       type: {
         name: '"text" | "number"',
       },
@@ -34,13 +38,7 @@ const Template = (args) => {
       class={{this.typeClass}}
       @name='Nom'
       @value={{row.name}}
-    />
-    <PixTableBasicColumn
-      @context={{context}}
-      class={{this.typeClass}}
-      @name='Âge'
-      @value={{row.age}}
-      @type='number'
+      @type={{this.type}}
     />
   </:columns>
 </PixTable>`,
@@ -61,4 +59,5 @@ Default.args = {
       age: 25,
     },
   ],
+  type: 'number',
 };
