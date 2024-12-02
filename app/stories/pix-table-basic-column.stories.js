@@ -1,0 +1,29 @@
+import { hbs } from 'ember-cli-htmlbars';
+
+export default {
+  title: 'TableBasicColumn',
+  // TODO: add component attributes information
+  // select attribute data type from https://storybook.js.org/docs/react/essentials/controls
+  argTypes: {
+    attributeName: {
+      name: 'attribute name',
+      description: 'attribute description',
+      type: { name: 'string', required: false },
+    },
+  },
+};
+
+const Template = (args) => {
+  return {
+    template: hbs`
+      <PixTableBasicColumn
+      />
+    `,
+    context: args,
+  };
+};
+
+export const Default = Template.bind({});
+Default.args = {
+  // TODO
+};
