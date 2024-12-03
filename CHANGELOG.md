@@ -1,3 +1,9 @@
+## [49.3.1](https://github.com/1024pix/pix-ui/compare/v49.3.0...v49.3.1) (2024-12-03)
+
+### :building_construction: Tech
+
+- [#774](https://github.com/1024pix/pix-ui/pull/774) Déplacer l'étoile de gauche à droite sur les radiobutton / checkbox (PIX-XXXXX)
+
 # [49.3.0](https://github.com/1024pix/pix-ui/compare/v49.2.1...v49.3.0) (2024-12-03)
 
 ### :rocket: Amélioration
