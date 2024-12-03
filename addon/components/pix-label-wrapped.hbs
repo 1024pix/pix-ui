@@ -19,11 +19,11 @@
   {{yield to="inputElement"}}
 
   <span class="{{if @screenReaderOnly 'screen-reader-only'}}">
+    {{yield}}
+
     {{#if @requiredLabel}}
       <abbr title={{@requiredLabel}} class="mandatory-mark">*</abbr>
     {{/if}}
-
-    {{yield}}
 
     {{#if @subLabel}}
       <span class="pix-label__sub-label">{{@subLabel}}</span>
