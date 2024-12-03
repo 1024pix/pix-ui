@@ -57,6 +57,7 @@ export const ICONS = {
   minus: { default: 'checkIndeterminate' },
   mobile: { default: 'smartphone', plainIcon: 'smartphone_plain' },
   mobileOff: { default: 'smartphoneOff', plainIcon: 'smartphoneOff_plain' },
+  monitoring: { default: 'monitoring' },
   moreHoriz: { default: 'moreHoriz' },
   moreVert: { default: 'moreVert' },
   newRealease: { default: 'newReleases', plainIcon: 'newReleases_plain' },
