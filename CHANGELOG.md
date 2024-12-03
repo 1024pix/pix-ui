@@ -1,3 +1,9 @@
+# [49.3.0](https://github.com/1024pix/pix-ui/compare/v49.2.1...v49.3.0) (2024-12-03)
+
+### :rocket: Amélioration
+
+- [#777](https://github.com/1024pix/pix-ui/pull/777) Ajouter les icones de monitoring
+
 ## [49.2.1](https://github.com/1024pix/pix-ui/compare/v49.2.0...v49.2.1) (2024-11-29)
 
 ### :bug: Correction
