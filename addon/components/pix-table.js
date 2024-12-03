@@ -14,6 +14,14 @@ export default class PixTable extends Component {
 
     return value;
   }
+
+  get caption() {
+    warn(`PixTable: @caption is required`, Boolean(this.args.caption), {
+      id: 'pix-ui.pix-table.caption.required',
+    });
+    return this.args.caption;
+  }
+
   get headerClass() {
     return `pix-table-header--${this.variant}`;
   }

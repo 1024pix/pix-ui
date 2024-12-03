@@ -3,6 +3,8 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import EmberDebug from '@ember/debug';
+import sinon from 'sinon';
 
 module('Integration | Component | table', function (hooks) {
   setupRenderingTest(hooks);
@@ -113,6 +115,59 @@ module('Integration | Component | table', function (hooks) {
       assert.strictEqual(
         this.element.querySelector('thead').getAttribute('class'),
         `pix-table-header--${variant}`,
+      );
+    });
+  });
+
+  module('#warn', function (hooks) {
+    let sandbox;
+    hooks.beforeEach(function () {
+      sandbox = sinon.createSandbox();
+      sandbox.stub(EmberDebug, 'warn');
+    });
+
+    hooks.afterEach(function () {
+      sandbox.restore();
+    });
+
+    test('it should warn when @variant is incorrect', async function (assert) {
+      // when
+      await render(hbs`<PixTable @caption='A caption' @variant='wrong variant' />`);
+
+      // then
+      assert.ok(
+        EmberDebug.warn
+          .getCalls()
+          .find((call) => {
+            return (
+              call.args[0] ===
+              'PixTable: @variant "wrong variant" should be certif, orga or primary'
+            );
+          })
+          .calledWith(
+            'PixTable: @variant "wrong variant" should be certif, orga or primary',
+            false,
+            {
+              id: 'pix-ui.pix-table.variant.not-valid',
+            },
+          ),
+      );
+    });
+
+    test('it should warn when @caption is not provided provided', async function (assert) {
+      // when
+      await render(hbs`<PixTable />`);
+
+      // then
+      assert.ok(
+        EmberDebug.warn
+          .getCalls()
+          .find((call) => {
+            return call.args[0] === 'PixTable: @caption is required';
+          })
+          .calledWith('PixTable: @caption is required', false, {
+            id: 'pix-ui.pix-table.caption.required',
+          }),
       );
     });
   });
