@@ -1,0 +1,17 @@
+<div class="pix-table">
+  <table>
+    <caption class="screen-reader-only">{{this.caption}}</caption>
+    <thead class={{this.headerClass}}>
+      <tr>
+        {{yield null "header" to="columns"}}
+      </tr>
+    </thead>
+    <tbody>
+      {{#each @data as |row|}}
+        <tr>
+          {{yield row "cell" to="columns"}}
+        </tr>
+      {{/each}}
+    </tbody>
+  </table>
+</div>

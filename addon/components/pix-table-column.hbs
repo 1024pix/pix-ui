@@ -1,0 +1,9 @@
+{{#if this.displayHeader}}
+  <th scope="col" ...attributes>
+    {{yield to="header"}}
+  </th>
+{{else}}
+  <td ...attributes>
+    {{yield to="cell"}}
+  </td>
+{{/if}}
