@@ -1,3 +1,9 @@
+# [49.4.0](https://github.com/1024pix/pix-ui/compare/v49.3.1...v49.4.0) (2024-12-04)
+
+### :rocket: Amélioration
+
+- [#771](https://github.com/1024pix/pix-ui/pull/771) Création du composant Table (PIX-14514)
+
 ## [49.3.1](https://github.com/1024pix/pix-ui/compare/v49.3.0...v49.3.1) (2024-12-03)
 
 ### :building_construction: Tech
