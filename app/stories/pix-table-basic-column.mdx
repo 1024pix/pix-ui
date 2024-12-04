@@ -17,16 +17,15 @@ Un composant enfant du PixTable qui affiche une colonne de type `text` ou `numbe
   <:columns as |row context|>
     <PixTableBasicColumn
       @context={{context}}
-      class={{this.typeClass}}
+      @type='text'
       @name='Nom'
       @value={{row.name}}
     />
     <PixTableBasicColumn
       @context={{context}}
-      class={{this.typeClass}}
+      @type='number'
       @name='Âge'
       @value={{row.age}}
-      @type='number'
     />
   </:columns>
 </PixTable>

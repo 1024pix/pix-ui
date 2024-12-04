@@ -35,10 +35,15 @@ const Template = (args) => {
   <:columns as |row context|>
     <PixTableBasicColumn
       @context={{context}}
-      class={{this.typeClass}}
+      @type={{this.nameColumnType}}
       @name='Nom'
       @value={{row.name}}
-      @type={{this.type}}
+    />
+    <PixTableBasicColumn
+      @context={{context}}
+      @type={{this.ageColumnType}}
+      @name='Âge'
+      @value={{row.age}}
     />
   </:columns>
 </PixTable>`,
@@ -59,5 +64,6 @@ Default.args = {
       age: 25,
     },
   ],
-  type: 'number',
+  nameColumnType: 'text',
+  ageColumnType: 'number',
 };
