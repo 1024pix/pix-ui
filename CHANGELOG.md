@@ -1,3 +1,10 @@
+## [49.4.1](https://github.com/1024pix/pix-ui/compare/v49.4.0...v49.4.1) (2024-12-04)
+
+### :bug: Correction
+
+- [#776](https://github.com/1024pix/pix-ui/pull/776) Retirer l'usage de waitForElement qui n'est pas nécessaire PixStructureSwitcher (PIX-XXXXX) 
+- [#778](https://github.com/1024pix/pix-ui/pull/778) Retirer la couleur par défaut de la tooltip
+
 # [49.4.0](https://github.com/1024pix/pix-ui/compare/v49.3.1...v49.4.0) (2024-12-04)
 
 ### :rocket: Amélioration
