@@ -25,37 +25,32 @@
     }
   }
 
-  &__with-icon > svg {
-    width: 1.4rem;
-    height: 1.4rem;
-  }
-
-  &__on,
-  &__off {
+  &__view-a,
+  &__view-b {
     display: inline-block;
     padding: var(--pix-spacing-1x) var(--pix-spacing-2x);
     border-radius: 4px;
   }
 
-  &__on {
+  &__view-a {
     color: var(--pix-neutral-800);
     font-weight: var(--pix-font-normal);
   }
 
-  &__off {
+  &__view-b {
     color: var(--pix-neutral-20);
     background-color: var(--pix-neutral-800);
   }
 
   &--pressed {
     .pix-toggle-button {
-      &__on {
+      &__view-a {
         color: var(--pix-neutral-20);
         font-weight: inherit;
         background-color: var(--pix-neutral-800);
       }
 
-      &__off {
+      &__view-b {
         color: var(--pix-neutral-800);
         font-weight: var(--pix-font-normal);
         background-color: transparent;
