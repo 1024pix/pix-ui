@@ -2,9 +2,19 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import EmberDebug from '@ember/debug';
+import sinon from 'sinon';
 
 module('Integration | Component | pix-return-to', function (hooks) {
   setupRenderingTest(hooks);
+
+  hooks.beforeEach(function () {
+    sinon.stub(EmberDebug, 'warn');
+  });
+
+  hooks.afterEach(function () {
+    sinon.restore();
+  });
 
   const RETURN_TO_SELECTOR = '.pix-return-to';
 
@@ -13,22 +23,7 @@ module('Integration | Component | pix-return-to', function (hooks) {
     await render(hbs`<PixReturnTo @route='home'>Home</PixReturnTo>`);
 
     // then
-    const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
     assert.contains('Home');
-    assert.ok(
-      pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--black'),
-    );
-  });
-
-  test('it renders with the given shade', async function (assert) {
-    // when
-    await render(hbs`<PixReturnTo @route='home' @shade='white' />`);
-
-    // then
-    const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
-    assert.ok(
-      pixReturnToElement.classList.toString().includes('pix-return-to pix-return-to--white'),
-    );
   });
 
   test('it renders without text', async function (assert) {
@@ -37,8 +32,23 @@ module('Integration | Component | pix-return-to', function (hooks) {
 
     // then
     const pixReturnToElement = this.element.querySelector(RETURN_TO_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(pixReturnToElement.textContent.trim(), '');
+    assert.strictEqual(pixReturnToElement.textContent.trim(), '');
+  });
+
+  test('it warns if route param is undefined', async function (assert) {
+    // when
+    await render(hbs`<PixReturnTo />`);
+
+    // then
+    assert.ok(
+      EmberDebug.warn
+        .getCalls()
+        .find((call) => {
+          return call.args[0] === 'PixReturnTo: @route param is not provided';
+        })
+        .calledWith('PixReturnTo: @route param is not provided', false, {
+          id: 'pix-ui.returnTo.route.required',
+        }),
+    );
   });
 });

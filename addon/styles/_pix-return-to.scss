@@ -23,31 +23,41 @@
     cursor: pointer;
   }
 
-  @mixin coloriseLink($defaultColor, $arrowHoverColor, $arrowBgColor) {
+  @mixin coloriseLink($defaultColor, $focusColor) {
     color: $defaultColor;
 
-    &:focus,
-    &:hover,
+    &:hover {
+      .pix-return-to__icon {
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-20);
+        border-radius: 50%;
+      }
+    }
+
+    &:focus {
+      .pix-return-to__icon {
+        color: $focusColor;
+        background-color: $defaultColor;
+        border-radius: 50%;
+        outline: 1px solid $focusColor;
+        outline-offset: -3px;
+      }
+    }
+
     &:active {
       .pix-return-to__icon {
-        background-color: $arrowBgColor;
+        color: var(--pix-neutral-900);
+        background-color: var(--pix-neutral-100);
         border-radius: 50%;
-        outline: 1px solid var(--pix-neutral-0);
-        outline-offset: -3px;
-        fill: $arrowHoverColor;
       }
     }
   }
 
-  &--white, &--neutral-light {
-    @include coloriseLink(var(--pix-neutral-20), var(--pix-neutral-0), var(--pix-neutral-20));
+  &--neutral-light {
+    @include coloriseLink(var(--pix-neutral-20), var(--pix-neutral-900));
   }
 
-  &--black, &--neutral-dark {
-    @include coloriseLink(var(--pix-neutral-900), var(--pix-neutral-0), var(--pix-neutral-900));
-  }
-
-  &--blue, &--primary {
-    @include coloriseLink(var(--pix-primary-900), var(--pix-neutral-0), var(--pix-primary-900));
+  &--neutral-dark {
+    @include coloriseLink(var(--pix-neutral-900), var(--pix-neutral-0));
   }
 }
