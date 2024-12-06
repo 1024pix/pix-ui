@@ -1,3 +1,9 @@
+# [50.0.0](https://github.com/1024pix/pix-ui/compare/v49.6.0...v50.0.0) (2024-12-06)
+
+### :boom: BREAKING CHANGE
+
+- [#782](https://github.com/1024pix/pix-ui/pull/782) Renommer les yields on/off du Pix Toggle Button (PIX-12700).
+
 # [49.6.0](https://github.com/1024pix/pix-ui/compare/v49.5.0...v49.6.0) (2024-12-06)
 
 ### :rocket: Amélioration
