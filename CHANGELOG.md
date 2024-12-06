@@ -1,3 +1,9 @@
+# [49.5.0](https://github.com/1024pix/pix-ui/compare/v49.4.1...v49.5.0) (2024-12-06)
+
+### :rocket: Amélioration
+
+- [#773](https://github.com/1024pix/pix-ui/pull/773) Regler la taille de la dropdown de pix-select (PIX-14436)
+
 ## [49.4.1](https://github.com/1024pix/pix-ui/compare/v49.4.0...v49.4.1) (2024-12-04)
 
 ### :bug: Correction
