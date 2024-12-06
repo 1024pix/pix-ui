@@ -1,3 +1,9 @@
+# [49.6.0](https://github.com/1024pix/pix-ui/compare/v49.5.0...v49.6.0) (2024-12-06)
+
+### :rocket: Amélioration
+
+- [#779](https://github.com/1024pix/pix-ui/pull/779) Ajouter un composant colonne basique (PIX-14507)
+
 # [49.5.0](https://github.com/1024pix/pix-ui/compare/v49.4.1...v49.5.0) (2024-12-06)
 
 ### :rocket: Amélioration
