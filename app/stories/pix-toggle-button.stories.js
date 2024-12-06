@@ -29,15 +29,13 @@ export default {
       description: "Définit si l'on utilise des icons dans le PixToggleButton",
       type: { name: 'boolean', required: true },
     },
-    onLabel: {
-      name: 'onLabel',
-      description: "Le label de l'état actif du PixToggleButton à placer dans les yield <:on>",
-      type: { name: 'string', required: false },
+    viewALabel: {
+      name: '<:viewA>',
+      description: "Yield où l'on place le label ou l'icône de l'état actif du PixToggleButton",
     },
-    offLabel: {
-      name: 'offLabel',
-      description: "Le label de l'état non actif du PixToggleButton à placer dans les yield <:off>",
-      type: { name: 'string', required: false },
+    viewBLabel: {
+      name: '<:viewB>',
+      description: "Yield où l'on place le label ou l'icône de l'état non actif du PixToggleButton",
     },
     toggled: {
       name: 'toggled',
@@ -85,22 +83,22 @@ const Template = (args) => {
   @screenReaderOnly={{this.screenReaderOnly}}
 >
   <:label>{{this.label}}</:label>
-  <:on>{{this.onLabel}}</:on>
-  <:off>{{this.offLabel}}</:off>
+  <:viewA>{{this.viewALabel}}</:viewA>
+  <:viewB>{{this.viewBLabel}}</:viewB>
 
 </PixToggleButton>`,
     context: args,
   };
 };
 
-const TemplateWithYields = (args) => {
+const TemplateWithIcons = (args) => {
   return {
     template: hbs`<PixToggleButton @toggled={{this.toggled}} @onChange={{this.onChange}} @useIcons={{this.useIcons}}>
   <:label>{{this.label}}</:label>
   {{! template-lint-disable no-inline-styles }}
-  <:on><PixIcon @name='eye' /></:on>
+  <:viewA><PixIcon @name='eye' /></:viewA>
   {{! template-lint-disable no-inline-styles }}
-  <:off><PixIcon @name='eyeOff' /></:off>
+  <:viewB><PixIcon @name='eyeOff' /></:viewB>
 </PixToggleButton>`,
     context: args,
   };
@@ -109,18 +107,18 @@ const TemplateWithYields = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   label: 'Mon toggle',
-  onLabel: 'Option A',
-  offLabel: 'Option B',
+  viewALabel: 'Option A',
+  viewBLabel: 'Option B',
   toggled: false,
   onChange: action('onChange'),
 };
 
 export const Inline = Template.bind({});
 Inline.args = {
-  inline: true,
+  inlineLabel: true,
   label: 'Mon toggle',
-  onLabel: 'Option A',
-  offLabel: 'Option B',
+  viewALabel: 'Option A',
+  viewBLabel: 'Option B',
   toggled: false,
   onChange: action('onChange'),
 };
@@ -129,14 +127,14 @@ export const ScreenReaderOnly = Template.bind({});
 ScreenReaderOnly.args = {
   screenReaderOnly: true,
   label: 'Mon toggle',
-  onLabel: 'Option A',
-  offLabel: 'Option B',
+  viewALabel: 'Option A',
+  viewBLabel: 'Option B',
   toggled: false,
   onChange: action('onChange'),
 };
 
-export const WithYields = TemplateWithYields.bind({});
-WithYields.args = {
+export const WithIcons = TemplateWithIcons.bind({});
+WithIcons.args = {
   label: 'Mon toggle',
   toggled: false,
   useIcons: true,

@@ -13,11 +13,11 @@
     type="button"
     {{on "click" this.onToggle}}
   >
-    <span class="pix-toggle-button__on{{if @useIcons ' pix-toggle-button__with-icon'}}">
-      {{yield to="on"}}
+    <span class="pix-toggle-button__view-a{{if @useIcons ' pix-toggle-button__with-icon'}}">
+      {{yield to="viewA"}}
     </span>
-    <span class="pix-toggle-button__off{{if @useIcons ' pix-toggle-button__with-icon'}}">
-      {{yield to="off"}}
+    <span class="pix-toggle-button__view-b{{if @useIcons ' pix-toggle-button__with-icon'}}">
+      {{yield to="viewB"}}
     </span>
   </button>
 </div>
