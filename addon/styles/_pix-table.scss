@@ -1,7 +1,10 @@
+@import 'pix-table-basic-column';
+
 .pix-table {
   width: 100%;
   padding: var(--pix-spacing-4x);
   overflow: auto;
+  background-color: var(--pix-neutral-0);
   border: solid 1px var(--pix-neutral-100);
   border-radius: var(--pix-spacing-2x);
 
