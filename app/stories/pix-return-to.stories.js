@@ -32,16 +32,12 @@ export default {
       type: { name: 'string', required: false },
       table: { defaultValue: { summary: 'neutral-dark' } },
       control: { type: 'select' },
-      options: ['neutral-light', 'neutral-dark', 'neutral-primary'],
+      options: ['neutral-light', 'neutral-dark'],
     },
   },
 };
 
-export const returnTo = {
-  args: {
-    shade: 'primary',
-  },
-};
+export const returnTo = {};
 
 export const returnToWithText = {
   args: {
