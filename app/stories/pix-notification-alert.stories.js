@@ -19,7 +19,15 @@ export default {
       type: { name: 'string', required: false },
       table: { defaultValue: { summary: 'info' } },
       control: { type: 'select' },
-      options: ['info', 'success', 'warning', 'error'],
+      options: [
+        'info',
+        'success',
+        'warning',
+        'error',
+        'communication',
+        'communication-certif',
+        'communication-orga',
+      ],
     },
     withIcon: {
       name: 'withIcon',
@@ -50,6 +58,27 @@ export const warning = {
 export const success = {
   args: {
     type: 'success',
+    withIcon: true,
+  },
+};
+
+export const communicationPixApp = {
+  args: {
+    type: 'communication',
+    withIcon: true,
+  },
+};
+
+export const communicationPixCertif = {
+  args: {
+    type: 'communication-certif',
+    withIcon: true,
+  },
+};
+
+export const communicationPixOrga = {
+  args: {
+    type: 'communication-orga',
     withIcon: true,
   },
 };

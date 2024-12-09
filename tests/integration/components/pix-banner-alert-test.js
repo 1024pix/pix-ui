@@ -58,42 +58,6 @@ module('Integration | Component | PixBannerAlert', function (hooks) {
     );
   });
 
-  test('it renders the PixBannerAlert with type communication', async function (assert) {
-    // given
-
-    this.set('type', 'communication');
-
-    //when
-    await render(hbs`<PixBannerAlert @color={{this.color}} @type={{this.type}} />`);
-
-    // then
-    assert.dom('.pix-banner-alert--communication').exists();
-  });
-
-  test('it renders the PixBannerAlert with type communication-orga', async function (assert) {
-    // given
-
-    this.set('type', 'communication-orga');
-
-    //when
-    await render(hbs`<PixBannerAlert @color={{this.color}} @type={{this.type}} />`);
-
-    // then
-    assert.dom('.pix-banner-alert--communication-orga').exists();
-  });
-
-  test('it renders the PixBannerAlert  with type communication-certif', async function (assert) {
-    // given
-
-    this.set('type', 'communication-certif');
-
-    //when
-    await render(hbs`<PixBannerAlert @color={{this.color}} @type={{this.type}} />`);
-
-    // then
-    assert.dom('.pix-banner-alert--communication-certif').exists();
-  });
-
   test('it renders the PixBannerAlert with external url', async function (assert) {
     // given
     this.set('actionUrl', 'www.test.fr/');

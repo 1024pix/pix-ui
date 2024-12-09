@@ -27,14 +27,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: [
-        'information',
-        'warning',
-        'error',
-        'communication',
-        'communication-orga',
-        'communication-certif',
-      ],
+      options: ['information', 'warning', 'error'],
     },
     canCloseBanner: {
       name: 'canCloseBanner',
@@ -81,21 +74,6 @@ warning.args = {
 export const error = Template.bind({});
 error.args = {
   type: 'error',
-};
-
-export const communicationPixApp = Template.bind({});
-communicationPixApp.args = {
-  type: 'communication',
-};
-
-export const communicationPixOrga = Template.bind({});
-communicationPixOrga.args = {
-  type: 'communication-orga',
-};
-
-export const communicationPixCertif = Template.bind({});
-communicationPixCertif.args = {
-  type: 'communication-certif',
 };
 
 export const withExternalLink = Template.bind({});

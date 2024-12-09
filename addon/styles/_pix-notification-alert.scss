@@ -10,22 +10,22 @@
   border: 1px solid currentcolor;
   border-radius: var(--pix-spacing-1x);
 
-  &.pix-notification-alert--info {
+  &--info {
     color: var(--pix-info-700);
     background-color: var(--pix-info-50);
   }
 
-  &.pix-notification-alert--alert {
+  &--alert {
     color: var(--pix-error-700);
     background-color: var(--pix-error-50);
   }
 
-  &.pix-notification-alert--error {
+  &--error {
     color: var(--pix-error-700);
     background-color: var(--pix-error-50);
   }
 
-  &.pix-notification-alert--success {
+  &--success {
     color: var(--pix-success-700);
     background-color: var(--pix-success-50);
   }
@@ -33,5 +33,53 @@
   &.pix-notification-alert--warning {
     color: var(--pix-warning-700);
     background-color: var(--pix-warning-50);
+  }
+
+  &--communication {
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-primary-500);
+    border-color: var(--pix-primary-500);
+
+    .pix-icon-button {
+      color: currentcolor;
+
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: var(--pix-primary-300);
+      }
+    }
+  }
+
+  &--communication-orga {
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-orga-500);
+    border-color: var(--pix-orga-500);
+
+    .pix-icon-button {
+      color: currentcolor;
+
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: var(--pix-communication-light);
+      }
+    }
+  }
+
+  &--communication-certif {
+    color: var(--pix-neutral-0);
+    background-color: var(--pix-certif-500);
+    border-color: var(--pix-certif-500);
+
+    .pix-icon-button {
+      color: currentcolor;
+
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: var(--pix-content-light);
+      }
+    }
   }
 }
