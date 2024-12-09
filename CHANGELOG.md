@@ -1,3 +1,9 @@
+# [50.1.0](https://github.com/1024pix/pix-ui/compare/v50.0.0...v50.1.0) (2024-12-09)
+
+### :rocket: Amélioration
+
+- [#781](https://github.com/1024pix/pix-ui/pull/781) Modifier les couleurs du PixReturnTo en cas de shade blanc (PIX-11642).
+
 # [50.0.0](https://github.com/1024pix/pix-ui/compare/v49.6.0...v50.0.0) (2024-12-06)
 
 ### :boom: BREAKING CHANGE
