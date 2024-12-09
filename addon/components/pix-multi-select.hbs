@@ -19,11 +19,15 @@
   <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
 
     {{#if @isSearchable}}
-      <span {{reference}} class={{this.headerClassName}}>
-        <PixIcon @name="search" class="pix-multi-select-header__search-icon" @ariaHidden={{true}} />
+      <span {{reference}} class={{this.mainInputClassName}}>
+        <PixIcon
+          @name="search"
+          class="pix-multi-select-main-input__search-icon"
+          @ariaHidden={{true}}
+        />
 
         <input
-          class="pix-multi-select-header__search-input"
+          class="pix-multi-select-main-input__search-input"
           id={{this.multiSelectId}}
           type="text"
           name={{this.multiSelectId}}
@@ -44,7 +48,7 @@
         aria-expanded={{this.isAriaExpanded}}
         aria-controls={{this.listId}}
         aria-haspopup="menu"
-        class={{this.headerClassName}}
+        class={{this.mainInputClassName}}
         {{on "click" this.toggleDropDown}}
       >
         {{#if (has-block "placeholder")}}
@@ -53,8 +57,8 @@
           {{this.placeholder}}
         {{/if}}
         <PixIcon
-          class="pix-multi-select-header__dropdown-icon
-            {{if this.isExpanded ' pix-multi-select-header__dropdown-icon--expand'}}"
+          class="pix-multi-select-main-input__dropdown-icon
+            {{if this.isExpanded ' pix-multi-select-main-input__dropdown-icon--expand'}}"
           @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
           @ariaHidden={{true}}
         />
