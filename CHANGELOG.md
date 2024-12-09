@@ -1,3 +1,9 @@
+## [50.1.1](https://github.com/1024pix/pix-ui/compare/v50.1.0...v50.1.1) (2024-12-09)
+
+### :building_construction: Tech
+
+- [#784](https://github.com/1024pix/pix-ui/pull/784) Suppression de le documentation concernant le type alert dépréciée sur Pix Notification Alert.
+
 # [50.1.0](https://github.com/1024pix/pix-ui/compare/v50.0.0...v50.1.0) (2024-12-09)
 
 ### :rocket: Amélioration
