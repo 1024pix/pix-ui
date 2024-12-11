@@ -6,6 +6,10 @@ export default class PixTableColumn extends Component {
     return this.args.context === 'header';
   }
 
+  get type() {
+    return this.args.type ?? 'text';
+  }
+
   get sortable() {
     return Boolean(this.args.onSort);
   }
@@ -26,13 +30,14 @@ export default class PixTableColumn extends Component {
   }
 
   get iconName() {
+    const isText = this.type === 'text';
     if (!this.sortOrder) {
-      return 'sort';
+      return isText ? 'sortAz' : 'sort';
     }
     if (this.sortOrder === 'asc') {
-      return 'sortAsc';
+      return isText ? 'sortAzAsc' : 'sortAsc';
     }
-    return 'sortDesc';
+    return isText ? 'sortAzDesc' : 'sortDesc';
   }
 
   get iconLabel() {
@@ -71,8 +76,7 @@ export default class PixTableColumn extends Component {
 
   get typeClass() {
     const correctTypes = ['number', 'text'];
-    const type = this.args.type ?? 'text';
-    warn('PixTableColumn: you need to provide a valid type', correctTypes.includes(type), {
+    warn('PixTableColumn: you need to provide a valid type', correctTypes.includes(this.type), {
       id: 'pix-ui.table-column.type.incorrect',
     });
     if (this.args.type === 'number') {
