@@ -1,3 +1,9 @@
+# [51.1.0](https://github.com/1024pix/pix-ui/compare/v51.0.0...v51.1.0) (2024-12-11)
+
+### :rocket: Amélioration
+
+- [#780](https://github.com/1024pix/pix-ui/pull/780) Ajout d'icône manquante (PIX-15678)
+
 # [51.0.0](https://github.com/1024pix/pix-ui/compare/v50.1.1...v51.0.0) (2024-12-11)
 
 ### :boom: BREAKING CHANGE
