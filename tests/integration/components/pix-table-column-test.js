@@ -7,7 +7,7 @@ import sinon from 'sinon';
 
 import EmberDebug from '@ember/debug';
 
-module('Integration | Component | table-basic-column', function (hooks) {
+module('Integration | Component | table-column', function (hooks) {
   setupRenderingTest(hooks);
 
   hooks.beforeEach(function () {
@@ -43,12 +43,14 @@ module('Integration | Component | table-basic-column', function (hooks) {
       await render(
         hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
   <:columns as |row context|>
-    <PixTableBasicColumn
-      @context={{context}}
-      @name='Nom'
-      @value={{row.name}}
-      @type={{this.wrongType}}
-    />
+    <PixTableColumn @context={{context}} @type={{this.wrongType}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>`,
       );
@@ -58,10 +60,10 @@ module('Integration | Component | table-basic-column', function (hooks) {
         EmberDebug.warn
           .getCalls()
           .find((call) => {
-            return call.args[0] === 'PixTableBasicColumn: you need to provide a valid type';
+            return call.args[0] === 'PixTableColumn: you need to provide a valid type';
           })
-          .calledWith('PixTableBasicColumn: you need to provide a valid type', false, {
-            id: 'pix-ui.table-basic-column.type.incorrect',
+          .calledWith('PixTableColumn: you need to provide a valid type', false, {
+            id: 'pix-ui.table-column.type.incorrect',
           }),
       );
     });
@@ -73,7 +75,14 @@ module('Integration | Component | table-basic-column', function (hooks) {
       const screen = await render(
         hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
   <:columns as |row context|>
-    <PixTableBasicColumn @context={{context}} @name='Nom' @value={{row.name}} />
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>`,
       );
@@ -92,7 +101,14 @@ module('Integration | Component | table-basic-column', function (hooks) {
       const screen = await render(
         hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
   <:columns as |row context|>
-    <PixTableBasicColumn @context={{context}} @name='Âge' @value={{row.age}} @type='number' />
+    <PixTableColumn @context={{context}} @type='number'>
+      <:header>
+        Âge
+      </:header>
+      <:cell>
+        {{row.age}}
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>`,
       );

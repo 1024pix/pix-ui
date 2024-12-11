@@ -8,6 +8,19 @@ export default {
       description: 'Propriété a récupérer depuis le block element `<:columns>` du PixTable parent.',
       type: { name: 'privé', required: true },
     },
+    type: {
+      defaultValue: {
+        summary: 'text',
+      },
+      options: ['text', 'number'],
+      control: {
+        type: 'select',
+      },
+      type: {
+        name: '"text" | "number"',
+        description: 'Defini le style avec lequel nous afficherons la colonne',
+      },
+    },
     header: {
       name: '<:header>',
       description: 'En-tête de la colonne',
@@ -27,10 +40,18 @@ const Template = (args) => {
   <:columns as |row context|>
     <PixTableColumn @context={{context}}>
       <:header>
-        Info
+        Nom
       </:header>
       <:cell>
-        <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}} @type='number'>
+      <:header>
+        Âge
+      </:header>
+      <:cell>
+        {{row.age}}
       </:cell>
     </PixTableColumn>
   </:columns>
