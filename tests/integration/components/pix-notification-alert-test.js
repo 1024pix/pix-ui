@@ -78,4 +78,23 @@ module('Integration | Component | pixNotificationAlert', function (hooks) {
 
     assert.true(icon.innerHTML.includes('#error'));
   });
+
+  ['communication', 'communication-certif', 'communication-orga'].forEach((type) => {
+    test(`it renders with a "campaign" icon for ${type} type`, async function (assert) {
+      // given
+      this.set('type', type);
+
+      // when
+      const screen = await render(
+        hbs`<PixNotificationAlert @type={{this.type}} @withIcon='true' />`,
+      );
+
+      // then
+      const icon = screen.getByRole('img', { hidden: true });
+      const container = screen.getByRole('paragraph');
+
+      assert.true(icon.innerHTML.includes('#campaign'));
+      assert.true(container.classList.contains(`pix-notification-alert--${type}`));
+    });
+  });
 });

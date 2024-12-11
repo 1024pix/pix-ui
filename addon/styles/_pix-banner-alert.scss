@@ -87,50 +87,5 @@
       }
     }
   }
-
-  &--communication {
-    color: var(--pix-neutral-0);
-    background-color: var(--pix-primary-500);
-
-    .pix-icon-button {
-      color: currentcolor;
-
-      &:hover:enabled,
-      &:focus:enabled,
-      &:active:enabled {
-        background-color: var(--pix-primary-300);
-      }
-    }
-  }
-
-    &--communication-orga {
-      color: var(--pix-neutral-0);
-      background-color: var(--pix-orga-500);
-
-      .pix-icon-button {
-        color: currentcolor;
-
-        &:hover:enabled,
-        &:focus:enabled,
-        &:active:enabled {
-          background-color: var(--pix-communication-light);
-        }
-      }
-    }
-
-    &--communication-certif {
-      color: var(--pix-neutral-0);
-      background-color: var(--pix-certif-500);
-
-      .pix-icon-button {
-        color: currentcolor;
-
-        &:hover:enabled,
-        &:focus:enabled,
-        &:active:enabled {
-          background-color: var(--pix-content-light);
-        }
-      }
-    }
-  }
+}
 
