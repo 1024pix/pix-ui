@@ -1,3 +1,9 @@
+# [51.0.0](https://github.com/1024pix/pix-ui/compare/v50.1.1...v51.0.0) (2024-12-11)
+
+### :boom: BREAKING CHANGE
+
+- [#786](https://github.com/1024pix/pix-ui/pull/786) Migrer les variants communications de PixBannerAlert dans PixNotificationAlert (PIX-15547)
+
 ## [50.1.1](https://github.com/1024pix/pix-ui/compare/v50.1.0...v50.1.1) (2024-12-09)
 
 ### :building_construction: Tech
