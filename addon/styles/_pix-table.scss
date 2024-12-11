@@ -32,8 +32,15 @@
       }
     }
 
+    .pix-table-header-container {
+      display: flex;
+      gap: var(--pix-spacing-1x);
+      align-items: center;
+    }
+
     th {
       text-align: start;
+      vertical-align: middle;
     }
 
     td, th {

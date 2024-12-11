@@ -1,6 +1,16 @@
 {{#if this.displayHeader}}
-  <th scope="col" ...attributes>
-    {{yield to="header"}}
+  <th scope="col" ...attributes aria-sort={{this.ariaSort}}>
+    <div class="pix-table-header-container">
+      {{yield to="header"}}
+      {{#if this.sortable}}
+        <PixIconButton
+          @ariaLabel={{this.iconLabel}}
+          @iconName={{this.iconName}}
+          @triggerAction={{@onSort}}
+          @size="small"
+        />
+      {{/if}}
+    </div>
   </th>
 {{else}}
   <td ...attributes class={{this.typeClass}}>
