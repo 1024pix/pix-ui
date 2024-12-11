@@ -1,3 +1,9 @@
+# [51.2.0](https://github.com/1024pix/pix-ui/compare/v51.1.0...v51.2.0) (2024-12-11)
+
+### :rocket: Amélioration
+
+- [#785](https://github.com/1024pix/pix-ui/pull/785) Rendre le MultiSelect avec recherche intégralement cliquable (PIX-15635).
+
 # [51.1.0](https://github.com/1024pix/pix-ui/compare/v51.0.0...v51.1.0) (2024-12-11)
 
 ### :rocket: Amélioration
