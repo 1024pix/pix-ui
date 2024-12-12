@@ -47,7 +47,14 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
 ```html
 <PixTable @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
-    <PixTableColumn @context={{context}}>
+    <PixTableColumn
+      @context={{context}}
+      @onSort={{this.sortAz}}
+      @sortOrder={{this.sortOrderAz}}
+      @ariaLabelDefaultSort={{this.ariaLabelDefaultSort}}
+      @ariaLabelSortAsc={{this.ariaLabelSortAsc}}
+      @ariaLabelSortDesc={{this.ariaLabelSortDesc}}
+    >
       <:header>
         Nom
       </:header>
@@ -57,9 +64,10 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
     </PixTableColumn>
     <PixTableColumn
       @context={{context}}
-      @onSort={{this.onNumSort}}
-      @sortOrder={{this.sortOrder}}
-      @ariaLabelDefaultSort={{this.otherArialLabelDefaultSort}}
+      @type="number"
+      @onSort={{this.sortNum}}
+      @sortOrder={{this.sortOrderNum}}
+      @ariaLabelDefaultSort={{this.ariaLabelDefaultSort}}
       @ariaLabelSortAsc={{this.ariaLabelSortAsc}}
       @ariaLabelSortDesc={{this.ariaLabelSortDesc}}
     >

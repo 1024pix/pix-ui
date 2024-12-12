@@ -116,7 +116,14 @@ const TemplateSort = (args) => {
   return {
     template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
-    <PixTableColumn @context={{context}}>
+    <PixTableColumn
+      @context={{context}}
+      @onSort={{this.sort}}
+      @sortOrder={{this.sortOrder}}
+      @ariaLabelDefaultSort={{this.ariaLabelDefaultSort}}
+      @ariaLabelSortAsc={{this.ariaLabelSortAsc}}
+      @ariaLabelSortDesc={{this.ariaLabelSortDesc}}
+    >
       <:header>
         Nom
       </:header>
@@ -126,7 +133,8 @@ const TemplateSort = (args) => {
     </PixTableColumn>
     <PixTableColumn
       @context={{context}}
-      @onSort={{this.sortNum}}
+      @type='number'
+      @onSort={{this.sort}}
       @sortOrder={{this.sortOrder}}
       @ariaLabelDefaultSort={{this.ariaLabelDefaultSort}}
       @ariaLabelSortAsc={{this.ariaLabelSortAsc}}
@@ -158,9 +166,7 @@ Sorted.args = {
       age: 25,
     },
   ],
-  sortNum(a, b) {
-    return a.age - b.age;
-  },
+  sort() {},
   sortOrder: 'asc',
   ariaLabelDefaultSort: 'click pour trier',
   ariaLabelSortAsc: 'click pour trier en ordre ascendant',
