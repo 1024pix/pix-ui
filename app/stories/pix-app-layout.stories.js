@@ -20,83 +20,115 @@ export default {
 export const AppLayout = (args) => {
   return {
     template: hbs`<PixAppLayout @variant={{this.variant}}>
-  <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}} @menuLabel='Menu'>
-    <:brand>
-      <a href='/'>
-        <img src='/pix-orga.svg' alt='pix orga' />
-      </a>
-    </:brand>
-    <:navElements>
-      <PixNavigationButton
-        @route='hello'
-        @icon='conversionPath'
-        class='active'
-      >Campagnes</PixNavigationButton>
-      <PixNavigationButton @route='hello' @icon='infoUser'>Participants</PixNavigationButton>
-      <PixNavigationButton @route='hello' @icon='users'>Équipe</PixNavigationButton>
-      <PixNavigationButton @route='hello' @icon='seat'> Places</PixNavigationButton>
-      <PixNavigationButton href='https://pix.fr' @icon='book'> Documentation</PixNavigationButton>
-      <PixNavigationButton @icon='help' @target='_blank' href='https://pix.fr' title='Pix.fr'>Centre
-        d'aide</PixNavigationButton>
-    </:navElements>
-    <:burgerMenu>
-      <PixNavigationButton @route='hello' @icon='infoUser'>Menu</PixNavigationButton>
-    </:burgerMenu>
-    <:footer>
-      <p>
-        <b>1 000 places disponibles</b>
-      </p>
-      <p>
-        <b>Martin Dupond</b>
-        <br />
-        <span>
-          Organisation Test Pix (UAI003)
-        </span>
-      </p>
-      <PixNavigationSeparator />
-      <PixButton @variant='primary' @iconBefore='codeNumber' @size='small'>
-        J'ai un code
-      </PixButton>
-      <PixStructureSwitcher
-        @label='Changer de structure'
-        @structures={{this.structures}}
-        @value={{this.selectedStructure.value}}
-        @onChange={{this.onChange}}
-      />
-      <PixButton @variant='tertiary' @size='small' @triggerAction={{this.onDisconnect}}>
-        Se déconnecter
-      </PixButton>
-    </:footer>
-  </PixNavigation>
-  <div>
-    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='IndianRed' />
-    </svg>
+  <:navigation>
+    <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}} @menuLabel='Menu'>
+      <:brand>
+        <a href='/'>
+          <img src='/pix-orga.svg' alt='pix orga' />
+        </a>
+      </:brand>
+      <:navElements>
+        <PixNavigationButton
+          @route='hello'
+          @icon='conversionPath'
+          class='active'
+        >Campagnes</PixNavigationButton>
+        <PixNavigationButton @route='hello' @icon='infoUser'>Participants</PixNavigationButton>
+        <PixNavigationButton @route='hello' @icon='users'>Équipe</PixNavigationButton>
+        <PixNavigationButton @route='hello' @icon='seat'> Places</PixNavigationButton>
+        <PixNavigationButton href='https://pix.fr' @icon='book'> Documentation</PixNavigationButton>
+        <PixNavigationButton
+          @icon='help'
+          @target='_blank'
+          href='https://pix.fr'
+          title='Pix.fr'
+        >Centre d'aide</PixNavigationButton>
+      </:navElements>
+      <:burgerMenu>
+        <PixNavigationButton @route='hello' @icon='infoUser'>Menu</PixNavigationButton>
+      </:burgerMenu>
+      <:footer>
+        <p>
+          <b>1 000 places disponibles</b>
+        </p>
+        <p>
+          <b>Martin Dupond</b>
+          <br />
+          <span>
+            Organisation Test Pix (UAI003)
+          </span>
+        </p>
+        <PixNavigationSeparator />
+        <PixButton @variant='primary' @iconBefore='codeNumber' @size='small'>
+          J'ai un code
+        </PixButton>
+        <PixStructureSwitcher
+          @label='Changer de structure'
+          @structures={{this.structures}}
+          @value={{this.selectedStructure.value}}
+          @onChange={{this.onChange}}
+        />
+        <PixButton @variant='tertiary' @size='small' @triggerAction={{this.onDisconnect}}>
+          Se déconnecter
+        </PixButton>
+      </:footer>
+    </PixNavigation>
 
-    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='DeepPink' />
-    </svg>
+  </:navigation>
+  <:main>
+    <main>
+      <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='IndianRed' />
+      </svg>
 
-    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='Khaki' />
-    </svg>
+      <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='DeepPink' />
+      </svg>
 
-    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='RebeccaPurple' />
-    </svg>
+      <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='Khaki' />
+      </svg>
 
-    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='YellowGreen' />
-    </svg>
+      <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='RebeccaPurple' />
+      </svg>
 
-    <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='LightCoral' />
-    </svg>
+      <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='YellowGreen' />
+      </svg>
 
-    <svg viewbox='0 0 600 400' width='100%' xmlns='http://www.w3.org/2000/svg'>
-      <rect width='600' height='400' fill='PowderBlue' />
-    </svg>
-  </div>
+      <svg viewbox='0 0 600 400' width='100%' height='400' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='LightCoral' />
+      </svg>
+
+      <svg viewbox='0 0 600 400' width='100%' xmlns='http://www.w3.org/2000/svg'>
+        <rect width='600' height='400' fill='PowderBlue' />
+      </svg>
+    </main>
+  </:main>
+  <:footer>
+    <footer>
+      <ul>
+        <li>
+          <a href='https://pix.fr/mentions-legales' target='_blank' rel='noopener noreferrer'>
+            Mentions légales
+          </a>
+        </li>
+        <li>
+          <a
+            href='https://pix.fr/accessibilite-pix-certif'
+            target='_blank'
+            rel='noopener noreferrer'
+          >
+            Accessibilité : partiellement conforme
+          </a>
+        </li>
+      </ul>
+      <div>
+        <span>© 2024 Pix</span>
+      </div>
+    </footer>
+  </:footer>
 </PixAppLayout>`,
     context: {
       ...args,
