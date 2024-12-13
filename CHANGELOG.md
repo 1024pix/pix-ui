@@ -1,3 +1,9 @@
+# [51.3.0](https://github.com/1024pix/pix-ui/compare/v51.2.0...v51.3.0) (2024-12-13)
+
+### :rocket: Amélioration
+
+- [#789](https://github.com/1024pix/pix-ui/pull/789) Simplifier l'usage de pix-table (PIX-15682).
+
 # [51.2.0](https://github.com/1024pix/pix-ui/compare/v51.1.0...v51.2.0) (2024-12-11)
 
 ### :rocket: Amélioration
