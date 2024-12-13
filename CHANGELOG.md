@@ -1,3 +1,9 @@
+# [51.5.0](https://github.com/1024pix/pix-ui/compare/v51.4.0...v51.5.0) (2024-12-13)
+
+### :rocket: Amélioration
+
+- [#788](https://github.com/1024pix/pix-ui/pull/788) améliore  l'affichage de PixStructureSwitcher (pix-15674)
+
 # [51.4.0](https://github.com/1024pix/pix-ui/compare/v51.3.0...v51.4.0) (2024-12-13)
 
 ### :rocket: Amélioration
