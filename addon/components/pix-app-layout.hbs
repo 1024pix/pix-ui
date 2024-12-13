@@ -1,3 +1,5 @@
 <div class={{this.classNames}} ...attributes>
-  {{yield}}
+  {{yield to="navigation"}}
+  {{yield to="main"}}
+  {{yield to="footer"}}
 </div>
