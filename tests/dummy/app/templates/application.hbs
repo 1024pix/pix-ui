@@ -1,74 +1,44 @@
 {{page-title "Dummy"}}
 
 <PixAppLayout @variant="orga">
-  <:navigation>
-    <PixNavigation @menuLabel="Menu" @navigationAriaLabel="navigation principale">
-      <:brand>
-        <a href="/">
-          <img src="/pix-orga.svg" alt="pix orga" />
-        </a>
-      </:brand>
-      <:navElements>
-        <PixNavigationButton @route="modal-page" @icon="campaign">
-          Modal
-        </PixNavigationButton>
-        <PixNavigationButton @route="select-page" @icon="book">select</PixNavigationButton>
-        <PixNavigationButton @route="sidebar-page" @icon="doorOpen">Sidebar</PixNavigationButton>
-        <PixNavigationButton @route="tooltip-page" @icon="signpost">tooltip</PixNavigationButton>
-        <PixNavigationButton @route="table-page" @icon="assignment">Table</PixNavigationButton>
-        <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
-        <PixNavigationButton
-          href="https://pix.fr"
-          title="Pix.fr"
-          @target="_blank"
-          @icon="help"
-        >Centre d'aide</PixNavigationButton>
-      </:navElements>
-      <:footer>
-        <p>
-          1 000 places disponibles
-        </p>
-        <PixNavigationSeparator />
-        <p>
-          Martin Dupond
-        </p>
-        <p>{{this.structure.label}}</p>
-        <PixStructureSwitcher
-          @label="Changer d'organisation"
-          @structures={{this.structures}}
-          @value={{this.structure.value}}
-          @onChange={{this.setStructure}}
-        />
-        <PixButton @triggerAction={{this.disconnect}} @variant="tertiary">Se déconnecter</PixButton>
-      </:footer>
-    </PixNavigation>
-  </:navigation>
-  <:main>
-    <main>
-      {{outlet}}
-    </main>
-  </:main>
-  <:footer>
-    <footer>
-      <ul>
-        <li>
-          <a href="https://pix.fr/mentions-legales" target="_blank" rel="noopener noreferrer">
-            Mentions légales
-          </a>
-        </li>
-        <li>
-          <a
-            href="https://pix.fr/accessibilite-pix-certif"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Accessibilité : partiellement conforme
-          </a>
-        </li>
-      </ul>
-      <div>
-        <span>© 2024 Pix</span>
-      </div>
-    </footer>
-  </:footer>
+  <PixNavigation @menuLabel="Menu" @navigationAriaLabel="navigation principale">
+    <:brand>
+      <a href="/">
+        <img src="/pix-orga.svg" alt="pix orga" />
+      </a>
+    </:brand>
+    <:navElements>
+      <PixNavigationButton @route="modal-page" @icon="campaign">
+        Modal
+      </PixNavigationButton>
+      <PixNavigationButton @route="select-page" @icon="book">select</PixNavigationButton>
+      <PixNavigationButton @route="sidebar-page" @icon="doorOpen">Sidebar</PixNavigationButton>
+      <PixNavigationButton @route="tooltip-page" @icon="signpost">tooltip</PixNavigationButton>
+      <PixNavigationButton @route="table-page" @icon="assignment">Table</PixNavigationButton>
+
+      <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+      <PixNavigationButton href="https://pix.fr" title="Pix.fr" @target="_blank" @icon="help">Centre
+        d'aide</PixNavigationButton>
+    </:navElements>
+    <:footer>
+      <p>
+        1 000 places disponibles
+      </p>
+      <PixNavigationSeparator />
+      <p>
+        Martin Dupond
+      </p>
+      <p>{{this.structure.label}}</p>
+      <PixStructureSwitcher
+        @label="Changer d'organisation"
+        @structures={{this.structures}}
+        @value={{this.structure.value}}
+        @onChange={{this.setStructure}}
+      />
+      <PixButton @triggerAction={{this.disconnect}} @variant="tertiary">Se déconnecter</PixButton>
+    </:footer>
+  </PixNavigation>
+  <div>
+    {{outlet}}
+  </div>
 </PixAppLayout>

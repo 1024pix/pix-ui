@@ -10,7 +10,7 @@ module('Integration | Component | pix-app-layout', function (hooks) {
       // when
       this.variant = variant;
       const screen = await render(
-        hbs`<PixAppLayout @variant={{this.variant}}><:main>Hello</:main></PixAppLayout>`,
+        hbs`<PixAppLayout @variant={{this.variant}}>Hello</PixAppLayout>`,
       );
       // then
       assert.strictEqual(

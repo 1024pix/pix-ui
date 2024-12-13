@@ -1,25 +1,8 @@
 .pix-app-layout {
   display: grid;
-  grid-template-areas:
-  "navigation main main"
-  "navigation footer  footer";
-  grid-template-rows: 1fr min-content;
   grid-template-columns: min-content 1fr;
   gap: var(--pix-spacing-6x);
-  min-height: 100dvh;
   padding: var(--pix-spacing-6x);
-
-  & > *:first-child {
-    grid-area: navigation;
-  }
-
-  & > *:nth-child(2) {
-    grid-area: main;
-  }
-
-  & > *:nth-child(3) {
-    grid-area: footer;
-  }
 
   @include device-is('mobile') {
     display: block
