@@ -1,3 +1,9 @@
+# [51.4.0](https://github.com/1024pix/pix-ui/compare/v51.3.0...v51.4.0) (2024-12-13)
+
+### :rocket: Amélioration
+
+- [#783](https://github.com/1024pix/pix-ui/pull/783) Permettre de trier les données de `PixTable` (PIX-15560)
+
 # [51.3.0](https://github.com/1024pix/pix-ui/compare/v51.2.0...v51.3.0) (2024-12-13)
 
 ### :rocket: Amélioration
