@@ -44,7 +44,7 @@ const Template = (args) => {
   return {
     template: hbs`<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
-    <PixTableColumn @context={{context}}>
+    <PixTableColumn @context={{context}} @type='text'>
       <:header>
         Nom
       </:header>
@@ -52,7 +52,7 @@ const Template = (args) => {
         {{row.name}}
       </:cell>
     </PixTableColumn>
-    <PixTableColumn @context={{context}}>
+    <PixTableColumn @context={{context}} class='table__column--wide'>
       <:header>
         Description
       </:header>
@@ -60,29 +60,19 @@ const Template = (args) => {
         <i>{{row.description}}</i>
       </:cell>
     </PixTableColumn>
-    <PixTableColumn @context={{context}} class='table__column--wide'>
+    <PixTableColumn @context={{context}} @type='number'>
       <:header>
         Age
       </:header>
       <:cell>
-        il a
         {{row.age}}
-        ans
-      </:cell>
-    </PixTableColumn>
-    <PixTableColumn @context={{context}}>
-      <:header>
-        Info
-      </:header>
-      <:cell>
-        <PixIcon @name='info' @title={{concat row.name ' a ' row.age ' ans'}} />
       </:cell>
     </PixTableColumn>
   </:columns>
 </PixTable>
 {{! template-lint-disable no-forbidden-elements}}
 <style>
-  .table__column--wide { width: 500px; }
+  .table__column--wide { width: 300px; }
 </style>`,
     context: args,
   };
