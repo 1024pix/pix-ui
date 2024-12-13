@@ -7,11 +7,39 @@ import * as ComponentStories from './pix-app-layout.stories';
 
 Le composant `<PixAppLayout @variant="orga" />` permet d'afficher correctement la navigation principale d'une application.
 C'est ce composant qui va porter la variante de couleur (orga, certif, primary) et qui permettra de mettre à jour les couleurs de la navigation.
+Le composant `<PixAppLayout/>` comporte 3 placeholders
+
+- `<:navigation>` dans lequel on mettra la composant `<PixNavigation />`
+- `<:main>` qui accueillera une balise et l'instruction `{{outlet}}`
+- `<:footer>` dans lequel on
 
 ```html
 <PixAppLayout @variant="orga">
-  <PixNavigation @navigationAriaLabel="navigation principale"> </PixNavigation>
-  <main>{{outlet}}</main>
+  <:navigation>
+    <PixNavigation @navigationAriaLabel="navigation principale"> </PixNavigation>
+  </:navigation>
+  <:main>
+    <main>{{outlet}}</main>
+  </:main>
+  <:footer>
+    <footer>
+      <ul>
+        <li>
+          <a href="https://pix.fr/mentions-legales" target="_blank" rel="noopener noreferrer">
+            Mentions légales
+          </a>
+        </li>
+        <li>
+          <a href="https://pix.fr/accessibilite-pix-certif" target="_blank" rel="noopener noreferrer">
+            Accessibilité : partiellement conforme
+          </a>
+        </li>
+      </ul>
+      <div>
+        <span>© 2024 Pix</span>
+      </div>
+    </footer>
+  </:footer>
 </PixAppLayout>
 ```
 
