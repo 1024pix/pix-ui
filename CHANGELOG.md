@@ -1,3 +1,9 @@
+# [52.0.0](https://github.com/1024pix/pix-ui/compare/v51.6.1...v52.0.0) (2024-12-13)
+
+### :boom: BREAKING CHANGE
+
+- [#792](https://github.com/1024pix/pix-ui/pull/792)  Utilisation de yield nommés dans le PixAppLayout (pix-15665)
+
 ## [51.6.1](https://github.com/1024pix/pix-ui/compare/v51.6.0...v51.6.1) (2024-12-13)
 
 ### :rewind: Retour en arrière
