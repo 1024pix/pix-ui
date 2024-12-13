@@ -20,65 +20,42 @@ Il est possible de definir le label ARIA de la navigation principale avec l'attr
 
 ```html
 <PixAppLayout @variant="orga">
-  <:navigation>
-    <PixNavigation @navigationAriaLabel="navigation principale" @menuLabel="Menu">
-      <:brand>
-          <!-- Affichage du bloc identité -->
-          <a href="/">
-            <img src="/pix-orga.svg" alt="pix orga" />
-          </a>
-        </:brand>
-        <:navElements>
-          <!-- Affichage du bloc de navigation -->
-          <PixNavigationButton
-            @route="navigation-sidebar-page"
-            @icon="conversionPath"
-          >Campagnes</PixNavigationButton>
-          <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
-          <PixNavigationButton
-            href="https://pix.fr"
-            title="Pix.fr"
-            @target="_blank"
-            @icon="help"
-          >Centre d'aide</PixNavigationButton>
-        </:navElements>
-        <:footer>
-          <!-- Affichage du bloc de pied de page de la navigation -->
-          <p>
-            1 000 places disponibles
-          </p>
-          <PixNavigationSeparator />
-          <p>
-            Martin Dupond
-          </p>
-        </:footer>
-    </PixNavigation>
-  </:navigation>
-  <:main>
-  <main>
+  <PixNavigation @navigationAriaLabel="navigation principale" @menuLabel="Menu">
+    <:brand>
+        <!-- Affichage du bloc identité -->
+        <a href="/">
+          <img src="/pix-orga.svg" alt="pix orga" />
+        </a>
+      </:brand>
+      <:navElements>
+        <!-- Affichage du bloc de navigation -->
+        <PixNavigationButton
+          @route="navigation-sidebar-page"
+          @icon="conversionPath"
+        >Campagnes</PixNavigationButton>
+        <PixNavigationButton href="https://pix.fr" @icon="book">Documentation</PixNavigationButton>
+        <PixNavigationButton
+          href="https://pix.fr"
+          title="Pix.fr"
+          @target="_blank"
+          @icon="help"
+        >Centre d'aide</PixNavigationButton>
+      </:navElements>
+      <:footer>
+        <!-- Affichage du bloc de pied de page de la navigation -->
+        <p>
+          1 000 places disponibles
+        </p>
+        <PixNavigationSeparator />
+        <p>
+          Martin Dupond
+        </p>
+      </:footer>
+  </PixNavigation>
+  <div>
     <!-- Placeholder pour afficher le contenus des routes  -->
-    {{outlet}}
-  </main>
-  </:main>
-  <:footer>
-    <footer>
-      <ul>
-        <li>
-          <a href="https://pix.fr/mentions-legales" target="_blank" rel="noopener noreferrer">
-            Mentions légales
-          </a>
-        </li>
-        <li>
-          <a href="https://pix.fr/accessibilite-pix-certif" target="_blank" rel="noopener noreferrer">
-            Accessibilité : partiellement conforme
-          </a>
-        </li>
-      </ul>
-      <div>
-        <span>© 2024 Pix</span>
-      </div>
-    </footer>
-  </:footer>
+    {{yield}}
+  </div>
 </PixAppLayout>
 ```
 
