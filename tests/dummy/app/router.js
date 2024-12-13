@@ -13,4 +13,5 @@ Router.map(function () {
   this.route('select-page', { path: '/select' });
   this.route('sidebar-page', { path: '/sidebar' });
   this.route('tooltip-page', { path: '/tooltip' });
+  this.route('table-page', { path: '/table' });
 });

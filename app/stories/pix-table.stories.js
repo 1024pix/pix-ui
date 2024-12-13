@@ -93,4 +93,7 @@ Default.args = {
       age: 25,
     },
   ],
+  onNameSort: () => {
+    alert('Fonctionnalité seulement disponible en local sur dummy');
+  },
 };

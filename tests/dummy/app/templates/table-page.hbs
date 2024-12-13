@@ -1,0 +1,51 @@
+<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn
+      @context={{context}}
+      @type="text"
+      @onSort={{this.onNameSort}}
+      @sortOrder={{this.nameSortOrder}}
+    >
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell>
+        <i>{{row.description}}</i>
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn
+      @context={{context}}
+      @type="number"
+      @onSort={{this.onNumSort}}
+      @sortOrder={{this.numSortOrder}}
+      class="table__column--small"
+    >
+      <:header>
+        Age
+      </:header>
+      <:cell>
+        {{row.age}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}} class="table__column--small">
+      <:header>
+        Info
+      </:header>
+      <:cell>
+        <PixIcon @name="info" @title={{concat row.name " a " row.age " ans"}} />
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>
+{{! template-lint-disable no-forbidden-elements }}
+<style>
+  .table__column--small { width: 64px; }
+</style>

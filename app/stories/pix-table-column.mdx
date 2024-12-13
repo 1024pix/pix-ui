@@ -40,6 +40,48 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
 </PixTable>
 ```
 
+## Tri
+
+<Story of={ComponentStories.Sorted} height={400} />
+
+```html
+<PixTable @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn
+      @context={{context}}
+      @onSort={{this.sortAz}}
+      @sortOrder={{this.sortOrderAz}}
+      @ariaLabelDefaultSort={{this.ariaLabelDefaultSort}}
+      @ariaLabelSortAsc={{this.ariaLabelSortAsc}}
+      @ariaLabelSortDesc={{this.ariaLabelSortDesc}}
+    >
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn
+      @context={{context}}
+      @type="number"
+      @onSort={{this.sortNum}}
+      @sortOrder={{this.sortOrderNum}}
+      @ariaLabelDefaultSort={{this.ariaLabelDefaultSort}}
+      @ariaLabelSortAsc={{this.ariaLabelSortAsc}}
+      @ariaLabelSortDesc={{this.ariaLabelSortDesc}}
+    >
+      <:header>
+        Age
+      </:header>
+      <:cell>
+        {{row.age}}
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>
+```
+
 ## Arguments
 
 <ArgTypes />
