@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class ModalPage extends Controller {
   @tracked
-  structure = this.structures[1];
+  structure = this.structures[2];
   structures = [
     {
       value: 1,
