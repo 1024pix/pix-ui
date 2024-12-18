@@ -1,3 +1,9 @@
+## [52.0.1](https://github.com/1024pix/pix-ui/compare/v52.0.0...v52.0.1) (2024-12-18)
+
+### :bug: Correction
+
+- [#794](https://github.com/1024pix/pix-ui/pull/794) Modification de l'état defaut du PixButton Tertiary (PIX-15732)
+
 # [52.0.0](https://github.com/1024pix/pix-ui/compare/v51.6.1...v52.0.0) (2024-12-13)
 
 ### :boom: BREAKING CHANGE
