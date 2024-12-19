@@ -64,6 +64,7 @@ export const ICONS = {
   moreVert: { default: 'moreVert' },
   mountain: { default: 'mountain', plainIcon: 'mountain_plain' },
   newRealease: { default: 'newReleases', plainIcon: 'newReleases_plain' },
+  openInFull: { default: 'openInFull' },
   openNew: { default: 'openNew' },
   pauseCircle: { default: 'pauseCircle', plainIcon: 'pauseCircle_plain' },
   percent: { default: 'percent' },
