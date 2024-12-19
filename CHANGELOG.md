@@ -1,3 +1,9 @@
+## [52.0.3](https://github.com/1024pix/pix-ui/compare/v52.0.2...v52.0.3) (2024-12-19)
+
+### :building_construction: Tech
+
+- [#797](https://github.com/1024pix/pix-ui/pull/797) Ajout de l'icône "Open in full"
+
 ## [52.0.2](https://github.com/1024pix/pix-ui/compare/v52.0.1...v52.0.2) (2024-12-19)
 
 ### :building_construction: Tech
