@@ -8,6 +8,7 @@ export const ICONS = {
   awards: { default: 'awards', plainIcon: 'awards_plain' },
   barsUp: { default: 'barsUp' },
   bell: { default: 'bell', plainIcon: 'bell_plain' },
+  bolt: { default: 'bolt', plainIcon: 'bolt_plain' },
   book: { default: 'book', plainIcon: 'book_plain' },
   bookAlt: { default: 'bookAlt', plainIcon: 'bookAlt_plain' },
   bookmark: { default: 'bookmark', plainIcon: 'bookmark_plain' },
