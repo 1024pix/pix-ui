@@ -10,21 +10,15 @@ module('Integration | Modifier | on-escape-action', function (hooks) {
 
   test('it fires action on escape keyup', async function (assert) {
     // given
-    this.title = 'Close me baby one more time';
-    this.onCloseButtonClick = sinon.stub();
+    this.onCloseCallback = sinon.stub();
 
     // when
-    await render(hbs`<PixModal
-  @title={{this.title}}
-  @onCloseButtonClick={{this.onCloseButtonClick}}
-  {{on-escape-action this.onCloseButtonClick}}
-  {{trap-focus}}
->
+    await render(hbs`<PixOverlay @onClose={{this.onCloseCallback}} {{on-escape-action this.onCloseCallback}}>
   content
-</PixModal>`);
-    await triggerKeyEvent('.pix-modal__overlay', 'keyup', 'Escape');
+</PixOverlay>`);
+    await triggerKeyEvent('.pix-overlay', 'keyup', 'Escape');
 
     // then
-    assert.ok(this.onCloseButtonClick.calledOnce);
+    assert.ok(this.onCloseCallback.calledOnce);
   });
 });

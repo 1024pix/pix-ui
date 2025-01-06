@@ -1,9 +1,4 @@
-<div
-  class="pix-sidebar__overlay {{unless @showSidebar ' pix-sidebar__overlay--hidden'}}"
-  {{on "click" this.closeAction}}
-  {{trap-focus @showSidebar @focusOnClose}}
-  {{on-escape-action @onClose}}
->
+<PixOverlay @isVisible={{@showSidebar}} @onClose={{@onClose}} @focusOnClose={{@focusOnClose}}>
   <div
     class="pix-sidebar {{unless @showSidebar ' pix-sidebar--hidden'}}"
     role="dialog"
@@ -30,4 +25,4 @@
       {{yield to="footer"}}
     </div>
   </div>
-</div>
+</PixOverlay>

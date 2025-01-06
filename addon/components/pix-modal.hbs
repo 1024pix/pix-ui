@@ -1,8 +1,7 @@
-<div
-  class="pix-modal__overlay {{unless @showModal ' pix-modal__overlay--hidden'}}"
-  {{on "click" this.closeAction}}
-  {{trap-focus @showModal}}
-  {{on-escape-action @onCloseButtonClick}}
+<PixOverlay
+  @isVisible={{@showModal}}
+  @onClose={{@onCloseButtonClick}}
+  @focusOnClose={{@focusOnClose}}
 >
   <div
     class="pix-modal"
@@ -30,4 +29,4 @@
       {{yield to="footer"}}
     </div>
   </div>
-</div>
+</PixOverlay>

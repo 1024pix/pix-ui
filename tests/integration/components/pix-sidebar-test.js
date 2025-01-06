@@ -17,7 +17,8 @@ module('Integration | Component | Sidebar', function (hooks) {
       this.showSidebar = true;
 
       // when
-      await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
+      const screen =
+        await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
   <:content>
     content
   </:content>
@@ -27,11 +28,10 @@ module('Integration | Component | Sidebar', function (hooks) {
 </PixSidebar>`);
 
       // then
-      assert.contains("It's a sidebar!");
+      assert.ok(screen.getByRole('dialog'));
+      assert.ok(screen.getByRole('heading', { name: this.title }));
       assert.contains('content');
       assert.contains('footer');
-      assert.dom('.pix-sidebar--hidden').doesNotExist();
-      assert.dom('.pix-sidebar__overlay--hidden').doesNotExist();
     });
 
     module('when close button is clicked', function () {
@@ -68,7 +68,7 @@ module('Integration | Component | Sidebar', function (hooks) {
     content
   </:content>
 </PixSidebar>`);
-        await triggerKeyEvent('.pix-sidebar__overlay', 'keyup', 'Escape');
+        await triggerKeyEvent('.pix-sidebar', 'keyup', 'Escape');
 
         // then
         assert.ok(this.onClose.calledOnce);
@@ -83,7 +83,8 @@ module('Integration | Component | Sidebar', function (hooks) {
       this.showSidebar = false;
 
       // when
-      await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
+      const screen =
+        await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
   <:content>
     content
   </:content>
@@ -93,8 +94,8 @@ module('Integration | Component | Sidebar', function (hooks) {
 </PixSidebar>`);
 
       // then
-      assert.dom('.pix-sidebar--hidden').exists();
-      assert.dom('.pix-sidebar__overlay--hidden').exists();
+      assert.notOk(screen.queryByRole('dialog'));
+      assert.notOk(screen.queryByRole('heading', { name: this.title }));
     });
   });
 
