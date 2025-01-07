@@ -1,3 +1,9 @@
+# [52.1.0](https://github.com/1024pix/pix-ui/compare/v52.0.3...v52.1.0) (2025-01-07)
+
+### :rocket: Amélioration
+
+- [#799](https://github.com/1024pix/pix-ui/pull/799) Ajout d'une icône éclair "bolt"
+
 ## [52.0.3](https://github.com/1024pix/pix-ui/compare/v52.0.2...v52.0.3) (2024-12-19)
 
 ### :building_construction: Tech
