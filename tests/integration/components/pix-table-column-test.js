@@ -5,8 +5,6 @@ import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import sinon from 'sinon';
 
-import EmberDebug from '@ember/debug';
-
 module('Integration | Component | table-column', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -26,14 +24,13 @@ module('Integration | Component | table-column', function (hooks) {
   });
 
   module('#warn', function (hooks) {
-    let sandbox;
+    let warnStub;
     hooks.beforeEach(function () {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(EmberDebug, 'warn');
+      warnStub = sinon.stub(console, 'warn');
     });
 
     hooks.afterEach(function () {
-      sandbox.restore();
+      warnStub.restore();
     });
 
     test('should warn when provided incorrect type', async function (assert) {
@@ -57,14 +54,7 @@ module('Integration | Component | table-column', function (hooks) {
 
       // then
       assert.ok(
-        EmberDebug.warn
-          .getCalls()
-          .find((call) => {
-            return call.args[0] === 'PixTableColumn: you need to provide a valid type';
-          })
-          .calledWith('PixTableColumn: you need to provide a valid type', false, {
-            id: 'pix-ui.table-column.type.incorrect',
-          }),
+        warnStub.calledWithExactly('WARNING: PixTableColumn: you need to provide a valid type'),
       );
     });
   });

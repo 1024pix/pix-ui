@@ -7,6 +7,7 @@
 
 #pack
 1024pix-pix-ui-*.tgz
+/declarations/
 
 # dependencies
 /bower_components/
@@ -17,6 +18,7 @@
 /.pnp*
 /.sass-cache
 /connect.lock
+/.eslintcache
 /coverage/
 /libpeerconnection.log
 /npm-debug.log*
@@ -30,6 +32,7 @@
 /.node_modules.ember-try/
 /bower.json.ember-try
 /package.json.ember-try
+/npm-shrinkwrap.json.ember-try
 
 # storybook / chromatic
 .storybook/preview-head.html
@@ -41,3 +44,6 @@ build-storybook.log
 *.iml
 *.code-workspace
 .history
+
+# broccoli-debug
+/DEBUG/

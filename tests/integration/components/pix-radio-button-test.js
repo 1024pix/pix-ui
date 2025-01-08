@@ -2,7 +2,6 @@ import { module, test } from 'qunit';
 import { setupRenderingTest } from 'ember-qunit';
 import { render, clickByName } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
-import EmberDebug from '@ember/debug';
 import sinon from 'sinon';
 
 module('Integration | Component | pix-radio-button', function (hooks) {
@@ -41,14 +40,14 @@ module('Integration | Component | pix-radio-button', function (hooks) {
   });
 
   module('@isDisabled', function (hooks) {
-    let sandbox;
+    let warnStub;
+
     hooks.beforeEach(function () {
-      sandbox = sinon.createSandbox();
-      sandbox.stub(EmberDebug, 'warn');
+      warnStub = sinon.stub(console, 'warn');
     });
 
     hooks.afterEach(function () {
-      sandbox.restore();
+      warnStub.restore();
     });
 
     test(`it should not be possible to interact when @isDisabled={{true}}`, async function (assert) {
@@ -57,18 +56,13 @@ module('Integration | Component | pix-radio-button', function (hooks) {
       const screen = await render(
         hbs`<PixRadioButton @isDisabled={{this.isDisabled}}><:label>Abricot</:label></PixRadioButton>`,
       );
-      sandbox.assert.calledWith(
-        EmberDebug.warn,
-        'PixRadioButton: @isDisabled attribute should be a boolean.',
-        true,
-        {
-          id: 'pix-ui.radio-button.is-disabled.not-boolean',
-        },
-      );
+
       const radiobutton = screen.getByRole('radio', {
         name: 'Abricot',
         disabled: true,
       });
+
+      assert.false(warnStub.called);
       assert.false(radiobutton.checked, 'Radiobutton is not checked by default');
       assert.strictEqual(
         radiobutton.getAttribute('aria-disabled'),
@@ -132,13 +126,11 @@ module('Integration | Component | pix-radio-button', function (hooks) {
         const screen = await render(
           hbs`<PixRadioButton @isDisabled={{this.isDisabled}}><:label>Abricot</:label></PixRadioButton>`,
         );
-        sandbox.assert.calledWith(
-          EmberDebug.warn,
-          'PixRadioButton: @isDisabled attribute should be a boolean.',
-          false,
-          {
-            id: 'pix-ui.radio-button.is-disabled.not-boolean',
-          },
+
+        assert.ok(
+          warnStub.calledWithExactly(
+            'WARNING: PixRadioButton: @isDisabled attribute should be a boolean.',
+          ),
         );
         const radiobutton = screen.getByRole('radio', {
           name: 'Abricot',
@@ -166,14 +158,8 @@ module('Integration | Component | pix-radio-button', function (hooks) {
         const screen = await render(
           hbs`<PixRadioButton @isDisabled={{this.isDisabled}}><:label>Abricot</:label></PixRadioButton>`,
         );
-        sandbox.assert.calledWith(
-          EmberDebug.warn,
-          'PixRadioButton: @isDisabled attribute should be a boolean.',
-          true,
-          {
-            id: 'pix-ui.radio-button.is-disabled.not-boolean',
-          },
-        );
+
+        assert.false(warnStub.called);
         const radiobutton = screen.getByRole('radio', {
           name: 'Abricot',
           disabled: true,
