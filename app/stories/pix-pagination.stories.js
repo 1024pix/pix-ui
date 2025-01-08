@@ -20,28 +20,10 @@ export default {
     },
     pageOptions: {
       name: 'pageOptions',
-      description: "Un tableau d'objet `options` pour configurer le select",
+      description: "Un tableau d'objet `options` pour configurer le select label / value",
       type: { name: 'array', required: false },
       control: {
         type: 'array',
-        value: [
-          {
-            label: '10',
-            value: 10,
-          },
-          {
-            label: '25',
-            value: 25,
-          },
-          {
-            label: '50',
-            value: 50,
-          },
-          {
-            label: '100',
-            value: 100,
-          },
-        ],
       },
       table: {
         type: { summary: 'array' },
@@ -77,6 +59,11 @@ export default {
         type: { summary: 'string' },
         defaultValue: { summary: 'fr' },
       },
+    },
+    onChange: {
+      name: 'onChange',
+      description: 'fonction éxecutée lors du changement de page ou pagination',
+      type: { name: 'function', required: false },
     },
     isCondensed: {
       name: 'isCondensed',

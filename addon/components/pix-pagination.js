@@ -70,7 +70,7 @@ export default class PixPagination extends Component {
   }
 
   get pageSize() {
-    return this.args.pagination ? this.args.pagination.pageSize : this.args.pageOptions[0];
+    return this.args.pagination ? this.args.pagination.pageSize : this.pageOptions[0].value;
   }
 
   get isNextPageDisabled() {
@@ -105,17 +105,27 @@ export default class PixPagination extends Component {
   }
 
   @action
+  onChange() {
+    if (typeof this.args.onChange !== 'function') return;
+
+    this.args.onChange();
+  }
+
+  @action
   changePageSize(value) {
     this.router.replaceWith({ queryParams: { pageSize: value, pageNumber: 1 } });
+    this.onChange();
   }
 
   @action
   goToNextPage() {
     this.router.replaceWith({ queryParams: { pageNumber: this.nextPage } });
+    this.onChange();
   }
 
   @action
   goToPreviousPage() {
     this.router.replaceWith({ queryParams: { pageNumber: this.previousPage } });
+    this.onChange();
   }
 }
