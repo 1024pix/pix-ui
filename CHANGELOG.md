@@ -1,3 +1,9 @@
+# [52.2.0](https://github.com/1024pix/pix-ui/compare/v52.1.0...v52.2.0) (2025-01-08)
+
+### :rocket: Amélioration
+
+- [#798](https://github.com/1024pix/pix-ui/pull/798) Ajouter la possibilité d'éxécuter une function lors de l'utilisation de la PixPagination (PIX-15863)
+
 # [52.1.0](https://github.com/1024pix/pix-ui/compare/v52.0.3...v52.1.0) (2025-01-07)
 
 ### :rocket: Amélioration
