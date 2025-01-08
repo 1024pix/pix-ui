@@ -1,3 +1,9 @@
+# [52.3.0](https://github.com/1024pix/pix-ui/compare/v52.2.0...v52.3.0) (2025-01-08)
+
+### :rocket: Amélioration
+
+- [#732](https://github.com/1024pix/pix-ui/pull/732) Montée de version vers Ember v5.11, To Infinity and Beyond (Pix-14472)
+
 # [52.2.0](https://github.com/1024pix/pix-ui/compare/v52.1.0...v52.2.0) (2025-01-08)
 
 ### :rocket: Amélioration
