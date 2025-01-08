@@ -1,3 +1,9 @@
+## [52.3.1](https://github.com/1024pix/pix-ui/compare/v52.3.0...v52.3.1) (2025-01-08)
+
+### :arrow_up: Montée de version
+
+- [#723](https://github.com/1024pix/pix-ui/pull/723) Update dependency @ember/test-helpers to v4 (dossier racine)
+
 # [52.3.0](https://github.com/1024pix/pix-ui/compare/v52.2.0...v52.3.0) (2025-01-08)
 
 ### :rocket: Amélioration
