@@ -1,3 +1,5 @@
+@use "pix-design-tokens/breakpoints";
+
 .pix-structure-switcher {
   --pix-structure-bg-hover: var(--pix-primary-100);
 
@@ -9,7 +11,7 @@
     --pix-structure-bg-hover: var(--pix-certif-50);
   }
 
-  @include device-is("mobile") {
+  @include breakpoints.device-is("mobile") {
     width: 100%;
   }
 
@@ -33,7 +35,7 @@
     overflow-y: auto;
     border-radius: 8px;
 
-    @include device-is('mobile') {
+    @include breakpoints.device-is('mobile') {
       position: static !important;
       display: none;
       width: 0; // force dropdown to resize to its parent

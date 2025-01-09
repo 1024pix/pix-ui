@@ -1,3 +1,5 @@
+@use "pix-design-tokens/breakpoints";
+
 .pix-navigation {
   --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
   --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
@@ -24,7 +26,7 @@
   border-radius: var(--pix-spacing-6x);
 
 
-  @include device-is('mobile') {
+  @include breakpoints.device-is('mobile') {
     position: static;
     flex-direction: column;
     align-items: stretch;
@@ -51,7 +53,7 @@
       margin:0 auto;
     }
 
-    @include device-is('mobile') {
+    @include breakpoints.device-is('mobile') {
       display:flex;
       flex-direction: row;
       align-items: center;
@@ -71,7 +73,7 @@
   &__burger-menu {
     display: none;
 
-    @include device-is('mobile') {
+    @include breakpoints.device-is('mobile') {
       display: block;
       margin-left:auto;
 
@@ -100,7 +102,7 @@
     gap: var(--pix-spacing-2x);
     align-self: stretch;
 
-    @include device-is('mobile') {
+    @include breakpoints.device-is('mobile') {
       display: none;
       padding: 0 var(--pix-spacing-6x);
 
@@ -126,7 +128,7 @@
       word-break: break-word;
     }
 
-    @include device-is('mobile') {
+    @include breakpoints.device-is('mobile') {
       display: none;
 
       .pix-navigation--opened & {
@@ -148,7 +150,7 @@
       padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
       white-space: unset;
 
-      @include device-is('mobile') {
+      @include breakpoints.device-is('mobile') {
         width: auto;
       }
     }
