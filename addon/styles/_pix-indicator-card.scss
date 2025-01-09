@@ -1,4 +1,5 @@
 @use "pix-design-tokens/typography";
+@use "pix-design-tokens/shadows";
 
 .indicator-card {
   @extend %pix-shadow-xs;
