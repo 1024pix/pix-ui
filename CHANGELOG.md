@@ -1,3 +1,13 @@
+## [52.3.2](https://github.com/1024pix/pix-ui/compare/v52.3.1...v52.3.2) (2025-01-09)
+
+### :building_construction: Tech
+
+- [#801](https://github.com/1024pix/pix-ui/pull/801) Suppresion de @glimmer/syntax 
+
+### :arrow_up: Montée de version
+
+- [#800](https://github.com/1024pix/pix-ui/pull/800) Update Node.js to v20.18.1
+
 ## [52.3.1](https://github.com/1024pix/pix-ui/compare/v52.3.0...v52.3.1) (2025-01-08)
 
 ### :arrow_up: Montée de version
