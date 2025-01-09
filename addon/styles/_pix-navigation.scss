@@ -1,4 +1,5 @@
 @use "pix-design-tokens/breakpoints";
+@use "pix-design-tokens/typography";
 
 .pix-navigation {
   --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
