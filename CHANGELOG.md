@@ -1,3 +1,9 @@
+## [52.3.5](https://github.com/1024pix/pix-ui/compare/v52.3.4...v52.3.5) (2025-01-13)
+
+### :arrow_up: Montée de version
+
+- [#805](https://github.com/1024pix/pix-ui/pull/805) Update Node.js to v22.13.0
+
 ## [52.3.4](https://github.com/1024pix/pix-ui/compare/v52.3.3...v52.3.4) (2025-01-13)
 
 ### :arrow_up: Montée de version
