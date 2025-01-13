@@ -37,12 +37,25 @@ export default {
         required: false,
       },
     },
+    condensed: {
+      name: 'condensed',
+      description: 'Afficher le tableau en mode condensé',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
   },
 };
 
 const Template = (args) => {
   return {
-    template: hbs`<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
+    template: hbs`<PixTable
+  @variant={{this.variant}}
+  @data={{this.data}}
+  @caption={{this.caption}}
+  @condensed={{this.condensed}}
+>
   <:columns as |row context|>
     <PixTableColumn @context={{context}} @type='text'>
       <:header>
@@ -81,6 +94,7 @@ const Template = (args) => {
 export const Default = Template.bind({});
 Default.args = {
   caption: 'Description du tableau',
+  condensed: false,
   data: [
     {
       name: 'jean',

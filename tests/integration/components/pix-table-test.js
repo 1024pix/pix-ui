@@ -124,6 +124,96 @@ module('Integration | Component | table', function (hooks) {
     });
   });
 
+  module('#condensed', function () {
+    test('it should not be condensed by default', async function (assert) {
+      // when
+      await render(
+        hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell>
+        {{row.description}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Age
+      </:header>
+      <:cell>
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      assert.notOk(this.element.querySelector('table').getAttribute('class'));
+    });
+
+    test('it should be condensed', async function (assert) {
+      // given
+      this.condensed = true;
+
+      // when
+      await render(
+        hbs`<PixTable
+  @caption='Ceci est le caption de notre table'
+  @data={{this.data}}
+  @condensed={{this.condensed}}
+>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell>
+        {{row.description}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Age
+      </:header>
+      <:cell>
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      assert.strictEqual(
+        this.element.querySelector('table').getAttribute('class'),
+        'pix-table__condensed',
+      );
+    });
+  });
+
   module('#sort', function () {
     test('it should call @onSort on click', async function (assert) {
       // given
@@ -314,6 +404,25 @@ module('Integration | Component | table', function (hooks) {
       assert.ok(
         warnStub.calledWithExactly(
           'WARNING: PixTableColumn: you need to provide a valid sortOrder',
+        ),
+      );
+    });
+
+    test('it should warn when @condensed is incorrect', async function (assert) {
+      // when
+      this.data = [];
+      await render(
+        hbs`<PixTable @data={{this.data}} @condensed={{null}} @caption='On condense ?'>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} />
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      assert.ok(
+        warnStub.calledWithExactly(
+          'WARNING: PixTable: @condensed must be a boolean, default undefined',
         ),
       );
     });
