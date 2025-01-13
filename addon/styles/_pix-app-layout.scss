@@ -1,3 +1,5 @@
+@use "pix-design-tokens/breakpoints";
+
 .pix-app-layout {
   display: grid;
   grid-template-areas:
@@ -21,7 +23,7 @@
     grid-area: footer;
   }
 
-  @include device-is('mobile') {
+  @include breakpoints.device-is('mobile') {
     display: block
   }
 

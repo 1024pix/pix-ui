@@ -1,7 +1,7 @@
 @use "sass:map";
 @use "sass:meta";
 
-$breakpoints: (
+$breakpoint-values: (
   'mobile': (max-width: 768px),
   'tablet': (min-width: 769px),
   'desktop': (min-width: 992px),
@@ -9,8 +9,8 @@ $breakpoints: (
 ) !default;
 
 @mixin device-is($breakpoint) {
-  @if map.has-key($breakpoints, $breakpoint) {
-    @media #{meta.inspect(map.get($breakpoints, $breakpoint))} {
+  @if map.has-key($breakpoint-values, $breakpoint) {
+    @media #{meta.inspect(map.get($breakpoint-values, $breakpoint))} {
       @content;
     }
   } @else {

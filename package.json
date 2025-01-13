@@ -130,7 +130,7 @@
     "prettier": "^3.3.3",
     "qunit": "^2.22.0",
     "qunit-dom": "^3.0.0",
-    "sass": "^1.56.1",
+    "sass": "^1.83.1",
     "storybook": "^8.4.2",
     "stylelint": "^16.0.2",
     "svg-sprite": "^2.0.4",

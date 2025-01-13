@@ -1,4 +1,5 @@
-@import 'pix-table-column';
+@use "pix-design-tokens/breakpoints";
+@use "pix-design-tokens/typography";
 
 .pix-table {
   width: 100%;
