@@ -22,6 +22,20 @@ export default class PixTable extends Component {
     return this.args.caption;
   }
 
+  get tableClass() {
+    warn(
+      'PixTable: @condensed must be a boolean, default undefined',
+      [true, false, undefined].includes(this.args.condensed),
+      {
+        id: 'pix-ui.pix-table.condensed.not-boolean',
+      },
+    );
+    if (this.args.condensed) {
+      return 'pix-table__condensed';
+    }
+    return null;
+  }
+
   get headerClass() {
     return `pix-table-header--${this.variant}`;
   }

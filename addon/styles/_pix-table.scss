@@ -11,6 +11,12 @@
 
   @extend %pix-body-s;
 
+  .pix-table__condensed {
+    th, td {
+      padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
+    }
+  }
+
   table {
     min-width: 100%;
     border-collapse: collapse;
