@@ -1,3 +1,9 @@
+# [53.0.0](https://github.com/1024pix/pix-ui/compare/v52.3.5...v53.0.0) (2025-01-13)
+
+### :boom: BREAKING CHANGE
+
+- [#745](https://github.com/1024pix/pix-ui/pull/745) :package: Mise à jour des packages autour de SASS
+
 ## [52.3.5](https://github.com/1024pix/pix-ui/compare/v52.3.4...v52.3.5) (2025-01-13)
 
 ### :arrow_up: Montée de version
