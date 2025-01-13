@@ -1,3 +1,9 @@
+# [53.1.0](https://github.com/1024pix/pix-ui/compare/v53.0.0...v53.1.0) (2025-01-13)
+
+### :rocket: Amélioration
+
+- [#807](https://github.com/1024pix/pix-ui/pull/807) Permettre l'affichage de pixTable en mode condensé (PIX-16082).
+
 # [53.0.0](https://github.com/1024pix/pix-ui/compare/v52.3.5...v53.0.0) (2025-01-13)
 
 ### :boom: BREAKING CHANGE
