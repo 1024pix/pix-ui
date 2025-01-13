@@ -1,3 +1,9 @@
+## [53.1.1](https://github.com/1024pix/pix-ui/compare/v53.1.0...v53.1.1) (2025-01-13)
+
+### :arrow_up: Montée de version
+
+- [#806](https://github.com/1024pix/pix-ui/pull/806) Update dependency @formatjs/intl to v3 (dossier racine)
+
 # [53.1.0](https://github.com/1024pix/pix-ui/compare/v53.0.0...v53.1.0) (2025-01-13)
 
 ### :rocket: Amélioration
