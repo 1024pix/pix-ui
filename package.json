@@ -127,7 +127,7 @@
     "html-webpack-plugin": "^5.5.0",
     "loader.js": "^4.7.0",
     "lodash": "^4.17.21",
-    "npm-run-all2": "^6.0.0",
+    "npm-run-all2": "^7.0.0",
     "prettier": "^3.4.2",
     "qunit": "^2.23.1",
     "qunit-dom": "^3.4.0",
