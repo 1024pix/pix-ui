@@ -21,12 +21,12 @@ export default {
     },
     onClearFilters: {
       name: 'onClearFilters',
-      description: 'fonction à appeler pour déclencher l’action de suppression des filtres',
+      description: 'Fonction à appeler pour déclencher l’action de suppression des filtres',
       type: { required: false },
     },
     isClearFilterButtonDisabled: {
       name: 'isClearFilterButtonDisabled',
-      description: 'Désactiver le button de la suppresion des filtres',
+      description: 'Désactiver le bouton de suppression des filtres',
       type: { name: 'boolean', required: true },
       control: { type: 'boolean' },
       table: {
@@ -50,7 +50,7 @@ export const filterBanner = (args) => {
     @options={{this.options}}
     @onChange={{this.onChange}}
     @screenReaderOnly={{true}}
-    @placeholder='placeholer'
+    @placeholder='placeholder'
   >
     <:label>mon label</:label>
   </PixSelect>
@@ -58,7 +58,7 @@ export const filterBanner = (args) => {
     @options={{this.options}}
     @onChange={{this.onChange}}
     @screenReaderOnly={{true}}
-    @placeholder='placeholer'
+    @placeholder='placeholder'
   >
     <:label>mon label</:label>
   </PixSelect>
@@ -66,7 +66,7 @@ export const filterBanner = (args) => {
     @options={{this.options}}
     @onChange={{this.onChange}}
     @screenReaderOnly={{true}}
-    @placeholder='placeholer'
+    @placeholder='placeholder'
   >
     <:label>mon label</:label>
   </PixSelect>
@@ -75,7 +75,7 @@ export const filterBanner = (args) => {
   };
 };
 filterBanner.args = {
-  title: 'Filtres',
+  title: 'Filtrer par :',
   details: 'Des détails sur le filtre',
   clearFiltersLabel: 'Effacer les filtres',
   options: [
