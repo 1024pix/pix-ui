@@ -1,3 +1,9 @@
+## [53.1.4](https://github.com/1024pix/pix-ui/compare/v53.1.3...v53.1.4) (2025-01-14)
+
+### :building_construction: Tech
+
+- [#724](https://github.com/1024pix/pix-ui/pull/724) Update dependency eslint to v9 (dossier racine)
+
 ## [53.1.3](https://github.com/1024pix/pix-ui/compare/v53.1.2...v53.1.3) (2025-01-14)
 
 ### :building_construction: Tech
