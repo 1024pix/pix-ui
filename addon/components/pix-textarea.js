@@ -1,7 +1,7 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
-import { tracked } from '@glimmer/tracking';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class PixTextarea extends Component {
   // eslint-disable-next-line ember/no-tracked-properties-from-args

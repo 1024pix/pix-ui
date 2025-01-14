@@ -1,6 +1,6 @@
-import Component from '@glimmer/component';
-import { action } from '@ember/object';
 import { warn } from '@ember/debug';
+import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 export default class PixIconButton extends Component {
   text = 'pix-icon-button';

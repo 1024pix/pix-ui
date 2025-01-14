@@ -1,5 +1,5 @@
-import { module, test } from 'qunit';
 import { flattenObject } from '@1024pix/pix-ui/translations';
+import { module, test } from 'qunit';
 
 module('Unit | Translations', function () {
   module('#flattenObject', function () {

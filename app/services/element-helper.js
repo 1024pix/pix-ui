@@ -22,7 +22,7 @@ export default class ElementService extends Service {
   }
 
   createClass(name, rules) {
-    var style = document.createElement('style');
+    const style = document.createElement('style');
     style.type = 'text/css';
     document.getElementsByTagName('head')[0].appendChild(style);
 

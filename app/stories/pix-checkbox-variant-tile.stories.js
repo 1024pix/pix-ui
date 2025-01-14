@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+
 import pixCheckboxStories from './pix-checkbox.stories.js';
 
 export default {

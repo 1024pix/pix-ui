@@ -1,6 +1,6 @@
+import { warn } from '@ember/debug';
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-import { warn } from '@ember/debug';
 
 export default class ToastService extends Service {
   @tracked content = [];

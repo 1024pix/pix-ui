@@ -1,4 +1,5 @@
 import { createIntl } from '@formatjs/intl';
+
 import en from './en';
 import fr from './fr';
 import nl from './nl';

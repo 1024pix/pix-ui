@@ -1,14 +1,14 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 import {
-  render,
-  fillByLabel,
   clickByName,
+  fillByLabel,
+  render,
   waitForElementToBeRemoved,
 } from '@1024pix/ember-testing-library';
-import userEvent from '@testing-library/user-event';
 import { fireEvent } from '@testing-library/dom';
+import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 import sinon from 'sinon';
 
 module('Integration | Component | multi-select', function (hooks) {

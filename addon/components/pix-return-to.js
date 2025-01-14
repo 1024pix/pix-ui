@@ -1,5 +1,5 @@
-import Component from '@glimmer/component';
 import { warn } from '@ember/debug';
+import Component from '@glimmer/component';
 
 export default class PixReturnTo extends Component {
   text = 'pix-return-to';

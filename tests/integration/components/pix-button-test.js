@@ -1,8 +1,9 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 import sinon from 'sinon';
+
 import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | button', function (hooks) {
@@ -103,7 +104,7 @@ module('Integration | Component | button', function (hooks) {
       // given
       this.set('triggerAction', () => {
         return new Promise((resolve) => {
-          let wait = setTimeout(() => {
+          const wait = setTimeout(() => {
             clearTimeout(wait);
             resolve();
           }, 1);

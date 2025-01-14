@@ -1,13 +1,13 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
 import { render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 
 module('Integration | Component | toast-container', function (hooks) {
   setupRenderingTest(hooks);
 
   module('when toast service content is not empty', function (hooks) {
-    let toasts = [];
+    const toasts = [];
     hooks.beforeEach(function () {
       toasts.push(
         {
