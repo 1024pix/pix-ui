@@ -1,3 +1,9 @@
+## [53.1.3](https://github.com/1024pix/pix-ui/compare/v53.1.2...v53.1.3) (2025-01-14)
+
+### :building_construction: Tech
+
+- [#811](https://github.com/1024pix/pix-ui/pull/811) Corriger l'exemple sur la transparence des couleurs côté documentation
+
 ## [53.1.2](https://github.com/1024pix/pix-ui/compare/v53.1.1...v53.1.2) (2025-01-14)
 
 ### :arrow_up: Montée de version
