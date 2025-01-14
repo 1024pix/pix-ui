@@ -1,3 +1,9 @@
+## [53.1.5](https://github.com/1024pix/pix-ui/compare/v53.1.4...v53.1.5) (2025-01-14)
+
+### :building_construction: Tech
+
+- [#809](https://github.com/1024pix/pix-ui/pull/809) Mise à jour des dépendances PixUI
+
 ## [53.1.4](https://github.com/1024pix/pix-ui/compare/v53.1.3...v53.1.4) (2025-01-14)
 
 ### :building_construction: Tech
