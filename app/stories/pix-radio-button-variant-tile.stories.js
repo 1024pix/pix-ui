@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+
 import pixRadioButtonStories from './pix-radio-button.stories.js';
 
 export default {

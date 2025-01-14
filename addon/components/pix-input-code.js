@@ -1,5 +1,5 @@
-import Component from '@glimmer/component';
 import { action } from '@ember/object';
+import Component from '@glimmer/component';
 
 const ERROR_MESSAGE =
   'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend';

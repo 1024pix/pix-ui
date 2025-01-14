@@ -1,7 +1,7 @@
-import PixInputBase from './pix-input-base';
-
 import { action } from '@ember/object';
 import { debounceTask } from 'ember-lifeline';
+
+import PixInputBase from './pix-input-base';
 
 export default class PixSearchInput extends PixInputBase {
   initialValue = this.args.value;

@@ -1,6 +1,6 @@
-import Component from '@glimmer/component';
-import { warn } from '@ember/debug';
 import { ICONS } from '@1024pix/pix-ui/helpers/icons';
+import { warn } from '@ember/debug';
+import Component from '@glimmer/component';
 
 export default class PixIcon extends Component {
   get title() {

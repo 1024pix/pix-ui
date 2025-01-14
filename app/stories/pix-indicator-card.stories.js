@@ -1,4 +1,5 @@
 import { hbs } from 'ember-cli-htmlbars';
+
 import { ICONS } from '../../addon/helpers/icons.js';
 
 export default {

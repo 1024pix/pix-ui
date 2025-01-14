@@ -1,4 +1,5 @@
 import { fillIn } from '@ember/test-helpers';
+
 import getByLabel from './get-by-label';
 
 export default function fillInByLabel(labelText, value) {

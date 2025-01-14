@@ -1,6 +1,7 @@
-import PixButtonBase from './pix-button-base';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+
+import PixButtonBase from './pix-button-base';
 
 export default class PixButtonUpload extends PixButtonBase {
   @tracked

@@ -1,7 +1,7 @@
-import PixInputBase from './pix-input-base';
-
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
+
+import PixInputBase from './pix-input-base';
 
 export default class PixInputPassword extends PixInputBase {
   constructor() {

@@ -1,6 +1,6 @@
 import { getContext } from '@ember/test-helpers';
+import { dependencySatisfies, importSync, macroCondition } from '@embroider/macros';
 import GlimmerComponentManager from '@glimmer/component/-private/ember-component-manager';
-import { macroCondition, dependencySatisfies, importSync } from '@embroider/macros';
 
 export default function createComponent(lookupPath, named = {}) {
   const { owner } = getContext();

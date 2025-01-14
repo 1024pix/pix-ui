@@ -1,9 +1,10 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { click, triggerKeyEvent } from '@ember/test-helpers';
 import { render } from '@1024pix/ember-testing-library';
+import { click, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 import sinon from 'sinon';
+
 import createGlimmerComponent from '../../helpers/create-glimmer-component';
 
 module('Integration | Component | Sidebar', function (hooks) {

@@ -1,7 +1,7 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
+import { clickByName, render } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
-import { render, clickByName } from '@1024pix/ember-testing-library';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
 import sinon from 'sinon';
 
 module('Integration | Component | checkbox', function (hooks) {
@@ -214,7 +214,7 @@ module('Integration | Component | checkbox', function (hooks) {
         await clickByName('Recevoir la newsletter');
 
         assert.true(false, 'It should not be possible to interact with disabled Checkbox');
-      } catch (error) {
+      } catch {
         // then state did not change
         assert.true(checkbox.checked, "Checkbox has changed state, but shouldn't have");
       }
@@ -238,7 +238,7 @@ module('Integration | Component | checkbox', function (hooks) {
           await clickByName('Recevoir la newsletter');
 
           assert.true(false, 'It should not be possible to interact with disabled Checkbox');
-        } catch (error) {
+        } catch {
           // then state did not change
           assert.true(checkbox.checked, "Checkbox has changed state, but shouldn't have");
         }

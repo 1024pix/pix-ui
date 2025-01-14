@@ -1,8 +1,9 @@
-import { module, test } from 'qunit';
-import { setupRenderingTest } from 'ember-qunit';
-import { triggerEvent } from '@ember/test-helpers';
 import { render } from '@1024pix/ember-testing-library';
+import { triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
+import { setupRenderingTest } from 'ember-qunit';
+import { module, test } from 'qunit';
+
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | textarea', function (hooks) {

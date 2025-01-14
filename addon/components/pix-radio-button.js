@@ -1,7 +1,8 @@
-import Component from '@glimmer/component';
-import { guidFor } from '@ember/object/internals';
-import { action } from '@ember/object';
 import { warn } from '@ember/debug';
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
+
 import { formatMessage } from '../translations';
 
 export default class PixRadioButton extends Component {

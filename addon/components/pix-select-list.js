@@ -18,7 +18,7 @@ export default class PixSelectList extends Component {
     return !this.args.isExpanded || this.args.hideDefaultOption;
   }
   get results() {
-    let results = [];
+    const results = [];
     let options = this.args.options;
 
     if (this.args.searchValue) {

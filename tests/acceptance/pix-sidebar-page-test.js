@@ -1,7 +1,8 @@
-import { currentURL, click } from '@ember/test-helpers';
 import { visit } from '@1024pix/ember-testing-library';
+import { click, currentURL } from '@ember/test-helpers';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
+
 import { waitForDialog } from '../helpers/wait-for';
 
 module('Acceptance | PixSidebarPageTest', function (hooks) {

@@ -1,5 +1,5 @@
-import Component from '@glimmer/component';
 import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
 
 export default class PixProgressBar extends Component {
   get id() {
