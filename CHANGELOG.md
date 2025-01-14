@@ -1,3 +1,9 @@
+## [53.1.2](https://github.com/1024pix/pix-ui/compare/v53.1.1...v53.1.2) (2025-01-14)
+
+### :arrow_up: Montée de version
+
+- [#810](https://github.com/1024pix/pix-ui/pull/810) Update dependency ember-cli to v6 (dossier racine)
+
 ## [53.1.1](https://github.com/1024pix/pix-ui/compare/v53.1.0...v53.1.1) (2025-01-13)
 
 ### :arrow_up: Montée de version
