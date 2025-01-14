@@ -1,3 +1,9 @@
+## [53.1.6](https://github.com/1024pix/pix-ui/compare/v53.1.5...v53.1.6) (2025-01-14)
+
+### :arrow_up: Montée de version
+
+- [#816](https://github.com/1024pix/pix-ui/pull/816) Update dependency npm-run-all2 to v7 (dossier racine)
+
 ## [53.1.5](https://github.com/1024pix/pix-ui/compare/v53.1.4...v53.1.5) (2025-01-14)
 
 ### :building_construction: Tech
