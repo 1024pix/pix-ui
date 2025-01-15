@@ -1,3 +1,9 @@
+# [54.0.0](https://github.com/1024pix/pix-ui/compare/v53.1.6...v54.0.0) (2025-01-15)
+
+### :boom: BREAKING CHANGE
+
+- [#814](https://github.com/1024pix/pix-ui/pull/814) Supprimer les package ember-fort-awesome
+
 ## [53.1.6](https://github.com/1024pix/pix-ui/compare/v53.1.5...v53.1.6) (2025-01-14)
 
 ### :arrow_up: Montée de version
