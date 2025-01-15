@@ -121,7 +121,7 @@
     "eslint-plugin-qunit": "^8.1.2",
     "fs-extra": "^11.0.0",
     "globals": "^15.14.0",
-    "html-webpack-plugin": "^5.5.0",
+    "html-webpack-plugin": "^5.6.3",
     "loader.js": "^4.7.0",
     "lodash": "^4.17.21",
     "npm-run-all2": "^7.0.0",
