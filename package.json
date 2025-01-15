@@ -82,8 +82,6 @@
     "@ember/test-helpers": "^4.0.4",
     "@embroider/macros": "^1.16.10",
     "@embroider/test-setup": "^4.0.0",
-    "@fortawesome/ember-fontawesome": "^2.0.0",
-    "@fortawesome/free-solid-svg-icons": "^6.2.1",
     "@glimmer/component": "^1.1.2",
     "@glimmer/tracking": "^1.1.2",
     "@storybook/addon-a11y": "^8.4.2",
