@@ -1,7 +1,12 @@
 <div class="pix-filter-banner" ...attributes>
   {{#if this.displayTitle}}
     <p class="pix-filter-banner__title">
-      <PixIcon @name="filter" @plainIcon={{true}} />
+      <PixIcon
+        @name="filter"
+        @plainIcon={{true}}
+        class="pix-filter-banner__icon-title"
+        aria-hidden="true"
+      />
       {{@title}}
     </p>
   {{/if}}

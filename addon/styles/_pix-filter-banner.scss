@@ -20,6 +20,11 @@
     line-height: 20px;
   }
 
+  &__icon-title {
+    width: 1rem;
+    height: 1rem;
+  }
+
   &__filter {
     display: flex;
     flex-direction: column;
