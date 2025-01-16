@@ -1,3 +1,9 @@
+## [54.0.1](https://github.com/1024pix/pix-ui/compare/v54.0.0...v54.0.1) (2025-01-16)
+
+### :building_construction: Tech
+
+- [#817](https://github.com/1024pix/pix-ui/pull/817) Mise à jour des dépendences Storybook
+
 # [54.0.0](https://github.com/1024pix/pix-ui/compare/v53.1.6...v54.0.0) (2025-01-15)
 
 ### :boom: BREAKING CHANGE
