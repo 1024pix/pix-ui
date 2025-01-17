@@ -1,3 +1,9 @@
+# [54.1.0](https://github.com/1024pix/pix-ui/compare/v54.0.1...v54.1.0) (2025-01-17)
+
+### :rocket: Amélioration
+
+- [#813](https://github.com/1024pix/pix-ui/pull/813) Modification de l'apparence de PixFilterBanner (PIX-16053)
+
 ## [54.0.1](https://github.com/1024pix/pix-ui/compare/v54.0.0...v54.0.1) (2025-01-16)
 
 ### :building_construction: Tech
