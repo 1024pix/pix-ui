@@ -1,46 +1,49 @@
 @use "pix-design-tokens/breakpoints";
-@use "pix-design-tokens/shadows";
 
 .pix-filter-banner {
-  @extend %pix-shadow-sm;
+  font-size: 0.875rem;
 
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: var(--pix-spacing-2x);
-  width: 100%;
-  min-height: 64px;
-  padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
-  background-color: var(--pix-neutral-0);
-
-  &__title {
-    margin: 0;
-    color: var(--pix-neutral-500);
-    font-size: 0.875rem;
+  &__container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: var(--pix-spacing-2x);
+    width: 100%;
+    min-height: 64px;
   }
 
-  &__container-filter {
+  &__title {
+    display: flex;
+    align-items: center;
+    margin-bottom: var(--pix-spacing-1x);
+    color: var(--pix-neutral-800);
+    line-height: 20px;
+  }
+
+  &__icon-title {
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &__filter {
     display: flex;
     flex-direction: column;
     gap: var(--pix-spacing-4x);
   }
 
-  &__container-action {
+  &__action {
     display: flex;
     flex-direction: column;
-    align-items: center;
-    border-top: 1px solid var(--pix-neutral-20);
+    align-items: flex-end;
   }
 
   &__details {
-    margin: 0;
-    padding: var(--pix-spacing-2x) 0 var(--pix-spacing-2x) 0;
-    color: var(--pix-neutral-500);
+    padding: 0;
     font-weight: var(--pix-font-medium);
-    font-size: 0.875rem;
   }
 
   &__button {
+    padding: 0;
     font-size: 0.875rem;
   }
 }
@@ -51,36 +54,17 @@
 
 @include breakpoints.device-is('tablet') {
   .pix-filter-banner {
-    flex-direction: row;
-    gap: var(--pix-spacing-6x);
-    align-items: center;
-
-    &__container-title {
-      display: flex;
+    &__container {
+      flex-direction: row;
+      gap: var(--pix-spacing-6x);
       align-items: center;
     }
 
-    &__container-filter {
+    &__filter {
       flex-direction: row;
       flex-grow: 2;
       flex-wrap: wrap;
       align-items: center;
-    }
-
-    &__container-action {
-      flex-direction: row;
-      border: none;
-    }
-
-    &__details {
-      padding: 0 var(--pix-spacing-4x) 0 0;
-      text-align: center;
-      border: none;
-    }
-
-    &__button-container {
-      padding-left: var(--pix-spacing-4x);
-      border-left: 1px solid var(--pix-neutral-20);
     }
   }
 }
