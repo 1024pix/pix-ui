@@ -7,10 +7,24 @@
     class={{this.className}}
     ...attributes
   >
-    {{yield}}
+    <PixButtonContent
+      @iconBefore={{@iconBefore}}
+      @iconAfter={{@iconAfter}}
+      @plainIconAfter={{@plainIconAfter}}
+      @plainIconBefore={{@plainIconBefore}}
+    >
+      {{yield}}
+    </PixButtonContent>
   </LinkTo>
 {{else}}
   <a href={{@href}} class={{this.className}} ...attributes>
-    {{yield}}
+    <PixButtonContent
+      @iconBefore={{@iconBefore}}
+      @iconAfter={{@iconAfter}}
+      @plainIconAfter={{@plainIconAfter}}
+      @plainIconBefore={{@plainIconBefore}}
+    >
+      {{yield}}
+    </PixButtonContent>
   </a>
 {{/if}}

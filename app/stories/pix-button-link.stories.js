@@ -1,8 +1,9 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+import { ICONS } from '../../addon/helpers/icons';
+
 export default {
   title: 'Actions/ButtonLink',
-
   argTypes: {
     href: {
       name: 'href',
@@ -46,6 +47,38 @@ export default {
         defaultValue: { summary: 'primary' },
       },
     },
+    iconBefore: {
+      name: 'iconBefore',
+      description: `Nom de l'icône à afficher **avant** le label`,
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      options: Object.keys(ICONS),
+    },
+    iconAfter: {
+      name: 'iconAfter',
+      description: `Nom de l'icône à afficher **après** le label`,
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      options: Object.keys(ICONS),
+    },
+    plainIconBefore: {
+      name: 'plainIconBefore',
+      description: `Change le type de l'icône **avant** le label en fill/plain`,
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
+    plainIconAfter: {
+      name: 'plainIconAfter',
+      description: `Change le type de l'icône **après** le label fill/plain`,
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
     size: {
       name: 'size',
       description: 'taille: `large`,`small`',
@@ -85,8 +118,12 @@ export const htmlLink = {
     template: hbs`<PixButtonLink
   @href='https://pix.fr'
   target='NEW'
-  @variant={{this.variant}}
+  @variant='tertiary'
   @size={{this.size}}
+  @iconBefore={{this.iconBefore}}
+  @plainIconBefore={{this.plainIconBefore}}
+  @iconAfter={{this.iconAfter}}
+  @plainIconAfter={{this.plainIconAfter}}
   @isBorderVisible={{this.isBorderVisible}}
   @isDisabled={{this.isDisabled}}
 >
@@ -96,7 +133,7 @@ export const htmlLink = {
   }),
 };
 
-export const emberLink = (args) => {
+const Template = (args) => {
   return {
     template: hbs`<PixButtonLink
   @route=''
@@ -105,10 +142,23 @@ export const emberLink = (args) => {
   @variant={{this.variant}}
   @size={{this.size}}
   @isBorderVisible={{this.isBorderVisible}}
+  @iconBefore={{this.iconBefore}}
+  @plainIconBefore={{this.plainIconBefore}}
+  @iconAfter={{this.iconAfter}}
+  @plainIconAfter={{this.plainIconAfter}}
   @isDisabled={{this.isDisabled}}
 >
   Lien route Ember (LinkTo)
 </PixButtonLink>`,
     context: args,
   };
+};
+
+export const emberLink = Template.bind({});
+
+export const icons = Template.bind({});
+icons.args = {
+  ...emberLink.args,
+  iconBefore: 'add',
+  iconAfter: 'minus',
 };
