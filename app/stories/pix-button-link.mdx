@@ -6,7 +6,7 @@ import * as ComponentStories from './pix-button-link.stories';
 
 # ButtonLink
 
-Affiche un lien avec le style d'un bouton Pix. Il peut être de type HTML ou Route EmberJS.
+Affiche un lien avec le style d'un `PixButton`. Il peut être de type HTML ou Route EmberJS.
 
 Hérite des styles de base de `PixButton` (`variant`, `size`, `isBorderVisible`, `isDisabled`)
 
@@ -20,7 +20,7 @@ Redirige directement les attributs de la balise HTML `<a>` (eg. `target`...).
 <Story of={ComponentStories.htmlLink} />
 
 ```html
-<PixButtonLink @href="https://pix.fr" target="_blank"> Libellé du lien </PixButtonLink>
+<PixButtonLink @href="https://pix.fr" target="_blank" @variant="tertiary"> Libellé du lien </PixButtonLink>
 ```
 
 ## Route EmberJS
@@ -33,6 +33,14 @@ Prend en entrée la propriété `@route` et `@model`.
 Un bouton de route EmberJS peut être désactivé via la propriété `@isDisabled`.
 
 <Story of={ComponentStories.emberLink} />
+
+## Icons
+
+Le bouton avec des icônes `PixIcons` à afficher avant (`@iconBefore`) ou après (`@iconAfter`) le label.
+
+> ℹ️ Accessibilité : dans le cas où les icônes ont une valeur d'information (ex:&nbsp;un bouton `⬅️ Précédent`), il est important d'apporter un aria-label au bouton (ex:&nbsp;"Retour à la page précédente").
+
+<Story of={ComponentStories.icons} height={75} />
 
 ## Arguments
 
