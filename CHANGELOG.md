@@ -1,3 +1,9 @@
+# [54.2.0](https://github.com/1024pix/pix-ui/compare/v54.1.1...v54.2.0) (2025-01-23)
+
+### :rocket: Amélioration
+
+- [#820](https://github.com/1024pix/pix-ui/pull/820) Permettre à PixButtonLink d'ajouter des icônes avant et après le label (PIX-16184).
+
 ## [54.1.1](https://github.com/1024pix/pix-ui/compare/v54.1.0...v54.1.1) (2025-01-20)
 
 ### :arrow_up: Montée de version
