@@ -1,14 +1,16 @@
 @use "pix-design-tokens/typography";
 
 .pix-select_list {
-  padding: var(--pix-spacing-2x);
-  border-top: 1px solid var(--pix-neutral-20);
-
-  --border-radius-2x: var(--pix-spacing-2x);
-
+  display: flex;
+  flex-direction: column;
+  gap: var(--pix-spacing-1x);
+  padding: var(--pix-spacing-2x) var(--pix-spacing-1x);
 }
 
 .pix-select-list-category {
+  display: flex;
+  flex-direction: column;
+  gap: var(--pix-spacing-1x);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -16,26 +18,30 @@
   &__name {
     @extend %pix-body-s;
 
-    padding: var(--pix-spacing-4x) var(--pix-spacing-6x) var(--pix-spacing-2x) var(--pix-spacing-4x);
-    color: var(--pix-neutral-500);
-    text-transform: uppercase;
+    padding: var(--pix-spacing-1x) var(--pix-spacing-3x);
+    color: var(--pix-neutral-800);
+    font-weight: var(--pix-font-bold);
+    text-transform: capitalize;
+    background-color: var(--pix-neutral-20);
+    border-radius: 0.25rem;
   }
 
   &__option {
     @extend %pix-body-s;
 
     position: relative;
-    padding: var(--pix-spacing-2x) var(--pix-spacing-8x) var(--pix-spacing-2x) var(--pix-spacing-4x);
+    padding: var(--pix-spacing-2x) var(--pix-spacing-10x) var(--pix-spacing-2x) var(--pix-spacing-3x);
     color: var(--pix-neutral-900);
-    border-radius: 8px;
+    border-radius: 0.25rem;
 
-    &:nth-child(even) {
-      background-color: var(--pix-neutral-20);
+    &:hover {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.60);
+      outline: none;
+      cursor: pointer;
     }
 
-    &:hover,
     &:focus {
-      background-color: var(--pix-primary-10);
+      background-color: var(--pix-primary-100);
       outline: none;
       cursor: pointer;
     }
@@ -43,27 +49,14 @@
     svg {
       position: absolute;
       top: 50%;
-      right: var(--pix-spacing-2x);
+      right: var(--pix-spacing-3x);
       transform: translateY(-50%);
-      visibility: hidden;
-      opacity: 0;
     }
 
     &--selected {
-      align-items: center;
+      color: var(--pix-primary-900);
+      font-weight: var(--pix-font-bold);
       background-color: var(--pix-primary-10);
-
-      svg {
-        visibility: visible;
-        opacity: 1;
-      }
-    }
-
-    &--hidden {
-      height: 0;
-      padding-top: 0;
-      padding-bottom: 0;
-      visibility: hidden;
     }
   }
 }

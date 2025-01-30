@@ -50,7 +50,7 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
       assert.ok(screen.getByRole('option', { name: 'Tomate' }));
     });
 
-    test('it hides default option', async function (assert) {
+    test('it not display default option', async function (assert) {
       // given
       const screen = await render(
         hbs`<PixStructureSwitcher @label='Changer de structure' @structures={{this.structures}} />`,
@@ -60,12 +60,8 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
       const button = screen.getByRole('button', { name: 'Changer de structure' });
       await userEvent.click(button);
 
-      const hiddenDefaultOption = await screen.findByRole('option', {
-        selected: true,
-        hidden: true,
-      });
       // then
-      assert.strictEqual(hiddenDefaultOption.tabIndex, -1);
+      assert.notOk(screen.queryByRole('option', { name: 'Changer de structure' }));
     });
   });
 
