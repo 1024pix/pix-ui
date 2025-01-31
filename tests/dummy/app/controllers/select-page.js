@@ -18,14 +18,15 @@ export default class SelectPage extends Controller {
 
   get options() {
     return [
-      { value: '1', label: 'Figues' },
-      { value: '3', label: 'Fraises' },
-      { value: '2', label: 'Bananes' },
-      { value: '4', label: 'Mangues' },
-      { value: '5', label: 'Kaki' },
+      { value: '1', label: 'Figues', category: 'rouge' },
+      { value: '3', label: 'Fraises', category: 'rouge' },
+      { value: '2', label: 'Bananes', category: 'jaune' },
+      { value: '4', label: 'Mangues', category: 'jaune' },
+      { value: '5', label: 'Kaki', category: 'vert' },
       {
         value: '6',
         label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+        category: 'vert'
       },
     ];
   }

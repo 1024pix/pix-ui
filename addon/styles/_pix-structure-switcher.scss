@@ -72,7 +72,6 @@
     white-space: wrap;
     text-align: left;
     word-break: break-word;
-    border-radius: var(--border-radius-2x);
 
     &:focus:not(.pix-select-list-category__option--selected )  {
       background-color: var(--pix-structure-bg-hover);

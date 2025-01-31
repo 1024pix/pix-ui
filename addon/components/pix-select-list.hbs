@@ -1,18 +1,20 @@
 <ul role="listbox" id={{@listId}} class="pix-select_list" ...attributes>
-  <li
-    class="pix-select-list-category__option{{unless
-        @value
-        ' pix-select-list-category__option--selected'
-      }}{{unless @displayDefaultOption ' pix-select-list-category__option--hidden'}}"
-    role="option"
-    tabindex={{if this.isDefaultOptionHidden "-1" "0"}}
-    aria-selected={{if @value "false" "true"}}
-    {{on "click" (fn @onChange @defaultOption)}}
-    {{on-enter-action (fn @onChange @defaultOption)}}
-    {{on-space-action (fn @onChange @defaultOption)}}
-  >
-    {{@defaultOptionValue}}
-  </li>
+  {{#if @displayDefaultOption}}
+    <li
+      class="pix-select-list-category__option{{unless
+          @value
+          ' pix-select-list-category__option--selected'
+        }}"
+      role="option"
+      tabindex={{if this.isDefaultOptionHidden "-1" "0"}}
+      aria-selected={{if @value "false" "true"}}
+      {{on "click" (fn @onChange @defaultOption)}}
+      {{on-enter-action (fn @onChange @defaultOption)}}
+      {{on-space-action (fn @onChange @defaultOption)}}
+    >
+      {{@defaultOptionValue}}
+    </li>
+  {{/if}}
   {{#if this.results}}
     {{#if this.displayCategory}}
       {{#each this.results as |element index|}}
