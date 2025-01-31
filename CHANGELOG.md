@@ -1,3 +1,9 @@
+# [54.3.0](https://github.com/1024pix/pix-ui/compare/v54.2.0...v54.3.0) (2025-01-31)
+
+### :rocket: Amélioration
+
+- [#822](https://github.com/1024pix/pix-ui/pull/822) Modifier la liste de élements de type select pour une meilleur distinction des éléments  ( PIX-16335)
+
 # [54.2.0](https://github.com/1024pix/pix-ui/compare/v54.1.1...v54.2.0) (2025-01-23)
 
 ### :rocket: Amélioration
