@@ -1,3 +1,9 @@
+# [54.6.0](https://github.com/1024pix/pix-ui/compare/v54.5.0...v54.6.0) (2025-02-04)
+
+### :rocket: Amélioration
+
+- [#825](https://github.com/1024pix/pix-ui/pull/825) Ajout de nouvelles icônes (PIX-16389)
+
 # [54.5.0](https://github.com/1024pix/pix-ui/compare/v54.4.0...v54.5.0) (2025-02-04)
 
 ### :rocket: Amélioration
