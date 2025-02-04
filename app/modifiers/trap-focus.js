@@ -2,7 +2,7 @@ import { modifier } from 'ember-modifier';
 
 let sourceActiveElement = null;
 
-export default modifier(function trapFocus(element, [isOpen]) {
+export default modifier(function trapFocus(element, [isOpen, focusOnClose = true]) {
   const [firstFocusableElement] = findFocusableElements(element);
 
   if (isOpen) {
@@ -11,7 +11,10 @@ export default modifier(function trapFocus(element, [isOpen]) {
     focusElement(firstFocusableElement, element);
   } else if (sourceActiveElement) {
     allowPageScrolling();
-    focusElement(sourceActiveElement, element);
+
+    if (focusOnClose) {
+      focusElement(sourceActiveElement, element);
+    }
     sourceActiveElement = null;
   }
 

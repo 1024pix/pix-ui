@@ -25,6 +25,16 @@ export default {
         type: { summary: 'function' },
       },
     },
+    focusOnClose: {
+      name: 'focusOnClose',
+      description:
+        'Après fermeture de la Sidebar, active ou non le focus sur l‘élément qui a déclenché son ouverture',
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: true },
+      },
+    },
   },
 };
 
@@ -33,6 +43,7 @@ const Template = (args) => {
     template: hbs`<PixSidebar
   @showSidebar={{this.showSidebar}}
   @title={{this.title}}
+  @focusOnClose={{this.focusOnClose}}
   @onClose={{fn (mut this.showSidebar) (not this.showSidebar)}}
 >
   <:content>
@@ -48,10 +59,10 @@ const Template = (args) => {
         @variant='secondary'
         @isBorderVisible='true'
         @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
-      >Annuler</PixButton>
-      <PixButton
-        @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
-      >Valider</PixButton>
+      >Annuler
+      </PixButton>
+      <PixButton @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}>Valider
+      </PixButton>
     </div>
   </:footer>
 </PixSidebar>
@@ -60,7 +71,8 @@ const Template = (args) => {
   <PixButton
     @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
     style='height:45px'
-  >Ouvrir la sidebar</PixButton>
+  >Ouvrir la sidebar
+  </PixButton>
 </div>`,
     context: args,
   };
@@ -71,4 +83,5 @@ Default.args = {
   showSidebar: true,
   title: 'Filtrer',
   onClose: () => {},
+  focusOnClose: true,
 };
