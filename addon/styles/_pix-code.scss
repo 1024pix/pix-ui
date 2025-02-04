@@ -1,0 +1,37 @@
+@use "pix-design-tokens/typography";
+@use "component-state/form";
+
+.pix-code {
+  @extend %pix-monospace;
+  @extend %pix-form-element-state;
+
+  $space-between-dashes: 0.6ch;
+  $total-width: calc(var(--nb-characters) * (1ch + $space-between-dashes));
+
+  display: inline-block;
+  box-sizing: content-box;
+  width: $total-width;
+  height: 3.125rem;
+  padding: 0 0.2ch 1px 0.5ch;
+  color: var(--pix-neutral-900);
+  font-size: 1.875rem;
+  letter-spacing: $space-between-dashes;
+  text-transform: uppercase;
+  background: repeating-linear-gradient(
+      90deg,
+      var(--pix-neutral-500) 0,
+      var(--pix-neutral-500) 1ch,
+      transparent 0,
+      transparent 1ch + $space-between-dashes
+  )
+  0 100% / calc($total-width - $space-between-dashes) 1px no-repeat;
+  background-position-x: 0.5ch;
+  background-position-y: 2.5ch;
+  border: solid 1px var(--pix-neutral-500);
+  border-radius: var(--pix-spacing-1x);
+  outline: none;
+}
+
+.pix-code__error-message {
+  @extend %pix-input-error-message;
+}

@@ -1,0 +1,38 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-code.stories.js';
+
+<Meta of={ComponentStories} />
+
+# Pix Code
+
+Une `PixCode` est un champ permettant de renseigner un code. Le nombre de caractères attendu est visible par le nombre de traits dans le champ.
+
+
+## Without label
+
+<Story of={ComponentStories.WithoutLabel} height={200} />
+
+## With label (and subLabel)
+
+<Story of={ComponentStories.WithLabel} height={200} />
+
+## Error state (with error message)
+
+<Story of={ComponentStories.Error} height={200} />
+
+## Usage
+
+```html
+<PixCode
+  @length=6
+  @errorMessage="Une erreur est survenue"
+  @validationStatus="error"
+>
+  <:label>Code campagne</:label>
+</PixCode>
+```
+
+## Arguments
+
+<ArgTypes story="Default" />

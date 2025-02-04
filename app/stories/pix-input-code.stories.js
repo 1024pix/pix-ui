@@ -1,7 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
 export default {
-  title: 'Forms/Code',
+  title: 'Forms/Input Code',
   argTypes: {
     ariaLabel: {
       name: 'ariaLabel',
