@@ -1,4 +1,5 @@
 export const ICONS = {
+  accountOff: { default: 'accountOff', plainIcon: 'accountOff_plain' },
   add: { default: 'add' },
   arrowBottom: { default: 'arrowDown' },
   arrowLeft: { default: 'arrowLeft' },
@@ -70,6 +71,7 @@ export const ICONS = {
   pauseCircle: { default: 'pauseCircle', plainIcon: 'pauseCircle_plain' },
   percent: { default: 'percent' },
   personAdd: { default: 'personAdd', plainIcon: 'personAdd_plain' },
+  play: { default: 'play', plainIcon: 'play_plain' },
   playCircle: { default: 'playCircle', plainIcon: 'playCircle_plain' },
   power: { default: 'power' },
   profileShare: { default: 'profileShare', plainIcon: 'profileShare_plain' },
