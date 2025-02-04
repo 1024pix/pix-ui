@@ -1,3 +1,9 @@
+# [54.5.0](https://github.com/1024pix/pix-ui/compare/v54.4.0...v54.5.0) (2025-02-04)
+
+### :rocket: Amélioration
+
+- [#824](https://github.com/1024pix/pix-ui/pull/824) Modifier trap-focus et la sidebar pour pouvoir désactiver le focus après fermeture de la Sidebar (PIX-16400)
+
 # [54.4.0](https://github.com/1024pix/pix-ui/compare/v54.3.0...v54.4.0) (2025-02-04)
 
 ### :rocket: Amélioration
