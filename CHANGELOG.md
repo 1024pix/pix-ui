@@ -1,3 +1,9 @@
+# [54.4.0](https://github.com/1024pix/pix-ui/compare/v54.3.0...v54.4.0) (2025-02-04)
+
+### :rocket: Amélioration
+
+- [#821](https://github.com/1024pix/pix-ui/pull/821) Création du composant Pix Code (PIX-12903).
+
 # [54.3.0](https://github.com/1024pix/pix-ui/compare/v54.2.0...v54.3.0) (2025-01-31)
 
 ### :rocket: Amélioration
