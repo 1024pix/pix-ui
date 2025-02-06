@@ -7,7 +7,7 @@ import * as ComponentStories from './pix-select.stories.js';
 
 Affiche un menu déroulant avec la liste des options fournies.
 
-Les options sont représentées par un tableau d'objet contenant les propriétés value et label.
+Les options sont représentées par un tableau d'objet contenant les propriétés value, label, icon et iconTitle.
 
 > **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
 
@@ -50,6 +50,12 @@ Ici nous avons forcé le placement de la dropdown en haut du select mais sachez 
 ## WithIcon
 
 <Story of={ComponentStories.WithIcon} />
+
+## WithOptionIcon
+
+Si on utilise une option on rajoute une propriété 'icon' celui-ci s'affichera avant le label, il faut penser à ajouter également un 'iconTitle' pour l'accessibilité
+
+<Story of={ComponentStories.WithOptionIcon} />
 
 ## Usage
 

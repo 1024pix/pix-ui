@@ -29,12 +29,12 @@ export default class PixSelectList extends Component {
 
     if (!this.displayCategory) return options;
 
-    options.forEach(({ category, value, label }) => {
+    options.forEach(({ category, value, label, icon, iconTitle }) => {
       const categoryIndex = results.findIndex((result) => result.category === category);
       if (categoryIndex !== -1) {
-        results[categoryIndex].options.push({ value, label });
+        results[categoryIndex].options.push({ value, label, icon, iconTitle });
       } else {
-        results.push({ category, options: [{ label, value }] });
+        results.push({ category, options: [{ label, value, icon, iconTitle }] });
       }
     });
     return results;

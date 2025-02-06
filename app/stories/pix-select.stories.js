@@ -9,7 +9,7 @@ export default {
     options: {
       name: 'options',
       description:
-        'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label`` et ``category``. Ce dernier étant optionnel.',
+        'Les options sont représentées par un tableau d‘objet contenant les propriétés ``value``, ``label``, ``category``, ``icon`` et ``iconTitle``. Ces trois derniers étant optionnel.',
       type: { name: 'array', required: true },
     },
     value: {
@@ -450,6 +450,18 @@ WithIcon.args = {
   options: [
     { value: 'en', label: 'English' },
     { value: 'fr', label: 'Français' },
+  ],
+  value: 'fr',
+};
+
+export const WithOptionIcon = Template.bind({});
+WithOptionIcon.args = {
+  isSearchable: false,
+  label: 'With option icon',
+  onChange: action('onChange'),
+  options: [
+    { value: 'withPlayIcon', label: 'Icone play', icon: 'play', iconTitle: 'play title' },
+    { value: 'withSpeedIcon', label: 'Icone speed', icon: 'speed', iconTitle: 'speed title' },
   ],
   value: 'fr',
 };

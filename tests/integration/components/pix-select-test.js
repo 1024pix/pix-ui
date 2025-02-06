@@ -673,5 +673,46 @@ module('Integration | Component | PixSelect', function (hooks) {
         assert.true(svg.includes('#globe'));
       });
     });
+
+    module('option icon', function () {
+      test('should display option icon with title provided', async function (assert) {
+        // given
+        this.selectOptions = [
+          { value: '1', label: 'Pika', icon: 'play', iconTitle: 'title play icon' },
+          { value: '2', label: 'Chu', icon: 'warning', iconTitle: 'title warning icon' },
+        ];
+
+        // when
+        const screen = await render(hbs`<PixSelect
+  @options={{this.selectOptions}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+><:label>{{this.label}}</:label></PixSelect>`);
+
+        // then
+
+        assert.ok(screen.getByTitle('title play icon'));
+        assert.ok(screen.getByTitle('title warning icon'));
+      });
+
+      test('should not display title if icon property does not exists', async function (assert) {
+        // given
+        this.selectOptions = [
+          { value: '1', label: 'Pika', iconTitle: 'title play icon' },
+          { value: '2', label: 'Chu', iconTitle: 'title warning icon' },
+        ];
+
+        // when
+        const screen = await render(hbs`<PixSelect
+  @options={{this.selectOptions}}
+  @subLabel={{this.subLabel}}
+  @placeholder={{this.placeholder}}
+><:label>{{this.label}}</:label></PixSelect>`);
+
+        // then
+        assert.notOk(screen.queryByTitle('title play icon'));
+        assert.notOk(screen.queryByTitle('title warning icon'));
+      });
+    });
   });
 });

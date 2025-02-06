@@ -30,6 +30,9 @@
     @extend %pix-body-s;
 
     position: relative;
+    display: flex;
+    gap: var(--pix-spacing-2x);
+    align-items: center;
     padding: var(--pix-spacing-2x) var(--pix-spacing-10x) var(--pix-spacing-2x) var(--pix-spacing-3x);
     color: var(--pix-neutral-900);
     border-radius: 0.25rem;
@@ -46,18 +49,18 @@
       cursor: pointer;
     }
 
-    svg {
-      position: absolute;
-      top: 50%;
-      right: var(--pix-spacing-3x);
-      transform: translateY(-50%);
-    }
-
     &--selected {
       color: var(--pix-primary-900);
       font-weight: var(--pix-font-bold);
       background-color: var(--pix-primary-10);
     }
+  }
+
+  &__option-checked {
+    position: absolute;
+    top: 50%;
+    right: var(--pix-spacing-3x);
+    transform: translateY(-50%);
   }
 }
 

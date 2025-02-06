@@ -50,10 +50,19 @@
               {{on-enter-action (fn @onChange option)}}
               {{on-space-action (fn @onChange option)}}
             >
+
+              {{#if option.icon}}
+                <PixIcon role="presentation" @name={{option.icon}} @title={{option.iconTitle}} />
+              {{/if}}
+
               {{option.label}}
 
               {{#if (eq option.value @value)}}
-                <PixIcon @name="check" role="presentation" />
+                <PixIcon
+                  @name="check"
+                  role="presentation"
+                  class="pix-select-list-category__option-checked"
+                />
               {{/if}}
             </li>
           {{/each}}
@@ -74,10 +83,18 @@
           {{on-enter-action (fn @onChange option)}}
           {{on-space-action (fn @onChange option)}}
         >
+          {{#if option.icon}}
+            <PixIcon role="presentation" @name={{option.icon}} @title={{option.iconTitle}} />
+          {{/if}}
+
           {{option.label}}
 
           {{#if (eq option.value @value)}}
-            <PixIcon @name="check" role="presentation" />
+            <PixIcon
+              @name="check"
+              role="presentation"
+              class="pix-select-list-category__option-checked"
+            />
           {{/if}}
         </li>
       {{/each}}
