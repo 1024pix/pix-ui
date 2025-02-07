@@ -1,3 +1,9 @@
+# [54.8.0](https://github.com/1024pix/pix-ui/compare/v54.7.0...v54.8.0) (2025-02-07)
+
+### :rocket: Amélioration
+
+- [#823](https://github.com/1024pix/pix-ui/pull/823) Augmenter la taille de du pix-select afin de faire comprendre à l'utilisateur qu'il doit scroller lorsqu'il y a trop d'option (PIX-16230)
+
 # [54.7.0](https://github.com/1024pix/pix-ui/compare/v54.6.0...v54.7.0) (2025-02-07)
 
 ### :rocket: Amélioration
