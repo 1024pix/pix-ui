@@ -27,7 +27,8 @@ export default class SelectPage extends Controller {
       },
       {
         value: '3',
-        label: 'Fraises',
+        label:
+          'Fraises, des bonnes fraises, bien rouge. Tout un gros paquet de fraises, mais beaucoup beaucoup',
         category: 'rouge',
         icon: 'userCircle',
         iconTitle: 'titre icone user',
