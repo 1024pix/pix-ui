@@ -52,7 +52,12 @@
             >
 
               {{#if option.icon}}
-                <PixIcon role="presentation" @name={{option.icon}} @title={{option.iconTitle}} />
+                <PixIcon
+                  role="presentation"
+                  @name={{option.icon}}
+                  @title={{option.iconTitle}}
+                  class="pix-icon--no-shrink"
+                />
               {{/if}}
 
               {{option.label}}
@@ -84,7 +89,12 @@
           {{on-space-action (fn @onChange option)}}
         >
           {{#if option.icon}}
-            <PixIcon role="presentation" @name={{option.icon}} @title={{option.iconTitle}} />
+            <PixIcon
+              role="presentation"
+              @name={{option.icon}}
+              @title={{option.iconTitle}}
+              class="pix-icon--no-shrink"
+            />
           {{/if}}
 
           {{option.label}}
