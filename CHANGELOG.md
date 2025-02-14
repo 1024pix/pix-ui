@@ -1,3 +1,9 @@
+# [54.9.0](https://github.com/1024pix/pix-ui/compare/v54.8.0...v54.9.0) (2025-02-14)
+
+### :rocket: Amélioration
+
+- [#827](https://github.com/1024pix/pix-ui/pull/827) Garder les icones dans les options du pix-select à la même taille (PIX-16568)
+
 # [54.8.0](https://github.com/1024pix/pix-ui/compare/v54.7.0...v54.8.0) (2025-02-07)
 
 ### :rocket: Amélioration
