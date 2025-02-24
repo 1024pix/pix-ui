@@ -1,3 +1,9 @@
+# [54.10.0](https://github.com/1024pix/pix-ui/compare/v54.9.0...v54.10.0) (2025-02-24)
+
+### :rocket: Amélioration
+
+- [#829](https://github.com/1024pix/pix-ui/pull/829) Ajout de nouvel icons sur PixUI (PIX-16680)
+
 # [54.9.0](https://github.com/1024pix/pix-ui/compare/v54.8.0...v54.9.0) (2025-02-14)
 
 ### :rocket: Amélioration
