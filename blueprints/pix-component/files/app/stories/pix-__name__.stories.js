@@ -2,6 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export default {
   title: '<%= classifiedModuleName %>',
+  tags: ['new'], // You can find preconfigured tags list here https://github.com/Sidnioulz/storybook-addon-tag-badges#preconfigured-badges
   // TODO: add component attributes information
   // select attribute data type from https://storybook.js.org/docs/react/essentials/controls
   argTypes: {
