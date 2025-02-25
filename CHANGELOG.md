@@ -1,3 +1,9 @@
+# [54.11.0](https://github.com/1024pix/pix-ui/compare/v54.10.0...v54.11.0) (2025-02-25)
+
+### :rocket: Amélioration
+
+- [#828](https://github.com/1024pix/pix-ui/pull/828) Supprimer le composant PixReturnTo 🔥 (PIX-7218).
+
 # [54.10.0](https://github.com/1024pix/pix-ui/compare/v54.9.0...v54.10.0) (2025-02-24)
 
 ### :rocket: Amélioration
