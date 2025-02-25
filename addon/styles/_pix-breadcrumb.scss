@@ -1,0 +1,37 @@
+@use "pix-design-tokens/typography";
+
+.pix-breadcrumb {
+  @extend %pix-body-s;
+
+  > ol {
+    display: flex;
+
+    > li {
+      display: flex;
+      align-items: center;
+
+      a {
+        color: inherit;
+        font-weight: inherit;
+        text-decoration: none;
+        border-bottom: 1px solid transparent;
+        transition: all ease 0.5s;
+      }
+
+      a:hover {
+        color: var(--pix-primary-500);
+        border-bottom: 1px solid var(--pix-primary-500);
+        transition: all ease 0.5s;
+      }
+
+      p {
+        font-weight: var(--pix-font-medium);
+      }
+
+      svg {
+        width: 1rem;
+        margin: 0 0.5rem;
+      }
+    }
+  }
+}
