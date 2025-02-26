@@ -21,7 +21,11 @@ export const AppLayout = (args) => {
   return {
     template: hbs`<PixAppLayout @variant={{this.variant}}>
   <:navigation>
-    <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}} @menuLabel='Menu'>
+    <PixNavigation
+      @navigationAriaLabel={{this.navigationAriaLabel}}
+      @openLabel='Ouvrir le menu'
+      @closeLabel='Fermer le menu'
+    >
       <:brand>
         <a href='/'>
           <img src='/pix-orga.svg' alt='pix orga' />

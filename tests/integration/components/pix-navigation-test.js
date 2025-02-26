@@ -58,7 +58,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
     test('it hides the burger menu', async function (assert) {
       // when
       const screen = await render(
-        hbs`<PixNavigation @navigationAriaLabel='label' @menuLabel='menu' />`,
+        hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
       );
       assert.notOk(screen.queryByRole('button', { name: 'menu' }));
     });

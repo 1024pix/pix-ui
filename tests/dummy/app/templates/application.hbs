@@ -2,7 +2,11 @@
 
 <PixAppLayout @variant="orga">
   <:navigation>
-    <PixNavigation @menuLabel="Menu" @navigationAriaLabel="navigation principale">
+    <PixNavigation
+      @openLabel="Ouvrir le menu"
+      @closeLabel="Fermer le menu"
+      @navigationAriaLabel="navigation principale"
+    >
       <:brand>
         <a href="/">
           <img src="/pix-orga.svg" alt="pix orga" />
