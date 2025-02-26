@@ -214,6 +214,55 @@ module('Integration | Component | table', function (hooks) {
     });
   });
 
+  module('#onRowClick', function () {
+    test('should call onClick on clicked row', async function (assert) {
+      this.onClick = sinon.stub();
+
+      const screen = await render(
+        hbs`<PixTable
+  @caption='Ceci est le caption de notre table'
+  @data={{this.data}}
+  @onRowClick={{this.onClick}}
+>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Description
+      </:header>
+      <:cell>
+        {{row.description}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}}>
+      <:header>
+        Age
+      </:header>
+      <:cell>
+        il a
+        {{row.age}}
+        ans
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+      );
+
+      //when
+      await click(screen.getByText('jean'));
+
+      // then
+      assert.ok(this.onClick.calledWithExactly(this.data[0]));
+    });
+  });
+
   module('#sort', function () {
     test('it should call @onSort on click', async function (assert) {
       // given

@@ -39,6 +39,9 @@ export default class TablePage extends Controller {
   }
 
   @action
+  onClick() {}
+
+  @action
   onNumSort() {
     this.resetOrders('num');
     if (this.numSortOrder === 'asc') {

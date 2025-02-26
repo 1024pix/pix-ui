@@ -20,6 +20,12 @@ export default {
         'Définition du rendu des différentes colonnes de la table en utilisant `<PixTableColumn>`. Expose les paramètres `row` et `context` (correspondant aux données de la ligne actuelle)',
       type: { name: 'block content', required: true },
     },
+    onRowClick: {
+      name: 'onRowClick',
+      description:
+        "Permet d'ajouter un onClick sur le <tr> de chaque ligne, la fonction en paramètre récupérera l'objet au complet.",
+      type: { name: 'function', required: false },
+    },
     variant: {
       name: 'variant',
       description: "Afficher le bon variant pour l'application",

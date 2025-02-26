@@ -8,7 +8,10 @@
     </thead>
     <tbody>
       {{#each @data as |row|}}
-        <tr>
+        <tr
+          class={{if this.hasOnRowClick "pix-table__clickable-row" ""}}
+          {{on "click" (fn this.onClick row)}}
+        >
           {{yield row "cell" to="columns"}}
         </tr>
       {{/each}}

@@ -11,9 +11,29 @@
 
   @extend %pix-body-s;
 
-  .pix-table__condensed {
+  &__condensed {
     th, td {
       padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
+    }
+  }
+
+  &__clickable-row {
+    cursor: pointer;
+
+    &:hover, &:focus, &:active {
+      transition: 0.25s ease;
+    }
+
+    &:hover {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.50);
+    }
+
+    &:focus {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.40);
+    }
+
+    &:active {
+      background-color: rgba(var(--pix-neutral-100-inline), 0.75);
     }
   }
 
@@ -21,7 +41,7 @@
     min-width: 100%;
     border-collapse: collapse;
 
-    tbody > tr:nth-of-type(even) {
+    tbody > tr:nth-of-type(even):not(.pix-table__clickable-row:hover):not(.pix-table__clickable-row:focus):not(.pix-table__clickable-row:active) {
       background-color: var(--pix-neutral-20);
     }
 
