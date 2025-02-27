@@ -41,8 +41,8 @@
     min-width: 100%;
     border-collapse: collapse;
 
-    tbody > tr:nth-of-type(even):not(.pix-table__clickable-row:hover):not(.pix-table__clickable-row:focus):not(.pix-table__clickable-row:active) {
-      background-color: var(--pix-neutral-20);
+    tbody > tr:nth-of-type(even):not(.pix-table__clickable-row:hover, .pix-table__clickable-row:focus, .pix-table__clickable-row:active) {
+      background-color: rgba(var(--pix-neutral-20-inline), 0.80);
     }
 
     thead.pix-table-header {
