@@ -1,3 +1,9 @@
+# [54.12.0](https://github.com/1024pix/pix-ui/compare/v54.11.0...v54.12.0) (2025-02-27)
+
+### :rocket: Amélioration
+
+- [#832](https://github.com/1024pix/pix-ui/pull/832) Amélioration PixTable (PIX-16753)
+
 # [54.11.0](https://github.com/1024pix/pix-ui/compare/v54.10.0...v54.11.0) (2025-02-25)
 
 ### :rocket: Amélioration
