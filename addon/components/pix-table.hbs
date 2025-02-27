@@ -1,4 +1,4 @@
-<div class="pix-table">
+<div class="pix-table" ...attributes>
   <table class={{this.tableClass}}>
     <caption class="screen-reader-only">{{this.caption}}</caption>
     <thead class={{this.headerClass}}>
@@ -7,9 +7,12 @@
       </tr>
     </thead>
     <tbody>
-      {{#each @data as |row|}}
-        <tr>
-          {{yield row "cell" to="columns"}}
+      {{#each @data as |row index|}}
+        <tr
+          class={{if this.hasOnRowClick "pix-table__clickable-row" ""}}
+          {{on "click" (fn this.onClick row)}}
+        >
+          {{yield row "cell" index to="columns"}}
         </tr>
       {{/each}}
     </tbody>

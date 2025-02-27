@@ -1,4 +1,9 @@
-<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}}>
+<PixTable
+  @variant={{this.variant}}
+  @data={{this.data}}
+  @caption={{this.caption}}
+  @onRowClick={{this.onClick}}
+>
   <:columns as |row context|>
     <PixTableColumn
       @context={{context}}

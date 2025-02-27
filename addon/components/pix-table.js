@@ -1,4 +1,5 @@
 import { warn } from '@ember/debug';
+import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
 export default class PixTable extends Component {
@@ -38,5 +39,17 @@ export default class PixTable extends Component {
 
   get headerClass() {
     return `pix-table-header--${this.variant}`;
+  }
+
+  get hasOnRowClick() {
+    return typeof this.args.onRowClick === 'function';
+  }
+
+  @action
+  onClick(row, event) {
+    event.stopPropagation();
+    if (this.hasOnRowClick) {
+      this.args.onRowClick(row);
+    }
   }
 }
