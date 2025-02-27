@@ -7,12 +7,12 @@
       </tr>
     </thead>
     <tbody>
-      {{#each @data as |row|}}
+      {{#each @data as |row index|}}
         <tr
           class={{if this.hasOnRowClick "pix-table__clickable-row" ""}}
           {{on "click" (fn this.onClick row)}}
         >
-          {{yield row "cell" to="columns"}}
+          {{yield row "cell" index to="columns"}}
         </tr>
       {{/each}}
     </tbody>
