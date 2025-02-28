@@ -1,3 +1,9 @@
+## [54.12.1](https://github.com/1024pix/pix-ui/compare/v54.12.0...v54.12.1) (2025-02-28)
+
+### :building_construction: Tech
+
+- [#830](https://github.com/1024pix/pix-ui/pull/830) Ajouter un addon storybook pour afficher des tags informatifs
+
 # [54.12.0](https://github.com/1024pix/pix-ui/compare/v54.11.0...v54.12.0) (2025-02-27)
 
 ### :rocket: Amélioration
