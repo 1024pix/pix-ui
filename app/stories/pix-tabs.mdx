@@ -1,0 +1,38 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-tabs.stories';
+
+<Meta of={ComponentStories} />
+
+# PixTabs
+
+Un `PixTabs` est une navigation pouvant comporter plusieurs `<LinkTo>`
+
+
+<Story of={ComponentStories.primary} height={150} />
+<Story of={ComponentStories.orga} height={150} />
+<Story of={ComponentStories.certif} height={150} />
+
+
+
+## Usage
+
+```html
+<PixTabs @variant={{@variant}}>
+  <LinkTo @route=''>
+    Lien actif
+  </LinkTo>
+  <LinkTo @route=''>
+    Campagnes
+  </LinkTo>
+  <LinkTo @route=''>
+    Certifications
+  </LinkTo>
+  <LinkTo @route=''>
+    Contenus formatifs
+  </LinkTo>
+</PixTabs>`
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
