@@ -19,7 +19,7 @@ const miscFiles = [
   '.circleci/**',
   '.github/**',
   '.template-lintrc.js',
-  'tests/dummy/**'
+  'tests/dummy/**',
 ];
 const emberTryFiles = [
   '.node_modules.ember-try/*',
