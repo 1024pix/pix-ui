@@ -11,12 +11,6 @@
 
   @extend %pix-body-s;
 
-  &__condensed {
-    th, td {
-      padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
-    }
-  }
-
   &__clickable-row {
     cursor: pointer;
 
@@ -79,6 +73,14 @@
 
       &:last-child {
         border-radius: 0 var(--pix-spacing-2x) var(--pix-spacing-2x) 0;
+      }
+    }
+  }
+
+  &--condensed {
+    table {
+      th, td {
+        padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
       }
     }
   }

@@ -24,6 +24,7 @@ export default class PixTable extends Component {
   }
 
   get tableClass() {
+    const tableClass = ['pix-table'];
     warn(
       'PixTable: @condensed must be a boolean, default undefined',
       [true, false, undefined].includes(this.args.condensed),
@@ -32,9 +33,10 @@ export default class PixTable extends Component {
       },
     );
     if (this.args.condensed) {
-      return 'pix-table__condensed';
+      tableClass.push('pix-table--condensed');
     }
-    return null;
+
+    return tableClass.join(' ');
   }
 
   get headerClass() {
