@@ -127,7 +127,7 @@ module('Integration | Component | table', function (hooks) {
   module('#condensed', function () {
     test('it should not be condensed by default', async function (assert) {
       // when
-      await render(
+      const screen = await render(
         hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
   <:columns as |row context|>
     <PixTableColumn @context={{context}}>
@@ -161,7 +161,9 @@ module('Integration | Component | table', function (hooks) {
       );
 
       // then
-      assert.notOk(this.element.querySelector('table').getAttribute('class'));
+      const mainElement = screen.getByRole('table').closest('div');
+
+      assert.strictEqual(mainElement.classList.value, 'pix-table');
     });
 
     test('it should be condensed', async function (assert) {
@@ -169,7 +171,7 @@ module('Integration | Component | table', function (hooks) {
       this.condensed = true;
 
       // when
-      await render(
+      const screen = await render(
         hbs`<PixTable
   @caption='Ceci est le caption de notre table'
   @data={{this.data}}
@@ -207,10 +209,9 @@ module('Integration | Component | table', function (hooks) {
       );
 
       // then
-      assert.strictEqual(
-        this.element.querySelector('table').getAttribute('class'),
-        'pix-table__condensed',
-      );
+      const mainElement = screen.getByRole('table').closest('div');
+
+      assert.strictEqual(mainElement.classList.value, 'pix-table pix-table--condensed');
     });
   });
 
