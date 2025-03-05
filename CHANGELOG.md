@@ -1,3 +1,9 @@
+## [54.12.2](https://github.com/1024pix/pix-ui/compare/v54.12.1...v54.12.2) (2025-03-05)
+
+### :bug: Correction
+
+- [#834](https://github.com/1024pix/pix-ui/pull/834) Réparer le mode condensé de PixTable
+
 ## [54.12.1](https://github.com/1024pix/pix-ui/compare/v54.12.0...v54.12.1) (2025-02-28)
 
 ### :building_construction: Tech
