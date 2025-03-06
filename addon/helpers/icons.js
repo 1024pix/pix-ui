@@ -31,6 +31,7 @@ export const ICONS = {
   copy: { default: 'copy', plainIcon: 'copy_plain' },
   delete: { default: 'delete', plainIcon: 'delete_plain' },
   desktopOff: { default: 'desktopOff', plainIcon: 'desktopOff_plain' },
+  displaySettings: { default: 'displaySettings', plainIcon: 'displaySettings_plain' },
   doneAll: { default: 'doneAll' },
   doorOpen: { default: 'doorOpen', plainIcon: 'doorOpen_plain' },
   download: { default: 'download' },
