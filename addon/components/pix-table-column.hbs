@@ -13,7 +13,13 @@
     </div>
   </th>
 {{else}}
-  <td ...attributes class={{this.typeClass}}>
-    {{yield to="cell"}}
-  </td>
+  {{#if @isMainRow}}
+    <th scope="row" class={{this.typeClass}} ...attributes>
+      {{yield to="cell"}}
+    </th>
+  {{else}}
+    <td class={{this.typeClass}} ...attributes>
+      {{yield to="cell"}}
+    </td>
+  {{/if}}
 {{/if}}

@@ -110,4 +110,36 @@ module('Integration | Component | table-column', function (hooks) {
       assert.strictEqual(textAlign, 'right');
     });
   });
+
+  module('when isMainRow defined', function () {
+    test('it renders a defined row title', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} @isMainRow={{true}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}} @type='number'>
+      <:header>
+        Âge
+      </:header>
+      <:cell>
+        {{row.age}}
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      const row = screen.getByRole('row', { name: 'jean 15' });
+      assert.ok(row);
+    });
+  });
 });

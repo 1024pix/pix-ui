@@ -58,6 +58,15 @@ export default {
         description: 'Defini le style avec lequel nous afficherons la colonne',
       },
     },
+    isMainRow: {
+      name: 'isMainRow',
+      description:
+        'Permet de définir la cellule qui portera la valeur principale de la ligne entière',
+      type: {
+        name: 'boolean',
+        required: false,
+      },
+    },
     header: {
       name: '<:header>',
       description: 'En-tête de la colonne',
@@ -75,7 +84,7 @@ const Template = (args) => {
   return {
     template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
-    <PixTableColumn @context={{context}}>
+    <PixTableColumn @context={{context}} @isMainRow={{this.isMainRow}}>
       <:header>
         Nom
       </:header>
