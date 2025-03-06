@@ -92,7 +92,9 @@ const Template = (args) => {
 </PixTable>
 {{! template-lint-disable no-forbidden-elements}}
 <style>
-  .table__column--wide { width: 300px; }
+  .table__column--wide {
+    width: 300px;
+  }
 </style>`,
     context: args,
   };

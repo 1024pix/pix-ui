@@ -6,7 +6,9 @@ export default {
   render: (args) => ({
     template: hbs`{{! template-lint-disable no-forbidden-elements }}
 <style>
-  .custom { border : none; }
+  .custom {
+    border: none;
+  }
 </style>
 <h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
 {{#if this.id}}
