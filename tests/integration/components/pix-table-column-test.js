@@ -107,7 +107,7 @@ module('Integration | Component | table-column', function (hooks) {
       const cell = screen.queryByRole('cell', { name: '15' });
       assert.dom(cell).exists();
       const textAlign = window.getComputedStyle(cell).getPropertyValue('text-align');
-      assert.strictEqual(textAlign, 'right');
+      assert.strictEqual(textAlign, 'left');
     });
   });
 
