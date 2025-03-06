@@ -1,3 +1,9 @@
+# [54.13.0](https://github.com/1024pix/pix-ui/compare/v54.12.2...v54.13.0) (2025-03-06)
+
+### :rocket: Amélioration
+
+- [#836](https://github.com/1024pix/pix-ui/pull/836) Ajout des icones displaySettings (PIX-16841)
+
 ## [54.12.2](https://github.com/1024pix/pix-ui/compare/v54.12.1...v54.12.2) (2025-03-05)
 
 ### :bug: Correction
