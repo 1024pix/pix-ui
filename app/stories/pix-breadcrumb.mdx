@@ -1,0 +1,45 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-breadcrumb.stories';
+
+<Meta of={ComponentStories} />
+
+# PixBreadcrumb
+
+Composant destiné à afficher un fil d'Ariane, à partir d'un tableau.
+
+<strong>Les éléments sont affichés dans l'ordre du tableau.</strong><br />
+Les éléments avec une route seront affichés via le composant Ember `LinkTo`.<br />
+Les éléments sans route seront des `paragraph`.
+
+Par convention, pour un fil d'Ariane, le dernier élément n'est pas cliquable puisqu'il représente la page courante.<br />
+Lors de la construction du tableau `links`, il faut donc bien penser à ne pas mettre de route au dernier élément.
+
+```javascript
+const links = [
+    {
+      route: 'authenticated',
+      label: 'Une poule sur un mur'
+    },
+    {
+      route: 'authenticated.campaigns.campaign.activity',
+      label: 'Qui picote du pain dur',
+      model: 'campaign'
+    },
+    {
+      label: 'Picoti, picota'
+    },
+  ]
+```
+
+<Story of={ComponentStories.Default} height={60} />
+
+## Usage
+
+```html
+<PixBreadcrumb @links="{{links}}" />
+```
+
+## Arguments
+
+<ArgTypes />
