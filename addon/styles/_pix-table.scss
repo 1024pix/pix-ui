@@ -59,10 +59,16 @@
       align-items: center;
     }
 
-    th {
+    th[scope='col'] {
+      font-weight: var(--pix-font-bold);
       text-align: start;
       vertical-align: middle;
     }
+
+    th[scope='row'] {
+      font-weight: var(--pix-font-normal);
+    }
+
 
     td, th {
       padding: var(--pix-spacing-6x) var(--pix-spacing-4x);

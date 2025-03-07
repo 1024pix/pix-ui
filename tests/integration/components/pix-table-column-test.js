@@ -107,7 +107,39 @@ module('Integration | Component | table-column', function (hooks) {
       const cell = screen.queryByRole('cell', { name: '15' });
       assert.dom(cell).exists();
       const textAlign = window.getComputedStyle(cell).getPropertyValue('text-align');
-      assert.strictEqual(textAlign, 'right');
+      assert.strictEqual(textAlign, 'left');
+    });
+  });
+
+  module('when isMainRow defined', function () {
+    test('it renders a defined row title', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixTable @caption='Ceci est le caption de notre table' @data={{this.data}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} @isMainRow={{true}}>
+      <:header>
+        Nom
+      </:header>
+      <:cell>
+        {{row.name}}
+      </:cell>
+    </PixTableColumn>
+    <PixTableColumn @context={{context}} @type='number'>
+      <:header>
+        Âge
+      </:header>
+      <:cell>
+        {{row.age}}
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+      );
+
+      // then
+      const row = screen.getByRole('row', { name: 'jean 15' });
+      assert.ok(row);
     });
   });
 });
