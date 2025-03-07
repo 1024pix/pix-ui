@@ -1,3 +1,9 @@
+# [54.14.0](https://github.com/1024pix/pix-ui/compare/v54.13.1...v54.14.0) (2025-03-07)
+
+### :rocket: Amélioration
+
+- [#831](https://github.com/1024pix/pix-ui/pull/831) Création d'un composant Breadcrumb (PIX-15825)
+
 ## [54.13.1](https://github.com/1024pix/pix-ui/compare/v54.13.0...v54.13.1) (2025-03-07)
 
 ### :building_construction: Tech
