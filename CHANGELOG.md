@@ -1,3 +1,9 @@
+## [54.14.1](https://github.com/1024pix/pix-ui/compare/v54.14.0...v54.14.1) (2025-03-07)
+
+### :building_construction: Tech
+
+- [#838](https://github.com/1024pix/pix-ui/pull/838) Autorise les lignes du tableaux à avoir une cellule de type heading scope "row" (PIX-16895)
+
 # [54.14.0](https://github.com/1024pix/pix-ui/compare/v54.13.1...v54.14.0) (2025-03-07)
 
 ### :rocket: Amélioration
