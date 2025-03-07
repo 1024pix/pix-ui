@@ -3,20 +3,55 @@ import { hbs } from 'ember-cli-htmlbars';
 export default {
   title: 'Other/Contenu',
   argTypes: {
-    shadow: {
-      name: 'shadow',
-      description: 'Ombre sur le bloc',
-      type: { name: 'string', required: false },
-      table: { defaultValue: { summary: 'light' } },
-      control: { type: 'select' },
-      options: ['light', 'heavy'],
+    variant: {
+      name: 'variant',
+      description: "Permet de changer la couleur selon l'application",
+      options: ['orga', 'certif', 'default', 'admin'],
+      control: {
+        type: 'select',
+      },
+      table: {
+        defaultValue: {
+          summary: 'default',
+        },
+      },
+      type: {
+        name: '"default" | "orga" | "certif" | "admin"',
+        required: true,
+      },
     },
   },
 };
 
-export const block = (args) => ({
-  template: hbs`<PixBlock @shadow={{this.shadow}}>
-  Lorem ipsum
+const Template = (args) => {
+  return {
+    template: hbs`<PixBlock @variant={{this.variant}}>
+      {{this.information}}
 </PixBlock>`,
-  context: args,
-});
+    context: args,
+  };
+};
+
+export const neutral = Template.bind({});
+neutral.args = {
+  variant: 'default',
+  information: 'Commun',
+};
+
+export const certif = Template.bind({});
+certif.args = {
+  variant: 'certif',
+  information: 'Pour Pix Certif',
+};
+
+export const orga = Template.bind({});
+orga.args = {
+  variant: 'orga',
+  information: 'Pour Pix Orga',
+};
+
+export const admin = Template.bind({});
+admin.args = {
+  variant: 'admin',
+  information: 'Pour Pix Admin',
+};

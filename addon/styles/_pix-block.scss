@@ -3,13 +3,25 @@
 .pix-block {
   position: relative;
   background-color: var(--pix-neutral-0);
-  border-radius: 5px;
+  border-radius: var(--pix-spacing-2x);
 
-  &--shadow-light {
-    @extend %pix-shadow-sm;
+  &--default {
+    padding: var(--pix-spacing-6x);
+    border: solid 1px var(--pix-primary-100);
   }
 
-  &--shadow-heavy {
-    @extend %pix-shadow-xl;
+  &--orga {
+    padding: var(--pix-spacing-3x);
+    border: solid 1px rgb(var(--pix-orga-500-inline), 0.45);
+  }
+
+  &--certif {
+    padding: var(--pix-spacing-3x);
+    border: solid 1px rgb(var(--pix-certif-500-inline), 0.45);
+  }
+
+  &--admin {
+    padding: var(--pix-spacing-3x);
+    border: solid 1px var(--pix-primary-100);
   }
 }
