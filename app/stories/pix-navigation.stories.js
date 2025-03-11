@@ -10,14 +10,19 @@ export default {
   },
   args: {
     navigationAriaLabel: 'Navigation Principale',
-    menuLabel: 'Menu',
+    openLabel: 'Ouvrir le menu',
+    closeLabel: 'Fermer le menu',
   },
 };
 
 export const Navigation = (args) => {
   return {
     template: hbs`<PixAppLayout @variant='primary'>
-  <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}} @menuLabel={{this.menuLabel}}>
+  <PixNavigation
+    @navigationAriaLabel={{this.navigationAriaLabel}}
+    @openLabel={{this.openLabel}}
+    @closeLabel={{this.closeLabel}}
+  >
     <:brand>
       <a href='/'>
         <img src='/pix-orga.svg' alt='pix orga' />

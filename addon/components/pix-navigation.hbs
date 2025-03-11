@@ -8,7 +8,13 @@
         aria-expanded={{this.navigationMenuOpened}}
         @iconBefore={{if this.navigationMenuOpened "close" "menu"}}
         @triggerAction={{this.toggleNavigationMenu}}
-      >{{@menuLabel}}</PixButton>
+      >
+        {{#if this.navigationMenuOpened}}
+          {{@closeLabel}}
+        {{else}}
+          {{@openLabel}}
+        {{/if}}
+      </PixButton>
     </div>
   </header>
   <nav
