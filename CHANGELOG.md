@@ -1,3 +1,9 @@
+# [54.15.0](https://github.com/1024pix/pix-ui/compare/v54.14.1...v54.15.0) (2025-03-11)
+
+### :rocket: Amélioration
+
+- [#835](https://github.com/1024pix/pix-ui/pull/835) Créer le composant PixTabs (PIX-16673).
+
 ## [54.14.1](https://github.com/1024pix/pix-ui/compare/v54.14.0...v54.14.1) (2025-03-07)
 
 ### :building_construction: Tech
