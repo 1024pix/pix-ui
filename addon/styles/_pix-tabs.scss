@@ -1,0 +1,58 @@
+@use "pix-design-tokens/typography";
+
+.pix-tabs {
+  display: flex;
+  flex-direction: row;
+  flex-grow: 1;
+  gap: var(--pix-spacing-2x);
+  height: min-content;
+  border-bottom: 2px solid var(--pix-tab-color);
+
+  & a {
+    padding: var(--pix-spacing-3x) var(--pix-spacing-4x);
+    color: var(--pix-neutral-900);
+    border-radius: 8px 8px 0 0;
+    cursor: pointer;
+
+    @extend %pix-body-s;
+
+    &.active {
+      color: var(--pix-neutral-0);
+      font-weight: var(--pix-font-bold);
+      background-color: var(--pix-tab-color);
+    }
+
+    &:focus,
+    &:focus-visible {
+      color: var(--pix-neutral-0);
+      background-color: rgb(var(--pix-tab-color-inline), 80%);
+      outline: 1px solid var(--pix-neutral-0);
+      outline-offset: -5px;
+    }
+
+    &:active {
+      background-color: rgb(var(--pix-tab-color-inline), 50%);
+      outline: none;
+    }
+
+    &:hover:not(.active) {
+      background-color: rgb(var(--pix-tab-color-inline), 30%);
+    }
+  }
+
+  &--primary {
+    --pix-tab-color: var(--pix-primary-500);
+    --pix-tab-color-inline: var(--pix-primary-500-inline);
+  }
+
+  &--orga {
+    --pix-tab-color: var(--pix-orga-500);
+    --pix-tab-color-inline: var(--pix-orga-500-inline);
+  }
+
+  &--certif {
+    --pix-tab-color: var(--pix-certif-500);
+    --pix-tab-color-inline: var(--pix-certif-500-inline);
+  }
+}
+

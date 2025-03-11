@@ -1,17 +1,17 @@
-- [Présentation de Pix-UI](#Pix-UI)
-- [Installation de l'addon Pix-UI](#Addon)
-- [Développment de Pix-UI](#Developpement)
+- [Présentation de Pix UI](#Pix-UI)
+- [Installation de l'addon Pix UI](#Addon)
+- [Développment de Pix UI](#Developpement)
   - [Lancement de storybook en local](#Storybook)
 
 
-Pix-UI <a id="Pix-UI"></a>
+Pix UI <a id="Pix-UI"></a>
 ==============================================================================
 
-Pix-UI c'est l'implémentation des principes du design system de Pix. Cela se matérialise par :
+Pix UI c'est l'implémentation des principes du design system de Pix. Cela se matérialise par :
 - **un addon ember**, permettant l'utilisation composants UI Pix sur des applications ember externes
 - **un site statique**, présentant les composants UI Pix : https://1024pix.github.io/pix-ui/
 
-![Capture d'écran du storybook en ligne](./docs/assets/screen-pix-storybook.png)
+![Capture d'écran du storybook en ligne](./docs/assets/screen-pix-ui.png)
 
 ##### Version du projet : 
 
@@ -21,14 +21,14 @@ Pix-UI c'est l'implémentation des principes du design system de Pix. Cela se ma
 
 ## Installation de l'addon Pix-UI <a id="Addon"></a>
 
-Pour utiliser les composants sur une application Ember externe, il faut installer l'addon ember Pix-UI avec la commande : 
+Pour utiliser les composants sur une application Ember externe, il faut installer l'addon ember Pix UI avec la commande : 
 - `npm install @1024pix/pix-ui@<tag_souhaité>`
 
 ##### Quel tag choisir ?
 
 `<tag_souhaité>` doit correspondre au numéro de version à installer. Ce numéro de version correspond à une release.
 *Par exemple, on peut remplacer `<tag_souhaité>` par `v0.1.1`.*
-Pour voir la liste des tags de Pix-UI, [c'est par ici.](https://github.com/1024pix/pix-ui/tags)
+Pour voir la liste des tags de Pix UI, [c'est par ici.](https://github.com/1024pix/pix-ui/tags)
 
 ##### Installation par défaut
 
@@ -37,13 +37,13 @@ Il est possible d'installer Pix UI sans `#<tag_souhaité>`, auquel cas ce sera l
 Plus d'informations sur les [tags git ici](https://git-scm.com/book/fr/v2/Les-bases-de-Git-%C3%89tiquetage).
 
 
-## Développement de Pix-UI <a id="Developpement"></a>
+## Développement de Pix UI <a id="Developpement"></a>
 
 * `git clone https://github.com/1024pix/pix-ui.git`
 * `cd pix-ui`
 * `npm install`
 
-##### Création d'un composant Pix-UI
+##### Création d'un composant Pix UI
 
 * `ember g pix-component <nom_du_composant>`
 
