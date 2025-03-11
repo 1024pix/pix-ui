@@ -1,3 +1,9 @@
+# [55.0.0](https://github.com/1024pix/pix-ui/compare/v54.15.0...v55.0.0) (2025-03-11)
+
+### :boom: BREAKING CHANGE
+
+- [#833](https://github.com/1024pix/pix-ui/pull/833) Rendre le bouton pour ouvrir la barre de navigation accessible (PIX-16754)
+
 # [54.15.0](https://github.com/1024pix/pix-ui/compare/v54.14.1...v54.15.0) (2025-03-11)
 
 ### :rocket: Amélioration
