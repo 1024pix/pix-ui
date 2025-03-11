@@ -17,7 +17,17 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['neutral', 'secondary', 'tertiary', 'success', 'error', 'orga'],
+      options: [
+        'grey',
+        'yellow',
+        'purple',
+        'blue',
+        'green',
+        'error',
+        'dark',
+        'white',
+        'blue-light',
+      ],
     },
   },
 };
