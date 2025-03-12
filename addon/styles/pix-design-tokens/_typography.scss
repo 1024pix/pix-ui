@@ -80,6 +80,17 @@
   letter-spacing: calc(-0.01 * var(--font-size-title));
 }
 
+%pix-title-xss,
+.pix-title-xss {
+  @extend %-pix-title;
+
+  --font-size-title: 1.125rem;
+
+  font-size: var(--font-size-title);
+  line-height: 1.625;
+  letter-spacing: calc(-0.01 * var(--font-size-title));
+}
+
 %-pix-body {
   font-weight: var(--pix-font-normal);
 
