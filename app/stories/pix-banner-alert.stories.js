@@ -27,7 +27,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['information', 'warning', 'error', 'environmnent'],
+      options: ['information', 'warning', 'error', 'environment'],
     },
     canCloseBanner: {
       name: 'canCloseBanner',
