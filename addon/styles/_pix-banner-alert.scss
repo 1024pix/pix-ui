@@ -87,5 +87,25 @@
       }
     }
   }
+
+  &--environment {
+    color: var(--pix-primary-700);
+    background-color: var(--pix-primary-10);
+
+    .pix-icon-button {
+      color: currentcolor;
+      background-color: var(--pix-primary-10);
+
+      &:hover:enabled,
+      &:focus:enabled,
+      &:active:enabled {
+        background-color: var(--pix-primary-100);
+      }
+
+      &:focus:enabled {
+        outline-color: var(--pix-primary-700);
+      }
+    }
+  }
 }
 

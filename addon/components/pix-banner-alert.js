@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 const TYPE_INFO = 'information';
 const TYPE_ERROR = 'error';
 const TYPE_WARNING = 'warning';
+const TYPE_ENVIRONMENT = 'environment';
 const TYPE_COMMUNICATION = 'communication';
 const TYPE_COMMUNICATION_ORGA = 'communication-orga';
 const TYPE_COMMUNICATION_CERTIF = 'communication-certif';
@@ -12,6 +13,7 @@ const types = [
   TYPE_INFO,
   TYPE_ERROR,
   TYPE_WARNING,
+  TYPE_ENVIRONMENT,
   TYPE_COMMUNICATION,
   TYPE_COMMUNICATION_ORGA,
   TYPE_COMMUNICATION_CERTIF,
@@ -21,6 +23,7 @@ const icons = {
   [TYPE_INFO]: 'info',
   [TYPE_ERROR]: 'error',
   [TYPE_WARNING]: 'warning',
+  [TYPE_ENVIRONMENT]: 'displaySettings',
   [TYPE_COMMUNICATION]: 'campaign',
   [TYPE_COMMUNICATION_ORGA]: 'campaign',
   [TYPE_COMMUNICATION_CERTIF]: 'campaign',
