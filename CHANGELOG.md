@@ -1,3 +1,9 @@
+# [55.1.0](https://github.com/1024pix/pix-ui/compare/v55.0.0...v55.1.0) (2025-03-12)
+
+### :rocket: Amélioration
+
+- [#840](https://github.com/1024pix/pix-ui/pull/840) Mise à jour des couleurs de tags (PIX-16939)
+
 # [55.0.0](https://github.com/1024pix/pix-ui/compare/v54.15.0...v55.0.0) (2025-03-11)
 
 ### :boom: BREAKING CHANGE
