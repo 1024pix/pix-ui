@@ -77,7 +77,7 @@ error.args = {
 };
 
 export const environment = Template.bind({});
-error.args = {
+environment.args = {
   type: 'environment',
 };
 
