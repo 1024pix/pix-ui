@@ -27,7 +27,7 @@ export default {
       control: {
         type: 'select',
       },
-      options: ['information', 'warning', 'error'],
+      options: ['information', 'warning', 'error', 'environment'],
     },
     canCloseBanner: {
       name: 'canCloseBanner',
@@ -74,6 +74,11 @@ warning.args = {
 export const error = Template.bind({});
 error.args = {
   type: 'error',
+};
+
+export const environment = Template.bind({});
+environment.args = {
+  type: 'environment',
 };
 
 export const withExternalLink = Template.bind({});
