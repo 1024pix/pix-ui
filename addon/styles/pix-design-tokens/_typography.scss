@@ -80,8 +80,8 @@
   letter-spacing: calc(-0.01 * var(--font-size-title));
 }
 
-%pix-title-xss,
-.pix-title-xss {
+%pix-title-xxs,
+.pix-title-xxs {
   @extend %-pix-title;
 
   --font-size-title: 1.125rem;
