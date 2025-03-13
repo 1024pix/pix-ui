@@ -1,3 +1,9 @@
+# [55.4.0](https://github.com/1024pix/pix-ui/compare/v55.3.0...v55.4.0) (2025-03-13)
+
+### :rocket: Amélioration
+
+- [#841](https://github.com/1024pix/pix-ui/pull/841) Ajout d'un variant environment pour PixBannerAlert (PIX-16912)
+
 # [55.3.0](https://github.com/1024pix/pix-ui/compare/v55.2.0...v55.3.0) (2025-03-13)
 
 ### :rocket: Amélioration
