@@ -5,7 +5,7 @@ import { module, test } from 'qunit';
 
 module('Integration | Component | pix-app-layout', function (hooks) {
   setupRenderingTest(hooks);
-  ['orga', 'primary', 'certif'].forEach(function (variant) {
+  ['orga', 'default', 'certif'].forEach(function (variant) {
     test(`it add the correct className from ${variant}`, async function (assert) {
       // when
       this.variant = variant;

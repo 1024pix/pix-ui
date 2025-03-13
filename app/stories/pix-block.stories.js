@@ -1,12 +1,14 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+import { VARIANTS } from '../../addon/helpers/variants.js';
+
 export default {
   title: 'Other/Contenu',
   argTypes: {
     variant: {
       name: 'variant',
       description: "Permet de changer la couleur selon l'application",
-      options: ['orga', 'certif', 'default', 'admin'],
+      options: VARIANTS,
       control: {
         type: 'select',
       },
@@ -16,8 +18,8 @@ export default {
         },
       },
       type: {
-        name: '"default" | "orga" | "certif" | "admin"',
-        required: true,
+        name: VARIANTS.join(' | '),
+        required: false,
       },
     },
   },

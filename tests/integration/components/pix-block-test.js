@@ -32,7 +32,7 @@ module('Integration | Component | pix-block', function (hooks) {
       warnStub.restore();
     });
 
-    test('it renders the default PixBlock', async function (assert) {
+    test('it renders the primary PixBlock', async function (assert) {
       // when
       await render(hbs`<PixBlock>
   Je suis un beau bloc
@@ -41,7 +41,7 @@ module('Integration | Component | pix-block', function (hooks) {
 
       // then
       assert.contains('Je suis un beau bloc');
-      assert.strictEqual(blockElement.className, 'pix-block pix-block--default');
+      assert.strictEqual(blockElement.className, 'pix-block pix-block--primary');
     });
 
     test('it should warn', async function (assert) {
@@ -51,7 +51,7 @@ module('Integration | Component | pix-block', function (hooks) {
       // then
       assert.ok(
         warnStub.calledWithExactly(
-          'WARNING: PixBlock: @variant "PIX APP" should be default, certif, orga or admin',
+          'WARNING: PixBlock: @variant "PIX APP" should be primary, orga, certif, admin',
         ),
       );
     });

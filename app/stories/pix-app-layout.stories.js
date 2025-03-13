@@ -1,14 +1,20 @@
 import { hbs } from 'ember-cli-htmlbars';
+
+import { VARIANTS } from '../../addon/helpers/variants.js';
+
 export default {
   title: 'Navigation/AppLayout',
   argTypes: {
     variant: {
       description: "Variante de l'application",
-      type: { name: 'string', required: false },
-      options: ['primary', 'orga', 'certif'],
+      options: VARIANTS,
       control: { type: 'select' },
       table: {
         defaultValue: { summary: 'primary' },
+      },
+      type: {
+        name: VARIANTS.join(' | '),
+        required: false,
       },
     },
   },

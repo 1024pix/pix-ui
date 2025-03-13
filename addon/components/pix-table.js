@@ -1,3 +1,4 @@
+import { VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { warn } from '@ember/debug';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
@@ -6,8 +7,8 @@ export default class PixTable extends Component {
   get variant() {
     const value = this.args.variant ?? 'primary';
     warn(
-      `PixTable: @variant "${value}" should be certif, orga or primary`,
-      ['primary', 'orga', 'certif'].includes(value),
+      `PixTable: @variant "${value}" should be ${VARIANTS.join(', ')}`,
+      VARIANTS.includes(value),
       {
         id: 'pix-ui.pix-table.variant.not-valid',
       },
