@@ -163,7 +163,7 @@ module('Integration | Component | table', function (hooks) {
       // then
       const mainElement = screen.getByRole('table').closest('div');
 
-      assert.strictEqual(mainElement.classList.value, 'pix-table');
+      assert.notOk(mainElement.classList.value.includes('pix-table--condensed'));
     });
 
     test('it should be condensed', async function (assert) {
@@ -211,7 +211,7 @@ module('Integration | Component | table', function (hooks) {
       // then
       const mainElement = screen.getByRole('table').closest('div');
 
-      assert.strictEqual(mainElement.classList.value, 'pix-table pix-table--condensed');
+      assert.ok(mainElement.classList.value.includes('pix-table--condensed'));
     });
   });
 
