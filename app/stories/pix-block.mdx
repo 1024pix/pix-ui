@@ -5,7 +5,7 @@ import * as ComponentStories from './pix-block.stories';
 
 # Pix Block
 
-Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis et ayant une ombre projetée.
+Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis.
 
 > Un \`Block\` prendra toute la largeur de son parent, dans la limite maximale de 980px.
 
@@ -13,17 +13,16 @@ Un \`Block\` est un bloc de fond blanc dont les bords sont arrondis et ayant une
 
 > Il est souvent utilisé dans le PixBackgroundHeader.
 
-  <Story of={ComponentStories.block} height={60} />
+<Story of={ComponentStories.neutral} height={150} />
+<Story of={ComponentStories.orga} height={150} />
+<Story of={ComponentStories.certif} height={150} />
+<Story of={ComponentStories.admin} height={150} />
 
 ## Usage
 
 ```html
-<PixBlock @shadow="light">
-  <div>Un bloc avec une ombre faible</div>
-</PixBlock>
-
-<PixBlock @shadow="heavy">
-  <div>Un bloc avec une ombre forte</div>
+<PixBlock @variant="orga">
+  <div>Un bloc</div>
 </PixBlock>
 ```
 

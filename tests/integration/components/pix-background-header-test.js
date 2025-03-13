@@ -20,36 +20,26 @@ module('Integration | Component | pix-background-header', function (hooks) {
 
     // then
     assert.contains('Je suis un beau background bleu');
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(backgroundHeaderElement.className, 'pix-background-header');
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(backgroundElement.className, 'pix-background-header__background');
+    assert.strictEqual(backgroundHeaderElement.className, 'pix-background-header');
+    assert.strictEqual(backgroundElement.className, 'pix-background-header__background');
   });
 
   module('when there is PixBloc inside PixBackgroundHeader component', function () {
     test('first PixBlock render', async function (assert) {
       // given
-      this.set('shadowWeight', 'heavy');
-
       // when
       await render(hbs`<PixBackgroundHeader>
-  <PixBlock @shadow={{this.shadowWeight}}>Je suis un beau bloc foncé</PixBlock>
-  <PixBlock>Je suis un deuxième bloc</PixBlock>
+  <PixBlock>Je suis un bloc commun</PixBlock>
+  <PixBlock @variant='admin'>Je suis un bloc pour Pix Admin</PixBlock>
 </PixBackgroundHeader>`);
       const firstBlockElement = this.element.querySelector(BACKGROUND_CONTENT_SELECTOR).children[0];
       const lastBlockElement = this.element.querySelector(BACKGROUND_CONTENT_SELECTOR).children[1];
 
       // then
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(firstBlockElement.className, 'pix-block pix-block--shadow-heavy');
-      assert.contains('Je suis un beau bloc foncé');
-      // TODO: Fix this the next time the file is edited.
-      // eslint-disable-next-line qunit/no-assert-equal
-      assert.equal(lastBlockElement.className, 'pix-block pix-block--shadow-light');
-      assert.contains('Je suis un deuxième bloc');
+      assert.strictEqual(firstBlockElement.className, 'pix-block pix-block--default');
+      assert.contains('Je suis un bloc commun');
+      assert.strictEqual(lastBlockElement.className, 'pix-block pix-block--admin');
+      assert.contains('Je suis un bloc pour Pix Admin');
     });
   });
 });
