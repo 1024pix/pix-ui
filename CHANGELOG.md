@@ -1,3 +1,9 @@
+# [55.3.0](https://github.com/1024pix/pix-ui/compare/v55.2.0...v55.3.0) (2025-03-13)
+
+### :rocket: Amélioration
+
+- [#842](https://github.com/1024pix/pix-ui/pull/842) Ajout d'un nouveau tokenfont de titre (PIX-16364)
+
 # [55.2.0](https://github.com/1024pix/pix-ui/compare/v55.1.0...v55.2.0) (2025-03-13)
 
 ### :rocket: Amélioration
