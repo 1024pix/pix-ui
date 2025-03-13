@@ -1,3 +1,9 @@
+# [55.2.0](https://github.com/1024pix/pix-ui/compare/v55.1.0...v55.2.0) (2025-03-13)
+
+### :rocket: Amélioration
+
+- [#839](https://github.com/1024pix/pix-ui/pull/839) Améliorations visuelles de Pix Block (PIX-16853).
+
 # [55.1.0](https://github.com/1024pix/pix-ui/compare/v55.0.0...v55.1.0) (2025-03-12)
 
 ### :rocket: Amélioration
