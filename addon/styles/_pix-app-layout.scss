@@ -3,29 +3,72 @@
 .pix-app-layout {
   display: grid;
   grid-template-areas:
-  "navigation main main"
-  "navigation footer  footer";
-  grid-template-rows: 1fr min-content;
+    "banner banner"
+    "navigation main"
+    "navigation footer";
+  grid-template-rows: min-content 1fr;
   grid-template-columns: min-content 1fr;
-  gap: var(--pix-spacing-6x);
   min-height: 100dvh;
-  padding: var(--pix-spacing-6x);
-
-  & > *:first-child {
-    grid-area: navigation;
-  }
-
-  & > *:nth-child(2) {
-    grid-area: main;
-  }
-
-  & > *:nth-child(3) {
-    grid-area: footer;
-  }
 
   @include breakpoints.device-is('mobile') {
-    display: block
+    display: flex;
+    flex-direction: column;
   }
+
+  &__banner {
+    position: sticky;
+    top: 0;
+    z-index: 3;
+    grid-area: banner;
+  }
+
+  &__navigation {
+    position: sticky;
+    bottom: var(--pix-spacing-6x);
+    z-index: 1;
+    grid-area: navigation;
+    min-height: calc(100vh - var(--pix-spacing-6x));
+    margin: auto 0 0;
+    padding: calc(var(--pix-app-layout-top) + var(--pix-spacing-6x)) 0 0 var(--pix-spacing-6x);
+
+    @include breakpoints.device-is('mobile') {
+      position: unset;
+      z-index: auto;
+      min-height: auto;
+      padding: var(--pix-spacing-2x) var(--pix-spacing-2x) 0 var(--pix-spacing-2x);
+    }
+  }
+
+  &__main, &__footer {
+    width: 100%;
+    max-width: 93rem;
+    margin: 0 auto;
+    padding: 0 var(--pix-spacing-6x);
+
+    @include breakpoints.device-is('mobile') {
+      padding: 0 var(--pix-spacing-2x);
+    }
+  }
+
+  &__main {
+    grid-area: main;
+    padding-top: var(--pix-spacing-6x);
+
+    @include breakpoints.device-is('mobile') {
+      padding-top: var(--pix-spacing-2x);
+    }
+  }
+
+  &__footer {
+    grid-area: footer;
+    padding-bottom: var(--pix-spacing-6x);
+
+    @include breakpoints.device-is('mobile') {
+      padding-bottom: var(--pix-spacing-2x);
+    }
+  }
+
+
 
   &--admin {
     background-color: var(--pix-primary-10);

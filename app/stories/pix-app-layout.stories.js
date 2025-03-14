@@ -17,6 +17,27 @@ export default {
         required: false,
       },
     },
+    banner: {
+      name: '<:banner>',
+      description:
+        'Permet de positionner les banners des applications en haut du layout en position sticky',
+      type: { name: 'block content', required: false },
+    },
+    navigation: {
+      name: '<:navigation>',
+      description: 'insère la navigation à son emplacement définit par le layout',
+      type: { name: 'block content', required: false },
+    },
+    main: {
+      name: '<:main>',
+      description: 'Insère le contenu principale de la page dans son emplacement dédié',
+      type: { name: 'block content', required: true },
+    },
+    footer: {
+      name: '<:footer>',
+      description: "Insère le footer de l'application en bas de page",
+      type: { name: 'block content', required: false },
+    },
   },
   args: {
     variant: 'primary',

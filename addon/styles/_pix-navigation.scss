@@ -6,34 +6,25 @@
   --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
   --pix-navigation-width:  15rem;
 
-  position: sticky;
-  bottom: var(--pix-spacing-6x);
-  z-index: 1;
   display: flex;
   flex-direction: column;
   gap:var(--pix-spacing-6x);
   align-items: stretch;
   justify-content: space-between;
   width: var(--pix-navigation-width);
-  height: auto;
-  min-height: calc(100vh - var(--pix-spacing-6x) * 2);
-
-  // using a margin top / bottom allow user to discover rapidly
-  // the part of sidebar that is above the fold
-  margin-top: auto;
+  min-height: calc(100vh - var(--pix-app-layout-top) - 2 * var(--pix-spacing-6x));
   padding: var(--pix-spacing-6x) var(--pix-spacing-4x);
   color: var(--pix-navigation-text-color);
   background-color: var(--pix-navigation-color);
   border-radius: var(--pix-spacing-6x);
 
-
   @include breakpoints.device-is('mobile') {
-    position: static;
     flex-direction: column;
     align-items: stretch;
     width: 100%;
     max-width: none;
     min-height: auto;
+    margin-top: 0;
     padding: 0;
 
     &--opened {
@@ -49,7 +40,6 @@
 
     img {
       display: block;
-      width: 132px;
       height: 48px;
       margin:0 auto;
     }
