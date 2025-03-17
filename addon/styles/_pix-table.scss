@@ -2,12 +2,8 @@
 @use "pix-design-tokens/typography";
 
 .pix-table {
-  width: 100%;
-  padding: var(--pix-spacing-4x);
+  min-width: 100%;
   overflow: auto;
-  background-color: var(--pix-neutral-0);
-  border: solid 1px var(--pix-neutral-100);
-  border-radius: var(--pix-spacing-2x);
 
   @extend %pix-body-s;
 
@@ -32,7 +28,7 @@
   }
 
   table {
-    min-width: 100%;
+    width: 100%;
     border-collapse: collapse;
 
     tbody > tr:nth-of-type(even):not(.pix-table__clickable-row:hover, .pix-table__clickable-row:focus, .pix-table__clickable-row:active) {
@@ -50,6 +46,10 @@
 
       &--certif {
         background: var(--pix-certif-50);
+      }
+
+      &--admin {
+        background: var(--pix-primary-100);
       }
     }
 

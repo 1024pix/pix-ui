@@ -1,5 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+import { VARIANTS } from '../../addon/helpers/variants.js';
+
 export default {
   title: 'Data display/Table',
   tags: ['new'],
@@ -30,7 +32,7 @@ export default {
     variant: {
       name: 'variant',
       description: "Afficher le bon variant pour l'application",
-      options: ['orga', 'certif', 'primary'],
+      options: VARIANTS,
       control: {
         type: 'select',
       },
@@ -40,7 +42,7 @@ export default {
         },
       },
       type: {
-        name: '"primary" | "orga" | "certif"',
+        name: VARIANTS.join(' | '),
         required: false,
       },
     },
