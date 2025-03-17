@@ -1,5 +1,9 @@
 .pix-table-column {
-  &--number{
+  &--number {
     text-align: left;
+  }
+
+  &--checkbox {
+    width: 3.25rem;
   }
 }
