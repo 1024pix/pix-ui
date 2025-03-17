@@ -1,3 +1,9 @@
+# [55.5.0](https://github.com/1024pix/pix-ui/compare/v55.4.0...v55.5.0) (2025-03-17)
+
+### :rocket: Amélioration
+
+- [#843](https://github.com/1024pix/pix-ui/pull/843) Utiliser le PixBlock sur le PixTable (Pix-16858)
+
 # [55.4.0](https://github.com/1024pix/pix-ui/compare/v55.3.0...v55.4.0) (2025-03-13)
 
 ### :rocket: Amélioration
