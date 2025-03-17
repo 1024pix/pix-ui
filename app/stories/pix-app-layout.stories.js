@@ -26,6 +26,12 @@ export default {
 export const AppLayout = (args) => {
   return {
     template: hbs`<PixAppLayout @variant={{this.variant}}>
+  <:banner>
+  <PixBannerAlert @type="warning">
+      WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est
+      pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice !
+    </PixBannerAlert>
+  </:banner>
   <:navigation>
     <PixNavigation
       @navigationAriaLabel={{this.navigationAriaLabel}}
