@@ -5,6 +5,28 @@
   @onRowClick={{this.onClick}}
 >
   <:columns as |row context|>
+    <PixTableColumn @context={{context}} @type="checkbox">
+      <:header>
+        <PixCheckbox
+          @id="select-all-{{row.id}}"
+          @checked={{row.checked}}
+          @screenReaderOnly={{true}}
+          @size="small"
+        >
+          <:label>Sélectionner toutes les lignes</:label>
+        </PixCheckbox>
+      </:header>
+      <:cell>
+        <PixCheckbox
+          @id={{row.id}}
+          @checked={{row.checked}}
+          @screenReaderOnly={{true}}
+          @size="small"
+        >
+          <:label>Sélectionner {{row.nom}}</:label>
+        </PixCheckbox>
+      </:cell>
+    </PixTableColumn>
     <PixTableColumn
       @context={{context}}
       @type="text"

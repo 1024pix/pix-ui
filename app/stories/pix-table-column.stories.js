@@ -49,7 +49,7 @@ export default {
       defaultValue: {
         summary: 'text',
       },
-      options: ['text', 'number'],
+      options: ['text', 'number', 'checkbox'],
       control: {
         type: 'select',
       },
@@ -84,6 +84,28 @@ const Template = (args) => {
   return {
     template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
+    <PixTableColumn @context={{context}} @type='checkbox'>
+      <:header>
+        <PixCheckbox
+          @id='select-all-{{row.id}}'
+          @checked={{row.checked}}
+          @screenReaderOnly={{true}}
+          @size='small'
+        >
+          <:label>Sélectionner toutes les lignes</:label>
+        </PixCheckbox>
+      </:header>
+      <:cell>
+        <PixCheckbox
+          @id={{row.id}}
+          @checked={{row.checked}}
+          @screenReaderOnly={{true}}
+          @size='small'
+        >
+          <:label>Sélectionner {{row.nom}}</:label>
+        </PixCheckbox>
+      </:cell>
+    </PixTableColumn>
     <PixTableColumn @context={{context}} @isMainRow={{this.isMainRow}}>
       <:header>
         Nom
@@ -111,10 +133,12 @@ Default.args = {
   caption: 'Description du tableau',
   data: [
     {
+      id: '1',
       name: 'jean',
       age: 15,
     },
     {
+      id: '2',
       name: 'brian',
       age: 25,
     },
