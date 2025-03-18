@@ -1,3 +1,9 @@
+# [55.6.0](https://github.com/1024pix/pix-ui/compare/v55.5.0...v55.6.0) (2025-03-18)
+
+### :rocket: Amélioration
+
+- [#845](https://github.com/1024pix/pix-ui/pull/845) ajoute  un type de colonne `checkbox` (pix-16845)
+
 # [55.5.0](https://github.com/1024pix/pix-ui/compare/v55.4.0...v55.5.0) (2025-03-17)
 
 ### :rocket: Amélioration
