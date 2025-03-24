@@ -2,21 +2,17 @@
 @use "pix-design-tokens/shadows";
 
 .indicator-card {
-  @extend %pix-shadow-xs;
-
   display: flex;
   width: 100%;
   min-height: 112px;
   padding: 0;
-  background-color: var(--pix-neutral-0);
-  border-radius: 8px;
 
   &__icon-wrapper {
     display: flex;
     align-items: center;
     justify-content: center;
     min-width: 96px;
-    border-radius: 8px 0 0 8px;
+    border-radius: 7px 0 0 7px;
 
     &--grey,
     &--neutral {
