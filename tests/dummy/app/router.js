@@ -14,4 +14,5 @@ Router.map(function () {
   this.route('sidebar-page', { path: '/sidebar' });
   this.route('tooltip-page', { path: '/tooltip' });
   this.route('table-page', { path: '/table' });
+  this.route('gauge-page', { path: '/gauge' });
 });
