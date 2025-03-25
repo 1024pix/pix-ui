@@ -1,0 +1,26 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-gauge.stories';
+
+<Meta of={ComponentStories} />
+
+# PixGauge
+
+Le composant `<PixGauge/>` prend en arguments
+
+- `stepLabels`: un tableau avec les noms des niveaux, ex ["Novice", "Intermédiaire", "Avancé", "Expert"];
+- `label`: le titre du svg lisible par le lecteur d'écran
+- `isSmall` : un booléen, par défaut à false, à passer à true si on veut cacher les labels de description des niveaux au-dessus de la jauge ainsi que les séparateurs, et avoir la jauge en plus petite taille (voir ci-dessous)
+- `hideValues` : un booléen, par défaut à false, qui permet de ne pas afficher les valeurs numériques.
+- `maxLevel`: un nombre, le niveau maximum atteignable par la jauge (jauge blanche)
+- `reachedLevel` : un nombre, le niveau atteint (jauge violette)
+
+## Usage
+
+```html
+<PixGauge @label="Niveau atteint de ...
+  sur un niveau maximum atteignable de ..." @reachedLevel={{1}} @maxLevel={{4}} @isSmall={{true}} @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
