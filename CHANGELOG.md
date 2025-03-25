@@ -1,3 +1,9 @@
+## [55.6.1](https://github.com/1024pix/pix-ui/compare/v55.6.0...v55.6.1) (2025-03-25)
+
+### :bug: Correction
+
+- [#850](https://github.com/1024pix/pix-ui/pull/850) Mauvaise récupération de la route sur le composant Breadcrumb
+
 # [55.6.0](https://github.com/1024pix/pix-ui/compare/v55.5.0...v55.6.0) (2025-03-18)
 
 ### :rocket: Amélioration
