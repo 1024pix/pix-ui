@@ -3,7 +3,7 @@
     {{#each this.links as |link|}}
       {{#if link.route}}
         <li>
-          <LinkTo @route={{this.route}} @models={{if @model (array @model) this.defaultModel}}>
+          <LinkTo @route={{link.route}} @models={{if @model (array @model) this.defaultModel}}>
             {{link.label}}
           </LinkTo>
           <PixIcon @name="chevronRight" @ariaHidden={{true}} />
