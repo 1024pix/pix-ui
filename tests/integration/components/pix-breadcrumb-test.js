@@ -6,17 +6,21 @@ import { module, test } from 'qunit';
 module('Integration | Component | pix-breadcrumb', function (hooks) {
   setupRenderingTest(hooks);
 
+  hooks.beforeEach(function () {
+    this.owner.setupRouter();
+  });
+
   test('it renders breadcrumb with correct links', async function (assert) {
     // given
     const links = [
       {
-        route: 'authenticated',
+        route: 'hello',
         label: 'Une poule sur un mur',
       },
       {
-        route: 'authenticated.campaigns.campaign.activity',
+        route: 'bye',
         label: 'Qui picote du pain dur',
-        model: 'campaign',
+        model: 'bye',
       },
       {
         route: null,
@@ -33,8 +37,10 @@ module('Integration | Component | pix-breadcrumb', function (hooks) {
     const breadcrumb = screen.getByRole('navigation', { name: 'Breadcrumb' });
 
     // then
-    assert.ok(within(breadcrumb).getByRole('link', { name: 'Une poule sur un mur' }));
-    assert.ok(within(breadcrumb).getByRole('link', { name: 'Qui picote du pain dur' }));
+    const firstCrumb = within(breadcrumb).getByRole('link', { name: 'Une poule sur un mur' });
+    const secondCrumb = within(breadcrumb).getByRole('link', { name: 'Qui picote du pain dur' });
+    assert.strictEqual(firstCrumb.getAttribute('href'), '/hello-world');
+    assert.strictEqual(secondCrumb.getAttribute('href'), '/bye/bye');
     assert.ok(within(breadcrumb).getByRole('paragraph', { text: 'Picoti, picota' }));
   });
 });
