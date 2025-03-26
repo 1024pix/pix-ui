@@ -27,6 +27,13 @@
     display: block
   }
 
+  &--admin {
+    background-color: var(--pix-primary-10);
+
+    --pix-navigation-color: var(--pix-primary-900);
+    --pix-navigation-text-color: var(--pix-neutral-0);
+  }
+
   &--orga {
     background-color: var(--pix-orga-50);
 
