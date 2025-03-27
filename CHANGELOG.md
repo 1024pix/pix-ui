@@ -1,3 +1,9 @@
+# [55.7.0](https://github.com/1024pix/pix-ui/compare/v55.6.1...v55.7.0) (2025-03-27)
+
+### :rocket: Amélioration
+
+- [#847](https://github.com/1024pix/pix-ui/pull/847) Utiliser PixBlock pour le PixIndicatorCard (PIX-16975)
+
 ## [55.6.1](https://github.com/1024pix/pix-ui/compare/v55.6.0...v55.6.1) (2025-03-25)
 
 ### :bug: Correction
