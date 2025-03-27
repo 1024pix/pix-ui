@@ -1,3 +1,9 @@
+# [55.8.0](https://github.com/1024pix/pix-ui/compare/v55.7.0...v55.8.0) (2025-03-27)
+
+### :rocket: Amélioration
+
+- [#851](https://github.com/1024pix/pix-ui/pull/851) Changement de la couleur de fond pour la nav PixAdmin (PIX-17216)
+
 # [55.7.0](https://github.com/1024pix/pix-ui/compare/v55.6.1...v55.7.0) (2025-03-27)
 
 ### :rocket: Amélioration
