@@ -1,3 +1,9 @@
+# [55.9.0](https://github.com/1024pix/pix-ui/compare/v55.8.0...v55.9.0) (2025-03-28)
+
+### :rocket: Amélioration
+
+- [#852](https://github.com/1024pix/pix-ui/pull/852) Ajustement des marges internes des cellules de PixTable (PIX-17220)
+
 # [55.8.0](https://github.com/1024pix/pix-ui/compare/v55.7.0...v55.8.0) (2025-03-27)
 
 ### :rocket: Amélioration
