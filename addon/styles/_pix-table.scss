@@ -71,7 +71,7 @@
 
 
     td, th {
-      padding: var(--pix-spacing-6x) var(--pix-spacing-4x);
+      padding: var(--pix-spacing-4x) var(--pix-spacing-4x);
 
       &:first-child {
         border-radius: var(--pix-spacing-2x) 0 0 var(--pix-spacing-2x);
@@ -86,7 +86,7 @@
   &--condensed {
     table {
       th, td {
-        padding: var(--pix-spacing-2x) var(--pix-spacing-4x);
+        padding: .5rem var(--pix-spacing-4x);
       }
     }
   }
