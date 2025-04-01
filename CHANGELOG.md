@@ -1,3 +1,9 @@
+# [55.10.0](https://github.com/1024pix/pix-ui/compare/v55.9.0...v55.10.0) (2025-04-01)
+
+### :rocket: Amélioration
+
+- [#848](https://github.com/1024pix/pix-ui/pull/848) Composant gauge (pix-16946)
+
 # [55.9.0](https://github.com/1024pix/pix-ui/compare/v55.8.0...v55.9.0) (2025-03-28)
 
 ### :rocket: Amélioration
