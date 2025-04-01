@@ -1,0 +1,69 @@
+@use "pix-design-tokens/fonts";
+@use "pix-design-tokens/typography";
+
+.result-level-gauge {
+  display: block;
+  width: 100%;
+  height: 4.375rem;
+  margin-bottom: var(--pix-spacing-2x);
+
+  &__rank {
+    font-size: .625rem;
+    font-family: fonts.$font-roboto;
+    text-transform: uppercase;
+    fill: var(--pix-neutral-900);
+    text-anchor: middle;
+
+    &--active {
+      font-weight: var(--pix-font-bold);
+    }
+  }
+
+  &__mean-bar {
+    fill: var(--pix-primary-300);
+  }
+
+  &__max-bar {
+    fill: var(--pix-neutral-0);
+  }
+
+  &__background {
+    fill: rgba(var(--pix-neutral-900-inline), 0.1);
+  }
+
+  &__mean-value {
+    @extend %pix-body-l;
+
+    font-weight: var(--pix-font-bold);
+    fill: var(--pix-primary-10);
+    text-anchor: end;
+  }
+
+  &__max-value {
+    @extend %pix-body-l;
+
+    fill: var(--pix-neutral-800);
+    text-anchor: end;
+  }
+
+  &__separator {
+    transform: translate(-4px, 0);
+    stroke: var(--pix-primary-100);
+  }
+
+  // Modifier for small version of the gauge
+  &__small {
+    width: 200px;
+    height: 2rem;
+
+    &__mean-value {
+      font-weight: var(--pix-font-bold);
+
+      @extend %pix-body-s;
+    }
+
+    &__max-value {
+      @extend %pix-body-s;
+    }
+  }
+}
