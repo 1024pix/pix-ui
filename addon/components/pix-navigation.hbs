@@ -9,11 +9,13 @@
         @iconBefore={{if this.navigationMenuOpened "close" "menu"}}
         @triggerAction={{this.toggleNavigationMenu}}
       >
-        {{#if this.navigationMenuOpened}}
-          {{@closeLabel}}
-        {{else}}
-          {{@openLabel}}
-        {{/if}}
+        <span class="screen-reader-only">
+          {{#if this.navigationMenuOpened}}
+            {{@closeLabel}}
+          {{else}}
+            {{@openLabel}}
+          {{/if}}
+        </span>
       </PixButton>
     </div>
   </header>
