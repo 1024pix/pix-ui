@@ -1,3 +1,4 @@
+import { warn } from '@ember/debug';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
@@ -7,6 +8,13 @@ export default class PixMNavigation extends Component {
   constructor(...args) {
     super(...args);
     this._navigationId = 'navigation-' + guidFor(this);
+    warn(
+      'PixNavigation: @openLabel and @closeLabel are required',
+      this.args.openLabel && this.args.closeLabel,
+      {
+        id: 'pix-navigation.open-close-labels',
+      },
+    );
   }
 
   @tracked

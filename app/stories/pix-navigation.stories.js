@@ -7,6 +7,14 @@ export default {
       description: 'Variante de la navigation',
       type: { name: 'string', required: true },
     },
+    openLabel: {
+      description: 'Label à afficher lorsque la navbar est fermée.',
+      type: { name: 'string', required: true },
+    },
+    closeLabel: {
+      description: 'Label à afficher lorsque la navbar est ouverte.',
+      type: { name: 'string', required: true },
+    },
   },
   args: {
     navigationAriaLabel: 'Navigation Principale',
