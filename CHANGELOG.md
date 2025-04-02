@@ -1,3 +1,9 @@
+# [55.11.0](https://github.com/1024pix/pix-ui/compare/v55.10.0...v55.11.0) (2025-04-02)
+
+### :rocket: Amélioration
+
+- [#844](https://github.com/1024pix/pix-ui/pull/844) Ajouter la banner dans le layout du PixAppLayout (PIX-16649)
+
 # [55.10.0](https://github.com/1024pix/pix-ui/compare/v55.9.0...v55.10.0) (2025-04-01)
 
 ### :rocket: Amélioration
