@@ -1,3 +1,9 @@
+## [55.11.1](https://github.com/1024pix/pix-ui/compare/v55.11.0...v55.11.1) (2025-04-02)
+
+### :bug: Correction
+
+- [#853](https://github.com/1024pix/pix-ui/pull/853) Ne faire apparaître le texte de PixNaviation qu'au lecteur d'écran
+
 # [55.11.0](https://github.com/1024pix/pix-ui/compare/v55.10.0...v55.11.0) (2025-04-02)
 
 ### :rocket: Amélioration
