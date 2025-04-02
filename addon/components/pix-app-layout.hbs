@@ -1,5 +1,12 @@
 <div class={{this.classNames}} ...attributes>
-  {{yield to="navigation"}}
-  {{yield to="main"}}
-  {{yield to="footer"}}
+  <section
+    class="pix-app-layout__banner"
+    id="pix-layout-banner-container"
+    {{on-window-resize this.handleMarginContainerNavigation}}
+  >
+    {{yield to="banner"}}
+  </section>
+  <div class="pix-app-layout__navigation">{{yield to="navigation"}}</div>
+  <div class="pix-app-layout__main">{{yield to="main"}}</div>
+  <div class="pix-app-layout__footer">{{yield to="footer"}}</div>
 </div>

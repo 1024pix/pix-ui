@@ -8,6 +8,7 @@ export default class PixMNavigation extends Component {
     super(...args);
     this._navigationId = 'navigation-' + guidFor(this);
   }
+
   @tracked
   navigationMenuOpened = false;
 

@@ -9,12 +9,12 @@ module('Integration | Component | pix-app-layout', function (hooks) {
     test(`it add the correct className from ${variant}`, async function (assert) {
       // when
       this.variant = variant;
-      const screen = await render(
+      await render(
         hbs`<PixAppLayout @variant={{this.variant}}><:main>Hello</:main></PixAppLayout>`,
       );
       // then
       assert.strictEqual(
-        screen.getByText(/Hello/).getAttribute('class'),
+        this.element.querySelector('.pix-app-layout').classList.value,
         `pix-app-layout pix-app-layout--${variant}`,
       );
     });
