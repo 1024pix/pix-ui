@@ -1,3 +1,9 @@
+# [55.12.0](https://github.com/1024pix/pix-ui/compare/v55.11.2...v55.12.0) (2025-04-03)
+
+### :rocket: Amélioration
+
+- [#802](https://github.com/1024pix/pix-ui/pull/802) Ajouter un composant PixOverlay (PIX-15734).
+
 ## [55.11.2](https://github.com/1024pix/pix-ui/compare/v55.11.1...v55.11.2) (2025-04-03)
 
 ### :building_construction: Tech
