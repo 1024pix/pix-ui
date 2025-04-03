@@ -1,6 +1,7 @@
 {
   "printWidth": 100,
   "singleQuote": true,
+  "templateSingleQuote": false,
   "overrides": [
     {
       "files": "*.hbs",
@@ -8,5 +9,8 @@
         "singleQuote": false
       }
     }
+  ],
+  "plugins": [
+    "prettier-plugin-ember-template-tag"
   ]
 }

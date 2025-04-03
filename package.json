@@ -69,6 +69,7 @@
     "ember-lifeline": "^7.0.0",
     "ember-modifier": "^4.2.0",
     "ember-popperjs": "^3.0.0",
+    "ember-template-imports": "^4.3.0",
     "ember-truth-helpers": "^4.0.0"
   },
   "devDependencies": {
@@ -109,7 +110,7 @@
     "ember-resolver": "^12.0.0",
     "ember-sinon": "^5.0.0",
     "ember-source": "^5.11.0",
-    "ember-template-lint": "^7.0.1",
+    "ember-template-lint": "^7.0.2",
     "ember-template-lint-plugin-prettier": "^5.0.0",
     "ember-try": "^3.0.0",
     "eslint": "^9.21.0",
@@ -126,6 +127,7 @@
     "lodash": "^4.17.21",
     "npm-run-all2": "^7.0.0",
     "prettier": "^3.5.3",
+    "prettier-plugin-ember-template-tag": "^2.0.5",
     "qunit": "^2.23.1",
     "qunit-dom": "^3.4.0",
     "sass": "^1.83.1",
