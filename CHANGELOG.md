@@ -1,3 +1,9 @@
+## [55.11.2](https://github.com/1024pix/pix-ui/compare/v55.11.1...v55.11.2) (2025-04-03)
+
+### :building_construction: Tech
+
+- [#855](https://github.com/1024pix/pix-ui/pull/855) Permettre l'utilisation de fichiers .gjs (PIX-17355).
+
 ## [55.11.1](https://github.com/1024pix/pix-ui/compare/v55.11.0...v55.11.1) (2025-04-02)
 
 ### :bug: Correction
