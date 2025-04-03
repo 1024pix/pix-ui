@@ -7,4 +7,10 @@ export default class PixTag extends Component {
     if (color) classes.push(`pix-tag--${color}`);
     return classes.join(' ');
   }
+
+  <template>
+    <div class="pix-tag {{this.classes}}" ...attributes>
+      {{yield}}
+    </div>
+  </template>
 }
