@@ -12,4 +12,12 @@ module.exports = {
     },
   },
   ignore: ['blueprints/**'],
+  overrides: [
+    {
+      files: ['**/*.gjs'],
+      rules: {
+        prettier: 'off',
+      },
+    },
+  ],
 };
