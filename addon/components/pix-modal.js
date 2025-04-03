@@ -1,4 +1,3 @@
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
@@ -9,17 +8,6 @@ export default class PixModal extends Component {
     if (!this.args.title) {
       throw new Error('ERROR in PixModal component: @title argument is required.');
     }
-  }
-
-  @action
-  closeAction(event) {
-    if (this.args.onCloseButtonClick && this.isClickOnOverlay(event)) {
-      this.args.onCloseButtonClick(event);
-    }
-  }
-
-  isClickOnOverlay(event) {
-    return event.target.classList.contains('pix-modal__overlay');
   }
 
   get id() {

@@ -1,0 +1,8 @@
+<div
+  class="pix-overlay {{unless @isVisible ' pix-overlay--hidden'}}"
+  {{on "click" this.onClick}}
+  {{trap-focus @isVisible @focusOnClose}}
+  {{on-escape-action @onClose}}
+>
+  {{yield}}
+</div>

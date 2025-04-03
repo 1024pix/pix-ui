@@ -17,7 +17,7 @@ module('Integration | Component | modal', function (hooks) {
       this.showModal = true;
 
       // when
-      await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
+      const screen = await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
   <:content>
     content
   </:content>
@@ -27,10 +27,10 @@ module('Integration | Component | modal', function (hooks) {
 </PixModal>`);
 
       // then
-      assert.contains("It's a modal!");
+      assert.ok(screen.getByRole('dialog'));
+      assert.ok(screen.queryByRole('heading', { name: this.title }));
       assert.contains('content');
       assert.contains('footer');
-      assert.dom('.pix-modal__overlay--hidden').doesNotExist();
     });
 
     module('when close button is clicked', function () {
@@ -70,7 +70,7 @@ module('Integration | Component | modal', function (hooks) {
 >
   content
 </PixModal>`);
-        await triggerKeyEvent('.pix-modal__overlay', 'keyup', 'Escape');
+        await triggerKeyEvent('.pix-modal', 'keyup', 'Escape');
 
         // then
         assert.ok(this.onCloseButtonClick.calledOnce);
@@ -85,7 +85,7 @@ module('Integration | Component | modal', function (hooks) {
       this.showModal = false;
 
       // when
-      await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
+      const screen = await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
   <:content>
     content
   </:content>
@@ -95,7 +95,8 @@ module('Integration | Component | modal', function (hooks) {
 </PixModal>`);
 
       // then
-      assert.dom('.pix-modal__overlay--hidden').exists();
+      assert.notOk(screen.queryByRole('dialog'));
+      assert.notOk(screen.queryByRole('heading', { name: this.title }));
     });
   });
 
