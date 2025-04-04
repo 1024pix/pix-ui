@@ -1,3 +1,9 @@
+## [55.12.1](https://github.com/1024pix/pix-ui/compare/v55.12.0...v55.12.1) (2025-04-04)
+
+### :bug: Correction
+
+- [#854](https://github.com/1024pix/pix-ui/pull/854) Corriger l'affichage de la nav bar en mobile
+
 # [55.12.0](https://github.com/1024pix/pix-ui/compare/v55.11.2...v55.12.0) (2025-04-03)
 
 ### :rocket: Amélioration
