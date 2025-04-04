@@ -8,6 +8,7 @@
   flex-direction: column;
   gap: var(--pix-spacing-1x);
   width: var(--pix-select-width);
+  min-width: fit-content;
   max-width: 100%;
 
   &--inline {
@@ -16,13 +17,15 @@
     align-items: center;
   }
 
+  &__floating-container {
+    z-index: 200;
+    width: min(var(--pix-select-width), 100%);
+  }
+
   &__dropdown {
     @extend %pix-shadow-xs;
 
-    position: absolute;
-    z-index: 200;
     width: 100%;
-    min-width: fit-content;
     max-height: 12rem;
     margin-top: var(--pix-spacing-1x);
     padding: 0;
@@ -32,7 +35,7 @@
     background-color: var(--pix-neutral-0);
     border-top: none;
     border-radius: 0 0 var(--pix-spacing-1x) var(--pix-spacing-1x);
-    transition: all 0.1s ease-in-out;
+    transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out, max-height 0s;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -55,8 +58,10 @@
     }
 
     &--closed {
+      max-height: 0;
       visibility: hidden;
       opacity: 0;
+      transition: visibility 0.2s ease-in-out, opacity 0.2s ease-in-out, max-height 0s 0.2s;
     }
   }
 
