@@ -5,6 +5,10 @@
   min-width: 100%;
   overflow: auto;
 
+  @include breakpoints.device-is('desktop') {
+    overflow: unset;
+  }
+
   @extend %pix-body-s;
 
   &__clickable-row {
