@@ -2,6 +2,7 @@ import { render, within } from '@1024pix/ember-testing-library';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
+import sinon from 'sinon';
 
 module('Integration | Component | pix-navigation-button', function (hooks) {
   setupRenderingTest(hooks);
@@ -80,5 +81,21 @@ module('Integration | Component | pix-navigation-button', function (hooks) {
     // then
     const link = screen.getByRole('link', { name: 'content' });
     assert.ok(within(link).getByRole('img', { hidden: true }));
+  });
+
+  test('it renders an plainIcon icon when @route is current route ', async function (assert) {
+    const routerService = this.owner.lookup('service:router');
+    sinon.stub(routerService, 'currentRouteName').value('hello');
+    console.log(routerService.currentRouteName);
+    // when
+    const screen = await render(
+      hbs`<PixNavigationButton @route='hello' @icon='campaign'>content</PixNavigationButton>`,
+    );
+
+    // then
+    const link = screen.getByRole('link', { name: 'content' });
+    const image = within(link).getByRole('img', { hidden: true });
+
+    assert.ok(image.querySelector('use').getAttribute('href').endsWith('plain'));
   });
 });
