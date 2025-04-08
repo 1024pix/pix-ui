@@ -11,7 +11,7 @@ module('Integration | Component | pix-block', function (hooks) {
 
   test('it renders the PixBlock', async function (assert) {
     // when
-    await render(hbs`<PixBlock @variant='certif'>
+    await render(hbs`<PixBlock @variant='certif' @condensed={{false}}>
   Je suis un beau bloc
 </PixBlock>`);
     const blockElement = this.element.querySelector(BLOCK_SELECTOR);
@@ -53,6 +53,33 @@ module('Integration | Component | pix-block', function (hooks) {
         warnStub.calledWithExactly(
           'WARNING: PixBlock: @variant "PIX APP" should be primary, orga, certif, admin',
         ),
+      );
+    });
+  });
+
+  module('when @condensed parameter is true', function (hooks) {
+    let warnStub;
+
+    hooks.beforeEach(function () {
+      warnStub = sinon.stub(console, 'warn');
+    });
+
+    hooks.afterEach(function () {
+      warnStub.restore();
+    });
+
+    test('it renders the condensed PixBlock', async function (assert) {
+      // when
+      await render(hbs`<PixBlock @condensed={{true}}>
+  Je suis un beau bloc
+</PixBlock>`);
+      const blockElement = this.element.querySelector(BLOCK_SELECTOR);
+
+      // then
+      assert.contains('Je suis un beau bloc');
+      assert.strictEqual(
+        blockElement.className,
+        'pix-block pix-block--primary pix-block--condensed',
       );
     });
   });
