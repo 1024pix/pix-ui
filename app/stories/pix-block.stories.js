@@ -22,14 +22,20 @@ export default {
         required: false,
       },
     },
+    condensed: {
+      name: 'condensed',
+      description: 'Permet d‘enlever le padding',
+      control: { type: 'boolean' },
+    },
   },
 };
 
 const Template = (args) => {
   return {
-    template: hbs`<PixBlock @variant={{this.variant}}>
-      {{this.information}}
-</PixBlock>`,
+    template: hbs`
+      <PixBlock @variant={{this.variant}} @condensed={{this.condensed}}>
+        {{this.information}}
+      </PixBlock>`,
     context: args,
   };
 };
@@ -56,4 +62,11 @@ export const admin = Template.bind({});
 admin.args = {
   variant: 'admin',
   information: 'Pour Pix Admin',
+};
+
+export const condensed = Template.bind({});
+condensed.args = {
+  variant: 'primary',
+  condensed: true,
+  information: 'Primary Condensed',
 };
