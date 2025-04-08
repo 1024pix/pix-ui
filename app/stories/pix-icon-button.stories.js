@@ -32,15 +32,6 @@ export default {
       description: 'Fonction à appeler au clic du bouton',
       type: { required: true },
     },
-    withBackground: {
-      name: 'withBackground',
-      description: 'Affichage du fond grisé',
-      type: { name: 'boolean', required: false },
-      table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: 'false' },
-      },
-    },
     size: {
       name: 'size',
       description: 'Size: `small`',
@@ -62,7 +53,6 @@ const Template = (args) => {
   @iconName={{this.icon}}
   @iconPrefix={{this.iconPrefix}}
   @triggerAction={{this.triggerAction}}
-  @withBackground={{this.withBackground}}
   @size={{this.size}}
   disabled={{this.disabled}}
   aria-disabled={{this.disabled}}
@@ -84,13 +74,6 @@ export const size = Template.bind({});
 size.args = {
   ...Default.args,
   size: 'small',
-  triggerAction,
-};
-
-export const withBackground = Template.bind({});
-withBackground.args = {
-  ...Default.args,
-  withBackground: true,
   triggerAction,
 };
 
