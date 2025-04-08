@@ -13,9 +13,7 @@ module('Integration | Modifier | on-escape-action', function (hooks) {
     this.onCloseCallback = sinon.stub();
 
     // when
-    await render(hbs`<PixOverlay @onClose={{this.onCloseCallback}} {{on-escape-action this.onCloseCallback}}>
-  content
-</PixOverlay>`);
+    await render(hbs`<PixOverlay @onClose={{this.onCloseCallback}}>content</PixOverlay>`);
     await triggerKeyEvent('.pix-overlay', 'keyup', 'Escape');
 
     // then

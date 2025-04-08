@@ -5,15 +5,13 @@
 .pix-modal {
   @extend %pix-shadow-sm;
 
-  position: absolute;
-  top: 50%;
+  position: relative;
   left: 50%;
-  width: 512px;
-  max-width: calc(100% - var(--pix-spacing-4x));
-  overflow: hidden;
+  width: min(32rem, calc(100% - var(--pix-spacing-4x)));
+  margin-block: auto;
   background-color: var(--pix-neutral-20);
   border-radius: 4px;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
 
   &__header {
     display: flex;
