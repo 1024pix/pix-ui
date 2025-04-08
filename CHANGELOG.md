@@ -1,3 +1,9 @@
+# [55.13.0](https://github.com/1024pix/pix-ui/compare/v55.12.1...v55.13.0) (2025-04-08)
+
+### :rocket: Amélioration
+
+- [#858](https://github.com/1024pix/pix-ui/pull/858) Supprimer l'utilisation de withBackground dans PixIconButton (PIX-17289)
+
 ## [55.12.1](https://github.com/1024pix/pix-ui/compare/v55.12.0...v55.12.1) (2025-04-04)
 
 ### :bug: Correction
