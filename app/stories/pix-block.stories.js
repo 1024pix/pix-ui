@@ -3,7 +3,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { VARIANTS } from '../../addon/helpers/variants.js';
 
 export default {
-  title: 'Other/Contenu',
+  title: 'Other/Block',
   argTypes: {
     variant: {
       name: 'variant',
