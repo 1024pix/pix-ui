@@ -1,3 +1,9 @@
+## [55.13.1](https://github.com/1024pix/pix-ui/compare/v55.13.0...v55.13.1) (2025-04-09)
+
+### :bug: Correction
+
+- [#861](https://github.com/1024pix/pix-ui/pull/861) Rétablir les états (hover, active) sur les éléments de menu PixLayout (PIX-17419)
+
 # [55.13.0](https://github.com/1024pix/pix-ui/compare/v55.12.1...v55.13.0) (2025-04-08)
 
 ### :rocket: Amélioration
