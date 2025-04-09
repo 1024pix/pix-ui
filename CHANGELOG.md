@@ -1,3 +1,9 @@
+## [55.13.2](https://github.com/1024pix/pix-ui/compare/v55.13.1...v55.13.2) (2025-04-09)
+
+### :building_construction: Tech
+
+- [#859](https://github.com/1024pix/pix-ui/pull/859) Renommer la section PixBlock (PIX-16869)
+
 ## [55.13.1](https://github.com/1024pix/pix-ui/compare/v55.13.0...v55.13.1) (2025-04-09)
 
 ### :bug: Correction
