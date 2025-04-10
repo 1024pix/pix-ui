@@ -1,3 +1,13 @@
+# [55.14.0](https://github.com/1024pix/pix-ui/compare/v55.13.2...v55.14.0) (2025-04-10)
+
+### :rocket: Amélioration
+
+- [#860](https://github.com/1024pix/pix-ui/pull/860) Ajouter un attribut qui permet de supprimer les padding du PixBlock(PIX-17352) 
+
+### :bug: Correction
+
+- [#857](https://github.com/1024pix/pix-ui/pull/857) Réparer les problèmes liés à l'overflow du PixTable
+
 ## [55.13.2](https://github.com/1024pix/pix-ui/compare/v55.13.1...v55.13.2) (2025-04-09)
 
 ### :building_construction: Tech
