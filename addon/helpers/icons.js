@@ -3,6 +3,8 @@ export const ICONS = {
   add: { default: 'add' },
   arrowBottom: { default: 'arrowDown' },
   arrowLeft: { default: 'arrowLeft' },
+  arrowMenuClose: { default: 'arrowMenuClose' },
+  arrowMenuOpen: { default: 'arrowMenuOpen' },
   arrowRight: { default: 'arrowRight' },
   arrowTop: { default: 'arrowUp' },
   assignment: { default: 'assignment', plainIcon: 'assignment_plain' },
