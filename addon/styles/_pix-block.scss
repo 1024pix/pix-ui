@@ -24,4 +24,8 @@
     padding: var(--pix-spacing-3x);
     border: solid 1px var(--pix-primary-100);
   }
+
+  &--condensed {
+    padding: 0;
+  }
 }
