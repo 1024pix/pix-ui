@@ -49,12 +49,12 @@ export default {
       defaultValue: {
         summary: 'text',
       },
-      options: ['text', 'number', 'checkbox'],
+      options: ['text', 'number', 'checkbox', 'tag'],
       control: {
         type: 'select',
       },
       type: {
-        name: '"text" | "number"',
+        name: '"text" | "number" | "tag"',
         description: 'Defini le style avec lequel nous afficherons la colonne',
       },
     },
