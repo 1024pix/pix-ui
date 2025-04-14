@@ -1,3 +1,9 @@
+# [55.15.0](https://github.com/1024pix/pix-ui/compare/v55.14.0...v55.15.0) (2025-04-14)
+
+### :rocket: Amélioration
+
+- [#864](https://github.com/1024pix/pix-ui/pull/864) Ajouter icones pour keyOff(PIX-17413)
+
 # [55.14.0](https://github.com/1024pix/pix-ui/compare/v55.13.2...v55.14.0) (2025-04-10)
 
 ### :rocket: Amélioration
