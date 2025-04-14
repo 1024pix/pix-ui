@@ -205,3 +205,33 @@ Sorted.args = {
   ariaLabelSortAsc: 'click pour trier en ordre ascendant',
   ariaLabelSortDesc: 'click pour trier en ordre descendant',
 };
+
+const templateTag = (args) => {
+  return {
+    template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} @type='tag'>
+      <:header>
+        tag
+      </:header>
+      <:cell>
+        <PixTag>{{row.tag}}</PixTag>
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+    context: args,
+  };
+};
+export const Tag = templateTag.bind({});
+Tag.args = {
+  caption: 'Description du tableau',
+  data: [
+    {
+      tag: 'tag1',
+    },
+    {
+      tag: 'tag2',
+    },
+  ],
+};
