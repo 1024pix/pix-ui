@@ -52,6 +52,7 @@ export const ICONS = {
   info: { default: 'infoCircle', plainIcon: 'infoCircle_plain' },
   infoUser: { default: 'infoUser', plainIcon: 'infoUser_plain' },
   inventory: { default: 'archive', plainIcon: 'archive_plain' },
+  keyOff: { default: 'keyOff', plainIcon: 'keyOff_plain' },
   language: { default: 'language' },
   link: { default: 'link' },
   lock: { default: 'lock', plainIcon: 'lock_plain' },
