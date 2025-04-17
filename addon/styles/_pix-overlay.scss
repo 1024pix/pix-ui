@@ -1,10 +1,16 @@
 .pix-overlay {
   position: fixed;
   z-index: 1000;
-  inset: 0;
   overflow-y: auto;
   background-color: rgba(var(--pix-neutral-800-inline), 0.4);
   transition: all 0.3s ease-in-out;
+  inset: 0;
+
+  &--with-centered-content {
+    display: grid;
+    align-items: center;
+    padding-block: var(--pix-spacing-4x);
+  }
 
   &--hidden {
     visibility: hidden;

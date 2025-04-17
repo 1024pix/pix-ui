@@ -1,8 +1,11 @@
 <div
-  class="pix-overlay {{unless @isVisible ' pix-overlay--hidden'}}"
+  class="pix-overlay
+    {{unless @isVisible ' pix-overlay--hidden'}}
+    {{if @hasCenteredContent ' pix-overlay--with-centered-content'}}"
   {{on "click" this.onClick}}
   {{trap-focus @isVisible @focusOnClose}}
   {{on-escape-action @onClose}}
+  ...attributes
 >
   {{yield}}
 </div>
