@@ -1,3 +1,9 @@
+## [55.16.1](https://github.com/1024pix/pix-ui/compare/v55.16.0...v55.16.1) (2025-04-17)
+
+### :bug: Correction
+
+- [#862](https://github.com/1024pix/pix-ui/pull/862) Réparer le scroll de la modale lorsque le contenu est trop long (PIX-17422).
+
 # [55.16.0](https://github.com/1024pix/pix-ui/compare/v55.15.1...v55.16.0) (2025-04-17)
 
 ### :rocket: Amélioration
