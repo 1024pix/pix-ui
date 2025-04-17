@@ -1,3 +1,9 @@
+## [55.15.1](https://github.com/1024pix/pix-ui/compare/v55.15.0...v55.15.1) (2025-04-17)
+
+### :bug: Correction
+
+- [#866](https://github.com/1024pix/pix-ui/pull/866) Correction de la couleur du PixOverlay (PIX-17528)
+
 # [55.15.0](https://github.com/1024pix/pix-ui/compare/v55.14.0...v55.15.0) (2025-04-14)
 
 ### :rocket: Amélioration
