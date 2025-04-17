@@ -3,7 +3,7 @@
   z-index: 1000;
   inset: 0;
   overflow-y: auto;
-  background-color: rgba(var(--pix-primary-700-inline), 0.3);
+  background-color: rgba(var(--pix-neutral-800-inline), 0.4);
   transition: all 0.3s ease-in-out;
 
   &--hidden {
