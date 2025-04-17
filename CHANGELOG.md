@@ -1,3 +1,9 @@
+# [55.16.0](https://github.com/1024pix/pix-ui/compare/v55.15.1...v55.16.0) (2025-04-17)
+
+### :rocket: Amélioration
+
+- [#863](https://github.com/1024pix/pix-ui/pull/863) Ajout icônes arrowMenu(PIX-16993)
+
 ## [55.15.1](https://github.com/1024pix/pix-ui/compare/v55.15.0...v55.15.1) (2025-04-17)
 
 ### :bug: Correction
