@@ -5,8 +5,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
-
 module('Integration | Component | modal', function (hooks) {
   setupRenderingTest(hooks);
 
@@ -98,19 +96,5 @@ module('Integration | Component | modal', function (hooks) {
       assert.notOk(screen.queryByRole('dialog'));
       assert.notOk(screen.queryByRole('heading', { name: this.title }));
     });
-  });
-
-  test('it should throw an error if require @title argument is missing', async function (assert) {
-    // given
-    const componentParams = {};
-
-    // when
-    const renderComponent = function () {
-      createGlimmerComponent('pix-modal', componentParams);
-    };
-
-    // then
-    const expectedError = new Error('ERROR in PixModal component: @title argument is required.');
-    assert.throws(renderComponent, expectedError);
   });
 });

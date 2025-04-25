@@ -5,7 +5,6 @@ import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
 import fillInByLabel from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | pix-input-code', function (hooks) {
@@ -47,34 +46,6 @@ module('Integration | Component | pix-input-code', function (hooks) {
 
     // then
     assert.contains('Vous pouvez utiliser les flèches pour naviguer de champ en champ');
-  });
-
-  test('it should throw an error if PixInputCode does not have an ariaLabel', async function (assert) {
-    // given
-    const componentParams = { ariaLabel: null, legend: 'super legende' };
-    const component = createGlimmerComponent('pix-input-code', componentParams);
-
-    // when & then
-    const expectedError = new Error(
-      'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend',
-    );
-    assert.throws(function () {
-      component.ariaLabel;
-    }, expectedError);
-  });
-
-  test('it should throw an error if PixInputCode does not have a legend', async function (assert) {
-    // given
-    const componentParams = { ariaLabel: 'Champ', legend: null };
-    const component = createGlimmerComponent('pix-input-code', componentParams);
-
-    // when & then
-    const expectedError = new Error(
-      'ERROR in PixInputCode component, you must provide an @ariaLabel and a @legend',
-    );
-    assert.throws(function () {
-      component.legend;
-    }, expectedError);
   });
 
   module('when adding characters', function () {

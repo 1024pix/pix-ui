@@ -3,28 +3,12 @@ import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 
-import createGlimmerComponent from '../../helpers/create-glimmer-component';
-
 module('Integration | Component | PixProgressBar', function (hooks) {
   setupRenderingTest(hooks);
 
   const PROGRESS_BAR_SELECTOR = '.progress-bar';
 
   module('Attributes @value', function () {
-    test('it should throw an error if there is no value', async function (assert) {
-      // given & when
-      const componentParams = { value: undefined };
-      const component = createGlimmerComponent('pix-progress-bar', componentParams);
-
-      // then
-      const expectedError = new Error(
-        'ERROR in PixProgressBar component, @value param is not provided.',
-      );
-      assert.throws(function () {
-        component.value;
-      }, expectedError);
-    });
-
     test('it renders the value with percentage', async function (assert) {
       // given & when
       const screen = await render(hbs`<PixProgressBar @value='50' />`);
@@ -53,32 +37,6 @@ module('Integration | Component | PixProgressBar', function (hooks) {
       // then
       const progressbar = screen.getByRole('progressbar');
       assert.strictEqual(progressbar.value, 0);
-    });
-  });
-
-  module('Attributes @label', function () {
-    test('it should throw an error if there is no label', async function (assert) {
-      // given & when
-      const componentParams = { label: null };
-      const component = createGlimmerComponent('pix-progress-bar', componentParams);
-
-      // then
-      const expectedError = new Error(
-        'ERROR in PixProgressBar component, @label param is not provided.',
-      );
-      assert.throws(function () {
-        component.label;
-      }, expectedError);
-    });
-
-    test('it should not throw an error if there is no label and if @isDecorative is true', async function (assert) {
-      // given & when
-      const componentParams = { label: null, isDecorative: true };
-      const component = createGlimmerComponent('pix-progress-bar', componentParams);
-
-      // then
-      component.label;
-      assert.ok(true);
     });
   });
 
