@@ -1,3 +1,9 @@
+## [55.16.5](https://github.com/1024pix/pix-ui/compare/v55.16.4...v55.16.5) (2025-04-25)
+
+### :arrow_up: Montée de version
+
+- [#812](https://github.com/1024pix/pix-ui/pull/812) Update dependency ember-qunit to v9 (dossier racine)
+
 ## [55.16.4](https://github.com/1024pix/pix-ui/compare/v55.16.3...v55.16.4) (2025-04-25)
 
 ### :arrow_up: Montée de version
