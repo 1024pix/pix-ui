@@ -1,3 +1,9 @@
+## [55.16.2](https://github.com/1024pix/pix-ui/compare/v55.16.1...v55.16.2) (2025-04-25)
+
+### :arrow_up: Montée de version
+
+- [#808](https://github.com/1024pix/pix-ui/pull/808) Update dependency @glimmer/component to v2 (dossier racine)
+
 ## [55.16.1](https://github.com/1024pix/pix-ui/compare/v55.16.0...v55.16.1) (2025-04-17)
 
 ### :bug: Correction
