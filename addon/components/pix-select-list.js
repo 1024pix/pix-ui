@@ -1,9 +1,7 @@
 import Component from '@glimmer/component';
 
 export default class PixSelectList extends Component {
-  constructor(...args) {
-    super(...args);
-
+  get displayCategory() {
     const categories = [];
 
     this.args.options.forEach((element) => {
@@ -11,7 +9,7 @@ export default class PixSelectList extends Component {
         categories.push(element.category);
       }
     });
-    this.displayCategory = categories.length > 0;
+    return categories.length > 0;
   }
 
   get isDefaultOptionHidden() {
