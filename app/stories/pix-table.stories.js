@@ -14,8 +14,13 @@ export default {
     },
     caption: {
       name: 'caption',
-      description: "Description du tableau (lisible uniquement par les lecteurs d'écran)",
+      description: 'Description du tableau',
       type: { name: 'string', required: true },
+    },
+    displayCaption: {
+      name: 'displayCaption',
+      description: "Permet d'afficher ou non la caption du tableau",
+      type: { name: 'boolean', required: false },
     },
     columns: {
       name: '<:columns>',
@@ -63,6 +68,7 @@ const Template = (args) => {
   @variant={{this.variant}}
   @data={{this.data}}
   @caption={{this.caption}}
+  @displayCaption={{this.displayCaption}}
   @condensed={{this.condensed}}
 >
   <:columns as |row context|>

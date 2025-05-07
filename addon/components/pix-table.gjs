@@ -1,7 +1,11 @@
 import { VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { warn } from '@ember/debug';
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+
+import PixBlock from './pix-block';
 
 export default class PixTable extends Component {
   get variant() {
@@ -44,6 +48,10 @@ export default class PixTable extends Component {
     return `pix-table-header--${this.variant}`;
   }
 
+  get captionClass() {
+    return this.args.displayCaption ? 'pix-table__caption' : 'screen-reader-only';
+  }
+
   get hasOnRowClick() {
     return typeof this.args.onRowClick === 'function';
   }
@@ -55,4 +63,27 @@ export default class PixTable extends Component {
       this.args.onRowClick(row);
     }
   }
+
+  <template>
+    <PixBlock @variant={{@variant}} class={{this.tableClass}} ...attributes>
+      <table>
+        <caption class={{this.captionClass}}>{{this.caption}}</caption>
+        <thead class={{this.headerClass}}>
+          <tr>
+            {{yield null "header" to="columns"}}
+          </tr>
+        </thead>
+        <tbody>
+          {{#each @data as |row index|}}
+            <tr
+              class={{if this.hasOnRowClick "pix-table__clickable-row" ""}}
+              {{on "click" (fn this.onClick row)}}
+            >
+              {{yield row "cell" index to="columns"}}
+            </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </PixBlock>
+  </template>
 }

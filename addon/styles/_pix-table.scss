@@ -11,6 +11,14 @@
 
   @extend %pix-body-s;
 
+  &__caption {
+    margin-bottom: var(--pix-spacing-3x);
+    text-align: left;
+    caption-side: top;
+
+    @extend %pix-title-xxs;
+  }
+
   &__clickable-row {
     cursor: pointer;
 
