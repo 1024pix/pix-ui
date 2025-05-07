@@ -1,0 +1,24 @@
+{
+  "name": "eslint-formatter-kakoune",
+  "version": "1.0.0",
+  "description": "ESLint formatter for kakoune",
+  "main": "index.js",
+  "scripts": {
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Delapouite/eslint-formatter-kakoune.git"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-formatter",
+    "formatter",
+    "kakoune"
+  ],
+  "author": "Delapouite <delapouite@gmail.com> (http://delapouite.com)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Delapouite/eslint-formatter-kakoune/issues"
+  },
+  "homepage": "https://github.com/Delapouite/eslint-formatter-kakoune#readme"
+}

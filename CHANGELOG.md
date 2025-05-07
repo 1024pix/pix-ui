@@ -1,3 +1,9 @@
+# [55.17.0](https://github.com/1024pix/pix-ui/compare/v55.16.6...v55.17.0) (2025-05-07)
+
+### :rocket: Amélioration
+
+- [#874](https://github.com/1024pix/pix-ui/pull/874) Autoriser l'affichage du caption du tableau (PIX-17773)
+
 ## [55.16.6](https://github.com/1024pix/pix-ui/compare/v55.16.5...v55.16.6) (2025-04-25)
 
 ### :arrow_up: Montée de version

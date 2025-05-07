@@ -1,0 +1,16 @@
+{
+  "name": "mdn-links",
+  "version": "0.1.0",
+  "description": "Caches data from the Mozilla Developer Network wiki and provides methods to return links to documentation for JavaScript and DOM objects.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "mdn",
+    "documentation",
+    "yuidoc"
+  ],
+  "author": "Andy Earnshaw",
+  "license": "MIT"
+}
