@@ -1,0 +1,134 @@
+{
+  "name": "ember-cli-htmlbars",
+  "version": "6.3.0",
+  "description": "A library for adding htmlbars to ember CLI",
+  "keywords": [
+    "ember-addon",
+    "ember-cli"
+  ],
+  "homepage": "https://github.com/ember-cli/ember-cli-htmlbars",
+  "bugs": {
+    "url": "https://github.com/ember-cli/ember-cli-htmlbars/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ember-cli/ember-cli-htmlbars.git"
+  },
+  "license": "MIT",
+  "author": "Jonathan Jackson & Chase McCarthy",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "files": [
+    "lib/"
+  ],
+  "scripts": {
+    "build": "ember build",
+    "lint:hbs": "ember-template-lint .",
+    "lint:js": "eslint --cache .",
+    "start": "ember serve",
+    "test": "yarn run test:ember && yarn run test:node",
+    "test:ember": "ember test",
+    "test:node": "mocha node-tests/*.js",
+    "test:node:debug": "mocha debug node-tests/*.js"
+  },
+  "dependencies": {
+    "@ember/edition-utils": "^1.2.0",
+    "babel-plugin-ember-template-compilation": "^2.0.0",
+    "babel-plugin-htmlbars-inline-precompile": "^5.3.0",
+    "broccoli-debug": "^0.6.5",
+    "broccoli-persistent-filter": "^3.1.2",
+    "broccoli-plugin": "^4.0.3",
+    "ember-cli-version-checker": "^5.1.2",
+    "fs-tree-diff": "^2.0.1",
+    "hash-for-dep": "^1.5.1",
+    "heimdalljs-logger": "^0.1.10",
+    "js-string-escape": "^1.0.1",
+    "semver": "^7.3.4",
+    "silent-error": "^1.1.1",
+    "walk-sync": "^2.2.0"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/plugin-proposal-class-properties": "^7.13.0",
+    "@babel/plugin-proposal-decorators": "^7.12.12",
+    "@babel/plugin-transform-runtime": "^7.13.15",
+    "@babel/plugin-transform-typescript": "^7.10.1",
+    "@babel/runtime": "^7.13.8",
+    "@ember/optional-features": "^2.0.0",
+    "@ember/test-helpers": "^2.4.2",
+    "@embroider/test-setup": "^0.47.0",
+    "babel-eslint": "^10.1.0",
+    "babel-plugin-debug-macros": "^0.3.3",
+    "broccoli-merge-trees": "^4.2.0",
+    "broccoli-test-helper": "^2.0.0",
+    "chai": "^4.3.4",
+    "co": "^4.6.0",
+    "common-tags": "^1.8.0",
+    "console-ui": "^3.1.2",
+    "core-object": "^3.1.5",
+    "ember-auto-import": "^2.2.0",
+    "ember-cli": "~3.28.2",
+    "ember-cli-app-version": "^4.0.0",
+    "ember-cli-babel": "^7.26.6",
+    "ember-cli-dependency-checker": "^3.2.0",
+    "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-export-application-global": "^2.0.1",
+    "ember-load-initializers": "^2.1.1",
+    "ember-maybe-import-regenerator": "^0.1.6",
+    "ember-qunit": "^5.1.4",
+    "ember-resolver": "^8.0.2",
+    "ember-source": "~3.28.0",
+    "ember-source-channel-url": "^3.0.0",
+    "ember-styleguide": "^5.0.0",
+    "ember-template-lint": "^3.6.0",
+    "ember-try": "^1.4.0",
+    "eslint": "^7.32.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-ember": "^10.5.4",
+    "eslint-plugin-mocha": "^8.0.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.4.1",
+    "eslint-plugin-qunit": "^6.2.0",
+    "fixturify": "^2.1.1",
+    "loader.js": "^4.7.0",
+    "mocha": "^8.4.0",
+    "module-name-inliner": "link:./tests/dummy/lib/module-name-inliner",
+    "prettier": "^2.3.2",
+    "qunit": "^2.17.2",
+    "qunit-dom": "^2.0.0",
+    "release-it": "^14.2.1",
+    "release-it-lerna-changelog": "^3.1.0",
+    "webpack": "^5.58.2"
+  },
+  "engines": {
+    "node": "12.* || 14.* || >= 16"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "ember-addon": {
+    "main": "lib/ember-addon-main.js",
+    "configPath": "tests/dummy/config"
+  },
+  "resolutions": {
+    "ember-cli-htmlbars": "link:."
+  },
+  "release-it": {
+    "plugins": {
+      "release-it-lerna-changelog": {
+        "infile": "CHANGELOG.md",
+        "launchEditor": true
+      }
+    },
+    "git": {
+      "tagName": "v${version}"
+    },
+    "github": {
+      "release": true,
+      "tokenRef": "GITHUB_AUTH"
+    },
+    "npm": {
+      "publish": false
+    }
+  }
+}

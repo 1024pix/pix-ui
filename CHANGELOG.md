@@ -1,3 +1,10 @@
+## [55.17.2](https://github.com/1024pix/pix-ui/compare/v55.17.1...v55.17.2) (2025-05-09)
+
+### :bug: Correction
+
+- [#4](https://github.com/1024pix/pix-ui/pull/4) Update README.md
+- [#5](https://github.com/1024pix/pix-ui/pull/5) Update release.yml
+
 ## [55.17.1](https://github.com/1024pix/pix-ui/compare/v55.17.0...v55.17.1) (2025-05-09)
 
 ### :bug: Correction
