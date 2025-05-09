@@ -1,3 +1,9 @@
+## [55.17.1](https://github.com/1024pix/pix-ui/compare/v55.17.0...v55.17.1) (2025-05-09)
+
+### :bug: Correction
+
+- [#875](https://github.com/1024pix/pix-ui/pull/875) Permettre de cliquer sur le bouton de téléversement de fichier avec un lecteur d'écran
+
 # [55.17.0](https://github.com/1024pix/pix-ui/compare/v55.16.6...v55.17.0) (2025-05-07)
 
 ### :rocket: Amélioration
