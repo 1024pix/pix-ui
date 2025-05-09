@@ -26,12 +26,6 @@ jobs:
       - uses: 1024pix/pix-actions/release@main
         id: semantic
         with:
-          npmPublish: true
+          npmPublish: false
         env:
           GITHUB_TOKEN: ${{ secrets.PIX_SERVICE_ACTIONS_TOKEN }}
-          NPM_TOKEN: ${{ secrets.NPM_PUBLISH_ACCESS_TOKEN }}
-
-      - name: Deploy storybook to Github Pages
-        run: npm run deploy-storybook -- --ci
-        env:
-          GH_TOKEN: 1024pix:${{ secrets.GITHUB_TOKEN }}
