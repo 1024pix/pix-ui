@@ -1,3 +1,9 @@
+## [55.17.2](https://github.com/1024pix/pix-ui/compare/v55.17.1...v55.17.2) (2025-05-12)
+
+### :building_construction: Tech
+
+- [#877](https://github.com/1024pix/pix-ui/pull/877) Suppression du dossier node_modules
+
 ## [55.17.1](https://github.com/1024pix/pix-ui/compare/v55.17.0...v55.17.1) (2025-05-09)
 
 ### :bug: Correction
