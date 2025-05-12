@@ -58,12 +58,13 @@
 
     &__mean-value {
       font-weight: var(--pix-font-bold);
-
       @extend %pix-body-s;
+      font-size: 0.875rem;
     }
 
     &__max-value {
       @extend %pix-body-s;
+      font-size: 0.875rem;
     }
   }
 }
