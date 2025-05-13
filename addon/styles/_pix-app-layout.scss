@@ -42,7 +42,7 @@
 
   &__main, &__footer {
     width: 100%;
-    max-width: 93rem;
+    max-width: min(calc(100vw - 2 * var(--pix-spacing-6x)), 93rem);
     margin: 0 auto;
     padding: 0 var(--pix-spacing-6x);
 
