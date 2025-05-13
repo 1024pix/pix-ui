@@ -1,3 +1,9 @@
+# [55.18.0](https://github.com/1024pix/pix-ui/compare/v55.17.2...v55.18.0) (2025-05-13)
+
+### :rocket: Amélioration
+
+- [#878](https://github.com/1024pix/pix-ui/pull/878) Corriger le soucis de scroll horizontal sur les app (PIX-17808)
+
 ## [55.17.2](https://github.com/1024pix/pix-ui/compare/v55.17.1...v55.17.2) (2025-05-12)
 
 ### :building_construction: Tech
