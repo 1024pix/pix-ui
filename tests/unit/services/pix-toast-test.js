@@ -266,4 +266,38 @@ module('Unit | Service | toast', function (hooks) {
       });
     });
   });
+
+  module('#removeAllNotifications', function () {
+    test('Removes all notification from content array', function (assert) {
+      // given
+      const message = 'message';
+      const notificationToBeRemove = {
+        message,
+        type: 'success',
+      };
+      const errorNotification = {
+        message,
+        type: 'error',
+      };
+      const informationNotification = {
+        message,
+        type: 'information',
+      };
+      const warningNotification = {
+        message,
+        type: 'warning',
+      };
+
+      toastService.addNotification(notificationToBeRemove);
+      toastService.addNotification(errorNotification);
+      toastService.addNotification(informationNotification);
+      toastService.addNotification(warningNotification);
+
+      // when
+      toastService.removeAllNotifications();
+
+      // then
+      assert.strictEqual(toastService.content.length, 0);
+    });
+  });
 });
