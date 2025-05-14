@@ -1,14 +1,18 @@
 import { warn } from '@ember/debug';
 import Service from '@ember/service';
 import { tracked } from '@glimmer/tracking';
-
+/**
+ * @export
+ * @class ToastService
+ * @extends {Service}
+ */
 export default class ToastService extends Service {
   @tracked content = [];
 
   /**
    * Creates and returns a new toast notification.
-   * @param{string} message content to display
-   * @param{'error' | 'information' | 'success' | 'warning'} type type of toast notification
+   * @param {string} message content to display
+   * @param {'error' | 'information' | 'success' | 'warning'} type type of toast notification
    * @returns {EmberObject | void}
    */
   addNotification({ message, type }) {
@@ -36,7 +40,7 @@ export default class ToastService extends Service {
 
   /**
    * Check if toast already exist in content array
-   * @param{{message: string, type: string}} toast
+   * @param {{message: string, type: string}} toast
    * @returns {boolean}
    */
   exists(toast) {
@@ -59,7 +63,7 @@ export default class ToastService extends Service {
 
   /**
    * Creates and returns a new success toast notification.
-   * @param{string} message content to display
+   * @param {string} message content to display
    * @returns {EmberObject | void}
    */
   sendSuccessNotification({ message }) {
@@ -71,7 +75,7 @@ export default class ToastService extends Service {
 
   /**
    * Creates and returns a new information toast notification.
-   * @param{string} message content to display
+   * @param {string} message content to display
    * @returns {EmberObject | void}
    */
   sendInformationNotification({ message }) {
@@ -83,7 +87,7 @@ export default class ToastService extends Service {
 
   /**
    * Creates and returns a new warning toast notification.
-   * @param{string} message content to display
+   * @param {string} message content to display
    * @returns {EmberObject | void}
    */
   sendWarningNotification({ message }) {
@@ -95,8 +99,8 @@ export default class ToastService extends Service {
 
   /**
    * Remove toast notification from content list
-   * @param{{message: string, type: string}} toast toast to remove
-   * @returns {EmberObject | void}
+   * @param {{message: string, type: string}} toast toast to remove
+   * @returns {void}
    */
   removeNotification(toast) {
     if (!toast) return;
@@ -104,5 +108,16 @@ export default class ToastService extends Service {
     this.content = this.content.filter(
       (value) => toast.message !== value.message || toast.type !== value.type,
     );
+  }
+
+  /**
+   * Remove all toast notification from content list
+   * @param {void}
+   * @returns {void}
+   */
+  removeAllNotifications() {
+    if (this.content.length === 0) return;
+
+    this.content = [];
   }
 }
