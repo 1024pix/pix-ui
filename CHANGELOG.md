@@ -1,3 +1,9 @@
+## [55.18.1](https://github.com/1024pix/pix-ui/compare/v55.18.0...v55.18.1) (2025-05-14)
+
+### :building_construction: Tech
+
+- [#879](https://github.com/1024pix/pix-ui/pull/879) Ajout d'une méthode dans le PixToast service pour supprimer toutes les notifications (PIX-17822)
+
 # [55.18.0](https://github.com/1024pix/pix-ui/compare/v55.17.2...v55.18.0) (2025-05-13)
 
 ### :rocket: Amélioration
