@@ -24,6 +24,17 @@ export default {
       description: 'Fonction à appeler pour déclencher l’action de suppression des filtres',
       type: { required: false },
     },
+    loadFiltersLabel: {
+      name: 'loadFiltersLabel',
+      description: 'libellé du bouton pour exectuter le filtrage',
+      type: { name: 'string', required: false },
+    },
+    onLoadFilters: {
+      name: 'onLoadFilters',
+      description:
+        'Fonction à appeler pour déclencher l’action de recherche avec les filtres saisies',
+      type: { required: false },
+    },
     isClearFilterButtonDisabled: {
       name: 'isClearFilterButtonDisabled',
       description: 'Désactiver le bouton de suppression des filtres',
@@ -42,6 +53,8 @@ export const filterBanner = (args) => {
     template: hbs`<PixFilterBanner
   @title={{this.title}}
   @details={{this.details}}
+  @loadFiltersLabel={{this.loadFiltersLabel}}
+  @onLoadFilters={{this.onLoadFilters}}
   @clearFiltersLabel={{this.clearFiltersLabel}}
   @onClearFilters={{this.onClearFilters}}
   @isClearFilterButtonDisabled={{this.isClearFilterButtonDisabled}}
