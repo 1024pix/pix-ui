@@ -282,7 +282,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await screen.findByRole('listbox');
 
-        await screen.getByText('Tomate').focus();
+        await userEvent.keyboard('[ArrowDown]', { delay: 200 });
+        await userEvent.keyboard('[ArrowDown]');
 
         await userEvent.keyboard('[Enter]');
 
@@ -333,7 +334,8 @@ module('Integration | Component | PixSelect', function (hooks) {
 
         await screen.findByRole('listbox');
 
-        await screen.getByText('Tomate').focus();
+        await userEvent.keyboard('[ArrowDown]', { delay: 200 });
+        await userEvent.keyboard('[ArrowDown]');
 
         await userEvent.keyboard('[Space]');
 
