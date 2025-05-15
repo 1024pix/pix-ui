@@ -1,3 +1,9 @@
+## [55.18.2](https://github.com/1024pix/pix-ui/compare/v55.18.1...v55.18.2) (2025-05-15)
+
+### :building_construction: Tech
+
+- [#856](https://github.com/1024pix/pix-ui/pull/856) Utiliser FloatingUI dans le composant PixSelect (PIX-17376).
+
 ## [55.18.1](https://github.com/1024pix/pix-ui/compare/v55.18.0...v55.18.1) (2025-05-14)
 
 ### :building_construction: Tech
