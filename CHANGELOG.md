@@ -1,3 +1,9 @@
+# [55.19.0](https://github.com/1024pix/pix-ui/compare/v55.18.2...v55.19.0) (2025-05-20)
+
+### :rocket: Amélioration
+
+- [#880](https://github.com/1024pix/pix-ui/pull/880) Ajout d'un bouton permettant de lancer la requête après avoir fait un filter (PIX-17842)
+
 ## [55.18.2](https://github.com/1024pix/pix-ui/compare/v55.18.1...v55.18.2) (2025-05-15)
 
 ### :building_construction: Tech
