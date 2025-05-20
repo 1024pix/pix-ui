@@ -1,11 +1,12 @@
 import { render } from '@1024pix/ember-testing-library';
 import { click } from '@ember/test-helpers';
+import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-module('Integration | Component | filter-banner', function (hooks) {
+module('Integration | Component | pix-filter-banner', function (hooks) {
   setupRenderingTest(hooks);
 
   test('it renders the default PixFilterBanner', async function (assert) {
@@ -92,6 +93,60 @@ module('Integration | Component | filter-banner', function (hooks) {
 
       // then
       assert.ok(this.onClearFilters.calledOnce, 'the callback should be called once');
+    });
+  });
+
+  module('loadFilterbutton', function () {
+    test('it renders the PixFilterBanner with a loadFiltersLabel button', async function (assert) {
+      // given && when
+      this.loadFiltersLabel = 'Charger !';
+      this.onLoadFilters = sinon.spy();
+
+      const screen =
+        await render(hbs`<PixFilterBanner @loadFiltersLabel={{this.loadFiltersLabel}} @onLoadFilters={{this.onLoadFilters}}>
+  content
+</PixFilterBanner>`);
+
+      // then
+      const button = screen.getByRole('button', { name: this.loadFiltersLabel });
+      assert.dom(button).exists();
+    });
+
+    test('it should trigger onLoadFilters when button clicked', async function (assert) {
+      // given
+      this.loadFiltersLabel = 'Charger !';
+      this.onLoadFilters = sinon.spy();
+
+      const screen =
+        await render(hbs`<PixFilterBanner @loadFiltersLabel={{this.loadFiltersLabel}} @onLoadFilters={{this.onLoadFilters}}>
+  content
+</PixFilterBanner>`);
+
+      // when
+      await click(screen.getByRole('button', { name: this.loadFiltersLabel }));
+
+      // then
+      assert.ok(this.onLoadFilters.calledOnce, 'the callback should be called once');
+    });
+
+    test('it should trigger onLoadFilters on key event Enter', async function (assert) {
+      // given
+      this.loadFiltersLabel = 'Charger !';
+      this.onLoadFilters = sinon.spy();
+
+      const screen =
+        await render(hbs`<PixFilterBanner @loadFiltersLabel={{this.loadFiltersLabel}} @onLoadFilters={{this.onLoadFilters}}>
+  <label for='toto'>label</label>
+  <input id='toto' name='toto' />
+</PixFilterBanner>`);
+
+      screen.getByLabelText('label').focus();
+
+      // when
+      await userEvent.keyboard('[Enter]');
+
+      // then
+      assert.ok(this.onLoadFilters.calledOnce, 'the callback should be called once');
     });
   });
 });

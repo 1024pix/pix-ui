@@ -34,17 +34,13 @@
   &__action {
     display: flex;
     flex-direction: column;
-    align-items: flex-end;
-  }
-
-  &__details {
-    padding: 0;
+    gap: var(--pix-spacing-1x);
+    align-items: center;
     font-weight: var(--pix-font-medium);
   }
 
   &__button {
     padding: 0;
-    font-size: 0.875rem;
   }
 }
 
