@@ -1,0 +1,91 @@
+<div
+  class="pix-select {{if @inlineLabel ' pix-select--inline'}}"
+  id="container-{{this.selectId}}"
+  {{on-click-outside this.hideDropdown}}
+  {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
+  {{on-escape-action this.hideDropdown this.selectId}}
+  {{on "keydown" this.lockTab}}
+  ...attributes
+>
+  {{#if (has-block "label")}}
+    <PixLabel
+      @for={{this.selectId}}
+      @requiredLabel={{@requiredLabel}}
+      @subLabel={{@subLabel}}
+      @size={{@size}}
+      @screenReaderOnly={{@screenReaderOnly}}
+      @inlineLabel={{@inlineLabel}}
+    >
+      {{yield to="label"}}
+    </PixLabel>
+  {{/if}}
+
+  <div>
+    <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
+      <button
+        {{reference}}
+        type="button"
+        id={{this.selectId}}
+        class={{this.className}}
+        {{on "click" this.toggleDropdown}}
+        aria-expanded={{this.isAriaExpanded}}
+        aria-controls={{this.listId}}
+        aria-disabled={{@isDisabled}}
+      >
+        {{#if @iconName}}
+          <PixIcon
+            @name={{@iconName}}
+            @plainIcon={{@plainIcon}}
+            @ariaHidden={{true}}
+            class="pix-select-button__icon"
+          />
+        {{/if}}
+
+        <span class="pix-select-button__text">{{this.placeholder}}</span>
+
+        <PixIcon
+          class="pix-select-button__dropdown-icon"
+          @ariaHidden={{true}}
+          @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
+        />
+      </button>
+      <div
+        {{popover}}
+        class="pix-select__dropdown {{unless this.isExpanded ' pix-select__dropdown--closed'}}"
+        {{on "transitionend" this.focus}}
+      >
+        {{#if @isSearchable}}
+          <div class="pix-select__search">
+            <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
+            <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
+            <input
+              class="pix-select-search__input"
+              id={{this.searchId}}
+              autocomplete="off"
+              tabindex={{if this.isExpanded "0" "-1"}}
+              placeholder={{@searchPlaceholder}}
+              {{on "input" this.setSearchValue}}
+            />
+          </div>
+        {{/if}}
+        <PixSelectList
+          @hideDefaultOption={{@hideDefaultOption}}
+          @listId={{this.listId}}
+          @value={{@value}}
+          @displayDefaultOption={{this.displayDefaultOption}}
+          @searchValue={{this.searchValue}}
+          @onChange={{this.onChange}}
+          @defaultOption={{this.defaultOption}}
+          @selectId={{this.selectId}}
+          @isExpanded={{this.isExpanded}}
+          @options={{@options}}
+          @defaultOptionValue={{@placeholder}}
+          @emptySearchMessage={{@emptySearchMessage}}
+        />
+      </div>
+    </PopperJS>
+    {{#if @errorMessage}}
+      <p class="pix-select__error-message">{{@errorMessage}}</p>
+    {{/if}}
+  </div>
+</div>
