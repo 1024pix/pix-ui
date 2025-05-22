@@ -1,3 +1,9 @@
+## [55.19.1](https://github.com/1024pix/pix-ui/compare/v55.19.0...v55.19.1) (2025-05-22)
+
+### :rewind: Retour en arrière
+
+- [#881](https://github.com/1024pix/pix-ui/pull/881) Revert "[TECH] Utiliser FloatingUI dans le composant PixSelect (PIX-17376)."
+
 # [55.19.0](https://github.com/1024pix/pix-ui/compare/v55.18.2...v55.19.0) (2025-05-20)
 
 ### :rocket: Amélioration
