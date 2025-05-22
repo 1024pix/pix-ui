@@ -42,8 +42,9 @@
   table {
     width: 100%;
     border-collapse: collapse;
+  }
 
-    tbody > tr:nth-of-type(even):not(.pix-table__clickable-row:hover, .pix-table__clickable-row:focus, .pix-table__clickable-row:active) {
+   tbody > tr:nth-of-type(even):not(.pix-table__clickable-row:hover, .pix-table__clickable-row:focus, .pix-table__clickable-row:active) {
       background-color: rgba(var(--pix-neutral-20-inline), 0.80);
     }
 
@@ -93,13 +94,15 @@
         border-radius: 0 var(--pix-spacing-2x) var(--pix-spacing-2x) 0;
       }
     }
-  }
 
   &--condensed {
-    table {
-      th, td {
-        padding: .5rem var(--pix-spacing-4x);
-      }
+    th, td {
+      padding: .5rem var(--pix-spacing-4x);
+    }
+
+    td.pix-table-column--tag {
+        padding-top: 0.375rem;
+        padding-bottom: 0.375rem;
     }
   }
 }

@@ -122,6 +122,14 @@ const Template = (args) => {
         {{row.age}}
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type='tag'>
+      <:header>
+        Hobby
+      </:header>
+      <:cell>
+        <PixTag>{{row.hobby}}</PixTag>
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>`,
     context: args,
@@ -136,11 +144,13 @@ Default.args = {
       id: '1',
       name: 'jean',
       age: 15,
+      hobby: 'Couture',
     },
     {
       id: '2',
       name: 'brian',
       age: 25,
+      hobby: 'Tricot',
     },
   ],
 };

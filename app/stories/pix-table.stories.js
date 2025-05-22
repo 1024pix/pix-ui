@@ -96,6 +96,14 @@ const Template = (args) => {
         {{row.age}}
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type='tag'>
+      <:header>
+        tag
+      </:header>
+      <:cell>
+        <PixTag>{{row.tag}}</PixTag>
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>
 {{! template-lint-disable no-forbidden-elements}}
@@ -115,11 +123,13 @@ Default.args = {
       name: 'jean',
       description: 'fort au jungle speed',
       age: 15,
+      tag: 'tag1',
     },
     {
       name: 'brian',
       description: 'travail au peach pit',
       age: 25,
+      tag: 'tag2',
     },
   ],
   onNameSort: () => {

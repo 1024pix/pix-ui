@@ -70,6 +70,16 @@
         <PixIcon @name="info" @title={{concat row.name " a " row.age " ans"}} />
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type="tag">
+      <:header>
+        Tag
+      </:header>
+      <:cell>
+        <PixTag>
+          Un tag
+        </PixTag>
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>
 {{! template-lint-disable no-forbidden-elements }}
