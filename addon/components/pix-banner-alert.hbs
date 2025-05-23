@@ -17,7 +17,7 @@
             rel="noopener noreferrer"
           >
             {{@actionLabel}}
-            <PixIcon @name="openNew" class="external-link" />
+            <PixIcon @name="openNew" class="external-link" @ariaHidden={{true}} />
           </a>
         {{else}}
           <LinkTo class="pix-banner-alert__action" @route={{@actionUrl}}>{{@actionLabel}}</LinkTo>
