@@ -1,3 +1,9 @@
+## [55.19.2](https://github.com/1024pix/pix-ui/compare/v55.19.1...v55.19.2) (2025-05-23)
+
+### :bug: Correction
+
+- [#882](https://github.com/1024pix/pix-ui/pull/882) Corriger l'erreur d'accessibilité sur le lien externe de la PixBannerAlert (PIX-A11Y)
+
 ## [55.19.1](https://github.com/1024pix/pix-ui/compare/v55.19.0...v55.19.1) (2025-05-22)
 
 ### :rewind: Retour en arrière
