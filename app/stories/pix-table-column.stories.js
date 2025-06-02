@@ -49,12 +49,12 @@ export default {
       defaultValue: {
         summary: 'text',
       },
-      options: ['text', 'number', 'checkbox'],
+      options: ['text', 'number', 'checkbox', 'tag'],
       control: {
         type: 'select',
       },
       type: {
-        name: '"text" | "number"',
+        name: '"text" | "number" | "tag"',
         description: 'Defini le style avec lequel nous afficherons la colonne',
       },
     },
@@ -122,6 +122,14 @@ const Template = (args) => {
         {{row.age}}
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type='tag'>
+      <:header>
+        Hobby
+      </:header>
+      <:cell>
+        <PixTag>{{row.hobby}}</PixTag>
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>`,
     context: args,
@@ -136,11 +144,13 @@ Default.args = {
       id: '1',
       name: 'jean',
       age: 15,
+      hobby: 'Couture',
     },
     {
       id: '2',
       name: 'brian',
       age: 25,
+      hobby: 'Tricot',
     },
   ],
 };
@@ -204,4 +214,34 @@ Sorted.args = {
   ariaLabelDefaultSort: 'click pour trier',
   ariaLabelSortAsc: 'click pour trier en ordre ascendant',
   ariaLabelSortDesc: 'click pour trier en ordre descendant',
+};
+
+const templateTag = (args) => {
+  return {
+    template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} @type='tag'>
+      <:header>
+        tag
+      </:header>
+      <:cell>
+        <PixTag>{{row.tag}}</PixTag>
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+    context: args,
+  };
+};
+export const Tag = templateTag.bind({});
+Tag.args = {
+  caption: 'Description du tableau',
+  data: [
+    {
+      tag: 'tag1',
+    },
+    {
+      tag: 'tag2',
+    },
+  ],
 };

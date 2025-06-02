@@ -1,9 +1,15 @@
-.pix-table-column {
-  &--number {
-    text-align: left;
-  }
+td.pix-table-column {
+    &--number {
+      text-align: left;
+    }
 
-  &--checkbox {
-    width: 3.25rem;
+    &--checkbox {
+      width: 3.25rem;
+    }
+
+    &--tag {
+      padding-top: 0.875rem;
+      padding-bottom: 0.875rem;
+      text-align: left;
+    }
   }
-}
