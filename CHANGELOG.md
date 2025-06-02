@@ -1,3 +1,9 @@
+# [55.20.0](https://github.com/1024pix/pix-ui/compare/v55.19.2...v55.20.0) (2025-06-02)
+
+### :rocket: Amélioration
+
+- [#865](https://github.com/1024pix/pix-ui/pull/865) Ajouter le type tag au composant pix-table-column (PIX-16963)
+
 ## [55.19.2](https://github.com/1024pix/pix-ui/compare/v55.19.1...v55.19.2) (2025-05-23)
 
 ### :bug: Correction
