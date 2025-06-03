@@ -844,6 +844,37 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.strictEqual(listElement2[0].labels[0].innerText.trim(), 'Tomate');
       assert.strictEqual(listElement2[2].labels[0].innerText.trim(), 'Oignon');
     });
+    test('should be disabled', async function (assert) {
+      // given
+      this.label = 'multiSelectLabel';
+      this.options = DEFAULT_OPTIONS;
+      this.values = ['2'];
+      this.onChange = () => {};
+      this.emptyMessage = 'no result';
+      this.placeholder = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.placeholder = 'Placeholder test';
+      this.isDisabled = true;
+
+      // when
+      const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @showOptionsOnInput={{true}}
+  @options={{this.options}}
+  @isDisabled={{this.isDisabled}}
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`);
+      // then
+      assert.true(screen.queryByRole('textbox').disabled);
+    });
   });
 
   module('custom class name', function () {
@@ -903,6 +934,38 @@ module('Integration | Component | multi-select', function (hooks) {
 
       // then
       assert.dom(screen.getByLabelText('multiSelectLabel')).isFocused();
+    });
+  });
+
+  module('disabled', function () {
+    test('it renders a disabled select', async function (assert) {
+      // given
+      this.label = 'multiSelectLabel';
+      this.options = DEFAULT_OPTIONS;
+      this.values = [];
+      this.onChange = () => {};
+      this.emptyMessage = 'no result';
+      this.placeholder = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isDisabled = true;
+
+      // when
+      const screen = await render(hbs`<PixMultiSelect
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  @isDisabled={{this.isDisabled}}
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+
+</PixMultiSelect>`);
+
+      // then
+      assert.true(screen.queryByRole('button').disabled);
     });
   });
 });

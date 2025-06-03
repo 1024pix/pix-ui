@@ -32,6 +32,10 @@ Si vous utilisez le `PixMultiSelect` sans vouloir afficher le label, il faudra r
 
 <Story of={ComponentStories.multiSelectWithYield} height={330} />
 
+## Disabled
+
+<Story of={ComponentStories.multiSelectDisabled} height={330} />
+
 ## Usage
 
 ```html
@@ -44,6 +48,7 @@ Si vous utilisez le `PixMultiSelect` sans vouloir afficher le label, il faudra r
   @emptyMessage="{{emptyMessage}}"
   @className="{{className}}"
   @options="{{options}}"
+  @isDisabled="{{isDisabled}}"
 >
   <:label>{{label}}</:label>
   <:default as |option|>{{option.label}}</:default>
