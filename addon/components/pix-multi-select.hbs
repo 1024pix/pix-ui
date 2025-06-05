@@ -38,6 +38,7 @@
           aria-expanded={{this.isAriaExpanded}}
           aria-controls={{this.listId}}
           aria-haspopup="menu"
+          disabled={{@isDisabled}}
         />
       </span>
     {{else}}
@@ -49,6 +50,7 @@
         aria-controls={{this.listId}}
         aria-haspopup="menu"
         class={{this.mainInputClassName}}
+        disabled={{@isDisabled}}
         {{on "click" this.toggleDropDown}}
       >
         {{#if (has-block "placeholder")}}

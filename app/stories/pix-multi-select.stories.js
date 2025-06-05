@@ -26,6 +26,7 @@ export default {
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @options={{this.options}}
+  @isDisabled={{this.isDisabled}}
 >
   <:label>{{this.label}}</:label>
   <:default as |option|>{{option.label}}</:default>
@@ -166,6 +167,11 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    isDisabled: {
+      name: 'isDisabled',
+      description: 'Permet de désactiver le champ',
+      type: { name: 'boolean', required: false },
+    },
   },
 };
 
@@ -207,6 +213,7 @@ export const multiSelectWithChildComponent = (args) => {
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
+  @isDisabled={{this.isDisabled}}
 >
   <:label>{{this.label}}</:label>
   <:default as |option|>
@@ -256,6 +263,26 @@ export const multiSelectWithId = {
     label: undefined,
     id: 'custom',
     isSearchable: false,
+  },
+};
+
+export const multiSelectDisabled = {
+  args: {
+    ...Default.args,
+    label: undefined,
+    id: 'custom',
+    isSearchable: false,
+    isDisabled: true,
+  },
+};
+
+export const multiSelectSearchableDisabled = {
+  args: {
+    ...Default.args,
+    isSearchable: true,
+    strictSearch: true,
+    emptyMessage: 'Aucune option trouvée',
+    isDisabled: true,
   },
 };
 
