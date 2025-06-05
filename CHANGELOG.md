@@ -1,3 +1,9 @@
+# [55.21.0](https://github.com/1024pix/pix-ui/compare/v55.20.0...v55.21.0) (2025-06-05)
+
+### :rocket: Amélioration
+
+- [#883](https://github.com/1024pix/pix-ui/pull/883) Ajout d'un argument `isDisabled` sur PixMultiSelect
+
 # [55.20.0](https://github.com/1024pix/pix-ui/compare/v55.19.2...v55.20.0) (2025-06-02)
 
 ### :rocket: Amélioration
