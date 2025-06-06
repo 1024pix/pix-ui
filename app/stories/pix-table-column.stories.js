@@ -49,12 +49,12 @@ export default {
       defaultValue: {
         summary: 'text',
       },
-      options: ['text', 'number', 'checkbox', 'tag'],
+      options: ['text', 'number', 'checkbox', 'tag', 'tagDate'],
       control: {
         type: 'select',
       },
       type: {
-        name: '"text" | "number" | "tag"',
+        name: '"text" | "number" | "tag" | "tagDate"',
         description: 'Defini le style avec lequel nous afficherons la colonne',
       },
     },
@@ -242,6 +242,40 @@ Tag.args = {
     },
     {
       tag: 'tag2',
+    },
+  ],
+};
+
+// TODO sépare
+const templateTagDate = (args) => {
+  return {
+    template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} @type='tagDate'>
+      <:header>
+        tag + date
+      </:header>
+      <:cell>
+        <PixTag>{{row.tag}}</PixTag>
+          <subCell>{{row.date}}</subCell>
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+    context: args,
+  };
+};
+export const TagDate = templateTagDate.bind({});
+TagDate.args = {
+  caption: 'Description du tableau',
+  data: [
+    {
+      tag: 'tag1',
+      date: '01/01/1970',
+    },
+    {
+      tag: 'tag2',
+      date: '02/02/1980',
     },
   ],
 };
