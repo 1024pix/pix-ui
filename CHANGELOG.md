@@ -1,3 +1,9 @@
+## [55.21.1](https://github.com/1024pix/pix-ui/compare/v55.21.0...v55.21.1) (2025-06-06)
+
+### :building_construction: Tech
+
+- [#886](https://github.com/1024pix/pix-ui/pull/886) Augmenter le z-index de la bannière dans le composant PixAppLayout (PIX-18111)
+
 # [55.21.0](https://github.com/1024pix/pix-ui/compare/v55.20.0...v55.21.0) (2025-06-05)
 
 ### :rocket: Amélioration
