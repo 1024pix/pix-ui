@@ -20,6 +20,9 @@
   {{else}}
     <td class={{this.typeClass}} ...attributes>
       {{yield to="cell"}}
+      {{#if (has-block "subCell")}}
+        <p>{{yield to="subCell"}}</p>
+      {{/if}}
     </td>
   {{/if}}
 {{/if}}
