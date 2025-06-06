@@ -1,3 +1,5 @@
+@use "pix-design-tokens/typography";
+
 td.pix-table-column {
     &--number {
       text-align: left;
@@ -12,4 +14,21 @@ td.pix-table-column {
       padding-bottom: 0.875rem;
       text-align: left;
     }
+
+  &--tag-date {
+    padding-top: var(--pix-spacing-1x);
+    padding-bottom: var(--pix-spacing-1x);
+
+    .pix-tag {
+      text-align: left;
+    }
+
+    p {
+      @extend %pix-body-xs;
+
+      margin-top: 0.125rem;
+      color: var(--pix-neutral-900);
+      text-align: center;
+    }
+  }
   }
