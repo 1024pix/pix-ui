@@ -75,7 +75,7 @@ export default class PixTableColumn extends Component {
   }
 
   get typeClass() {
-    const correctTypes = ['number', 'text', 'checkbox', 'tag'];
+    const correctTypes = ['number', 'text', 'checkbox', 'tag', 'tagDate'];
     warn('PixTableColumn: you need to provide a valid type', correctTypes.includes(this.type), {
       id: 'pix-ui.table-column.type.incorrect',
     });
@@ -87,6 +87,9 @@ export default class PixTableColumn extends Component {
     }
     if (this.args.type === 'tag') {
       return `pix-table-column--tag`;
+    }
+    if (this.args.type === 'tagDate') {
+      return `pix-table-column--tag-date`;
     }
     return '';
   }
