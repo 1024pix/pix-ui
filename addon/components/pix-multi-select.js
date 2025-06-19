@@ -21,12 +21,25 @@ export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
   @tracked searchData;
 
-  @tracked options = [];
+  get options() {
+    return [...(this.args.options || [])];
+  }
 
-  constructor(...args) {
-    super(...args);
+  get hasValues() {
+    return this.args.values && Array.isArray(this.args.values);
+  }
 
-    this.options = [...(this.args.options || [])];
+  get displayedOptions() {
+    const optionsWithCheckedStatus = this.options.map((option) => ({
+      ...option,
+      checked: this.hasValues ? this.args.values.includes(option.value) : false,
+    }));
+
+    if (this.args.isSearchable) {
+      return [...optionsWithCheckedStatus.sort(sortOptionsByCheckedFirst)];
+    }
+
+    return optionsWithCheckedStatus;
   }
 
   get mainInputClassName() {
@@ -57,9 +70,9 @@ export default class PixMultiSelect extends Component {
 
   get results() {
     if (this.args.isSearchable && this.searchData) {
-      return this.options.filter(({ label }) => this._search(label));
+      return this.displayedOptions.filter(({ label }) => this._search(label));
     }
-    return this.options;
+    return this.displayedOptions;
   }
 
   get placeholder() {
@@ -75,19 +88,6 @@ export default class PixMultiSelect extends Component {
       return selectedOptionLabels;
     }
     return placeholder;
-  }
-
-  _setDisplayedOptions(selected, shouldSort) {
-    const options = this.options.map((option) => ({
-      ...option,
-      checked: selected ? selected.includes(option.value) : false,
-    }));
-
-    if (shouldSort && this.args.isSearchable) {
-      options.sort(sortOptionsByCheckedFirst);
-    }
-
-    this.options = options;
   }
 
   _search(label) {
@@ -124,7 +124,6 @@ export default class PixMultiSelect extends Component {
   showDropDown() {
     if (this.isExpanded) return;
     this.isExpanded = true;
-    this._setDisplayedOptions(this.args.values, true);
   }
 
   @action
@@ -144,9 +143,6 @@ export default class PixMultiSelect extends Component {
       ? event.target.value
       : removeCapitalizeAndDiacritics(event.target.value);
     this.isExpanded = true;
-    if (!event.target.value) {
-      this._setDisplayedOptions(this.args.values, true);
-    }
   }
 
   get className() {
