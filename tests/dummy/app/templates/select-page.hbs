@@ -11,4 +11,22 @@
   <:label>Label</:label>
 </PixSelect>
 
+<div class="multi-select">
+  <PixMultiSelect
+    @options={{this.multiOptions}}
+    @values={{this.multiValues}}
+    @onChange={{this.onMultiChange}}
+    @isSearchable={{true}}
+    @searchLabel="Rechercher une option"
+    @searchPlaceholder="Euuuuuh"
+    @emptySearchMessage="Aucun résultat"
+    @emptyMessage="Pas d'options"
+    class="full"
+  >
+    <:label>Kebab</:label>
+    <:default as |option|>{{option.label}}</:default>
+  </PixMultiSelect>
+  <PixButton @triggerAction={{this.addNewMultiOption}}>Ajouter une option</PixButton>
+</div>
+
 <PixPagination @pagination={{this.pagination}} />

@@ -5,6 +5,12 @@ import { action } from '@ember/object';
 export default class SelectPage extends Controller {
   @tracked selectedOption = null;
   @tracked structure = this.structures[1];
+  @tracked multiValues = [];
+  @tracked multiOptions = [
+    { value: 'a', label: 'Salade'},
+    { value: 'b', label: 'Tomate'},
+    { value: 'c', label: 'Oignons'},
+  ]
 
   @action
   onChange(option) {
@@ -12,8 +18,20 @@ export default class SelectPage extends Controller {
   }
 
   @action
+  onMultiChange(values) {
+    this.multiValues = values;
+  }
+
+  @action
   setStructure(option) {
     this.structure = option;
+  }
+
+  @action
+  addNewMultiOption() {
+    if (this.multiOptions.length > 3) return;
+    const newOption = { value: 'd', label: 'Harissa (NEW)' };
+    this.multiOptions = [...this.multiOptions, newOption]
   }
 
   get options() {
