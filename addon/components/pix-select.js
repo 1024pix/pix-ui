@@ -100,6 +100,10 @@ export default class PixSelect extends Component {
 
   @action
   setSearchValue(event) {
+    if (this.args.onSearch) {
+      this.args.onSearch(event.target.value);
+      return;
+    }
     this.searchValue = event.target.value.trim();
   }
 

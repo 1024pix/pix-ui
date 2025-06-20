@@ -619,6 +619,56 @@ module('Integration | Component | PixSelect', function (hooks) {
       await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), 'Cheddar');
       assert.ok(screen.getByText('Aucune option'));
     });
+
+    module('when @onSearch is supplied', function () {
+      test('should call @onSearch on search input', async function (assert) {
+        this.isSearchable = true;
+        this.onSearch = sinon.spy();
+
+        await render(hbs`<PixSelect
+  @options={{this.options}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+  @onSearch={{this.onSearch}}
+>
+  <:label>{{this.label}}</:label>
+</PixSelect>`);
+
+        // when
+        await clickByName('Mon menu déroulant');
+        await fillByLabel('Rechercher', 'Sal');
+
+        assert.ok(this.onSearch.calledOnce);
+        assert.deepEqual(this.onSearch.args[0], ['Sal']);
+      });
+
+      test('should not filter by default', async function (assert) {
+        this.isSearchable = true;
+        this.onSearch = sinon.stub();
+
+        const screen = await render(hbs`<PixSelect
+  @options={{this.options}}
+  @placeholder={{this.placeholder}}
+  @searchLabel={{this.searchLabel}}
+  @searchPlaceholder={{this.searchPlaceholder}}
+  @isSearchable={{this.isSearchable}}
+  @onSearch={{this.onSearch}}
+>
+  <:label>{{this.label}}</:label>
+</PixSelect>`);
+
+        // when
+        await clickByName('Mon menu déroulant');
+        await fillByLabel('Rechercher', 'Sal');
+
+        await screen.findByRole('listbox');
+
+        const filteredOptions = screen.queryAllByRole('option');
+        assert.strictEqual(filteredOptions.length, 4);
+      });
+    });
   });
 
   module('#required', function () {
