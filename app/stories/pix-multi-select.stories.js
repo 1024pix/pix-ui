@@ -81,6 +81,12 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: false } },
     },
+    onSearch: {
+      name: 'onSearch',
+      description:
+        'Une fonction appelée à chaque entrée dans le champ de recherche. Permet de manuellement gérer le filtrage des options. ⚠️ **Désactive le filtrage automatique par défaut des options** ⚠️. Uniquement disponible si ``isSearchable`` est ``true``',
+      type: { name: 'function', required: false },
+    },
     headerClassName: {
       name: 'headerClassName',
       description: 'Cette classe css permet de surcharger le css par défaut du composant.',
