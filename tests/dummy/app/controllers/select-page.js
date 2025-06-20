@@ -57,7 +57,7 @@ export default class SelectPage extends Controller {
   @action
   addNewOption() {
     if (this.options.length > 6) return;
-    const newOption = { value: '7', label: 'Citron', category: 'jaune' };
+    const newOption = { value: '7', label: 'Citron', category: 'yellow' };
     this.options = [...this.options, newOption]
   }
 

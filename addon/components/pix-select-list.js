@@ -1,22 +1,21 @@
 import Component from '@glimmer/component';
 
 export default class PixSelectList extends Component {
-  constructor(...args) {
-    super(...args);
+  get categories() {
+    const uniqueCategories = new Set(
+      ...this.args.options.map((option) => option.category).filter(Boolean),
+    );
+    return Array.from(uniqueCategories.values());
+  }
 
-    const categories = [];
-
-    this.args.options.forEach((element) => {
-      if (!categories.includes(element.category) && element.category !== undefined) {
-        categories.push(element.category);
-      }
-    });
-    this.displayCategory = categories.length > 0;
+  get displayCategory() {
+    return this.categories.length > 0;
   }
 
   get isDefaultOptionHidden() {
     return !this.args.isExpanded || this.args.hideDefaultOption;
   }
+
   get results() {
     const results = [];
     let options = this.args.options;

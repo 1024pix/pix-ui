@@ -66,7 +66,8 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       await screen.findByRole('listbox');
 
       assert.strictEqual(screen.getAllByRole('option').length, 7);
-      assert.ok(screen.getByRole('option', { name: 'Citron' }));
+      assert.dom(screen.getAllByRole('presentation').at(-1)).hasText('yellow');
+      assert.dom(screen.getByRole('option', { name: 'Citron' })).exists();
     });
 
     test('it should filter by custom regex', async function (assert) {
