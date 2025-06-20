@@ -11,6 +11,7 @@ export default class SelectPage extends Controller {
     { value: 'b', label: 'Tomate'},
     { value: 'c', label: 'Oignons'},
   ]
+  @tracked searchValue;
 
   @action
   onChange(option) {
@@ -32,6 +33,11 @@ export default class SelectPage extends Controller {
     if (this.multiOptions.length > 3) return;
     const newOption = { value: 'd', label: 'Harissa (NEW)' };
     this.multiOptions = [...this.multiOptions, newOption]
+  }
+
+  @action
+  onSearch(search) {
+    this.searchValue = search;
   }
 
   get options() {
@@ -60,6 +66,16 @@ export default class SelectPage extends Controller {
         category: 'vert',
       },
     ];
+  }
+
+  get filteredOptions() {
+    if (this.searchValue) {
+      try {
+        const searchRegex = new RegExp(`${this.searchValue}`, 'i')
+        return this.multiOptions.filter((option) => option.label.match(searchRegex));
+      } catch {}
+    }
+    return this.multiOptions;
   }
 
   get pagination() {

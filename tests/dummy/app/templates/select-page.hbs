@@ -13,9 +13,10 @@
 
 <div class="multi-select">
   <PixMultiSelect
-    @options={{this.multiOptions}}
+    @options={{this.filteredOptions}}
     @values={{this.multiValues}}
     @onChange={{this.onMultiChange}}
+    @onSearch={{this.onSearch}}
     @isSearchable={{true}}
     @searchLabel="Rechercher une option"
     @searchPlaceholder="Euuuuuh"
