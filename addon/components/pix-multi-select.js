@@ -139,9 +139,13 @@ export default class PixMultiSelect extends Component {
 
   @action
   updateSearch(event) {
-    this.searchData = this.args.strictSearch
-      ? event.target.value
-      : removeCapitalizeAndDiacritics(event.target.value);
+    if (this.args.onSearch) {
+      this.args.onSearch(event.target.value);
+    } else {
+      this.searchData = this.args.strictSearch
+        ? event.target.value
+        : removeCapitalizeAndDiacritics(event.target.value);
+    }
     this.isExpanded = true;
   }
 
