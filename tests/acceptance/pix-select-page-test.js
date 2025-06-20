@@ -44,4 +44,43 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       assert.dom(screen.getByRole('menuitem', { name: 'Oignons' })).exists();
     });
   });
+
+  module('PixSelect', function () {
+    test('displayed options should be reactive', async function (assert) {
+      // given
+      const screen = await visit('/select');
+
+      // when
+      await screen.getByLabelText('Fruits').focus();
+      await userEvent.keyboard('[ArrowDown]');
+      await screen.findByRole('listbox');
+
+      assert.strictEqual(screen.getAllByRole('option').length, 6);
+      await userEvent.keyboard('[Escape]');
+
+      await click(screen.getByRole('button', { name: 'Ajouter un citron' }));
+
+      // then
+      await screen.getByLabelText('Fruits').focus();
+      await userEvent.keyboard('[ArrowDown]');
+      await screen.findByRole('listbox');
+
+      assert.strictEqual(screen.getAllByRole('option').length, 7);
+      assert.ok(screen.getByRole('option', { name: 'Citron' }));
+    });
+
+    test('it should filter by custom regex', async function (assert) {
+      // given
+      const screen = await visit('/select');
+
+      // when
+      await screen.getByLabelText('Fruits').click();
+      await fillByLabel('Rechercher un fruit', 'K[a-z]{3}');
+      await screen.findByRole('listbox');
+
+      // then
+      assert.strictEqual(screen.getAllByRole('option').length, 1);
+      assert.dom(screen.getByRole('option', { name: 'Kaki' })).exists();
+    });
+  });
 });

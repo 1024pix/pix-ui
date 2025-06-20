@@ -6,12 +6,38 @@ export default class SelectPage extends Controller {
   @tracked selectedOption = null;
   @tracked structure = this.structures[1];
   @tracked multiValues = [];
+  @tracked options = [
+    {
+      value: '1',
+      label: 'Figues',
+      category: 'rouge',
+      icon: 'accountOff',
+      iconTitle: 'titre icone account',
+    },
+    {
+      value: '3',
+      label:
+        'Fraises, des bonnes fraises, bien rouge. Tout un gros paquet de fraises, mais beaucoup beaucoup',
+      category: 'rouge',
+      icon: 'userCircle',
+      iconTitle: 'titre icone user',
+    },
+    { value: '2', label: 'Bananes', category: 'jaune' },
+    { value: '4', label: 'Mangues', category: 'jaune' },
+    { value: '5', label: 'Kaki', category: 'vert' },
+    {
+      value: '6',
+      label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
+      category: 'vert',
+    },
+  ];
   @tracked multiOptions = [
     { value: 'a', label: 'Salade'},
     { value: 'b', label: 'Tomate'},
     { value: 'c', label: 'Oignons'},
   ]
   @tracked searchValue;
+  @tracked multiSearchValue;
 
   @action
   onChange(option) {
@@ -29,6 +55,13 @@ export default class SelectPage extends Controller {
   }
 
   @action
+  addNewOption() {
+    if (this.options.length > 6) return;
+    const newOption = { value: '7', label: 'Citron', category: 'jaune' };
+    this.options = [...this.options, newOption]
+  }
+
+  @action
   addNewMultiOption() {
     if (this.multiOptions.length > 3) return;
     const newOption = { value: 'd', label: 'Harissa (NEW)' };
@@ -40,38 +73,29 @@ export default class SelectPage extends Controller {
     this.searchValue = search;
   }
 
+  @action
+  onMultiSearch(search) {
+    this.multiSearchValue = search;
+  }
+
   get options() {
-    return [
-      {
-        value: '1',
-        label: 'Figues',
-        category: 'rouge',
-        icon: 'accountOff',
-        iconTitle: 'titre icone account',
-      },
-      {
-        value: '3',
-        label:
-          'Fraises, des bonnes fraises, bien rouge. Tout un gros paquet de fraises, mais beaucoup beaucoup',
-        category: 'rouge',
-        icon: 'userCircle',
-        iconTitle: 'titre icone user',
-      },
-      { value: '2', label: 'Bananes', category: 'jaune' },
-      { value: '4', label: 'Mangues', category: 'jaune' },
-      { value: '5', label: 'Kaki', category: 'vert' },
-      {
-        value: '6',
-        label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
-        category: 'vert',
-      },
-    ];
+    return
   }
 
   get filteredOptions() {
     if (this.searchValue) {
       try {
         const searchRegex = new RegExp(`${this.searchValue}`, 'i')
+        return this.options.filter((option) => option.label.match(searchRegex));
+      } catch {}
+    }
+    return this.options;
+  }
+
+  get filteredMultiOptions() {
+    if (this.multiSearchValue) {
+      try {
+        const searchRegex = new RegExp(`${this.multiSearchValue}`, 'i')
         return this.multiOptions.filter((option) => option.label.match(searchRegex));
       } catch {}
     }

@@ -1,22 +1,27 @@
 <h1>PixSelect</h1>
 
-<PixSelect
-  @options={{this.options}}
-  @onChange={{this.onChange}}
-  @value={{this.selectedOption}}
-  @hideDefaultOption={{true}}
-  @placeholder="Select an option"
-  @isSearchable={{true}}
->
-  <:label>Label</:label>
-</PixSelect>
+<div class="single-select">
+  <PixSelect
+    @options={{this.filteredOptions}}
+    @onChange={{this.onChange}}
+    @value={{this.selectedOption}}
+    @hideDefaultOption={{true}}
+    @placeholder="Select an option"
+    @isSearchable={{true}}
+    @onSearch={{this.onSearch}}
+    @searchLabel="Rechercher un fruit"
+  >
+    <:label>Fruits</:label>
+  </PixSelect>
+  <PixButton @triggerAction={{this.addNewOption}}>Ajouter un citron</PixButton>
+</div>
 
 <div class="multi-select">
   <PixMultiSelect
-    @options={{this.filteredOptions}}
+    @options={{this.filteredMultiOptions}}
     @values={{this.multiValues}}
     @onChange={{this.onMultiChange}}
-    @onSearch={{this.onSearch}}
+    @onSearch={{this.onMultiSearch}}
     @isSearchable={{true}}
     @searchLabel="Rechercher une option"
     @searchPlaceholder="Euuuuuh"
