@@ -1,3 +1,9 @@
+## [55.21.2](https://github.com/1024pix/pix-ui/compare/v55.21.1...v55.21.2) (2025-06-20)
+
+### :building_construction: Tech
+
+- [#888](https://github.com/1024pix/pix-ui/pull/888) Rendre l'argument `@options` de `PixMultiSelect` réactif (PIX-18333)
+
 ## [55.21.1](https://github.com/1024pix/pix-ui/compare/v55.21.0...v55.21.1) (2025-06-06)
 
 ### :building_construction: Tech
