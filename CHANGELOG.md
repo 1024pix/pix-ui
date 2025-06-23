@@ -1,3 +1,9 @@
+# [55.22.0](https://github.com/1024pix/pix-ui/compare/v55.21.2...v55.22.0) (2025-06-23)
+
+### :rocket: Amélioration
+
+- [#889](https://github.com/1024pix/pix-ui/pull/889) Permettre de personnaliser le filtrage des `PixSelect` et `PixMultiSelect` recherchables (PIX-18385)
+
 ## [55.21.2](https://github.com/1024pix/pix-ui/compare/v55.21.1...v55.21.2) (2025-06-20)
 
 ### :building_construction: Tech
