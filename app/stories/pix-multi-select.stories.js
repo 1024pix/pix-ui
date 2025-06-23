@@ -77,7 +77,7 @@ export default {
     strictSearch: {
       name: 'strictSearch',
       description:
-        'Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
+        '**DEPRECATED** : Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: false } },
     },

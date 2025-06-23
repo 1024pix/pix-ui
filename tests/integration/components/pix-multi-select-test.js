@@ -608,6 +608,43 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.contains('no result');
     });
 
+    test('it should give deprecation warning when using @strictSearch', async function (assert) {
+      // given
+      this.label = 'multiSelectLabel';
+      this.options = DEFAULT_OPTIONS;
+      this.values = [];
+      this.onChange = () => {};
+      this.emptyMessage = 'no result';
+      this.placeholder = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.strictSearch = true;
+      this.placeholder = 'Placeholder test';
+      const warnStub = sinon.stub(console, 'warn');
+
+      await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @strictSearch={{this.strictSearch}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`);
+
+      // then
+      assert.ok(
+        warnStub.calledWithExactly(
+          'WARNING: PixMultiSelect: @strictSearch is deprecated in favour of @onSearch',
+        ),
+      );
+      warnStub.restore();
+    });
+
     test('it should display list PixMultiSelect on focus', async function (assert) {
       // given
       this.label = 'multiSelectLabel';
