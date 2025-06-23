@@ -35,6 +35,20 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 
 ## WithSearch
 
+> Il est possible de prendre le contrôle sur le filtre effectué par la recherche en utilisant l'argument `@onSearch`.
+Un exemple est disponible dans l'environnement local sur la page `/select`
+```html
+<PixSelect
+  ...
+  @isSearchable={{true}}
+  @options={{customFilteredOptions}}
+  @onSearch={{{updateOptions}}}
+  ...
+>
+  ...
+</PixMultiSelect>
+```
+
 <Story of={ComponentStories.WithSearch} height={200} />
 
 ## WithCategoriesAndSearch

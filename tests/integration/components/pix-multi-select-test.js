@@ -608,6 +608,43 @@ module('Integration | Component | multi-select', function (hooks) {
       assert.contains('no result');
     });
 
+    test('it should give deprecation warning when using @strictSearch', async function (assert) {
+      // given
+      this.label = 'multiSelectLabel';
+      this.options = DEFAULT_OPTIONS;
+      this.values = [];
+      this.onChange = () => {};
+      this.emptyMessage = 'no result';
+      this.placeholder = 'MultiSelectTest';
+      this.id = 'id-MultiSelectTest';
+      this.isSearchable = true;
+      this.strictSearch = true;
+      this.placeholder = 'Placeholder test';
+      const warnStub = sinon.stub(console, 'warn');
+
+      await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @strictSearch={{this.strictSearch}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`);
+
+      // then
+      assert.ok(
+        warnStub.calledWithExactly(
+          'WARNING: PixMultiSelect: @strictSearch is deprecated in favour of @onSearch',
+        ),
+      );
+      warnStub.restore();
+    });
+
     test('it should display list PixMultiSelect on focus', async function (assert) {
       // given
       this.label = 'multiSelectLabel';
@@ -874,6 +911,79 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
       // then
       assert.true(screen.queryByRole('textbox').disabled);
+    });
+
+    module('when @onSearch is passed', function () {
+      test('it should call @onSearch on text input', async function (assert) {
+        // given
+        this.label = 'multiSelectLabel';
+        this.options = DEFAULT_OPTIONS;
+        this.values = [];
+        this.onChange = () => {};
+        this.emptyMessage = 'no result';
+        this.placeholder = 'MultiSelectTest';
+        this.id = 'id-MultiSelectTest';
+        this.isSearchable = true;
+        this.placeholder = 'Placeholder test';
+        this.onSearch = sinon.spy();
+
+        const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  @onSearch={{this.onSearch}}
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`);
+
+        // when
+        await fillByLabel('multiSelectLabel', 'tomate');
+        await screen.findByRole('menu');
+
+        // then
+        assert.ok(this.onSearch.calledOnce, 'the search callback should be called once');
+        assert.deepEqual(this.onSearch.args[0], ['tomate']);
+      });
+
+      test('it should not filter options by default', async function (assert) {
+        // given
+        this.label = 'multiSelectLabel';
+        this.options = DEFAULT_OPTIONS;
+        this.values = [];
+        this.onChange = () => {};
+        this.emptyMessage = 'no result';
+        this.placeholder = 'MultiSelectTest';
+        this.id = 'id-MultiSelectTest';
+        this.isSearchable = true;
+        this.placeholder = 'Placeholder test';
+        this.onSearch = sinon.stub();
+
+        const screen = await render(hbs`<PixMultiSelect
+  @isSearchable={{this.isSearchable}}
+  @values={{this.values}}
+  @onChange={{this.onChange}}
+  @placeholder={{this.placeholder}}
+  @id={{this.id}}
+  @emptyMessage={{this.emptyMessage}}
+  @options={{this.options}}
+  @onSearch={{this.onSearch}}
+>
+  <:label>{{this.label}}</:label>
+  <:default as |option|>{{option.label}}</:default>
+</PixMultiSelect>`);
+
+        // when
+        await fillByLabel('multiSelectLabel', 'tomate');
+        await screen.findByRole('menu');
+
+        // then
+        assert.strictEqual(screen.getAllByRole('checkbox').length, this.options.length);
+      });
     });
   });
 

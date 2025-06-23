@@ -1,3 +1,4 @@
+import { warn } from '@ember/debug';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
@@ -20,6 +21,18 @@ function removeCapitalizeAndDiacritics(string) {
 export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
   @tracked searchData;
+
+  constructor(...args) {
+    super(...args);
+
+    warn(
+      `PixMultiSelect: @strictSearch is deprecated in favour of @onSearch`,
+      !this.args.strictSearch,
+      {
+        id: 'pix-ui.pix-multi-select.strictSearch.deprecated',
+      },
+    );
+  }
 
   get options() {
     return [...(this.args.options || [])];
@@ -139,9 +152,13 @@ export default class PixMultiSelect extends Component {
 
   @action
   updateSearch(event) {
-    this.searchData = this.args.strictSearch
-      ? event.target.value
-      : removeCapitalizeAndDiacritics(event.target.value);
+    if (this.args.onSearch) {
+      this.args.onSearch(event.target.value);
+    } else {
+      this.searchData = this.args.strictSearch
+        ? event.target.value
+        : removeCapitalizeAndDiacritics(event.target.value);
+    }
     this.isExpanded = true;
   }
 

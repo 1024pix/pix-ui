@@ -20,6 +20,20 @@ Si vous utilisez le `PixMultiSelect` sans vouloir afficher le label, il faudra r
 
 ## Searchable
 
+> Il est possible de prendre le contrôle sur le filtre effectué par la recherche en utilisant l'argument `@onSearch`.
+Un exemple est disponible dans l'environnement local sur la page `/select`
+```html
+<PixMultiSelect
+  ...
+  @isSearchable={{true}}
+  @options={{customFilteredOptions}}
+  @onSearch={{{updateOptions}}}
+  ...
+>
+  ...
+</PixMultiSelect>
+```
+
 <Story of={ComponentStories.multiSelectSearchable} height={330} />
 
 ## withCustomClass
