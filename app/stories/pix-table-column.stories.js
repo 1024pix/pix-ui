@@ -257,8 +257,8 @@ const templateTagDate = (args) => {
       </:header>
       <:cell>
         <PixTag>{{row.tag}}</PixTag>
-          <subCell>{{row.date}}</subCell>
       </:cell>
+      <:subCell>{{row.date}}</:subCell>
     </PixTableColumn>
   </:columns>
 </PixTable>`,
