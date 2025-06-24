@@ -1,3 +1,9 @@
+# [55.23.0](https://github.com/1024pix/pix-ui/compare/v55.22.1...v55.23.0) (2025-06-24)
+
+### :rocket: Amélioration
+
+- [#884](https://github.com/1024pix/pix-ui/pull/884) Ajouter le variant tagDate au composant PixTableColumn (PIX-16964)
+
 ## [55.22.1](https://github.com/1024pix/pix-ui/compare/v55.22.0...v55.22.1) (2025-06-24)
 
 ### :building_construction: Tech
