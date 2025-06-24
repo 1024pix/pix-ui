@@ -1,3 +1,9 @@
+## [55.22.1](https://github.com/1024pix/pix-ui/compare/v55.22.0...v55.22.1) (2025-06-24)
+
+### :building_construction: Tech
+
+- [#890](https://github.com/1024pix/pix-ui/pull/890) Erreur typographique dans la story du `PixSelect`
+
 # [55.22.0](https://github.com/1024pix/pix-ui/compare/v55.21.2...v55.22.0) (2025-06-23)
 
 ### :rocket: Amélioration
