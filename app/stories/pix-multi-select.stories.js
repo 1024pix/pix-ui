@@ -250,7 +250,7 @@ export const multiSelectSearchable = {
   args: {
     ...Default.args,
     isSearchable: true,
-    strictSearch: true,
+    strictSearch: false,
     emptyMessage: 'Aucune option trouvée',
   },
 };
