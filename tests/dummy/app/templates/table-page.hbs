@@ -80,6 +80,17 @@
         </PixTag>
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type="tagDate">
+      <:header>
+        Tag + date
+      </:header>
+      <:cell>
+        <PixTag>
+          Un tag
+        </PixTag>
+      </:cell>
+      <:subCell>01/01/1970</:subCell>
+    </PixTableColumn>
   </:columns>
 </PixTable>
 {{! template-lint-disable no-forbidden-elements }}
