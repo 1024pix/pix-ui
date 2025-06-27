@@ -1,3 +1,9 @@
+## [55.23.1](https://github.com/1024pix/pix-ui/compare/v55.23.0...v55.23.1) (2025-06-27)
+
+### :bug: Correction
+
+- [#885](https://github.com/1024pix/pix-ui/pull/885) Supprimer l'attribut disabled des PixButton (PIX-8819)
+
 # [55.23.0](https://github.com/1024pix/pix-ui/compare/v55.22.1...v55.23.0) (2025-06-24)
 
 ### :rocket: Amélioration
