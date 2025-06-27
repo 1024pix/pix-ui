@@ -62,6 +62,24 @@ module('Integration | Component | pix-gauge', function (hooks) {
       assert.ok(screen.queryByText('Avancé'));
       assert.ok(screen.queryByText('Expert'));
     });
+
+    test('it manages the locale passed as an argument', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixGauge
+  @isSmall={{true}}
+  @reachedLevel={{0.8}}
+  @maxLevel={{3.2}}
+  @stepLabels={{array 'novice' 'expert'}}
+  @locale='en'
+/>`,
+      );
+
+      // then
+      assert.ok(screen.queryByText('0.8'));
+      assert.ok(screen.queryByText('3.2'));
+    });
+
     test('it hide values when hideValues is true', async function (assert) {
       // when
       const screen = await render(
@@ -108,8 +126,9 @@ module('Integration | Component | pix-gauge', function (hooks) {
       const screen = await render(
         hbs`<PixGauge @isSmall={{true}} @reachedLevel={{0.75}} @maxLevel={{3}} />`,
       );
+
       // then
-      assert.ok(screen.queryByText('0.8'));
+      assert.ok(screen.queryByText('0,8'));
     });
 
     test('it does not renders content of the labels and the separators if hideValues is true', async function (assert) {

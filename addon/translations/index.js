@@ -9,6 +9,11 @@ export function formatMessage(locale, message, values) {
   return intl.formatMessage({ id: message }, values);
 }
 
+export function formatNumber(locale, value) {
+  const intl = locales[locale] || locales.en;
+  return intl.formatNumber(value);
+}
+
 const locales = {
   fr: createIntl({
     locale: 'fr',

@@ -13,12 +13,13 @@ Le composant `<PixGauge/>` prend en arguments
 - `hideValues` : un booléen, par défaut à false, qui permet de ne pas afficher les valeurs numériques.
 - `maxLevel`: un nombre, le niveau maximum atteignable par la jauge (jauge blanche)
 - `reachedLevel` : un nombre, le niveau atteint (jauge violette)
+- `locale` : locale pour le formatage des nombres, par défaut "fr" (e.g. 1.2 / 1,2)
 
 ## Usage
 
 ```html
 <PixGauge @label="Niveau atteint de ...
-  sur un niveau maximum atteignable de ..." @reachedLevel={{1}} @maxLevel={{4}} @isSmall={{true}} @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}}>
+  sur un niveau maximum atteignable de ..." @reachedLevel={{1}} @maxLevel={{4}} @isSmall={{true}} @stepLabels={{array "Novice" "Intermédiaire" "Avancé" "Expert"}} @locale="fr" />
 ```
 
 ## Arguments

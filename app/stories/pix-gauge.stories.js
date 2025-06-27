@@ -29,6 +29,17 @@ export default {
       description: 'Niveau atteint',
       type: { name: 'number', required: false },
     },
+    locale: {
+      name: 'locale',
+      description: "Permet de formater les niveaux selon la locale de l'utilisateur",
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      options: ['fr', 'en', 'es'],
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'fr' },
+      },
+    },
   },
   args: {
     stepLabels: ['Novice', 'Intermédiaire', 'Avancé', 'Expert'],
@@ -47,6 +58,7 @@ export const PixGauge = (args) => {
   @hideValues={{this.hideValues}}
   @maxLevel={{this.maxLevel}}
   @reachedLevel={{this.reachedLevel}}
+  @locale={{this.locale}}
 />`,
     context: args,
   };

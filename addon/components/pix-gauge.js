@@ -1,5 +1,8 @@
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
+
+import { formatNumber } from '../translations';
+
 export default class PixGauge extends Component {
   get label() {
     warn('PixGauge: @label must be defined', !this.args.label, {
@@ -85,12 +88,5 @@ export default class PixGauge extends Component {
     return `${stepStart * index}`;
   };
 
-  formatNumber = (str) => {
-    const num = Number(str);
-    const oneDigitNum = num.toFixed(1);
-    if (oneDigitNum.toString().endsWith('0')) {
-      return Math.ceil(oneDigitNum);
-    }
-    return oneDigitNum;
-  };
+  formatNumber = (str) => formatNumber(this.args.locale ?? 'fr', Number(str).toFixed(1));
 }
