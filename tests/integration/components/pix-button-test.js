@@ -1,41 +1,32 @@
 import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-import clickByLabel from '../../helpers/click-by-label';
-
-module('Integration | Component | button', function (hooks) {
+module('Integration | Component | PixButton', function (hooks) {
   setupRenderingTest(hooks);
-
   const COMPONENT_SELECTOR = '.pix-button';
 
   test('it renders the default PixButton', async function (assert) {
     // when
-    await render(hbs`<PixButton>
+    const screen = await render(hbs`<PixButton>
   Mon bouton
 </PixButton>`);
 
     // then
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.contains('Mon bouton');
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(componentElement.type, 'button');
+    assert.ok(screen.getByRole('button', { name: 'Mon bouton' }));
   });
 
   test('it renders the PixButton component with the given type', async function (assert) {
     // when
-    await render(hbs`<PixButton @type='submit'>
+    const screen = await render(hbs`<PixButton @type='submit'>
   Mon bouton
 </PixButton>`);
 
     // then
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(componentElement.type, 'submit');
+    assert.dom(screen.getByRole('button', { name: 'Mon bouton' })).hasAttribute('type', 'submit');
   });
 
   test('it renders the PixButton component with isDisabled attribute', async function (assert) {
@@ -46,13 +37,13 @@ module('Integration | Component | button', function (hooks) {
     });
 
     //when
-    await render(hbs`<PixButton @isDisabled={{true}} @triggerAction={{this.triggerAction}} aria-label='button label'>
+    const screen =
+      await render(hbs`<PixButton @isDisabled={{true}} @triggerAction={{this.triggerAction}}>
   Mon bouton
 </PixButton>`);
 
     // then
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.true(componentElement.disabled);
+    assert.dom(screen.getByText('Mon bouton')).hasAttribute('aria-disabled', 'true');
   });
 
   test('it should call the action', async function (assert) {
@@ -63,25 +54,25 @@ module('Integration | Component | button', function (hooks) {
     });
 
     //when
-    await render(
-      hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label='button label' />`,
+    const screen = await render(
+      hbs`<PixButton @triggerAction={{this.triggerAction}}>Mon bouton</PixButton>`,
     );
 
-    await clickByLabel('button label');
+    await click(screen.getByRole('button', { name: 'Mon bouton' }));
 
     // then
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.strictEqual(this.count, 2);
-    assert.false(componentElement.disabled);
+    assert.ok(screen.getByRole('button', { name: 'Mon bouton' }));
   });
 
   module('when type is submit, if no trigger action is defined', () => {
     test('if clicked, it should do nothing', async function (assert) {
       // given
-      await render(hbs`<PixButton @type='submit' aria-label='button label' />`);
+      const screen = await render(
+        hbs`<PixButton @triggerAction={{this.triggerAction}} @type='submit'>Mon bouton</PixButton>`,
+      );
 
-      //  when
-      await clickByLabel('button label');
+      await click(screen.getByRole('button', { name: 'Mon bouton' }));
 
       // then
       const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
@@ -112,10 +103,10 @@ module('Integration | Component | button', function (hooks) {
       });
 
       // when
-      await render(
-        hbs`<PixButton @triggerAction={{this.triggerAction}} aria-label='button label' />`,
+      const screen = await render(
+        hbs`<PixButton @triggerAction={{this.triggerAction}}>Mon bouton</PixButton>`,
       );
-      await clickByLabel('button label');
+      await click(screen.getByRole('button', { name: 'Mon bouton' }));
 
       // then
       const loadingComponent = this.element.querySelector('.loader');
