@@ -11,7 +11,7 @@ module.exports = {
       allowDynamicStyles: true,
     },
   },
-  ignore: ['blueprints/**'],
+  ignore: ['blueprints/**', 'webcomponents/**'],
   overrides: [
     {
       files: ['**/*.gjs'],
