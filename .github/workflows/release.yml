@@ -20,6 +20,7 @@ jobs:
         with:
           node-version-file: 'package.json'
 
+      - run: cd ember
       - run: npm ci
       - run: npm run build
 

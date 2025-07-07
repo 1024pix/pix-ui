@@ -1,41 +1,34 @@
 # See https://help.github.com/ignore-files/ for more about ignoring files.
 
 # compiled output
-/dist/
-/tmp/
-/storybook-static
+dist
+tmp
+storybook-static
 
 #pack
 1024pix-pix-ui-*.tgz
-/declarations/
+declarations
 
 # dependencies
-/bower_components/
-/node_modules/
+node_modules
 
 # misc
-/.env*
-/.pnp*
-/.sass-cache
-/connect.lock
-/.eslintcache
-/coverage/
-/libpeerconnection.log
-/npm-debug.log*
-/testem.log
-/yarn-error.log
+.env*
+.pnp*
+.sass-cache
+connect.lock
+.eslintcache
+coverage
+libpeerconnection.log
+npm-debug.log*
+testem.log
+yarn-error.log
 
 # system
 .DS_Store
 
-# ember-try
-/.node_modules.ember-try/
-/bower.json.ember-try
-/package.json.ember-try
-/npm-shrinkwrap.json.ember-try
-
 # storybook / chromatic
-.storybook/preview-head.html
+preview-head.html
 build-storybook.log
 
 # IDE
@@ -44,6 +37,3 @@ build-storybook.log
 *.iml
 *.code-workspace
 .history
-
-# broccoli-debug
-/DEBUG/

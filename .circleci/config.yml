@@ -33,19 +33,23 @@ jobs:
   lint-and-test:
     executor: node-browsers-docker
     resource_class: medium
+    working_directory: ~/pix-ui/ember
     steps:
-      - browser-tools/install-chrome
-      - checkout
+      - checkout:
+          path: ~/pix-ui
       - run: npm ci
       - run: npm run lint:js
       - run: npm run lint:hbs
       - run: npm run lint:scss
+      - browser-tools/install-chrome
       - run: npm test
 
   chromatic-deployment:
     executor: node-browsers-docker
     resource_class: medium
+    working_directory: ~/pix-ui/ember
     steps:
-      - checkout
+      - checkout:
+          path: ~/pix-ui
       - run: npm ci
       - run: npm run chromatic -- --auto-accept-changes

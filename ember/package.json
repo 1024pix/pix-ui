@@ -1,0 +1,163 @@
+{
+  "name": "@1024pix/pix-ui",
+  "version": "55.23.1",
+  "description": "Pix-UI is the implementation of Pix design principles and guidelines for its products.",
+  "keywords": [
+    "ember-addon"
+  ],
+  "license": "MIT",
+  "author": "GIP Pix",
+  "engines": {
+    "node": "^20 || ^22"
+  },
+  "ember": {
+    "edition": "octane"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/1024pix/pix-ui.git"
+  },
+  "directories": {
+    "doc": "doc",
+    "test": "tests"
+  },
+  "overrides": {
+    "@storybook/ember": {
+      "ember-source": "~5.12.0"
+    },
+    "ember-source": {
+      "@glimmer/component": "^2.0.0"
+    },
+    "glob": "^9.0.0"
+  },
+  "scripts": {
+    "build": "./scripts/build.sh",
+    "build-ember": "ember build --environment=production",
+    "serve-ember": "ember serve",
+    "build-storybook": "ember build && cp -v CNAME dist && storybook build",
+    "serve-storybook": "storybook dev --port 9001 --no-open",
+    "clean": "rm -rf dist node_modules",
+    "deploy-storybook": "storybook-to-ghpages",
+    "lint": "npm-run-all --aggregate-output --parallel --continue-on-error 'lint:!(fix)'",
+    "lint:fix": "npm-run-all --aggregate-output --parallel --continue-on-error lint:*:fix",
+    "lint:hbs": "ember-template-lint .",
+    "lint:hbs:fix": "npm run lint:hbs -- --fix",
+    "lint:js": "eslint .",
+    "lint:js:fix": "npm run lint:js -- --fix",
+    "lint:scss": "stylelint app/styles/*.scss addon/styles/*.scss 'addon/styles/**/*.scss'",
+    "lint:scss:fix": "npm run lint:scss -- --fix",
+    "preinstall": "npx check-engine",
+    "dev": "npm-run-all --parallel serve-ember serve-storybook",
+    "start": "ember serve",
+    "prestorybook": "ember build",
+    "storybook": "npm run dev",
+    "test": "ember test",
+    "test:ember": "ember test",
+    "test:ember-compatibility": "ember try:each",
+    "svg:generate-sprite": "npm run svg:compile && npm run svg:optimize && npm run svg:rename-id",
+    "svg:compile": "svg-sprite -C 'svgs/svg-sprite.config.json' 'svgs/icons/*.svg'",
+    "svg:optimize": "svgo --config='svgs/svgo.config.js' -i 'public/svg/' -o 'public/svg/'",
+    "svg:rename-id": "bash ./svgs/rename-icon-id-in-sprite.sh",
+    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --only-changed"
+  },
+  "dependencies": {
+    "@babel/core": "^7.25.2",
+    "@formatjs/intl": "^3.0.0",
+    "check-engine": "^1.14.0",
+    "ember-auto-import": "^2.7.4",
+    "ember-cli-babel": "^8.2.0",
+    "ember-cli-htmlbars": "^6.3.0",
+    "ember-cli-sass": "^11.0.1",
+    "ember-click-outside": "^6.1.1",
+    "ember-lifeline": "^7.0.0",
+    "ember-modifier": "^4.2.0",
+    "ember-popperjs": "^3.0.0",
+    "ember-template-imports": "^4.3.0",
+    "ember-truth-helpers": "^4.0.0"
+  },
+  "devDependencies": {
+    "@1024pix/ember-testing-library": "^3.0.6",
+    "@1024pix/eslint-plugin": "^2.1.2",
+    "@1024pix/stylelint-config": "^5.1.29",
+    "@babel/eslint-parser": "^7.26.8",
+    "@babel/plugin-proposal-decorators": "^7.24.7",
+    "@ember/optional-features": "^2.2.0",
+    "@ember/string": "^4.0.0",
+    "@ember/test-helpers": "^4.0.4",
+    "@embroider/macros": "^1.16.10",
+    "@embroider/test-setup": "^4.0.0",
+    "@glimmer/component": "^2.0.0",
+    "@glimmer/tracking": "^1.1.2",
+    "@storybook/addon-a11y": "^8.4.7",
+    "@storybook/addon-controls": "^8.4.7",
+    "@storybook/addon-docs": "^8.4.7",
+    "@storybook/addon-essentials": "^8.4.7",
+    "@storybook/addon-webpack5-compiler-babel": "^3.0.5",
+    "@storybook/blocks": "^8.4.7",
+    "@storybook/builder-webpack5": "^8.4.7",
+    "@storybook/ember": "^8.4.7",
+    "@storybook/ember-cli-storybook": "^0.6.1",
+    "@storybook/storybook-deployer": "^2.8.16",
+    "@storybook/theming": "^8.4.7",
+    "@testing-library/dom": "^10.0.0",
+    "@testing-library/user-event": "^14.4.3",
+    "chromatic": "^11.0.0",
+    "core-js": "^3.26.1",
+    "ember-cli": "^6.0.0",
+    "ember-cli-dependency-checker": "^3.3.3",
+    "ember-cli-inject-live-reload": "^2.1.0",
+    "ember-eslint-parser": "^0.5.9",
+    "ember-load-initializers": "^2.1.2",
+    "ember-page-title": "^8.2.3",
+    "ember-qunit": "^9.0.0",
+    "ember-resolver": "^12.0.0",
+    "ember-sinon": "^5.0.0",
+    "ember-source": "^5.11.0",
+    "ember-template-lint": "^7.0.2",
+    "ember-template-lint-plugin-prettier": "^5.0.0",
+    "ember-try": "^3.0.0",
+    "eslint": "^9.21.0",
+    "eslint-config-prettier": "^10.0.2",
+    "eslint-plugin-ember": "^12.5.0",
+    "eslint-plugin-i18n-json": "^4.0.1",
+    "eslint-plugin-n": "^17.16.2",
+    "eslint-plugin-prettier": "^5.2.3",
+    "eslint-plugin-qunit": "^8.1.2",
+    "fs-extra": "^11.0.0",
+    "globals": "^15.14.0",
+    "html-webpack-plugin": "^5.6.3",
+    "loader.js": "^4.7.0",
+    "lodash": "^4.17.21",
+    "npm-run-all2": "^7.0.0",
+    "prettier": "^3.5.3",
+    "prettier-plugin-ember-template-tag": "^2.0.5",
+    "qunit": "^2.23.1",
+    "qunit-dom": "^3.4.0",
+    "sass": "^1.83.1",
+    "storybook": "^8.4.7",
+    "storybook-addon-tag-badges": "^1.4.0",
+    "stylelint": "^16.15.0",
+    "svg-sprite": "^2.0.4",
+    "svgo": "^3.3.2",
+    "webpack": "^5.97.1"
+  },
+  "bugs": {
+    "url": "https://github.com/1024pix/pix-ui/issues"
+  },
+  "homepage": "https://github.com/1024pix/pix-ui#readme",
+  "main": "index.js",
+  "ember-addon": {
+    "configPath": "tests/dummy/config"
+  },
+  "files": [
+    "addon/",
+    "app/components/pix-*.js",
+    "app/modifiers",
+    "app/services",
+    "config/icons.js",
+    "public/"
+  ],
+  "storybook-deployer": {
+    "commitMessage": "Deploy Storybook [skip ci]"
+  }
+}
