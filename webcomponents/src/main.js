@@ -1,5 +1,8 @@
-import { createApp } from 'vue'
-import './style.css'
-import App from './App.vue'
+import { defineCustomElement } from 'vue';
 
-createApp(App).mount('#app')
+import PixTag from './components/PixTag.ce.vue';
+
+const pixTagWebComponent = defineCustomElement(PixTag, {});
+customElements.define('pix-tag', pixTagWebComponent);
+
+export { pixTagWebComponent };
