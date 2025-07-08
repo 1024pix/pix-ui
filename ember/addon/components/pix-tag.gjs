@@ -9,8 +9,6 @@ export default class PixTag extends Component {
   }
 
   <template>
-    <div class="pix-tag {{this.classes}}" ...attributes>
-      {{yield}}
-    </div>
+    <pix-tag />
   </template>
 }

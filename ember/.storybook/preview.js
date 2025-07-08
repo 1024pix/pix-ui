@@ -1,4 +1,5 @@
 import '../app/styles/global.css';
+import '../../webcomponents/dist/pix-ui';
 
 const preview = {
   parameters: {
