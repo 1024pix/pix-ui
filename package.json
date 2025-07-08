@@ -17,7 +17,7 @@
     "web-components": "webcomponents"
   },
   "scripts": {
-    "build": "cd webcomponents && npm ci && npm run build && cd ../ember && npm ci && npm run build && mkdir -p ../dist && cp -R ./dist ../dist"
+    "build": "cd webcomponents && npm ci && npm run build && cd ../ember && npm ci && npm run build && cp -R ./storybook-static ../storybook-static"
   },
   "dependencies": {
     "check-engine": "^1.14.0"
