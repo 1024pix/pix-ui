@@ -17,9 +17,7 @@
     "web-components": "webcomponents"
   },
   "scripts": {
-    "preinstall": "cd ember && npm ci",
-    "build": "cd ember && npm run build",
-    "start": "cd ember && npm start"
+    "build": "cd webcomponents && npm ci && npm run build && cd ../ember && npm ci && npm run build && mkdir -p ../dist && cp -R ./dist ../dist"
   },
   "dependencies": {
     "check-engine": "^1.14.0"
