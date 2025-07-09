@@ -19,34 +19,37 @@ export default defineConfig({
       }
     }
   })],
-  css: { preprocessorOptions : {scss:{ additionalData: `
-          @import "@assets/pix-design-tokens/index.scss";
-        `}
-  }
-  },
-  resolve: {
-    alias: {
-      '@assets': fileURLToPath(new URL('../assets', import.meta.url))
-    }
-  },
-  build: {
-    lib: {
-      entry: resolve(import.meta.dirname, './src/main.js'),
-      name: 'PixUI',
-      // the proper extensions will be added
-      fileName: 'pix-ui'
-    },
-    target: ['es2015']
-  },
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: ``
+  //     }
+  //   }
+  // },
+  // resolve: {
+  //   alias: {
+  //     '@assets': fileURLToPath(new URL('../assets', import.meta.url))
+  //   }
+  // },
+  // build: {
+  //   lib: {
+  //     entry: resolve(import.meta.dirname, './src/main.js'),
+  //     name: 'PixUI',
+  //     // the proper extensions will be added
+  //     fileName: 'pix-ui'
+  //   },
+  //   target: ['es2015']
+  // },
   test: {
     projects: [{
       extends: true,
       plugins: [
-      // The plugin will run tests for the stories defined in your Storybook config
-      // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
-      storybookTest({
-        configDir: path.join(dirname, '.storybook')
-      })],
+        // The plugin will run tests for the stories defined in your Storybook config
+        // See options at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon#storybooktest
+        storybookTest({
+          configDir: path.join(dirname, '.storybook')
+        })
+      ],
       test: {
         name: 'storybook',
         browser: {

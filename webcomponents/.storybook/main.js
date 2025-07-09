@@ -1,6 +1,4 @@
-
-
-/** @type { import('@storybook/vue3-vite').StorybookConfig } */
+/** @type { import('@storybook/web-components-vite').StorybookConfig } */
 const config = {
   "stories": [
     "../src/**/*.mdx",
@@ -13,7 +11,7 @@ const config = {
     "@storybook/addon-vitest"
   ],
   "framework": {
-    "name": "@storybook/vue3-vite",
+    "name": "@storybook/web-components-vite",
     "options": {}
   }
 };
