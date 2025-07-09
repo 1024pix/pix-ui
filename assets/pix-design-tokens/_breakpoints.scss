@@ -1,0 +1,19 @@
+@use "sass:map";
+@use "sass:meta";
+
+$breakpoint-values: (
+  'mobile': (max-width: 768px),
+  'tablet': (min-width: 769px),
+  'desktop': (min-width: 992px),
+  'large-screen': (min-width: 1200px),
+) !default;
+
+@mixin device-is($breakpoint) {
+  @if map.has-key($breakpoint-values, $breakpoint) {
+    @media #{meta.inspect(map.get($breakpoint-values, $breakpoint))} {
+      @content;
+    }
+  } @else {
+    @warn "Unfortunately, no value could be retrieved from `#{$breakpoint}`. Available breakpoints are: #{map.keys($breakpoints)}.";
+  }
+}

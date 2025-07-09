@@ -19,6 +19,16 @@ export default defineConfig({
       }
     }
   })],
+  css: { preprocessorOptions : {scss:{ additionalData: `
+          @import "@assets/pix-design-tokens/index.scss";
+        `}
+  }
+  },
+  resolve: {
+    alias: {
+      '@assets': fileURLToPath(new URL('../assets', import.meta.url))
+    }
+  },
   build: {
     lib: {
       entry: resolve(import.meta.dirname, './src/main.js'),

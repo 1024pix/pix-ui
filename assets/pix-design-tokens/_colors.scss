@@ -1,0 +1,261 @@
+// See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=16%3A2
+// stylelint-disable color-no-hex
+:root {
+  --pix-primary-10-inline:247, 245, 255;
+  --pix-primary-10: rgb(var(--pix-primary-10-inline));
+  --pix-primary-100-inline:206, 195, 244;
+  --pix-primary-100: rgb(var(--pix-primary-100-inline));
+  --pix-primary-300-inline:149, 126, 232;
+  --pix-primary-300: rgb(var(--pix-primary-300-inline));
+  --pix-primary-500-inline:97, 63, 221;
+  --pix-primary-500: rgb(var(--pix-primary-500-inline));
+  --pix-primary-700-inline:69, 45, 157;
+  --pix-primary-700: rgb(var(--pix-primary-700-inline));
+  --pix-primary-900-inline:41, 26, 93;
+  --pix-primary-900: rgb(var(--pix-primary-900-inline));
+  --pix-secondary-50-inline:255, 250, 235;
+  --pix-secondary-50: rgb(var(--pix-secondary-50-inline));
+  --pix-secondary-100-inline:255, 239, 192;
+  --pix-secondary-100: rgb(var(--pix-secondary-100-inline));
+  --pix-secondary-300-inline:255, 220, 118;
+  --pix-secondary-300: rgb(var(--pix-secondary-300-inline));
+  --pix-secondary-500-inline:255, 203, 51;
+  --pix-secondary-500: rgb(var(--pix-secondary-500-inline));
+  --pix-secondary-700-inline:161, 98, 6;
+  --pix-secondary-700: rgb(var(--pix-secondary-700-inline));
+  --pix-secondary-900-inline:91, 56, 8;
+  --pix-secondary-900: rgb(var(--pix-secondary-900-inline));
+  --pix-tertiary-100-inline:195, 208, 255;
+  --pix-tertiary-100: rgb(var(--pix-tertiary-100-inline));
+  --pix-tertiary-500-inline:61, 104, 255;
+  --pix-tertiary-500: rgb(var(--pix-tertiary-500-inline));
+  --pix-tertiary-900-inline:26, 44, 107;
+  --pix-tertiary-900: rgb(var(--pix-tertiary-900-inline));
+  --pix-neutral-0-inline:255, 255, 255;
+  --pix-neutral-0: rgb(var(--pix-neutral-0-inline));
+  --pix-neutral-20-inline:244, 245, 247;
+  --pix-neutral-20: rgb(var(--pix-neutral-20-inline));
+  --pix-neutral-100-inline:205, 209, 217;
+  --pix-neutral-100: rgb(var(--pix-neutral-100-inline));
+  --pix-neutral-500-inline:94, 108, 132;
+  --pix-neutral-500: rgb(var(--pix-neutral-500-inline));
+  --pix-neutral-800-inline:37, 56, 88;
+  --pix-neutral-800: rgb(var(--pix-neutral-800-inline));
+  --pix-neutral-900-inline:18, 38, 71;
+  --pix-neutral-900: rgb(var(--pix-neutral-900-inline));
+  --pix-info-50-inline:230, 242, 254;
+  --pix-info-50: rgb(var(--pix-info-50-inline));
+  --pix-info-100-inline:176, 211, 244;
+  --pix-info-100: rgb(var(--pix-info-100-inline));
+  --pix-info-500-inline:59, 130, 246;
+  --pix-info-500: rgb(var(--pix-info-500-inline));
+  --pix-info-700-inline:29, 78, 216;
+  --pix-info-700: rgb(var(--pix-info-700-inline));
+  --pix-info-900-inline:30, 58, 138;
+  --pix-info-900: rgb(var(--pix-info-900-inline));
+  --pix-success-50-inline:232, 243, 239;
+  --pix-success-50: rgb(var(--pix-success-50-inline));
+  --pix-success-100-inline:185, 216, 205;
+  --pix-success-100: rgb(var(--pix-success-100-inline));
+  --pix-success-300-inline:103, 171, 146;
+  --pix-success-300: rgb(var(--pix-success-300-inline));
+  --pix-success-500-inline:28, 130, 93;
+  --pix-success-500: rgb(var(--pix-success-500-inline));
+  --pix-success-700-inline:20, 92, 66;
+  --pix-success-700: rgb(var(--pix-success-700-inline));
+  --pix-success-900-inline:12, 55, 39;
+  --pix-success-900: rgb(var(--pix-success-900-inline));
+  --pix-warning-50-inline:255, 247, 235;
+  --pix-warning-50: rgb(var(--pix-warning-50-inline));
+  --pix-warning-100-inline:255, 229, 192;
+  --pix-warning-100: rgb(var(--pix-warning-100-inline));
+  --pix-warning-300-inline:255, 198, 118;
+  --pix-warning-300: rgb(var(--pix-warning-300-inline));
+  --pix-warning-500-inline:245, 158, 11;
+  --pix-warning-500: rgb(var(--pix-warning-500-inline));
+  --pix-warning-700-inline:180, 83, 9;
+  --pix-warning-700: rgb(var(--pix-warning-700-inline));
+  --pix-warning-900-inline:120, 53, 15;
+  --pix-warning-900: rgb(var(--pix-warning-900-inline));
+  --pix-error-50-inline:251, 236, 236;
+  --pix-error-50: rgb(var(--pix-error-50-inline));
+  --pix-error-100-inline:241, 196, 196;
+  --pix-error-100: rgb(var(--pix-error-100-inline));
+  --pix-error-500-inline:210, 65, 64;
+  --pix-error-500: rgb(var(--pix-error-500-inline));
+  --pix-error-700-inline:149, 46, 46;
+  --pix-error-700: rgb(var(--pix-error-700-inline));
+  --pix-error-900-inline:88, 27, 27;
+  --pix-error-900: rgb(var(--pix-error-900-inline));
+  --pix-certif-50-inline:232, 242, 242;
+  --pix-certif-50: rgb(var(--pix-certif-50-inline));
+  --pix-certif-500-inline:24, 127, 125;
+  --pix-certif-500: rgb(var(--pix-certif-500-inline));
+  --pix-orga-50-inline:235, 241, 249;
+  --pix-orga-50: rgb(var(--pix-orga-50-inline));
+  --pix-orga-500-inline:54, 116, 191;
+  --pix-orga-500: rgb(var(--pix-orga-500-inline));
+  --pix-information-dark-inline:242, 70, 69;
+  --pix-information-dark: rgb(var(--pix-information-dark-inline));
+  --pix-information-light-inline:241, 161, 65;
+  --pix-information-light: rgb(var(--pix-information-light-inline));
+  --pix-content-dark-inline:26, 140, 137;
+  --pix-content-dark: rgb(var(--pix-content-dark-inline));
+  --pix-content-light-inline:82, 217, 135;
+  --pix-content-light: rgb(var(--pix-content-light-inline));
+  --pix-communication-dark-inline:61, 104, 255;
+  --pix-communication-dark: rgb(var(--pix-communication-dark-inline));
+  --pix-communication-light-inline:18, 163, 255;
+  --pix-communication-light: rgb(var(--pix-communication-light-inline));
+  --pix-security-dark-inline:172, 0, 141;
+  --pix-security-dark: rgb(var(--pix-security-dark-inline));
+  --pix-security-light-inline:255, 63, 148;
+  --pix-security-light: rgb(var(--pix-security-light-inline));
+  --pix-environment-dark-inline:94, 37, 99;
+  --pix-environment-dark: rgb(var(--pix-environment-dark-inline));
+  --pix-environment-light-inline:86, 77, 166;
+  --pix-environment-light: rgb(var(--pix-environment-light-inline));
+  --pix-shadow-inline: 7, 20, 46;
+  --pix-shadow: rgb(var(--pix-shadow-inline));
+}
+
+// @deprecated - SCSS variables are replaced by CSS variables
+//// SOLID
+// Primary
+$pix-primary-5: #F2F9FF;
+$pix-primary-10: #DCF1FF;
+$pix-primary-20: #C4E6FF;
+$pix-primary-30: #88BEFF;
+$pix-primary-40: #5B94FF;
+$pix-primary: #3D68FF;
+$pix-primary-60: #2044DC;
+$pix-primary-70: #0D25B3;
+$pix-primary-80: #000E87;
+
+// Secondary
+$pix-secondary-5: #FFF9E6;
+$pix-secondary-10: #FFF1C5;
+$pix-secondary-20: #FFE381;
+$pix-secondary: #FFD235;
+$pix-secondary-40: #FFBE00;
+$pix-secondary-50: #EAA600;
+$pix-secondary-60: #D87016;
+$pix-secondary-70: #A95800;
+$pix-secondary-80: #874D00;
+
+// Secondary Pix Certif
+$pix-secondary-certif-5: #CCF6F5;
+$pix-secondary-certif-10: #9AEDEB;
+$pix-secondary-certif-20: #67E4E0;
+$pix-secondary-certif-30: #34DBD6;
+$pix-secondary-certif: #20B4AF;
+$pix-secondary-certif-50: #17817E;
+$pix-secondary-certif-60: #126765;
+$pix-secondary-certif-70: #0E4D4C;
+$pix-secondary-certif-80: #093432;
+
+// Secondary Pix Orga
+$pix-secondary-orga-5: #D5F9FF;
+$pix-secondary-orga-10: #AAF4FF;
+$pix-secondary-orga-20: #80EEFF;
+$pix-secondary-orga-30: #55E8FF;
+$pix-secondary-orga: #00DDFF;
+$pix-secondary-orga-50: #00C1DF;
+$pix-secondary-orga-60: #00A6BF;
+$pix-secondary-orga-70: #008A9F;
+$pix-secondary-orga-80: #006E80;
+
+// Tertiary
+$pix-tertiary-5: #EBE1FF;
+$pix-tertiary-10: #D8C2FF;
+$pix-tertiary-20: #C4A4FF;
+$pix-tertiary-30: #B186FF;
+$pix-tertiary: #9D67FF;
+$pix-tertiary-50: #8A49FF;
+$pix-tertiary-60: #6712FF;
+$pix-tertiary-70: #4E00DB;
+$pix-tertiary-80: #3B00A4;
+
+// Success
+$pix-success-5: #ECFDF5;
+$pix-success-10: #D1FAE5;
+$pix-success-20: #A7F3D0;
+$pix-success-30: #6EE7B7;
+$pix-success: #34D399;
+$pix-success-50: #27B481;
+$pix-success-60: #14865D;
+$pix-success-70: #176C4D;
+$pix-success-80: #104834;
+
+// Warning
+$pix-warning-5: #FFF9E6;
+$pix-warning-10: #FFF1C5;
+$pix-warning-20: #FFE381;
+$pix-warning-30: #FFD235;
+$pix-warning-40: #FFBE00;
+$pix-warning-50: #EAA600;
+$pix-warning-60: #D87016;
+$pix-warning-70: #A95800;
+$pix-warning-80: #874D00;
+
+// Error
+$pix-error-5: #FEF2F2;
+$pix-error-10: #FEE2E2;
+$pix-error-20: #FECACA;
+$pix-error-30: #FCA5A5;
+$pix-error-40: #F87171;
+$pix-error-50: #EF4444;
+$pix-error-60: #DC2626;
+$pix-error-70: #B91C1C;
+$pix-error-80: #991B1B;
+$pix-error-90: #861212;
+
+// Neutral
+$pix-neutral-0: #FFFFFF;
+$pix-neutral-5: #FAFBFC;
+$pix-neutral-10: #F4F5F7;
+$pix-neutral-15: #EAECF0;
+$pix-neutral-20: #DFE1E6;
+$pix-neutral-22: #C1C7D0;
+$pix-neutral-25: #A5ADBA;
+$pix-neutral-30: #97A0AF;
+$pix-neutral-35: #8993A4;
+$pix-neutral-40: #7A869A;
+$pix-neutral-45: #6B778C;
+$pix-neutral-50: #5E6C84;
+$pix-neutral-60: #505F79;
+$pix-neutral-70: #344563;
+$pix-neutral-80: #253858;
+$pix-neutral-90: #172B4D;
+$pix-neutral-100: #091E42;
+$pix-neutral-110: #07142E;
+
+// Shades
+$pix-shades-100: #000000;
+
+// Domain
+$pix-information-dark: #F24645;
+$pix-information-light: #F1A141;
+$pix-content-dark: #1A8C89;
+$pix-content-light: #52D987;
+$pix-communication-dark: #3D68FF;
+$pix-communication-light: #12A3FF;
+$pix-security-dark: #AC008D;
+$pix-security-light: #FF3F94;
+$pix-environment-dark: #5E2563;
+$pix-environment-light: #564DA6;
+
+//// GRADIENT
+$pix-primary-app-gradient: linear-gradient(91.59deg, #3d68ff 0%, #8845ff 100%);
+$pix-secondary-app-gradient: linear-gradient(91.59deg, #fedc41 0%, #ff9f00 100%);
+$pix-primary-certif-gradient: linear-gradient(91.59deg, #52d987 0%, #1a8c89 100%);
+$pix-primary-orga-gradient: linear-gradient(91.59deg, #00ddff 0%, #0095c0 100%);
+$pix-secondary-orga-gradient: linear-gradient(91.59deg, #0d7dc4 0%, #213371 100%);
+
+// Domain
+$pix-information-gradient: linear-gradient(180deg, #f24645 0%, #f1a141 100%);
+$pix-content-gradient: linear-gradient(180deg, #1a8c89 0%, #52d987 100%);
+$pix-communication-gradient: linear-gradient(180deg, #3d68ff 0%, #12a3ff 100%);
+$pix-security-gradient: linear-gradient(180deg, #ac008d 0%, #ff3f94 100%);
+$pix-environment-gradient: linear-gradient(180deg, #5e2563 0%, #564da6 100%);
+// stylelint-enable color-no-hex
