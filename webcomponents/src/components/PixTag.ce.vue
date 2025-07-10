@@ -1,4 +1,5 @@
 <script setup>
+import "../../../assets/pix-design-tokens/index.scss";
 
 import { computed } from 'vue';
 
@@ -20,16 +21,15 @@ const classes = computed(() => {
   </div>
 </template>
 
-<style>
-/* @import "../../../assets/pix-design-tokens/index.scss"; */
+<style lang="scss">
+@import "../../../assets/pix-design-tokens/index.scss";
 
 .pix-tag {
-  /* @extend %pix-body-s; */
+  @extend %pix-body-s;
 
   display: inline-block;
   padding: var(--pix-spacing-1x) var(--pix-spacing-4x);
   color: var(--pix-primary-900);
-  color: red;
   font-weight: var(--pix-font-medium);
   white-space: nowrap;
   text-align: center;
