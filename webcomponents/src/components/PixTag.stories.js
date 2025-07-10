@@ -7,18 +7,33 @@ export default {
   title: 'Example/Tag',
   component: 'pix-tag',
   tags: ['autodocs'],
-}
-
-export const TextContent = {
-  render: () => html`
-    <pix-tag>
-      tag text
-    </pix-tag>
-  `,
-  play: async ({ canvasElement }) => {
-    const canvas = within(canvasElement);
-    await expect(canvas.getByText('tag text')).toBeInTheDocument();
-  }
+  argTypes: {
+    color: {
+      name: 'color',
+      description: 'Couleur du tag',
+      type: { name: 'string', required: false },
+      table: { defaultValue: { summary: 'primary' } },
+      control: {
+        type: 'select',
+      },
+      options: [
+        'blue',
+        'blue-light',
+        'dark',
+        'error',
+        'green',
+        'grey',
+        'neutral',
+        'primary',
+        'purple',
+        'secondary',
+        'success',
+        'tertiary',
+        'white',
+        'yellow',
+      ],
+    },
+  },
 }
 
 export const Primary = {
@@ -30,8 +45,4 @@ export const Primary = {
       tag text
     </pix-tag>
   `,
-  play: async ({ canvasElement }) => {
-    const elementShadowRoot = canvasElement.querySelector('pix-tag').shadowRoot;
-    await expect(elementShadowRoot.lastChild).toHaveClass('pix-tag--primary');
-  }
 }

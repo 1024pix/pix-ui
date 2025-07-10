@@ -14,3 +14,17 @@ test('renders the component', async () => {
   // then
   expect(within(rootElement).getByLabelText('patate')).toBeInTheDocument();
 });
+
+test('it renders with the given color class', async () => {
+  // given
+  const tag = html`<pix-tag color="purple">patate</pix-tag>`;
+
+  // when
+  await render(tag, document.body);
+  const rootElement = document.querySelector('pix-tag').shadowRoot
+
+  // then
+  expect(rootElement.lastChild).toHaveClass('pix-tag--purple');
+});
+
+
