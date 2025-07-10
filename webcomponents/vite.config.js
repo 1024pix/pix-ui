@@ -62,6 +62,20 @@ export default defineConfig({
         },
         setupFiles: ['.storybook/vitest.setup.js']
       }
+    },
+    {
+      extends: true,
+      test: {
+        name: 'test',
+        browser: {
+          enabled: true,
+          headless: true,
+          provider: 'playwright',
+          instances: [{
+            browser: 'chromium'
+          }]
+        },
+      }
     }]
   }
 });
