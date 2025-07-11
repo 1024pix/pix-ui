@@ -5,6 +5,7 @@
     @disabled={{@isDisabled}}
     @query={{if @query @query this.defaultParams}}
     class={{this.className}}
+    aria-disabled="{{@isDisabled}}"
     ...attributes
   >
     <PixButtonContent
@@ -17,7 +18,8 @@
     </PixButtonContent>
   </LinkTo>
 {{else}}
-  <a href={{@href}} class={{this.className}} ...attributes>
+  {{! template-lint-disable no-unsupported-role-attributes }}
+  <a href={{@href}} class={{this.className}} aria-disabled="{{@isDisabled}}" ...attributes>
     <PixButtonContent
       @iconBefore={{@iconBefore}}
       @iconAfter={{@iconAfter}}
