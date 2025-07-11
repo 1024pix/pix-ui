@@ -14,27 +14,17 @@ const miscFiles = [
   '.circleci/**',
   '.github/**',
   '.template-lintrc.js',
-  'tests/dummy/**'
+  'tests/dummy/**',
 ];
 const nonPhraseGeneratedFiles = ['translations/en.json', 'translations/fr.json'];
 
-const nodeFiles = [
-  'eslint.config.js',
-  'testem.js',
-  'config/**/*.js',
-  'lib/*/index.js'
-];
+const nodeFiles = ['eslint.config.js', 'testem.js', 'config/**/*.js', 'lib/*/index.js'];
 
 export default [
   ...pixRecommendedConfig,
   prettierRecommendedConfig,
   {
-    ignores: [
-      ...compiledOutputFiles,
-      ...dependenciesFiles,
-      ...miscFiles,
-      ...nodeFiles,
-    ],
+    ignores: [...compiledOutputFiles, ...dependenciesFiles, ...miscFiles, ...nodeFiles],
   },
   {
     languageOptions: {

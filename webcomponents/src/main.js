@@ -1,1 +1,1 @@
-import './components/PixTag.ce.js'
+import './components/PixTag.ce.js';

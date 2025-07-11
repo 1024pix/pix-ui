@@ -1,7 +1,8 @@
-import { within, screen } from '@testing-library/dom';
-import { render, html } from 'lit';
-import { test, expect } from 'vitest';
 import './PixTag.ce.js';
+
+import { within } from '@testing-library/dom';
+import { html, render } from 'lit';
+import { expect, test } from 'vitest';
 
 test('renders the component', async () => {
   // given
@@ -9,7 +10,7 @@ test('renders the component', async () => {
 
   // when
   await render(tag, document.body);
-  const rootElement = document.querySelector('pix-tag').shadowRoot
+  const rootElement = document.querySelector('pix-tag').shadowRoot;
 
   // then
   expect(within(rootElement).getByLabelText('patate')).toBeInTheDocument();
@@ -21,10 +22,8 @@ test('it renders with the given color class', async () => {
 
   // when
   await render(tag, document.body);
-  const rootElement = document.querySelector('pix-tag').shadowRoot
+  const rootElement = document.querySelector('pix-tag').shadowRoot;
 
   // then
   expect(rootElement.lastChild).toHaveClass('pix-tag--purple');
 });
-
-

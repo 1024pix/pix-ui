@@ -8,6 +8,7 @@
     "font-family-no-duplicate-names": null,
     "no-descending-specificity": null,
     "no-empty-source": null,
+    "order/properties-order": null,
     "property-no-vendor-prefix": null,
     "scss/at-mixin-argumentless-call-parentheses": null,
     "scss/at-mixin-pattern": null,
