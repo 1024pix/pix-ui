@@ -1,7 +1,9 @@
-import { within, screen } from '@testing-library/dom';
+import { within } from '@testing-library/dom';
 import { render, html } from 'lit';
 import { test, expect } from 'vitest';
 import './PixLabel.ce.js';
+import { screen } from "shadow-dom-testing-library";
+
 
 test('it renders PixLabel with for and content', async () => {
   // given
@@ -9,11 +11,15 @@ test('it renders PixLabel with for and content', async () => {
 
   // when
   await render(label, document.body);
-  const rootElement = document.querySelector('pix-label').shadowRoot
-
+  // const rootElement = document.querySelector('pix-label').shadowRoot;
+  // console.dir(rootElement._vnode.el);
+  screen.debug();
+  console.dir('AAAAAAAA');
+  const result = await screen.findByShadowLabelText('Bonjour Pix !');
+  console.dir(result);
 
   // then
-  expect(within(rootElement).getByLabelText('Bonjour Pix !')).toBeInTheDocument();
+  expect(result).toBeInTheDocument();
 });
 
 
