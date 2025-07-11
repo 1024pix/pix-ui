@@ -13,6 +13,6 @@ const config = {
   "framework": {
     "name": "@storybook/web-components-vite",
     "options": {}
-  }
+  },
 };
 export default config;

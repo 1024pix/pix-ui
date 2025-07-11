@@ -22,7 +22,7 @@ const classes = computed(() => {
 </template>
 
 <style lang="scss">
-@import "../../../assets/pix-design-tokens/index.scss";
+@use "../../../assets/pix-design-tokens/index.scss";
 
 .pix-tag {
   @extend %pix-body-s;
