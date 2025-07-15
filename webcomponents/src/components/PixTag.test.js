@@ -10,7 +10,7 @@ test('renders the component', async () => {
 
   // when
   await render(tag, document.body);
-  const rootElement = document.querySelector('pix-tag').shadowRoot;
+  const rootElement = document.querySelector('pix-tag');
 
   // then
   expect(within(rootElement).getByLabelText('patate')).toBeInTheDocument();
@@ -22,7 +22,7 @@ test('it renders with the given color class', async () => {
 
   // when
   await render(tag, document.body);
-  const rootElement = document.querySelector('pix-tag').shadowRoot;
+  const rootElement = document.querySelector('pix-tag');
 
   // then
   expect(rootElement.lastChild).toHaveClass('pix-tag--purple');

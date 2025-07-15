@@ -1,28 +1,16 @@
 <script setup>
-import "../../../assets/pix-design-tokens/index.scss";
-
-import { computed } from 'vue';
-
-const props = defineProps({
+defineProps({
   color: String,
-});
-
-const classes = computed(() => {
-  const { color } = props;
-  const classes = ['pix-tag'];
-  if (color) classes.push(`pix-tag--${color}`);
-  return classes.join(' ');
 });
 </script>
 
 <template>
-  <div :class="classes">
+  <div :class="{[`pix-tag--${color}`]: color}" class="pix-tag">
     <slot></slot>
   </div>
 </template>
 
 <style lang="scss">
-@use "../../../assets/pix-design-tokens/index.scss";
 
 .pix-tag {
   @extend %pix-body-s;
@@ -108,5 +96,4 @@ const classes = computed(() => {
     background-color: var(--pix-warning-100);
   }
 }
-
 </style>
