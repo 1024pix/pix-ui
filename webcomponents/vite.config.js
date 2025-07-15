@@ -5,7 +5,9 @@ import { fileURLToPath } from 'node:url';
 
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import vue from '@vitejs/plugin-vue';
+import { resolve } from 'path';
 import { defineConfig } from 'vite';
+
 const dirname =
   // eslint-disable-next-line no-undef
   typeof __dirname !== 'undefined' ? __dirname : path.dirname(fileURLToPath(import.meta.url));
@@ -22,27 +24,27 @@ export default defineConfig({
       },
     }),
   ],
-  // css: {
-  //   preprocessorOptions: {
-  //     scss: {
-  //       additionalData: ``
-  //     }
-  //   }
-  // },
-  // resolve: {
-  //   alias: {
-  //     '@assets': fileURLToPath(new URL('../assets', import.meta.url))
-  //   }
-  // },
-  // build: {
-  //   lib: {
-  //     entry: resolve(import.meta.dirname, './src/main.js'),
-  //     name: 'PixUI',
-  //     // the proper extensions will be added
-  //     fileName: 'pix-ui'
-  //   },
-  //   target: ['es2015']
-  // },
+  css: {
+    preprocessorOptions: {
+      scss: {
+        additionalData: `@use "@assets/pix-design-tokens/index.scss";`,
+      },
+    },
+  },
+  resolve: {
+    alias: {
+      '@assets': fileURLToPath(new URL('../assets', import.meta.url)),
+    },
+  },
+  build: {
+    lib: {
+      entry: resolve(import.meta.dirname, './src/main.js'),
+      name: 'PixUI',
+      // the proper extensions will be added
+      fileName: 'pix-ui',
+    },
+    target: ['es2015'],
+  },
   test: {
     projects: [
       {
