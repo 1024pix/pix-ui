@@ -1,3 +1,9 @@
+# [55.24.0](https://github.com/1024pix/pix-ui/compare/v55.23.1...v55.24.0) (2025-07-16)
+
+### :rocket: Amélioration
+
+- [#893](https://github.com/1024pix/pix-ui/pull/893) Ajouter la possibilité de désactiver un lien (PIX-11536).
+
 ## [55.23.1](https://github.com/1024pix/pix-ui/compare/v55.23.0...v55.23.1) (2025-06-27)
 
 ### :bug: Correction
