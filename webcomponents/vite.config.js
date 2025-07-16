@@ -36,6 +36,9 @@ export default defineConfig({
       '@assets': fileURLToPath(new URL('../assets', import.meta.url)),
     },
   },
+  define: {
+    'process.env': {},
+  },
   build: {
     lib: {
       entry: resolve(import.meta.dirname, './src/main.js'),
@@ -43,7 +46,6 @@ export default defineConfig({
       // the proper extensions will be added
       fileName: 'pix-ui',
     },
-    target: ['es2015'],
   },
   test: {
     projects: [

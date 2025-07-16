@@ -1,5 +1,6 @@
 import { defineCustomElement } from 'vue';
 
-import PixTag from './PixTag.vue';
+import PixTag from './PixTag.ce.vue';
 
-window.customElements.define('pix-tag', defineCustomElement(PixTag, { shadowRoot: false }));
+// shadowRoot: true TEMPORAIRE
+window.customElements.define('pix-tag', defineCustomElement(PixTag, { shadowRoot: true }));
