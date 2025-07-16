@@ -1,4 +1,4 @@
-import './PixLabel.ce.js';
+import './PixLabel.js';
 
 import { screen } from '@testing-library/dom';
 import { html, render } from 'lit';

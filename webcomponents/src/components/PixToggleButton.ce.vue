@@ -2,7 +2,6 @@
 import { useId } from 'vue';
 import PixLabel from './PixLabel.ce.vue';
 import { pixLabelProps } from './PixLabel.props';
-import '@assets/pix-design-tokens/index.scss';
 
 const props = defineProps({
   ...pixLabelProps,
@@ -56,7 +55,6 @@ const id = useId()
 
 <style lang="scss">
 @use '@assets/pix-design-tokens/index.scss';
-@use '@assets/pix-design-tokens/typography';
 
 .pix-toggle-button {
   display: inline-flex;
