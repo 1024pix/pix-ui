@@ -11,6 +11,7 @@ defineProps({
 </template>
 
 <style lang="scss">
+@use '@assets/pix-design-tokens/index.scss';
 
 .pix-tag {
   @extend %pix-body-s;

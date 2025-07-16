@@ -1,6 +1,6 @@
 import './PixLabel.js';
 
-import { html } from 'lit';
+import { html, nothing } from 'lit';
 
 export default {
   title: 'Forms/Label',
@@ -74,12 +74,12 @@ export default {
     const { inlineLabel, label, requiredLabel, screenReaderOnly, size, subLabel } = args;
 
     return html`<pix-label
-      for="${args.for}"
-      inline-label="${inlineLabel}"
-      required-label="${requiredLabel}"
-      screen-reader-only="${screenReaderOnly}"
-      size="${size}"
-      sub-label="${subLabel}"
+      for=${args.for}
+      inline-label=${inlineLabel || nothing}
+      required-label=${requiredLabel}
+      screen-reader-only=${screenReaderOnly || nothing}
+      size=${size || nothing}
+      sub-label=${subLabel || nothing}
     >
       ${label}
     </pix-label>`;

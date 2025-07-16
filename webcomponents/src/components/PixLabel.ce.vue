@@ -1,14 +1,11 @@
 <script setup>
 import { computed } from "vue";
+import { pixLabelProps } from "./PixLabel.props";
 
 const props = defineProps({
+  ...pixLabelProps,
   disabled: Boolean,
-  for: String,
-  inlineLabel: Boolean,
   requiredLabel: String,
-  screenReaderOnly: Boolean,
-  subLabel: String,
-  size: 'small' | 'large',
 });
 
 const validatedSize = computed(() => {
@@ -36,6 +33,8 @@ const validatedSize = computed(() => {
 </template>
 
 <style lang="scss">
+@use '@assets/pix-design-tokens/index.scss';
+
 .pix-label {
   display: block;
   color: var(--pix-neutral-900);

@@ -27,7 +27,7 @@ export default defineConfig({
   css: {
     preprocessorOptions: {
       scss: {
-        additionalData: `@use "@assets/pix-design-tokens/index.scss";`,
+        // additionalData: `@use "@assets/pix-design-tokens/index.scss";`,
       },
     },
   },
