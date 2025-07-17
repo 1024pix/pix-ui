@@ -1,4 +1,4 @@
-import './PixToggleButton.ce.js';
+import './PixToggleButton.js';
 
 import { html, nothing } from 'lit';
 

@@ -1,7 +1,7 @@
 <script setup>
 import { computed } from "vue";
 import { pixLabelProps } from "./PixLabel.props";
-import './PixLabel.ce.scss';
+import './PixLabel.scss';
 
 const props = defineProps({
   ...pixLabelProps,
@@ -32,3 +32,6 @@ const validatedSize = computed(() => {
     <span v-if="props.subLabel" class="pix-label__sub-label">{{subLabel}}</span>
   </label>
 </template>
+<style lang="scss">
+@use './PixLabel.scss';
+</style>

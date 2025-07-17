@@ -1,5 +1,6 @@
 <script setup>
 import './PixTag.scss';
+
 defineProps({
   color: String,
 });
