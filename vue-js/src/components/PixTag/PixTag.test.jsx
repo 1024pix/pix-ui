@@ -1,21 +1,25 @@
 import PixTag from './PixTag.vue';
 
-import { screen } from '@testing-library/vue';
+import { cleanup, screen } from '@testing-library/vue';
 import { render } from '@test/test-utils.jsx';
-import { expect, test } from 'vitest';
+import { afterEach, describe, expect, test } from 'vitest';
 
-test('renders the component', async () => {
-  // given
-  render(<PixTag aria-label="patate">patate</PixTag>);
+describe('Integration | Component | pix-tag', () => {
+  afterEach(() => cleanup())
 
-  // then
-  expect(screen.getByLabelText('patate')).toBeInTheDocument();
-});
+  test('renders the component', async () => {
+    // given
+    render(<PixTag aria-label="patate">patate</PixTag>);
 
-test('it renders with the given color class', async () => {
-  // given
-  render(<PixTag color= "purple">patate</PixTag>);
+    // then
+    expect(screen.getByLabelText('patate')).toBeInTheDocument();
+  });
 
-  // then
-  expect(screen.getByText('patate')).toHaveClass('pix-tag--purple');
+  test('it renders with the given color class', async () => {
+    // given
+    render(<PixTag color= "purple">patate</PixTag>);
+
+    // then
+    expect(screen.getByText('patate')).toHaveClass('pix-tag--purple');
+  });
 });
