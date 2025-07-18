@@ -48,7 +48,7 @@ module('Integration | Component | pix-block', function (hooks) {
       // when
       await render(hbs`<PixBlock @variant='PIX APP'>Coucou</PixBlock>`);
 
-      // then
+      // thenc
       assert.ok(
         warnStub.calledWithExactly(
           'WARNING: PixBlock: @variant "PIX APP" should be primary, orga, certif, admin',
