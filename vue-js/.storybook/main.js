@@ -1,4 +1,4 @@
-/** @type { import('@storybook/web-components-vite').StorybookConfig } */
+/** @type { import('@storybook/vue3-vite').StorybookConfig } */
 const config = {
   stories: ['../src/**/*.mdx', '../src/**/*.stories.@(js|jsx|mjs|ts|tsx)'],
   addons: [
@@ -8,7 +8,7 @@ const config = {
     '@storybook/addon-vitest',
   ],
   framework: {
-    name: '@storybook/web-components-vite',
+    name: '@storybook/vue3-vite',
     options: {},
   },
 };

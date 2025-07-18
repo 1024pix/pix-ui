@@ -1,13 +1,11 @@
-import './PixTag.ce.js';
-
-import { html, nothing } from 'lit';
+import PixTag from './PixTag.vue';
 
 const description =
   "<p>Un `Tag` est un type de `Chips` qui permet de mettre en avant une information ou bien de la catégoriser.</p><p>Il est possible de surcharger le style d'un `PixTag` via l'attribut class ainsi que de passer n'importe quel attribut sur sa `div` parente (par exemple, un `aria-label`)</p>";
 
 export default {
   title: 'PixTag',
-  component: 'pix-tag',
+  component: PixTag,
   parameters: {
     docs: {
       description: {
@@ -49,5 +47,11 @@ export const Primary = {
   args: {
     color: 'primary',
   },
-  render: ({ color }) => html` <pix-tag color=${color || nothing}> tag text </pix-tag>`,
+  render: (args) => ({
+    components: { PixTag },
+    setup() {
+      return { args };
+    },
+    template: '<PixTag v-bind="args"></PixTag>',
+  }),
 };

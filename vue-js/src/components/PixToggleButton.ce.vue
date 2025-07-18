@@ -1,8 +1,6 @@
 <script setup>
 import { useId } from 'vue';
-import PixLabel from './PixLabel.ce.vue';
-import { pixLabelProps } from './PixLabel.props';
-import '@assets/pix-design-tokens/index.scss';
+import { PixLabel, pixLabelProps } from './PixLabel';
 
 const props = defineProps({
   ...pixLabelProps,
@@ -55,7 +53,6 @@ const id = useId()
 </template>
 
 <style lang="scss">
-@use '@assets/pix-design-tokens/index.scss';
 @use '@assets/pix-design-tokens/typography';
 
 .pix-toggle-button {

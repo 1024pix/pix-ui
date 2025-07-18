@@ -5,6 +5,7 @@ import { fileURLToPath } from 'node:url';
 
 import { storybookTest } from '@storybook/addon-vitest/vitest-plugin';
 import vue from '@vitejs/plugin-vue';
+import vueJsx from '@vitejs/plugin-vue-jsx';
 import { resolve } from 'path';
 import { defineConfig } from 'vite';
 
@@ -23,17 +24,19 @@ export default defineConfig({
         },
       },
     }),
+    vueJsx(),
   ],
   css: {
     preprocessorOptions: {
       scss: {
-        // additionalData: `@use "@assets/pix-design-tokens/index.scss";`,
+        additionalData: `@use "@assets/pix-design-tokens/index.scss";`,
       },
     },
   },
   resolve: {
     alias: {
       '@assets': fileURLToPath(new URL('../assets', import.meta.url)),
+      '@test': fileURLToPath(new URL('./src/test', import.meta.url)),
     },
   },
   build: {
@@ -74,6 +77,7 @@ export default defineConfig({
       {
         extends: true,
         test: {
+          include: ['src/**/*.test.js', 'src/**/*.test.jsx'],
           name: 'test',
           browser: {
             enabled: true,

@@ -1,10 +1,8 @@
-import './PixLabel.js';
-
-import { html, nothing } from 'lit';
+import PixLabel from './PixLabel.vue';
 
 export default {
   title: 'Forms/Label',
-  component: 'pix-label',
+  component: PixLabel,
   tags: ['autodocs'],
   argTypes: {
     for: {
@@ -70,20 +68,14 @@ export default {
       control: { type: 'boolean' },
     },
   },
-  render: (args) => {
-    const { inlineLabel, label, requiredLabel, screenReaderOnly, size, subLabel } = args;
-
-    return html`<pix-label
-      for=${args.for}
-      inline-label=${inlineLabel || nothing}
-      required-label=${requiredLabel}
-      screen-reader-only=${screenReaderOnly || nothing}
-      size=${size || nothing}
-      sub-label=${subLabel || nothing}
-    >
-      ${label}
-    </pix-label>`;
-  },
+  render: (args) => ({
+    components: { PixLabel },
+    setup() {
+      const { label, ...patate } = args;
+      return { label, args: patate };
+    },
+    template: '<PixLabel v-bind="args">{{label}}</PixLabel>',
+  }),
 };
 
 export const Default = {

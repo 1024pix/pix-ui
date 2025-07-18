@@ -33,7 +33,7 @@ const validatedSize = computed(() => {
 </template>
 
 <style lang="scss">
-@use '@assets/pix-design-tokens/index.scss';
+@use '@assets/pix-design-tokens/typography';
 
 .pix-label {
   display: block;
