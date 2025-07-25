@@ -1,3 +1,9 @@
+## [55.25.1](https://github.com/1024pix/pix-ui/compare/v55.25.0...v55.25.1) (2025-07-25)
+
+### :building_construction: Tech
+
+- [#895](https://github.com/1024pix/pix-ui/pull/895) Utiliser le ResizeObserver pour écouter un changement de taille sur un élément (PIX-18874).
+
 # [55.25.0](https://github.com/1024pix/pix-ui/compare/v55.24.0...v55.25.0) (2025-07-18)
 
 ### :rocket: Amélioration
