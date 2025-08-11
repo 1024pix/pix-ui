@@ -1,3 +1,9 @@
+## [55.25.2](https://github.com/1024pix/pix-ui/compare/v55.25.1...v55.25.2) (2025-08-11)
+
+### :bug: Correction
+
+- [#896](https://github.com/1024pix/pix-ui/pull/896) Corriger le soucis de scroll horizontal (PIX-17661)
+
 ## [55.25.1](https://github.com/1024pix/pix-ui/compare/v55.25.0...v55.25.1) (2025-07-25)
 
 ### :building_construction: Tech
