@@ -1,10 +1,13 @@
 @use "pix-design-tokens/breakpoints";
 @use "pix-design-tokens/typography";
 
+:root {
+  --pix-navigation-width:  15rem;
+}
+
 .pix-navigation {
   --bg-color-focus: rgb(var(--pix-neutral-100-inline), 50%);
   --bg-color-active: rgb(var(--pix-neutral-100-inline), 30%);
-  --pix-navigation-width:  15rem;
 
   display: flex;
   flex-direction: column;
