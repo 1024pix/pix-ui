@@ -1,3 +1,9 @@
+## [55.25.3](https://github.com/1024pix/pix-ui/compare/v55.25.2...v55.25.3) (2025-08-21)
+
+### :bug: Correction
+
+- [#897](https://github.com/1024pix/pix-ui/pull/897) Corriger l'apparence de l'application en version mobile (PIX-19200).
+
 ## [55.25.2](https://github.com/1024pix/pix-ui/compare/v55.25.1...v55.25.2) (2025-08-11)
 
 ### :bug: Correction
