@@ -47,6 +47,7 @@
     padding: 0 var(--pix-spacing-6x);
 
     @include breakpoints.device-is('mobile') {
+      max-width: none;
       padding: 0 var(--pix-spacing-2x);
     }
   }
