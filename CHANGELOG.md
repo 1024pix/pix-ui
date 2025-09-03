@@ -1,3 +1,9 @@
+## [55.25.14](https://github.com/1024pix/pix-ui/compare/v55.25.13...v55.25.14) (2025-09-03)
+
+### :arrow_up: Montée de version
+
+- [#910](https://github.com/1024pix/pix-ui/pull/910) Update dependency ember-page-title to v9 (dossier racine)
+
 ## [55.25.13](https://github.com/1024pix/pix-ui/compare/v55.25.12...v55.25.13) (2025-09-03)
 
 ### :arrow_up: Montée de version
