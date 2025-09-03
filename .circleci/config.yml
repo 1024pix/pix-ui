@@ -73,6 +73,7 @@ jobs:
   test:
     executor: node-browsers-docker
     working_directory: ~/pix-ui
+    resource_class: medium
     steps:
       - attach_workspace:
           at: ~/pix-ui
