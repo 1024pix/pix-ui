@@ -3,13 +3,9 @@ import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-import { click } from '@ember/test-helpers';
-import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | icon-button', function (hooks) {
   setupRenderingTest(hooks);
-
-  const COMPONENT_SELECTOR = '.pix-icon-button';
 
   test('it should trigger action if given one', async function (assert) {
     // when
@@ -17,14 +13,14 @@ module('Integration | Component | icon-button', function (hooks) {
     this.set('triggerAction', () => {
       this.count = this.count + 1;
     });
-    await render(
+    const screen = await render(
       hbs`<PixIconButton
   @triggerAction={{this.triggerAction}}
   @ariaLabel='action du bouton'
   @iconName='add'
 />`,
     );
-    await clickByLabel('action du bouton');
+    await click(screen.getByRole('button', { name: 'action du bouton' }));
 
     // then
     assert.strictEqual(this.count, 2);
@@ -35,16 +31,17 @@ module('Integration | Component | icon-button', function (hooks) {
     this.set('triggerAction', () => {});
 
     //when
-    await render(hbs`<PixIconButton
+    const screen = await render(
+      hbs`<PixIconButton
   @triggerAction={{this.triggerAction}}
   @iconName='add'
   disabled={{true}}
-  @ariaLabel="L'action du bouton"
-/>`);
+  @ariaLabel='action du bouton'
+/>`,
+    );
 
     // then
-    const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
-    assert.true(componentElement.disabled);
+    assert.dom(screen.getByRole('button', { name: 'action du bouton' })).isDisabled();
   });
 
   module('When the attribute isDisabled is set to true', function () {
@@ -58,18 +55,18 @@ module('Integration | Component | icon-button', function (hooks) {
       // when
       const screen = await render(
         hbs`<PixIconButton
-          @isDisabled={{true}}
-          @triggerAction={{this.triggerAction}}
-          @ariaLabel='action du bouton'
-        />`,
+  @isDisabled={{true}}
+  @triggerAction={{this.triggerAction}}
+  @ariaLabel='action du bouton'
+/>`,
       );
 
       const iconButton = screen.getByRole('button', {
         name: 'action du bouton',
       });
-      await click(iconButton);
 
       // then
+      await click(iconButton);
       assert.dom(iconButton).hasAria('disabled', 'true');
       assert.strictEqual(this.count, 1);
     });
