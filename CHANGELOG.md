@@ -1,3 +1,9 @@
+## [55.25.10](https://github.com/1024pix/pix-ui/compare/v55.25.9...v55.25.10) (2025-09-03)
+
+### :arrow_up: Montée de version
+
+- [#905](https://github.com/1024pix/pix-ui/pull/905) Update actions/checkout action to v5 (workflows)
+
 ## [55.25.9](https://github.com/1024pix/pix-ui/compare/v55.25.8...v55.25.9) (2025-09-03)
 
 ### :arrow_up: Montée de version
