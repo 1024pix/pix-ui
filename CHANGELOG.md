@@ -1,3 +1,9 @@
+# [55.26.0](https://github.com/1024pix/pix-ui/compare/v55.25.15...v55.26.0) (2025-09-03)
+
+### :rocket: Amélioration
+
+- [#902](https://github.com/1024pix/pix-ui/pull/902) Ajouter l'attribut isDisabled à PixIconButton (PIX-19373)
+
 ## [55.25.15](https://github.com/1024pix/pix-ui/compare/v55.25.14...v55.25.15) (2025-09-03)
 
 ### :arrow_up: Montée de version
