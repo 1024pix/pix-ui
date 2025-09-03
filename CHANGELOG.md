@@ -1,3 +1,9 @@
+## [55.26.2](https://github.com/1024pix/pix-ui/compare/v55.26.1...v55.26.2) (2025-09-03)
+
+### :arrow_up: Montée de version
+
+- [#917](https://github.com/1024pix/pix-ui/pull/917) Update dependency globals to v16 (dossier racine)
+
 ## [55.26.1](https://github.com/1024pix/pix-ui/compare/v55.26.0...v55.26.1) (2025-09-03)
 
 ### :arrow_up: Montée de version
