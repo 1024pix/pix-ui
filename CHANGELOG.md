@@ -1,3 +1,9 @@
+## [55.26.1](https://github.com/1024pix/pix-ui/compare/v55.26.0...v55.26.1) (2025-09-03)
+
+### :arrow_up: Montée de version
+
+- [#911](https://github.com/1024pix/pix-ui/pull/911) Update dependency svgo to v4 (dossier racine)
+
 # [55.26.0](https://github.com/1024pix/pix-ui/compare/v55.25.15...v55.26.0) (2025-09-03)
 
 ### :rocket: Amélioration
