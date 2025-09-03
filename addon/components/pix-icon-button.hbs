@@ -2,6 +2,7 @@
   type="button"
   class="pix-icon-button pix-icon-button--{{this.size}}"
   {{on "click" this.triggerAction}}
+  aria-disabled="{{this.isDisabled}}"
   ...attributes
 >
   <span class="screen-reader-only">{{this.ariaLabel}}</span>

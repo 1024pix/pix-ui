@@ -1,8 +1,9 @@
 import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-
+import { click } from '@ember/test-helpers';
 import clickByLabel from '../../helpers/click-by-label';
 
 module('Integration | Component | icon-button', function (hooks) {
@@ -44,5 +45,33 @@ module('Integration | Component | icon-button', function (hooks) {
     // then
     const componentElement = this.element.querySelector(COMPONENT_SELECTOR);
     assert.true(componentElement.disabled);
+  });
+
+  module('When the attribute isDisabled is set to true', function () {
+    test('it should display the button as disabled and prevent triggerAction', async function (assert) {
+      // given
+      this.set('count', 1);
+      this.set('triggerAction', () => {
+        this.count = this.count + 1;
+      });
+
+      // when
+      const screen = await render(
+        hbs`<PixIconButton
+          @isDisabled={{true}}
+          @triggerAction={{this.triggerAction}}
+          @ariaLabel='action du bouton'
+        />`,
+      );
+
+      const iconButton = screen.getByRole('button', {
+        name: 'action du bouton',
+      });
+      await click(iconButton);
+
+      // then
+      assert.dom(iconButton).hasAria('disabled', 'true');
+      assert.strictEqual(this.count, 1);
+    });
   });
 });

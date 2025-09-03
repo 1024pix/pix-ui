@@ -43,6 +43,15 @@ export default {
         defaultValue: { summary: 'big' },
       },
     },
+    isDisabled: {
+      name: 'isDisabled',
+      type: { name: 'boolean', required: false },
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: 'false' },
+      },
+    },
   },
 };
 
@@ -54,8 +63,7 @@ const Template = (args) => {
   @iconPrefix={{this.iconPrefix}}
   @triggerAction={{this.triggerAction}}
   @size={{this.size}}
-  disabled={{this.disabled}}
-  aria-disabled={{this.disabled}}
+  @isDisabled={{this.isDisabled}}
 />`,
     context: args,
   };
@@ -80,6 +88,6 @@ size.args = {
 export const disabled = Template.bind({});
 disabled.args = {
   ...Default.args,
-  disabled: true,
+  isDisabled: true,
   triggerAction,
 };
