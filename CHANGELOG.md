@@ -1,3 +1,9 @@
+## [55.25.15](https://github.com/1024pix/pix-ui/compare/v55.25.14...v55.25.15) (2025-09-03)
+
+### :arrow_up: Montée de version
+
+- [#909](https://github.com/1024pix/pix-ui/pull/909) Update dependency ember-load-initializers to v3 (dossier racine)
+
 ## [55.25.14](https://github.com/1024pix/pix-ui/compare/v55.25.13...v55.25.14) (2025-09-03)
 
 ### :arrow_up: Montée de version
