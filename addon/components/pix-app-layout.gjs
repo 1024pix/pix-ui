@@ -21,7 +21,9 @@ export default class PixAppLayout extends Component {
   }
 
   handleMarginContainerNavigation = (element) => {
-    this.#computeMarginTopElement(element);
+    setTimeout(() => {
+      this.#computeMarginTopElement(element);
+    }, 0);
   };
 
   get variant() {
