@@ -1,3 +1,9 @@
+## [55.26.5](https://github.com/1024pix/pix-ui/compare/v55.26.4...v55.26.5) (2025-09-04)
+
+### :building_construction: Tech
+
+- [#921](https://github.com/1024pix/pix-ui/pull/921) Ajouter un setTimeout afin de ne plus avoir d'erreur sur l'App PixCertif (PIX-XXXX)
+
 ## [55.26.4](https://github.com/1024pix/pix-ui/compare/v55.26.3...v55.26.4) (2025-09-04)
 
 ### :building_construction: Tech
