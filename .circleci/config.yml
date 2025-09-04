@@ -18,34 +18,73 @@ workflows:
   version: 2
   build-and-test:
     jobs:
-      - lint-and-test:
+      - checkout:
+          context: PixUI
           filters:
             branches:
               ignore:
                 - gh-pages
+      - lint:
+          context: PixUI
+          requires:
+            - checkout
+      - test:
+          context: PixUI
+          requires:
+            - checkout
       - chromatic-deployment:
-          filters:
-            branches:
-              ignore:
-                - gh-pages
+          context: PixUI
+          requires:
+            - checkout
 
 jobs:
-  lint-and-test:
-    executor: node-browsers-docker
-    resource_class: medium
+  checkout:
+    executor:
+      name: node-browsers-docker
+    working_directory: ~/pix-ui
     steps:
-      - browser-tools/install-chrome
+      - attach_workspace:
+          at: ~/pix-ui
       - checkout
+      - run: cat package*.json > cachekey
+      - restore_cache:
+          keys:
+            - v7-npm-{{ checksum "cachekey" }}
       - run: npm ci
+      - save_cache:
+          key: v7-npm-{{ checksum "cachekey" }}
+          paths:
+            - ~/.npm
+      - persist_to_workspace:
+          root: ~/pix-ui
+          paths:
+            - .
+
+  lint:
+    executor: node-browsers-docker
+    working_directory: ~/pix-ui
+    steps:
+      - attach_workspace:
+          at: ~/pix-ui
       - run: npm run lint:js
       - run: npm run lint:hbs
       - run: npm run lint:scss
-      - run: npm test
+
+  test:
+    executor: node-browsers-docker
+    working_directory: ~/pix-ui
+    resource_class: medium
+    steps:
+      - attach_workspace:
+          at: ~/pix-ui
+      - browser-tools/install-chrome
+      - run: npm run test
 
   chromatic-deployment:
     executor: node-browsers-docker
     resource_class: medium
+    working_directory: ~/pix-ui
     steps:
-      - checkout
-      - run: npm ci
+      - attach_workspace:
+          at: ~/pix-ui
       - run: npm run chromatic -- --auto-accept-changes
