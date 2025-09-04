@@ -135,7 +135,7 @@
     "qunit-dom": "^3.4.0",
     "sass": "^1.83.1",
     "storybook": "^8.4.7",
-    "storybook-addon-tag-badges": "^1.4.0",
+    "storybook-addon-tag-badges": "^2.0.0",
     "stylelint": "^16.15.0",
     "svg-sprite": "^2.0.4",
     "svgo": "^4.0.0",
