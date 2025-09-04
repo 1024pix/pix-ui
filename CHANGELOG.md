@@ -1,3 +1,9 @@
+## [55.26.4](https://github.com/1024pix/pix-ui/compare/v55.26.3...v55.26.4) (2025-09-04)
+
+### :building_construction: Tech
+
+- [#912](https://github.com/1024pix/pix-ui/pull/912) Améliorations diverses Circle CI
+
 ## [55.26.3](https://github.com/1024pix/pix-ui/compare/v55.26.2...v55.26.3) (2025-09-04)
 
 ### :arrow_up: Montée de version
