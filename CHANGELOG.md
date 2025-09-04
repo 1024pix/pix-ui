@@ -1,3 +1,9 @@
+## [55.26.9](https://github.com/1024pix/pix-ui/compare/v55.26.8...v55.26.9) (2025-09-04)
+
+### :arrow_up: Montée de version
+
+- [#920](https://github.com/1024pix/pix-ui/pull/920) Update dependency ember-try to v4 (dossier racine)
+
 ## [55.26.8](https://github.com/1024pix/pix-ui/compare/v55.26.7...v55.26.8) (2025-09-04)
 
 ### :arrow_up: Montée de version
