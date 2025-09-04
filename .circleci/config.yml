@@ -77,7 +77,7 @@ jobs:
     steps:
       - attach_workspace:
           at: ~/pix-ui
-      - browser-tools/install-chrome
+      - browser-tools/install_chrome
       - run: npm run test
 
   chromatic-deployment:
