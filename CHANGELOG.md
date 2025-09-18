@@ -1,3 +1,9 @@
+# [55.27.0](https://github.com/1024pix/pix-ui/compare/v55.26.12...v55.27.0) (2025-09-18)
+
+### :rocket: Amélioration
+
+- [#933](https://github.com/1024pix/pix-ui/pull/933) Ajouter l'icône acute (PIX-19567)
+
 ## [55.26.12](https://github.com/1024pix/pix-ui/compare/v55.26.11...v55.26.12) (2025-09-08)
 
 ### :arrow_up: Montée de version
