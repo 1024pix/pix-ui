@@ -1,7 +1,7 @@
 @use "pix-design-tokens/typography";
 
 %pix-input-default {
-  @extend %pix-body-s;
+  @extend %pix-body-l;
 
   padding: var(--pix-spacing-2x) var(--pix-spacing-3x);
   color: var(--pix-neutral-900);
