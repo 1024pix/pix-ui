@@ -10,3 +10,23 @@
   @triggerAction={{this.onClick}}
   @isDisabled={{true}}
 />
+
+{{! template-lint-disable no-inline-styles }}
+<div
+  style="display:inline-flex;flex-direction:column;gap:18px;background-color:var(--pix-orga-500);padding:16px"
+>
+  <PixButton @triggerAction={{this.onClick}} @variant="primary-white">Bouton primaire blanc</PixButton>
+
+  <PixButton @triggerAction={{this.onClick}} @variant="primary-white" @isDisabled={{true}}>Bouton
+    primaire blanc</PixButton>
+
+  <PixButton @triggerAction={{this.onClick}} @variant="secondary-white">Bouton secondaire blanc</PixButton>
+
+  <PixButton @triggerAction={{this.onClick}} @variant="secondary-white" @isDisabled={{true}}>Bouton
+    secondaire blanc</PixButton>
+
+  <PixButton @triggerAction={{this.onClick}} @variant="tertiary-white">Bouton tertiaire blanc</PixButton>
+
+  <PixButton @triggerAction={{this.onClick}} @variant="tertiary-white" @isDisabled={{true}}>Bouton
+    tertiaire blanc</PixButton>
+</div>

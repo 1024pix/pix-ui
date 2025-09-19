@@ -17,13 +17,15 @@ export default {
     },
     variant: {
       name: 'variant',
-      description:
-        'color: `primary`, `primary-bis`, `secondary`,`tertiary`, `success`, `error`, `transparent-dark`',
+      description: 'Permet le choix de la déclinaison du bouton upload souhaité',
       options: [
         'primary',
         'primary-bis',
+        'primary-white',
         'secondary',
+        'secondary-white',
         'tertiary',
+        'tertiary-white',
         'success',
         'error',
         'transparent-dark',
