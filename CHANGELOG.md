@@ -1,3 +1,9 @@
+# [55.28.0](https://github.com/1024pix/pix-ui/compare/v55.27.0...v55.28.0) (2025-09-22)
+
+### :rocket: Amélioration
+
+- [#934](https://github.com/1024pix/pix-ui/pull/934) Ajouter les variant white pour le primary , secondary, tertiary button (PIX-17057).
+
 # [55.27.0](https://github.com/1024pix/pix-ui/compare/v55.26.12...v55.27.0) (2025-09-18)
 
 ### :rocket: Amélioration
