@@ -34,13 +34,15 @@ export default {
     },
     variant: {
       name: 'variant',
-      description:
-        'color: `primary`, `primary-bis`, `secondary`,`tertiary`, `success`, `error`, `transparent-dark`',
+      description: 'Permet le choix de la déclinaison du bouton souhaité',
       options: [
         'primary',
         'primary-bis',
+        'primary-white',
         'secondary',
+        'secondary-white',
         'tertiary',
+        'tertiary-white',
         'success',
         'error',
         'transparent-dark',
@@ -210,9 +212,27 @@ variants.args = {
     {
       ...Default.args,
       label: 'Bouton avec bordure sur fond sombre (DEPRECATED)',
-      style: 'background-color: #775555',
+      style: 'background-color: var(--pix-orga-500);padding:8px',
       variant: 'transparent-dark',
       isBorderVisible: true,
+    },
+    {
+      ...Default.args,
+      label: 'Bouton primary-white',
+      style: 'background-color: var(--pix-orga-500);padding:8px',
+      variant: 'primary-white',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton secondary-white',
+      style: 'background-color: var(--pix-certif-500);padding:8px',
+      variant: 'secondary-white',
+    },
+    {
+      ...Default.args,
+      label: 'Bouton tertiary-white',
+      style: 'background-color: var(--pix-certif-500);padding:8px',
+      variant: 'tertiary-white',
     },
   ],
 };
