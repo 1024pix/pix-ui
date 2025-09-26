@@ -1,3 +1,9 @@
+## [55.28.3](https://github.com/1024pix/pix-ui/compare/v55.28.2...v55.28.3) (2025-09-26)
+
+### :arrow_up: Montée de version
+
+- [#932](https://github.com/1024pix/pix-ui/pull/932) Update actions/setup-node action to v5 (workflows)
+
 ## [55.28.2](https://github.com/1024pix/pix-ui/compare/v55.28.1...v55.28.2) (2025-09-26)
 
 ### :building_construction: Tech
