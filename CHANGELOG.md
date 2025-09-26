@@ -1,3 +1,9 @@
+## [55.28.2](https://github.com/1024pix/pix-ui/compare/v55.28.1...v55.28.2) (2025-09-26)
+
+### :building_construction: Tech
+
+- [#938](https://github.com/1024pix/pix-ui/pull/938) Tester d'installer chrome en premier pour éviter les erreurs
+
 ## [55.28.1](https://github.com/1024pix/pix-ui/compare/v55.28.0...v55.28.1) (2025-09-26)
 
 ### :arrow_up: Montée de version
