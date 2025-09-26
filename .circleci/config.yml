@@ -75,9 +75,9 @@ jobs:
     working_directory: ~/pix-ui
     resource_class: medium
     steps:
+      - browser-tools/install_chrome
       - attach_workspace:
           at: ~/pix-ui
-      - browser-tools/install_chrome
       - run: npm run test
 
   chromatic-deployment:
