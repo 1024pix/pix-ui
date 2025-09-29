@@ -1,3 +1,10 @@
+## [55.28.4](https://github.com/1024pix/pix-ui/compare/v55.28.3...v55.28.4) (2025-09-29)
+
+### :arrow_up: Montée de version
+
+- [#939](https://github.com/1024pix/pix-ui/pull/939) Update dependency @1024pix/ember-testing-library to ^3.0.16 (dossier racine) 
+- [#929](https://github.com/1024pix/pix-ui/pull/929) Update dependency @1024pix/eslint-plugin to ^2.1.11 (dossier racine)
+
 ## [55.28.3](https://github.com/1024pix/pix-ui/compare/v55.28.2...v55.28.3) (2025-09-26)
 
 ### :arrow_up: Montée de version
