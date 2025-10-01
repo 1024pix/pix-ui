@@ -1,3 +1,9 @@
+# [55.29.0](https://github.com/1024pix/pix-ui/compare/v55.28.4...v55.29.0) (2025-10-01)
+
+### :rocket: Amélioration
+
+- [#940](https://github.com/1024pix/pix-ui/pull/940) ajouter l'icône pour les parcours combinés (PIX-19769)"
+
 ## [55.28.4](https://github.com/1024pix/pix-ui/compare/v55.28.3...v55.28.4) (2025-09-29)
 
 ### :arrow_up: Montée de version
