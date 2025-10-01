@@ -107,6 +107,7 @@ export const ICONS = {
   star: { default: 'star', plainIcon: 'star_plain' },
   stopCircle: { default: 'stopCircle', plainIcon: 'stopCircle_plain' },
   stopwatch: { default: 'stopwatch', plainIcon: 'stopwatch_plain' },
+  studyLesson: { default: 'studyLesson', plainIcon: 'studyLesson_plain' },
   tablet: { default: 'tablet', plainIcon: 'tablet_plain' },
   tabletOff: { default: 'tabletOff', plainIcon: 'tabletOff_plain' },
   think: { default: 'think', plainIcon: 'think_plain' },
