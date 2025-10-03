@@ -25,7 +25,7 @@ export default class PixSelect extends Component {
         const selectWidth = listWidth / baseFontRemRatio;
 
         const element = document.getElementById(`container-${this.selectId}`);
-        element.style.setProperty('--pix-select-width', `${selectWidth}rem`);
+        element.style.setProperty('--pix-select-width', `${selectWidth + 0.5}rem`); // Fix for FF
       });
     }
   }
