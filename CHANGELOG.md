@@ -1,3 +1,9 @@
+## [55.29.1](https://github.com/1024pix/pix-ui/compare/v55.29.0...v55.29.1) (2025-10-09)
+
+### :bug: Correction
+
+- [#943](https://github.com/1024pix/pix-ui/pull/943) Affichage du placeholder de PixSelect différent sous FF et Chrome
+
 # [55.29.0](https://github.com/1024pix/pix-ui/compare/v55.28.4...v55.29.0) (2025-10-01)
 
 ### :rocket: Amélioration
