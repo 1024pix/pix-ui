@@ -6,6 +6,8 @@ export default class SelectPage extends Controller {
   @tracked selectedOption = null;
   @tracked structure = this.structures[1];
   @tracked multiValues = [];
+  @tracked countriesError = true;
+  @tracked selectedCountry = null;
   @tracked options = [
     {
       value: '1',
@@ -45,6 +47,12 @@ export default class SelectPage extends Controller {
   }
 
   @action
+  onChangeCountry(option) {
+    this.selectedCountry = option;
+    this.countriesError = false;
+  }
+
+  @action
   onMultiChange(values) {
     this.multiValues = values;
   }
@@ -77,6 +85,12 @@ export default class SelectPage extends Controller {
   onMultiSearch(search) {
     this.multiSearchValue = search;
   }
+
+  countriesOptions = [
+    { value: '1', label: 'England' },
+    { value: '2', label: 'Cambodgia' },
+    { value: '3', label: 'South Africa' },
+  ];
 
   get options() {
     return
