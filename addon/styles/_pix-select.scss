@@ -101,7 +101,9 @@
     color: var(--pix-neutral-900);
   }
 
-  &--error {
+  // &#{&}--error is equal to => .pix-select-button.pix-select-button--error
+  // https://sass-lang.com/documentation/style-rules/declarations/#interpolation
+  &#{&}--error {
     @extend %pix-form-error-state;
   }
 
