@@ -1,3 +1,9 @@
+## [55.29.2](https://github.com/1024pix/pix-ui/compare/v55.29.1...v55.29.2) (2025-10-16)
+
+### :bug: Correction
+
+- [#944](https://github.com/1024pix/pix-ui/pull/944) Afficher la bordure rouge du Select en erreur(PIX-19992)
+
 ## [55.29.1](https://github.com/1024pix/pix-ui/compare/v55.29.0...v55.29.1) (2025-10-09)
 
 ### :bug: Correction
