@@ -1,3 +1,9 @@
+## [55.29.5](https://github.com/1024pix/pix-ui/compare/v55.29.4...v55.29.5) (2025-10-20)
+
+### :arrow_up: Montée de version
+
+- [#946](https://github.com/1024pix/pix-ui/pull/946) Update dependency @1024pix/eslint-plugin to ^2.1.12 (dossier racine)
+
 ## [55.29.4](https://github.com/1024pix/pix-ui/compare/v55.29.3...v55.29.4) (2025-10-20)
 
 ### :arrow_up: Montée de version
