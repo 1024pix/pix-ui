@@ -1,3 +1,9 @@
+# [55.30.0](https://github.com/1024pix/pix-ui/compare/v55.29.5...v55.30.0) (2025-10-23)
+
+### :rocket: Amélioration
+
+- [#948](https://github.com/1024pix/pix-ui/pull/948) Modification de couleurs et nouveaux tokens (PIX-20114).
+
 ## [55.29.5](https://github.com/1024pix/pix-ui/compare/v55.29.4...v55.29.5) (2025-10-20)
 
 ### :arrow_up: Montée de version
