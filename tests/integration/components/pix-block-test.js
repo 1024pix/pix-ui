@@ -51,7 +51,7 @@ module('Integration | Component | pix-block', function (hooks) {
       // then
       assert.ok(
         warnStub.calledWithExactly(
-          'WARNING: PixBlock: @variant "PIX APP" should be primary, orga, certif, admin',
+          'WARNING: PixBlock: @variant "PIX APP" should be primary, orga, certif, admin, modulix',
         ),
       );
     });
