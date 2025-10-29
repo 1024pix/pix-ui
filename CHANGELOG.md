@@ -1,3 +1,9 @@
+# [55.31.0](https://github.com/1024pix/pix-ui/compare/v55.30.0...v55.31.0) (2025-10-29)
+
+### :rocket: Amélioration
+
+- [#949](https://github.com/1024pix/pix-ui/pull/949) Créer un variant modulix pour PixAppNavigation (PIX-20100).
+
 # [55.30.0](https://github.com/1024pix/pix-ui/compare/v55.29.5...v55.30.0) (2025-10-23)
 
 ### :rocket: Amélioration
