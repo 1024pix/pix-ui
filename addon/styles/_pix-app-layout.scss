@@ -100,4 +100,13 @@
     --pix-navigation-color: var(--pix-primary-700);
     --pix-navigation-text-color: var(--pix-neutral-0);
   }
+
+  &--modulix {
+    background-color: var(--pix-neutral-0);
+
+    --pix-navigation-color: var(--pix-primary-10);
+    --pix-navigation-text-color: var(--pix-neutral-800);
+    --pix-navigation-width: 88px;
+    --pix-navigation-mobile-button-color: var(--pix-neutral-800);
+  }
 }

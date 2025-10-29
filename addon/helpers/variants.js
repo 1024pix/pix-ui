@@ -1,1 +1,1 @@
-export const VARIANTS = ['primary', 'orga', 'certif', 'admin'];
+export const VARIANTS = ['primary', 'orga', 'certif', 'admin', 'modulix'];

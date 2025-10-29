@@ -3,6 +3,7 @@
 
 :root {
   --pix-navigation-width:  15rem;
+  --pix-navigation-mobile-button-color: --pix-neutral-0;
 }
 
 .pix-navigation {
@@ -70,6 +71,10 @@
     @include breakpoints.device-is('mobile') {
       display: block;
       margin-left:auto;
+
+      svg {
+        color: var(--pix-navigation-mobile-button-color);
+      }
 
       .pix-button {
         background-color: transparent;

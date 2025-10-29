@@ -424,7 +424,7 @@ module('Integration | Component | table', function (hooks) {
       // then
       assert.ok(
         warnStub.calledWithExactly(
-          'WARNING: PixTable: @variant "wrong variant" should be primary, orga, certif, admin',
+          'WARNING: PixTable: @variant "wrong variant" should be primary, orga, certif, admin, modulix',
         ),
       );
     });

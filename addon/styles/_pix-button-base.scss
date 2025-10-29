@@ -184,16 +184,16 @@
 
   &--success {
     color: var(--pix-neutral-0);
-    background-color: var(--pix-success-500);
+    background-color: var(--pix-success-700);
 
     &:not([aria-disabled="true"]) {
       &:hover {
-        background-color: var(--pix-success-700);
+        background-color: var(--pix-success-900);
       }
 
       &:focus,
       &:focus-visible {
-        background-color: var(--pix-success-700);
+        background-color: var(--pix-success-900);
         outline: 1px solid var(--pix-neutral-0);
         outline-offset: -4px;
       }
