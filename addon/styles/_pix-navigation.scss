@@ -91,6 +91,10 @@
         &:active {
           background-color: rgb(var(--pix-neutral-800-inline), 30%);
         }
+
+        .pix-button__icon--before {
+          margin-right: 0;
+        }
       }
     }
   }
