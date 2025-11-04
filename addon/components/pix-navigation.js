@@ -26,10 +26,8 @@ export default class PixMNavigation extends Component {
   }
 
   @action
-  handleNavigationClick(event) {
-    if (event.target.nodeName === 'A') {
-      this.navigationMenuOpened = false;
-    }
+  handleNavigationClick() {
+    this.navigationMenuOpened = false;
   }
 
   get navigationId() {
