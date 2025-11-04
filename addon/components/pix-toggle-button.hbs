@@ -1,4 +1,4 @@
-<div class={{this.className}}>
+<div class={{this.className}} role="group" aria-labelledby="{{this.id}}">
   <PixLabel
     @for={{this.id}}
     @screenReaderOnly={{@screenReaderOnly}}
@@ -6,18 +6,24 @@
     @size={{@size}}
     @inlineLabel={{@inlineLabel}}
   >{{yield to="label"}}</PixLabel>
-  <button
-    class="pix-toggle-button__button{{if @useIcons ' pix-toggle-button__button--icon'}}"
-    id={{this.id}}
-    aria-pressed={{if @toggled "true" "false"}}
-    type="button"
-    {{on "click" this.onToggle}}
-  >
-    <span class="pix-toggle-button__view-a{{if @useIcons ' pix-toggle-button__with-icon'}}">
-      {{yield to="viewA"}}
-    </span>
-    <span class="pix-toggle-button__view-b{{if @useIcons ' pix-toggle-button__with-icon'}}">
-      {{yield to="viewB"}}
-    </span>
-  </button>
+  <div class="radio">
+    <input
+      onchange={{this.onChange}}
+      id="viewA"
+      type="radio"
+      name="toggle"
+      value="viewA"
+      checked={{not this.toggled}}
+    />
+    <label for="viewA">{{yield to="viewA"}}</label>
+    <input
+      onchange={{this.onChange}}
+      id="viewB"
+      type="radio"
+      name="toggle"
+      value="viewB"
+      checked={{this.toggled}}
+    />
+    <label for="viewB">{{yield to="viewB"}}</label>
+  </div>
 </div>

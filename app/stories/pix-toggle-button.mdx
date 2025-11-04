@@ -7,32 +7,28 @@ import * as ComponentStories from './pix-toggle-button.stories.js';
 
 Affiche un bouton à deux états.
 
+Le label est géré avec un [PixLabel](?path=/docs/forms-label--docs), tous les arguments de ce composant peuvent être passés au `PixToggleButton`.
 
+## Défaut
 ```html
 <PixToggleButton>
-
-  <:label>Mon super toggle</:label>
+  <:label>Mon super label</:label>
   <:viewA>Option 1</:viewA>
   <:viewB>Option 2</:viewB>
-
 </PixToggleButton>
 ```
-
-## Default
-
 <Story of={ComponentStories.Default} height={200} />
 
-## Inline
 
-<Story of={ComponentStories.Inline} height={200} />
-
-## ScreenReaderOnly
-
-<Story of={ComponentStories.ScreenReaderOnly} height={200} />
-
-## WithYields
-
-<Story of={ComponentStories.WithIcons} height={200} />
+## Option 2 sélectionnée par défaut
+```html
+<PixToggleButton @toggled={{true}}>
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixToggleButton>
+```
+<Story of={ComponentStories.Toggled} height={200} />
 
 ## Arguments
 

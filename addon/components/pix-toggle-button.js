@@ -1,13 +1,13 @@
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
 
 export default class PixToggleButton extends Component {
+  @tracked toggled = this.args.toggled || false;
+
   get className() {
     const classes = ['pix-toggle-button'];
-    if (this.args.toggled) {
-      classes.push('pix-toggle-button--pressed');
-    }
 
     if (this.args.inlineLabel) {
       classes.push('pix-toggle-button--inline');
@@ -17,8 +17,9 @@ export default class PixToggleButton extends Component {
   }
 
   @action
-  onToggle() {
-    this.args.onChange(!this.args.toggled);
+  onChange() {
+    this.args.onChange(!this.toggled);
+    this.toggled = !this.toggled;
   }
 
   get id() {
