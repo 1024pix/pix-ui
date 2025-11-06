@@ -1,5 +1,4 @@
 import { fireEvent, render } from '@1024pix/ember-testing-library';
-import { waitForElementToBeRemoved } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
@@ -119,7 +118,6 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
 
       //when
       await userEvent.click(option);
-      await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
 
       // then
       assert.strictEqual(document.activeElement, button);
@@ -137,6 +135,7 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
         //  when
         const button = screen.getByRole('button', { name: 'Changer de structure' });
         button.focus();
+
         await userEvent.keyboard('[ArrowUp]');
 
         //then
@@ -231,7 +230,6 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
         await userEvent.keyboard('[Escape]');
 
         // then
-        await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
         assert.strictEqual(document.activeElement, button);
       });
 
@@ -255,7 +253,6 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
 
         // then
         assert.ok(this.onChangeSpy.calledWith({ value: '1', label: 'Salade' }));
-        await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
         assert.notOk(screen.queryByRole('listbox'));
         assert.strictEqual(document.activeElement, button);
       });
@@ -280,7 +277,6 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
 
         // then
         assert.ok(this.onChangeSpy.calledWith({ value: '1', label: 'Salade' }));
-        await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
         assert.notOk(screen.queryByRole('listbox'));
         assert.strictEqual(document.activeElement, button);
       });
@@ -305,7 +301,6 @@ module('Integration | Component | pix-structure-switcher', function (hooks) {
         await userEvent.click(externalButton);
 
         assert.strictEqual(document.activeElement, externalButton);
-        await waitForElementToBeRemoved(() => screen.queryByRole('listbox'));
         assert.notOk(screen.queryByRole('listbox'));
       });
 
