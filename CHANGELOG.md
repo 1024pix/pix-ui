@@ -1,3 +1,9 @@
+## [55.31.1](https://github.com/1024pix/pix-ui/compare/v55.31.0...v55.31.1) (2025-11-06)
+
+### :coffee: Autre
+
+- [#952](https://github.com/1024pix/pix-ui/pull/952) Mettre à jour la documentation de release
+
 # [55.31.0](https://github.com/1024pix/pix-ui/compare/v55.30.0...v55.31.0) (2025-10-29)
 
 ### :rocket: Amélioration
