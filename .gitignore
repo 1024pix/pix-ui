@@ -27,6 +27,7 @@
 
 # system
 .DS_Store
+CLAUDE.md
 
 # ember-try
 /.node_modules.ember-try/

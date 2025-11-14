@@ -35,6 +35,9 @@
     margin-left: calc(-1 * var(--pix-spacing-4x)) !important;
     overflow-y: auto;
     border-radius: 8px;
+    opacity: 0;
+    animation: fade-in-dropdown 150ms ease-in-out forwards;
+    animation-delay: 50ms;
 
     @include breakpoints.device-is('mobile') {
       position: static !important;
@@ -98,5 +101,15 @@
     &:focus {
       color: var(--pix-neutral-800)
     }
+  }
+}
+
+@keyframes fade-in-dropdown {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
   }
 }

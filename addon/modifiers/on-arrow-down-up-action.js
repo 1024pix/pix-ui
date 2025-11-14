@@ -1,8 +1,6 @@
 import { modifier } from 'ember-modifier';
 
 export default modifier((element, [elementId, callback, isExpanded]) => {
-  const elementToTarget = document.getElementById(elementId);
-
   element.addEventListener('keydown', handleKeyDown);
 
   return () => {
@@ -19,7 +17,10 @@ export default modifier((element, [elementId, callback, isExpanded]) => {
     event.preventDefault();
 
     const focusElement = () => {
-      const focusableElements = findFocusableElements(elementToTarget);
+      const targetElement = document.getElementById(elementId);
+      if (!targetElement) return;
+
+      const focusableElements = findFocusableElements(targetElement);
 
       const [firstFocusableElement] = focusableElements;
       const lastFocusableElement = focusableElements[focusableElements.length - 1];
@@ -60,15 +61,20 @@ export default modifier((element, [elementId, callback, isExpanded]) => {
     };
 
     if (!isExpanded) {
-      elementToTarget.addEventListener('transitionend', focusElement);
-
       callback(event);
 
-      return () => {
-        elementToTarget.removeEventListener('transitionend', focusElement);
+      const waitForElement = () => {
+        const targetElement = document.getElementById(elementId);
+        if (targetElement) {
+          targetElement.addEventListener('transitionend', focusElement, { once: true });
+        } else {
+          requestAnimationFrame(waitForElement);
+        }
       };
+
+      waitForElement();
     } else {
-      focusElement(elementToTarget);
+      focusElement();
     }
   }
 });
