@@ -1,3 +1,9 @@
+## [55.31.2](https://github.com/1024pix/pix-ui/compare/v55.31.1...v55.31.2) (2025-11-14)
+
+### :bug: Correction
+
+- [#942](https://github.com/1024pix/pix-ui/pull/942) Éviter le décalage visuel de l'élément poppant de PixStructureSwitcher
+
 ## [55.31.1](https://github.com/1024pix/pix-ui/compare/v55.31.0...v55.31.1) (2025-11-06)
 
 ### :coffee: Autre
