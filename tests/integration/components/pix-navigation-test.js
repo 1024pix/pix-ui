@@ -1,4 +1,5 @@
 import { render, within } from '@1024pix/ember-testing-library';
+import { click, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -61,6 +62,28 @@ module('Integration | Component | pix-navigation', function (hooks) {
         hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
       );
       assert.notOk(screen.queryByRole('button', { name: 'menu' }));
+    });
+  });
+
+  module('Mobile', function () {
+    test('it should close the menu on route change', async function (assert) {
+      // given
+      const router = this.owner.lookup('service:router');
+
+      const screen = await render(
+        hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
+      );
+
+      // when
+      const openMenuButton = screen.getByText('open').closest('button');
+      await click(openMenuButton);
+
+      router.trigger('routeDidChange');
+      await settled();
+
+      // then
+      assert.ok(screen.getByText('open').closest('button'));
+      assert.notOk(screen.queryByText('close'));
     });
   });
 });
