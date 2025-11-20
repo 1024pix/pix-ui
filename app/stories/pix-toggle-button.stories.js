@@ -39,14 +39,10 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixToggleButton
-  @toggled={{this.toggled}}
-  @onChange={{this.onChange}}
->
+    template: hbs`<PixToggleButton @toggled={{this.toggled}} @onChange={{this.onChange}}>
   <:label>{{this.label}}</:label>
   <:viewA>{{this.viewAText}}</:viewA>
   <:viewB>{{this.viewBText}}</:viewB>
-
 </PixToggleButton>`,
     context: args,
   };
