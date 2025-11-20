@@ -4,6 +4,7 @@ import { tracked } from '@glimmer/tracking';
 import PixLabel from './pix-label';
 import { not } from 'ember-truth-helpers';
 import { action } from '@ember/object';
+import PixIcon from './pix-icon';
 
 export default class PixToggleButton extends Component {
   @tracked toggled = this.args.toggled || false;
@@ -48,7 +49,12 @@ export default class PixToggleButton extends Component {
           value="viewA"
           checked={{not this.toggled}}
         />
-        <label for="viewA">{{yield to="viewA"}}</label>
+        <label for="viewA">
+          {{#if @iconA}}
+            <PixIcon @name={{@iconA}} @plainIcon={{not this.toggled}} />
+          {{/if}}
+          {{yield to="viewA"}}
+        </label>
         <input
           onchange={{this.onChange}}
           id="viewB"
@@ -57,7 +63,12 @@ export default class PixToggleButton extends Component {
           value="viewB"
           checked={{this.toggled}}
         />
-        <label for="viewB">{{yield to="viewB"}}</label>
+        <label for="viewB">
+          {{#if @iconB}}
+            <PixIcon @name={{@iconB}} @plainIcon={{this.toggled}} />
+          {{/if}}
+          {{yield to="viewB"}}
+        </label>
       </div>
     </div>
   </template>

@@ -30,6 +30,20 @@ Le label est géré avec un [PixLabel](?path=/docs/forms-label--docs), tous les 
 ```
 <Story of={ComponentStories.Toggled} height={200} />
 
+## Affichage d'une icône avant le texte
+
+Pour afficher une icône avant le texte d'une option, il faut indiquer le nom de l'icône.
+L'icône est gérée avec [PixIcon](?path=/docs/design-tokens-icon--docs), le nom indiqué doit correspondre à une icône existante.
+
+```html
+<PixToggleButton @iconA="brick" @iconB="signpost">
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixToggleButton>
+```
+<Story of={ComponentStories.IconBefore} height={200} />
+
 ## Arguments
 
 <ArgTypes of={ComponentStories} />

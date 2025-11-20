@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { hbs } from 'ember-cli-htmlbars';
+import { ICONS } from '../../addon/helpers/icons';
 
 export default {
   title: 'Navigation/Toggle Button',
@@ -34,12 +35,26 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    iconA: {
+      name: 'iconA',
+      description: "Nom de l'icône à afficher avant la première option",
+      type: { name: 'string' },
+      control: { type: 'select' },
+      options: Object.keys(ICONS),
+    },
+    iconB: {
+      name: 'iconB',
+      description: "Nom de l'icône à afficher avant la deuxième option",
+      type: { name: 'string' },
+      control: { type: 'select' },
+      options: Object.keys(ICONS),
+    },
   },
 };
 
 const Template = (args) => {
   return {
-    template: hbs`<PixToggleButton @toggled={{this.toggled}} @onChange={{this.onChange}}>
+    template: hbs`<PixToggleButton @toggled={{this.toggled}} @onChange={{this.onChange}} @iconA={{this.iconA}} @iconB={{this.iconB}}>
   <:label>{{this.label}}</:label>
   <:viewA>{{this.viewAText}}</:viewA>
   <:viewB>{{this.viewBText}}</:viewB>
@@ -62,4 +77,12 @@ Toggled.storyName = 'Option 2 par défaut';
 Toggled.args = {
   ...Default.args,
   toggled: true,
+};
+
+export const IconBefore = Template.bind({});
+IconBefore.storyName = 'IconBefore';
+IconBefore.args = {
+  ...Default.args,
+  iconA: 'brick',
+  iconB: 'signpost',
 };
