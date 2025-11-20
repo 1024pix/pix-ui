@@ -1,5 +1,6 @@
 import { action } from '@storybook/addon-actions';
 import { hbs } from 'ember-cli-htmlbars';
+
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
@@ -49,16 +50,36 @@ export default {
       control: { type: 'select' },
       options: Object.keys(ICONS),
     },
+    variant: {
+      description: "Variante de l'application",
+      options: ['primary', 'orga', 'certif'],
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: 'primary' },
+      },
+      type: {
+        name: ['primary', 'orga', 'certif'].join(' | '),
+        required: false,
+      },
+    },
   },
 };
 
 const Template = (args) => {
   return {
-    template: hbs`<PixToggleButton @toggled={{this.toggled}} @onChange={{this.onChange}} @iconA={{this.iconA}} @iconB={{this.iconB}}>
-  <:label>{{this.label}}</:label>
-  <:viewA>{{this.viewAText}}</:viewA>
-  <:viewB>{{this.viewBText}}</:viewB>
-</PixToggleButton>`,
+    template: hbs`
+        <PixToggleButton
+                @toggled={{this.toggled}}
+                @onChange={{this.onChange}}
+                @iconA={{this.iconA}}
+                @iconB={{this.iconB}}
+                @variant={{this.variant}}
+        >
+          <:label>{{this.label}}</:label>
+          <:viewA>{{this.viewAText}}</:viewA>
+          <:viewB>{{this.viewBText}}</:viewB>
+        </PixToggleButton>
+    `,
     context: args,
   };
 };
@@ -85,4 +106,11 @@ IconBefore.args = {
   ...Default.args,
   iconA: 'brick',
   iconB: 'signpost',
+};
+
+export const Variant = Template.bind({});
+Variant.storyName = 'Variante';
+Variant.args = {
+  ...Default.args,
+  variant: 'orga',
 };

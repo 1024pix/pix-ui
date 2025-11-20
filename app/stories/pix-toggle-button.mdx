@@ -44,6 +44,19 @@ L'icône est gérée avec [PixIcon](?path=/docs/design-tokens-icon--docs), le no
 ```
 <Story of={ComponentStories.IconBefore} height={200} />
 
+## Variantes couleurs
+
+Il existe trois variantes de couleur possible : `primary` (par défaut), `orga` et `certif`.
+
+```html
+<PixToggleButton @variant="orga">
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixToggleButton>
+```
+<Story of={ComponentStories.Variant} height={200} />
+
 ## Arguments
 
 <ArgTypes of={ComponentStories} />

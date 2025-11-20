@@ -5,12 +5,28 @@ import PixLabel from './pix-label';
 import { not } from 'ember-truth-helpers';
 import { action } from '@ember/object';
 import PixIcon from './pix-icon';
+import { warn } from '@ember/debug';
 
 export default class PixToggleButton extends Component {
   @tracked toggled = this.args.toggled || false;
 
+  get variant() {
+    const value = this.args.variant ?? 'primary';
+    const variantList = ['primary', 'orga', 'certif'];
+
+    warn(
+      `PixAppLayout: @variant "${value}" should be ${variantList.join(', ')}`,
+      variantList.includes(value),
+      {
+        id: 'pix-ui.pix-toggle-button.variant.not-valid',
+      },
+    );
+
+    return value;
+  }
+
   get className() {
-    const classes = ['pix-toggle-button'];
+    const classes = ['pix-toggle-button', `pix-toggle-button--${this.variant}`];
 
     if (this.args.inlineLabel) {
       classes.push('pix-toggle-button--inline');

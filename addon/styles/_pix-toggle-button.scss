@@ -1,11 +1,27 @@
 @use "pix-design-tokens/typography";
 
 .pix-toggle-button {
+  --background-color-primary: rgba(206, 195, 244, 0.50);
+  --background-color-orga: rgba(54, 116, 191, 0.20);
+  --background-color-certif: rgba(24, 127, 125, 0.20);
+
   display: inline-flex;
   flex-direction: column;
   gap: var(--pix-spacing-1x);
   color: var(--pix-neutral-900);
   font-size: 1rem;
+
+  &--primary .radio {
+    background-color: var(--background-color-primary);
+  }
+
+  &--orga .radio {
+    background-color: var(--background-color-orga);
+  }
+
+  &--certif .radio {
+    background-color: var(--background-color-orga);
+  }
 
   .radio {
       position: relative;
@@ -13,7 +29,6 @@
       gap: var(--pix-spacing-1x, 4px);
       align-items: flex-start;
       padding: var(--pix-spacing-1x, 4px);
-      background: rgba(206, 195, 244, 0.50);
       border-radius: 8px;
 
       :hover {
