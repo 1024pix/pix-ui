@@ -4,7 +4,7 @@ import { hbs } from 'ember-cli-htmlbars';
 import { ICONS } from '../../addon/helpers/icons';
 
 export default {
-  title: 'Navigation/Toggle Button',
+  title: 'Navigation/Segmented Control',
   argTypes: {
     viewAText: {
       name: '<:viewA>',
@@ -68,7 +68,7 @@ export default {
 const Template = (args) => {
   return {
     template: hbs`
-        <PixToggleButton
+        <PixSegmentedControl
                 @toggled={{this.toggled}}
                 @onChange={{this.onChange}}
                 @iconA={{this.iconA}}
@@ -78,7 +78,7 @@ const Template = (args) => {
           <:label>{{this.label}}</:label>
           <:viewA>{{this.viewAText}}</:viewA>
           <:viewB>{{this.viewBText}}</:viewB>
-        </PixToggleButton>
+        </PixSegmentedControl>
     `,
     context: args,
   };

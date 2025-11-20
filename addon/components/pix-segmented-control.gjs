@@ -1,13 +1,14 @@
+import { warn } from '@ember/debug';
+import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import PixLabel from './pix-label';
 import { not } from 'ember-truth-helpers';
-import { action } from '@ember/object';
-import PixIcon from './pix-icon';
-import { warn } from '@ember/debug';
 
-export default class PixToggleButton extends Component {
+import PixIcon from './pix-icon';
+import PixLabel from './pix-label';
+
+export default class PixSegmentedControl extends Component {
   @tracked toggled = this.args.toggled || false;
 
   get variant() {
@@ -18,7 +19,7 @@ export default class PixToggleButton extends Component {
       `PixAppLayout: @variant "${value}" should be ${variantList.join(', ')}`,
       variantList.includes(value),
       {
-        id: 'pix-ui.pix-toggle-button.variant.not-valid',
+        id: 'pix-ui.pix-segmented-control.variant.not-valid',
       },
     );
 
@@ -26,10 +27,10 @@ export default class PixToggleButton extends Component {
   }
 
   get className() {
-    const classes = ['pix-toggle-button', `pix-toggle-button--${this.variant}`];
+    const classes = ['pix-segmented-control', `pix-segmented-control--${this.variant}`];
 
     if (this.args.inlineLabel) {
-      classes.push('pix-toggle-button--inline');
+      classes.push('pix-segmented-control');
     }
 
     return classes.join(' ');
