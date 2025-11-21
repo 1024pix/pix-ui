@@ -1,3 +1,9 @@
+# [55.32.0](https://github.com/1024pix/pix-ui/compare/v55.31.2...v55.32.0) (2025-11-21)
+
+### :rocket: Amélioration
+
+- [#953](https://github.com/1024pix/pix-ui/pull/953) Fermer le menu mobile lors d'un changement de route (PIX-19604).
+
 ## [55.31.2](https://github.com/1024pix/pix-ui/compare/v55.31.1...v55.31.2) (2025-11-14)
 
 ### :bug: Correction
