@@ -1,10 +1,13 @@
 import { warn } from '@ember/debug';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
 export default class PixMNavigation extends Component {
+  @service router;
+
   constructor(...args) {
     super(...args);
     this._navigationId = 'navigation-' + guidFor(this);
@@ -23,11 +26,18 @@ export default class PixMNavigation extends Component {
   @action
   toggleNavigationMenu() {
     this.navigationMenuOpened = !this.navigationMenuOpened;
+
+    if (this.navigationMenuOpened) {
+      this.router.on('routeDidChange', this.closeNavigation);
+    } else {
+      this.router.off('routeDidChange', this.closeNavigation);
+    }
   }
 
   @action
-  handleNavigationClick() {
+  closeNavigation() {
     this.navigationMenuOpened = false;
+    this.router.off('routeDidChange', this.closeNavigation);
   }
 
   get navigationId() {
