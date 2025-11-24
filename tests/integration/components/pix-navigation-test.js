@@ -66,6 +66,38 @@ module('Integration | Component | pix-navigation', function (hooks) {
   });
 
   module('Mobile', function () {
+    module('when a button is disabled on menu', function () {
+      test('it should not close the menu when clicking on this button', async function (assert) {
+        // given
+        const disabledButtonLabel = 'bouton désactivé';
+        this.set('label', disabledButtonLabel);
+
+        // when
+        const screen = await render(
+          hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close'>
+  <:navElements>
+    <PixButton
+      aria-disabled='true'
+      @iconBefore='cancel'
+      @isDisabled={{true}}
+      @variant='primary'
+    ><span>{{this.label}}</span></PixButton>
+  </:navElements>
+</PixNavigation>`,
+        );
+
+        const openMenuButton = screen.getByText('open').closest('button');
+
+        await click(openMenuButton);
+
+        const spanElement = screen.getByText(this.label);
+        await click(spanElement);
+
+        // then
+        assert.ok(screen.queryByText('close'));
+      });
+    });
+
     test('it should close the menu on route change', async function (assert) {
       // given
       const router = this.owner.lookup('service:router');

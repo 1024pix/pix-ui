@@ -35,9 +35,13 @@ export default class PixMNavigation extends Component {
   }
 
   @action
-  closeNavigation() {
-    this.navigationMenuOpened = false;
-    this.router.off('routeDidChange', this.closeNavigation);
+  closeNavigation(event) {
+    const disabledElement = event?.srcElement?.closest('[aria-disabled=true]');
+
+    if (!disabledElement) {
+      this.navigationMenuOpened = false;
+      this.router.off('routeDidChange', this.closeNavigation);
+    }
   }
 
   get navigationId() {
