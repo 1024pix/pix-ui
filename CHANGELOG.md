@@ -1,3 +1,9 @@
+## [55.32.1](https://github.com/1024pix/pix-ui/compare/v55.32.0...v55.32.1) (2025-11-24)
+
+### :bug: Correction
+
+- [#954](https://github.com/1024pix/pix-ui/pull/954) Ne pas fermer la barre de navigation lors du clic sur un élément désactivé (PIX-20530)
+
 # [55.32.0](https://github.com/1024pix/pix-ui/compare/v55.31.2...v55.32.0) (2025-11-21)
 
 ### :rocket: Amélioration
