@@ -36,7 +36,8 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       const screen = await visit('/select');
 
       // when
-      await fillByLabel('Kebab', '[A-Z]{1}[a-z]{6}');
+      await click(screen.getByRole('button', { name: 'Kebab' }));
+      await fillByLabel('Rechercher une option', '[A-Z]{1}[a-z]{6}');
       await screen.findByRole('menu');
 
       // then

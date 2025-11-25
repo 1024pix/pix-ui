@@ -23,7 +23,8 @@ export default {
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @isSearchable={{this.isSearchable}}
-  @strictSearch={{this.strictSearch}}
+  @onSearch={{this.onSearch}}
+  @searchLabel={{this.searchLabel}}
   @values={{this.values}}
   @options={{this.options}}
   @isDisabled={{this.isDisabled}}
@@ -45,6 +46,11 @@ export default {
       description:
         'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
       type: { name: 'string', required: true },
+    },
+    searchLabel: {
+      name: 'searchLabel',
+      description: 'Label du champ de recherche, requis si ``isSearchable`` est ``true``',
+      type: { name: 'string', required: false },
     },
     emptyMessage: {
       name: 'emptyMessage',

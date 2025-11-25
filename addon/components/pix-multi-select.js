@@ -1,15 +1,9 @@
 import { warn } from '@ember/debug';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
+import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-
-function sortOptionsByCheckedFirst(a, b) {
-  if (a.checked && b.checked) return 0;
-  if (a.checked) return -1;
-  if (b.checked) return 1;
-  return 0;
-}
 
 function removeCapitalizeAndDiacritics(string) {
   return string
@@ -21,9 +15,27 @@ function removeCapitalizeAndDiacritics(string) {
 export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
   @tracked searchData;
+  @service elementHelper;
 
   constructor(...args) {
     super(...args);
+
+    this.searchId = 'search-input-' + guidFor(this);
+    this.multiSelectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
+    this.listId = `list-${this.multiSelectId}`;
+
+    if (!this.args.isComputeWidthDisabled) {
+      this.elementHelper.waitForElement(this.listId).then((elementList) => {
+        const baseFontRemRatio = Number(
+          getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+        );
+        const listWidth = elementList.getBoundingClientRect().width;
+        const selectWidth = listWidth / baseFontRemRatio;
+
+        const element = document.getElementById(`container-${this.multiSelectId}`);
+        element.style.setProperty('--pix-multi-select-width', `${selectWidth + 0.5}rem`); // Fix for FF
+      });
+    }
 
     warn(
       `PixMultiSelect: @strictSearch is deprecated in favour of @onSearch`,
@@ -38,43 +50,14 @@ export default class PixMultiSelect extends Component {
     return [...(this.args.options || [])];
   }
 
-  get hasValues() {
-    return this.args.values && Array.isArray(this.args.values);
-  }
-
-  get displayedOptions() {
-    const optionsWithCheckedStatus = this.options.map((option) => ({
-      ...option,
-      checked: this.hasValues ? this.args.values.includes(option.value) : false,
-    }));
-
-    if (this.args.isSearchable) {
-      return [...optionsWithCheckedStatus.sort(sortOptionsByCheckedFirst)];
-    }
-
-    return optionsWithCheckedStatus;
-  }
-
   get mainInputClassName() {
     let classes = 'pix-multi-select-main-input';
 
-    if (this.args.isSearchable) {
-      classes += ' pix-multi-select-main-input--is-searchable';
-    }
     if (this.args.className) {
       classes += ` ${this.args.className}`;
     }
 
     return classes;
-  }
-
-  get multiSelectId() {
-    if (this.args.id) return this.args.id;
-    return 'select-' + guidFor(this);
-  }
-
-  get listId() {
-    return `list-${this.multiSelectId}`;
   }
 
   get isAriaExpanded() {
@@ -83,9 +66,9 @@ export default class PixMultiSelect extends Component {
 
   get results() {
     if (this.args.isSearchable && this.searchData) {
-      return this.displayedOptions.filter(({ label }) => this._search(label));
+      return this.args.options.filter(({ label }) => this._search(label));
     }
-    return this.displayedOptions;
+    return this.args.options;
   }
 
   get placeholder() {
@@ -159,11 +142,25 @@ export default class PixMultiSelect extends Component {
         ? event.target.value
         : removeCapitalizeAndDiacritics(event.target.value);
     }
-    this.isExpanded = true;
+  }
+
+  @action
+  isCheckBoxChecked(value) {
+    return this.args.values?.includes(value);
   }
 
   get className() {
     const { className } = this.args;
     return ' ' + className;
+  }
+
+  @action
+  focus(event) {
+    if (!event.target) return;
+    if (!this.isExpanded) return;
+
+    if (this.args.isSearchable) {
+      event.target.querySelector(`#${this.searchId}`)?.focus();
+    }
   }
 }

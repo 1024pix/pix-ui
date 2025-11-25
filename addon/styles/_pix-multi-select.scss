@@ -7,11 +7,19 @@
   display: inline-flex;
   flex-direction: column;
   gap: var(--pix-spacing-1x);
+  width: var(--pix-multi-select-width);
+  max-width: 100%;
 
   &--inline {
     flex-direction: row;
     gap: var(--pix-spacing-2x);
-    align-items: center;
+    align-items: baseline;
+  }
+
+  &__placeholder {
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
   }
 }
 

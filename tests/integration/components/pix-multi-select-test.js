@@ -4,6 +4,7 @@ import {
   render,
   waitForElementToBeRemoved,
 } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { fireEvent } from '@testing-library/dom';
 import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
@@ -210,7 +211,7 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
         // then
         const inputElement = screen.getByLabelText('multiSelectLabel');
-        assert.strictEqual(inputElement.placeholder, 'Tomate, Oignon');
+        assert.strictEqual(inputElement.innerText, 'Tomate, Oignon');
       });
     });
 
@@ -527,13 +528,13 @@ module('Integration | Component | multi-select', function (hooks) {
   <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
 
-      await fillByLabel('multiSelectLabel', '');
-
+      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
+      await fillByLabel('multiSelectLabel', '');
 
       // then
 
-      assert.strictEqual(screen.getByLabelText('multiSelectLabel').placeholder, this.placeholder);
+      assert.strictEqual(screen.getByLabelText('multiSelectLabel').innerText, this.placeholder);
       assert.strictEqual(screen.getAllByRole('checkbox').length, 3);
     });
 
@@ -548,9 +549,11 @@ module('Integration | Component | multi-select', function (hooks) {
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
+      this.searchLabel = 'inputSearchLabel';
 
       const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
+  @searchLabel={{this.searchLabel}}
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
@@ -563,9 +566,9 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('multiSelectLabel', 'tomate');
-
+      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
+      await fillByLabel('inputSearchLabel', 'tomate');
 
       // then
       assert.strictEqual(screen.getAllByRole('checkbox').length, 1);
@@ -587,6 +590,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
       const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
+  @searchLabel='searchLabel'
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @onChange={{this.onChange}}
@@ -600,9 +604,9 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('multiSelectLabel', 'tomate');
-
+      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
+      await fillByLabel('searchLabel', 'tomate');
 
       // then
       assert.contains('no result');
@@ -671,221 +675,19 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
       // when
-      await fillByLabel('multiSelectLabel', '');
-
+      await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
+      await fillByLabel('multiSelectLabel', '');
 
       // then
       assert.strictEqual(screen.getByRole('menu').className.trim(), 'pix-multi-select-list');
     });
 
-    test('it should sort default selected items when focused', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = ['3'];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await fillByLabel('multiSelectLabel', '');
-
-      await screen.findByRole('menu');
-
-      // then
-      const listElement = screen.getAllByRole('checkbox');
-      assert.strictEqual(listElement.length, 3);
-      assert.strictEqual(listElement[0].labels[0].innerText.trim(), 'Oignon');
-      assert.strictEqual(listElement[1].labels[0].innerText.trim(), 'Salade');
-      assert.strictEqual(listElement[2].labels[0].innerText.trim(), 'Tomate');
-    });
-
-    test('it should not sort when user select item', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await fillByLabel('multiSelectLabel', '');
-
-      await screen.findByRole('menu');
-
-      await clickByName(DEFAULT_OPTIONS[1].label);
-
-      // then
-      const listElement = screen.getAllByRole('checkbox');
-      assert.strictEqual(listElement.length, 3);
-      assert.strictEqual(listElement[0].labels[0].innerText.trim(), 'Salade');
-      assert.strictEqual(listElement[1].labels[0].innerText.trim(), 'Tomate');
-      assert.strictEqual(listElement[2].labels[0].innerText.trim(), 'Oignon');
-    });
-
-    test('it should not sort when user search and select item', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await fillByLabel('multiSelectLabel', 'Oi');
-
-      await screen.findByRole('menu');
-
-      await clickByName('Oignon');
-      await fillByLabel('multiSelectLabel', 'o');
-      // then
-      const listElement = screen.getAllByRole('checkbox');
-      assert.strictEqual(listElement.length, 2);
-      assert.strictEqual(listElement[0].labels[0].innerText.trim(), 'Tomate');
-      assert.strictEqual(listElement[1].labels[0].innerText.trim(), 'Oignon');
-    });
-
-    test('it should sort items when search is cleaned', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = [];
-      this.onChange = (values) => this.set('values', values);
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await fillByLabel('multiSelectLabel', 'Oi');
-
-      await screen.findByRole('menu');
-
-      await clickByName('Oignon');
-
-      await fillByLabel('multiSelectLabel', '');
-
-      // then
-      const listElement = screen.getAllByRole('checkbox');
-      assert.strictEqual(listElement.length, 3);
-      assert.strictEqual(listElement[0].labels[0].innerText.trim(), 'Oignon');
-      assert.strictEqual(listElement[1].labels[0].innerText.trim(), 'Salade');
-      assert.strictEqual(listElement[2].labels[0].innerText.trim(), 'Tomate');
-    });
-
-    test('should not sort when there are default items selected and a new selected item', async function (assert) {
-      // given
-      this.label = 'multiSelectLabel';
-      this.options = DEFAULT_OPTIONS;
-      this.values = ['2'];
-      this.onChange = () => {};
-      this.emptyMessage = 'no result';
-      this.placeholder = 'MultiSelectTest';
-      this.id = 'id-MultiSelectTest';
-      this.isSearchable = true;
-      this.placeholder = 'Placeholder test';
-
-      const screen = await render(hbs`<PixMultiSelect
-  @isSearchable={{this.isSearchable}}
-  @values={{this.values}}
-  @onChange={{this.onChange}}
-  @placeholder={{this.placeholder}}
-  @id={{this.id}}
-  @emptyMessage={{this.emptyMessage}}
-  @showOptionsOnInput={{true}}
-  @options={{this.options}}
->
-  <:label>{{this.label}}</:label>
-  <:default as |option|>{{option.label}}</:default>
-</PixMultiSelect>`);
-
-      // when
-      await fillByLabel('multiSelectLabel', '');
-
-      await screen.findByRole('menu');
-
-      const listElement = screen.getAllByRole('checkbox');
-
-      assert.strictEqual(listElement[0].labels[0].innerText.trim(), 'Tomate');
-
-      await clickByName('Oignon');
-
-      // then
-      const listElement2 = screen.getAllByRole('checkbox');
-
-      assert.strictEqual(listElement2[0].labels[0].innerText.trim(), 'Tomate');
-      assert.strictEqual(listElement2[2].labels[0].innerText.trim(), 'Oignon');
-    });
     test('should be disabled', async function (assert) {
       // given
       this.label = 'multiSelectLabel';
       this.options = DEFAULT_OPTIONS;
-      this.values = ['2'];
+      this.values = [];
       this.onChange = () => {};
       this.emptyMessage = 'no result';
       this.placeholder = 'MultiSelectTest';
@@ -910,7 +712,7 @@ module('Integration | Component | multi-select', function (hooks) {
   <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`);
       // then
-      assert.true(screen.queryByRole('textbox').disabled);
+      assert.true(screen.queryByRole('button').disabled);
     });
 
     module('when @onSearch is passed', function () {
@@ -929,6 +731,7 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
+  @searchLabel='searchLabel'
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
@@ -942,8 +745,9 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
         // when
-        await fillByLabel('multiSelectLabel', 'tomate');
+        await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
         await screen.findByRole('menu');
+        await fillByLabel('searchLabel', 'tomate');
 
         // then
         assert.ok(this.onSearch.calledOnce, 'the search callback should be called once');
@@ -978,8 +782,9 @@ module('Integration | Component | multi-select', function (hooks) {
 </PixMultiSelect>`);
 
         // when
-        await fillByLabel('multiSelectLabel', 'tomate');
+        await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
         await screen.findByRole('menu');
+        await fillByLabel('multiSelectLabel', 'tomate');
 
         // then
         assert.strictEqual(screen.getAllByRole('checkbox').length, this.options.length);

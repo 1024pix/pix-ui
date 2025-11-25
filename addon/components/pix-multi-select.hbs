@@ -1,5 +1,6 @@
 <div
   class="pix-multi-select {{if @inlineLabel ' pix-multi-select--inline'}}"
+  id="container-{{this.multiSelectId}}"
   ...attributes
   {{on-click-outside this.hideDropDown}}
   {{on-arrow-down-up-action this.listId this.showDropDown this.isExpanded}}
@@ -16,32 +17,8 @@
     {{yield to="label"}}
   </PixLabel>
 
-  <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
-
-    {{#if @isSearchable}}
-      <span {{reference}} class={{this.mainInputClassName}}>
-        <PixIcon
-          @name="search"
-          class="pix-multi-select-main-input__search-icon"
-          @ariaHidden={{true}}
-        />
-
-        <input
-          class="pix-multi-select-main-input__search-input"
-          id={{this.multiSelectId}}
-          type="text"
-          name={{this.multiSelectId}}
-          placeholder={{this.placeholder}}
-          autocomplete="off"
-          {{on "input" this.updateSearch}}
-          {{on "click" this.toggleDropDown}}
-          aria-expanded={{this.isAriaExpanded}}
-          aria-controls={{this.listId}}
-          aria-haspopup="menu"
-          disabled={{@isDisabled}}
-        />
-      </span>
-    {{else}}
+  <div>
+    <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
       <button
         {{reference}}
         id={{this.multiSelectId}}
@@ -54,9 +31,9 @@
         {{on "click" this.toggleDropDown}}
       >
         {{#if (has-block "placeholder")}}
-          {{yield to="placeholder"}}
+          <span class="pix-multi-select__placeholder">{{yield to="placeholder"}}</span>
         {{else if @placeholder}}
-          {{this.placeholder}}
+          <span class="pix-multi-select__placeholder">{{this.placeholder}}</span>
         {{/if}}
         <PixIcon
           class="pix-multi-select-main-input__dropdown-icon
@@ -65,36 +42,51 @@
           @ariaHidden={{true}}
         />
       </button>
-    {{/if}}
 
-    <ul
-      {{popover}}
-      class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
-      id={{this.listId}}
-      role="menu"
-    >
-      {{#if (gt this.results.length 0)}}
-        {{#each this.results as |option|}}
-          <li class="pix-multi-select-list__item" role="menuitem">
-            <PixCheckbox
-              @id={{concat this.multiSelectId "-" option.value}}
-              @checked={{option.checked}}
-              @size="small"
-              @class="pix-multi-select-list__item-label"
-              value={{option.value}}
-              {{on "change" this.onSelect}}
-              {{on-enter-action this.hideDropDown this.multiSelectId}}
+      <ul
+        {{popover}}
+        class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
+        id={{this.listId}}
+        role="menu"
+        {{on "transitionend" this.focus}}
+      >
+        {{#if @isSearchable}}
+          <li class="pix-select__search">
+            <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
+            <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
+            <input
+              class="pix-select-search__input"
+              id={{this.searchId}}
+              autocomplete="off"
               tabindex={{if this.isExpanded "0" "-1"}}
-            >
-              <:label>{{yield option}}</:label>
-            </PixCheckbox>
+              placeholder={{@searchPlaceholder}}
+              {{on "input" this.updateSearch}}
+            />
           </li>
-        {{/each}}
-      {{else}}
-        <li
-          class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
-        >{{@emptyMessage}}</li>
-      {{/if}}
-    </ul>
-  </PopperJS>
+        {{/if}}
+        {{#if (gt this.results.length 0)}}
+          {{#each this.results as |option|}}
+            <li class="pix-multi-select-list__item" role="menuitem">
+              <PixCheckbox
+                @id={{concat this.multiSelectId "-" option.value}}
+                @checked={{this.isCheckBoxChecked option.value}}
+                @size="small"
+                @class="pix-multi-select-list__item-label"
+                value={{option.value}}
+                {{on "change" this.onSelect}}
+                {{on-enter-action this.hideDropDown this.multiSelectId}}
+                tabindex={{if this.isExpanded "0" "-1"}}
+              >
+                <:label>{{yield option}}</:label>
+              </PixCheckbox>
+            </li>
+          {{/each}}
+        {{else}}
+          <li
+            class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
+          >{{@emptyMessage}}</li>
+        {{/if}}
+      </ul>
+    </PopperJS>
+  </div>
 </div>
