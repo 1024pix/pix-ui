@@ -38,7 +38,7 @@ export default class PixMNavigation extends Component {
   closeNavigation(event) {
     const disabledElement = event?.srcElement?.closest('[aria-disabled=true]');
 
-    if (!disabledElement) {
+    if (!disabledElement && this.navigationMenuOpened) {
       this.navigationMenuOpened = false;
       this.router.off('routeDidChange', this.closeNavigation);
     }
