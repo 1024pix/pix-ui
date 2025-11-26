@@ -1,3 +1,9 @@
+## [55.32.2](https://github.com/1024pix/pix-ui/compare/v55.32.1...v55.32.2) (2025-11-26)
+
+### :bug: Correction
+
+- [#956](https://github.com/1024pix/pix-ui/pull/956) Activer l'action de fermeture de PixNavigation qu'en mobile
+
 ## [55.32.1](https://github.com/1024pix/pix-ui/compare/v55.32.0...v55.32.1) (2025-11-24)
 
 ### :bug: Correction
