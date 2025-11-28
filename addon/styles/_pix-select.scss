@@ -16,6 +16,10 @@
     align-items: center;
   }
 
+  &--full-width {
+    width: 100%;
+  }
+
   &__dropdown {
     @extend %pix-shadow-xs;
 
@@ -77,6 +81,10 @@
 
   &__error-message {
     @extend %pix-input-error-message;
+  }
+
+  &__button-container {
+    flex-grow: 1;
   }
 }
 
