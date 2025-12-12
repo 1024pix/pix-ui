@@ -78,6 +78,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    isFullWidth: {
+      name: 'isFullWidth',
+      description: 'Permet au composant de prendre la largeur de son parent',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -116,6 +125,33 @@ const TemplateWithoutLabel = (args) => {
   @inlineLabel={{this.inlineLabel}}
   @requiredLabel={{this.requiredLabel}}
 />`,
+    context: args,
+  };
+};
+
+const TemplateWithParent = (args) => {
+  return {
+    template: hbs`
+    {{! template-lint-disable no-inline-styles }}
+    <span style="color: blue;">Composant parent</span>
+    <div style="width: 400px; border: 2px solid blue; padding-top: 1rem; padding-bottom: 1rem;">
+      <PixInput
+        @id={{this.id}}
+        @errorMessage={{this.errorMessage}}
+        placeholder='Jeanne, Pierre ...'
+        @validationStatus={{this.validationStatus}}
+        @size={{this.size}}
+        disabled={{this.disabled}}
+        readonly={{this.readonly}}
+        @subLabel={{this.subLabel}}
+        @inlineLabel={{this.inlineLabel}}
+        @requiredLabel={{this.requiredLabel}}
+        @screenReaderOnly={{this.screenReaderOnly}}
+        @isFullWidth={{this.isFullWidth}}
+      >
+        <:label>{{this.label}}</:label>
+      </PixInput>
+    </div>`,
     context: args,
   };
 };
@@ -172,4 +208,13 @@ withRequiredLabel.args = {
 export const withoutLabel = TemplateWithoutLabel.bind({});
 withoutLabel.args = {
   id: 'first-name',
+};
+
+export const withIsFullWidth = TemplateWithParent.bind({});
+withIsFullWidth.args = {
+  id: 'first-name',
+  label: 'Prénom',
+  isFullWidth: true,
+  inlineLabel: false,
+  requiredLabel: 'Champ obligatoire',
 };
