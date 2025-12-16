@@ -765,4 +765,47 @@ module('Integration | Component | PixSelect', function (hooks) {
       });
     });
   });
+
+  module('root class computation', function () {
+    const DIV_ROOT_SELECTOR = '.pix-select';
+
+    test('it should compute correct class for root when @isFullWidth param is true', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixSelect @options={{this.options}} @isFullWidth={{true}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+      );
+
+      // then
+      const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
+      assert.strictEqual(selectorElement.classList.value, 'pix-select pix-select--full-width');
+    });
+
+    test('it should compute correct class for root when @inlineLabel param is true', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixSelect @options={{this.options}} @inlineLabel={{true}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+      );
+
+      // then
+      const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
+      assert.strictEqual(selectorElement.classList.value, 'pix-select pix-select--inline');
+    });
+
+    test('it should compute correct class for root when @inlineLabel and @isFullWidth params are true', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixSelect @options={{this.options}} @inlineLabel={{true}} @isFullWidth={{true}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+      );
+
+      // then
+      const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
+      assert.strictEqual(
+        selectorElement.classList.value,
+        'pix-select pix-select--inline pix-select--full-width',
+      );
+    });
+  });
 });
