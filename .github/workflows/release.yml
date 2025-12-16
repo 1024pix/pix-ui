@@ -1,8 +1,8 @@
 name: release
 
 permissions:
-  id-token: write
-  pages: write
+  id-token: write # necessary for publishing to npm
+  contents: write # necessary for pushing to gh-pages branch
 
 on:
   push:
