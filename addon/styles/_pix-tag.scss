@@ -1,9 +1,11 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .pix-tag {
   @extend %pix-body-s;
 
-  display: inline-block;
+  display: inline-flex;
+  gap: 0.5rem;
+  align-items: center;
   padding: var(--pix-spacing-1x) var(--pix-spacing-4x);
   color: var(--pix-primary-900);
   font-weight: var(--pix-font-medium);
@@ -13,6 +15,12 @@
   background-color: var(--pix-primary-100);
   border: 1px solid transparent;
   border-radius: 0.95rem;
+
+  .pix-icon-button {
+    width: 1rem;
+    min-width: 1rem;
+    height: 1rem;
+  }
 
   &--grey-light,
   &--neutral,
@@ -28,15 +36,15 @@
     background-color: var(--pix-secondary-100);
   }
 
-  &--purple-light, 
-  &--tertiary, 
+  &--purple-light,
+  &--tertiary,
   &--blue {
     color: var(--pix-tertiary-900);
     background-color: var(--pix-tertiary-100);
   }
 
   &--green-light,
-  &--success, 
+  &--success,
   &--green {
     color: var(--pix-success-900);
     background-color: var(--pix-success-100);
@@ -55,7 +63,7 @@
   &--dark {
     color: var(--pix-neutral-0);
     background-color: var(--pix-neutral-800);
-  } 
+  }
 
   &--blue-light {
     color: var(--pix-primary-900);
@@ -68,7 +76,7 @@
   }
 
   &--orga {
-       /** Deprecated color **/
+    /** Deprecated color **/
     color: var(--pix-orga-50);
     background-color: var(--pix-orga-500);
   }

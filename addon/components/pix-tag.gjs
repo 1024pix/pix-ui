@@ -1,5 +1,7 @@
 import Component from '@glimmer/component';
 
+import PixIconButton from './pix-icon-button';
+
 export default class PixTag extends Component {
   get classes() {
     const { color } = this.args;
@@ -11,6 +13,14 @@ export default class PixTag extends Component {
   <template>
     <div class="pix-tag {{this.classes}}" ...attributes>
       {{yield}}
+      {{#if @displayRemoveButton}}
+        <PixIconButton
+          @ariaLabel="Supprimer"
+          @iconName="close"
+          @size="xsmall"
+          @triggerAction={{@onRemove}}
+        />
+      {{/if}}
     </div>
   </template>
 }
