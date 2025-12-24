@@ -344,12 +344,10 @@ module('Integration | Component | PixSelect', function (hooks) {
 
       test('it should focus on the search input when tab is pressed', async function (assert) {
         // given
-        this.searchLabel = 'Label du search';
         const screen = await render(hbs`<PixSelect
   @options={{this.options}}
   @isSearchable={{true}}
   @placeholder={{this.placeholder}}
-  @searchLabel={{this.searchLabel}}
 ><:label>{{this.label}}</:label></PixSelect>`);
 
         // when
@@ -362,7 +360,7 @@ module('Integration | Component | PixSelect', function (hooks) {
         await userEvent.keyboard('[Tab]');
 
         // then
-        assert.dom(screen.getByLabelText(this.searchLabel)).isFocused();
+        assert.dom(screen.getByLabelText('Rechercher')).isFocused();
       });
 
       test('it should focus on the input when escape is pressed', async function (assert) {

@@ -49,7 +49,8 @@ export default {
     },
     locale: {
       name: 'locale',
-      description: 'Permet de rendre traduisible le label du formulaire de recherche, par défaut fr',
+      description:
+        'Permet de rendre traduisible le label du formulaire de recherche, par défaut fr',
       type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },

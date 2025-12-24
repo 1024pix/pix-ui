@@ -10,6 +10,7 @@ import { or } from 'ember-truth-helpers';
 
 import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEscapeAction from '../modifiers/on-escape-action';
+import { formatMessage } from '../translations';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 import PixSelectList from './pix-select-list';
@@ -38,6 +39,10 @@ export default class PixSelect extends Component {
         element.style.setProperty('--pix-select-width', `${selectWidth + 0.5}rem`); // Fix for FF
       });
     }
+  }
+
+  get selectSearchLabel() {
+    return formatMessage(this.args.locale ?? 'fr', 'select.search');
   }
 
   get displayDefaultOption() {
@@ -208,11 +213,14 @@ export default class PixSelect extends Component {
             {{popover}}
             class="pix-select__dropdown {{unless this.isExpanded ' pix-select__dropdown--closed'}}"
             {{on "transitionend" this.focus}}
+            aria-hidden={{this.isExpanded undefined "true"}}
           >
             {{#if @isSearchable}}
               <div class="pix-select__search">
                 <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
-                <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
+                <label class="screen-reader-only" for={{this.searchId}}>
+                  {{this.selectSearchLabel}}
+                </label>
                 <input
                   class="pix-select-search__input"
                   id={{this.searchId}}
