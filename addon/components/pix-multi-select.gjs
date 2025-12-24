@@ -13,6 +13,7 @@ import { gt, or } from 'ember-truth-helpers';
 import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEnterAction from '../modifiers/on-enter-action';
 import onEscapeAction from '../modifiers/on-escape-action';
+import { formatMessage } from '../translations';
 import PixCheckbox from './pix-checkbox';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
@@ -166,6 +167,10 @@ export default class PixMultiSelect extends Component {
     return ' ' + className;
   }
 
+  get selectSearchLabel() {
+    return formatMessage(this.args.locale ?? 'fr', 'select.search');
+  }
+
   @action
   focus(event) {
     if (!event.target) return;
@@ -227,12 +232,15 @@ export default class PixMultiSelect extends Component {
             class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
             id={{this.listId}}
             role="menu"
+            aria-hidden={{this.isExpanded undefined "true"}}
             {{on "transitionend" this.focus}}
           >
             {{#if @isSearchable}}
               <li class="pix-select__search">
                 <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
-                <label class="screen-reader-only" for={{this.searchId}}>{{@searchLabel}}</label>
+                <label class="screen-reader-only" for={{this.searchId}}>
+                  {{this.selectSearchLabel}}
+                </label>
                 <input
                   class="pix-select-search__input"
                   id={{this.searchId}}

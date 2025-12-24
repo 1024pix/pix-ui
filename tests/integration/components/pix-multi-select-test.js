@@ -549,11 +549,9 @@ module('Integration | Component | multi-select', function (hooks) {
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
-      this.searchLabel = 'inputSearchLabel';
 
       const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
-  @searchLabel={{this.searchLabel}}
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
@@ -568,7 +566,7 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
-      await fillByLabel('inputSearchLabel', 'tomate');
+      await fillByLabel('Rechercher', 'tomate');
 
       // then
       assert.strictEqual(screen.getAllByRole('checkbox').length, 1);
@@ -590,7 +588,6 @@ module('Integration | Component | multi-select', function (hooks) {
 
       const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
-  @searchLabel='searchLabel'
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @onChange={{this.onChange}}
@@ -606,7 +603,7 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
-      await fillByLabel('searchLabel', 'tomate');
+      await fillByLabel('Rechercher', 'tomate');
 
       // then
       assert.contains('no result');
@@ -731,7 +728,6 @@ module('Integration | Component | multi-select', function (hooks) {
 
         const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
-  @searchLabel='searchLabel'
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
@@ -747,7 +743,7 @@ module('Integration | Component | multi-select', function (hooks) {
         // when
         await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
         await screen.findByRole('menu');
-        await fillByLabel('searchLabel', 'tomate');
+        await fillByLabel('Rechercher', 'tomate');
 
         // then
         assert.ok(this.onSearch.calledOnce, 'the search callback should be called once');

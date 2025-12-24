@@ -47,10 +47,13 @@ export default {
         'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
       type: { name: 'string', required: true },
     },
-    searchLabel: {
-      name: 'searchLabel',
-      description: 'Label du champ de recherche, requis si ``isSearchable`` est ``true``',
+    locale: {
+      name: 'locale',
+      description: 'Permet de rendre traduisible le label du formulaire de recherche, par défaut fr',
       type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
     },
     emptyMessage: {
       name: 'emptyMessage',
@@ -310,6 +313,7 @@ const TemplateWithYield = (args) => ({
   @options={{this.options}}
   @size={{this.size}}
   @subLabel={{this.subLabel}}
+  @locale={{this.locale}}
   @inlineLabel={{this.inlineLabel}}
   @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
