@@ -1,4 +1,13 @@
 export default {
+  input: {
+    state: {
+      success: 'Correcte selectie',
+      error: 'Onjuiste selectie',
+    },
+  },
+  select: {
+    search: 'Zoeken',
+  },
   pagination: {
     beforeResultsPerPage: 'Zie',
     selectPageSizeLabel: 'Selecteer het aantal items per pagina',

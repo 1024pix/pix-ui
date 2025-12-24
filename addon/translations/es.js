@@ -5,6 +5,9 @@ export default {
       error: 'Selección incorrecta',
     },
   },
+  select: {
+    search: 'Buscar',
+  },
   pagination: {
     beforeResultsPerPage: 'Ver',
     selectPageSizeLabel: 'Número de elementos que se mostrarán por página',
