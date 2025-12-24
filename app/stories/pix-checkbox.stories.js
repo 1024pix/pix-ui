@@ -73,6 +73,14 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    locale: {
+      name: 'locale',
+      description: 'Permet de rendre traduisible le state success error, par défaut fr',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
+    },
     size: {
       name: 'size',
       description: 'Correspond à la taille de la police du label.',
@@ -94,6 +102,7 @@ const Template = (args) => {
   @isIndeterminate={{this.isIndeterminate}}
   @checked={{this.checked}}
   @isDisabled={{this.isDisabled}}
+  @locale={{this.locale}}
   disabled={{this.disabled}}
   @size={{this.size}}
   @subLabel={{this.subLabel}}
