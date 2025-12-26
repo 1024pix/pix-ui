@@ -34,10 +34,10 @@ export default {
     },
     size: {
       name: 'size',
-      description: 'Size: `small`',
+      description: 'Size: `big`,`small` ou `xsmall`',
       type: { name: 'string', required: false },
       control: { type: 'select' },
-      options: ['small'],
+      options: ['big', 'small', 'xsmall'],
       table: {
         type: { summary: 'string' },
         defaultValue: { summary: 'big' },
