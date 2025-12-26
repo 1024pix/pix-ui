@@ -9,4 +9,7 @@ export default {
     pageNumber: 'Page {current, number} / {total, number}',
     nextPageLabel: 'Go to next page',
   },
+  tag: {
+    removeButton: 'Remove',
+  },
 };

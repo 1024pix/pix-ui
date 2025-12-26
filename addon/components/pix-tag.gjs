@@ -1,4 +1,5 @@
 import Component from '@glimmer/component';
+import { formatMessage } from '../translations';
 
 import PixIconButton from './pix-icon-button';
 
@@ -10,12 +11,16 @@ export default class PixTag extends Component {
     return classes.join(' ');
   }
 
+  get ariaLabel() {
+    return formatMessage(this.args.locale || 'fr', 'tag.removeButton');
+  }
+
   <template>
     <div class="pix-tag {{this.classes}}" ...attributes>
       {{yield}}
       {{#if @displayRemoveButton}}
         <PixIconButton
-          @ariaLabel="Supprimer"
+          @ariaLabel={{this.ariaLabel}}
           @iconName="close"
           @size="xsmall"
           @triggerAction={{@onRemove}}
