@@ -1,6 +1,6 @@
 import Component from '@glimmer/component';
-import { formatMessage } from '../translations';
 
+import { formatMessage } from '../translations';
 import PixIconButton from './pix-icon-button';
 
 export default class PixTag extends Component {
