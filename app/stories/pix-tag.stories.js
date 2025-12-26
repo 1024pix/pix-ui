@@ -6,7 +6,7 @@ export default {
     color: {
       name: 'color',
       description: 'Couleur du tag',
-      type: { name: 'number', required: false },
+      type: { name: 'string', required: false },
       table: { defaultValue: { summary: 'primary' } },
       control: {
         type: 'select',
@@ -39,6 +39,16 @@ export default {
       description: 'Fonction à appeler quand le bouton de suppression est cliqué',
       type: { required: false },
       control: { disable: true },
+    },
+    locale: {
+      name: 'locale',
+      description: "Locale permettant de localiser l'aria label du bouton de suppression",
+      type: { name: 'string', required: false },
+      table: { defaultValue: { summary: 'fr' } },
+      control: {
+        type: 'select',
+      },
+      options: ['fr', 'en', 'nl'],
     },
   },
 };

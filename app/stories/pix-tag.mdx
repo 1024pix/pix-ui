@@ -11,6 +11,9 @@ Un `Tag` est un type de `Chips` qui permet de mettre en avant une information ou
 
 <Story of={ComponentStories.Default} height={60} />
 
+Il est également possible d'afficher un bouton de suppression.
+Il faut dans ce cas passer une locale en argument pour localiser l'aria label du bouton de suppression.
+
 ## Usage
 
 ```html
@@ -19,6 +22,10 @@ Par défaut:
 
 Customiser la couleur du tag:
 <PixTag @color="purple"> This is a purple tag </PixTag>
+
+<PixTag @displayRemoveButton="{{true}}" onRemove="{{this.removeTag}}" locale="fr"
+  >un tag supprimable</PixTag
+>
 ```
 
 ## Arguments
