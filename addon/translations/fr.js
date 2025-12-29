@@ -15,4 +15,7 @@ export default {
     pageNumber: 'Page {current, number} / {total, number}',
     nextPageLabel: 'Aller à la page suivante',
   },
+  tag: {
+    removeButton: 'Supprimer',
+  },
 };

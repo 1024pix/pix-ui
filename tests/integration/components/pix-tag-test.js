@@ -1,7 +1,9 @@
 import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
+import sinon from 'sinon';
 
 module('Integration | Component | pix-tag', function (hooks) {
   setupRenderingTest(hooks);
@@ -23,5 +25,22 @@ module('Integration | Component | pix-tag', function (hooks) {
     const screen = await render(hbs`<PixTag @color='secondary' aria-label='world' />`);
 
     assert.dom(screen.getByLabelText('world')).exists();
+  });
+
+  test('it displays remove button when displayRemoveButton is true', async function (assert) {
+    const screen = await render(hbs`<PixTag @displayRemoveButton={{true}}>tag text</PixTag>`);
+
+    assert.dom(screen.getByRole('button', { name: 'Supprimer' })).exists();
+  });
+
+  test('it calls onRemove when button is clicked', async function (assert) {
+    this.onRemove = sinon.stub();
+    const screen = await render(
+      hbs`<PixTag @displayRemoveButton={{true}} @onRemove={{this.onRemove}}>tag text</PixTag>`,
+    );
+
+    await click(screen.getByRole('button', { name: 'Supprimer' }));
+
+    assert.ok(this.onRemove.calledOnce);
   });
 });
