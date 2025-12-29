@@ -1,3 +1,17 @@
+## 55.33.0 (2025-12-29)
+
+* [FEATURE] Ajoute un bouton de suppression à PixTag.  ([5e70702](https://github.com/1024pix/pix-ui/commit/5e70702)), closes [#960](https://github.com/1024pix/pix-ui/issues/960)
+* [TECH] Passage au système de Trusted publishers de npm  ([fc3c9d3](https://github.com/1024pix/pix-ui/commit/fc3c9d3)), closes [#957](https://github.com/1024pix/pix-ui/issues/957)
+* chore: fix lint issues ([c192973](https://github.com/1024pix/pix-ui/commit/c192973))
+* feat(pix-icon-button): add xsmall size ([a78bc49](https://github.com/1024pix/pix-ui/commit/a78bc49))
+* feat(pix-tag): add documentation for locale and remove button ([1190587](https://github.com/1024pix/pix-ui/commit/1190587))
+* feat(pix-tag): add remove button to PixTag ([b4a4d1b](https://github.com/1024pix/pix-ui/commit/b4a4d1b))
+* feat(pix-tag): adjust remove button colors ([e437068](https://github.com/1024pix/pix-ui/commit/e437068))
+* feat(tag): localize aria-label remove button ([3d138d9](https://github.com/1024pix/pix-ui/commit/3d138d9))
+* tech: switches to npm trusted publishing ([1e8f15d](https://github.com/1024pix/pix-ui/commit/1e8f15d))
+* tech(release): allow write to pages ([d496966](https://github.com/1024pix/pix-ui/commit/d496966))
+* tech(release): allows write to gh-pages branch ([932d4f9](https://github.com/1024pix/pix-ui/commit/932d4f9)), closes [#pages](https://github.com/1024pix/pix-ui/issues/pages)
+
 ## [55.32.2](https://github.com/1024pix/pix-ui/compare/v55.32.1...v55.32.2) (2025-11-26)
 
 ### :bug: Correction
