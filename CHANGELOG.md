@@ -1,3 +1,9 @@
+## [55.33.1](https://github.com/1024pix/pix-ui/compare/v55.33.0...v55.33.1) (2026-01-02)
+
+### :building_construction: Tech
+
+- [#961](https://github.com/1024pix/pix-ui/pull/961) Permettre à l'action de release d'écrire des commentaires sur les PR
+
 ## 55.33.0 (2025-12-29)
 
 * [FEATURE] Ajoute un bouton de suppression à PixTag.  ([5e70702](https://github.com/1024pix/pix-ui/commit/5e70702)), closes [#960](https://github.com/1024pix/pix-ui/issues/960)
