@@ -3,6 +3,7 @@ name: release
 permissions:
   id-token: write # necessary for publishing to npm
   contents: write # necessary for pushing to gh-pages branch
+  pull-requests: write # necessary for writing comment on PR
 
 on:
   push:
