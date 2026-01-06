@@ -1,3 +1,9 @@
+# [55.34.0](https://github.com/1024pix/pix-ui/compare/v55.33.1...v55.34.0) (2026-01-06)
+
+### :rocket: Amélioration
+
+- [#958](https://github.com/1024pix/pix-ui/pull/958) Ajouter un attribut isFullWidth sur les composants PixInput et PixSelect (PIX-20616)
+
 ## [55.33.1](https://github.com/1024pix/pix-ui/compare/v55.33.0...v55.33.1) (2026-01-02)
 
 ### :building_construction: Tech
