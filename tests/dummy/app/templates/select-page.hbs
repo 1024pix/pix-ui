@@ -37,8 +37,9 @@
     <PixButton @triggerAction={{this.addNewMultiOption}}>Ajouter une option</PixButton>
   </div>
 
-  <div>
+  <div class="select-page__bordered-container">
     <PixSelect
+      class="select-page__country-select"
       @options={{this.countriesOptions}}
       @onChange={{this.onChangeCountry}}
       @value={{this.selectedCountry}}
@@ -46,6 +47,8 @@
       @placeholder="Select an option"
       @requiredLabel="Required"
       @errorMessage={{if this.countriesError "You must select a country"}}
+      {{!-- @isFullWidth={{true}} --}}
+      @inlineLabel={{true}}
     >
       <:label>Countries</:label>
     </PixSelect>

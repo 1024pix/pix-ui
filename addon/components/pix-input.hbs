@@ -1,4 +1,4 @@
-<div class="pix-input {{if @inlineLabel ' pix-input--inline'}}">
+<div class={{this.rootClassNames}}>
   {{#if (has-block "label")}}
     <PixLabel
       @for={{this.id}}
@@ -11,7 +11,7 @@
       {{yield to="label"}}
     </PixLabel>
   {{/if}}
-  <div>
+  <div class="pix-input__field-container">
     <div class="pix-input__container">
       <input
         id={{this.id}}

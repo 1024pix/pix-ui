@@ -12,8 +12,16 @@
     align-items: center;
   }
 
+  &--full-width {
+    width: 100%;
+  }
+
   &__container {
     position: relative;
+  }
+
+  &__field-container {
+    flex-grow: 1;
   }
 
   svg {

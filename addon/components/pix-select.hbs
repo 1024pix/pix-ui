@@ -1,5 +1,5 @@
 <div
-  class="pix-select {{if @inlineLabel ' pix-select--inline'}}"
+  class={{this.rootClassNames}}
   id="container-{{this.selectId}}"
   {{on-click-outside this.hideDropdown}}
   {{on-arrow-down-up-action this.listId this.showDropdown this.isExpanded}}
@@ -20,13 +20,13 @@
     </PixLabel>
   {{/if}}
 
-  <div>
+  <div class="pix-select__button-container">
     <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
       <button
         {{reference}}
         type="button"
         id={{this.selectId}}
-        class={{this.className}}
+        class={{this.buttonClassName}}
         {{on "click" this.toggleDropdown}}
         aria-expanded={{this.isAriaExpanded}}
         aria-controls={{this.listId}}

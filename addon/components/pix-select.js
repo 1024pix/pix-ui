@@ -34,13 +34,26 @@ export default class PixSelect extends Component {
     return !this.searchValue && !this.args.hideDefaultOption;
   }
 
-  get className() {
-    const classes = ['pix-select-button'];
+  get buttonClassName() {
+    const buttonClasses = ['pix-select-button'];
     if (this.args.className) {
-      classes.push(this.args.className);
+      buttonClasses.push(this.args.className);
     }
     if (this.args.errorMessage) {
-      classes.push('pix-select-button--error');
+      buttonClasses.push('pix-select-button--error');
+    }
+
+    return buttonClasses.join(' ');
+  }
+
+  get rootClassNames() {
+    const classes = ['pix-select'];
+    if (this.args.inlineLabel) {
+      classes.push('pix-select--inline');
+    }
+
+    if (this.args.isFullWidth) {
+      classes.push('pix-select--full-width');
     }
 
     return classes.join(' ');

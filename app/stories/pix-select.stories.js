@@ -225,6 +225,15 @@ export default {
       },
       control: { type: 'boolean' },
     },
+    isFullWidth: {
+      name: 'isFullWidth',
+      description: 'Permet au composant de prendre la largeur de son parent',
+      type: { name: 'boolean', required: false },
+      table: {
+        defaultValue: { summary: false },
+      },
+      control: { type: 'boolean' },
+    },
   },
 };
 
@@ -254,11 +263,49 @@ const Template = (args) => {
   @size={{this.size}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
+  @isFullWidth={{this.isFullWidth}}
   @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >
   <:label>{{this.label}}</:label>
 </PixSelect>`,
+    context: args,
+  };
+};
+
+const TemplateWithParent = (args) => {
+  return {
+    template: hbs`
+    {{! template-lint-disable no-inline-styles }}
+    <span style="color: blue;">Composant parent</span>
+  <div style="width: 400px; border: 2px solid blue; padding-top: 1rem; padding-bottom: 1rem;">
+<PixSelect
+    @id={{this.id}}
+    @className={{this.className}}
+    @options={{this.options}}
+    @isSearchable={{this.isSearchable}}
+    @placeholder={{this.placeholder}}
+    @hideDefaultOption={{this.hideDefaultOption}}
+    @searchLabel={{this.searchLabel}}
+    @value={{this.value}}
+    @searchPlaceholder={{this.searchPlaceholder}}
+    @emptySearchMessage={{this.emptySearchMessage}}
+    @errorMessage={{this.errorMessage}}
+    @isDisabled={{this.isDisabled}}
+    @placement={{this.placement}}
+    @iconName={{this.iconName}}
+    @plainIcon={{this.plainIcon}}
+    @size={{this.size}}
+    @subLabel={{this.subLabel}}
+    @inlineLabel={{this.inlineLabel}}
+    @requiredLabel={{this.requiredLabel}}
+    @screenReaderOnly={{this.screenReaderOnly}}
+    @isFullWidth={{this.isFullWidth}}
+    @isComputeWidthDisabled={{this.isComputeWidthDisabled}}
+>
+    <:label>{{this.label}}</:label>
+</PixSelect>
+  </div>`,
     context: args,
   };
 };
@@ -467,4 +514,20 @@ WithOptionIcon.args = {
     { value: 'withSpeedIcon', label: 'Icone speed', icon: 'speed', iconTitle: 'speed title' },
   ],
   value: 'fr',
+};
+
+export const WithIsFullWidth = TemplateWithParent.bind({});
+WithIsFullWidth.args = {
+  options: [
+    { value: '1', label: 'Figues' },
+    { value: '3', label: 'Fraises' },
+    { value: '3', label: 'Noix' },
+    { value: '4', label: 'Papayes' },
+  ],
+  label: 'Mon label',
+  placeholder: 'Sélectionner un fruit',
+  isFullWidth: true,
+  inlineLabel: false,
+  isComputeWidthDisabled: true,
+  onChange: action('onChange'),
 };

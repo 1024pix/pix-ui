@@ -29,6 +29,19 @@ export default class PixInputBase extends Component {
     return this.args.validationStatus === 'error' ? this.prefix + '-error' : null;
   }
 
+  get rootClassNames() {
+    const classNames = ['pix-input'];
+    if (this.args.inlineLabel) {
+      classNames.push('pix-input--inline');
+    }
+
+    if (this.args.isFullWidth) {
+      classNames.push('pix-input--full-width');
+    }
+
+    return classNames.join(' ');
+  }
+
   get hasError() {
     return this.args.validationStatus === 'error';
   }

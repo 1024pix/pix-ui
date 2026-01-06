@@ -25,9 +25,7 @@ module('Integration | Component | PixInput', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(selectorElement.id, '123');
+    assert.strictEqual(selectorElement.id, '123');
   });
 
   test('it should be possible to give a label to input', async function (assert) {
@@ -68,9 +66,7 @@ module('Integration | Component | PixInput', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(selectorElement.value, 'Jeanne');
+    assert.strictEqual(selectorElement.value, 'Jeanne');
   });
 
   test('it should be possible to give more params to input', async function (assert) {
@@ -81,9 +77,7 @@ module('Integration | Component | PixInput', function (hooks) {
 
     // then
     const selectorElement = this.element.querySelector(INPUT_SELECTOR);
-    // TODO: Fix this the next time the file is edited.
-    // eslint-disable-next-line qunit/no-assert-equal
-    assert.equal(selectorElement.autocomplete, 'on');
+    assert.strictEqual(selectorElement.autocomplete, 'on');
   });
 
   test('it should be possible to make pix input required', async function (assert) {
@@ -95,5 +89,47 @@ module('Integration | Component | PixInput', function (hooks) {
     // then
     const requiredInput = screen.getByLabelText('Prénom *');
     assert.dom(requiredInput).isRequired();
+  });
+
+  module('root class computation', function () {
+    const DIV_ROOT_SELECTOR = '.pix-input';
+
+    test('it should compute correct class for root when @isFullWidth param is true', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixInput @id='firstName' @isFullWidth={{true}}><:label>Prénom</:label></PixInput>`,
+      );
+
+      // then
+      const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
+      assert.strictEqual(selectorElement.classList.value, 'pix-input pix-input--full-width');
+    });
+
+    test('it should compute correct class for root when @inlineLabel param is true', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixInput @id='firstName' @inlineLabel={{true}}><:label>Prénom</:label></PixInput>`,
+      );
+
+      // then
+      const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
+      assert.strictEqual(selectorElement.classList.value, 'pix-input pix-input--inline');
+    });
+
+    test('it should compute correct class for root when @inlineLabel and @isFullWidth params are true', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixInput @id='firstName' @inlineLabel={{true}} @isFullWidth={{true}}>
+  <:label>Prénom</:label>
+</PixInput>`,
+      );
+
+      // then
+      const selectorElement = this.element.querySelector(DIV_ROOT_SELECTOR);
+      assert.strictEqual(
+        selectorElement.classList.value,
+        'pix-input pix-input--inline pix-input--full-width',
+      );
+    });
   });
 });
