@@ -1,3 +1,9 @@
+# [56.0.0](https://github.com/1024pix/pix-ui/compare/v55.34.0...v56.0.0) (2026-01-09)
+
+### :boom: BREAKING CHANGE
+
+- [#955](https://github.com/1024pix/pix-ui/pull/955) Rendre ISO le comportement du PixMultiSelect et du PixSelect (PIX-16051).
+
 # [55.34.0](https://github.com/1024pix/pix-ui/compare/v55.33.1...v55.34.0) (2026-01-06)
 
 ### :rocket: Amélioration
