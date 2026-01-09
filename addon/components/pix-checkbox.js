@@ -68,6 +68,6 @@ export default class PixCheckbox extends Component {
   }
 
   formatMessage(message) {
-    return formatMessage('fr', `input.${message}`);
+    return formatMessage(this.args.locale ?? 'fr', `input.${message}`);
   }
 }

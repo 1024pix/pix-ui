@@ -216,7 +216,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
-    this.searchLabel = 'Recherche';
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
@@ -225,7 +224,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-  @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
 >
   <:label>{{this.label}}</:label>
@@ -233,7 +231,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
 </PixFilterableAndSearchableSelect>`);
 
     await click(screen.getByRole('button', { name: this.label }));
-    await fillByLabel(this.searchLabel, 'Tom');
+    await fillByLabel('Rechercher', 'Tom');
 
     const items = await screen.findAllByRole('option');
 
@@ -250,7 +248,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
       { value: '1', label: 'Mache', category: 'Kebab' },
       { value: '2', label: 'Tomate', category: 'Hamburger' },
     ];
-    this.searchLabel = 'Recherche';
 
     // given & when
     const screen = await render(hbs`<PixFilterableAndSearchableSelect
@@ -260,7 +257,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-  @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
 >
   <:label>{{this.label}}</:label>
@@ -343,7 +339,6 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
-  @searchLabel={{this.searchLabel}}
   @isSearchable={{true}}
   @requiredLabel={{this.requiredLabel}}
 >

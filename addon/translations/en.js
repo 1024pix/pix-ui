@@ -1,4 +1,13 @@
 export default {
+  input: {
+    state: {
+      success: 'Correct selection',
+      error: 'Incorrect selection',
+    },
+  },
+  select: {
+    search: 'Search',
+  },
   pagination: {
     beforeResultsPerPage: 'See',
     selectPageSizeLabel: 'Select the number of items by page',

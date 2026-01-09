@@ -13,7 +13,7 @@
   &--inline {
     flex-direction: row;
     gap: var(--pix-spacing-2x);
-    align-items: center;
+    align-items: baseline;
   }
 
   &--full-width {

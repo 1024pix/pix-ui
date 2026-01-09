@@ -1,5 +1,5 @@
-import { fillByLabel, visit } from '@1024pix/ember-testing-library';
-import { click } from '@ember/test-helpers';
+import { visit } from '@1024pix/ember-testing-library';
+import { click, fillIn } from '@ember/test-helpers';
 import userEvent from '@testing-library/user-event';
 import { setupApplicationTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -36,7 +36,9 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       const screen = await visit('/select');
 
       // when
-      await fillByLabel('Kebab', '[A-Z]{1}[a-z]{6}');
+      const multiSelect = screen.getByRole('button', { name: 'Kebab' });
+      await click(multiSelect);
+      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), '[A-Z]{1}[a-z]{6}');
       await screen.findByRole('menu');
 
       // then
@@ -75,9 +77,10 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       const screen = await visit('/select');
 
       // when
-      await screen.getByLabelText('Fruits').click();
-      await fillByLabel('Rechercher un fruit', 'K[a-z]{3}');
+      const select = screen.getByRole('button', { name: 'Fruits' });
+      await click(select);
       await screen.findByRole('listbox');
+      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), 'K[a-z]{3}');
 
       // then
       assert.strictEqual(screen.getAllByRole('option').length, 1);

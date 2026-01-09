@@ -77,10 +77,10 @@ export default {
         type: { summary: 'string' },
       },
     },
-    searchLabel: {
-      name: 'searchLabel',
+    locale: {
+      name: 'locale',
       description:
-        'Label de la recherche dans le menu déroulant. **⚠️ Le `searchLabel` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
+        'Permet de rendre traduisible le label du formulaire de recherche, par défaut fr',
       type: { name: 'string', required: false },
       table: {
         type: { summary: 'string' },
@@ -251,7 +251,7 @@ const Template = (args) => {
   @isSearchable={{this.isSearchable}}
   @placeholder={{this.placeholder}}
   @hideDefaultOption={{this.hideDefaultOption}}
-  @searchLabel={{this.searchLabel}}
+  @locale={{this.locale}}
   @value={{this.value}}
   @searchPlaceholder={{this.searchPlaceholder}}
   @emptySearchMessage={{this.emptySearchMessage}}

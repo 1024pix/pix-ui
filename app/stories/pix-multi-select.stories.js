@@ -23,7 +23,8 @@ export default {
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @isSearchable={{this.isSearchable}}
-  @strictSearch={{this.strictSearch}}
+  @onSearch={{this.onSearch}}
+  @searchLabel={{this.searchLabel}}
   @values={{this.values}}
   @options={{this.options}}
   @isDisabled={{this.isDisabled}}
@@ -45,6 +46,15 @@ export default {
       description:
         'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
       type: { name: 'string', required: true },
+    },
+    locale: {
+      name: 'locale',
+      description:
+        'Permet de rendre traduisible le label du formulaire de recherche, par défaut fr',
+      type: { name: 'string', required: false },
+      table: {
+        type: { summary: 'string' },
+      },
     },
     emptyMessage: {
       name: 'emptyMessage',
@@ -304,6 +314,7 @@ const TemplateWithYield = (args) => ({
   @options={{this.options}}
   @size={{this.size}}
   @subLabel={{this.subLabel}}
+  @locale={{this.locale}}
   @inlineLabel={{this.inlineLabel}}
   @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
