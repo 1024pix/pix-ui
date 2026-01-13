@@ -98,7 +98,7 @@ const Template = (args) => {
     </PixTableColumn>
     <PixTableColumn @context={{context}} @type='tag'>
       <:header>
-        tag
+        Tag
       </:header>
       <:cell>
         <PixTag>{{row.tag}}</PixTag>

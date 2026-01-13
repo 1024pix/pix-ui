@@ -36,6 +36,14 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
         {{row.age}}
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type="tag">
+      <:header>
+        Hobby
+      </:header>
+      <:cell>
+        <PixTag>{{row.hobby}}</PixTag
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>
 ```
