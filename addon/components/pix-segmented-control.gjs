@@ -2,15 +2,12 @@ import { warn } from '@ember/debug';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
 import { not } from 'ember-truth-helpers';
 
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 
 export default class PixSegmentedControl extends Component {
-  @tracked toggled = this.args.toggled || false;
-
   get variant() {
     const value = this.args.variant ?? 'primary';
     const variantList = ['primary', 'orga', 'certif'];
@@ -38,8 +35,7 @@ export default class PixSegmentedControl extends Component {
 
   @action
   onChange() {
-    this.args.onChange(!this.toggled);
-    this.toggled = !this.toggled;
+    this.args.onChange(!this.args.toggled);
   }
 
   get id() {
