@@ -1,3 +1,9 @@
+# [56.1.0](https://github.com/1024pix/pix-ui/compare/v56.0.0...v56.1.0) (2026-01-13)
+
+### :rocket: Amélioration
+
+- [#963](https://github.com/1024pix/pix-ui/pull/963) Ajustement des tailles de token fonts (PIX-21066)
+
 # [56.0.0](https://github.com/1024pix/pix-ui/compare/v55.34.0...v56.0.0) (2026-01-09)
 
 ### :boom: BREAKING CHANGE
