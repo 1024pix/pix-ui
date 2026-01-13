@@ -16,11 +16,19 @@ export default class TablePage extends Controller {
       name: 'jean',
       description: 'fort au jungle speed',
       age: 15,
+      link: {
+        label: 'PixApp',
+        url: 'https://app.pix.fr',
+      },
     },
     {
       name: 'brian',
       description: 'travail au peach pit',
       age: 25,
+      link: {
+        label: 'Ecosia',
+        url: 'https://www.ecosia.org',
+      },
     },
   ];
 

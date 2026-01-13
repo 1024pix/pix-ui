@@ -91,6 +91,22 @@
       </:cell>
       <:subCell>01/01/1970</:subCell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type="link">
+      <:header>
+        Link
+      </:header>
+      <:cell>
+        <PixButtonLink
+          @href={{row.link.url}}
+          target="_blank"
+          @variant="tertiary"
+          @iconBefore="openNew"
+        >
+          {{row.link.label}}
+        </PixButtonLink>
+      </:cell>
+    </PixTableColumn>
+
   </:columns>
 </PixTable>
 {{! template-lint-disable no-forbidden-elements }}
