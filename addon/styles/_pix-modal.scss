@@ -9,8 +9,7 @@
   left: 50%;
   width: min(32rem, calc(100% - var(--pix-spacing-4x)));
   margin-block: auto;
-  background-color: var(--pix-neutral-20);
-  border-radius: var(--pix-spacing-4x);
+  background-color: var(--pix-neutral-0);
   transform: translateX(-50%);
 
   &__header {
