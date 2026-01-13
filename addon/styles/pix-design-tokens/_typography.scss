@@ -14,18 +14,18 @@
 .pix-title-l {
   @extend %-pix-title;
 
-  --font-size-title: 2rem;
+  --font-size-title: 1.75rem;
 
   font-size: var(--font-size-title);
   line-height: 1.3;
   letter-spacing: calc(-0.02 * var(--font-size-title));
 
   @include breakpoints.device-is('tablet') {
-    --font-size-title: 2.5rem;
+    --font-size-title: 1.875rem;
   }
 
   @include breakpoints.device-is('desktop') {
-    --font-size-title: 3rem;
+    --font-size-title: 2rem;
   }
 }
 
@@ -33,7 +33,7 @@
 .pix-title-m {
   @extend %-pix-title;
 
-  --font-size-title: 1.625rem;
+  --font-size-title: 1.5rem;
   --letter-spacing-title: -0.02;
 
   font-size: var(--font-size-title);
@@ -41,11 +41,11 @@
   letter-spacing: calc(var(--letter-spacing-title) * var(--font-size-title));
 
   @include breakpoints.device-is('tablet') {
-    --font-size-title: 2rem;
+    --font-size-title: 1.625rem;
   }
 
   @include breakpoints.device-is('desktop') {
-    --font-size-title: 2.25rem;
+    --font-size-title: 1.75rem;
     --letter-spacing-title: -0.01;
   }
 }
@@ -61,11 +61,11 @@
   letter-spacing: calc(-0.01 * var(--font-size-title));
 
   @include breakpoints.device-is('tablet') {
-    --font-size-title: 1.5rem;
+    --font-size-title: 1.375rem;
   }
 
   @include breakpoints.device-is('desktop') {
-    --font-size-title: 1.75rem;
+    --font-size-title: 1.5rem;
   }
 }
 
