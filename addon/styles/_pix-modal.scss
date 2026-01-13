@@ -20,6 +20,8 @@
     padding: var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
     background: var(--pix-neutral-0);
+    border-top-left-radius: var(--pix-spacing-4x);
+    border-top-right-radius: var(--pix-spacing-4x);
   }
 
   &__close-button {
@@ -59,5 +61,7 @@
   &__footer {
     padding: var(--pix-spacing-6x) var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x);
     background-color:var(--pix-neutral-0);
+    border-bottom-left-radius: var(--pix-spacing-4x);
+    border-bottom-right-radius: var(--pix-spacing-4x);
   }
 }
