@@ -26,6 +26,16 @@ export default {
       name: '<:label>',
       description: "Yield où l'on place le label",
     },
+    inlineLabel: {
+      name: 'inlineLabel',
+      description: 'Détermine si le label est aligné avec le composant',
+      control: { type: 'boolean' },
+      type: { name: 'boolean', required: false },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     toggled: {
       name: 'toggled',
       description: 'Détermine si la deuxième option est cochée par défaut',
@@ -70,6 +80,7 @@ const Template = (args) => {
     template: hbs`
         <PixSegmentedControl
                 @toggled={{this.toggled}}
+                @inlineLabel={{this.inlineLabel}}
                 @onChange={{this.onChange}}
                 @iconA={{this.iconA}}
                 @iconB={{this.iconB}}

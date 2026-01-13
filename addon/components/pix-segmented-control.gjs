@@ -30,7 +30,7 @@ export default class PixSegmentedControl extends Component {
     const classes = ['pix-segmented-control', `pix-segmented-control--${this.variant}`];
 
     if (this.args.inlineLabel) {
-      classes.push('pix-segmented-control');
+      classes.push('pix-segmented-control--inline');
     }
 
     return classes.join(' ');
