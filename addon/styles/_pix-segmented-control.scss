@@ -1,10 +1,6 @@
 @use "pix-design-tokens/typography";
 
 .pix-segmented-control {
-  --background-color-primary: rgba(206, 195, 244, 0.50);
-  --background-color-orga: rgba(54, 116, 191, 0.20);
-  --background-color-certif: rgba(24, 127, 125, 0.20);
-
   display: inline-flex;
   flex-direction: column;
   gap: var(--pix-spacing-1x);
@@ -12,15 +8,15 @@
   font-size: 1rem;
 
   &--primary .radio {
-    background-color: var(--background-color-primary);
+    background-color: rgb(var(--pix-primary-100-inline), 0.50);
   }
 
   &--orga .radio {
-    background-color: var(--background-color-orga);
+    background-color: rgb(var(--pix-orga-500-inline), 0.20);
   }
 
   &--certif .radio {
-    background-color: var(--background-color-orga);
+    background-color: rgb(var(--pix-certif-500-inline), 0.20);
   }
 
   .radio {
