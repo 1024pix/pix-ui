@@ -63,9 +63,9 @@ export default class PixSegmentedControl extends Component {
   }
 
   <template>
-    <div class={{this.className}} role="radiogroup" aria-labelledby={{this.id}}>
+    <fieldset class={{this.className}} role="radiogroup">
       <PixLabel
-        @for={{this.id}}
+        @useAsLegend={{true}}
         @screenReaderOnly={{@screenReaderOnly}}
         @subLabel={{@subLabel}}
         @size={{@size}}
@@ -73,6 +73,7 @@ export default class PixSegmentedControl extends Component {
       >
         {{yield to="label"}}
       </PixLabel>
+
       <div class="pix-segmented-control__radio">
         <input
           {{on "change" this.onChange}}
@@ -103,6 +104,6 @@ export default class PixSegmentedControl extends Component {
           {{yield to="viewB"}}
         </label>
       </div>
-    </div>
+    </fieldset>
   </template>
 }
