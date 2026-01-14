@@ -98,4 +98,20 @@ module('Integration | Component | pix-navigation-button', function (hooks) {
 
     assert.ok(image.querySelector('use').getAttribute('href').endsWith('plain'));
   });
+
+  module('when navigation can be shrink', function () {
+    test(`should display the PixNavigationShrunkButton component`, async function (assert) {
+      // given
+      const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
+      shrinkNavigationService.isShrunk = true;
+
+      // when
+      const screen = await render(
+        hbs`<PixNavigationButton @route='hello' @icon='power'>content</PixNavigationButton>`,
+      );
+
+      // then
+      assert.dom(screen.getByRole('link')).hasClass('navigation-shrunk-button');
+    });
+  });
 });
