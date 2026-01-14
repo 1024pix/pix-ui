@@ -1,3 +1,9 @@
+# [57.0.0](https://github.com/1024pix/pix-ui/compare/v56.1.0...v57.0.0) (2026-01-14)
+
+### :boom: BREAKING CHANGE
+
+- [#951](https://github.com/1024pix/pix-ui/pull/951) Mettre à jour le PixtoggleButton en PixSegementedControl (PIX-16911).
+
 # [56.1.0](https://github.com/1024pix/pix-ui/compare/v56.0.0...v56.1.0) (2026-01-13)
 
 ### :rocket: Amélioration
