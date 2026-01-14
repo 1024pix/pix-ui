@@ -19,4 +19,8 @@ export default {
     pageNumber: 'Página {current, number} / {total, number}',
     nextPageLabel: 'Ir a la página siguiente',
   },
+  pixNavigation: {
+    shrinkNavigationAriaLabel: 'Reducir el ancho del menú de navegación',
+    expandNavigationAriaLabel: 'Volver al ancho inicial del menú de navegación',
+  },
 };

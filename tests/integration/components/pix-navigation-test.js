@@ -56,12 +56,56 @@ module('Integration | Component | pix-navigation', function (hooks) {
       // then
       assert.ok(within(footer).getByRole('link', { name: 'mon lien' }));
     });
+
     test('it hides the burger menu', async function (assert) {
       // when
       const screen = await render(
         hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
       );
       assert.notOk(screen.queryByRole('button', { name: 'menu' }));
+    });
+
+    module('when navigation can be shrink', function () {
+      test(`should display the button`, async function (assert) {
+        // given
+        const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
+        shrinkNavigationService.canNavigationBeShrunk = true;
+
+        // when
+        const screen = await render(
+          hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
+        );
+
+        // then
+        assert
+          .dom(screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }))
+          .exists();
+      });
+
+      module(`when the shrink button is clicked`, function () {
+        test(`should display an other aria label`, async function (assert) {
+          // given
+          const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
+          shrinkNavigationService.canNavigationBeShrunk = true;
+
+          // when
+          const screen = await render(
+            hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
+          );
+          await click(
+            screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }),
+          );
+
+          // then
+          assert
+            .dom(
+              screen.getByRole('button', {
+                name: 'Revenir à la largeur initiale du menu de navigation',
+              }),
+            )
+            .exists();
+        });
+      });
     });
   });
 

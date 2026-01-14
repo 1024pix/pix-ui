@@ -1,10 +1,13 @@
 import { VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { warn } from '@ember/debug';
+import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 
 import onWindowResize from '../modifiers/on-window-resize';
 
 export default class PixAppLayout extends Component {
+  @service shrinkNavigationService;
+
   #computeMarginTopElement(entries) {
     for (const entry of entries) {
       if (entry.target.id === 'pix-layout-banner-container') {
@@ -35,6 +38,10 @@ export default class PixAppLayout extends Component {
         id: 'pix-ui.pix-app-layout.variant.not-valid',
       },
     );
+
+    if (this.args.variant === 'admin') {
+      this.shrinkNavigationService.displayShrunkNavigationButton();
+    }
 
     return value;
   }

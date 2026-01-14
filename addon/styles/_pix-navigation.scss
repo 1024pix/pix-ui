@@ -21,6 +21,7 @@
   color: var(--pix-navigation-text-color);
   background-color: var(--pix-navigation-color);
   border-radius: var(--pix-spacing-6x);
+  transition: all 0.3s ease;
 
   @include breakpoints.device-is('mobile') {
     flex-direction: column;
@@ -36,6 +37,16 @@
     }
   }
 
+  &--shrunk {
+    --pix-navigation-width: 88px;
+
+    transition: all 0.3s ease;
+  }
+
+  &__shrunk-container {
+    position: relative;
+    height: 20px;
+  }
 
   &__brand {
     margin-bottom: 0;
@@ -218,3 +229,14 @@
   }
 }
 
+.pix-navigation-shrunk-button {
+  position: absolute;
+  left: calc(100% - 4px);
+  background-color: var(--pix-neutral-0);
+  border: 1px solid var(--pix-primary-900);
+
+  @include breakpoints.device-is('mobile') {
+    visibility: hidden;
+    opacity: 0;
+  }
+}

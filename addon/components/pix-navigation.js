@@ -5,8 +5,11 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-export default class PixMNavigation extends Component {
+import { formatMessage } from '../translations';
+
+export default class PixNavigation extends Component {
   @service router;
+  @service shrinkNavigationService;
 
   constructor(...args) {
     super(...args);
@@ -22,6 +25,10 @@ export default class PixMNavigation extends Component {
 
   @tracked
   navigationMenuOpened = false;
+
+  formatMessage(message, values) {
+    return formatMessage(this.args.locale ?? 'fr', `pixNavigation.${message}`, values);
+  }
 
   @action
   toggleNavigationMenu() {
@@ -42,6 +49,23 @@ export default class PixMNavigation extends Component {
       this.navigationMenuOpened = false;
       this.router.off('routeDidChange', this.closeNavigation);
     }
+  }
+
+  @action
+  shrinkNavigation() {
+    this.shrinkNavigationService.shrinkNavigation();
+  }
+
+  get shrunkNavigationIcon() {
+    return this.shrinkNavigationService.isShrunk ? 'arrowMenuOpen' : 'arrowMenuClose';
+  }
+
+  get shrunkNavigationAriaLabel() {
+    return this.formatMessage(
+      this.shrinkNavigationService.isShrunk
+        ? 'expandNavigationAriaLabel'
+        : 'shrinkNavigationAriaLabel',
+    );
   }
 
   get navigationId() {

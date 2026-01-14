@@ -19,4 +19,20 @@ module('Integration | Component | pix-app-layout', function (hooks) {
       );
     });
   });
+
+  module('when variant is admin', function () {
+    test(`should canNavigationBeShrunk from shrinkNavigationService set to true`, async function (assert) {
+      // given
+      const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
+
+      // when
+      this.variant = 'admin';
+      await render(
+        hbs`<PixAppLayout @variant={{this.variant}}><:main>Hello</:main></PixAppLayout>`,
+      );
+
+      // then
+      assert.true(shrinkNavigationService.canNavigationBeShrunk);
+    });
+  });
 });
