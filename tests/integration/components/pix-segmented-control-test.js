@@ -24,9 +24,9 @@ module('Integration | Component | PixSegmentedControl', function (hooks) {
 </PixSegmentedControl>`,
     );
 
-    assert.dom(screen.getByText(this.label)).exists();
-    assert.dom(screen.getByText(this.viewAText)).exists();
-    assert.dom(screen.getByText(this.viewBText)).exists();
+    assert.dom(screen.getByRole('radiogroup', { name: this.label })).exists();
+    assert.dom(screen.getByRole('radio', { name: this.viewAText })).exists();
+    assert.dom(screen.getByRole('radio', { name: this.viewBText })).exists();
   });
 
   test('it calls onChange when change', async function (assert) {
@@ -37,13 +37,13 @@ module('Integration | Component | PixSegmentedControl', function (hooks) {
   <:viewB>{{this.viewBText}}</:viewB>
 </PixSegmentedControl>`);
 
-    assert.true(screen.getByLabelText('Oui').checked);
+    assert.true(screen.getByLabelText(this.viewAText).checked);
 
-    await click(screen.getByRole('radio', { name: 'Non' }));
+    await click(screen.getByRole('radio', { name: this.viewBText }));
 
     // then
-    assert.false(screen.getByLabelText('Oui').checked);
-    assert.true(screen.getByLabelText('Non').checked);
+    assert.false(screen.getByLabelText(this.viewAText).checked);
+    assert.true(screen.getByLabelText(this.viewBText).checked);
     sinon.assert.calledWith(this.onChange, true);
   });
 
@@ -55,12 +55,12 @@ module('Integration | Component | PixSegmentedControl', function (hooks) {
   <:viewB>{{this.viewBText}}</:viewB>
 </PixSegmentedControl>`);
 
-    await click(screen.getByRole('radio', { name: 'Non' }));
+    await click(screen.getByRole('radio', { name: this.viewBText }));
     await userEvent.keyboard('[Enter]');
 
     // then
-    assert.false(screen.getByLabelText('Oui').checked);
-    assert.true(screen.getByLabelText('Non').checked);
+    assert.false(screen.getByLabelText(this.viewAText).checked);
+    assert.true(screen.getByLabelText(this.viewBText).checked);
     sinon.assert.calledWith(this.onChange, true);
   });
 
@@ -72,12 +72,12 @@ module('Integration | Component | PixSegmentedControl', function (hooks) {
   <:viewB>{{this.viewBText}}</:viewB>
 </PixSegmentedControl>`);
 
-    await click(screen.getByRole('radio', { name: 'Non' }));
+    await click(screen.getByRole('radio', { name: this.viewBText }));
     await userEvent.keyboard('[Space]');
 
     // then
-    assert.false(screen.getByLabelText('Oui').checked);
-    assert.true(screen.getByLabelText('Non').checked);
+    assert.false(screen.getByLabelText(this.viewAText).checked);
+    assert.true(screen.getByLabelText(this.viewBText).checked);
     sinon.assert.calledWith(this.onChange, true);
   });
 });

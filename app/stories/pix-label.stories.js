@@ -5,8 +5,14 @@ export default {
   argTypes: {
     for: {
       name: 'for',
-      description: 'Identifiant du champ à rattacher au label',
-      type: { name: 'string', required: true },
+      description:
+        'Identifiant du champ à rattacher au label, obligatoire si useAsLegend est `false`',
+      type: { name: 'string', required: false },
+    },
+    useAsLegend: {
+      name: 'useAsLegend',
+      description: "Change HTML Tag label en legend pour l'utiliser dans un fieldset",
+      type: { name: 'boolean', required: false },
     },
     label: {
       name: 'label',

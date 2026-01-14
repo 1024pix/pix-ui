@@ -20,6 +20,21 @@ module('Integration | Component | PixLabel', function (hooks) {
     assert.ok(screen.getByLabelText(label));
   });
 
+  test('it renders PixLabel as legend with content', async function (assert) {
+    // given
+    const label = 'Bonjour Pix !';
+    this.set('label', label);
+
+    // when
+    const screen = await render(
+      hbs`<fieldset><PixLabel @useAsLegend={{true}}>{{this.label}}</PixLabel>
+  <label for='linkableElement'>linkable element</label><input id='linkableElement' /></fieldset>`,
+    );
+
+    // then
+    assert.ok(screen.getByRole('group', { name: label }));
+  });
+
   test('it renders PixLabel with additional information', async function (assert) {
     // given
     const label = 'Bonjour Pix !';
