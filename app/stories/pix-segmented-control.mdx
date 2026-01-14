@@ -1,0 +1,62 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-segmented-control.stories.js';
+
+<Meta of={ComponentStories}/>
+
+# PixSegmentedControl
+
+Affiche un bouton à deux états.
+
+Le label est géré avec un [PixLabel](?path=/docs/forms-label--docs), tous les arguments de ce composant peuvent être passés au `PixSegmentedControl`.
+
+## Défaut
+```html
+<PixSegmentedControl>
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixSegmentedControl>
+```
+<Story of={ComponentStories.Default} height={200} />
+
+
+## Option 2 sélectionnée par défaut
+```html
+<PixSegmentedControl @toggled={{true}}>
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixSegmentedControl>
+```
+<Story of={ComponentStories.Toggled} height={200} />
+
+## Affichage d'une icône avant le texte
+
+Pour afficher une icône avant le texte d'une option, il faut indiquer le nom de l'icône.
+L'icône est gérée avec [PixIcon](?path=/docs/design-tokens-icon--docs), le nom indiqué doit correspondre à une icône existante.
+
+```html
+<PixSegmentedControl @iconA="brick" @iconB="signpost">
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixSegmentedControl>
+```
+<Story of={ComponentStories.IconBefore} height={200} />
+
+## Variantes couleurs
+
+Il existe trois variantes de couleur possible : `primary` (par défaut), `orga` et `certif`.
+
+```html
+<PixSegmentedControl @variant="orga">
+  <:label>Mon super label</:label>
+  <:viewA>Option 1</:viewA>
+  <:viewB>Option 2</:viewB>
+</PixSegmentedControl>
+```
+<Story of={ComponentStories.Variant} height={200} />
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />
