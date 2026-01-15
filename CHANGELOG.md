@@ -1,3 +1,9 @@
+## [57.0.2](https://github.com/1024pix/pix-ui/compare/v57.0.1...v57.0.2) (2026-01-15)
+
+### :bug: Correction
+
+- [#968](https://github.com/1024pix/pix-ui/pull/968) Améliorer l'accessibilité sur le PixSegementedControl (PIX-16911).
+
 ## [57.0.1](https://github.com/1024pix/pix-ui/compare/v57.0.0...v57.0.1) (2026-01-14)
 
 ### :bug: Correction
