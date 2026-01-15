@@ -29,4 +29,15 @@
 
   <PixButton @triggerAction={{this.onClick}} @variant="tertiary-white" @isDisabled={{true}}>Bouton
     tertiaire blanc</PixButton>
+
+  <PixSegmentedControl
+    @toggled={{this.toggleSegmentedControlValue}}
+    @onChange={{this.onChangeSegmentedControl}}
+    @iconA="book"
+    @iconB="lightBulb"
+  >
+    <:label>Mon segemented control</:label>
+    <:viewA>Oui</:viewA>
+    <:viewB>Non</:viewB>
+  </PixSegmentedControl>
 </div>

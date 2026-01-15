@@ -75,33 +75,35 @@ export default class PixSegmentedControl extends Component {
       </PixLabel>
 
       <div class="pix-segmented-control__radio">
-        <input
-          {{on "change" this.onChange}}
-          id={{this.idViewA}}
-          type="radio"
-          name={{this.toggleName}}
-          value="viewA"
-          checked={{this.stateViewA}}
-        />
-        <label for={{this.idViewA}}>
+        <label class="pix-segmented-control__radio-label" for={{this.idViewA}}>
           {{#if @iconA}}
             <PixIcon @name={{@iconA}} @plainIcon={{this.stateViewA}} @ariaHidden={{true}} />
           {{/if}}
           {{yield to="viewA"}}
+          <input
+            class="screen-reader-only"
+            {{on "change" this.onChange}}
+            id={{this.idViewA}}
+            type="radio"
+            name={{this.toggleName}}
+            value="viewA"
+            checked={{this.stateViewA}}
+          />
         </label>
-        <input
-          {{on "change" this.onChange}}
-          id={{this.idViewB}}
-          type="radio"
-          name={{this.toggleName}}
-          value="viewB"
-          checked={{this.stateViewB}}
-        />
-        <label for={{this.idViewB}}>
+        <label class="pix-segmented-control__radio-label" for={{this.idViewB}}>
           {{#if @iconB}}
             <PixIcon @name={{@iconB}} @plainIcon={{this.stateViewB}} @ariaHidden={{true}} />
           {{/if}}
           {{yield to="viewB"}}
+          <input
+            class="screen-reader-only"
+            {{on "change" this.onChange}}
+            id={{this.idViewB}}
+            type="radio"
+            name={{this.toggleName}}
+            value="viewB"
+            checked={{this.stateViewB}}
+          />
         </label>
       </div>
     </fieldset>

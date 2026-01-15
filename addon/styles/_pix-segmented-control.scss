@@ -7,6 +7,12 @@
   color: var(--pix-neutral-900);
   font-size: 1rem;
 
+  &--inline {
+    flex-direction: row;
+    gap: var(--pix-spacing-2x);
+    align-items: center;
+  }
+
   &--primary .pix-segmented-control__radio {
     background-color: rgb(var(--pix-primary-100-inline), 0.50);
   }
@@ -26,40 +32,29 @@
       align-items: flex-start;
       padding: var(--pix-spacing-1x, 4px);
       border-radius: 8px;
+  }
 
-      :hover {
-        cursor: pointer;
-      }
+  &__radio-label {
+    display: flex;
+    flex-grow: 1;
+    gap: var(--pix-spacing-3x);
+    align-items: center;
+    justify-content: center;
+    padding: var(--pix-spacing-1x, 4px) 8px;
+    border: 1px solid transparent;
+    border-radius: 8px;
 
-      input[type="radio"], input[type="radio"]:checked, input[type="radio"]:focus-visible {
-        position: absolute;
-        outline: none;
-        appearance: none;
-      }
-
-      label {
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
-        padding: var(--pix-spacing-1x, 4px) 8px;
-        border: 1px solid transparent;
-        border-radius: 8px;
-      }
-
-      input[type="radio"]:checked + label {
-        font-weight: var(--pix-font-bold);
-        background: var(--pix-neutral-0);
-      }
-
-      input[type="radio"]:focus + label {
-        border-color: var(--pix-neutral-900);
-      }
+    &:hover {
+      cursor: pointer;
     }
 
-  &--inline {
-    flex-direction: row;
-    gap: var(--pix-spacing-2x);
-    align-items: center;
+    &:has(input[type="radio"]:checked) {
+      font-weight: var(--pix-font-bold);
+      background: var(--pix-neutral-0);
+    }
+
+    &:has(input[type="radio"]:focus) {
+      border-color: var(--pix-neutral-900);
+    }
   }
 }
