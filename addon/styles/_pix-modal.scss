@@ -9,18 +9,19 @@
   left: 50%;
   width: min(32rem, calc(100% - var(--pix-spacing-4x)));
   margin-block: auto;
-  background-color: var(--pix-neutral-20);
-  border-radius: 4px;
+  background-color: var(--pix-neutral-0);
+  border-radius: var(--pix-spacing-4x);
   transform: translateX(-50%);
 
   &__header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
-    padding: var(--pix-spacing-6x);
+    padding: var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x) var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
     background: var(--pix-neutral-0);
-    border-bottom: 1px solid var(--pix-neutral-20);
+    border-top-left-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
+    border-top-right-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
   }
 
   &__close-button {
@@ -48,9 +49,9 @@
   &__content {
     @extend %pix-body-s;
 
-    padding: var(--pix-spacing-6x);
+    padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
-    background-color:var(--pix-neutral-20);
+    background-color:var(--pix-neutral-0);
 
     p:last-child {
       margin-bottom: 0;
@@ -58,7 +59,9 @@
   }
 
   &__footer {
-    padding: 0 var(--pix-spacing-6x) var(--pix-spacing-2x);
-    background-color:var(--pix-neutral-20);
+    padding: var(--pix-spacing-6x) var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x);
+    background-color:var(--pix-neutral-0);
+    border-bottom-right-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
+    border-bottom-left-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
   }
 }
