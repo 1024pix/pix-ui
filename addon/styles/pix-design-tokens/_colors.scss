@@ -1,6 +1,7 @@
 // See https://www.figma.com/file/8RJ3aCSfdeQ8AZZVBBYKS8/Design-System-Pix?node-id=16%3A2
-// stylelint-disable color-no-hex
+// stylelint-disable scss/double-slash-comment-empty-line-before
 :root {
+// Primary
   --pix-primary-10-inline:247, 245, 255;
   --pix-primary-10: rgb(var(--pix-primary-10-inline));
   --pix-primary-100-inline:206, 195, 244;
@@ -13,6 +14,7 @@
   --pix-primary-700: rgb(var(--pix-primary-700-inline));
   --pix-primary-900-inline:41, 26, 93;
   --pix-primary-900: rgb(var(--pix-primary-900-inline));
+// Secondary
   --pix-secondary-50-inline:255, 250, 235;
   --pix-secondary-50: rgb(var(--pix-secondary-50-inline));
   --pix-secondary-100-inline:255, 239, 192;
@@ -25,12 +27,14 @@
   --pix-secondary-700: rgb(var(--pix-secondary-700-inline));
   --pix-secondary-900-inline:91, 56, 8;
   --pix-secondary-900: rgb(var(--pix-secondary-900-inline));
+// Tertiary
   --pix-tertiary-100-inline:195, 208, 255;
   --pix-tertiary-100: rgb(var(--pix-tertiary-100-inline));
   --pix-tertiary-500-inline:61, 104, 255;
   --pix-tertiary-500: rgb(var(--pix-tertiary-500-inline));
   --pix-tertiary-900-inline:26, 44, 107;
   --pix-tertiary-900: rgb(var(--pix-tertiary-900-inline));
+// Neutral
   --pix-neutral-0-inline:255, 255, 255;
   --pix-neutral-0: rgb(var(--pix-neutral-0-inline));
   --pix-neutral-20-inline:244, 245, 247;
@@ -45,6 +49,7 @@
   --pix-neutral-800: rgb(var(--pix-neutral-800-inline));
   --pix-neutral-900-inline:18, 38, 71;
   --pix-neutral-900: rgb(var(--pix-neutral-900-inline));
+// Info
   --pix-info-50-inline:234, 241, 255;
   --pix-info-50: rgb(var(--pix-info-50-inline));
   --pix-info-100-inline:190, 212, 255;
@@ -57,6 +62,7 @@
   --pix-info-700: rgb(var(--pix-info-700-inline));
   --pix-info-900-inline:18, 49, 107;
   --pix-info-900: rgb(var(--pix-info-900-inline));
+// Success
   --pix-success-50-inline:230, 246, 239;
   --pix-success-50: rgb(var(--pix-success-50-inline));
   --pix-success-100-inline:176, 228, 204;
@@ -69,6 +75,7 @@
   --pix-success-700: rgb(var(--pix-success-700-inline));
   --pix-success-900-inline:0, 71, 38;
   --pix-success-900: rgb(var(--pix-success-900-inline));
+// Warning
   --pix-warning-50-inline:253, 240, 231;
   --pix-warning-50: rgb(var(--pix-warning-50-inline));
   --pix-warning-100-inline:250, 209, 181;
@@ -81,6 +88,7 @@
   --pix-warning-700: rgb(var(--pix-warning-700-inline));
   --pix-warning-900-inline:100, 44, 7;
   --pix-warning-900: rgb(var(--pix-warning-900-inline));
+// Error
   --pix-error-50-inline:251, 235, 234;
   --pix-error-50: rgb(var(--pix-error-50-inline));
   --pix-error-100-inline:243, 192, 188;
@@ -93,6 +101,7 @@
   --pix-error-700: rgb(var(--pix-error-700-inline));
   --pix-error-900-inline:90, 21, 17;
   --pix-error-900: rgb(var(--pix-error-900-inline));
+// Certif
   --pix-certif-50-inline:232, 242, 242;
   --pix-certif-50: rgb(var(--pix-certif-50-inline));
   --pix-certif-300-inline:100, 169, 168;
@@ -101,6 +110,7 @@
   --pix-certif-500: rgb(var(--pix-certif-500-inline));
   --pix-certif-700-inline:17, 90, 89;
   --pix-certif-700: rgb(var(--pix-certif-700-inline));
+// Orga
   --pix-orga-50-inline:235, 241, 249;
   --pix-orga-50: rgb(var(--pix-orga-50-inline));
   --pix-orga-300-inline:120, 162, 212;
@@ -109,6 +119,7 @@
   --pix-orga-500: rgb(var(--pix-orga-500-inline));
   --pix-orga-700-inline:38, 82, 136;
   --pix-orga-700: rgb(var(--pix-orga-700-inline));
+// Others
   --pix-information-dark-inline:242, 70, 69;
   --pix-information-dark: rgb(var(--pix-information-dark-inline));
   --pix-information-light-inline:241, 161, 65;
@@ -131,8 +142,14 @@
   --pix-environment-light: rgb(var(--pix-environment-light-inline));
   --pix-shadow-inline: 7, 20, 46;
   --pix-shadow: rgb(var(--pix-shadow-inline));
+// Gradient
+  --pix-gradient-default-light: linear-gradient(180deg, rgb(var(--pix-primary-500-inline), 0.2) 0%, rgb(var(--pix-primary-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%);
+  --pix-gradient-orga-light: linear-gradient(180deg, rgb(var(--pix-orga-500-inline), 0.2) 0%, rgb(var(--pix-orga-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%);
+  --pix-gradient-certif-light: linear-gradient(180deg, rgb(var(--pix-certif-500-inline), 0.2) 0%, rgb(var(--pix-certif-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%);
 }
+// stylelint-enable scss/double-slash-comment-empty-line-before
 
+// stylelint-disable color-no-hex
 // @deprecated - SCSS variables are replaced by CSS variables
 //// SOLID
 // Primary
