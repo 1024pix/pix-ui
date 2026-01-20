@@ -1,3 +1,9 @@
+# [57.2.0](https://github.com/1024pix/pix-ui/compare/v57.1.0...v57.2.0) (2026-01-20)
+
+### :rocket: Amélioration
+
+- [#969](https://github.com/1024pix/pix-ui/pull/969) Création de tokens couleurs pour PixOrga et PixCertif (PIX-21144)
+
 # [57.1.0](https://github.com/1024pix/pix-ui/compare/v57.0.2...v57.1.0) (2026-01-20)
 
 ### :rocket: Amélioration
