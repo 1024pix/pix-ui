@@ -1,3 +1,9 @@
+# [57.3.0](https://github.com/1024pix/pix-ui/compare/v57.2.0...v57.3.0) (2026-01-20)
+
+### :rocket: Amélioration
+
+- [#970](https://github.com/1024pix/pix-ui/pull/970) Ajout d'un nouveau token couleur pour neutral (PIX-21148)
+
 # [57.2.0](https://github.com/1024pix/pix-ui/compare/v57.1.0...v57.2.0) (2026-01-20)
 
 ### :rocket: Amélioration
