@@ -1,3 +1,9 @@
+# [57.1.0](https://github.com/1024pix/pix-ui/compare/v57.0.2...v57.1.0) (2026-01-20)
+
+### :rocket: Amélioration
+
+- [#965](https://github.com/1024pix/pix-ui/pull/965) Modification du design du composant PixModal (PIX-21083)
+
 ## [57.0.2](https://github.com/1024pix/pix-ui/compare/v57.0.1...v57.0.2) (2026-01-15)
 
 ### :bug: Correction
