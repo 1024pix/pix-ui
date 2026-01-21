@@ -1,3 +1,9 @@
+# [58.0.0](https://github.com/1024pix/pix-ui/compare/v57.3.0...v58.0.0) (2026-01-21)
+
+### :boom: BREAKING CHANGE
+
+- [#967](https://github.com/1024pix/pix-ui/pull/967) Permettre de réduire la navigation pour Pix Admin uniquement (PIX-16992).
+
 # [57.3.0](https://github.com/1024pix/pix-ui/compare/v57.2.0...v57.3.0) (2026-01-20)
 
 ### :rocket: Amélioration
