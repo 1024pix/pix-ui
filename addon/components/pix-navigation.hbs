@@ -1,8 +1,20 @@
 <aside
   ...attributes
-  class="pix-navigation {{if this.navigationMenuOpened 'pix-navigation--opened'}}"
+  class="pix-navigation
+    {{if this.navigationMenuOpened 'pix-navigation--opened'}}
+    {{if this.shrinkNavigationService.isShrunk 'pix-navigation--shrunk'}}"
 >
   <header class="pix-navigation__brand">{{yield to="brand"}}
+    {{#if this.shrinkNavigationService.canNavigationBeShrunk}}
+      <div class="pix-navigation__shrunk-container">
+        <PixIconButton
+          class="pix-navigation-shrunk-button"
+          @iconName={{this.shrunkNavigationIcon}}
+          @triggerAction={{this.shrinkNavigation}}
+          @ariaLabel="{{this.shrunkNavigationAriaLabel}}"
+        />
+      </div>
+    {{/if}}
     <div class="pix-navigation__burger-menu"><PixButton
         aria-controls="{{this.navigationId}} {{this.footerId}}"
         aria-expanded={{this.navigationMenuOpened}}

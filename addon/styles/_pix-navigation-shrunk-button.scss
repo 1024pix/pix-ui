@@ -1,0 +1,43 @@
+@use "pix-design-tokens/typography";
+
+.navigation-tooltip {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__content {
+    @extend %pix-title-xxs;
+
+    position: absolute;
+    left: calc(100% + 10px);
+    width: max-content;
+    padding: var(--pix-spacing-1x) var(--pix-spacing-4x);
+    color: var(--pix-neutral-800);
+    background-color: var(--pix-neutral-0);
+    border-radius: var(--pix-spacing-2x);
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s;
+    pointer-events: none;
+  }
+
+  &--visible {
+    &:hover, &:active {
+      .navigation-tooltip__content {
+        visibility: visible;
+        opacity: 1;
+      }
+    }
+
+    // Focus event is triggered by the button. That's why we are duplicating the style for this case.
+    .navigation-shrunk-button:focus-within + .navigation-tooltip__content {
+      visibility: visible;
+      opacity: 1;
+    }
+  }
+}
+
+.navigation-shrunk-button {
+  justify-content: center;
+}
