@@ -105,6 +105,33 @@ module('Integration | Component | pix-navigation', function (hooks) {
             )
             .exists();
         });
+
+        test(`should hide footer elements except the navigation button`, async function (assert) {
+          // given
+          const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
+          shrinkNavigationService.canNavigationBeShrunk = true;
+          this.set('triggerAction', () => {});
+
+          // when
+          const screen = await render(
+            hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close'>
+  <:footer>
+    <p>
+      Martin Dupond
+    </p>
+    <PixNavigationButton @icon='power' @triggerAction={{this.triggerAction}}>Se déconnecter</PixNavigationButton>
+  </:footer>
+</PixNavigation>`,
+          );
+
+          await click(
+            screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }),
+          );
+
+          // then
+          assert.dom(screen.getByText('Martin Dupond')).isNotVisible();
+          assert.dom(screen.getByText('Se déconnecter')).isVisible();
+        });
       });
     });
   });
