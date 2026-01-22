@@ -1,3 +1,9 @@
+# [58.1.0](https://github.com/1024pix/pix-ui/compare/v58.0.0...v58.1.0) (2026-01-22)
+
+### :rocket: Amélioration
+
+- [#971](https://github.com/1024pix/pix-ui/pull/971) Ajout de 3 nouveau tokens couleurs dégradé (PIX-21143)
+
 # [58.0.0](https://github.com/1024pix/pix-ui/compare/v57.3.0...v58.0.0) (2026-01-21)
 
 ### :boom: BREAKING CHANGE
