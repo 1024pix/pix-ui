@@ -1,3 +1,9 @@
+# [58.2.0](https://github.com/1024pix/pix-ui/compare/v58.1.0...v58.2.0) (2026-01-22)
+
+### :rocket: Amélioration
+
+- [#972](https://github.com/1024pix/pix-ui/pull/972) Ajout d'un fond sur le header des modales (PIX-21145)
+
 # [58.1.0](https://github.com/1024pix/pix-ui/compare/v58.0.0...v58.1.0) (2026-01-22)
 
 ### :rocket: Amélioration
