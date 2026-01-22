@@ -49,12 +49,12 @@ export default {
       defaultValue: {
         summary: 'text',
       },
-      options: ['text', 'number', 'checkbox', 'tag', 'tagDate'],
+      options: ['text', 'number', 'checkbox', 'tag', 'tagDate', 'link'],
       control: {
         type: 'select',
       },
       type: {
-        name: '"text" | "number" | "tag" | "tagDate"',
+        name: '"text" | "number" | "tag" | "tagDate" | "link"',
         description: 'Defini le style avec lequel nous afficherons la colonne',
       },
     },
@@ -276,6 +276,46 @@ TagDate.args = {
     {
       tag: 'tag2',
       date: '02/02/1980',
+    },
+  ],
+};
+
+// Link
+const templateLink = (args) => {
+  return {
+    template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
+  <:columns as |row context|>
+    <PixTableColumn @context={{context}} @type='link'>
+      <:header>
+        Link
+      </:header>
+      <:cell>
+        <PixButtonLink href={{row.link.url}}
+                       target="_blank"
+                       @variant="tertiary"
+                       @iconBefore="openNew">{{row.link.label}}</PixButtonLink>
+      </:cell>
+    </PixTableColumn>
+  </:columns>
+</PixTable>`,
+    context: args,
+  };
+};
+export const Link = templateLink.bind({});
+Link.args = {
+  caption: 'Tableau avec une colonne de type link',
+  data: [
+    {
+      link: {
+        label: 'PixApp',
+        href: 'https://app.pix.fr',
+      },
+    },
+    {
+      link: {
+        label: 'RGAA',
+        href: 'https://accessibilite.numerique.gouv.fr/',
+      },
     },
   ],
 };

@@ -15,6 +15,12 @@ td.pix-table-column {
       text-align: left;
     }
 
+    &--link {
+      padding-top: 0.875rem;
+      padding-bottom: 0.875rem;
+      text-align: left;
+    }
+
   &--tag-date {
     padding-top: var(--pix-spacing-1x);
     padding-bottom: var(--pix-spacing-1x);
@@ -31,4 +37,4 @@ td.pix-table-column {
       text-align: center;
     }
   }
-  }
+}

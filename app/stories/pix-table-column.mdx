@@ -36,6 +36,14 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
         {{row.age}}
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type="tag">
+      <:header>
+        Hobby
+      </:header>
+      <:cell>
+        <PixTag>{{row.hobby}}</PixTag
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>
 ```
@@ -87,6 +95,9 @@ Une colonne d'un [PixTable](/docs/data-display-table--docs), gère l'affichage d
 
 ## Variant tag + date
 <Story of={ComponentStories.TagDate} height={400} />
+
+## Variant link
+<Story of={ComponentStories.Link} height={400} />
 
 ## Arguments
 

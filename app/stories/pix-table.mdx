@@ -38,6 +38,14 @@ Une table qui prend en argument des data et en `block content` des [PixTableColu
         {{row.age}}
       </:cell>
     </PixTableColumn>
+    <PixTableColumn @context={{context}} @type="tag">
+      <:header>
+        Tag
+      </:header>
+      <:cell>
+        <PixTag>{{row.tag}}</PixTag
+      </:cell>
+    </PixTableColumn>
   </:columns>
 </PixTable>
 <style>
