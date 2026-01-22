@@ -1,3 +1,9 @@
+# [58.3.0](https://github.com/1024pix/pix-ui/compare/v58.2.0...v58.3.0) (2026-01-22)
+
+### :rocket: Amélioration
+
+- [#964](https://github.com/1024pix/pix-ui/pull/964) Add Variant Link for pix-table-column (PIX-16965)
+
 # [58.2.0](https://github.com/1024pix/pix-ui/compare/v58.1.0...v58.2.0) (2026-01-22)
 
 ### :rocket: Amélioration
