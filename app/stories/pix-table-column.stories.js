@@ -285,7 +285,7 @@ const templateLink = (args) => {
   return {
     template: hbs`<PixTable @data={{this.data}} @caption={{this.caption}}>
   <:columns as |row context|>
-    <PixTableColumn @context={{context}} @type='tag'>
+    <PixTableColumn @context={{context}} @type='link'>
       <:header>
         Link
       </:header>
