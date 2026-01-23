@@ -1,3 +1,9 @@
+# [58.4.0](https://github.com/1024pix/pix-ui/compare/v58.3.0...v58.4.0) (2026-01-23)
+
+### :rocket: Amélioration
+
+- [#973](https://github.com/1024pix/pix-ui/pull/973) Masquer les éléments du footer quand la navigation est réduite.
+
 # [58.3.0](https://github.com/1024pix/pix-ui/compare/v58.2.0...v58.3.0) (2026-01-22)
 
 ### :rocket: Amélioration
