@@ -1,3 +1,5 @@
+import { fn } from '@ember/helper';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
@@ -131,6 +133,33 @@ export default class PixInputCode extends Component {
     const element = document.getElementById(`code-input-${index}`);
     element && element.select();
   }
+
+  <template>
+    <div class="pix-input-code">
+      <fieldset aria-describedby="pix-input-code__details-of-use">
+        <p id="pix-input-code__details-of-use">{{this.explanationOfUse}}</p>
+        <legend>{{this.legend}}</legend>
+        {{#each this.numberOfIterations as |i|}}
+          <input
+            id="code-input-{{i}}"
+            type="{{this.inputType}}"
+            aria-label="{{this.ariaLabel}} {{i}}"
+            class="pix-input-code__input"
+            min="1"
+            max="9"
+            autocomplete="off"
+            placeholder="{{this.placeholder}}"
+            {{on "keydown" this.handleArrowUpOrDown}}
+            {{on "keyup" (fn this.handleKeyUp i)}}
+            {{on "input" (fn this.handleCodeInput i)}}
+            {{on "paste" (fn this.handlePaste i)}}
+            {{on "focus" (fn this.handleFocus i)}}
+            ...attributes
+          />
+        {{/each}}
+      </fieldset>
+    </div>
+  </template>
 }
 
 function _extractValidCharacters(pastedText) {
