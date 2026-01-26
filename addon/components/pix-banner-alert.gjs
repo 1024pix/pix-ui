@@ -1,6 +1,11 @@
 import { action } from '@ember/object';
+import { LinkTo } from '@ember/routing';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
+
+import PixIcon from './pix-icon';
+import PixIconButton from './pix-icon-button';
+
 const TYPE_INFO = 'information';
 const TYPE_ERROR = 'error';
 const TYPE_WARNING = 'warning';
@@ -62,4 +67,48 @@ export default class PixBannerAlert extends Component {
     }
     this.isBannerVisible = false;
   }
+
+  <template>
+    {{#if this.displayBanner}}
+      <div class="pix-banner-alert pix-banner-alert--{{this.type}}" role="alert" ...attributes>
+        <PixIcon
+          @name={{this.icon}}
+          @plainIcon={{true}}
+          @ariaHidden={{true}}
+          class="pix-banner-alert__icon"
+        />
+        <div>
+          {{yield}}
+          {{#if this.displayAction}}
+            {{#if this.isExternalLink}}
+              <a
+                class="pix-banner-alert__action"
+                href={{@actionUrl}}
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                {{@actionLabel}}
+                <PixIcon @name="openNew" class="external-link" @ariaHidden={{true}} />
+              </a>
+            {{else}}
+              <LinkTo
+                class="pix-banner-alert__action"
+                @route={{@actionUrl}}
+              >{{@actionLabel}}</LinkTo>
+            {{/if}}
+          {{/if}}
+        </div>
+        {{#if this.canCloseBanner}}
+          <div class="pix-banner-alert__close">
+            <PixIconButton
+              @ariaLabel="Fermer"
+              @iconName="close"
+              @size="small"
+              @triggerAction={{this.closeBanner}}
+            />
+          </div>
+        {{/if}}
+      </div>
+    {{/if}}
+  </template>
 }
