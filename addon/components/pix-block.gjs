@@ -15,4 +15,22 @@ export default class PixBlockComponent extends Component {
 
     return value;
   }
+
+  get cssClass() {
+    const cssClass = ['pix-block', `pix-block--${this.variant}`];
+
+    if (this.args.condensed) {
+      cssClass.push('pix-block--condensed');
+    }
+
+    return cssClass.join(' ');
+  }
+
+  <template>
+    <div class={{this.cssClass}} ...attributes>
+
+      {{yield}}
+
+    </div>
+  </template>
 }
