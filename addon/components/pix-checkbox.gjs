@@ -1,10 +1,11 @@
 import { warn } from '@ember/debug';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
 import { formatMessage } from '../translations';
-
+import PixLabelWrapped from './pix-label-wrapped';
 export default class PixCheckbox extends Component {
   constructor() {
     super(...arguments);
@@ -70,4 +71,44 @@ export default class PixCheckbox extends Component {
   formatMessage(message) {
     return formatMessage(this.args.locale ?? 'fr', `input.${message}`);
   }
+
+  <template>
+    <div class="pix-checkbox {{@class}}">
+      <PixLabelWrapped
+        @for={{this.id}}
+        @requiredLabel={{@requiredLabel}}
+        @subLabel={{@subLabel}}
+        @size={{@size}}
+        @inlineLabel={{true}}
+        @screenReaderOnly={{@screenReaderOnly}}
+        @isDisabled={{this.isDisabled}}
+        @variant={{@variant}}
+        @state={{@state}}
+      >
+        <:inputElement>
+          <input
+            type="checkbox"
+            id={{this.id}}
+            class={{this.inputClasses}}
+            checked={{@checked}}
+            aria-disabled={{this.isDisabled}}
+            aria-describedby={{this.stateId}}
+            {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
+            ...attributes
+          />
+        </:inputElement>
+        <:default>
+          {{yield to="label"}}
+        </:default>
+      </PixLabelWrapped>
+
+      <span class="screen-reader-only" id={{this.stateId}}>
+        {{#if this.hasSuccessState}}
+          {{this.stateSuccessMessage}}
+        {{else if this.hasErrorState}}
+          {{this.stateErrorMessage}}
+        {{/if}}
+      </span>
+    </div>
+  </template>
 }
