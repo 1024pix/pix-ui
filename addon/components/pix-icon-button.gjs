@@ -1,6 +1,9 @@
 import { warn } from '@ember/debug';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
+
+import PixIcon from './pix-icon';
 
 export default class PixIconButton extends Component {
   text = 'pix-icon-button';
@@ -45,4 +48,22 @@ export default class PixIconButton extends Component {
       this.args.triggerAction(params);
     }
   }
+
+  <template>
+    <button
+      type="button"
+      class="pix-icon-button pix-icon-button--{{this.size}}"
+      {{on "click" this.triggerAction}}
+      aria-disabled="{{this.isDisabled}}"
+      ...attributes
+    >
+      <span class="screen-reader-only">{{this.ariaLabel}}</span>
+      <PixIcon
+        class="pix-icon-button__icon pix-icon-button__icon--{{this.size}}"
+        @ariaHidden={{true}}
+        @name={{@iconName}}
+        @plainIcon={{@plainIcon}}
+      />
+    </button>
+  </template>
 }
