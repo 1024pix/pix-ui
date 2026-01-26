@@ -1,5 +1,6 @@
 import { ICONS } from '@1024pix/pix-ui/helpers/icons';
 import { warn } from '@ember/debug';
+import { uniqueId } from '@ember/helper';
 import Component from '@glimmer/component';
 
 export default class PixIcon extends Component {
@@ -45,4 +46,22 @@ export default class PixIcon extends Component {
 
     return this.args.plainIcon && Boolean(icon.plainIcon) ? icon.plainIcon : icon.default;
   }
+
+  <template>
+    {{#let (uniqueId) as |titleId|}}
+      <svg
+        xmlns="http://www.w3.org/2000/svg"
+        aria-hidden={{this.ariaHidden}}
+        role="img"
+        class="pix-icon"
+        aria-describedby={{if this.title titleId}}
+        ...attributes
+      >
+        {{#if this.title}}
+          <title id={{titleId}}>{{this.title}}</title>
+        {{/if}}
+        <use href="/@1024pix/pix-ui/svg/pix-sprite.svg#{{this.iconName}}" />
+      </svg>
+    {{/let}}
+  </template>
 }
