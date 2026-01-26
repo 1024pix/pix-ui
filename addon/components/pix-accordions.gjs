@@ -1,0 +1,81 @@
+import { on } from '@ember/modifier';
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+import PixIcon from './pix-icon';
+import PixTag from './pix-tag';
+
+export default class PixAccordions extends Component {
+  text = 'pix-accordions';
+  contentId = 'pix-accordions-' + guidFor(this);
+
+  @tracked isCollapsed = true;
+  @tracked hasUnCollapsedOnce = false;
+
+  get isUnCollapsed() {
+    return !this.isCollapsed;
+  }
+
+  get isContentRendered() {
+    return this.hasUnCollapsedOnce;
+  }
+
+  @action
+  toggleAccordions() {
+    this.isCollapsed = !this.isCollapsed;
+    this.hasUnCollapsedOnce = true;
+  }
+
+  <template>
+    <div class="pix-accordions">
+
+      <button
+        class="pix-accordions__title"
+        type="button"
+        {{on "click" this.toggleAccordions}}
+        aria-controls={{this.contentId}}
+        aria-expanded={{if this.isUnCollapsed "true" "false"}}
+        ...attributes
+      >
+
+        <span class="pix-accordions-title__container">
+          {{#if @iconName}}
+            <PixIcon
+              class="pix-accordions-title__icon"
+              @name={{@iconName}}
+              @plainIcon={{@plainIcon}}
+              @ariaHidden={{true}}
+            />
+          {{/if}}
+
+          {{yield to="title"}}
+        </span>
+
+        <span class="pix-accordions-title__container">
+          {{#if @tagContent}}
+            <PixTag @color={{@tagColor}}>
+              {{@tagContent}}
+            </PixTag>
+          {{/if}}
+          <PixIcon
+            class="pix-accordions-title-container__toggle-icon"
+            @ariaHidden={{true}}
+            @name="{{if this.isCollapsed 'chevronBottom' 'chevronTop'}}"
+          />
+        </span>
+      </button>
+
+      <div
+        id={{this.contentId}}
+        class="pix-accordions__content"
+        aria-hidden={{if this.isCollapsed "true" "false"}}
+      >
+        {{#if this.isContentRendered}}
+          {{yield to="content"}}
+        {{/if}}
+      </div>
+    </div>
+  </template>
+}
