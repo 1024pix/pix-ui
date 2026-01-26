@@ -1,7 +1,9 @@
 import { warn } from '@ember/debug';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { tracked } from '@glimmer/tracking';
 
+import PixButtonContent from './pix-button/pix-button-content';
 import PixButtonBase from './pix-button-base';
 export default class PixButton extends PixButtonBase {
   text = 'pix-button';
@@ -76,4 +78,32 @@ export default class PixButton extends PixButtonBase {
       this.isTriggering = false;
     }
   }
+
+  <template>
+    <button
+      type={{this.type}}
+      class={{this.className}}
+      {{on "click" this.triggerAction}}
+      aria-disabled="{{this.isDisabled}}"
+      ...attributes
+    >
+      {{#if this.isLoading}}
+        <div class="loader loader--{{this.loadingColor}}">
+          <div class="bounce1"></div>
+          <div class="bounce2"></div>
+          <div class="bounce3"></div>
+        </div>
+        <span class="loader__not-visible-text">{{yield}}</span>
+      {{else}}
+        <PixButtonContent
+          @iconBefore={{@iconBefore}}
+          @iconAfter={{@iconAfter}}
+          @plainIconAfter={{@plainIconAfter}}
+          @plainIconBefore={{@plainIconBefore}}
+        >
+          {{yield}}
+        </PixButtonContent>
+      {{/if}}
+    </button>
+  </template>
 }
