@@ -1,3 +1,9 @@
+## [58.4.1](https://github.com/1024pix/pix-ui/compare/v58.4.0...v58.4.1) (2026-01-27)
+
+### :arrow_up: Montée de version
+
+- [#959](https://github.com/1024pix/pix-ui/pull/959) Update dependency @1024pix/ember-testing-library to ^3.0.25 (dossier racine)
+
 # [58.4.0](https://github.com/1024pix/pix-ui/compare/v58.3.0...v58.4.0) (2026-01-23)
 
 ### :rocket: Amélioration
