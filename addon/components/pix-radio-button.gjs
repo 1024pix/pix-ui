@@ -1,9 +1,11 @@
 import { warn } from '@ember/debug';
+import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
 import { formatMessage } from '../translations';
+import PixLabelWrapped from './pix-label-wrapped';
 
 export default class PixRadioButton extends Component {
   text = 'pix-radio-button';
@@ -68,4 +70,44 @@ export default class PixRadioButton extends Component {
       event.preventDefault();
     }
   }
+
+  <template>
+    <div class="pix-radio-button {{@class}}">
+      <PixLabelWrapped
+        @for={{this.id}}
+        @requiredLabel={{@requiredLabel}}
+        @subLabel={{@subLabel}}
+        @size={{@size}}
+        @screenReaderOnly={{@screenReaderOnly}}
+        @isDisabled={{this.isDisabled}}
+        @inlineLabel={{true}}
+        @variant={{@variant}}
+        @state={{@state}}
+      >
+        <:inputElement>
+          <input
+            type="radio"
+            id={{this.id}}
+            class={{this.inputClasses}}
+            value={{@value}}
+            aria-disabled={{this.isDisabled}}
+            aria-describedby={{this.stateId}}
+            {{on "click" this.avoidCheckedStateChangeIfIsDisabled}}
+            ...attributes
+          />
+        </:inputElement>
+        <:default>
+          {{yield to="label"}}
+        </:default>
+      </PixLabelWrapped>
+
+      <span class="screen-reader-only" id={{this.stateId}}>
+        {{#if this.hasSuccessState}}
+          {{this.stateSuccessMessage}}
+        {{else if this.hasErrorState}}
+          {{this.stateErrorMessage}}
+        {{/if}}
+      </span>
+    </div>
+  </template>
 }
