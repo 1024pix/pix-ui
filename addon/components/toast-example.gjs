@@ -2,6 +2,9 @@ import { action } from '@ember/object';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 
+import PixButton from './pix-button';
+import PixToastContainer from './pix-toast-container';
+
 export default class ToastExample extends Component {
   @service pixToast;
 
@@ -21,4 +24,14 @@ export default class ToastExample extends Component {
       type: types[randomNumber],
     });
   }
+
+  <template>
+    <div class="toast-example">
+      <PixButton @size="small" @triggerAction={{this.displayNotification}}>
+        Afficher une notification
+      </PixButton>
+
+      <PixToastContainer @closeButtonAriaLabel="Fermer la notification" />
+    </div>
+  </template>
 }
