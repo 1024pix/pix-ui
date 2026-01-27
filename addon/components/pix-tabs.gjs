@@ -27,4 +27,10 @@ export default class PixTabs extends Component {
   get classNames() {
     return ['pix-tabs', `pix-tabs--${this.variant}`].join(' ');
   }
+
+  <template>
+    <nav class={{this.classNames}} aria-label={{this.ariaLabel}} ...attributes>
+      {{yield}}
+    </nav>
+  </template>
 }
