@@ -1,8 +1,11 @@
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
+import { eq } from 'ember-truth-helpers';
 
 import { formatMessage } from '../translations';
+import PixIconButton from './pix-icon-button';
+import PixSelect from './pix-select';
 
 const DEFAULT_PAGE_OPTIONS = [
   { label: '10', value: 10 },
@@ -129,4 +132,59 @@ export default class PixPagination extends Component {
     this.router.replaceWith({ queryParams: { pageNumber: this.previousPage } });
     this.onChange();
   }
+
+  <template>
+    <footer class={{this.isCondensed}}>
+      <section class="pix-pagination__size">
+        <span class="pagination-size__label">{{this.beforeResultsPerPage}}</span>
+        <PixSelect
+          @placeholder={{this.pageSize}}
+          @screenReaderOnly={{true}}
+          class="pagination-size__choice"
+          @value={{this.pageSize}}
+          @hideDefaultOption={{true}}
+          @onChange={{this.changePageSize}}
+          @options={{this.pageOptions}}
+        >
+          <:label>{{this.selectPageSizeLabel}}</:label>
+        </PixSelect>
+      </section>
+      <section class="pix-pagination__navigation">
+        <span>
+          {{#if (eq this.pageCount 1)}}
+            {{this.pageResults}}
+          {{else}}
+            {{this.pageInfo}}
+          {{/if}}
+        </span>
+        <div class="pix-pagination-navigation__action">
+          <PixIconButton
+            class="pix-pagination-navigation__action-button"
+            @iconName="arrowLeft"
+            @ariaLabel={{this.previousPageLabel}}
+            @triggerAction={{this.goToPreviousPage}}
+            @withBackground={{false}}
+            @size="big"
+            @color="dark-grey"
+            disabled={{this.isPreviousPageDisabled}}
+            aria-disabled="{{this.isPreviousPageDisabled}}"
+          />
+          <span>
+            {{this.pageNumber}}
+          </span>
+          <PixIconButton
+            class="pix-pagination-navigation__action-button"
+            @iconName="arrowRight"
+            @ariaLabel={{this.nextPageLabel}}
+            @triggerAction={{this.goToNextPage}}
+            @withBackground={{false}}
+            @size="big"
+            @color="dark-grey"
+            disabled={{this.isNextPageDisabled}}
+            aria-disabled="{{this.isNextPageDisabled}}"
+          />
+        </div>
+      </section>
+    </footer>
+  </template>
 }
