@@ -1,4 +1,7 @@
+import { concat } from '@ember/helper';
 import Component from '@glimmer/component';
+
+import PixIcon from './pix-icon';
 
 const TYPE_INFO = 'info';
 const TYPE_SUCCESS = 'success';
@@ -35,4 +38,20 @@ export default class PixNotificationAlert extends Component {
     };
     return classes[this.type];
   }
+
+  <template>
+    <p class="pix-notification-alert {{concat 'pix-notification-alert--' this.type}}" ...attributes>
+      {{#if @withIcon}}
+        <PixIcon
+          @name={{this.iconName}}
+          @ariaHidden={{true}}
+          @plainIcon={{true}}
+          class="pix-notification-alert__icon"
+        />
+      {{/if}}
+      <span class="pix-notification-alert__content">
+        {{yield}}
+      </span>
+    </p>
+  </template>
 }
