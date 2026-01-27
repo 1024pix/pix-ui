@@ -1,6 +1,8 @@
 import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
+import PixIconButton from './pix-icon-button';
+
 export default class PixTableColumn extends Component {
   get displayHeader() {
     return this.args.context === 'header';
@@ -96,4 +98,35 @@ export default class PixTableColumn extends Component {
     }
     return '';
   }
+
+  <template>
+    {{#if this.displayHeader}}
+      <th scope="col" ...attributes aria-sort={{this.ariaSort}}>
+        <div class="pix-table-header-container">
+          {{yield to="header"}}
+          {{#if this.sortable}}
+            <PixIconButton
+              @ariaLabel={{this.iconLabel}}
+              @iconName={{this.iconName}}
+              @triggerAction={{@onSort}}
+              @size="small"
+            />
+          {{/if}}
+        </div>
+      </th>
+    {{else}}
+      {{#if @isMainRow}}
+        <th scope="row" class={{this.typeClass}} ...attributes>
+          {{yield to="cell"}}
+        </th>
+      {{else}}
+        <td class={{this.typeClass}} ...attributes>
+          {{yield to="cell"}}
+          {{#if (has-block "subCell")}}
+            <p>{{yield to="subCell"}}</p>
+          {{/if}}
+        </td>
+      {{/if}}
+    {{/if}}
+  </template>
 }
