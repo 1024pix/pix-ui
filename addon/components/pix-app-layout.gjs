@@ -18,7 +18,7 @@ export default class PixAppLayout extends Component {
         const top = bannerHeight / baseFontRemRatio;
 
         const layoutElement = document.querySelector('.pix-app-layout');
-        layoutElement.style.setProperty('--pix-app-layout-top', `${top}rem`);
+        layoutElement?.style.setProperty('--pix-app-layout-top', `${top}rem`);
       }
     }
   }

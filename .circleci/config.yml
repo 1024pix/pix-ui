@@ -82,7 +82,7 @@ jobs:
 
   chromatic-deployment:
     executor: node-browsers-docker
-    resource_class: medium
+    resource_class: large
     working_directory: ~/pix-ui
     steps:
       - attach_workspace:
