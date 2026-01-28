@@ -1,3 +1,9 @@
+## [58.4.4](https://github.com/1024pix/pix-ui/compare/v58.4.3...v58.4.4) (2026-01-28)
+
+### :building_construction: Tech
+
+- [#974](https://github.com/1024pix/pix-ui/pull/974) Mettre à jour les composants PixUI en composant .gjs (PIX-21255).
+
 ## [58.4.3](https://github.com/1024pix/pix-ui/compare/v58.4.2...v58.4.3) (2026-01-28)
 
 ### :bug: Correction
