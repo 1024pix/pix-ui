@@ -24,7 +24,7 @@ module('Integration | Component | pix-background-header', function (hooks) {
     assert.strictEqual(backgroundElement.className, 'pix-background-header__background');
   });
 
-  module('when there is PixBloc inside PixBackgroundHeader component', function () {
+  module('when there is PixBlock inside PixBackgroundHeader component', function () {
     test('first PixBlock render', async function (assert) {
       // given
       // when

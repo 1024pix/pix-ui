@@ -1,0 +1,129 @@
+import { action } from '@ember/object';
+import { guidFor } from '@ember/object/internals';
+import { inject as service } from '@ember/service';
+import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+
+import PixLabel from './pix-label';
+import PixMultiSelect from './pix-multi-select';
+import PixSelect from './pix-select';
+
+export default class PixFilterableAndSearchableSelect extends Component {
+  @service elementHelper;
+  @tracked selectedCategories = [];
+
+  constructor(...args) {
+    super(...args);
+    this.mainId = 'pix-pfass-' + guidFor(this);
+    this.pixSelectId = 'pix-pfass-select-' + guidFor(this);
+    this.pixMultiSelectId = 'pix-pfass-multi-select-' + guidFor(this);
+
+    this.elementHelper.waitForElement(this.pixSelectId).then(() => {
+      const baseFontRemRatio = Number(
+        getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
+      );
+
+      const multiSelectWidth = document
+        .getElementById(this.pixMultiSelectId)
+        .getBoundingClientRect().width;
+
+      const selectWidth = Math.ceil(multiSelectWidth / baseFontRemRatio);
+
+      const className = `sizing-select-${this.pixSelectId}`;
+      this.elementHelper.createClass(`.${className}`, `width: calc(100% - ${selectWidth}rem);`);
+
+      const element = document.getElementById(`container-${this.pixSelectId}`);
+
+      element.className = element.className + ' ' + className;
+    });
+  }
+
+  @action
+  selectCategories(categories) {
+    this.selectedCategories = categories;
+  }
+
+  get categories() {
+    const categoryNames = [];
+    this.args.options.forEach((option) => {
+      if (!categoryNames.includes(option.category)) {
+        categoryNames.push(option.category);
+      }
+    });
+
+    return categoryNames.map((category) => {
+      return { label: category, value: category };
+    });
+  }
+
+  get categoriesPlaceholder() {
+    return `${this.args.categoriesPlaceholder} (${this.selectedCategories.length})`;
+  }
+
+  get selectableOptions() {
+    const selectableOptions = [];
+    const categories =
+      this.selectedCategories.length === 0
+        ? this.categories.map(({ value }) => value)
+        : this.selectedCategories;
+
+    this.args.options.forEach((option) => {
+      if (categories.includes(option.category)) {
+        selectableOptions.push(option);
+      }
+    });
+
+    return selectableOptions;
+  }
+
+  <template>
+    <div id={{this.mainId}} ...attributes>
+      <PixLabel
+        @for={{this.pixSelectId}}
+        @requiredLabel={{@requiredLabel}}
+        @size={{@size}}
+        @subLabel={{@subLabel}}
+        @screenReaderOnly={{@screenReaderOnly}}
+        @inlineLabel={{@inlineLabel}}
+      >
+        {{yield to="label"}}
+      </PixLabel>
+      <div
+        class="pix-filterable-and-searchable-select{{if
+            @errorMessage
+            ' pix-filterable-and-searchable-select--error'
+          }}"
+      >
+        <PixMultiSelect
+          id={{this.pixMultiSelectId}}
+          @values={{this.selectedCategories}}
+          @options={{this.categories}}
+          @onChange={{this.selectCategories}}
+          @isComputeWidthDisabled={{true}}
+          @screenReaderOnly={{true}}
+          @className="pix-filterable-and-searchable-select__pix-multi-select"
+        >
+          <:label>{{yield to="categoriesLabel"}}</:label>
+          <:placeholder>{{this.categoriesPlaceholder}}</:placeholder>
+          <:default as |option|>{{option.label}}</:default>
+        </PixMultiSelect>
+        <PixSelect
+          @id={{this.pixSelectId}}
+          @placeholder={{@placeholder}}
+          @value={{@value}}
+          @options={{this.selectableOptions}}
+          @onChange={{@onChange}}
+          @isSearchable={{@isSearchable}}
+          @searchLabel={{@searchLabel}}
+          @screenReaderOnly={{true}}
+          @hideDefaultOption={{@hideDefaultOption}}
+          @className="pix-filterable-and-searchable-select__pix-select"
+          @isComputeWidthDisabled={{true}}
+        />
+      </div>
+      {{#if @errorMessage}}
+        <p class="pix-filterable-and-searchable-select__error-message">{{@errorMessage}}</p>
+      {{/if}}
+    </div>
+  </template>
+}
