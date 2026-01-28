@@ -1,3 +1,9 @@
+## [58.4.3](https://github.com/1024pix/pix-ui/compare/v58.4.2...v58.4.3) (2026-01-28)
+
+### :bug: Correction
+
+- [#978](https://github.com/1024pix/pix-ui/pull/978) Modifier le composant PixAppLayout pour réparer les tests flaky de pix App (PIX-21278)
+
 ## [58.4.2](https://github.com/1024pix/pix-ui/compare/v58.4.1...v58.4.2) (2026-01-27)
 
 ### :arrow_up: Montée de version
