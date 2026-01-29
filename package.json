@@ -57,8 +57,7 @@
     "svg:generate-sprite": "npm run svg:compile && npm run svg:optimize && npm run svg:rename-id",
     "svg:compile": "svg-sprite -C 'svgs/svg-sprite.config.json' 'svgs/icons/*.svg'",
     "svg:optimize": "svgo --config='svgs/svgo.config.js' -i 'public/svg/' -o 'public/svg/'",
-    "svg:rename-id": "bash ./svgs/rename-icon-id-in-sprite.sh",
-    "chromatic": "npx chromatic --project-token=$CHROMATIC_PROJECT_TOKEN --only-changed"
+    "svg:rename-id": "bash ./svgs/rename-icon-id-in-sprite.sh"
   },
   "dependencies": {
     "@babel/core": "^7.25.2",
@@ -101,7 +100,6 @@
     "@storybook/theming": "^8.4.7",
     "@testing-library/dom": "^10.0.0",
     "@testing-library/user-event": "^14.4.3",
-    "chromatic": "^11.0.0",
     "core-js": "^3.26.1",
     "ember-cli": "^6.0.0",
     "ember-cli-dependency-checker": "^3.3.3",

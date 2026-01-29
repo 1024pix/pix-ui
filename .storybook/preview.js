@@ -18,10 +18,6 @@ const preview = {
     previewTabs: {
       'storybook/docs/panel': { index: -1 },
     },
-    parameters: {
-      // Sets a delay for the component's stories
-      chromatic: { delay: 600 },
-    },
     options: {
       storySort: {
         order: [

@@ -32,10 +32,6 @@ workflows:
           context: PixUI
           requires:
             - checkout
-      - chromatic-deployment:
-          context: PixUI
-          requires:
-            - checkout
 
 jobs:
   checkout:
@@ -79,12 +75,3 @@ jobs:
       - attach_workspace:
           at: ~/pix-ui
       - run: npm run test
-
-  chromatic-deployment:
-    executor: node-browsers-docker
-    resource_class: large
-    working_directory: ~/pix-ui
-    steps:
-      - attach_workspace:
-          at: ~/pix-ui
-      - run: npm run chromatic -- --auto-accept-changes
