@@ -1,3 +1,9 @@
+## [58.4.5](https://github.com/1024pix/pix-ui/compare/v58.4.4...v58.4.5) (2026-01-29)
+
+### :building_construction: Tech
+
+- [#979](https://github.com/1024pix/pix-ui/pull/979) Supprimer chromatic et arrêter de l'utiliser
+
 ## [58.4.4](https://github.com/1024pix/pix-ui/compare/v58.4.3...v58.4.4) (2026-01-28)
 
 ### :building_construction: Tech
