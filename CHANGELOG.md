@@ -1,3 +1,9 @@
+## [58.4.6](https://github.com/1024pix/pix-ui/compare/v58.4.5...v58.4.6) (2026-01-30)
+
+### :building_construction: Tech
+
+- [#977](https://github.com/1024pix/pix-ui/pull/977) Utiliser sinon au lieu du package déprécié ember-sinon
+
 ## [58.4.5](https://github.com/1024pix/pix-ui/compare/v58.4.4...v58.4.5) (2026-01-29)
 
 ### :building_construction: Tech
