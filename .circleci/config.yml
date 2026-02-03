@@ -69,7 +69,7 @@ jobs:
   test:
     executor: node-browsers-docker
     working_directory: ~/pix-ui
-    resource_class: medium
+    resource_class: large
     steps:
       - browser-tools/install_chrome
       - attach_workspace:
