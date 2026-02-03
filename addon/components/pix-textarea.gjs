@@ -2,13 +2,12 @@ import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
-import { tracked } from '@glimmer/tracking';
+import { localCopy } from 'tracked-toolbox';
 
 import PixLabel from './pix-label';
 
 export default class PixTextarea extends Component {
-  // eslint-disable-next-line ember/no-tracked-properties-from-args
-  @tracked value = this.args.value;
+  @localCopy('args.value') value;
 
   get id() {
     if (this.args.id) return this.args.id;
