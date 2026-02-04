@@ -1,3 +1,9 @@
+## [58.4.7](https://github.com/1024pix/pix-ui/compare/v58.4.6...v58.4.7) (2026-02-04)
+
+### :bug: Correction
+
+- [#980](https://github.com/1024pix/pix-ui/pull/980) Corriger la réactivité du composant Textarea (PIX-21245)
+
 ## [58.4.6](https://github.com/1024pix/pix-ui/compare/v58.4.5...v58.4.6) (2026-01-30)
 
 ### :building_construction: Tech
