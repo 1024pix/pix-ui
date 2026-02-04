@@ -10,7 +10,7 @@ import globals from 'globals';
 
 const unconventionalJsFiles = ['blueprints/**', 'app/vendor/*'];
 const compiledOutputFiles = ['dist/*', 'tmp/*'];
-const dependenciesFiles = ['node_modules/*'];
+const dependenciesFiles = ['node_modules/*', 'storybook-static/*'];
 const miscFiles = [
   'index.js',
   'coverage/*',
