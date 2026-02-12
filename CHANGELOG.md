@@ -1,3 +1,9 @@
+## [58.4.10](https://github.com/1024pix/pix-ui/compare/v58.4.9...v58.4.10) (2026-02-12)
+
+### :arrow_up: Montée de version
+
+- [#983](https://github.com/1024pix/pix-ui/pull/983) Update dependency @formatjs/intl to v4 (dossier racine)
+
 ## [58.4.9](https://github.com/1024pix/pix-ui/compare/v58.4.8...v58.4.9) (2026-02-05)
 
 ### :arrow_up: Montée de version
