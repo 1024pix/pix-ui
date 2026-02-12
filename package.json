@@ -61,7 +61,7 @@
   },
   "dependencies": {
     "@babel/core": "^7.25.2",
-    "@formatjs/intl": "^3.0.0",
+    "@formatjs/intl": "^4.0.0",
     "check-engine": "^1.14.0",
     "ember-auto-import": "^2.7.4",
     "ember-cli-babel": "^8.2.0",
