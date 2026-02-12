@@ -1,3 +1,9 @@
+## [58.4.11](https://github.com/1024pix/pix-ui/compare/v58.4.10...v58.4.11) (2026-02-12)
+
+### :bug: Correction
+
+- [#984](https://github.com/1024pix/pix-ui/pull/984) Rendre la largeur des jauges du composant PixGauge adaptative pour le bon affichage des chiffres (PIX-18702)
+
 ## [58.4.10](https://github.com/1024pix/pix-ui/compare/v58.4.9...v58.4.10) (2026-02-12)
 
 ### :arrow_up: Montée de version
