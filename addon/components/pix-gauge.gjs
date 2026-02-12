@@ -36,7 +36,7 @@ export default class PixGauge extends Component {
     return this.args.hideValues ?? false;
   }
 
-  get maxLevelPourcentage() {
+  get maxLevelPercentage() {
     return this.maxLevel / 8;
   }
   get viewBox() {
@@ -70,6 +70,41 @@ export default class PixGauge extends Component {
   get statsFontHeight() {
     return this.args.isSmall ? 18 : 26;
   }
+
+  get gaugeWidths() {
+    let reachedLevelWidth = this.gaugeWidthCSS(this.reachedLevelPercentage);
+    let maxLevelWidth = this.gaugeWidthCSS(this.maxLevelPercentage);
+
+    const levelDifference = Math.round((this.maxLevel - this.reachedLevel) * 10) / 10;
+
+    const isMaxLevelInteger = this.maxLevel % 1 === 0;
+    const spacingRem = isMaxLevelInteger ? 1.75 : 2.625;
+
+    const isSpaceBetweenLevelsNarrow = this.args.isSmall
+      ? levelDifference < 1.5
+      : levelDifference < 0.5;
+
+    if (!this.hideValues && levelDifference !== 0 && isSpaceBetweenLevelsNarrow) {
+      if (this.maxLevel >= 7.5) {
+        reachedLevelWidth = this.gaugeWidthCSS(this.maxLevelPercentage, `- ${spacingRem}rem`);
+      } else {
+        maxLevelWidth = this.gaugeWidthCSS(this.reachedLevelPercentage, `+ ${spacingRem}rem`);
+      }
+    }
+
+    const reachedLevelMinWidth = `3rem`;
+    const maxLevelMinWidth = `${reachedLevelMinWidth} + ${spacingRem}rem`;
+
+    return {
+      reachedLevel: this.gaugeAdaptativeWidthCSS(reachedLevelMinWidth, reachedLevelWidth),
+      maxLevel: this.gaugeAdaptativeWidthCSS(maxLevelMinWidth, maxLevelWidth),
+    };
+  }
+
+  gaugeWidthCSS = (levelPercentage, spacing = '') =>
+    `calc(calc(100% - 8px) * ${levelPercentage} ${spacing})`;
+
+  gaugeAdaptativeWidthCSS = (width, minWidth) => `max(${minWidth}, ${width})`;
 
   isLevelActive = (index) => {
     if (this.reachedLevel === 0 && index === 0) return true;
@@ -127,13 +162,13 @@ export default class PixGauge extends Component {
         {{! gauge white max level}}
         <rect
           y={{26}}
-          width="calc(calc(100% - 8px) * {{this.maxLevelPourcentage}})"
+          width={{this.gaugeWidths.maxLevel}}
           height={{this.whiteAndPurpleGaugesHeight}}
           rx={{this.whiteAndPurpleGaugeRx}}
           class="result-level-gauge__max-bar"
         />
         {{#unless this.hideValues}}
-          <g style="transform: translate(calc(calc(100% - 8px) * {{this.maxLevelPourcentage}}))">
+          <g style="transform: translate({{this.gaugeWidths.maxLevel}})">
             <text
               y={{this.statsFontHeight}}
               x="0"
@@ -147,15 +182,13 @@ export default class PixGauge extends Component {
         {{! mean purple level }}
         <rect
           y={{26}}
-          width="max(calc(calc(100% - 8px) * {{this.reachedLevelPercentage}}), 44px)"
+          width={{this.gaugeWidths.reachedLevel}}
           height={{this.whiteAndPurpleGaugesHeight}}
           rx={{this.whiteAndPurpleGaugeRx}}
           class="result-level-gauge__mean-bar"
         />
         {{#unless this.hideValues}}
-          <g
-            style="transform: translate(max(calc(calc(100% - 8px) * {{this.reachedLevelPercentage}}), 44px))"
-          >
+          <g style="transform: translate({{this.gaugeWidths.reachedLevel}})">
             <text
               y={{this.statsFontHeight}}
               x="0"
