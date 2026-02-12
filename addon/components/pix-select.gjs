@@ -33,10 +33,10 @@ export default class PixSelect extends Component {
           getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
         );
         const listWidth = elementList.getBoundingClientRect().width;
-        const selectWidth = listWidth / baseFontRemRatio;
+        const selectWidth = Number(listWidth / baseFontRemRatio + 0.5).toFixed(2); // Fix for FF
 
         const element = document.getElementById(`container-${this.selectId}`);
-        element.style.setProperty('--pix-select-width', `${selectWidth + 0.5}rem`); // Fix for FF
+        element.style.setProperty('--pix-select-width', `${selectWidth}rem`);
       });
     }
   }
