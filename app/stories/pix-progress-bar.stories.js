@@ -16,6 +16,13 @@ export default {
       type: { name: 'string', required: true },
       table: { defaultValue: { summary: 'null' } },
     },
+    locale: {
+      name: 'locale',
+      description:
+        "Permet de traduire le pourcentage dans la langue de l'application utilisant le composant",
+      type: { name: 'string', required: true },
+      table: { defaultValue: { summary: 'null' } },
+    },
     themeMode: {
       name: 'themeMode',
       description:
@@ -61,6 +68,7 @@ export const Default = (args) => {
     template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
+  @locale={{this.locale}}
   @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
   @label={{this.label}}
@@ -69,7 +77,8 @@ export const Default = (args) => {
   };
 };
 Default.args = {
-  value: '50',
+  value: 0.5,
+  locale: 'fr',
 };
 
 export const Success = (args) => {
@@ -79,14 +88,16 @@ export const Success = (args) => {
   @color={{this.color}}
   @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
+  @locale={{this.locale}}
   @label={{this.label}}
 />`,
     context: args,
   };
 };
 Success.args = {
-  value: '50',
+  value: 0.5,
   color: 'success',
+  locale: 'fr',
 };
 
 export const Tertiary = (args) => {
@@ -94,6 +105,7 @@ export const Tertiary = (args) => {
     template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
+  @locale={{this.locale}}
   @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
   @label={{this.label}}
@@ -102,8 +114,9 @@ export const Tertiary = (args) => {
   };
 };
 Tertiary.args = {
-  value: '50',
+  value: 0.5,
   color: 'tertiary',
+  locale: 'en',
 };
 
 export const darkModeProgressBar = (args) => {
@@ -114,6 +127,7 @@ export const darkModeProgressBar = (args) => {
     @value={{this.value}}
     @color={{this.color}}
     @label={{this.label}}
+    @locale={{this.locale}}
     @themeMode={{this.themeMode}}
     @subtitle={{this.subtitle}}
   />
@@ -122,8 +136,9 @@ export const darkModeProgressBar = (args) => {
   };
 };
 darkModeProgressBar.args = {
-  value: '50',
+  value: 0.5,
   label: 'Chargement',
+  locale: 'es',
   color: 'primary',
   themeMode: 'dark',
   subtitle: 'Avancement',
@@ -135,6 +150,7 @@ export const WithoutPercentage = (args) => {
   @value={{this.value}}
   @color={{this.color}}
   @themeMode={{this.themeMode}}
+  @locale={{this.locale}}
   @subtitle={{this.subtitle}}
   @label={{this.label}}
   @hidePercentage={{this.hidePercentage}}
@@ -143,7 +159,8 @@ export const WithoutPercentage = (args) => {
   };
 };
 WithoutPercentage.args = {
-  value: '50',
+  value: 0.5,
   color: 'primary',
+  locale: 'fr',
   hidePercentage: true,
 };
