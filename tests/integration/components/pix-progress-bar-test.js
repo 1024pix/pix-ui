@@ -11,9 +11,9 @@ module('Integration | Component | PixProgressBar', function (hooks) {
   module('Attributes @value', function () {
     test('it renders the value with percentage', async function (assert) {
       // given & when
-      const screen = await render(hbs`<PixProgressBar @value='50' />`);
+      const screen = await render(hbs`<PixProgressBar @value={{0.5}} @locale='fr' />`);
 
-      const localizedPercentage = Number(50 / 100).toLocaleString(navigator.language, {
+      const localizedPercentage = Number(0.5).toLocaleString('fr', {
         style: 'percent',
       });
 
@@ -23,16 +23,16 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with correct width never exceed 100%', async function (assert) {
       // given & when
-      const screen = await render(hbs`<PixProgressBar @value='110' />`);
+      const screen = await render(hbs`<PixProgressBar @value={{1.1}} @locale='fr' />`);
 
       // then
       const progressbar = screen.getByRole('progressbar');
-      assert.strictEqual(progressbar.value, 100);
+      assert.strictEqual(progressbar.value, 1);
     });
 
     test('it renders the progress bar with correct width never under 0%', async function (assert) {
       // given & when
-      const screen = await render(hbs`<PixProgressBar @value='-20' />`);
+      const screen = await render(hbs`<PixProgressBar @value={{-0.2}} @locale='fr' />`);
 
       // then
       const progressbar = screen.getByRole('progressbar');
@@ -43,7 +43,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
   module('Attributes @color', function () {
     test('it renders the progress bar by default with primary class', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -52,7 +52,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with primary class when color not exists', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @color='vert-lychen' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @color='vert-lychen' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -61,7 +61,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with tertiary class', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @color='tertiary' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @color='tertiary' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -70,7 +70,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with success class', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @color='success' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @color='success' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -79,7 +79,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with primary class', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @color='primary' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @color='primary' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -90,7 +90,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
   module('Attributes @themeMode', function () {
     test('it renders the progress bar by default with light mode', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -99,7 +99,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with light mode when value not exists', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @themeMode='darken-light' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @themeMode='darken-light' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -108,7 +108,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with light mode', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @themeMode='light' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @themeMode='light' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -117,7 +117,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar with dark mode', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @themeMode='dark' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @themeMode='dark' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector(PROGRESS_BAR_SELECTOR);
@@ -128,7 +128,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
   module('Attributes @subtitle', function () {
     test('it does not render the progress bar sub-title', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector('.progress-bar__sub-title');
@@ -137,7 +137,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar sub-title', async function (assert) {
       // given & when
-      await render(hbs`<PixProgressBar @value='50' @subtitle='toto' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @subtitle='toto' @locale='fr' />`);
 
       // then
       const componentElement = this.element.querySelector('.progress-bar__sub-title');
@@ -148,9 +148,9 @@ module('Integration | Component | PixProgressBar', function (hooks) {
   module('Attributes @hidePercentage', function () {
     test('it renders the progress bar percentage by default', async function (assert) {
       // when
-      const screen = await render(hbs`<PixProgressBar @value='50' />`);
+      const screen = await render(hbs`<PixProgressBar @value={{0.5}} @locale='fr' />`);
 
-      const localizedPercentage = Number(50 / 100).toLocaleString(navigator.language, {
+      const localizedPercentage = Number(50 / 100).toLocaleString('fr', {
         style: 'percent',
       });
 
@@ -160,8 +160,10 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it renders the progress bar percentage when attribute is false', async function (assert) {
       // when
-      const screen = await render(hbs`<PixProgressBar @value='50' @hidePercentage={{false}} />`);
-      const localizedPercentage = Number(50 / 100).toLocaleString(navigator.language, {
+      const screen = await render(
+        hbs`<PixProgressBar @value={{0.5}} @hidePercentage={{false}} @locale='fr' />`,
+      );
+      const localizedPercentage = Number(50 / 100).toLocaleString('fr', {
         style: 'percent',
       });
 
@@ -172,7 +174,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
 
     test('it does not render the progress bar percentage when attribute is true', async function (assert) {
       // when
-      await render(hbs`<PixProgressBar @value='50' @hidePercentage={{true}} />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @hidePercentage={{true}} @locale='fr' />`);
 
       // then
       assert.dom('.progress-bar__text').doesNotExist();
@@ -182,7 +184,7 @@ module('Integration | Component | PixProgressBar', function (hooks) {
   module('Attributes @isDecorative', () => {
     test('it sets progress bar aria-hidden to "true"', async function (assert) {
       // when
-      await render(hbs`<PixProgressBar @value='50' @isDecorative='true' />`);
+      await render(hbs`<PixProgressBar @value={{0.5}} @isDecorative='true' @locale='fr' />`);
 
       // then
       assert.dom('.progress-bar').hasAria('hidden', 'true');

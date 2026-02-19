@@ -1,30 +1,36 @@
+import { warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
 export default class PixProgressBar extends Component {
-  get id() {
-    return guidFor(this);
-  }
+  constructor(...args) {
+    super(...args);
+    warn('PixProgressBar: you need to provide a locale', this.args.locale, {
+      id: 'pix-progress-bar.locale.required',
+    });
 
-  get value() {
-    if (Number(this.args.value) <= 0) return 0;
-    if (Number(this.args.value) > 100) return 100;
-    if (!this.args.value) {
-      throw new Error('ERROR in PixProgressBar component, @value param is not provided.');
-    }
-    return Number(this.args.value);
+    warn(
+      'PixProgressBar: you need to provide a number value between 0 and 1',
+      this.args.value >= 0 && this.args.value <= 1,
+      {
+        id: 'pix-progress-bar.value.type.incorrect',
+      },
+    );
+
+    this.id = guidFor(this);
   }
 
   get percentageValue() {
-    return Number(this.value / 100).toLocaleString(navigator.language, { style: 'percent' });
+    return Number(this.clampValue).toLocaleString(this.args.locale, { style: 'percent' });
   }
 
   get label() {
-    const thereIsNoLabel = !this.args.label || !this.args.label.trim();
+    const hasLabel = this.args.label && this.args.label.trim().length > 0;
 
-    if (thereIsNoLabel && !this.args.isDecorative) {
-      throw new Error('ERROR in PixProgressBar component, @label param is not provided.');
-    }
+    warn('PixProgressBar: you need to provide a valid label', hasLabel || this.args.isDecorative, {
+      id: 'pix-progress-bar.label.required',
+    });
+
     return this.args.label;
   }
 
@@ -56,6 +62,10 @@ export default class PixProgressBar extends Component {
     return `progress-bar--content-${color}`;
   }
 
+  get clampValue() {
+    return Math.max(Math.min(this.args.value, 1), 0);
+  }
+
   <template>
     <div
       class="progress-bar {{this.themeMode}} {{this.colorClass}}"
@@ -69,9 +79,10 @@ export default class PixProgressBar extends Component {
       <progress
         class="progress-bar__bar"
         id={{this.id}}
-        max="100"
-        value={{this.value}}
-      >{{this.value}}%</progress>
+        max="1"
+        min="0"
+        value={{this.clampValue}}
+      >{{this.percentageValue}}</progress>
       {{#if @subtitle}}
         <p class="progress-bar__sub-title">{{@subtitle}}</p>
       {{/if}}
