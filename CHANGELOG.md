@@ -1,3 +1,9 @@
+# [59.0.0](https://github.com/1024pix/pix-ui/compare/v58.4.11...v59.0.0) (2026-02-19)
+
+### :boom: BREAKING CHANGE
+
+- [#986](https://github.com/1024pix/pix-ui/pull/986) Améliorer l'usage de la PixProgressBar (PIX-21593).
+
 ## [58.4.11](https://github.com/1024pix/pix-ui/compare/v58.4.10...v58.4.11) (2026-02-12)
 
 ### :bug: Correction
