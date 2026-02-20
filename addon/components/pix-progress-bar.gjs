@@ -5,9 +5,6 @@ import Component from '@glimmer/component';
 export default class PixProgressBar extends Component {
   constructor(...args) {
     super(...args);
-    warn('PixProgressBar: you need to provide a locale', this.args.locale, {
-      id: 'pix-progress-bar.locale.required',
-    });
 
     warn(
       'PixProgressBar: you need to provide a number value between 0 and 1',
@@ -17,21 +14,11 @@ export default class PixProgressBar extends Component {
       },
     );
 
-    this.id = guidFor(this);
-  }
-
-  get percentageValue() {
-    return Number(this.clampValue).toLocaleString(this.args.locale, { style: 'percent' });
-  }
-
-  get label() {
-    const hasLabel = this.args.label && this.args.label.trim().length > 0;
-
-    warn('PixProgressBar: you need to provide a valid label', hasLabel || this.args.isDecorative, {
+    warn('PixProgressBar: you need to provide a valid label', this.args.label, {
       id: 'pix-progress-bar.label.required',
     });
 
-    return this.args.label;
+    this.id = guidFor(this);
   }
 
   get themeMode() {
@@ -42,7 +29,7 @@ export default class PixProgressBar extends Component {
         ? this.args.themeMode
         : 'light';
 
-    return `progress-bar--theme-${themeMode}`;
+    return `pix-progress-bar--theme-${themeMode}`;
   }
 
   get colorClass() {
@@ -59,32 +46,24 @@ export default class PixProgressBar extends Component {
     const color =
       this.args.color && availableColor.includes(this.args.color) ? this.args.color : 'primary';
 
-    return `progress-bar--content-${color}`;
-  }
-
-  get clampValue() {
-    return Math.max(Math.min(this.args.value, 1), 0);
+    return `pix-progress-bar--content-${color}`;
   }
 
   <template>
-    <div
-      class="progress-bar {{this.themeMode}} {{this.colorClass}}"
-      aria-hidden={{if @isDecorative "true"}}
-      ...attributes
-    >
+    <div class="pix-progress-bar {{this.themeMode}} {{this.colorClass}}" ...attributes>
       {{#unless @hidePercentage}}
-        <div class="progress-bar__text" role="presentation">{{this.percentageValue}}</div>
+        <div class="pix-progress-bar__text" role="presentation">{{@percentageValue}}</div>
       {{/unless}}
       <label for={{this.id}} class="screen-reader-only">{{@label}}</label>
       <progress
-        class="progress-bar__bar"
+        class="pix-progress-bar__bar"
         id={{this.id}}
         max="1"
         min="0"
-        value={{this.clampValue}}
-      >{{this.percentageValue}}</progress>
+        value={{@value}}
+      >{{@percentageValue}}</progress>
       {{#if @subtitle}}
-        <p class="progress-bar__sub-title">{{@subtitle}}</p>
+        <p class="pix-progress-bar__sub-title">{{@subtitle}}</p>
       {{/if}}
     </div>
   </template>

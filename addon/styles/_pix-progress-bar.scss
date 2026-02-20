@@ -1,6 +1,6 @@
 @use "pix-design-tokens/typography";
 
-.progress-bar {
+.pix-progress-bar {
   position: relative;
   display: grid;
   grid-template-areas:
@@ -62,68 +62,68 @@
 }
 
 // THEME DARK
-.progress-bar--theme-dark {
-  .progress-bar__bar {
+.pix-progress-bar--theme-dark {
+  .pix-progress-bar__bar {
     border: 2px solid var(--pix-neutral-0);
   }
 
-  .progress-bar__bar::-webkit-progress-bar {
+  .pix-progress-bar__bar::-webkit-progress-bar {
     background-color: var(--pix-neutral-0);
   }
 
-  .progress-bar__text,
-  .progress-bar__sub-title {
+  .pix-progress-bar__text,
+  .pix-progress-bar__sub-title {
     color: var(--pix-neutral-0);
   }
 }
 
 // SPECIFIC BAR COLORS
-.progress-bar--content-blue, .progress-bar--content-primary {
-  .progress-bar__bar::-webkit-progress-value {
+.pix-progress-bar--content-blue, .pix-progress-bar--content-primary {
+  .pix-progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-primary-500);
   }
 
-  .progress-bar__bar::-moz-progress-bar {
+  .pix-progress-bar__bar::-moz-progress-bar {
     background-color: var(--pix-primary-500);
   }
 
-  &:not(.progress-bar--theme-dark) {
-    .progress-bar__text,
-    .progress-bar__sub-title {
+  &:not(.pix-progress-bar--theme-dark) {
+    .pix-progress-bar__text,
+    .pix-progress-bar__sub-title {
       color: var(--pix-primary-500);
     }
   }
 }
 
-.progress-bar--content-green, .progress-bar--content-success {
-  .progress-bar__bar::-webkit-progress-value {
+.pix-progress-bar--content-green, .pix-progress-bar--content-success {
+  .pix-progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-success-700);
   }
 
-  .progress-bar__bar::-moz-progress-bar {
+  .pix-progress-bar__bar::-moz-progress-bar {
     background-color: var(--pix-success-700);
   }
 
-  &:not(.progress-bar--theme-dark) {
-    .progress-bar__text,
-    .progress-bar__sub-title {
+  &:not(.pix-progress-bar--theme-dark) {
+    .pix-progress-bar__text,
+    .pix-progress-bar__sub-title {
       color: var(--pix-success-700);
     }
   }
 }
 
-.progress-bar--content-purple, .progress-bar--content-tertiary {
-  .progress-bar__bar::-webkit-progress-value {
+.pix-progress-bar--content-purple, .pix-progress-bar--content-tertiary {
+  .pix-progress-bar__bar::-webkit-progress-value {
     background-color: var(--pix-tertiary-900);
   }
 
-  .progress-bar__bar::-moz-progress-bar {
+  .pix-progress-bar__bar::-moz-progress-bar {
     background-color: var(--pix-tertiary-900);
   }
 
-  &:not(.progress-bar--theme-dark) {
-    .progress-bar__text,
-    .progress-bar__sub-title {
+  &:not(.pix-progress-bar--theme-dark) {
+    .pix-progress-bar__text,
+    .pix-progress-bar__sub-title {
       color: var(--pix-tertiary-900);
     }
   }
