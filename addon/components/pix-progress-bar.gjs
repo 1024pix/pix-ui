@@ -1,6 +1,7 @@
 import { warn } from '@ember/debug';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
+import { formatMessage } from '../translations';
 
 export default class PixProgressBar extends Component {
   constructor(...args) {
@@ -16,16 +17,18 @@ export default class PixProgressBar extends Component {
         id: 'pix-progress-bar.value.type.incorrect',
       },
     );
+  }
 
-    this.id = guidFor(this);
+  get id() {
+    return guidFor(this);
   }
 
   get percentageValue() {
-    return Number(this.clampValue).toLocaleString(this.args.locale, { style: 'percent' });
+    return formatMessage(this.args.locale ?? 'fr', 'common.value.percentage', { value: this.clampValue });
   }
 
   get label() {
-    const hasLabel = this.args.label && this.args.label.trim().length > 0;
+    const hasLabel = !!this.args.label;
 
     warn('PixProgressBar: you need to provide a valid label', hasLabel || this.args.isDecorative, {
       id: 'pix-progress-bar.label.required',

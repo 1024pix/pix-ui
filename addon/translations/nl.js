@@ -8,6 +8,11 @@ export default {
   select: {
     search: 'Zoeken',
   },
+  common: {
+    value: {
+      percentage: '{value, number, ::percent}',
+    },
+  },
   pagination: {
     beforeResultsPerPage: 'Zie',
     selectPageSizeLabel: 'Selecteer het aantal items per pagina',

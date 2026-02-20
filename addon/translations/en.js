@@ -8,6 +8,11 @@ export default {
   select: {
     search: 'Search',
   },
+  common: {
+    value: {
+      percentage: '{value, number, ::percent}',
+    },
+  },
   pagination: {
     beforeResultsPerPage: 'See',
     selectPageSizeLabel: 'Select the number of items by page',

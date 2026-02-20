@@ -18,6 +18,11 @@ export default {
     pageNumber: 'Page {current, number} / {total, number}',
     nextPageLabel: 'Aller à la page suivante',
   },
+  common: {
+    value: {
+      percentage: '{value, number, ::percent}',
+    },
+  },
   tag: {
     removeButton: 'Supprimer',
   },

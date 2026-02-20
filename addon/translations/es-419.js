@@ -8,6 +8,11 @@ export default {
   select: {
     search: 'Buscar',
   },
+  common: {
+    value: {
+      percentage: '{value, number, ::percent}',
+    },
+  },
   pagination: {
     beforeResultsPerPage: 'Ver',
     selectPageSizeLabel: 'Número de elementos que se mostrarán por página',
