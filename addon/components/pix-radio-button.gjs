@@ -45,6 +45,10 @@ export default class PixRadioButton extends Component {
       classes.push(`${classes[0]}--state`);
     }
 
+    if (this.args.variant === 'modulix') {
+      classes.push('pix-radio-button__input--variant-modulix');
+    }
+
     return classes.join(' ');
   }
 

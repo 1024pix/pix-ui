@@ -1,4 +1,5 @@
 import { clickByName, render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -177,6 +178,24 @@ module('Integration | Component | pix-radio-button', function (hooks) {
         // then
         assert.true(radiobutton.checked, 'Radiobutton should have changed state');
       });
+    });
+  });
+
+  module('@variant modulix', function () {
+    test(`it should be functional`, async function (assert) {
+      // given
+      const screen = await render(
+        hbs`<PixRadioButton @variant='modulix' @state='neutral'><:label>Abricot</:label></PixRadioButton>`,
+      );
+      const radiobutton = screen.getByRole('radio', {
+        name: 'Abricot',
+      });
+
+      // when
+      await click(radiobutton);
+
+      // then
+      assert.true(radiobutton.checked);
     });
   });
 });

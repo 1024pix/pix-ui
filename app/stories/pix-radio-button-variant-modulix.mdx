@@ -14,6 +14,8 @@ Un cursor `pointer` est défini sur le RadioButton et son label par défaut.
 
 Le RadioButton et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
 
+Le bouton radio (petit cercle à gauche du label), est ici volontairement masqué pour les besoins design des modules.
+
 <Story of={ComponentStories.VariantModulix} height={120} />
 
 ## États du RadioButton
@@ -29,6 +31,8 @@ Un cursor `not-allowed` est défini sur le RadioButton et son label lorsqu'il es
 #### Succès/Erreur
 
 Cumulée à la désactivation, une propriété de statut permet de préciser une coloration particulière en cas de "succès" ou d'"erreur".
+
+Comme dans ce variant, le bouton radio est masqué, on n'affiche pas de SVG de succès ou d'erreur. (comme on peut le voir dans le PixCheckbox variant modulix)
 
 <Story of={ComponentStories.isDisabledIsSuccessVariantModulix} height={120} />
 <Story of={ComponentStories.isDisabledIsErrorVariantModulix} height={120} />
