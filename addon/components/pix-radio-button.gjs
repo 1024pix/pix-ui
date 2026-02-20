@@ -10,10 +10,6 @@ import PixLabelWrapped from './pix-label-wrapped';
 export default class PixRadioButton extends Component {
   text = 'pix-radio-button';
 
-  get stateWarning() {
-    return Boolean(this.isDisabled) && (!this.hasErrorState || !this.hasSuccessState);
-  }
-
   get id() {
     return this.args.id || guidFor(this);
   }
