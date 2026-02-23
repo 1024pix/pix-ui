@@ -4,7 +4,7 @@
   align-items: center;
   cursor: pointer;
 
-  &--variant-tile {
+  &--variant-modulix {
     position: relative;
     z-index: -2;
     padding: var(--pix-spacing-3x) var(--pix-spacing-4x);
@@ -39,6 +39,20 @@
           --state-border-color: var(--pix-error-500);
 
           color: var(--pix-error-700);
+        }
+
+        &.pix-label-wrapped--state-modulix-error {
+          --state-border-color: var(--pix-warning-700);
+          --state-background-color: var(--pix-warning-50);
+
+          color: var(--pix-warning-700);
+        }
+
+        &.pix-label-wrapped--state-modulix-success {
+          --state-border-color: var(--pix-success-700);
+          --state-background-color: var(--pix-success-50);
+
+          color: var(--pix-success-700);
         }
 
         & .pix-label-wrapped__state-icon {

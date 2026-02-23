@@ -92,4 +92,14 @@
       }
     }
   }
+
+  &__input--variant-modulix, svg:has(+ .pix-radio-button__input--variant-modulix) {
+    position: absolute;
+    clip-path: polygon(0 0);
+  }
+
+  .pix-label-wrapped--state-modulix-neutral:has(input:checked):not(.pix-label-wrapped--disabled) {
+    border: 1px solid var(--pix-primary-500);
+    outline: 2px solid var(--pix-primary-300);
+  }
 }

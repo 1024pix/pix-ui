@@ -1,9 +1,9 @@
 import { Meta, Story, ArgTypes } from '@storybook/blocks';
-import * as ComponentStories from './pix-radio-button-variant-tile.stories.js';
+import * as ComponentStories from './pix-radio-button-variant-modulix.stories.js';
 
 <Meta of={ComponentStories} />
 
-# PixRadioButton `@variant="title"`
+# PixRadioButton `@variant="modulix"`
 
 Un bouton radio permettant de sélectionner une seule option dans une liste.
 
@@ -14,7 +14,9 @@ Un cursor `pointer` est défini sur le RadioButton et son label par défaut.
 
 Le RadioButton et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
 
-<Story of={ComponentStories.VariantTile} height={120} />
+Le bouton radio (petit cercle à gauche du label), est ici volontairement masqué pour les besoins design des modules.
+
+<Story of={ComponentStories.VariantModulix} height={120} />
 
 ## États du RadioButton
 
@@ -23,20 +25,22 @@ Le RadioButton et son label sont visuellement regroupés dans un ensemble intég
 L'attribut `@isDisabled` permet de désactiver le RadioButton en conservant la possibilité de naviguer avec le clavier ou le lecteur d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
 Un cursor `not-allowed` est défini sur le RadioButton et son label lorsqu'il est dans un état `disabled`.
 
-<Story of={ComponentStories.isDisabledVariantTile} height={120} />
-<Story of={ComponentStories.checkedIsDisabledVariantTile} height={120} />
+<Story of={ComponentStories.isDisabledVariantModulix} height={120} />
+<Story of={ComponentStories.checkedIsDisabledVariantModulix} height={120} />
 
 #### Succès/Erreur
 
 Cumulée à la désactivation, une propriété de statut permet de préciser une coloration particulière en cas de "succès" ou d'"erreur".
 
-<Story of={ComponentStories.isDisabledIsSuccessVariantTile} height={120} />
-<Story of={ComponentStories.isDisabledIsErrorVariantTile} height={120} />
+Comme dans ce variant, le bouton radio est masqué, on n'affiche pas de SVG de succès ou d'erreur. (comme on peut le voir dans le PixCheckbox variant modulix)
+
+<Story of={ComponentStories.isDisabledIsSuccessVariantModulix} height={120} />
+<Story of={ComponentStories.isDisabledIsErrorVariantModulix} height={120} />
 
 ## Usage
 
 ```html
-<PixRadioButton name="input-name" @value="{{value}}" @variant="tile">
+<PixRadioButton name="input-name" @value="{{value}}" @variant="modulix">
   <:label>Exemple de label</:label>
 </PixRadioButton>
 ```

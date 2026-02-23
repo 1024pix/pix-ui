@@ -10,10 +10,6 @@ import PixLabelWrapped from './pix-label-wrapped';
 export default class PixRadioButton extends Component {
   text = 'pix-radio-button';
 
-  get stateWarning() {
-    return Boolean(this.isDisabled) && (!this.hasErrorState || !this.hasSuccessState);
-  }
-
   get id() {
     return this.args.id || guidFor(this);
   }
@@ -47,6 +43,10 @@ export default class PixRadioButton extends Component {
 
     if (this.hasSuccessState || this.hasErrorState) {
       classes.push(`${classes[0]}--state`);
+    }
+
+    if (this.args.variant === 'modulix') {
+      classes.push('pix-radio-button__input--variant-modulix');
     }
 
     return classes.join(' ');

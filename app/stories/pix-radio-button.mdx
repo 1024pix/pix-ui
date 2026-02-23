@@ -1,7 +1,7 @@
 import { Meta, Story, ArgTypes } from '@storybook/blocks';
 
 import * as ComponentStories from './pix-radio-button.stories.js';
-import * as VariantTileStories from './pix-radio-button-variant-tile.stories.js';
+import * as VariantModulixStories from './pix-radio-button-variant-modulix.stories.js';
 
 <Meta of={ComponentStories} />
 
@@ -31,11 +31,11 @@ Le PixRadioButton prend toute la largeur à sa disposition par défaut.
 
 <Story of={ComponentStories.FullWidth} height={100} />
 
-Si le paramètre `variant` est précisé avec la valeur `tile`, le RadioButton et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
+Si le paramètre `variant` est précisé avec la valeur `modulix`, le RadioButton et son label sont visuellement regroupés dans un ensemble intégralement cliquable.
 
-<Story of={VariantTileStories.VariantTile} height={100} />
+<Story of={VariantModulixStories.VariantModulix} height={100} />
 
-Voir la [documentation de la variante tile](http://localhost:9001/iframe.html?path=/docs/form-inputs-radiobutton-variant-tile--docs).
+Voir la [documentation de la variante modulix](http://localhost:9001/iframe.html?path=/docs/form-inputs-radiobutton-variant-modulix--docs).
 
 ## Disabled
 
@@ -56,4 +56,3 @@ L'attribut `@isDisabled` permet de désactiver la radio en conservant la possibi
 ## Arguments
 
 <ArgTypes of={ComponentStories} />
-./pix-radio-button-variant-tile.stories.js

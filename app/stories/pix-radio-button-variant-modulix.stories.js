@@ -3,12 +3,12 @@ import { hbs } from 'ember-cli-htmlbars';
 import pixRadioButtonStories from './pix-radio-button.stories.js';
 
 export default {
-  title: 'Forms/Radio Button/Variant Tile',
+  title: 'Forms/Radio Button/Variant Modulix',
   argTypes: {
     variant: {
       name: 'variant',
       description: 'Utiliser une variante graphique du composant',
-      options: ['tile'],
+      options: ['modulix'],
       control: { type: 'select' },
       type: { required: true },
     },
@@ -26,7 +26,7 @@ export default {
   },
 };
 
-const VariantTileTemplate = (args) => {
+const VariantModulixTemplate = (args) => {
   return {
     template: hbs`{{! template-lint-disable no-inline-styles }}
 <div
@@ -45,48 +45,48 @@ const VariantTileTemplate = (args) => {
   };
 };
 
-export const VariantTile = VariantTileTemplate.bind({});
-VariantTile.args = {
+export const VariantModulix = VariantModulixTemplate.bind({});
+VariantModulix.args = {
   id: 'proposal',
   label: 'Une réponse',
-  variant: 'tile',
+  variant: 'modulix',
   state: 'neutral',
 };
 
-export const isDisabledVariantTile = VariantTileTemplate.bind({});
-isDisabledVariantTile.args = {
+export const isDisabledVariantModulix = VariantModulixTemplate.bind({});
+isDisabledVariantModulix.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  variant: 'tile',
+  variant: 'modulix',
   isDisabled: true,
   state: 'neutral',
 };
 
-export const checkedIsDisabledVariantTile = VariantTileTemplate.bind({});
-checkedIsDisabledVariantTile.args = {
+export const checkedIsDisabledVariantModulix = VariantModulixTemplate.bind({});
+checkedIsDisabledVariantModulix.args = {
   id: 'accept-newsletter-2',
   label: 'Recevoir la newsletter',
-  variant: 'tile',
+  variant: 'modulix',
   isDisabled: true,
   checked: true,
   state: 'neutral',
 };
 
-export const isDisabledIsSuccessVariantTile = VariantTileTemplate.bind({});
-isDisabledIsSuccessVariantTile.args = {
+export const isDisabledIsSuccessVariantModulix = VariantModulixTemplate.bind({});
+isDisabledIsSuccessVariantModulix.args = {
   id: 'accept-newsletter-2',
   label: 'La réponse est correcte',
-  variant: 'tile',
+  variant: 'modulix',
   isDisabled: true,
   checked: true,
   state: 'success',
 };
 
-export const isDisabledIsErrorVariantTile = VariantTileTemplate.bind({});
-isDisabledIsErrorVariantTile.args = {
+export const isDisabledIsErrorVariantModulix = VariantModulixTemplate.bind({});
+isDisabledIsErrorVariantModulix.args = {
   id: 'accept-newsletter-2',
   label: 'La réponse est fausse',
-  variant: 'tile',
+  variant: 'modulix',
   isDisabled: true,
   checked: true,
   state: 'error',
