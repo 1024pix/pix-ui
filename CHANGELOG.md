@@ -1,3 +1,9 @@
+# [60.0.0](https://github.com/1024pix/pix-ui/compare/v59.0.0...v60.0.0) (2026-02-23)
+
+### :boom: BREAKING CHANGE
+
+- [#987](https://github.com/1024pix/pix-ui/pull/987) Modification du PixButtonRadio tile pour Modulix (PIX-21644).
+
 # [59.0.0](https://github.com/1024pix/pix-ui/compare/v58.4.11...v59.0.0) (2026-02-19)
 
 ### :boom: BREAKING CHANGE
