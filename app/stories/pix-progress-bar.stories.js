@@ -9,17 +9,16 @@ export default {
       type: { name: 'number', required: true },
       table: { defaultValue: { summary: null } },
     },
+    percentageValue: {
+      name: 'percentageValue',
+      description: "Valeur exprimé en pourcentage dans la langue de l'utilisateur",
+      type: { name: 'string', required: true },
+      table: { defaultValue: { summary: null } },
+    },
     label: {
       name: 'label',
       description:
         "Afficher un label caché permettant d'expliciter le contexte de la jauge de progression",
-      type: { name: 'string', required: true },
-      table: { defaultValue: { summary: 'null' } },
-    },
-    locale: {
-      name: 'locale',
-      description:
-        "Permet de traduire le pourcentage dans la langue de l'application utilisant le composant",
       type: { name: 'string', required: true },
       table: { defaultValue: { summary: 'null' } },
     },
@@ -53,13 +52,6 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: 'false' } },
     },
-    isDecorative: {
-      name: 'isDecorative',
-      description:
-        'Indiquer que la barre de progression est utilisée pour de la présentation et doit être ignorée par les lecteurs d’écran',
-      type: { name: 'boolean', required: false },
-      table: { defaultValue: { summary: 'false' } },
-    },
   },
 };
 
@@ -68,7 +60,6 @@ export const Default = (args) => {
     template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
-  @locale={{this.locale}}
   @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
   @label={{this.label}}
@@ -78,7 +69,6 @@ export const Default = (args) => {
 };
 Default.args = {
   value: 0.5,
-  locale: 'fr',
 };
 
 export const Success = (args) => {
@@ -88,7 +78,6 @@ export const Success = (args) => {
   @color={{this.color}}
   @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
-  @locale={{this.locale}}
   @label={{this.label}}
 />`,
     context: args,
@@ -97,7 +86,6 @@ export const Success = (args) => {
 Success.args = {
   value: 0.5,
   color: 'success',
-  locale: 'fr',
 };
 
 export const Tertiary = (args) => {
@@ -105,7 +93,6 @@ export const Tertiary = (args) => {
     template: hbs`<PixProgressBar
   @value={{this.value}}
   @color={{this.color}}
-  @locale={{this.locale}}
   @themeMode={{this.themeMode}}
   @subtitle={{this.subtitle}}
   @label={{this.label}}
@@ -116,7 +103,6 @@ export const Tertiary = (args) => {
 Tertiary.args = {
   value: 0.5,
   color: 'tertiary',
-  locale: 'en',
 };
 
 export const darkModeProgressBar = (args) => {
@@ -127,7 +113,6 @@ export const darkModeProgressBar = (args) => {
     @value={{this.value}}
     @color={{this.color}}
     @label={{this.label}}
-    @locale={{this.locale}}
     @themeMode={{this.themeMode}}
     @subtitle={{this.subtitle}}
   />
@@ -138,7 +123,6 @@ export const darkModeProgressBar = (args) => {
 darkModeProgressBar.args = {
   value: 0.5,
   label: 'Chargement',
-  locale: 'es',
   color: 'primary',
   themeMode: 'dark',
   subtitle: 'Avancement',
@@ -150,7 +134,6 @@ export const WithoutPercentage = (args) => {
   @value={{this.value}}
   @color={{this.color}}
   @themeMode={{this.themeMode}}
-  @locale={{this.locale}}
   @subtitle={{this.subtitle}}
   @label={{this.label}}
   @hidePercentage={{this.hidePercentage}}
@@ -161,6 +144,5 @@ export const WithoutPercentage = (args) => {
 WithoutPercentage.args = {
   value: 0.5,
   color: 'primary',
-  locale: 'fr',
   hidePercentage: true,
 };
