@@ -1,3 +1,9 @@
+## [60.0.2](https://github.com/1024pix/pix-ui/compare/v60.0.1...v60.0.2) (2026-03-02)
+
+### :arrow_up: Montée de version
+
+- [#985](https://github.com/1024pix/pix-ui/pull/985) Update dependency @storybook/addon-webpack5-compiler-babel to v4 (dossier racine)
+
 ## [60.0.1](https://github.com/1024pix/pix-ui/compare/v60.0.0...v60.0.1) (2026-02-24)
 
 ### :bug: Correction
