@@ -1,3 +1,9 @@
+## [60.0.3](https://github.com/1024pix/pix-ui/compare/v60.0.2...v60.0.3) (2026-03-02)
+
+### :arrow_up: Montée de version
+
+- [#989](https://github.com/1024pix/pix-ui/pull/989) Update Node.js to v24.13.1
+
 ## [60.0.2](https://github.com/1024pix/pix-ui/compare/v60.0.1...v60.0.2) (2026-03-02)
 
 ### :arrow_up: Montée de version
