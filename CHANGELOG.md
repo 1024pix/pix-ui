@@ -1,3 +1,9 @@
+## [60.0.5](https://github.com/1024pix/pix-ui/compare/v60.0.4...v60.0.5) (2026-03-10)
+
+### :arrow_up: Montée de version
+
+- [#991](https://github.com/1024pix/pix-ui/pull/991) Update dependency ember-eslint-parser to ^0.6.0 (dossier racine)
+
 ## [60.0.4](https://github.com/1024pix/pix-ui/compare/v60.0.3...v60.0.4) (2026-03-10)
 
 ### :arrow_up: Montée de version
