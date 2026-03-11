@@ -1,10 +1,62 @@
-import { Meta } from '@storybook/blocks';
+import { Meta, Unstyled } from '@storybook/blocks';
 
 <Meta title="Design Tokens/Ombres" />
 
 # Ombres
 
-Pour uniformiser les ombres dans nos applications, on dispose de plusieurs classes CSS :
+Pour uniformiser les ombres dans nos applications, on dispose de plusieurs tokens selon les applications.
+Ils sont disponibles sous forme de classe CSS :
+
+- `pix-shadow-default`
+- `pix-shadow-neutral`
+- `pix-shadow-orga`
+- `pix-shadow-certif`
+
+Et leur équivalent en placeholder SCSS :
+
+- `@extend %pix-shadow-default;`
+- `@extend %pix-shadow-neutral;`
+- `@extend %pix-shadow-orga;`
+- `@extend %pix-shadow-certif;`
+
+<Unstyled>
+  <div
+    className="pix-title-s pix-shadow-default"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+  >
+    pix-shadow-default
+  </div>
+
+    <div
+    className="pix-title-s pix-shadow-neutral"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+
+>
+
+    pix-shadow-neutral
+
+  </div>
+      <div
+    className="pix-title-s pix-shadow-orga"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+
+>
+
+    pix-shadow-orga
+
+  </div>
+      <div
+    className="pix-title-s pix-shadow-certif"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+
+>
+
+    pix-shadow-certif
+
+  </div>
+</Unstyled>
+
+On dispose aussi d'ombres neutres de plusieurs tailles. Les classes CSS correspondantes :
 
 - `pix-shadow-xs`
 - `pix-shadow-sm`
@@ -12,13 +64,57 @@ Pour uniformiser les ombres dans nos applications, on dispose de plusieurs class
 - `pix-shadow-lg`
 - `pix-shadow-xl`
 
-Et leur équivalent en placeholder SCSS :
+Ou de placeholder SCSS :
 
 - `@extend %pix-shadow-xs;`
 - `@extend %pix-shadow-sm;`
 - `@extend %pix-shadow-md;`
 - `@extend %pix-shadow-lg;`
 - `@extend %pix-shadow-xl;`
+
+<Unstyled>
+  <div
+    className="pix-title-s pix-shadow-xs"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+  >
+    pix-shadow-xs
+  </div>
+
+<div
+  className="pix-title-s pix-shadow-sm"
+  style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+>
+  pix-shadow-sm
+</div>
+
+    <div
+    className="pix-title-s pix-shadow-md"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+
+>
+
+    pix-shadow-md
+
+  </div>
+      <div
+    className="pix-title-s pix-shadow-lg"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+
+>
+
+    pix-shadow-lg
+
+  </div>
+      <div
+    className="pix-title-s pix-shadow-xl"
+    style={{ padding: 'var(--pix-spacing-4x)', margin: 'var(--pix-spacing-8x)', width: '300px' }}
+
+>
+
+    pix-shadow-xl
+
+  </div>
+</Unstyled>
 
 Code associé : [pix-ui/addon/styles/pix-design-tokens/\_shadows.scss](https://github.com/1024pix/pix-ui/blob/dev/addon/styles/pix-design-tokens/_shadows.scss)
 
