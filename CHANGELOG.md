@@ -1,3 +1,9 @@
+# [60.1.0](https://github.com/1024pix/pix-ui/compare/v60.0.6...v60.1.0) (2026-03-11)
+
+### :rocket: Amélioration
+
+- [#993](https://github.com/1024pix/pix-ui/pull/993) Ajouter la nouvelle icône accountTree (PIX-21875)
+
 ## [60.0.6](https://github.com/1024pix/pix-ui/compare/v60.0.5...v60.0.6) (2026-03-10)
 
 ### :arrow_up: Montée de version
