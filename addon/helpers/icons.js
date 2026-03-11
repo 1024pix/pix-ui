@@ -1,5 +1,6 @@
 export const ICONS = {
   accountOff: { default: 'accountOff', plainIcon: 'accountOff_plain' },
+  accountTree: { default: 'accountTree', plainIcon: 'accountTree_plain' },
   acute: { default: 'acute', plainIcon: 'acute_plain' },
   add: { default: 'add' },
   arrowBottom: { default: 'arrowDown' },
