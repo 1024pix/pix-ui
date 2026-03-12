@@ -1,3 +1,9 @@
+# [60.2.0](https://github.com/1024pix/pix-ui/compare/v60.1.0...v60.2.0) (2026-03-12)
+
+### :rocket: Amélioration
+
+- [#995](https://github.com/1024pix/pix-ui/pull/995) Ajouter les nouveaux design tokens d'ombres (PIX-21086)
+
 # [60.1.0](https://github.com/1024pix/pix-ui/compare/v60.0.6...v60.1.0) (2026-03-11)
 
 ### :rocket: Amélioration
