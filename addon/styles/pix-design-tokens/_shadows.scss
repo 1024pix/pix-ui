@@ -5,6 +5,14 @@
   box-shadow: 0 $verticalSize $blur rgba(7, 20, 46, 0.08);
 }
 
+@mixin coloredShadow($colorA, $colorB, $colorC) {
+  box-shadow:
+    0 2px 5px 0 $colorA,
+    0 -2px 5px 0 $colorB inset,
+    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset,
+    0 3px 4px 0 $colorC inset;
+}
+
 %pix-shadow-xs,
 .pix-shadow-xs {
   @include shadow(4px, 8px);
@@ -28,4 +36,40 @@
 %pix-shadow-xl,
 .pix-shadow-xl {
   @include shadow(12px, 24px);
+}
+
+%pix-shadow-default,
+.pix-shadow-default {
+  @include coloredShadow(
+    rgba(74, 58, 255, 0.25),
+    rgba(74, 58, 255, 0.15),
+    rgba(223, 238, 255, 0.1)
+  );
+}
+
+%pix-shadow-neutral,
+.pix-shadow-neutral {
+  @include coloredShadow(
+    rgba(79, 99, 132, 0.25),
+    rgba(79, 99, 132, 0.15),
+    rgba(200, 207, 217, 0.1)
+  );
+}
+
+%pix-shadow-orga,
+.pix-shadow-orga {
+  @include coloredShadow(
+    rgba(54, 116, 191, 0.25),
+    rgba(54, 116, 191, 0.15),
+    rgba(235, 241, 249, 0.1)
+  );
+}
+
+%pix-shadow-certif,
+.pix-shadow-certif {
+  @include coloredShadow(
+    rgba(24, 127, 125, 0.25),
+    rgba(24, 127, 125, 0.15),
+    rgba(232, 242, 242, 0.1)
+  );
 }
