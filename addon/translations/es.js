@@ -19,6 +19,9 @@ export default {
     pageNumber: 'Página {current, number} / {total, number}',
     nextPageLabel: 'Ir a la página siguiente',
   },
+  stepper: {
+    ariaLabel: 'Paso {current, number} de {total, number}',
+  },
   pixNavigation: {
     shrinkNavigationAriaLabel: 'Reducir el ancho del menú de navegación',
     expandNavigationAriaLabel: 'Volver al ancho inicial del menú de navegación',

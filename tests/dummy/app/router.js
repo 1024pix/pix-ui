@@ -16,5 +16,6 @@ Router.map(function () {
   this.route('table-page', { path: '/table' });
   this.route('gauge-page', { path: '/gauge' });
   this.route('button-page', { path: '/button' });
+  this.route('stepper-page', { path: '/stepper' });
   this.route('layout-page', { path: '/layout' });
 });
