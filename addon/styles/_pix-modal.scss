@@ -3,8 +3,6 @@
 @use "pix-design-tokens/shadows";
 
 .pix-modal {
-  @extend %pix-shadow-sm;
-
   position: relative;
   left: 50%;
   width: min(32rem, calc(100% - var(--pix-spacing-4x)));
@@ -13,15 +11,38 @@
   border-radius: var(--pix-spacing-4x);
   transform: translateX(-50%);
 
+  &--default {
+    @extend %pix-shadow-default;
+  }
+
+  &--orga {
+    @extend %pix-shadow-orga;
+  }
+
+  &--certif {
+    @extend %pix-shadow-certif;
+  }
+
   &__header {
     display: flex;
     align-items: flex-start;
     justify-content: space-between;
     padding: var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x) var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
-    background: var(--pix-gradient-default-light);
     border-top-left-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
     border-top-right-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
+
+    &--default {
+      background: var(--pix-gradient-default-light);
+    }
+
+    &--orga {
+      background: var(--pix-gradient-orga-light);
+    }
+
+    &--certif {
+      background: var(--pix-gradient-certif-light);
+    }
   }
 
   &__close-button {

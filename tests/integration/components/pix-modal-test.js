@@ -97,4 +97,116 @@ module('Integration | Component | modal', function (hooks) {
       assert.notOk(screen.queryByRole('heading', { name: this.title }));
     });
   });
+
+  module('variants', function () {
+    module('when variant is not provided', function () {
+      test('it should apply default style', async function (assert) {
+        // given
+        this.title = 'Modal with no variant';
+        this.showModal = true;
+
+        // when
+        const screen =
+          await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}}>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixModal>`);
+
+        // then
+        const modal = screen.getByRole('dialog', { name: 'Modal with no variant' });
+        const header = screen.getByRole('heading', { name: 'Modal with no variant' }).parentNode;
+
+        assert.dom(modal).hasClass('pix-modal--default');
+        assert.dom(header).hasClass('pix-modal__header--default');
+      });
+    });
+
+    module('when variant is "default"', function () {
+      test('it should apply default style', async function (assert) {
+        // given
+        this.title = 'Modal with "default" variant';
+        this.showModal = true;
+
+        // when
+        const screen =
+          await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}} @variant='default'>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixModal>`);
+
+        // then
+        const modal = screen.getByRole('dialog', { name: 'Modal with "default" variant' });
+        const header = screen.getByRole('heading', {
+          name: 'Modal with "default" variant',
+        }).parentNode;
+
+        assert.dom(modal).hasClass('pix-modal--default');
+        assert.dom(header).hasClass('pix-modal__header--default');
+      });
+    });
+
+    module('when variant is "orga"', function () {
+      test('it should apply orga style', async function (assert) {
+        // given
+        this.title = 'Modal with "orga" variant';
+        this.showModal = true;
+
+        // when
+        const screen =
+          await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}} @variant='orga'>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixModal>`);
+
+        // then
+        const modal = screen.getByRole('dialog', { name: 'Modal with "orga" variant' });
+        const header = screen.getByRole('heading', {
+          name: 'Modal with "orga" variant',
+        }).parentNode;
+
+        assert.dom(modal).hasClass('pix-modal--orga');
+        assert.dom(header).hasClass('pix-modal__header--orga');
+      });
+    });
+
+    module('when variant is "certif"', function () {
+      test('it should apply certif style', async function (assert) {
+        // given
+        this.title = 'Modal with "certif" variant';
+        this.showModal = true;
+
+        // when
+        const screen =
+          await render(hbs`<PixModal @title={{this.title}} @showModal={{this.showModal}} @variant='certif'>
+  <:content>
+    content
+  </:content>
+  <:footer>
+    footer
+  </:footer>
+</PixModal>`);
+
+        // then
+        const modal = screen.getByRole('dialog', { name: 'Modal with "certif" variant' });
+        const header = screen.getByRole('heading', {
+          name: 'Modal with "certif" variant',
+        }).parentNode;
+
+        assert.dom(modal).hasClass('pix-modal--certif');
+        assert.dom(header).hasClass('pix-modal__header--certif');
+      });
+    });
+  });
 });
