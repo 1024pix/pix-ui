@@ -1,3 +1,9 @@
+# [60.3.0](https://github.com/1024pix/pix-ui/compare/v60.2.0...v60.3.0) (2026-04-08)
+
+### :rocket: Amélioration
+
+- [#996](https://github.com/1024pix/pix-ui/pull/996) Ajouter un token de couleur pix-primary-50 (PIX-21867)
+
 # [60.2.0](https://github.com/1024pix/pix-ui/compare/v60.1.0...v60.2.0) (2026-03-12)
 
 ### :rocket: Amélioration
