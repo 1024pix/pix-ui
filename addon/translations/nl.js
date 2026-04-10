@@ -21,6 +21,9 @@ export default {
   tag: {
     removeButton: 'Verwijderen',
   },
+  stepper: {
+    ariaLabel: 'Stap {current, number} van {total, number}',
+  },
   pixNavigation: {
     shrinkNavigationAriaLabel: 'De breedte van het navigatiemenu verkleinen',
     expandNavigationAriaLabel: 'Terug naar de oorspronkelijke breedte van het navigatiemenu',

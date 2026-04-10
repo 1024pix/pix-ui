@@ -1,0 +1,46 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import * as ComponentStories from './pix-stepper.stories';
+
+<Meta of={ComponentStories} />
+
+# PixStepper
+
+Un `PixStepper` permet d'afficher une progression par étapes. Chaque étape peut avoir un titre et un sous-titre optionnel.
+
+Au-delà de 3 étapes, le stepper adapte automatiquement son affichage (mode long).
+
+## Par défaut
+
+<Story of={ComponentStories.Default} height={150} />
+
+## Étape intermédiaire
+
+<Story of={ComponentStories.secondStep} height={150} />
+
+## Stepper long (plus de 3 étapes)
+
+<Story of={ComponentStories.longStepper} height={150} />
+
+## Sans sous-titre
+
+<Story of={ComponentStories.withoutSubtitle} height={150} />
+
+## Usage
+
+```html
+<PixStepper @steps={{this.steps}} @currentStep={{2}} />
+```
+
+Où `steps` est un tableau d'objets :
+
+```js
+steps = [
+  { title: 'Informations', subtitle: 'Renseignez vos informations' },
+  { title: 'Confirmation', subtitle: 'Vérifiez vos données' },
+  { title: 'Validation', subtitle: 'Finalisez votre inscription' },
+];
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

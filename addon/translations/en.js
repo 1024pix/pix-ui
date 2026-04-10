@@ -21,6 +21,9 @@ export default {
   tag: {
     removeButton: 'Remove',
   },
+  stepper: {
+    ariaLabel: 'Step {current, number} of {total, number}',
+  },
   pixNavigation: {
     shrinkNavigationAriaLabel: 'Reduce the width of the navigation menu',
     expandNavigationAriaLabel: 'Return to the initial width of the navigation menu',

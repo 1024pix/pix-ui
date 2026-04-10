@@ -50,6 +50,7 @@
 @use 'pix-overlay';
 @use 'pix-tabs';
 @use 'pix-gauge';
+@use 'pix-stepper';
 
 // at the end so it can override it's children scss
 @use 'pix-filterable-and-searchable-select';

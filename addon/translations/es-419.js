@@ -8,6 +8,9 @@ export default {
   select: {
     search: 'Buscar',
   },
+  stepper: {
+    ariaLabel: 'Paso {current, number} de {total, number}',
+  },
   pagination: {
     beforeResultsPerPage: 'Ver',
     selectPageSizeLabel: 'Número de elementos que se mostrarán por página',
