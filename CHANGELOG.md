@@ -1,3 +1,9 @@
+# [60.4.0](https://github.com/1024pix/pix-ui/compare/v60.3.0...v60.4.0) (2026-04-10)
+
+### :rocket: Amélioration
+
+- [#998](https://github.com/1024pix/pix-ui/pull/998) Créer le composant Stepper (PIX-22194).
+
 # [60.3.0](https://github.com/1024pix/pix-ui/compare/v60.2.0...v60.3.0) (2026-04-08)
 
 ### :rocket: Amélioration
