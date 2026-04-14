@@ -1,4 +1,4 @@
-@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/typography';
 
 .pix-notification-alert {
   @extend %pix-body-s;
@@ -11,6 +11,10 @@
   font-size: 0.875rem;
   border: 1px solid currentcolor;
   border-radius: var(--pix-spacing-1x);
+
+  &__icon {
+    flex-shrink: 0;
+  }
 
   &--info {
     color: var(--pix-info-700);
