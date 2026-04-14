@@ -1,3 +1,9 @@
+## [60.4.1](https://github.com/1024pix/pix-ui/compare/v60.4.0...v60.4.1) (2026-04-14)
+
+### :bug: Correction
+
+- [#997](https://github.com/1024pix/pix-ui/pull/997) Fixer la taille de l'icône dans les notifications
+
 # [60.4.0](https://github.com/1024pix/pix-ui/compare/v60.3.0...v60.4.0) (2026-04-10)
 
 ### :rocket: Amélioration
