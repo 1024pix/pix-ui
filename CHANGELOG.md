@@ -1,3 +1,9 @@
+# [60.5.0](https://github.com/1024pix/pix-ui/compare/v60.4.1...v60.5.0) (2026-04-16)
+
+### :rocket: Amélioration
+
+- [#1000](https://github.com/1024pix/pix-ui/pull/1000) Modifier le style des étapes futures du Stepper (PIX-22338).
+
 ## [60.4.1](https://github.com/1024pix/pix-ui/compare/v60.4.0...v60.4.1) (2026-04-14)
 
 ### :bug: Correction
