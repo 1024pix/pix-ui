@@ -75,6 +75,11 @@ $font-bold: 700;
   // Private property, do not use directly
   // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
   // stylelint-disable-next-line custom-property-pattern
+  --_pix-font-family-subtitle: 'Roboto Condensed', Arial, sans-serif;
+
+  // Private property, do not use directly
+  // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
+  // stylelint-disable-next-line custom-property-pattern
   --_pix-font-family-body: 'Roboto', Arial, sans-serif;
 
   // Private property, do not use directly
