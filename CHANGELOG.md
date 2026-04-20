@@ -1,3 +1,9 @@
+# [60.7.0](https://github.com/1024pix/pix-ui/compare/v60.6.0...v60.7.0) (2026-04-20)
+
+### :rocket: Amélioration
+
+- [#1001](https://github.com/1024pix/pix-ui/pull/1001) ajouter les design token de 3 dégradé des couleurs sombre (PIX-21257)
+
 # [60.6.0](https://github.com/1024pix/pix-ui/compare/v60.5.0...v60.6.0) (2026-04-20)
 
 ### :rocket: Amélioration
