@@ -91,6 +91,85 @@
   letter-spacing: calc(-0.01 * var(--font-size-title));
 }
 
+%-pix-subtitle {
+  font-weight: var(--pix-font-medium);
+
+  // stylelint-disable-next-line custom-property-pattern
+  font-family: var(--_pix-font-family-subtitle);
+}
+
+%pix-subtitle-l,
+.pix-subtitle-l {
+  @extend %-pix-subtitle;
+
+  --font-size-subtitle: 1.5rem;
+
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    --font-size-subtitle: 1.625rem;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    --font-size-subtitle: 1.75rem;
+  }
+}
+
+%pix-subtitle-m,
+.pix-subtitle-m {
+  @extend %-pix-subtitle;
+
+  --font-size-subtitle: 1.25rem;
+
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    --font-size-subtitle: 1.375rem;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    --font-size-subtitle: 1.5rem;
+  }
+}
+
+%pix-subtitle-s,
+.pix-subtitle-s {
+  @extend %-pix-subtitle;
+
+  --font-size-subtitle: 1.125rem;
+
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    --font-size-subtitle: 1.125rem;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    --font-size-subtitle: 1.25rem;
+  }
+}
+
+%pix-subtitle-xs,
+.pix-subtitle-xs {
+  @extend %-pix-subtitle;
+
+  --font-size-subtitle: 1rem;
+
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    --font-size-subtitle: 1rem;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    --font-size-subtitle: 1.125rem;
+  }
+}
+
 %-pix-body {
   font-weight: var(--pix-font-normal);
 

@@ -12,6 +12,12 @@
   src: url('../@1024pix/pix-ui/fonts/Nunito/Nunito-Regular.woff2');
 }
 
+@font-face {
+  font-weight: 500;
+  font-family: 'Roboto Condensed';
+  font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/RobotoCondensed/RobotoCondensed-Medium.woff2');
+}
 
 /* @deprecated - use Nunito */
 @font-face {
@@ -65,6 +71,11 @@ $font-bold: 700;
   // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
   // stylelint-disable-next-line custom-property-pattern
   --_pix-font-family-title: 'Nunito', Arial, sans-serif;
+
+  // Private property, do not use directly
+  // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
+  // stylelint-disable-next-line custom-property-pattern
+  --_pix-font-family-subtitle: 'Roboto Condensed', Arial, sans-serif;
 
   // Private property, do not use directly
   // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
