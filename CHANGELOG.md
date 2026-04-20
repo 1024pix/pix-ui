@@ -1,3 +1,9 @@
+# [60.6.0](https://github.com/1024pix/pix-ui/compare/v60.5.0...v60.6.0) (2026-04-20)
+
+### :rocket: Amélioration
+
+- [#1002](https://github.com/1024pix/pix-ui/pull/1002) Ajouter les token subtitles (PIX-21816)
+
 # [60.5.0](https://github.com/1024pix/pix-ui/compare/v60.4.1...v60.5.0) (2026-04-16)
 
 ### :rocket: Amélioration
