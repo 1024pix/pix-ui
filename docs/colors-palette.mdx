@@ -194,18 +194,51 @@ import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
   />
   <ColorItem
     title="Default Light"
-    subtitle="$pix-gradient-default-light"
-    colors={{ DefaultLight: 'linear-gradient(180deg, rgb(var(--pix-primary-500-inline), 0.2) 0%, rgb(var(--pix-primary-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%)' }}
+    subtitle="--pix-gradient-default-light"
+    colors={{
+      DefaultLight:
+        'linear-gradient(180deg, rgb(var(--pix-primary-500-inline), 0.2) 0%, rgb(var(--pix-primary-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%)',
+    }}
+  />
+  <ColorItem
+    title="Default Dark"
+    subtitle="--pix-gradient-default-dark"
+    colors={{
+      DefaultDark:
+        'linear-gradient(90deg, rgb(var(--pix-primary-700-inline), 0.8) 0%, rgb(var(--pix-primary-700-inline), 0) 60% ), rgb(var(--pix-primary-300-inline))',
+    }}
   />
   <ColorItem
     title="Orga Light"
-    subtitle="$pix-gradient-orga-light"
-    colors={{ OrgaLight: 'linear-gradient(180deg, rgb(var(--pix-orga-500-inline), 0.2) 0%, rgb(var(--pix-orga-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%)' }}
+    subtitle="--pix-gradient-orga-light"
+    colors={{
+      OrgaLight:
+        'linear-gradient(180deg, rgb(var(--pix-orga-500-inline), 0.2) 0%, rgb(var(--pix-orga-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%)',
+    }}
+  />
+  <ColorItem
+    title="Orga Dark"
+    subtitle="--pix-gradient-orga-dark"
+    colors={{
+      OrgaDark:
+        'linear-gradient(90deg, rgb(0, 221, 255, 0) 19.71%, rgb(0, 170, 255, 0.8) 100% ), rgb(var(--pix-orga-700-inline))',
+    }}
   />
   <ColorItem
     title="Certif Light"
-    subtitle="$pix-gradient-certif-light"
-    colors={{ CertifLight: 'linear-gradient(180deg, rgb(var(--pix-certif-500-inline), 0.2) 0%, rgb(var(--pix-certif-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%)' }}
+    subtitle="--pix-gradient-certif-light"
+    colors={{
+      CertifLight:
+        'linear-gradient(180deg, rgb(var(--pix-certif-500-inline), 0.2) 0%, rgb(var(--pix-certif-500-inline), 0.1) 40%, rgb(var(--pix-neutral-0-inline), 0) 100%)',
+    }}
+  />
+  <ColorItem
+    title="Certif Dark"
+    subtitle="--pix-gradient-certif-dark"
+    colors={{
+      CertifDark:
+        'linear-gradient(90deg, rgb(var(--pix-certif-700-inline), 0.8) 0%, rgb(var(--pix-certif-700-inline), 0) 60% ), rgb(56, 160, 159);',
+    }}
   />
   <ColorItem
     title="Domain Information"
