@@ -1,3 +1,9 @@
+# [60.8.0](https://github.com/1024pix/pix-ui/compare/v60.7.0...v60.8.0) (2026-04-22)
+
+### :rocket: Amélioration
+
+- [#999](https://github.com/1024pix/pix-ui/pull/999) Ajouter des variantes pour le composant Pix-Modal (PIX-21085)
+
 # [60.7.0](https://github.com/1024pix/pix-ui/compare/v60.6.0...v60.7.0) (2026-04-20)
 
 ### :rocket: Amélioration
