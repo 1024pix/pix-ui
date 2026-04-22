@@ -1,5 +1,7 @@
 import { hbs } from 'ember-cli-htmlbars';
 
+import { MODAL_VARIANTS } from '../../addon/helpers/variants';
+
 export default {
   title: 'Overlay/Modal',
   render: (args) => ({
@@ -7,6 +9,7 @@ export default {
   @showModal={{this.showModal}}
   @title={{this.title}}
   @onCloseButtonClick={{fn (mut this.showModal) (not this.showModal)}}
+  @variant={{this.variant}}
 >
   <:content>
     <p>
@@ -61,6 +64,16 @@ export default {
         defaultValue: { summary: false },
       },
     },
+    variant: {
+      name: 'variant',
+      description: "Variante du style de la modale selon l'app.",
+      options: MODAL_VARIANTS,
+      control: { type: 'select' },
+      table: {
+        defaultValue: { summary: 'default' },
+      },
+      type: { name: MODAL_VARIANTS.join(' | '), required: false },
+    },
   },
 };
 
@@ -69,5 +82,6 @@ export const Default = {
     showModal: true,
     title: "Qu'est-ce qu'une modale ?",
     onCloseButtonClick: () => {},
+    variant: 'default',
   },
 };

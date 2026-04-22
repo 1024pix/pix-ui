@@ -1,3 +1,4 @@
+import { MODAL_VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
@@ -17,6 +18,18 @@ export default class PixModal extends Component {
     return guidFor(this);
   }
 
+  get variant() {
+    if (this.args.variant && !MODAL_VARIANTS.includes(this.args.variant)) {
+      throw new Error(
+        `ERROR in PixModal component: @variant should be one of ${MODAL_VARIANTS.join(', ')}`,
+      );
+    }
+
+    const value = this.args.variant ?? 'default';
+
+    return value;
+  }
+
   <template>
     <PixOverlay
       @isVisible={{@showModal}}
@@ -25,14 +38,14 @@ export default class PixModal extends Component {
       @hasCenteredContent={{true}}
     >
       <div
-        class="pix-modal"
+        class="pix-modal pix-modal--{{this.variant}}"
         role="dialog"
         aria-labelledby="modal-title--{{this.id}}"
         aria-describedby="modal-content--{{this.id}}"
         aria-modal="true"
         ...attributes
       >
-        <div class="pix-modal__header">
+        <div class="pix-modal__header pix-modal__header--{{this.variant}}">
           <h1 id="modal-title--{{this.id}}" class="pix-modal__title">{{@title}}</h1>
           <PixIconButton
             @iconName="close"
