@@ -1,3 +1,9 @@
+# [60.9.0](https://github.com/1024pix/pix-ui/compare/v60.8.0...v60.9.0) (2026-04-23)
+
+### :rocket: Amélioration
+
+- [#1004](https://github.com/1024pix/pix-ui/pull/1004) Modification de la graisse des token font title (PIX-21877)
+
 # [60.8.0](https://github.com/1024pix/pix-ui/compare/v60.7.0...v60.8.0) (2026-04-22)
 
 ### :rocket: Amélioration
