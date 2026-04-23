@@ -6,6 +6,13 @@
 }
 
 @font-face {
+  font-weight: 800;
+  font-family: 'Nunito';
+  font-style: normal;
+  src: url('../@1024pix/pix-ui/fonts/Nunito/Nunito-ExtraBold.woff2');
+}
+
+@font-face {
   font-weight: 400;
   font-family: 'Nunito';
   font-style: normal;
@@ -66,6 +73,7 @@ $font-bold: 700;
   --pix-font-normal: 400;
   --pix-font-medium: 500;
   --pix-font-bold: 700;
+  --pix-font-extrabold: 800;
 
   // Private property, do not use directly
   // See https://ui.pix.fr/?path=/docs/utiliser-pix-ui-design-tokens-typographie--docs
