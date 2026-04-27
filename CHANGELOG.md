@@ -1,3 +1,9 @@
+# [60.10.0](https://github.com/1024pix/pix-ui/compare/v60.9.0...v60.10.0) (2026-04-27)
+
+### :rocket: Amélioration
+
+- [#1003](https://github.com/1024pix/pix-ui/pull/1003) Ajouter un composant pix-card (PIX-22463)
+
 # [60.9.0](https://github.com/1024pix/pix-ui/compare/v60.8.0...v60.9.0) (2026-04-23)
 
 ### :rocket: Amélioration
