@@ -28,8 +28,8 @@ export default class PixFilterBanner extends Component {
 
   @action
   onSubmit(event) {
+    event.preventDefault();
     if (this.args.onLoadFilters) {
-      event.preventDefault();
       this.args.onLoadFilters(event);
     }
   }
