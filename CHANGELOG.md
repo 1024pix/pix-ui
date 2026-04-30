@@ -1,3 +1,9 @@
+## [60.10.1](https://github.com/1024pix/pix-ui/compare/v60.10.0...v60.10.1) (2026-04-30)
+
+### :bug: Correction
+
+- [#1005](https://github.com/1024pix/pix-ui/pull/1005) Éviter de recharger la page lors de l'appuie sur la touche Entée (PIX-18166).
+
 # [60.10.0](https://github.com/1024pix/pix-ui/compare/v60.9.0...v60.10.0) (2026-04-27)
 
 ### :rocket: Amélioration
