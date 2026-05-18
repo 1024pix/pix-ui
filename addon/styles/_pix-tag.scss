@@ -42,7 +42,6 @@
     }
   }
 
-  &--purple-light,
   &--tertiary,
   &--blue {
     color: var(--pix-tertiary-900);
@@ -76,6 +75,15 @@
   &--purple {
     color: var(--pix-neutral-0);
     background-color: var(--pix-primary-500);
+
+    .pix-icon-button {
+      color: var(--pix-primary-900);
+    }
+  }
+
+  &--purple-light {
+    color: var(--pix-primary-900);
+    background-color: var(--pix-primary-100);
 
     .pix-icon-button {
       color: var(--pix-primary-900);
