@@ -15,6 +15,7 @@ export default {
         'grey',
         'yellow',
         'purple',
+        'purple-light',
         'blue',
         'green',
         'error',
