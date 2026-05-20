@@ -1,3 +1,13 @@
+# [60.11.0](https://github.com/1024pix/pix-ui/compare/v60.10.1...v60.11.0) (2026-05-20)
+
+### :rocket: Amélioration
+
+- [#1007](https://github.com/1024pix/pix-ui/pull/1007) Ajouter des tokens spacing (PIX-22833) 
+
+### :coffee: Autre
+
+- [#1006](https://github.com/1024pix/pix-ui/pull/1006)
+
 ## [60.10.1](https://github.com/1024pix/pix-ui/compare/v60.10.0...v60.10.1) (2026-04-30)
 
 ### :bug: Correction
