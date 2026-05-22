@@ -1,4 +1,4 @@
-import { render } from '@1024pix/ember-testing-library';
+import { render, within } from '@1024pix/ember-testing-library';
 import PixModal from '@1024pix/pix-ui/components/pix-modal';
 import { click, triggerKeyEvent } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
@@ -137,7 +137,7 @@ module('Integration | Component | modal', function (hooks) {
 
         // then
         const modal = screen.getByRole('dialog', { name: 'Modal with no variant' });
-        const header = screen.getByRole('heading', { name: 'Modal with no variant' }).parentNode;
+        const header = this.element.querySelector('.pix-modal__header');
 
         assert.dom(modal).hasClass('pix-modal--default');
         assert.dom(header).hasClass('pix-modal__header--default');
@@ -166,9 +166,7 @@ module('Integration | Component | modal', function (hooks) {
 
         // then
         const modal = screen.getByRole('dialog', { name: 'Modal with "default" variant' });
-        const header = screen.getByRole('heading', {
-          name: 'Modal with "default" variant',
-        }).parentNode;
+        const header = this.element.querySelector('.pix-modal__header');
 
         assert.dom(modal).hasClass('pix-modal--default');
         assert.dom(header).hasClass('pix-modal__header--default');
@@ -197,9 +195,7 @@ module('Integration | Component | modal', function (hooks) {
 
         // then
         const modal = screen.getByRole('dialog', { name: 'Modal with "orga" variant' });
-        const header = screen.getByRole('heading', {
-          name: 'Modal with "orga" variant',
-        }).parentNode;
+        const header = this.element.querySelector('.pix-modal__header');
 
         assert.dom(modal).hasClass('pix-modal--orga');
         assert.dom(header).hasClass('pix-modal__header--orga');
@@ -228,13 +224,109 @@ module('Integration | Component | modal', function (hooks) {
 
         // then
         const modal = screen.getByRole('dialog', { name: 'Modal with "certif" variant' });
-        const header = screen.getByRole('heading', {
-          name: 'Modal with "certif" variant',
-        }).parentNode;
+        const header = this.element.querySelector('.pix-modal__header');
 
         assert.dom(modal).hasClass('pix-modal--certif');
         assert.dom(header).hasClass('pix-modal__header--certif');
       });
+    });
+  });
+
+  module('when @iconName is provided', function () {
+    test('it should render icon in header', async function (assert) {
+      // when
+      await render(
+        <template>
+          <PixModal @title="Titre" @showModal={{true}} @iconName="lightBulb">
+            <:content>
+              content
+            </:content>
+            <:footer>
+              footer
+            </:footer>
+          </PixModal>
+        </template>,
+      );
+
+      // then
+      const headerTitleSection = this.element.querySelector('.pix-modal__header__title-section');
+
+      const icon = within(headerTitleSection).getByRole('img', { hidden: true });
+
+      assert.true(icon.innerHTML.includes('lightBulb'));
+    });
+  });
+
+  module('when @iconName is not provided', function () {
+    test('it should not render icon', async function (assert) {
+      // when
+      await render(
+        <template>
+          <PixModal @title="Titre" @showModal={{true}}>
+            <:content>
+              content
+            </:content>
+            <:footer>
+              footer
+            </:footer>
+          </PixModal>
+        </template>,
+      );
+
+      // then
+      const headerTitleSection = this.element.querySelector('.pix-modal__header__title-section');
+
+      const icon = within(headerTitleSection).queryByRole('img', { hidden: true });
+
+      assert.dom(icon).doesNotExist();
+    });
+  });
+
+  module('when @subtitle is provided', function () {
+    test('it should render subtitle in header', async function (assert) {
+      // when
+      await render(
+        <template>
+          <PixModal @title="Titre" @showModal={{true}} @subtitle="Sous titre">
+            <:content>
+              content
+            </:content>
+            <:footer>
+              footer
+            </:footer>
+          </PixModal>
+        </template>,
+      );
+
+      // then
+      const headerTitleSection = this.element.querySelector('.pix-modal__header__title-section');
+
+      const subtitle = within(headerTitleSection).getByText('Sous titre');
+
+      assert.dom(subtitle).exists();
+    });
+  });
+
+  module('when @subtitle is not provided', function () {
+    test('it should not render subtitle', async function (assert) {
+      // when
+      await render(
+        <template>
+          <PixModal @title="Titre" @showModal={{true}}>
+            <:content>
+              content
+            </:content>
+            <:footer>
+              footer
+            </:footer>
+          </PixModal>
+        </template>,
+      );
+
+      // then
+      const subtitleElement = this.element.querySelector('.pix-modal__subtitle');
+
+      assert.dom(subtitleElement).doesNotExist();
     });
   });
 });

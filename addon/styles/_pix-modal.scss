@@ -43,6 +43,37 @@
     &--certif {
       background: var(--pix-gradient-certif-light);
     }
+
+    &__title-section {
+      display: flex;
+      align-items: center;
+      gap: var(--pix-spacing-4x);
+    }
+  }
+
+  &__icon-container {
+    display: none;
+
+    @include breakpoints.device-is('tablet') {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      border-radius: var(--radius-full, 100px);
+      padding: var(--pix-spacing-3x);
+      color: var(--pix-neutral-800);
+    }
+
+    &--default {
+      background-color: rgba(206, 195, 244, 0.7);
+    }
+
+    &--orga {
+      background-color: rgba(54, 116, 191, 0.25);
+    }
+
+    &--certif {
+      background-color: rgba(24, 127, 125, 0.25);
+    }
   }
 
   &__close-button {
@@ -65,6 +96,10 @@
     @include breakpoints.device-is('tablet') {
       padding-right: var(--pix-spacing-10x) + var(--pix-spacing-2x);
     }
+  }
+
+  &__subtitle {
+    @extend %pix-body-s;
   }
 
   &__content {

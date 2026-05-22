@@ -4,6 +4,7 @@ import Component from '@glimmer/component';
 
 import PixIconButton from './pix-icon-button';
 import PixOverlay from './pix-overlay';
+import PixIcon from './pix-icon';
 
 export default class PixModal extends Component {
   constructor(...args) {
@@ -46,7 +47,20 @@ export default class PixModal extends Component {
         ...attributes
       >
         <div class="pix-modal__header pix-modal__header--{{this.variant}}">
-          <h1 id="modal-title--{{this.id}}" class="pix-modal__title">{{@title}}</h1>
+          <div class="pix-modal__header__title-section">
+            {{#if @iconName}}
+              <div class="pix-modal__icon-container pix-modal__icon-container--{{this.variant}}">
+                <PixIcon @name={{@iconName}} @plainIcon={{@plainIcon}} @ariaHidden={{true}} />
+              </div>
+            {{/if}}
+            <div>
+              <h1 id="modal-title--{{this.id}}" class="pix-modal__title">{{@title}}</h1>
+              {{#if @subtitle}}
+                <p title={{@subtitle}} class="pix-modal__subtitle">{{@subtitle}}</p>
+              {{/if}}
+            </div>
+          </div>
+
           <PixIconButton
             @iconName="close"
             @triggerAction={{@onCloseButtonClick}}
