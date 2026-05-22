@@ -1,6 +1,6 @@
-@use "pix-design-tokens/breakpoints";
-@use "pix-design-tokens/typography";
-@use "pix-design-tokens/shadows";
+@use 'pix-design-tokens/breakpoints';
+@use 'pix-design-tokens/typography';
+@use 'pix-design-tokens/shadows';
 
 .pix-modal {
   position: relative;
@@ -72,7 +72,7 @@
 
     padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
-    background-color:var(--pix-neutral-0);
+    background-color: var(--pix-neutral-0);
 
     p:last-child {
       margin-bottom: 0;
@@ -80,9 +80,18 @@
   }
 
   &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pix-spacing-2x);
     padding: var(--pix-spacing-6x) var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x);
-    background-color:var(--pix-neutral-0);
+    background-color: var(--pix-neutral-0);
     border-bottom-right-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
     border-bottom-left-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
+
+    @include breakpoints.device-is('tablet') {
+      flex-flow: row wrap;
+      gap: var(--pix-spacing-4x);
+      justify-content: flex-end;
+    }
   }
 }
