@@ -2,10 +2,14 @@
   @showModal={{this.showModal}}
   @title={{this.title}}
   @onCloseButtonClick={{fn (mut this.showModal) (not this.showModal)}}
-  @variant="orga"
+  @iconName="hearing"
+  @subtitle="Voici le sous-titre de cette modale."
 >
   <:content>
     <LinkTo @route="hello" class="internal-link">My link</LinkTo>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe velit animi, non voluptate
+      assumenda ratione voluptas est consequatur qui voluptatibus tempore explicabo, harum deserunt
+      corporis molestiae, distinctio adipisci facere itaque.</p>
   </:content>
   <:footer>
     <PixButton
