@@ -4,7 +4,6 @@ import { VARIANTS } from '../../addon/helpers/variants.js';
 
 export default {
   title: 'Data display/Table',
-  tags: ['new'],
   // select attribute data type from https://storybook.js.org/docs/react/essentials/controls
   argTypes: {
     data: {
