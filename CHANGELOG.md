@@ -1,3 +1,9 @@
+# [60.12.0](https://github.com/1024pix/pix-ui/compare/v60.11.0...v60.12.0) (2026-05-28)
+
+### :rocket: Amélioration
+
+- [#1008](https://github.com/1024pix/pix-ui/pull/1008) Ajouter une icône et un sous-titre au composant PixModal (PIX-21141)
+
 # [60.11.0](https://github.com/1024pix/pix-ui/compare/v60.10.1...v60.11.0) (2026-05-20)
 
 ### :rocket: Amélioration
