@@ -1,6 +1,6 @@
-@use "pix-design-tokens/breakpoints";
-@use "pix-design-tokens/typography";
-@use "pix-design-tokens/shadows";
+@use 'pix-design-tokens/breakpoints';
+@use 'pix-design-tokens/typography';
+@use 'pix-design-tokens/shadows';
 
 .pix-modal {
   position: relative;
@@ -23,56 +23,12 @@
     @extend %pix-shadow-certif;
   }
 
-  &__header {
-    display: flex;
-    align-items: flex-start;
-    justify-content: space-between;
-    padding: var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x) var(--pix-spacing-6x);
-    color: var(--pix-neutral-900);
-    border-top-left-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
-    border-top-right-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
-
-    &--default {
-      background: var(--pix-gradient-default-light);
-    }
-
-    &--orga {
-      background: var(--pix-gradient-orga-light);
-    }
-
-    &--certif {
-      background: var(--pix-gradient-certif-light);
-    }
-  }
-
-  &__close-button {
-    flex-shrink: 0;
-    margin-top: -4px;
-
-    @include breakpoints.device-is('tablet') {
-      width: var(--pix-spacing-10x);
-      height: var(--pix-spacing-10x);
-    }
-  }
-
-  &__title {
-    @extend %pix-title-xs;
-
-    margin-bottom: 0;
-    padding-right: var(--pix-spacing-8x) + var(--pix-spacing-2x);
-    color: var(--pix-neutral-900);
-
-    @include breakpoints.device-is('tablet') {
-      padding-right: var(--pix-spacing-10x) + var(--pix-spacing-2x);
-    }
-  }
-
   &__content {
     @extend %pix-body-s;
 
     padding: var(--pix-spacing-4x) var(--pix-spacing-6x);
     color: var(--pix-neutral-900);
-    background-color:var(--pix-neutral-0);
+    background-color: var(--pix-neutral-0);
 
     p:last-child {
       margin-bottom: 0;
@@ -80,9 +36,18 @@
   }
 
   &__footer {
+    display: flex;
+    flex-direction: column;
+    gap: var(--pix-spacing-2x);
     padding: var(--pix-spacing-6x) var(--pix-spacing-6x) var(--pix-spacing-4x) var(--pix-spacing-6x);
-    background-color:var(--pix-neutral-0);
+    background-color: var(--pix-neutral-0);
     border-bottom-right-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
     border-bottom-left-radius: var(--pix-spacing-4x) var(--pix-spacing-4x);
+
+    @include breakpoints.device-is('tablet') {
+      flex-flow: row wrap;
+      gap: var(--pix-spacing-4x);
+      justify-content: flex-end;
+    }
   }
 }

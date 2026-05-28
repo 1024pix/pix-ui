@@ -2,7 +2,7 @@ import { MODAL_VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import PixIconButton from './pix-icon-button';
+import PixModalHeader from './pix-modal-header';
 import PixOverlay from './pix-overlay';
 
 export default class PixModal extends Component {
@@ -45,17 +45,16 @@ export default class PixModal extends Component {
         aria-modal="true"
         ...attributes
       >
-        <div class="pix-modal__header pix-modal__header--{{this.variant}}">
-          <h1 id="modal-title--{{this.id}}" class="pix-modal__title">{{@title}}</h1>
-          <PixIconButton
-            @iconName="close"
-            @triggerAction={{@onCloseButtonClick}}
-            @ariaLabel="Fermer"
-            @size="small"
-            @withBackground={{true}}
-            class="pix-modal__close-button"
-          />
-        </div>
+        <PixModalHeader
+          @id="modal-title--{{this.id}}"
+          @title={{@title}}
+          @subtitle={{@subtitle}}
+          @variant={{this.variant}}
+          @iconName={{@iconName}}
+          @plainIcon={{@plainIcon}}
+          @onCloseButtonClick={{@onCloseButtonClick}}
+        />
+
         <div id="modal-content--{{this.id}}" class="pix-modal__content">
           {{yield to="content"}}
         </div>
