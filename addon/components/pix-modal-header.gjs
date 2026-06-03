@@ -8,7 +8,7 @@ export default class PixModalHeader extends Component {
   get variant() {
     if (this.args.variant && !MODAL_VARIANTS.includes(this.args.variant)) {
       throw new Error(
-        `ERROR in PixModal component: @variant should be one of ${MODAL_VARIANTS.join(', ')}`,
+        `ERROR in PixModalHeader component: @variant should be one of ${MODAL_VARIANTS.join(', ')}`,
       );
     }
 
@@ -18,7 +18,7 @@ export default class PixModalHeader extends Component {
   }
 
   <template>
-    <div class="pix-modal-header pix-modal-header--{{this.variant}}">
+    <div class="pix-modal-header pix-modal-header--{{this.variant}}" ...attributes>
       <section class="pix-modal-header__title-section">
         {{#if @iconName}}
           <div
