@@ -5,13 +5,13 @@ import { module, test } from 'qunit';
 
 import { waitForDialog } from '../helpers/wait-for';
 
-module('Acceptance | PixSidebarPageTest', function (hooks) {
+module('Acceptance | PixSidePanelPageTest', function (hooks) {
   setupApplicationTest(hooks);
 
   test('Should redirect to link', async function (assert) {
     // given
-    const screen = await visit('/sidebar');
-    await click(screen.getByRole('button', { name: 'Ouvrir la sidebar' }));
+    const screen = await visit('/sidepanel');
+    await click(screen.getByRole('button', { name: 'Ouvrir le sidepanel' }));
     await waitForDialog();
 
     // when

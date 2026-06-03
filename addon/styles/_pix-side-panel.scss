@@ -2,11 +2,11 @@
 @use 'pix-design-tokens/typography';
 @use 'pix-design-tokens/shadows';
 
-.pix-sidebar__overlay {
+.pix-side-panel__overlay {
   overflow-x: hidden;
 }
 
-.pix-sidebar {
+.pix-side-panel {
   @extend %pix-shadow-default;
 
   display: flex;

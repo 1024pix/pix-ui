@@ -5,25 +5,25 @@ import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
 
-module('Integration | Component | Sidebar', function (hooks) {
+module('Integration | Component | SidePanel', function (hooks) {
   setupRenderingTest(hooks);
 
-  module('when showSidebar is equal true', function () {
-    test('it renders the default PixSidebar', async function (assert) {
+  module('when showSidePanel is equal true', function () {
+    test('it renders the default PixSidePanel', async function (assert) {
       // given
-      this.title = "It's a sidebar!";
-      this.showSidebar = true;
+      this.title = "It's a sidepanel!";
+      this.showSidePanel = true;
 
       // when
       const screen =
-        await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
+        await render(hbs`<PixSidePanel @title={{this.title}} @showSidePanel={{this.showSidePanel}}>
   <:content>
     content
   </:content>
   <:footer>
     footer
   </:footer>
-</PixSidebar>`);
+</PixSidePanel>`);
 
       // then
       assert.ok(screen.getByRole('dialog'));
@@ -36,16 +36,16 @@ module('Integration | Component | Sidebar', function (hooks) {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
         this.title = 'Close me baby one more time';
-        this.showSidebar = true;
+        this.showSidePanel = true;
         this.onClose = sinon.stub();
 
         // when
         const screen =
-          await render(hbs`<PixSidebar @title={{this.title}} @onClose={{this.onClose}} @showSidebar={{this.showSidebar}}>
+          await render(hbs`<PixSidePanel @title={{this.title}} @onClose={{this.onClose}} @showSidePanel={{this.showSidePanel}}>
   <:content>
     content
   </:content>
-</PixSidebar>`);
+</PixSidePanel>`);
         await click(screen.getByRole('button', { name: /Fermer/ }));
 
         // then
@@ -57,16 +57,16 @@ module('Integration | Component | Sidebar', function (hooks) {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
         this.title = 'Close me baby one more time';
-        this.showSidebar = true;
+        this.showSidePanel = true;
         this.onClose = sinon.stub();
 
         // when
-        await render(hbs`<PixSidebar @title={{this.title}} @onClose={{this.onClose}} @showSidebar={{this.showSidebar}}>
+        await render(hbs`<PixSidePanel @title={{this.title}} @onClose={{this.onClose}} @showSidePanel={{this.showSidePanel}}>
   <:content>
     content
   </:content>
-</PixSidebar>`);
-        await triggerKeyEvent('.pix-sidebar', 'keyup', 'Escape');
+</PixSidePanel>`);
+        await triggerKeyEvent('.pix-side-panel', 'keyup', 'Escape');
 
         // then
         assert.ok(this.onClose.calledOnce);
@@ -74,22 +74,22 @@ module('Integration | Component | Sidebar', function (hooks) {
     });
   });
 
-  module('when showSidebar is false', function () {
-    test('it should not show sidebar', async function (assert) {
+  module('when showSidePanel is false', function () {
+    test('it should not show sidepanel', async function (assert) {
       // given
-      this.title = "It's a sidebar!";
-      this.showSidebar = false;
+      this.title = "It's a sidepanel!";
+      this.showSidePanel = false;
 
       // when
       const screen =
-        await render(hbs`<PixSidebar @title={{this.title}} @showSidebar={{this.showSidebar}}>
+        await render(hbs`<PixSidePanel @title={{this.title}} @showSidePanel={{this.showSidePanel}}>
   <:content>
     content
   </:content>
   <:footer>
     footer
   </:footer>
-</PixSidebar>`);
+</PixSidePanel>`);
 
       // then
       assert.notOk(screen.queryByRole('dialog'));

@@ -1,7 +1,7 @@
-<PixSidebar
-  @showSidebar={{this.showSidebar}}
+<PixSidePanel
+  @showSidePanel={{this.showSidePanel}}
   @title={{this.title}}
-  @onClose={{fn (mut this.showSidebar) (not this.showSidebar)}}
+  @onClose={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
   @subtitle="Barre latérale"
   @iconName="users"
 >
@@ -14,14 +14,15 @@
     <PixButton
       @variant="secondary"
       @isBorderVisible="true"
-      @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
+      @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
     >
       Annuler
     </PixButton>
     <PixButton
-      @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}
+      @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
     >Valider</PixButton>
   </:footer>
-</PixSidebar>
+</PixSidePanel>
 
-<PixButton @triggerAction={{fn (mut this.showSidebar) (not this.showSidebar)}}>Ouvrir la sidebar</PixButton>
+<PixButton @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}>Ouvrir le
+  sidepanel</PixButton>
