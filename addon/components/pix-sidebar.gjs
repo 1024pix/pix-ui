@@ -1,8 +1,10 @@
+import { MODAL_VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import PixIconButton from './pix-icon-button';
+import PixModalHeader from './pix-modal-header';
 import PixOverlay from './pix-overlay';
+
 export default class PixSidebar extends Component {
   constructor(...args) {
     super(...args);
@@ -12,35 +14,46 @@ export default class PixSidebar extends Component {
     }
   }
 
+  get variant() {
+    if (this.args.variant && !MODAL_VARIANTS.includes(this.args.variant)) {
+      throw new Error(
+        `ERROR in PixSidebar component: @variant should be one of ${MODAL_VARIANTS.join(', ')}`,
+      );
+    }
+
+    const value = this.args.variant ?? 'default';
+
+    return value;
+  }
+
   get id() {
     return guidFor(this);
   }
 
   <template>
-    <PixOverlay @isVisible={{@showSidebar}} @onClose={{@onClose}} @focusOnClose={{@focusOnClose}}>
+    <PixOverlay class="pix-sidebar__overlay" @isVisible={{@showSidebar}} @onClose={{@onClose}} @focusOnClose={{@focusOnClose}}>
       <div
-        class="pix-sidebar {{unless @showSidebar ' pix-sidebar--hidden'}}"
+        class="pix-sidebar pix-sidebar--{{this.variant}}
+          {{unless @showSidebar ' pix-sidebar--hidden'}}"
         role="dialog"
         aria-labelledby="sidebar-title--{{this.id}}"
         aria-describedby="sidebar-content--{{this.id}}"
         aria-modal="true"
         ...attributes
       >
-        <div class="pix-sidebar__header">
-          <h1 id="sidebar-title--{{this.id}}" class="pix-sidebar__title">{{@title}}</h1>
-          <PixIconButton
-            @iconName="close"
-            @triggerAction={{@onClose}}
-            @ariaLabel="Fermer"
-            @size="small"
-            @withBackground={{true}}
-            class="pix-sidebar__close-button"
-          />
-        </div>
+        <PixModalHeader
+          class="pix-sidebar__header"
+          @id="sidebar-title--{{this.id}}"
+          @title={{@title}}
+          @subtitle={{@subtitle}}
+          @iconName={{@iconName}}
+          @variant={{this.variant}}
+        />
+
         <div id="sidebar-content--{{this.id}}" class="pix-sidebar__content">
           {{yield to="content"}}
         </div>
-        <div class="pix-sidebar__footer">
+        <div class="pix-sidebar__footer pix-sidebar__footer--{{this.variant}}">
           {{yield to="footer"}}
         </div>
       </div>

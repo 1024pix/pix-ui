@@ -2,9 +2,13 @@
   @showSidebar={{this.showSidebar}}
   @title={{this.title}}
   @onClose={{fn (mut this.showSidebar) (not this.showSidebar)}}
+  @subtitle="Barre latérale"
+  @iconName="users"
 >
   <:content>
     <LinkTo @route="hello" class="internal-link">My link</LinkTo>
+    <p>Lorem ipsum dolor sit amet consectetur adipiscing elit. Quisque faucibus ex sapien vitae
+      pellentesque sem placerat..</p>
   </:content>
   <:footer>
     <PixButton
