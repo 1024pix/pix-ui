@@ -28,11 +28,15 @@ export default class PixAccordions extends Component {
     this.hasUnCollapsedOnce = true;
   }
 
+  get isV2Version() {
+    return this.args.isV2Version ? '-v2' : '';
+  }
+
   <template>
-    <div class="pix-accordions">
+    <div class="pix-accordions{{this.isV2Version}}">
 
       <button
-        class="pix-accordions__title"
+        class="pix-accordions{{this.isV2Version}}__title"
         type="button"
         {{on "click" this.toggleAccordions}}
         aria-controls={{this.contentId}}
@@ -40,10 +44,10 @@ export default class PixAccordions extends Component {
         ...attributes
       >
 
-        <span class="pix-accordions-title__container">
+        <span class="pix-accordions{{this.isV2Version}}-title__container">
           {{#if @iconName}}
             <PixIcon
-              class="pix-accordions-title__icon"
+              class="pix-accordions{{this.isV2Version}}-title__icon"
               @name={{@iconName}}
               @plainIcon={{@plainIcon}}
               @ariaHidden={{true}}
@@ -53,14 +57,14 @@ export default class PixAccordions extends Component {
           {{yield to="title"}}
         </span>
 
-        <span class="pix-accordions-title__container">
+        <span class="pix-accordions{{this.isV2Version}}-title__container">
           {{#if @tagContent}}
             <PixTag @color={{@tagColor}}>
               {{@tagContent}}
             </PixTag>
           {{/if}}
           <PixIcon
-            class="pix-accordions-title-container__toggle-icon"
+            class="pix-accordions{{this.isV2Version}}-title-container__toggle-icon"
             @ariaHidden={{true}}
             @name="{{if this.isCollapsed 'chevronBottom' 'chevronTop'}}"
           />
@@ -69,7 +73,7 @@ export default class PixAccordions extends Component {
 
       <div
         id={{this.contentId}}
-        class="pix-accordions__content"
+        class="pix-accordions{{this.isV2Version}}__content"
         aria-hidden={{if this.isCollapsed "true" "false"}}
       >
         {{#if this.isContentRendered}}

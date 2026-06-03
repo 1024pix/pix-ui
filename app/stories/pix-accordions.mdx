@@ -5,6 +5,8 @@ import * as ComponentStories from './pix-accordions.stories';
 
 # PixAccordions
 
+> **⚠️** **NEW : Veuillez utiliser le paramètre isV2Version=true pour ce composant. Il permet d'avoir le nouveau style du composant comme prévue dans le design system.**
+
 Un `PixAccordions` est un élément comprenant un libellé et un contenu.
 Par défaut le contenu est masqué et cliquer sur le libellé permet de montrer le contenu du `PixAccordions`.
 
@@ -30,7 +32,7 @@ Les paramètres `tagContent` et `tagColor` permettent d'afficher un `Pix Tag` pr
 ## Usage
 
 ```html
-<PixAccordions @iconName="users">`
+<PixAccordions @iconName="users" @isV2Version={{true}}>`
   <:title>Titre du contenu à dérouler en cliquant</:title>
   <:content>
     <div>Contenu du PixAccordions</div>
