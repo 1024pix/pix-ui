@@ -1,4 +1,5 @@
 import { render } from '@1024pix/ember-testing-library';
+import PixSidePanel from '@1024pix/pix-ui/components/pix-side-panel';
 import { click, triggerKeyEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
@@ -35,41 +36,49 @@ module('Integration | Component | SidePanel', function (hooks) {
     module('when close button is clicked', function () {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
-        this.title = 'Close me baby one more time';
-        this.showSidePanel = true;
-        this.onClose = sinon.stub();
+        const title = 'Close me baby one more time';
+        const showSidePanel = true;
+        const onClose = sinon.stub();
 
         // when
-        const screen =
-          await render(hbs`<PixSidePanel @title={{this.title}} @onClose={{this.onClose}} @showSidePanel={{this.showSidePanel}}>
-  <:content>
-    content
-  </:content>
-</PixSidePanel>`);
+        const screen = await render(
+          <template>
+            <PixSidePanel @title={{title}} @onClose={{onClose}} @showSidePanel={{showSidePanel}}>
+              <:content>
+                content
+              </:content>
+            </PixSidePanel>
+          </template>,
+        );
+
         await click(screen.getByRole('button', { name: /Fermer/ }));
 
         // then
-        assert.ok(this.onClose.calledOnce);
+        assert.ok(onClose.calledOnce);
       });
     });
 
     module('when escape button is clicked', function () {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
-        this.title = 'Close me baby one more time';
-        this.showSidePanel = true;
-        this.onClose = sinon.stub();
+        const title = 'Close me baby one more time';
+        const showSidePanel = true;
+        const onClose = sinon.stub();
 
         // when
-        await render(hbs`<PixSidePanel @title={{this.title}} @onClose={{this.onClose}} @showSidePanel={{this.showSidePanel}}>
-  <:content>
-    content
-  </:content>
-</PixSidePanel>`);
+        await render(
+          <template>
+            <PixSidePanel @title={{title}} @onClose={{onClose}} @showSidePanel={{showSidePanel}}>
+              <:content>
+                content
+              </:content>
+            </PixSidePanel>
+          </template>,
+        );
         await triggerKeyEvent('.pix-side-panel', 'keyup', 'Escape');
 
         // then
-        assert.ok(this.onClose.calledOnce);
+        assert.ok(onClose.calledOnce);
       });
     });
   });
@@ -77,23 +86,26 @@ module('Integration | Component | SidePanel', function (hooks) {
   module('when showSidePanel is false', function () {
     test('it should not show sidepanel', async function (assert) {
       // given
-      this.title = "It's a sidepanel!";
-      this.showSidePanel = false;
+      const title = "It's a sidepanel!";
+      const showSidePanel = false;
 
       // when
-      const screen =
-        await render(hbs`<PixSidePanel @title={{this.title}} @showSidePanel={{this.showSidePanel}}>
-  <:content>
-    content
-  </:content>
-  <:footer>
-    footer
-  </:footer>
-</PixSidePanel>`);
+      const screen = await render(
+        <template>
+          <PixSidePanel @title={{title}} @showSidePanel={{showSidePanel}}>
+            <:content>
+              content
+            </:content>
+            <:footer>
+              footer
+            </:footer>
+          </PixSidePanel>
+        </template>,
+      );
 
       // then
       assert.notOk(screen.queryByRole('dialog'));
-      assert.notOk(screen.queryByRole('heading', { name: this.title }));
+      assert.notOk(screen.queryByRole('heading', { name: title }));
     });
   });
 });
