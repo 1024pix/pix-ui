@@ -108,4 +108,122 @@ module('Integration | Component | SidePanel', function (hooks) {
       assert.notOk(screen.queryByRole('heading', { name: title }));
     });
   });
+
+  module('variants', function () {
+    module('when variant is not provided', function () {
+      test('it should apply default style for global and footer', async function (assert) {
+        // given
+        const title = 'SidePanel with no variant';
+        const showSidePanel = true;
+
+        // when
+        const screen = await render(
+          <template>
+            <PixSidePanel @title={{title}} @showSidePanel={{showSidePanel}}>
+              <:content>
+                content
+              </:content>
+              <:footer>
+                footer
+              </:footer>
+            </PixSidePanel>
+          </template>,
+        );
+
+        // then
+        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with no variant' });
+        const footer = this.element.querySelector('.pix-side-panel__footer');
+
+        assert.dom(sidePanel).hasClass('pix-side-panel--default');
+        assert.dom(footer).hasClass('pix-side-panel__footer--default');
+      });
+    });
+
+    module('when variant is "default"', function () {
+      test('it should apply default style for global and footer', async function (assert) {
+        // given
+        const title = 'SidePanel with default variant';
+        const showSidePanel = true;
+
+        // when
+        const screen = await render(
+          <template>
+            <PixSidePanel @title={{title}} @showSidePanel={{showSidePanel}} @variant="default">
+              <:content>
+                content
+              </:content>
+              <:footer>
+                footer
+              </:footer>
+            </PixSidePanel>
+          </template>,
+        );
+
+        // then
+        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with default variant' });
+        const footer = this.element.querySelector('.pix-side-panel__footer');
+
+        assert.dom(sidePanel).hasClass('pix-side-panel--default');
+        assert.dom(footer).hasClass('pix-side-panel__footer--default');
+      });
+    });
+
+    module('when variant is "orga"', function () {
+      test('it should apply orga style for global and footer', async function (assert) {
+        // given
+        const title = 'SidePanel with orga variant';
+        const showSidePanel = true;
+
+        // when
+        const screen = await render(
+          <template>
+            <PixSidePanel @title={{title}} @showSidePanel={{showSidePanel}} @variant="orga">
+              <:content>
+                content
+              </:content>
+              <:footer>
+                footer
+              </:footer>
+            </PixSidePanel>
+          </template>,
+        );
+
+        // then
+        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with orga variant' });
+        const footer = this.element.querySelector('.pix-side-panel__footer');
+
+        assert.dom(sidePanel).hasClass('pix-side-panel--orga');
+        assert.dom(footer).hasClass('pix-side-panel__footer--orga');
+      });
+    });
+
+    module('when variant is "certif"', function () {
+      test('it should apply certif style for global and footer', async function (assert) {
+        // given
+        const title = 'SidePanel with certif variant';
+        const showSidePanel = true;
+
+        // when
+        const screen = await render(
+          <template>
+            <PixSidePanel @title={{title}} @showSidePanel={{showSidePanel}} @variant="certif">
+              <:content>
+                content
+              </:content>
+              <:footer>
+                footer
+              </:footer>
+            </PixSidePanel>
+          </template>,
+        );
+
+        // then
+        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with certif variant' });
+        const footer = this.element.querySelector('.pix-side-panel__footer');
+
+        assert.dom(sidePanel).hasClass('pix-side-panel--certif');
+        assert.dom(footer).hasClass('pix-side-panel__footer--certif');
+      });
+    });
+  });
 });
