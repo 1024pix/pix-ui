@@ -39,7 +39,7 @@ module('Integration | Component | PixCard', function (hooks) {
       assert.contains('coucou');
       assert.deepEqual(Array.from(blockElement.classList), [
         'pix-block',
-        'pix-block--orga',
+        'pix-block--variant-orga',
         'pix-card-wrapper',
       ]);
     });

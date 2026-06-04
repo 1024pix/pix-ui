@@ -2,27 +2,26 @@
 
 .pix-block {
   position: relative;
+  padding: var(--pix-spacing-3x);
   background-color: var(--pix-neutral-0);
-  border-radius: var(--pix-spacing-2x);
+  border-radius: var(--pix-spacing-5x);
 
-  &--primary {
+  &--variant-primary {
+    @extend %pix-shadow-default;
+
     padding: var(--pix-spacing-6x);
-    border: solid 1px var(--pix-primary-100);
   }
 
-  &--orga {
-    padding: var(--pix-spacing-3x);
-    border: solid 1px rgb(var(--pix-orga-500-inline), 0.45);
+  &--variant-orga {
+    @extend %pix-shadow-orga;
   }
 
-  &--certif {
-    padding: var(--pix-spacing-3x);
-    border: solid 1px rgb(var(--pix-certif-500-inline), 0.45);
+  &--variant-certif {
+    @extend %pix-shadow-certif;
   }
 
-  &--admin {
-    padding: var(--pix-spacing-3x);
-    border: solid 1px var(--pix-primary-100);
+  &--variant-admin {
+    @extend %pix-shadow-default;
   }
 
   &--condensed {
