@@ -1,3 +1,9 @@
+# [60.13.0](https://github.com/1024pix/pix-ui/compare/v60.12.0...v60.13.0) (2026-06-05)
+
+### :rocket: Amélioration
+
+- [#1011](https://github.com/1024pix/pix-ui/pull/1011) Ajout de l’argument @replace sur PixButtonLink
+
 # [60.12.0](https://github.com/1024pix/pix-ui/compare/v60.11.0...v60.12.0) (2026-05-28)
 
 ### :rocket: Amélioration
