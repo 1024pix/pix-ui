@@ -1,3 +1,9 @@
+## [60.13.1](https://github.com/1024pix/pix-ui/compare/v60.13.0...v60.13.1) (2026-06-05)
+
+### :building_construction: Tech
+
+- [#1009](https://github.com/1024pix/pix-ui/pull/1009) Suppression du tag 'new' sur Pix-Table
+
 # [60.13.0](https://github.com/1024pix/pix-ui/compare/v60.12.0...v60.13.0) (2026-06-05)
 
 ### :rocket: Amélioration
