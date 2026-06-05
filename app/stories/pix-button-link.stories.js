@@ -27,6 +27,11 @@ export default {
         "Paramètre facultatif du <LinkTo> Ember permettant d'ajouter des paires de clé/valeur dans les paramètres d'une URL",
       type: { required: false },
     },
+    replace: {
+      name: 'replace',
+      description: 'Écraser la dernière entrée de l’historique du navigateur',
+      type: { name: 'boolean', required: false },
+    },
     variant: {
       name: 'variant',
       description: 'Permet le choix de la déclinaison du bouton lien souhaité',

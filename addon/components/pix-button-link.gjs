@@ -19,6 +19,7 @@ export default class PixButtonLink extends PixButtonBase {
         @models={{if @model (array @model) this.defaultModel}}
         @disabled={{@isDisabled}}
         @query={{if @query @query this.defaultParams}}
+        @replace={{@replace}}
         class={{this.className}}
         aria-disabled="{{@isDisabled}}"
         ...attributes
