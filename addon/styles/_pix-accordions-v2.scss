@@ -1,0 +1,98 @@
+@use "pix-design-tokens/typography";
+@use 'pix-design-tokens/shadows';
+@use 'pix-design-tokens/breakpoints';
+
+.pix-accordions-v2 {
+  background-color: var(--pix-neutral-0);
+  border-bottom: 1px solid var(--pix-neutral-100);
+
+  &:last-child {
+    border-bottom: none;
+  }
+
+  &:has(.pix-accordions-v2__title[aria-expanded='true']) {
+    @extend %pix-shadow-default;
+
+    margin: var(--pix-spacing-3x) 0;
+    border-bottom: none;
+    border-radius: 8px;
+  }
+
+  &:has(.pix-accordions-v2__title:hover) {
+    border-radius: 8px;
+  }
+
+  &:has(.pix-accordions-v2__title:not(:active)) {
+    &:focus-within {
+      background-color: var(--pix-primary-50);
+      border: 1px solid var(--pix-primary-500);
+      outline: 2px solid var(--pix-primary-300);
+    }
+  }
+
+  &__content {
+    @extend %pix-body-l;
+
+    padding: var(--pix-spacing-4x);
+    background-color: var(--pix-primary-10);
+    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 8px;
+
+    &[aria-hidden='true'] {
+      display: none;
+    }
+  }
+}
+
+.pix-accordions-v2__title {
+  @extend %pix-title-xs;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  padding: var(--pix-spacing-4x) var(--pix-spacing-2x);
+
+  @include breakpoints.device-is('mobile') {
+    padding: var(--pix-spacing-3x) var(--pix-spacing-2x);
+  }
+
+  &:hover:not([aria-expanded='true']) {
+    border-radius: 8px;
+  }
+
+  &:active:not([aria-expanded='true'])  {
+    @extend %pix-shadow-default;
+  }
+
+  &:hover,
+  &[aria-expanded='true'] {
+    background-color: var(--pix-primary-50);
+  }
+
+  &[aria-expanded='true'] {
+    background-color: var(--pix-primary-10);
+    border-bottom: 1px solid var(--pix-neutral-100);
+    border-top-left-radius: 8px;
+    border-top-right-radius: 8px;
+  }
+}
+
+.pix-accordions-v2-title {
+  &__container {
+    display: flex;
+    align-items: center;
+  }
+
+  &__icon {
+    margin-right: var(--pix-spacing-2x);
+    color: var(--pix-neutral-800);
+  }
+}
+
+.pix-accordions-v2-title-container {
+  &__toggle-icon {
+    margin-left: var(--pix-spacing-2x);
+    border-radius: 50%;
+  }
+}

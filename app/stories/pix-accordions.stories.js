@@ -5,6 +5,16 @@ import { ICONS } from '../../addon/helpers/icons';
 export default {
   title: 'Data display/Accordions',
   argTypes: {
+    isV2Version: {
+      name: 'isV2Version',
+      description: "Permet d'afficher le nouveau design de PixAccordions",
+      type: { name: 'boolean', required: false },
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: false },
+      },
+    },
     iconName: {
       name: 'iconName',
       description: "Ajoute l'icône donnée en paramètre avant le titre du PixAccordions",
@@ -44,6 +54,7 @@ const Template = (args) => {
   @plainIcon={{this.plainIcon}}
   @tagContent={{this.tagContent}}
   @tagColor={{this.tagColor}}
+  @isV2Version={{this.isV2Version}}
 >
   <:title>
     {{this.title}}
@@ -60,12 +71,13 @@ export const accordions = Template.bind({});
 accordions.args = {
   title: 'Titre du contenu à dérouler en cliquant',
   iconName: 'users',
+  isV2Version: true,
 };
 
 export const multipleAccordions = (args) => {
   return {
     template: hbs`<div>
-  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
+  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}} @isV2Version={{true}}>
     <:title>
       Titre A
     </:title>
@@ -74,7 +86,7 @@ export const multipleAccordions = (args) => {
     </:content>
   </PixAccordions>
 
-  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
+  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}} @isV2Version={{true}}>
     <:title>
       Titre B
     </:title>
@@ -83,7 +95,7 @@ export const multipleAccordions = (args) => {
     </:content>
   </PixAccordions>
 
-  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}}>
+  <PixAccordions @iconName={{this.iconName}} @plainIcon={{this.plainIcon}} @isV2Version={{true}}>
     <:title>
       Titre C
     </:title>
@@ -106,6 +118,7 @@ export const accordionsWithTag = (args) => {
     @plainIcon={{this.plainIcon}}
     @tagColor='success'
     @tagContent='tag 1'
+    @isV2Version={{true}}
   >
     <:title>
       Titre A
@@ -120,6 +133,7 @@ export const accordionsWithTag = (args) => {
     @plainIcon={{this.plainIcon}}
     @tagColor='error'
     @tagContent='tag 2'
+    @isV2Version={{true}}
   >
     <:title>
       Titre B
