@@ -1,3 +1,9 @@
+# [60.14.0](https://github.com/1024pix/pix-ui/compare/v60.13.1...v60.14.0) (2026-06-08)
+
+### :rocket: Amélioration
+
+- [#1010](https://github.com/1024pix/pix-ui/pull/1010) Créer un paramètre `isV2Version` pour PixAccordions (PIX-22881).
+
 ## [60.13.1](https://github.com/1024pix/pix-ui/compare/v60.13.0...v60.13.1) (2026-06-05)
 
 ### :building_construction: Tech
