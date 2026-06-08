@@ -1,0 +1,57 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-side-panel.stories.js';
+
+<Meta of={ComponentStories} />
+
+# PixSidePanel
+
+Un SidePanel responsive et scrollable avec un overlay.
+
+Ce composant possède deux `yield` :
+
+- `:content` est destiné à accueillir le contenu principal de la fenêtre side-panel. Il peut accueillir tout type de
+  contenu HTML (simple texte, image, formulaire, etc.)
+- `:footer` peut également accueillir tout type de contenu HTML, mais est destiné aux boutons permettant d'interagir
+  avec le side-panel, ce qui permettra de les positionner correctement dans tous les cas de figure.
+
+Il peut accepter en arguments un titre, une icône et/ou un sous-titre. Le header du side-panel (section de titre + bouton de fermeture) est géré par un sous-composant PixModalHeader commun au composant Modal.
+
+<Story of={ComponentStories.Default} height={500} />
+
+## Usage
+
+```html
+<PixSidePanel
+  @showSidePanel={{true}}
+  @title="Filtrer"
+  @subtitle="Sous-titre"
+  @iconName="lightBulb"
+  @onClose={{this.closeSidePanel}}
+>
+ <:content>
+  <p>
+    Un SidePanel est, dans une interface graphique, une fenêtre qui prend le contrôle total du clavier et
+    de l'écran. Elle est en général associée à du paramétrage d'écran.
+  </p>
+ </:content>
+ <:footer>
+   <PixButton
+     @iconBefore="delete"
+     @variant="tertiary"
+     @size="small"
+     @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
+   >
+   Effacer les filtres
+   </PixButton>
+
+   <PixButton @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}>
+     Appliquer les filtres
+   </PixButton>
+ </:footer>
+</PixSidePanel>
+```
+
+## Arguments
+
+<ArgTypes of={ComponentStories} />

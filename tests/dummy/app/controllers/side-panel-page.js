@@ -4,7 +4,7 @@ import { action } from '@ember/object';
 
 export default class SidePanelPage extends Controller {
   @tracked showModal = false;
-  title = "Qu'est-ce qu'un sidepanel ?";
+  title = "Filtrer";
 
   @action
   onClose() {}
