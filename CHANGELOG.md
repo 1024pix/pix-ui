@@ -1,3 +1,9 @@
+# [60.15.0](https://github.com/1024pix/pix-ui/compare/v60.14.0...v60.15.0) (2026-06-09)
+
+### :rocket: Amélioration
+
+- [#1012](https://github.com/1024pix/pix-ui/pull/1012) Mettre à jour le style de PixBlock (PIX-23025).
+
 # [60.14.0](https://github.com/1024pix/pix-ui/compare/v60.13.1...v60.14.0) (2026-06-08)
 
 ### :rocket: Amélioration
