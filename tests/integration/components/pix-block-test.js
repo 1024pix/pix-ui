@@ -18,7 +18,7 @@ module('Integration | Component | pix-block', function (hooks) {
 
     // then
     assert.contains('Je suis un beau bloc');
-    assert.strictEqual(blockElement.className, 'pix-block pix-block--certif');
+    assert.strictEqual(blockElement.className, 'pix-block pix-block--variant-certif');
   });
 
   module('when @variant parameter is not given', function (hooks) {
@@ -41,7 +41,7 @@ module('Integration | Component | pix-block', function (hooks) {
 
       // then
       assert.contains('Je suis un beau bloc');
-      assert.strictEqual(blockElement.className, 'pix-block pix-block--primary');
+      assert.strictEqual(blockElement.className, 'pix-block pix-block--variant-primary');
     });
 
     test('it should warn', async function (assert) {
@@ -79,7 +79,7 @@ module('Integration | Component | pix-block', function (hooks) {
       assert.contains('Je suis un beau bloc');
       assert.strictEqual(
         blockElement.className,
-        'pix-block pix-block--primary pix-block--condensed',
+        'pix-block pix-block--variant-primary pix-block--condensed',
       );
     });
   });

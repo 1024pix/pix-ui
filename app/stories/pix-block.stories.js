@@ -68,5 +68,5 @@ export const condensed = Template.bind({});
 condensed.args = {
   variant: 'primary',
   condensed: true,
-  information: 'Primary Condensed',
+  information: 'Condensed',
 };

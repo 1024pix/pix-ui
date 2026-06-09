@@ -36,9 +36,9 @@ module('Integration | Component | pix-background-header', function (hooks) {
       const lastBlockElement = this.element.querySelector(BACKGROUND_CONTENT_SELECTOR).children[1];
 
       // then
-      assert.strictEqual(firstBlockElement.className, 'pix-block pix-block--primary');
+      assert.strictEqual(firstBlockElement.className, 'pix-block pix-block--variant-primary');
       assert.contains('Je suis un bloc commun');
-      assert.strictEqual(lastBlockElement.className, 'pix-block pix-block--admin');
+      assert.strictEqual(lastBlockElement.className, 'pix-block pix-block--variant-admin');
       assert.contains('Je suis un bloc pour Pix Admin');
     });
   });
