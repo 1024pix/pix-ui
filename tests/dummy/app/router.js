@@ -12,7 +12,7 @@ Router.map(function () {
   this.route('bye', { path: '/bye/:id' });
   this.route('modal-page', { path: '/modal' });
   this.route('select-page', { path: '/select' });
-  this.route('sidebar-page', { path: '/sidebar' });
+  this.route('side-panel-page', { path: '/sidepanel' });
   this.route('tooltip-page', { path: '/tooltip' });
   this.route('table-page', { path: '/table' });
   this.route('gauge-page', { path: '/gauge' });
