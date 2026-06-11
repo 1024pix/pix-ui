@@ -1,3 +1,9 @@
+# [61.0.0](https://github.com/1024pix/pix-ui/compare/v60.15.0...v61.0.0) (2026-06-11)
+
+### :boom: BREAKING CHANGE
+
+- [#1013](https://github.com/1024pix/pix-ui/pull/1013) Remplacer le composant PixSidebar par PixSidePanel (PIX-22614)
+
 # [60.15.0](https://github.com/1024pix/pix-ui/compare/v60.14.0...v60.15.0) (2026-06-09)
 
 ### :rocket: Amélioration
