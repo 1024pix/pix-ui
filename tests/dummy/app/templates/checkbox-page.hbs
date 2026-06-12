@@ -1,0 +1,31 @@
+<div>
+  <h2>Etat activé</h2>
+  <PixCheckbox @variant="modulix" @state="neutral">
+    <:label>Proposition variant Modulix, état neutral</:label>
+  </PixCheckbox>
+
+  <PixCheckbox @variant="modulix" @state="declarative">
+    <:label>Proposition variant Modulix, état déclaratif</:label>
+  </PixCheckbox>
+
+  <h2>Etat désactivé (après soumission)</h2>
+  <PixCheckbox @variant="modulix" @state="neutral" @isDisabled="true">
+    <:label>Proposition variant Modulix, état neutre</:label>
+  </PixCheckbox>
+
+  <PixCheckbox @variant="modulix" @state="success" @isDisabled="true">
+    <:label>Proposition variant Modulix, état success</:label>
+  </PixCheckbox>
+
+  <PixCheckbox @variant="modulix" @state="error" @isDisabled="true">
+    <:label>Proposition variant Modulix, état error</:label>
+  </PixCheckbox>
+
+  <PixCheckbox @variant="modulix" @state="declarative" @isDisabled="true">
+    <:label>Proposition variant Modulix, état déclaratif, non sélectionné</:label>
+  </PixCheckbox>
+
+  <PixCheckbox @variant="modulix" @state="declarative-selected" @isDisabled="true" @checked="true">
+    <:label>Proposition variant Modulix, état déclaratif, sélectionné</:label>
+  </PixCheckbox>
+</div>
