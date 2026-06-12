@@ -14,8 +14,9 @@ export default {
     },
     state: {
       name: 'state',
-      description: 'Si `isDisabled` permet de marquer la checkbox comme correcte ou incorrecte',
-      options: ['neutral', 'success', 'error'],
+      description:
+        'Si `isDisabled` permet de marquer la checkbox comme correcte ou incorrecte. `declarative` et `declarative-selected` permettent d’afficher un état déclaratif (réponse non évaluée après soumission).',
+      options: ['neutral', 'success', 'error', 'declarative', 'declarative-selected'],
       control: { type: 'select' },
       table: {
         type: { summary: 'string' },
@@ -100,4 +101,31 @@ isDisabledIsErrorVariantModulix.args = {
   isDisabled: true,
   checked: true,
   state: 'error',
+};
+
+export const declarativeVariantModulix = VariantModulixTemplate.bind({});
+declarativeVariantModulix.args = {
+  id: 'proposal-declarative',
+  label: 'Une réponse',
+  variant: 'modulix',
+  state: 'declarative',
+};
+
+export const isDisabledDeclarativeVariantModulix = VariantModulixTemplate.bind({});
+isDisabledDeclarativeVariantModulix.args = {
+  id: 'proposal-declarative-disabled',
+  label: 'Une réponse',
+  variant: 'modulix',
+  state: 'declarative',
+  isDisabled: true,
+};
+
+export const isDisabledDeclarativeSelectedVariantModulix = VariantModulixTemplate.bind({});
+isDisabledDeclarativeSelectedVariantModulix.args = {
+  id: 'proposal-declarative-selected-disabled',
+  label: 'Une réponse',
+  variant: 'modulix',
+  state: 'declarative-selected',
+  isDisabled: true,
+  checked: true,
 };

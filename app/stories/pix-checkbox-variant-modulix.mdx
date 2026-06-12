@@ -30,6 +30,17 @@ Cumulée à la désactivation, une propriété de statut permet de préciser une
 <Story of={ComponentStories.isDisabledIsSuccessVariantModulix} height={120} />
 <Story of={ComponentStories.isDisabledIsErrorVariantModulix} height={120} />
 
+### État déclaratif
+
+L'état `declarative` est utilisé pour les réponses d'un module qui ne sont pas évaluées (par exemple, des questions déclaratives). La checkbox reste active par défaut.
+
+<Story of={ComponentStories.declarativeVariantModulix} height={120} />
+
+Combiné à `@isDisabled`, il permet d'afficher l'état après soumission : non sélectionnée ou sélectionnée (`declarative-selected`).
+
+<Story of={ComponentStories.isDisabledDeclarativeVariantModulix} height={120} />
+<Story of={ComponentStories.isDisabledDeclarativeSelectedVariantModulix} height={120} />
+
 ## Usage
 
 ```html
