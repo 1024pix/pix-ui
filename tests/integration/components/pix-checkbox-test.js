@@ -135,6 +135,27 @@ module('Integration | Component | checkbox', function (hooks) {
         .exists();
     });
 
+    test(`it should read declarative state info if given`, async function (assert) {
+      // given
+      this.set('isDisabled', true);
+
+      // when
+      const screen = await render(
+        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='declarative'><:label>La galette des
+    rois</:label></PixCheckbox>`,
+      );
+
+      // then
+      assert
+        .dom(
+          screen.getByRole('checkbox', {
+            description: 'Sélection sans bonne ou mauvaise réponse',
+            hidden: true,
+          }),
+        )
+        .exists();
+    });
+
     ['true', 'false', 'null', 'undefined'].forEach(function (testCase) {
       test(`it should not be possible to interact when @isDisabled="${testCase}"`, async function (assert) {
         // given

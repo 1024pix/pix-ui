@@ -27,6 +27,10 @@ export default class PixCheckbox extends Component {
     return this.args.state === 'error';
   }
 
+  get hasDeclarativeState() {
+    return this.args.state === 'declarative' || this.args.state === 'declarative-selected';
+  }
+
   get inputClasses() {
     const classes = ['pix-checkbox__input'];
 
@@ -68,6 +72,10 @@ export default class PixCheckbox extends Component {
     return this.formatMessage('state.error');
   }
 
+  get stateDeclarativeMessage() {
+    return this.formatMessage('state.declarative');
+  }
+
   formatMessage(message) {
     return formatMessage(this.args.locale ?? 'fr', `input.${message}`);
   }
@@ -107,6 +115,8 @@ export default class PixCheckbox extends Component {
           {{this.stateSuccessMessage}}
         {{else if this.hasErrorState}}
           {{this.stateErrorMessage}}
+        {{else if this.hasDeclarativeState}}
+          {{this.stateDeclarativeMessage}}
         {{/if}}
       </span>
     </div>
