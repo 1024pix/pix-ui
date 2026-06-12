@@ -13,6 +13,10 @@ export default class PixLabelWrapped extends Component {
       if (this.args.state === 'success') classes.push('pix-label-wrapped--state-modulix-success');
       if (this.args.state === 'error') classes.push('pix-label-wrapped--state-modulix-error');
       if (this.args.state === 'neutral') classes.push('pix-label-wrapped--state-modulix-neutral');
+      if (this.args.state === 'declarative')
+        classes.push('pix-label-wrapped--state-modulix-declarative');
+      if (this.args.state === 'declarative-selected')
+        classes.push('pix-label-wrapped--state-modulix-declarative-selected');
     } else {
       if (this.args.state === 'success') classes.push('pix-label-wrapped--state-success');
       if (this.args.state === 'error') classes.push('pix-label-wrapped--state-error');
