@@ -3,6 +3,7 @@ export default {
     state: {
       success: 'Sélection correcte',
       error: 'Sélection incorrecte',
+      declarative: 'Sélection sans bonne ou mauvaise réponse',
     },
   },
   select: {

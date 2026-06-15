@@ -11,13 +11,13 @@ export default {
     },
     class: {
       name: 'class',
-      description: "Permet d'ajouter une classe au parent du composant.",
+      description: 'Permet d’ajouter une classe au parent du composant.',
       type: { name: 'string' },
     },
     isIndeterminate: {
       name: 'isIndeterminate',
       description:
-        "Rendre la checkbox indéterminée, état indiquant que la/les case(s) n'est/ne sont ni cochée(s) ni décochée(s) (exemple: une checkbox parente indiquant la sélection partielle de plusieurs checkbox enfants)",
+        'Rendre la checkbox indéterminée, état indiquant que la/les case(s) n’est/ne sont ni cochée(s) ni décochée(s) (exemple: une checkbox parente indiquant la sélection partielle de plusieurs checkbox enfants)',
       type: { name: 'boolean', required: true },
       table: {
         type: { summary: 'boolean' },

@@ -19,4 +19,5 @@ Router.map(function () {
   this.route('button-page', { path: '/button' });
   this.route('stepper-page', { path: '/stepper' });
   this.route('layout-page', { path: '/layout' });
+  this.route('checkbox-page', { path: '/checkbox' });
 });

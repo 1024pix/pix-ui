@@ -23,6 +23,10 @@
     }
 
     &.pix-label-wrapped {
+      &.pix-label-wrapped--state-modulix-declarative {
+        border-color: var(--pix-neutral-500);
+      }
+
       &--disabled {
         --state-background-color: var(--pix-neutral-20);
         --state-border-color: var(--pix-neutral-100);
@@ -53,6 +57,20 @@
           --state-background-color: var(--pix-success-50);
 
           color: var(--pix-success-700);
+        }
+
+        &.pix-label-wrapped--state-modulix-declarative {
+          --state-border-color: transparent;
+          --state-background-color: var(--pix-primary-100);
+
+          color: var(--pix-neutral-900);
+        }
+
+        &.pix-label-wrapped--state-modulix-declarative-selected {
+          --state-border-color: var(--pix-neutral-500);
+          --state-background-color: var(--pix-neutral-0);
+
+          color: var(--pix-neutral-900);
         }
 
         & .pix-label-wrapped__state-icon {
