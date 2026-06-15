@@ -1,3 +1,9 @@
+# [61.1.0](https://github.com/1024pix/pix-ui/compare/v61.0.0...v61.1.0) (2026-06-15)
+
+### :rocket: Amélioration
+
+- [#1014](https://github.com/1024pix/pix-ui/pull/1014) PixCheckbox - Faire évoluer le variant Modulix pour gérer declarative (PIX-23135)
+
 # [61.0.0](https://github.com/1024pix/pix-ui/compare/v60.15.0...v61.0.0) (2026-06-11)
 
 ### :boom: BREAKING CHANGE
