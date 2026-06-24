@@ -1,3 +1,9 @@
+# [61.2.0](https://github.com/1024pix/pix-ui/compare/v61.1.0...v61.2.0) (2026-06-24)
+
+### :rocket: Amélioration
+
+- [#1015](https://github.com/1024pix/pix-ui/pull/1015) Ajouter les tokens de Shadow hover et pressed (PIX-23289)
+
 # [61.1.0](https://github.com/1024pix/pix-ui/compare/v61.0.0...v61.1.0) (2026-06-15)
 
 ### :rocket: Amélioration
