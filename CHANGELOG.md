@@ -1,3 +1,9 @@
+# [61.3.0](https://github.com/1024pix/pix-ui/compare/v61.2.0...v61.3.0) (2026-07-01)
+
+### :rocket: Amélioration
+
+- [#1016](https://github.com/1024pix/pix-ui/pull/1016) Ajustement sur le token color success (PIX-23426)
+
 # [61.2.0](https://github.com/1024pix/pix-ui/compare/v61.1.0...v61.2.0) (2026-06-24)
 
 ### :rocket: Amélioration
