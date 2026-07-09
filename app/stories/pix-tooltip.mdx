@@ -31,6 +31,20 @@ Si vous utilisez un élément `<div>` ou `<span>`, il faut ajouter `tabindex="0"
 </PixTooltip>
 ```
 
+Par défaut, `PixTooltip` ajoute lui-même un `tabindex="0"` sur l'élément qui encadre le `:triggerElement`, afin que celui-ci soit toujours focusable. Si votre élément est déjà focusable nativement (comme un `<button>` ou un `<input>`), cela crée un double arrêt de tabulation au clavier. Utilisez `@isTriggerElementFocusable={{true}}` pour indiquer que l'élément est déjà focusable : aucun `tabindex` ne sera alors ajouté automatiquement.
+
+```html
+<PixTooltip @isTriggerElementFocusable={{true}}>
+  <:triggerElement>
+    <PixButton>Mon bouton</PixButton>
+  </:triggerElement>
+
+  <:tooltip>
+    My tooltip
+  </:tooltip>
+</PixTooltip>
+```
+
 Les tooltips doivent prendre un `@id` et être référencées par leur élément déclencheur
 
 - soit via `aria-describedby` si l'élément possèdent déjà un label, car le tooltip agit alors comme une description supplémentaire.

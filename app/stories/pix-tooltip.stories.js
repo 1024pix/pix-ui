@@ -54,6 +54,13 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: false } },
     },
+    isTriggerElementFocusable: {
+      name: 'isTriggerElementFocusable',
+      description:
+        "Indique que l'élément passé dans le bloc triggerElement est déjà focusable nativement, pour ne pas ajouter de tabindex supplémentaire",
+      type: { name: 'boolean', required: false },
+      table: { defaultValue: { summary: false } },
+    },
   },
 };
 
@@ -66,6 +73,7 @@ const Template = (args) => {
   @isInline={{this.isInline}}
   @isWide={{this.isWide}}
   @hide={{this.hide}}
+  @isTriggerElementFocusable={{this.isTriggerElementFocusable}}
 >
   <:triggerElement>
     <PixButton aria-describedby={{this.id}}>
