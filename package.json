@@ -76,7 +76,7 @@
     "tracked-toolbox": "^2.2.0"
   },
   "devDependencies": {
-    "@1024pix/ember-testing-library": "^3.0.27",
+    "@1024pix/ember-testing-library": "^3.0.40",
     "@1024pix/eslint-plugin": "^2.1.12",
     "@1024pix/stylelint-config": "^5.1.37",
     "@babel/eslint-parser": "^7.26.8",
