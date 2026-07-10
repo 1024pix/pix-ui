@@ -1,3 +1,9 @@
+## [61.3.1](https://github.com/1024pix/pix-ui/compare/v61.3.0...v61.3.1) (2026-07-10)
+
+### :building_construction: Tech
+
+- [#1018](https://github.com/1024pix/pix-ui/pull/1018) Rendre le tabindex de PixTooltip optionnel (PIX-23519).
+
 # [61.3.0](https://github.com/1024pix/pix-ui/compare/v61.2.0...v61.3.0) (2026-07-01)
 
 ### :rocket: Amélioration
