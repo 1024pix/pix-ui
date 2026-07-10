@@ -58,6 +58,49 @@ module('Integration | Component | pix-tooltip', function (hooks) {
     assert.notOk(tooltipContentElement);
   });
 
+  module('trigger element tabindex', function () {
+    const TRIGGER_ELEMENT_SELECTOR = '.pix-tooltip__trigger-element';
+
+    test('it adds a tabindex to the trigger element by default', async function (assert) {
+      // when
+      await render(hbs`<PixTooltip>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
+  <:tooltip>Some tooltip</:tooltip>
+</PixTooltip>`);
+
+      // then
+      assert.dom(TRIGGER_ELEMENT_SELECTOR).hasAttribute('tabindex', '0');
+    });
+
+    test('it does not add a tabindex to the trigger element when it is already focusable', async function (assert) {
+      // when
+      await render(hbs`<PixTooltip @isTriggerElementFocusable={{true}}>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
+  <:tooltip>Some tooltip</:tooltip>
+</PixTooltip>`);
+
+      // then
+      assert.dom(TRIGGER_ELEMENT_SELECTOR).doesNotHaveAttribute('tabindex');
+    });
+
+    test('it adds a tabindex to the trigger element when isTriggerElementFocusable is false', async function (assert) {
+      // when
+      await render(hbs`<PixTooltip @isTriggerElementFocusable={{false}}>
+  <:triggerElement>
+    template block text
+  </:triggerElement>
+  <:tooltip>Some tooltip</:tooltip>
+</PixTooltip>`);
+
+      // then
+      assert.dom(TRIGGER_ELEMENT_SELECTOR).hasAttribute('tabindex', '0');
+    });
+  });
+
   test('it dismissed tooltip on escape keyup', async function (assert) {
     // given
     const screen = await render(hbs`<PixTooltip @position='bottom'>

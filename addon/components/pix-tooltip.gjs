@@ -58,7 +58,10 @@ export default class PixTooltip extends Component {
       ...attributes
     >
       {{#if (has-block "triggerElement")}}
-        <span class="pix-tooltip__trigger-element" tabindex="0">
+        <span
+          class="pix-tooltip__trigger-element"
+          tabindex={{unless @isTriggerElementFocusable "0" null}}
+        >
           {{yield to="triggerElement"}}
         </span>
       {{/if}}
