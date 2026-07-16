@@ -23,6 +23,7 @@ const Template = (args) => {
   @title={{this.title}}
   @subtitle={{this.subtitle}}
   @image={{this.image}}
+  @wide={{this.wide}}
 >
   <:tag><PixTag @color='green'>Parcours Apprenants</PixTag></:tag>
   <:description>
@@ -45,4 +46,10 @@ Card.args = {
   description:
     'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce vestibulum nisl sapien, at viverra lorem facilisis in.',
   footer: '12 sujets • Accès sans compte',
+};
+
+export const WideCard = Template.bind({});
+WideCard.args = {
+  ...Card.args,
+  wide: true,
 };
