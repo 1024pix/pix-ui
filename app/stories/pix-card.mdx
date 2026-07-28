@@ -11,6 +11,12 @@ Elle peut contenir un sous titre, un tag, un pied de carte
 
 <Story of={ComponentStories.Card} height={300} />
 
+### Wide
+
+Le contenu peut être affiché à droite de l'image en passant `@wide={{true}}`.
+
+<Story of={ComponentStories.WideCard} height={200} />
+
 ## Usage
 
 ```html
@@ -33,5 +39,7 @@ Elle peut contenir un sous titre, un tag, un pied de carte
 ```
 
 ## Arguments
+
+`@wide` (Boolean, optionnel) : lorsqu'il vaut `true`, l'image est affichée à gauche et le tag, le titre, le sous-titre, la description et le footer sont empilés verticalement à droite.
 
 <ArgTypes of={ComponentStories} />

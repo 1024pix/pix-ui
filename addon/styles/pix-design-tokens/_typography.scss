@@ -170,6 +170,24 @@
   }
 }
 
+%pix-subtitle-xxs,
+.pix-subtitle-xxs {
+  @extend %-pix-subtitle;
+
+  --font-size-subtitle: 0.875rem;
+
+  font-size: var(--font-size-subtitle);
+  line-height: 1.5;
+
+  @include breakpoints.device-is('tablet') {
+    --font-size-subtitle: 0.875rem;
+  }
+
+  @include breakpoints.device-is('desktop') {
+    --font-size-subtitle: 1rem;
+  }
+}
+
 %-pix-body {
   font-weight: var(--pix-font-normal);
 
