@@ -1,3 +1,9 @@
+# [61.4.0](https://github.com/1024pix/pix-ui/compare/v61.3.1...v61.4.0) (2026-07-28)
+
+### :rocket: Amélioration
+
+- [#1020](https://github.com/1024pix/pix-ui/pull/1020) Ajouter une variante wide au composant PixCard
+
 ## [61.3.1](https://github.com/1024pix/pix-ui/compare/v61.3.0...v61.3.1) (2026-07-10)
 
 ### :building_construction: Tech
