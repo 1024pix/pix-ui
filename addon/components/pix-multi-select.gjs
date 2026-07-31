@@ -2,21 +2,15 @@ import { warn } from '@ember/debug';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
-import { guidFor } from '@ember/object/internals';
 import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
-import onClickOutside from 'ember-click-outside/modifiers/on-click-outside';
-import { PopperJS } from 'ember-popperjs';
-import { gt, or } from 'ember-truth-helpers';
 
-import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEnterAction from '../modifiers/on-enter-action';
-import onEscapeAction from '../modifiers/on-escape-action';
 import { formatMessage } from '../translations';
 import PixCheckbox from './pix-checkbox';
 import PixIcon from './pix-icon';
-import PixLabel from './pix-label';
+import PixSelectBase from './pix-select-base';
 
 function removeCapitalizeAndDiacritics(string) {
   return string
@@ -33,23 +27,6 @@ export default class PixMultiSelect extends Component {
   constructor(...args) {
     super(...args);
 
-    this.searchId = 'search-input-' + guidFor(this);
-    this.multiSelectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
-    this.listId = `list-${this.multiSelectId}`;
-
-    if (!this.args.isComputeWidthDisabled) {
-      this.elementHelper.waitForElement(this.listId).then((elementList) => {
-        const baseFontRemRatio = Number(
-          getComputedStyle(document.querySelector('html')).fontSize.match(/\d+(\.\d+)?/)[0],
-        );
-        const listWidth = elementList.getBoundingClientRect().width;
-        const selectWidth = Number(listWidth / baseFontRemRatio + 0.5).toFixed(2); // Fix for FF
-
-        const element = document.getElementById(`container-${this.multiSelectId}`);
-        element.style.setProperty('--pix-multi-select-width', `${selectWidth}rem`);
-      });
-    }
-
     warn(
       `PixMultiSelect: @strictSearch is deprecated in favour of @onSearch`,
       !this.args.strictSearch,
@@ -61,6 +38,14 @@ export default class PixMultiSelect extends Component {
 
   get options() {
     return [...(this.args.options || [])];
+  }
+
+  get rootClassNames() {
+    const classes = ['pix-multi-select'];
+    if (this.args.inlineLabel) {
+      classes.push('pix-multi-select--inline');
+    }
+    return classes.join(' ');
   }
 
   get mainInputClassName() {
@@ -162,120 +147,81 @@ export default class PixMultiSelect extends Component {
     return this.args.values?.includes(value);
   }
 
-  get className() {
-    const { className } = this.args;
-    return ' ' + className;
-  }
-
   get selectSearchLabel() {
     return formatMessage(this.args.locale ?? 'fr', 'select.search');
   }
 
-  @action
-  focus(event) {
-    if (!event.target) return;
-    if (!this.isExpanded) return;
-
-    if (this.args.isSearchable) {
-      event.target.querySelector(`#${this.searchId}`)?.focus();
-    }
+  get selectBaseProps() {
+    // Temporary :
+    // used to differentiate initial select/multiselect props
+    // from props added for select base component
+    return {
+      buttonClassName: this.mainInputClassName,
+      isExpanded: this.isExpanded,
+      isAriaExpanded: this.isAriaExpanded,
+      selectSearchLabel: this.selectSearchLabel,
+      resultsLength: this.results.length,
+      rootClassNames: this.rootClassNames,
+      // actions
+      toggleDropdown: this.toggleDropDown,
+      updateSearch: this.updateSearch,
+      hideDropdown: this.hideDropDown,
+      showDropdown: this.showDropDown,
+    };
   }
 
   <template>
-    <div
-      class="pix-multi-select {{if @inlineLabel ' pix-multi-select--inline'}}"
-      id="container-{{this.multiSelectId}}"
+    <PixSelectBase
+      {{! selectBase props }}
+      @selectBaseProps={{this.selectBaseProps}}
+      {{! inherited props }}
+      @requiredLabel={{@requiredLabel}}
+      @subLabel={{@subLabel}}
+      @size={{@size}}
+      @screenReaderOnly={{@screenReaderOnly}}
+      @inlineLabel={{@inlineLabel}}
+      @placement={{@placement}}
+      @isDisabled={{@isDisabled}}
+      @isSearchable={{@isSearchable}}
+      @searchPlaceholder={{@searchPlaceholder}}
+      @emptySearchMessage={{@emptySearchMessage}}
+      @errorMessage={{@errorMessage}}
       ...attributes
-      {{onClickOutside this.hideDropDown}}
-      {{onArrowDownUpAction this.listId this.showDropDown this.isExpanded}}
-      {{onEscapeAction this.hideDropDown this.multiSelectId}}
     >
-      <PixLabel
-        @for={{this.multiSelectId}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
-        @size={{@size}}
-        @screenReaderOnly={{@screenReaderOnly}}
-        @inlineLabel={{@inlineLabel}}
-      >
+      <:label>
         {{yield to="label"}}
-      </PixLabel>
-
-      <div>
-        <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
-          <button
-            {{reference}}
-            id={{this.multiSelectId}}
-            type="button"
-            aria-expanded={{this.isAriaExpanded}}
-            aria-controls={{this.listId}}
-            aria-haspopup="menu"
-            class={{this.mainInputClassName}}
-            disabled={{@isDisabled}}
-            {{on "click" this.toggleDropDown}}
-          >
-            {{#if (has-block "placeholder")}}
-              <span class="pix-multi-select__placeholder">{{yield to="placeholder"}}</span>
-            {{else if @placeholder}}
-              <span class="pix-multi-select__placeholder">{{this.placeholder}}</span>
-            {{/if}}
-            <PixIcon
-              class="pix-multi-select-main-input__dropdown-icon
-                {{if this.isExpanded ' pix-multi-select-main-input__dropdown-icon--expand'}}"
-              @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
-              @ariaHidden={{true}}
-            />
-          </button>
-
-          <ul
-            {{popover}}
-            class="pix-multi-select-list {{unless this.isExpanded 'pix-multi-select-list--hidden'}}"
-            id={{this.listId}}
-            role="menu"
-            aria-hidden={{this.isExpanded undefined "true"}}
-            {{on "transitionend" this.focus}}
-          >
-            {{#if @isSearchable}}
-              <li class="pix-select__search">
-                <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
-                <label class="screen-reader-only" for={{this.searchId}}>
-                  {{this.selectSearchLabel}}
-                </label>
-                <input
-                  class="pix-select-search__input"
-                  id={{this.searchId}}
-                  autocomplete="off"
-                  tabindex={{if this.isExpanded "0" "-1"}}
-                  placeholder={{@searchPlaceholder}}
-                  {{on "input" this.updateSearch}}
-                />
-              </li>
-            {{/if}}
-            {{#if (gt this.results.length 0)}}
-              {{#each this.results as |option|}}
-                <li class="pix-multi-select-list__item" role="menuitem">
-                  <PixCheckbox
-                    @id={{concat this.multiSelectId "-" option.value}}
-                    @checked={{this.isCheckBoxChecked option.value}}
-                    @size="small"
-                    @class="pix-multi-select-list__item-label"
-                    value={{option.value}}
-                    {{on "change" this.onSelect}}
-                    {{onEnterAction this.hideDropDown this.multiSelectId}}
-                    tabindex={{if this.isExpanded "0" "-1"}}
-                  >
-                    <:label>{{yield option}}</:label>
-                  </PixCheckbox>
-                </li>
-              {{/each}}
-            {{else}}
-              <li
-                class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
-              >{{@emptyMessage}}</li>
-            {{/if}}
-          </ul>
-        </PopperJS>
-      </div>
-    </div>
+      </:label>
+      <:buttonContent>
+        {{#if (has-block "placeholder")}}
+          <span class="pix-multi-select__placeholder">{{yield to="placeholder"}}</span>
+        {{else if @placeholder}}
+          <span class="pix-multi-select__placeholder">{{this.placeholder}}</span>
+        {{/if}}
+        <PixIcon
+          class="pix-multi-select-main-input__dropdown-icon
+            {{if this.isExpanded ' pix-multi-select-main-input__dropdown-icon--expand'}}"
+          @name={{if this.isExpanded "chevronTop" "chevronBottom"}}
+          @ariaHidden={{true}}
+        />
+      </:buttonContent>
+      <:results>
+        {{#each this.results as |option|}}
+          <li class="pix-multi-select-list__item" role="menuitem">
+            <PixCheckbox
+              @id={{concat this.multiSelectId "-" option.value}}
+              @checked={{this.isCheckBoxChecked option.value}}
+              @size="small"
+              @class="pix-multi-select-list__item-label"
+              value={{option.value}}
+              {{on "change" this.onSelect}}
+              {{onEnterAction this.hideDropDown this.multiSelectId}}
+              tabindex={{if this.isExpanded "0" "-1"}}
+            >
+              <:label>{{yield option}}</:label>
+            </PixCheckbox>
+          </li>
+        {{/each}}
+      </:results>
+    </PixSelectBase>
   </template>
 }
