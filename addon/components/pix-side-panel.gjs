@@ -36,16 +36,9 @@ export default class PixSidePanel extends Component {
       @isVisible={{@showSidePanel}}
       @onClose={{@onClose}}
       @focusOnClose={{@focusOnClose}}
+      @labelledBy="side-panel-title--{{this.id}}"
     >
-      <div
-        class="pix-side-panel pix-side-panel--{{this.variant}}
-          {{unless @showSidePanel ' pix-side-panel--hidden'}}"
-        role="dialog"
-        aria-labelledby="side-panel-title--{{this.id}}"
-        aria-describedby="side-panel-content--{{this.id}}"
-        aria-modal="true"
-        ...attributes
-      >
+      <div class="pix-side-panel pix-side-panel--{{this.variant}}" ...attributes>
         <PixModalHeader
           class="pix-side-panel__header"
           @id="side-panel-title--{{this.id}}"
@@ -56,7 +49,7 @@ export default class PixSidePanel extends Component {
           @onCloseButtonClick={{@onClose}}
         />
 
-        <div id="side-panel-content--{{this.id}}" class="pix-side-panel__content">
+        <div class="pix-side-panel__content">
           {{yield to="content"}}
         </div>
         <div class="pix-side-panel__footer pix-side-panel__footer--{{this.variant}}">

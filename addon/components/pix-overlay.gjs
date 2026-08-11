@@ -2,8 +2,7 @@ import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import Component from '@glimmer/component';
 
-import onEscapeAction from '../modifiers/on-escape-action';
-import trapFocus from '../modifiers/trap-focus';
+import modalDialog from '../modifiers/modal-dialog';
 
 export default class PixOverlay extends Component {
   @action
@@ -15,17 +14,41 @@ export default class PixOverlay extends Component {
     }
   }
 
+  /**
+   * A `<dialog>` cancel does not bubble, unlike an `<input type="file">` one when its picker is
+   * dismissed. Without `onClose`, the default action is kept so the user is not trapped inside.
+   */
+  @action
+  onCancel(event) {
+    const isCloseRequestOnOverlay = event.target === event.currentTarget;
+
+    if (!isCloseRequestOnOverlay || !this.args.onClose) {
+      return;
+    }
+
+    event.preventDefault();
+    this.args.onClose(event);
+  }
+
+  @action
+  onDialogClose(event) {
+    if (this.args.isVisible && this.args.onClose) {
+      this.args.onClose(event);
+    }
+  }
+
   <template>
-    <div
-      class="pix-overlay
-        {{unless @isVisible ' pix-overlay--hidden'}}
-        {{if @hasCenteredContent ' pix-overlay--with-centered-content'}}"
+    <dialog
+      class="pix-overlay {{if @hasCenteredContent ' pix-overlay--with-centered-content'}}"
+      aria-labelledby={{@labelledBy}}
+      aria-describedby={{@describedBy}}
       {{on "click" this.onClick}}
-      {{trapFocus @isVisible @focusOnClose}}
-      {{onEscapeAction @onClose}}
+      {{on "cancel" this.onCancel}}
+      {{on "close" this.onDialogClose}}
+      {{modalDialog @isVisible @focusOnClose}}
       ...attributes
     >
       {{yield}}
-    </div>
+    </dialog>
   </template>
 }

@@ -1,6 +1,6 @@
 import { render } from '@1024pix/ember-testing-library';
 import PixModal from '@1024pix/pix-ui/components/pix-modal';
-import { click, triggerKeyEvent } from '@ember/test-helpers';
+import { click, triggerEvent } from '@ember/test-helpers';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
 import sinon from 'sinon';
@@ -61,7 +61,7 @@ module('Integration | Component | modal', function (hooks) {
       });
     });
 
-    module('when escape button is clicked', function () {
+    module('when the cancel event is triggered (escape key)', function () {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
         const title = 'Close me baby one more time';
@@ -69,7 +69,7 @@ module('Integration | Component | modal', function (hooks) {
         const onCloseButtonClick = sinon.stub();
 
         // when
-        await render(
+        const screen = await render(
           <template>
             <PixModal
               @title={{title}}
@@ -80,7 +80,7 @@ module('Integration | Component | modal', function (hooks) {
             </PixModal>
           </template>,
         );
-        await triggerKeyEvent('.pix-modal', 'keyup', 'Escape');
+        await triggerEvent(screen.getByRole('dialog'), 'cancel');
 
         // then
         assert.ok(onCloseButtonClick.calledOnce);
@@ -136,9 +136,9 @@ module('Integration | Component | modal', function (hooks) {
         );
 
         // then
-        const modal = screen.getByRole('dialog', { name: 'Modal with no variant' });
+        const dialog = screen.getByRole('dialog', { name: 'Modal with no variant' });
 
-        assert.dom(modal).hasClass('pix-modal--default');
+        assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--default');
       });
     });
 
@@ -163,9 +163,9 @@ module('Integration | Component | modal', function (hooks) {
         );
 
         // then
-        const modal = screen.getByRole('dialog', { name: 'Modal with "default" variant' });
+        const dialog = screen.getByRole('dialog', { name: 'Modal with "default" variant' });
 
-        assert.dom(modal).hasClass('pix-modal--default');
+        assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--default');
       });
     });
 
@@ -190,9 +190,9 @@ module('Integration | Component | modal', function (hooks) {
         );
 
         // then
-        const modal = screen.getByRole('dialog', { name: 'Modal with "orga" variant' });
+        const dialog = screen.getByRole('dialog', { name: 'Modal with "orga" variant' });
 
-        assert.dom(modal).hasClass('pix-modal--orga');
+        assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--orga');
       });
     });
 
@@ -217,9 +217,9 @@ module('Integration | Component | modal', function (hooks) {
         );
 
         // then
-        const modal = screen.getByRole('dialog', { name: 'Modal with "certif" variant' });
+        const dialog = screen.getByRole('dialog', { name: 'Modal with "certif" variant' });
 
-        assert.dom(modal).hasClass('pix-modal--certif');
+        assert.dom(dialog.querySelector('.pix-modal')).hasClass('pix-modal--certif');
       });
     });
   });

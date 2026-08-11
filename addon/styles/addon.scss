@@ -1,6 +1,8 @@
 @use 'pix-design-tokens';
 @use 'normalize-reset';
 @use 'a11y';
+@use 'trap-focus';
+@use 'pix-overlay';
 @use 'pix-icon';
 @use 'pix-background-header';
 @use 'pix-banner-alert';
@@ -37,7 +39,6 @@
 @use 'pix-checkbox';
 @use 'pix-segmented-control';
 @use 'pix-indicator-card';
-@use 'trap-focus';
 @use 'pix-search-input';
 @use 'pix-toast';
 @use 'toast-example';
@@ -48,7 +49,6 @@
 @use 'pix-app-layout';
 @use 'pix-structure-switcher';
 @use 'pix-code';
-@use 'pix-overlay';
 @use 'pix-tabs';
 @use 'pix-gauge';
 @use 'pix-stepper';

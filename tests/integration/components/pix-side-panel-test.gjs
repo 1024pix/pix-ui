@@ -1,6 +1,6 @@
 import { render } from '@1024pix/ember-testing-library';
 import PixSidePanel from '@1024pix/pix-ui/components/pix-side-panel';
-import { click, triggerKeyEvent } from '@ember/test-helpers';
+import { click, triggerEvent } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -33,6 +33,32 @@ module('Integration | Component | SidePanel', function (hooks) {
       assert.contains('footer');
     });
 
+    test('it should slide in from the right edge of the screen', async function (assert) {
+      // given
+      this.title = "It's a sidepanel!";
+
+      // when
+      const screen = await render(hbs`<PixSidePanel @title={{this.title}} @showSidePanel={{true}}>
+  <:content>
+    content
+  </:content>
+</PixSidePanel>`);
+      const title = screen.getByRole('heading', { name: this.title });
+      const leftOnOpening = title.getBoundingClientRect().left;
+      await Promise.all(
+        screen
+          .getByRole('dialog')
+          .getAnimations({ subtree: true })
+          .map((animation) => animation.finished),
+      );
+
+      // then
+      assert.true(
+        leftOnOpening > title.getBoundingClientRect().left,
+        'the side panel travels from the right edge instead of appearing in place',
+      );
+    });
+
     module('when close button is clicked', function () {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
@@ -58,7 +84,7 @@ module('Integration | Component | SidePanel', function (hooks) {
       });
     });
 
-    module('when escape button is clicked', function () {
+    module('when the cancel event is triggered (escape key)', function () {
       test('it should call onClose function passed in argument', async function (assert) {
         // given
         const title = 'Close me baby one more time';
@@ -66,7 +92,7 @@ module('Integration | Component | SidePanel', function (hooks) {
         const onClose = sinon.stub();
 
         // when
-        await render(
+        const screen = await render(
           <template>
             <PixSidePanel @title={{title}} @onClose={{onClose}} @showSidePanel={{showSidePanel}}>
               <:content>
@@ -75,7 +101,7 @@ module('Integration | Component | SidePanel', function (hooks) {
             </PixSidePanel>
           </template>,
         );
-        await triggerKeyEvent('.pix-side-panel', 'keyup', 'Escape');
+        await triggerEvent(screen.getByRole('dialog'), 'cancel');
 
         // then
         assert.ok(onClose.calledOnce);
@@ -131,10 +157,10 @@ module('Integration | Component | SidePanel', function (hooks) {
         );
 
         // then
-        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with no variant' });
+        const dialog = screen.getByRole('dialog', { name: 'SidePanel with no variant' });
         const footer = this.element.querySelector('.pix-side-panel__footer');
 
-        assert.dom(sidePanel).hasClass('pix-side-panel--default');
+        assert.dom(dialog.querySelector('.pix-side-panel')).hasClass('pix-side-panel--default');
         assert.dom(footer).hasClass('pix-side-panel__footer--default');
       });
     });
@@ -160,10 +186,10 @@ module('Integration | Component | SidePanel', function (hooks) {
         );
 
         // then
-        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with default variant' });
+        const dialog = screen.getByRole('dialog', { name: 'SidePanel with default variant' });
         const footer = this.element.querySelector('.pix-side-panel__footer');
 
-        assert.dom(sidePanel).hasClass('pix-side-panel--default');
+        assert.dom(dialog.querySelector('.pix-side-panel')).hasClass('pix-side-panel--default');
         assert.dom(footer).hasClass('pix-side-panel__footer--default');
       });
     });
@@ -189,10 +215,10 @@ module('Integration | Component | SidePanel', function (hooks) {
         );
 
         // then
-        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with orga variant' });
+        const dialog = screen.getByRole('dialog', { name: 'SidePanel with orga variant' });
         const footer = this.element.querySelector('.pix-side-panel__footer');
 
-        assert.dom(sidePanel).hasClass('pix-side-panel--orga');
+        assert.dom(dialog.querySelector('.pix-side-panel')).hasClass('pix-side-panel--orga');
         assert.dom(footer).hasClass('pix-side-panel__footer--orga');
       });
     });
@@ -218,10 +244,10 @@ module('Integration | Component | SidePanel', function (hooks) {
         );
 
         // then
-        const sidePanel = screen.getByRole('dialog', { name: 'SidePanel with certif variant' });
+        const dialog = screen.getByRole('dialog', { name: 'SidePanel with certif variant' });
         const footer = this.element.querySelector('.pix-side-panel__footer');
 
-        assert.dom(sidePanel).hasClass('pix-side-panel--certif');
+        assert.dom(dialog.querySelector('.pix-side-panel')).hasClass('pix-side-panel--certif');
         assert.dom(footer).hasClass('pix-side-panel__footer--certif');
       });
     });
