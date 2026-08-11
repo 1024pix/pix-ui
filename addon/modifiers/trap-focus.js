@@ -1,8 +1,15 @@
+import { warn } from '@ember/debug';
 import { modifier } from 'ember-modifier';
 
 let sourceActiveElement = null;
 
 export default modifier(function trapFocus(element, [isOpen, focusOnClose = true]) {
+  warn(
+    'trap-focus is deprecated: it only intercepts Tab, so it cannot keep the virtual cursor of a screen reader inside the element. Use PixModal, PixSidePanel or PixOverlay, which rely on a native <dialog> placed in the top layer.',
+    false,
+    { id: 'pix-ui.trap-focus.deprecated' },
+  );
+
   const [firstFocusableElement] = findFocusableElements(element);
 
   if (isOpen) {
