@@ -4,12 +4,11 @@ import { waitUntil } from '@ember/test-helpers';
 export async function waitForDialog() {
   const screen = await getScreen();
 
-  await waitUntil(() => {
-    try {
-      screen.getByRole('dialog');
-      return true;
-    } catch {
-      return false;
-    }
-  });
+  await waitUntil(() => screen.queryAllByRole('dialog').length > 0);
+}
+
+export async function waitForDialogClose() {
+  const screen = await getScreen();
+
+  await waitUntil(() => screen.queryAllByRole('dialog').length === 0);
 }

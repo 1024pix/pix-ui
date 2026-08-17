@@ -36,15 +36,9 @@ export default class PixModal extends Component {
       @onClose={{@onCloseButtonClick}}
       @focusOnClose={{@focusOnClose}}
       @hasCenteredContent={{true}}
+      @labelledBy="modal-title--{{this.id}}"
     >
-      <div
-        class="pix-modal pix-modal--{{this.variant}}"
-        role="dialog"
-        aria-labelledby="modal-title--{{this.id}}"
-        aria-describedby="modal-content--{{this.id}}"
-        aria-modal="true"
-        ...attributes
-      >
+      <div class="pix-modal pix-modal--{{this.variant}}" ...attributes>
         <PixModalHeader
           @id="modal-title--{{this.id}}"
           @title={{@title}}
@@ -55,7 +49,7 @@ export default class PixModal extends Component {
           @onCloseButtonClick={{@onCloseButtonClick}}
         />
 
-        <div id="modal-content--{{this.id}}" class="pix-modal__content">
+        <div class="pix-modal__content">
           {{yield to="content"}}
         </div>
         <div class="pix-modal__footer">

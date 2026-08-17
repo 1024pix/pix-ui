@@ -3,7 +3,8 @@
 @use 'pix-design-tokens/shadows';
 
 .pix-side-panel__overlay {
-  overflow-x: hidden;
+  overflow: hidden; // fallback for Safari < 16, which ignores the clip value below
+  overflow: clip; // not a scroll container, so focus cannot scroll the sliding panel into place
 }
 
 .pix-side-panel {
@@ -16,15 +17,14 @@
   margin-left: auto;
   background: var(--pix-neutral-0);
   border-radius: var(--pix-spacing-4x) 0 0 var(--pix-spacing-4x);
-  transform: translate(0);
-  transition: transform 0.3s ease-in-out;
+  animation: slide-out-side-panel 0.3s ease-in-out forwards;
 
   @include breakpoints.device-is('tablet') {
     width: 412px;
   }
 
-  &--hidden {
-    transform: translate(100%);
+  .pix-overlay[open] & {
+    animation: slide-in-side-panel 0.3s ease-in-out forwards;
   }
 
   &--default {
@@ -82,5 +82,25 @@
     > ul {
       display: contents;
     }
+  }
+}
+
+@keyframes slide-in-side-panel {
+  from {
+    transform: translate(100%);
+  }
+
+  to {
+    transform: translate(0);
+  }
+}
+
+@keyframes slide-out-side-panel {
+  from {
+    transform: translate(0);
+  }
+
+  to {
+    transform: translate(100%);
   }
 }
