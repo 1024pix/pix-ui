@@ -1,3 +1,9 @@
+# [62.0.0](https://github.com/1024pix/pix-ui/compare/v61.4.1...v62.0.0) (2026-08-17)
+
+### :boom: BREAKING CHANGE
+
+- [#1021](https://github.com/1024pix/pix-ui/pull/1021) Utiliser la balise native HTML dialog pour les modales (PIX-16294).
+
 ## [61.4.1](https://github.com/1024pix/pix-ui/compare/v61.4.0...v61.4.1) (2026-07-29)
 
 ### :arrow_up: Montée de version
