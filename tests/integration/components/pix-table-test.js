@@ -119,7 +119,7 @@ module('Integration | Component | table', function (hooks) {
       // then
       assert.strictEqual(
         this.element.querySelector('thead').getAttribute('class'),
-        `pix-table-header--${variant}`,
+        `pix-table-header pix-table-header--${variant}`,
       );
     });
   });
