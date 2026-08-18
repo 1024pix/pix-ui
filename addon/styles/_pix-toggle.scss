@@ -1,0 +1,107 @@
+.pix-toggle {
+  --thumb-width: 1rem;
+
+  display: inline-block;
+  cursor: pointer;
+
+  &--large {
+    --thumb-width: 1.375rem;
+  }
+
+  &:has(:disabled),
+  &:has([aria-disabled='true']) {
+    cursor: not-allowed;
+  }
+}
+
+.pix-toggle__label {
+  margin-right: var(--pix-spacing-4x);
+  font-weight: var(--pix-font-bold);
+  vertical-align: middle;
+}
+
+.pix-toggle__input {
+  position: relative;
+  display: inline-block;
+  width: calc(var(--thumb-width) * 2.375);
+  color: var(--pix-neutral-500);
+  vertical-align: middle;
+  background-color: currentcolor;
+  border: 2px solid currentcolor;
+  border-radius: 5rem;
+  outline: 1px solid transparent;
+  transition: outline-color 0.2s ease-in-out, background-color 0.2s ease-in-out;
+
+  &:has(:checked) {
+    color: var(--pix-primary-500);
+
+    .pix-toggle-input__thumb {
+      transform: translateX(calc(137.5% - 4px));
+    }
+
+    .pix-toggle-input__icon--checked {
+      display: block;
+    }
+
+    .pix-toggle-input__icon--unchecked {
+      display: none;
+    }
+  }
+
+  &:not(:has(:disabled), :has([aria-disabled='true'])) {
+    &:hover,
+    &:has(:focus) {
+      color: var(--pix-neutral-800);
+    }
+
+    &:has(:checked):hover,
+    &:has(:checked):has(:focus) {
+      color: var(--pix-primary-700);
+    }
+  }
+
+  &:has(:focus) {
+    outline-color: currentcolor;
+    outline-offset: 1px;
+  }
+
+  // Disabled state
+  &:has(:disabled),
+  &:has([aria-disabled='true']) {
+    color: var(--pix-neutral-100);
+
+    &:has(:checked) {
+      color: var(--pix-primary-300);
+    }
+
+    &:has(:focus) {
+      outline-color: var(--pix-neutral-800);
+    }
+  }
+}
+
+.pix-toggle-input__checkbox {
+  position: absolute;
+  cursor: pointer;
+  opacity: 0;
+  inset: 0;
+}
+
+.pix-toggle-input__thumb {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--thumb-width);
+  height: var(--thumb-width);
+  background-color: var(--pix-neutral-0);
+  border-radius: 50%;
+  transition: transform 0.2s ease-in-out;
+
+  svg {
+    transform: scale(0.8);
+  }
+}
+
+.pix-toggle-input__icon--checked {
+  display: none;
+}
