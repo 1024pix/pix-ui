@@ -28,6 +28,33 @@ Les paramètres `tagContent` et `tagColor` permettent d'afficher un `Pix Tag` pr
 
 <Story of={ComponentStories.accordionsWithTag} height={260} />
 
+### PixAccordions contrôlé
+
+Par défaut, chaque `PixAccordions` gère son état tout seul. Le paramètre `isExpanded` permet au parent d'en
+prendre la main, ce qui est nécessaire pour piloter plusieurs accordéons d'un coup — un bouton « tout déplier »
+ou « tout replier », par exemple.
+
+Dans ce mode, le composant n'ouvre ni ne ferme plus de lui-même : il se contente de signaler l'intention de
+l'utilisateur via `onToggle`, et c'est au parent de répercuter la nouvelle valeur sur `isExpanded`.
+
+> **⚠️** `@isExpanded={{false}}` n'équivaut pas à ne pas passer le paramètre : il active le mode contrôlé, et les
+> clics resteront sans effet tant que `onToggle` n'est pas branché. Pour rester en mode non contrôlé, ne passez
+> pas le paramètre du tout, ou passez `null`.
+
+Un accordéon contrôlé déplié affiche son contenu dès le premier rendu, sans clic préalable. C'est ce qui permet
+de déplier d'un seul coup des accordéons imbriqués, y compris ceux qui n'étaient pas encore rendus.
+
+<Story of={ComponentStories.controlledAccordions} height={260} />
+
+```html
+<PixAccordions @isExpanded={{this.isExpanded}} @onToggle={{this.onToggle}} @isV2Version={{true}}>
+  <:title>Titre du contenu à dérouler en cliquant</:title>
+  <:content>
+    <div>Contenu du PixAccordions</div>
+  </:content>
+</PixAccordions>
+```
+
 
 ## Usage
 
