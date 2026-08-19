@@ -1,3 +1,4 @@
+import { action } from '@storybook/addon-actions';
 import { hbs } from 'ember-cli-htmlbars';
 
 import { VARIANTS } from '../../addon/helpers/variants.js';
@@ -69,6 +70,7 @@ const Template = (args) => {
   @caption={{this.caption}}
   @displayCaption={{this.displayCaption}}
   @condensed={{this.condensed}}
+  @onRowClick={{this.onRowClick}}
 >
   <:columns as |row context|>
     <PixTableColumn @context={{context}} @type='text'>
@@ -134,4 +136,16 @@ Default.args = {
   onNameSort: () => {
     alert('Fonctionnalité seulement disponible en local sur dummy');
   },
+};
+
+export const Condensed = Template.bind({});
+Condensed.args = {
+  ...Default.args,
+  condensed: true,
+};
+
+export const ClickableRow = Template.bind({});
+ClickableRow.args = {
+  ...Default.args,
+  onRowClick: action('onRowClick'),
 };
