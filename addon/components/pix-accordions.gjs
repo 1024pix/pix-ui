@@ -1,3 +1,4 @@
+import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
@@ -13,6 +14,18 @@ export default class PixAccordions extends Component {
 
   @tracked isCollapsedWhenUncontrolled = true;
   hasBeenExpandedOnce = false;
+
+  constructor(...args) {
+    super(...args);
+
+    warn(
+      'PixAccordions: uncontrolled mode is deprecated, use @isExpanded and @onToggle instead',
+      Boolean(this.args.onToggle),
+      {
+        id: 'pix-ui.pix-accordions.uncontrolled.deprecated',
+      },
+    );
+  }
 
   get isControlled() {
     return this.args.isExpanded !== undefined && this.args.isExpanded !== null;

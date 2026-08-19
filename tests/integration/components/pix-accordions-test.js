@@ -13,6 +13,16 @@ function getToggleIconName() {
 module('Integration | Component | PixAccordions', function (hooks) {
   setupRenderingTest(hooks);
 
+  let warnStub;
+
+  hooks.beforeEach(function () {
+    warnStub = sinon.stub(console, 'warn');
+  });
+
+  hooks.afterEach(function () {
+    warnStub.restore();
+  });
+
   test('it should only render PixAccordions title by default', async function (assert) {
     // when
     const screen = await render(hbs`<PixAccordions>
@@ -264,6 +274,28 @@ module('Integration | Component | PixAccordions', function (hooks) {
       assert.dom(screen.queryByText('Contenu de mon élément')).isVisible();
     });
 
+    test('it should not warn when @onToggle is provided', async function (assert) {
+      // given
+      this.set('onToggle', sinon.stub());
+
+      // when
+      await render(hbs`<PixAccordions @isExpanded={{true}} @onToggle={{this.onToggle}}>
+  <:title>
+    Titre de mon élément déroulable
+  </:title>
+  <:content>
+    <p>Contenu de mon élément</p>
+  </:content>
+</PixAccordions>`);
+
+      // then
+      assert.false(
+        warnStub.calledWithExactly(
+          'WARNING: PixAccordions: uncontrolled mode is deprecated, use @isExpanded and @onToggle instead',
+        ),
+      );
+    });
+
     test('it should stay uncontrolled when @isExpanded is null', async function (assert) {
       // when
       const screen = await render(hbs`<PixAccordions @isExpanded={{null}}>
@@ -280,5 +312,24 @@ module('Integration | Component | PixAccordions', function (hooks) {
       assert.dom(screen.queryByRole('button')).hasAria('expanded', 'true');
       assert.dom(screen.queryByText('Contenu de mon élément')).isVisible();
     });
+  });
+
+  test('it should warn that the uncontrolled mode is deprecated when @onToggle is missing', async function (assert) {
+    // when
+    await render(hbs`<PixAccordions>
+  <:title>
+    Titre de mon élément déroulable
+  </:title>
+  <:content>
+    <p>Contenu de mon élément</p>
+  </:content>
+</PixAccordions>`);
+
+    // then
+    assert.ok(
+      warnStub.calledWithExactly(
+        'WARNING: PixAccordions: uncontrolled mode is deprecated, use @isExpanded and @onToggle instead',
+      ),
+    );
   });
 });

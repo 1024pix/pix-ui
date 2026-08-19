@@ -30,16 +30,15 @@ Les paramètres `tagContent` et `tagColor` permettent d'afficher un `Pix Tag` pr
 
 ### PixAccordions contrôlé
 
-Par défaut, chaque `PixAccordions` gère son état tout seul. Le paramètre `isExpanded` permet au parent d'en
-prendre la main, ce qui est nécessaire pour piloter plusieurs accordéons d'un coup — un bouton « tout déplier »
-ou « tout replier », par exemple.
+> **⚠️** **Le mode non contrôlé est déprécié.** Utilisez `isExpanded` et `onToggle` : le composant avertit en
+> développement lorsque `onToggle` n'est pas fourni.
 
-Dans ce mode, le composant n'ouvre ni ne ferme plus de lui-même : il se contente de signaler l'intention de
-l'utilisateur via `onToggle`, et c'est au parent de répercuter la nouvelle valeur sur `isExpanded`.
+Historiquement, chaque `PixAccordions` gérait son état tout seul. Les paramètres `isExpanded` et `onToggle`
+donnent la main au parent, ce qui est nécessaire pour piloter plusieurs accordéons d'un coup — un bouton
+« tout déplier » ou « tout replier », par exemple — et uniformise les usages autour d'un composant sans état.
 
-> **⚠️** `@isExpanded={{false}}` n'équivaut pas à ne pas passer le paramètre : il active le mode contrôlé, et les
-> clics resteront sans effet tant que `onToggle` n'est pas branché. Pour rester en mode non contrôlé, ne passez
-> pas le paramètre du tout, ou passez `null`.
+Dans ce mode, le composant n'ouvre ni ne ferme plus de lui-même : il signale l'intention de l'utilisateur via
+`onToggle`, et c'est au parent de répercuter la nouvelle valeur sur `isExpanded`.
 
 Un accordéon contrôlé déplié affiche son contenu dès le premier rendu, sans clic préalable. C'est ce qui permet
 de déplier d'un seul coup des accordéons imbriqués, y compris ceux qui n'étaient pas encore rendus.
@@ -55,11 +54,27 @@ de déplier d'un seul coup des accordéons imbriqués, y compris ceux qui n'éta
 </PixAccordions>
 ```
 
+Le parent tient l'état et le met à jour depuis `onToggle` :
+
+```js
+@tracked isExpanded = false;
+
+@action
+onToggle(isExpanded) {
+  this.isExpanded = isExpanded;
+}
+```
+
 
 ## Usage
 
 ```html
-<PixAccordions @iconName="users" @isV2Version={{true}}>`
+<PixAccordions
+  @iconName="users"
+  @isV2Version={{true}}
+  @isExpanded={{this.isExpanded}}
+  @onToggle={{this.onToggle}}
+>
   <:title>Titre du contenu à dérouler en cliquant</:title>
   <:content>
     <div>Contenu du PixAccordions</div>
