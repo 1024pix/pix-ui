@@ -1,3 +1,9 @@
+## [62.0.1](https://github.com/1024pix/pix-ui/compare/v62.0.0...v62.0.1) (2026-08-19)
+
+### :bug: Correction
+
+- [#1022](https://github.com/1024pix/pix-ui/pull/1022) Afficher les arrondis du PixTable sur Firefox (PIX-16850).
+
 # [62.0.0](https://github.com/1024pix/pix-ui/compare/v61.4.1...v62.0.0) (2026-08-17)
 
 ### :boom: BREAKING CHANGE
