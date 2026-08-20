@@ -2,6 +2,7 @@ import { hbs } from 'ember-cli-htmlbars';
 
 export default {
   title: 'Other/Background Header',
+  tags: ['deprecated'],
 };
 
 export const backgroundHeader = (args) => {
