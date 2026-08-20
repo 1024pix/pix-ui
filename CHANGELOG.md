@@ -1,3 +1,9 @@
+# [62.2.0](https://github.com/1024pix/pix-ui/compare/v62.1.0...v62.2.0) (2026-08-20)
+
+### :rocket: Amélioration
+
+- [#1026](https://github.com/1024pix/pix-ui/pull/1026) Déprécier le composant PixBackgroundHeader (PIX-23932)
+
 # [62.1.0](https://github.com/1024pix/pix-ui/compare/v62.0.1...v62.1.0) (2026-08-20)
 
 ### :rocket: Amélioration
