@@ -1,3 +1,9 @@
+# [62.1.0](https://github.com/1024pix/pix-ui/compare/v62.0.1...v62.1.0) (2026-08-20)
+
+### :rocket: Amélioration
+
+- [#1024](https://github.com/1024pix/pix-ui/pull/1024) Créer le composant PixToggle (PIX-15778).
+
 ## [62.0.1](https://github.com/1024pix/pix-ui/compare/v62.0.0...v62.0.1) (2026-08-19)
 
 ### :bug: Correction
