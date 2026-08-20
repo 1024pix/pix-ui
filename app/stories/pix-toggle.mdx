@@ -1,0 +1,52 @@
+import { Meta, Story, ArgTypes } from '@storybook/blocks';
+
+import * as ComponentStories from './pix-toggle.stories';
+
+<Meta of={ComponentStories} />
+
+# PixToggle
+
+Le PixToggle est un interrupteur : il permet à l'utilisateur d'activer ou de désactiver un réglage, dont l'effet est immédiat et ne nécessite pas de validation.
+
+Si le réglage n'est appliqué qu'après la soumission d'un formulaire, utiliser une [PixCheckbox](?path=/docs/forms-checkbox--docs) à la place.
+
+Le composant repose sur une case à cocher native portant le rôle `switch`, son label est cliquable et il est activable au clavier avec la barre d'espace.
+
+<Story of={ComponentStories.Default} height={60} />
+
+## États du Toggle
+
+L'état d'activation est piloté par le consommateur via `@checked` : le composant ne le mémorise pas. Il faut donc écouter l'évènement `change` pour le mettre à jour.
+
+L'attribut `@isDisabled` désactive le toggle en conservant la possibilité de naviguer avec le clavier ou le lecteur d'écran. Il est préféré à l'attribut natif `disabled` qui empêche ces usages.
+
+## Tailles
+
+<Story of={ComponentStories.sizes} height={120} />
+
+## Accessibilité
+
+Le label est facultatif. Lorsqu'aucun label visible n'est passé en bloc, il est impératif de nommer le toggle avec un `aria-label`, sans quoi il est inutilisable au lecteur d'écran.
+
+```html
+<PixToggle aria-label="Recevoir la newsletter" />
+```
+
+## Usage
+
+Tout attribut passé au composant (`aria-label`, `data-*`, modifieur `{{on "change"}}`, ...) est appliqué à la case à cocher.
+
+```html
+<PixToggle
+  @checked={{this.isSubscribedToNewsletter}}
+  @size="large"
+  @isDisabled={{false}}
+  {{on "change" this.toggleNewsletterSubscription}}
+>
+  Recevoir la newsletter
+</PixToggle>
+```
+
+## Arguments
+
+<ArgTypes />

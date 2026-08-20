@@ -54,6 +54,7 @@
 @use 'pix-stepper';
 @use 'pix-card';
 @use 'pix-accordions-v2';
+@use 'pix-toggle';
 
 // at the end so it can override it's children scss
 @use 'pix-filterable-and-searchable-select';
