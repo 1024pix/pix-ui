@@ -28,11 +28,53 @@ Les paramètres `tagContent` et `tagColor` permettent d'afficher un `Pix Tag` pr
 
 <Story of={ComponentStories.accordionsWithTag} height={260} />
 
+### PixAccordions contrôlé
+
+> **⚠️** **Le mode non contrôlé est déprécié.** Utilisez `isExpanded` et `onToggle` : le composant avertit en
+> développement lorsque `onToggle` n'est pas fourni.
+
+Historiquement, chaque `PixAccordions` gérait son état tout seul. Les paramètres `isExpanded` et `onToggle`
+donnent la main au parent, ce qui est nécessaire pour piloter plusieurs accordéons d'un coup — un bouton
+« tout déplier » ou « tout replier », par exemple — et uniformise les usages autour d'un composant sans état.
+
+Dans ce mode, le composant n'ouvre ni ne ferme plus de lui-même : il signale l'intention de l'utilisateur via
+`onToggle`, et c'est au parent de répercuter la nouvelle valeur sur `isExpanded`.
+
+Un accordéon contrôlé déplié affiche son contenu dès le premier rendu, sans clic préalable. C'est ce qui permet
+de déplier d'un seul coup des accordéons imbriqués, y compris ceux qui n'étaient pas encore rendus.
+
+<Story of={ComponentStories.controlledAccordions} height={260} />
+
+```html
+<PixAccordions @isExpanded={{this.isExpanded}} @onToggle={{this.onToggle}} @isV2Version={{true}}>
+  <:title>Titre du contenu à dérouler en cliquant</:title>
+  <:content>
+    <div>Contenu du PixAccordions</div>
+  </:content>
+</PixAccordions>
+```
+
+Le parent tient l'état et le met à jour depuis `onToggle` :
+
+```js
+@tracked isExpanded = false;
+
+@action
+onToggle(isExpanded) {
+  this.isExpanded = isExpanded;
+}
+```
+
 
 ## Usage
 
 ```html
-<PixAccordions @iconName="users" @isV2Version={{true}}>`
+<PixAccordions
+  @iconName="users"
+  @isV2Version={{true}}
+  @isExpanded={{this.isExpanded}}
+  @onToggle={{this.onToggle}}
+>
   <:title>Titre du contenu à dérouler en cliquant</:title>
   <:content>
     <div>Contenu du PixAccordions</div>

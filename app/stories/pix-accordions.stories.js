@@ -44,6 +44,25 @@ export default {
       type: { name: 'string', required: false },
       table: { defaultValue: { summary: 'primary' } },
     },
+    isExpanded: {
+      name: 'isExpanded',
+      description:
+        "Passe le composant en mode contrôlé : c'est le parent qui décide si l'accordéon est déplié, et le composant n'ouvre plus ni ne ferme de lui-même au clic. À utiliser avec onToggle. Le mode non contrôlé, obtenu en ne passant ni isExpanded ni onToggle, est déprécié.",
+      type: { name: 'boolean', required: false },
+      control: { type: 'boolean' },
+      table: {
+        type: { summary: 'boolean' },
+        defaultValue: { summary: undefined },
+      },
+    },
+    onToggle: {
+      name: 'onToggle',
+      description:
+        "Appelé à chaque clic sur le titre, avec l'état attendu par l'utilisateur (true pour déplier, false pour replier). C'est au parent de répercuter cette valeur sur isExpanded. Son absence déclenche un avertissement en développement, le mode non contrôlé étant déprécié.",
+      type: { name: 'function', required: false },
+      control: { type: null },
+      table: { type: { summary: '(isExpanded: boolean) => void' } },
+    },
   },
 };
 
@@ -106,6 +125,34 @@ export const multipleAccordions = (args) => {
 </div>`,
     context: args,
   };
+};
+
+export const controlledAccordions = (args) => {
+  return {
+    template: hbs`<div>
+  <PixAccordions @isExpanded={{this.isExpanded}} @isV2Version={{true}}>
+    <:title>
+      Titre A
+    </:title>
+    <:content>
+      <div>Contenu A</div>
+    </:content>
+  </PixAccordions>
+
+  <PixAccordions @isExpanded={{this.isExpanded}} @isV2Version={{true}}>
+    <:title>
+      Titre B
+    </:title>
+    <:content>
+      <div>Contenu B</div>
+    </:content>
+  </PixAccordions>
+</div>`,
+    context: args,
+  };
+};
+controlledAccordions.args = {
+  isExpanded: true,
 };
 
 export const accordionsWithTag = (args) => {

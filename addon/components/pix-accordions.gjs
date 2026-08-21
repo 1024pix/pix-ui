@@ -1,3 +1,4 @@
+import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
@@ -11,21 +12,49 @@ export default class PixAccordions extends Component {
   text = 'pix-accordions';
   contentId = 'pix-accordions-' + guidFor(this);
 
-  @tracked isCollapsed = true;
-  @tracked hasUnCollapsedOnce = false;
+  @tracked isCollapsedWhenUncontrolled = true;
+  hasBeenExpandedOnce = false;
 
-  get isUnCollapsed() {
-    return !this.isCollapsed;
+  constructor(...args) {
+    super(...args);
+
+    warn(
+      'PixAccordions: uncontrolled mode is deprecated, use @isExpanded and @onToggle instead',
+      Boolean(this.args.onToggle),
+      {
+        id: 'pix-ui.pix-accordions.uncontrolled.deprecated',
+      },
+    );
+  }
+
+  get isControlled() {
+    return this.args.isExpanded !== undefined && this.args.isExpanded !== null;
+  }
+
+  get isExpanded() {
+    return this.isControlled ? Boolean(this.args.isExpanded) : !this.isCollapsedWhenUncontrolled;
   }
 
   get isContentRendered() {
-    return this.hasUnCollapsedOnce;
+    if (this.isExpanded) {
+      // eslint-disable-next-line ember/no-side-effects
+      this.hasBeenExpandedOnce = true;
+    }
+
+    return this.hasBeenExpandedOnce;
   }
 
   @action
   toggleAccordions() {
-    this.isCollapsed = !this.isCollapsed;
-    this.hasUnCollapsedOnce = true;
+    const nextIsExpanded = !this.isExpanded;
+
+    if (!this.isControlled) {
+      this.isCollapsedWhenUncontrolled = !nextIsExpanded;
+    }
+
+    if (this.args.onToggle) {
+      this.args.onToggle(nextIsExpanded);
+    }
   }
 
   get isV2Version() {
@@ -40,7 +69,7 @@ export default class PixAccordions extends Component {
         type="button"
         {{on "click" this.toggleAccordions}}
         aria-controls={{this.contentId}}
-        aria-expanded={{if this.isUnCollapsed "true" "false"}}
+        aria-expanded={{if this.isExpanded "true" "false"}}
         ...attributes
       >
 
@@ -66,7 +95,7 @@ export default class PixAccordions extends Component {
           <PixIcon
             class="pix-accordions{{this.isV2Version}}-title-container__toggle-icon"
             @ariaHidden={{true}}
-            @name="{{if this.isCollapsed 'chevronBottom' 'chevronTop'}}"
+            @name="{{if this.isExpanded 'chevronTop' 'chevronBottom'}}"
           />
         </span>
       </button>
@@ -74,7 +103,7 @@ export default class PixAccordions extends Component {
       <div
         id={{this.contentId}}
         class="pix-accordions{{this.isV2Version}}__content"
-        aria-hidden={{if this.isCollapsed "true" "false"}}
+        aria-hidden={{if this.isExpanded "false" "true"}}
       >
         {{#if this.isContentRendered}}
           {{yield to="content"}}
