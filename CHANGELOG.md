@@ -1,3 +1,9 @@
+# [62.3.0](https://github.com/1024pix/pix-ui/compare/v62.2.0...v62.3.0) (2026-08-21)
+
+### :rocket: Amélioration
+
+- [#1025](https://github.com/1024pix/pix-ui/pull/1025) Ajouter un mode contrôlé au composant PixAccordions (PIX-23916)
+
 # [62.2.0](https://github.com/1024pix/pix-ui/compare/v62.1.0...v62.2.0) (2026-08-20)
 
 ### :rocket: Amélioration
