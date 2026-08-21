@@ -56,7 +56,7 @@ export default {
 
 const Template = (args) => ({
   template: hbs`<PixTag @color={{this.color}} @displayRemoveButton={{this.displayRemoveButton}} @onRemove={{this.onRemove}}>
-Contenu du tag
+  Contenu du tag
 </PixTag>`,
   context: args,
 });

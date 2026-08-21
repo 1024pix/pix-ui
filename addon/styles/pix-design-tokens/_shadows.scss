@@ -2,47 +2,47 @@
 
 :root {
   // Size-based
-  --pix-shadow-xs: 0 4px 8px rgba(7, 20, 46, 0.08);
-  --pix-shadow-sm: 0 6px 12px rgba(7, 20, 46, 0.08);
-  --pix-shadow-md: 0 8px 16px rgba(7, 20, 46, 0.08);
-  --pix-shadow-lg: 0 10px 20px rgba(7, 20, 46, 0.08);
-  --pix-shadow-xl: 0 12px 24px rgba(7, 20, 46, 0.08);
+  --pix-shadow-xs: 0 4px 8px rgb(7, 20, 46, 0.08);
+  --pix-shadow-sm: 0 6px 12px rgb(7, 20, 46, 0.08);
+  --pix-shadow-md: 0 8px 16px rgb(7, 20, 46, 0.08);
+  --pix-shadow-lg: 0 10px 20px rgb(7, 20, 46, 0.08);
+  --pix-shadow-xl: 0 12px 24px rgb(7, 20, 46, 0.08);
 
   // Default
-  --pix-shadow-default: 0 2px 5px 0 rgba(74, 58, 255, 0.25), 0 -2px 5px 0 rgba(74, 58, 255, 0.15) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(223, 238, 255, 0.1) inset;
-  --pix-shadow-default-hover: 4px 4px 5px 0 rgba(74, 58, 255, 0.25), -4px 4px 5px 0 rgba(74, 58, 255, 0.25),
-    0 -2px 5px 0 rgba(74, 58, 255, 0.3) inset, 0 1px 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 3px 4px 0 rgba(223, 238, 255, 0.25) inset;
-  --pix-shadow-default-pressed: 0 0 15px 0 rgba(74, 58, 255, 0.6) inset, 0 -2px 5px 0 rgba(74, 58, 255, 0.25) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(223, 238, 255, 0.1) inset;
+  --pix-shadow-default: 0 2px 5px 0 rgb(74, 58, 255, 0.25), 0 -2px 5px 0 rgb(74, 58, 255, 0.15) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(223, 238, 255, 0.1) inset;
+  --pix-shadow-default-hover: 4px 4px 5px 0 rgb(74, 58, 255, 0.25), -4px 4px 5px 0 rgb(74, 58, 255, 0.25),
+    0 -2px 5px 0 rgb(74, 58, 255, 0.3) inset, 0 1px 1px 0 rgb(255, 255, 255, 0.25) inset,
+    0 3px 4px 0 rgb(223, 238, 255, 0.25) inset;
+  --pix-shadow-default-pressed: 0 0 15px 0 rgb(74, 58, 255, 0.6) inset, 0 -2px 5px 0 rgb(74, 58, 255, 0.25) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(223, 238, 255, 0.1) inset;
 
   // Neutral
-  --pix-shadow-neutral: 0 2px 5px 0 rgba(79, 99, 132, 0.25), 0 -2px 5px 0 rgba(79, 99, 132, 0.15) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(200, 207, 217, 0.1) inset;
-  --pix-shadow-neutral-hover: 4px 4px 5px 0 rgba(79, 99, 132, 0.25), -4px 4px 5px 0 rgba(79, 99, 132, 0.25),
-    0 -2px 5px 0 rgba(79, 99, 132, 0.3) inset, 0 1px 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 3px 4px 0 rgba(200, 207, 217, 0.25) inset;
-  --pix-shadow-neutral-pressed: 0 0 15px 0 rgba(79, 99, 132, 0.6) inset, 0 -2px 5px 0 rgba(79, 99, 132, 0.25) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(200, 207, 217, 0.1) inset;
+  --pix-shadow-neutral: 0 2px 5px 0 rgb(79, 99, 132, 0.25), 0 -2px 5px 0 rgb(79, 99, 132, 0.15) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(200, 207, 217, 0.1) inset;
+  --pix-shadow-neutral-hover: 4px 4px 5px 0 rgb(79, 99, 132, 0.25), -4px 4px 5px 0 rgb(79, 99, 132, 0.25),
+    0 -2px 5px 0 rgb(79, 99, 132, 0.3) inset, 0 1px 1px 0 rgb(255, 255, 255, 0.25) inset,
+    0 3px 4px 0 rgb(200, 207, 217, 0.25) inset;
+  --pix-shadow-neutral-pressed: 0 0 15px 0 rgb(79, 99, 132, 0.6) inset, 0 -2px 5px 0 rgb(79, 99, 132, 0.25) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(200, 207, 217, 0.1) inset;
 
   // Orga
-  --pix-shadow-orga: 0 2px 5px 0 rgba(54, 116, 191, 0.25), 0 -2px 5px 0 rgba(54, 116, 191, 0.15) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(235, 241, 249, 0.1) inset;
-  --pix-shadow-orga-hover: 4px 4px 5px 0 rgba(54, 116, 191, 0.25), -4px 4px 5px 0 rgba(54, 116, 191, 0.25),
-    0 -2px 5px 0 rgba(54, 116, 191, 0.3) inset, 0 1px 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 3px 4px 0 rgba(235, 241, 249, 0.25) inset;
-  --pix-shadow-orga-pressed: 0 0 15px 0 rgba(54, 116, 191, 0.6) inset, 0 -2px 5px 0 rgba(54, 116, 191, 0.25) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(235, 241, 249, 0.1) inset;
+  --pix-shadow-orga: 0 2px 5px 0 rgb(54, 116, 191, 0.25), 0 -2px 5px 0 rgb(54, 116, 191, 0.15) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(235, 241, 249, 0.1) inset;
+  --pix-shadow-orga-hover: 4px 4px 5px 0 rgb(54, 116, 191, 0.25), -4px 4px 5px 0 rgb(54, 116, 191, 0.25),
+    0 -2px 5px 0 rgb(54, 116, 191, 0.3) inset, 0 1px 1px 0 rgb(255, 255, 255, 0.25) inset,
+    0 3px 4px 0 rgb(235, 241, 249, 0.25) inset;
+  --pix-shadow-orga-pressed: 0 0 15px 0 rgb(54, 116, 191, 0.6) inset, 0 -2px 5px 0 rgb(54, 116, 191, 0.25) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(235, 241, 249, 0.1) inset;
 
   // Certif
-  --pix-shadow-certif: 0 2px 5px 0 rgba(24, 127, 125, 0.25), 0 -2px 5px 0 rgba(24, 127, 125, 0.15) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(232, 242, 242, 0.1) inset;
-  --pix-shadow-certif-hover: 4px 4px 5px 0 rgba(24, 127, 125, 0.25), -4px 4px 5px 0 rgba(24, 127, 125, 0.25),
-    0 -2px 5px 0 rgba(24, 127, 125, 0.3) inset, 0 1px 1px 0 rgba(255, 255, 255, 0.25) inset,
-    0 3px 4px 0 rgba(232, 242, 242, 0.25) inset;
-  --pix-shadow-certif-pressed: 0 0 15px 0 rgba(24, 127, 125, 0.6) inset, 0 -2px 5px 0 rgba(24, 127, 125, 0.25) inset,
-    0 1px 1px 0 rgba(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgba(232, 242, 242, 0.1) inset;
+  --pix-shadow-certif: 0 2px 5px 0 rgb(24, 127, 125, 0.25), 0 -2px 5px 0 rgb(24, 127, 125, 0.15) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(232, 242, 242, 0.1) inset;
+  --pix-shadow-certif-hover: 4px 4px 5px 0 rgb(24, 127, 125, 0.25), -4px 4px 5px 0 rgb(24, 127, 125, 0.25),
+    0 -2px 5px 0 rgb(24, 127, 125, 0.3) inset, 0 1px 1px 0 rgb(255, 255, 255, 0.25) inset,
+    0 3px 4px 0 rgb(232, 242, 242, 0.25) inset;
+  --pix-shadow-certif-pressed: 0 0 15px 0 rgb(24, 127, 125, 0.6) inset, 0 -2px 5px 0 rgb(24, 127, 125, 0.25) inset,
+    0 1px 1px 0 rgb(255, 255, 255, 0.1) inset, 0 3px 4px 0 rgb(232, 242, 242, 0.1) inset;
 }
 
 // SCSS placeholders et classes CSS pour la compatibilité ascendante

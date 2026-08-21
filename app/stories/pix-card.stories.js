@@ -17,14 +17,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`
-<PixCard
-  @variant={{this.variant}}
-  @title={{this.title}}
-  @subtitle={{this.subtitle}}
-  @image={{this.image}}
-  @wide={{this.wide}}
->
+    template: hbs`<PixCard @variant={{this.variant}} @title={{this.title}} @subtitle={{this.subtitle}} @image={{this.image}} @wide={{this.wide}}>
   <:tag><PixTag @color='green'>Parcours Apprenants</PixTag></:tag>
   <:description>
     {{this.description}}
@@ -33,6 +26,7 @@ const Template = (args) => {
     {{this.footer}}
   </:footer>
 </PixCard>`,
+
     context: args,
   };
 };

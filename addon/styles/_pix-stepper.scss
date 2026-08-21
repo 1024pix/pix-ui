@@ -79,7 +79,7 @@
     width: calc(100% - 2.5rem);
     height: 4px;
     background:
-      linear-gradient(90deg, rgba(69, 45, 157, 0.8) 0%, rgba(69, 45, 157, 0) 60%), var(--pix-primary-300);
+      linear-gradient(90deg, rgb(69, 45, 157, 0.8) 0%, rgb(69, 45, 157, 0) 60%), var(--pix-primary-300);
     border-radius: 2px;
     content: '';
   }
@@ -87,7 +87,7 @@
   &.pix-step--current {
     &:not(:last-child)::after {
       background:
-        linear-gradient(90deg, rgba(69, 45, 157, 0.8) 0%, rgba(69, 45, 157, 0) 60%),
+        linear-gradient(90deg, rgb(69, 45, 157, 0.8) 0%, rgb(69, 45, 157, 0) 60%),
         var(--pix-neutral-100);
     }
 
@@ -95,7 +95,7 @@
       @extend %pix-shadow-default;
 
       color: var(--pix-neutral-0);
-      background: linear-gradient(90deg, rgba(69, 45, 157, 0.8) 0%, rgba(69, 45, 157, 0) 60%), var(--pix-primary-300);
+      background: linear-gradient(90deg, rgb(69, 45, 157, 0.8) 0%, rgb(69, 45, 157, 0) 60%), var(--pix-primary-300);
 
       &::before,
       &::after {

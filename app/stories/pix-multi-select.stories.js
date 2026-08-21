@@ -4,9 +4,11 @@ import { hbs } from 'ember-cli-htmlbars';
 export default {
   title: 'Forms/Multi Select',
   render: (args) => ({
-    template: hbs`{{! template-lint-disable no-forbidden-elements }}
+    template: hbs`{{!-- template-lint-disable no-forbidden-elements --}}
 <style>
-  .custom { border : none; }
+  .custom {
+    border: none;
+  }
 </style>
 <h4><strong>⚠️ La sélection des éléments ne fonctionne pas dans Storybook.</strong></h4>
 {{#if this.id}}
@@ -14,24 +16,11 @@ export default {
     <label for={{this.id}}>Un label en dehors du composant</label>
   </div>
 {{/if}}
-<PixMultiSelect
-  @id={{this.id}}
-  @placeholder={{this.placeholder}}
-  @screenReaderOnly={{this.screenReaderOnly}}
-  @size={{this.size}}
-  @onChange={{this.onChange}}
-  @emptyMessage={{this.emptyMessage}}
-  @className={{this.className}}
-  @isSearchable={{this.isSearchable}}
-  @onSearch={{this.onSearch}}
-  @searchLabel={{this.searchLabel}}
-  @values={{this.values}}
-  @options={{this.options}}
-  @isDisabled={{this.isDisabled}}
->
+<PixMultiSelect @id={{this.id}} @placeholder={{this.placeholder}} @screenReaderOnly={{this.screenReaderOnly}} @size={{this.size}} @onChange={{this.onChange}} @emptyMessage={{this.emptyMessage}} @className={{this.className}} @isSearchable={{this.isSearchable}} @onSearch={{this.onSearch}} @searchLabel={{this.searchLabel}} @values={{this.values}} @options={{this.options}} @isDisabled={{this.isDisabled}}>
   <:label>{{this.label}}</:label>
   <:default as |option|>{{option.label}}</:default>
 </PixMultiSelect>`,
+
     context: args,
   }),
   argTypes: {

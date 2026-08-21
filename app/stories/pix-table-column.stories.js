@@ -290,14 +290,12 @@ const templateLink = (args) => {
         Link
       </:header>
       <:cell>
-        <PixButtonLink href={{row.link.url}}
-                       target="_blank"
-                       @variant="tertiary"
-                       @iconBefore="openNew">{{row.link.label}}</PixButtonLink>
+        <PixButtonLink href={{row.link.url}} target='_blank' @variant='tertiary' @iconBefore='openNew'>{{row.link.label}}</PixButtonLink>
       </:cell>
     </PixTableColumn>
   </:columns>
 </PixTable>`,
+
     context: args,
   };
 };
