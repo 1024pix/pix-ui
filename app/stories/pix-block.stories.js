@@ -32,10 +32,9 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`
-      <PixBlock @variant={{this.variant}} @condensed={{this.condensed}}>
-        {{this.information}}
-      </PixBlock>`,
+    template: hbs`<PixBlock @variant={{this.variant}} @condensed={{this.condensed}}>
+  {{this.information}}
+</PixBlock>`,
     context: args,
   };
 };

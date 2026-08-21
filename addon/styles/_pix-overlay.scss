@@ -8,7 +8,7 @@
   margin: 0;
   padding: 0;
   overflow-y: auto;
-  background-color: rgba(var(--pix-neutral-800-inline), 0);
+  background-color: rgb(var(--pix-neutral-800-inline), 0);
   border: none;
   transition:
     background-color 0.3s ease-out,
@@ -21,7 +21,7 @@
   }
 
   &[open] {
-    background-color: rgba(var(--pix-neutral-800-inline), 0.4);
+    background-color: rgb(var(--pix-neutral-800-inline), 0.4);
   }
 
   &--with-centered-content {
@@ -35,7 +35,7 @@
 
   @starting-style {
     &[open] {
-      background-color: rgba(var(--pix-neutral-800-inline), 0);
+      background-color: rgb(var(--pix-neutral-800-inline), 0);
     }
   }
 }

@@ -131,27 +131,14 @@ const TemplateWithoutLabel = (args) => {
 
 const TemplateWithParent = (args) => {
   return {
-    template: hbs`
-    {{! template-lint-disable no-inline-styles }}
-    <span style="color: blue;">Composant parent</span>
-    <div style="width: 400px; border: 2px solid blue; padding-top: 1rem; padding-bottom: 1rem;">
-      <PixInput
-        @id={{this.id}}
-        @errorMessage={{this.errorMessage}}
-        placeholder='Jeanne, Pierre ...'
-        @validationStatus={{this.validationStatus}}
-        @size={{this.size}}
-        disabled={{this.disabled}}
-        readonly={{this.readonly}}
-        @subLabel={{this.subLabel}}
-        @inlineLabel={{this.inlineLabel}}
-        @requiredLabel={{this.requiredLabel}}
-        @screenReaderOnly={{this.screenReaderOnly}}
-        @isFullWidth={{this.isFullWidth}}
-      >
-        <:label>{{this.label}}</:label>
-      </PixInput>
-    </div>`,
+    template: hbs`{{!-- template-lint-disable no-inline-styles --}}
+<span style='color: blue;'>Composant parent</span>
+<div style='width: 400px; border: 2px solid blue; padding-top: 1rem; padding-bottom: 1rem;'>
+  <PixInput @id={{this.id}} @errorMessage={{this.errorMessage}} placeholder='Jeanne, Pierre ...' @validationStatus={{this.validationStatus}} @size={{this.size}} disabled={{this.disabled}} readonly={{this.readonly}} @subLabel={{this.subLabel}} @inlineLabel={{this.inlineLabel}} @requiredLabel={{this.requiredLabel}} @screenReaderOnly={{this.screenReaderOnly}} @isFullWidth={{this.isFullWidth}}>
+    <:label>{{this.label}}</:label>
+  </PixInput>
+</div>`,
+
     context: args,
   };
 };
