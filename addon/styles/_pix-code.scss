@@ -24,7 +24,7 @@
       transparent 0,
       transparent 1ch + $space-between-dashes
   )
-  0 100% / calc($total-width - $space-between-dashes) 1px no-repeat;
+  0 100% / calc($total-width - $space-between-dashes) 1px no-repeat var(--pix-neutral-0);
   background-position-x: 0.5ch;
   background-position-y: 2.5ch;
   border: solid 1px var(--pix-neutral-500);
