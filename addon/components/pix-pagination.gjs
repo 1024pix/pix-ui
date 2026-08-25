@@ -1,7 +1,6 @@
 import { action } from '@ember/object';
 import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
-import { eq } from 'ember-truth-helpers';
 
 import PixIconButton from './pix-icon-button';
 import PixSelect from './pix-select';
@@ -54,10 +53,6 @@ export default class PixPagination extends Component {
     return Math.max(this.currentPage - 1, 1);
   }
 
-  get resultsCount() {
-    return this.args.pagination ? this.args.pagination.rowCount : 0;
-  }
-
   get firstItemPosition() {
     if (!this.args.pagination) return 0;
     return (this.currentPage - 1) * this.pageSize + 1;
@@ -97,10 +92,7 @@ export default class PixPagination extends Component {
   <template>
     <footer class={{this.isCondensed}}>
       <section class="pix-pagination__size">
-        <span
-          class="pagination-size__label"
-          aria-hidden="true"
-        >{{@beforeResultsPerPageLabel}}</span>
+        <span class="pagination-size__label" aria-hidden="true">{{@texts.title}}</span>
         <PixSelect
           @placeholder={{this.pageSize}}
           @screenReaderOnly={{true}}
@@ -110,22 +102,18 @@ export default class PixPagination extends Component {
           @onChange={{this.changePageSize}}
           @options={{this.pageOptions}}
         >
-          <:label>{{@selectPageSizeLabel}}</:label>
+          <:label>{{@texts.pageSize}}</:label>
         </PixSelect>
       </section>
       <section class="pix-pagination__navigation">
         <span>
-          {{#if (eq this.pageCount 1)}}
-            {{@singlePageElementCountLabel}}
-          {{else}}
-            {{@multiplePageElementCountLabel}}
-          {{/if}}
+          {{@texts.pageElementCount}}
         </span>
         <div class="pix-pagination-navigation__action">
           <PixIconButton
             class="pix-pagination-navigation__action-button"
             @iconName="arrowLeft"
-            @ariaLabel={{@previousPageLabel}}
+            @ariaLabel={{@texts.previousPage}}
             @triggerAction={{this.goToPreviousPage}}
             @withBackground={{false}}
             @size="big"
@@ -134,12 +122,12 @@ export default class PixPagination extends Component {
             aria-disabled="{{this.isPreviousPageDisabled}}"
           />
           <span>
-            {{@pageNumberLabel}}
+            {{@texts.pageNumber}}
           </span>
           <PixIconButton
             class="pix-pagination-navigation__action-button"
             @iconName="arrowRight"
-            @ariaLabel={{@nextPageLabel}}
+            @ariaLabel={{@texts.nextPage}}
             @triggerAction={{this.goToNextPage}}
             @withBackground={{false}}
             @size="big"

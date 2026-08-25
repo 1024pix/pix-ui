@@ -24,13 +24,9 @@ Le paramètre `pageOptions` n'est pas requis et possède une valeur par défaut.
 
 Sur mobile, le select qui permet de choisir le nombre d'élément à afficher sur la page est retiré.
 
-## En français avec paramètres par défaut
+## Avec plusieurs page
 
-<Story of={ComponentStories.French} height={110} />
-
-## En anglais avec le paramètre `pageOptions` custom
-
-<Story of={ComponentStories.English} height={110} />
+<Story of={ComponentStories.MultiplePage} height={110} />
 
 ## Avec une seule page
 
@@ -44,10 +40,16 @@ Sur mobile, le select qui permet de choisir le nombre d'élément à afficher su
 
 ```html
 <PixPagination
-  @pagination="{{pagination}}"
-  @locale="{{locale}}"
-  @pageOptions="{{pageOptions}}"
-  @isCondensed="{{isCondensed}}"
+  @pagination={{pagination}}
+  @beforeResultsPerPageLabel={{beforeResultsPerPageLabel}}
+  @selectPageSizeLabel={{selectPageSizeLabel}}
+  @singlePageElementCountLabel={{singlePageElementCountLabel}}
+  @multiplePageElementCountLabel={{multiplePageElementCountLabel}}
+  @pageNumberLabel={{pageNumberLabel}}
+  @previousPageLabel={{previousPageLabel}}
+  @nextPageLabel={{nextPageLabel}}
+  @pageOptions={{pageOptions}}
+  @isCondensed={{isCondensed}}
 />
 ```
 

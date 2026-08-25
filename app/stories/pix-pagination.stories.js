@@ -5,7 +5,7 @@ export default {
   render: (args) => ({
     template: hbs`<PixPagination
   @pagination={{this.pagination}}
-  @locale={{this.locale}}
+  @texts={{this.texts}}
   @pageOptions={{this.pageOptions}}
   @isCondensed={{this.isCondensed}}
 />`,
@@ -49,17 +49,6 @@ export default {
         },
       },
     },
-    locale: {
-      name: 'locale',
-      description: "La langue de l'utilisateur",
-      type: { name: 'string', required: false },
-      control: { type: 'select' },
-      options: ['fr', 'en'],
-      table: {
-        type: { summary: 'string' },
-        defaultValue: { summary: 'fr' },
-      },
-    },
     onChange: {
       name: 'onChange',
       description: 'fonction éxecutée lors du changement de page ou pagination',
@@ -76,10 +65,29 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    texts: {
+      name: 'texts',
+      description: 'object contenant les traductions du composants',
+      type: { name: 'object', required: true },
+      control: { type: 'object' },
+      table: {
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: JSON.stringify({
+            title: 'Voir :',
+            pageSize: "Séléctionner le nombre d'élement à afficher par page",
+            pageElementCount: '5 elements',
+            pageNumber: 'Page 1/3',
+            previousPage: 'Aller à la page précedente',
+            nextPage: 'Aller à la page suivante',
+          }),
+        },
+      },
+    },
   },
 };
 
-export const French = {
+export const MultiplePage = {
   args: {
     pagination: {
       page: 1,
@@ -87,25 +95,14 @@ export const French = {
       rowCount: 12,
       pageCount: 3,
     },
-    locale: 'fr',
-  },
-};
-
-export const English = {
-  args: {
-    pagination: {
-      page: 2,
-      pageSize: 10,
-      rowCount: 12,
-      pageCount: 2,
+    texts: {
+      title: 'Voir :',
+      pageSize: "Séléctionner le nombre d'élement à afficher par page",
+      pageElementCount: '5 elements',
+      pageNumber: 'Page 1/3',
+      previousPage: 'Aller à la page précedente',
+      nextPage: 'Aller à la page suivante',
     },
-    pageOptions: [
-      { label: '10', value: 10 },
-      { label: '20', value: 20 },
-      { label: '50', value: 50 },
-      { label: '100', value: 100 },
-    ],
-    locale: 'en',
   },
 };
 
@@ -117,7 +114,14 @@ export const OnePage = {
       rowCount: 2,
       pageCount: 1,
     },
-    locale: 'fr',
+    texts: {
+      title: 'Voir :',
+      pageSize: "Séléctionner le nombre d'élement à afficher par page",
+      pageElementCount: '5 elements',
+      pageNumber: 'Page 1/3',
+      previousPage: 'Aller à la page précedente',
+      nextPage: 'Aller à la page suivante',
+    },
   },
 };
 
@@ -129,7 +133,14 @@ export const Condensed = {
       rowCount: 2,
       pageCount: 1,
     },
-    locale: 'fr',
+    texts: {
+      title: 'Voir :',
+      pageSize: "Séléctionner le nombre d'élement à afficher par page",
+      pageElementCount: '5 elements',
+      pageNumber: 'Page 1/3',
+      previousPage: 'Aller à la page précedente',
+      nextPage: 'Aller à la page suivante',
+    },
     isCondensed: true,
   },
 };
