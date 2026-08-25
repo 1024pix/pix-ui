@@ -1,26 +1,16 @@
-import { on } from '@ember/modifier';
-import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
-import { localCopy } from 'tracked-toolbox';
 
 import PixLabel from './pix-label';
 
 export default class PixTextarea extends Component {
-  @localCopy('args.value') value;
-
   get id() {
     if (this.args.id) return this.args.id;
     return 'textarea-' + guidFor(this);
   }
 
   get textLengthIndicator() {
-    return this.value ? this.value.length : 0;
-  }
-
-  @action
-  updateValue(event) {
-    this.value = event.target.value;
+    return this.args.value ? this.args.value.length : 0;
   }
 
   <template>
@@ -45,7 +35,6 @@ export default class PixTextarea extends Component {
           aria-required="{{if @requiredLabel true false}}"
           required={{if @requiredLabel true false}}
           class="pix-textarea-container__input {{if @errorMessage 'pix-textarea--error'}}"
-          {{on "keyup" this.updateValue}}
           ...attributes
         >{{@value}}</textarea>
 
