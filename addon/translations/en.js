@@ -8,9 +8,6 @@ export default {
   select: {
     search: 'Search',
   },
-  tag: {
-    removeButton: 'Remove',
-  },
   stepper: {
     ariaLabel: 'Step {current, number} of {total, number}',
   },

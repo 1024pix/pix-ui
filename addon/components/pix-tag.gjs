@@ -1,9 +1,22 @@
+import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 
-import { formatMessage } from '../translations';
 import PixIconButton from './pix-icon-button';
 
 export default class PixTag extends Component {
+  constructor(...args) {
+    super(...args);
+    if (this.args.onRemove) {
+      warn(
+        'PixTag: texts.removeButtonLabel is mandatory when onRemove is provided  ',
+        Boolean(this.args.texts?.removeButtonLabel),
+        {
+          id: 'pix-ui.pix-tag.texts.mandatory',
+        },
+      );
+    }
+  }
+
   get classes() {
     const { color } = this.args;
     const classes = [];
@@ -11,16 +24,12 @@ export default class PixTag extends Component {
     return classes.join(' ');
   }
 
-  get ariaLabel() {
-    return formatMessage(this.args.locale || 'fr', 'tag.removeButton');
-  }
-
   <template>
     <div class="pix-tag {{this.classes}}" ...attributes>
       {{yield}}
-      {{#if @displayRemoveButton}}
+      {{#if @onRemove}}
         <PixIconButton
-          @ariaLabel={{this.ariaLabel}}
+          @ariaLabel={{@texts.removeButtonLabel}}
           @iconName="close"
           @size="xsmall"
           @triggerAction={{@onRemove}}

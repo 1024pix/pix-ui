@@ -28,18 +28,25 @@ module('Integration | Component | pix-tag', function (hooks) {
   });
 
   test('it displays remove button when displayRemoveButton is true', async function (assert) {
-    const screen = await render(hbs`<PixTag @displayRemoveButton={{true}}>tag text</PixTag>`);
+    this.texts = { removeButtonLabel: 'Supprimer le tag' };
+    this.onRemove = sinon.stub();
 
-    assert.dom(screen.getByRole('button', { name: 'Supprimer' })).exists();
+    const screen = await render(
+      hbs`<PixTag @texts={{this.texts}} @onRemove={{this.onRemove}}>tag text</PixTag>`,
+    );
+
+    assert.dom(screen.getByRole('button', { name: this.texts.removeButtonLabel })).exists();
   });
 
   test('it calls onRemove when button is clicked', async function (assert) {
+    this.texts = { removeButtonLabel: 'Supprimer le tag' };
     this.onRemove = sinon.stub();
+
     const screen = await render(
-      hbs`<PixTag @displayRemoveButton={{true}} @onRemove={{this.onRemove}}>tag text</PixTag>`,
+      hbs`<PixTag @texts={{this.texts}} @onRemove={{this.onRemove}}>text</PixTag>`,
     );
 
-    await click(screen.getByRole('button', { name: 'Supprimer' }));
+    await click(screen.getByRole('button', { name: this.texts.removeButtonLabel }));
 
     assert.ok(this.onRemove.calledOnce);
   });
