@@ -1,10 +1,21 @@
+import { warn } from '@ember/debug';
 import Component from '@glimmer/component';
 import { eq } from 'ember-truth-helpers';
 
-import { formatMessage } from '../translations';
 import PixStep from './pix-step';
 
 export default class PixStepperComponent extends Component {
+  constructor(...args) {
+    super(...args);
+    warn(
+      'PixStepper: @texts attribute is mandatory for accessibility.',
+      Boolean(this.args.texts?.ariaLabel),
+      {
+        id: 'pix-ui.stepper-component.texts.mandatory',
+      },
+    );
+  }
+
   get cssClass() {
     const classes = ['pix-stepper'];
 
@@ -19,15 +30,8 @@ export default class PixStepperComponent extends Component {
     return this.args.currentStep - 1;
   }
 
-  get ariaLabel() {
-    return formatMessage(this.args.locale ?? 'fr', 'stepper.ariaLabel', {
-      current: this.args.currentStep,
-      total: this.args.steps.length,
-    });
-  }
-
   <template>
-    <ol class={{this.cssClass}} role="list" aria-label={{this.ariaLabel}} ...attributes>
+    <ol class={{this.cssClass}} role="list" ...attributes aria-label={{@texts.ariaLabel}}>
       {{#each @steps as |step index|}}
         <PixStep
           @index={{index}}
