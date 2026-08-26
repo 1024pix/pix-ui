@@ -8,9 +8,13 @@
       @onChange={{this.onChange}}
       @value={{this.selectedOption}}
       @hideDefaultOption={{true}}
-      @placeholder="Select an option"
       @isSearchable={{true}}
       @onSearch={{this.onSearch}}
+      @texts={{hash
+        placeholder="Select an option"
+        selectSearchLabel="Rechercher"
+        searchPlaceholder="Rechercher..."
+      }}
     >
       <:label>Fruits</:label>
     </PixSelect>
@@ -43,11 +47,15 @@
       @onChange={{this.onChangeCountry}}
       @value={{this.selectedCountry}}
       @hideDefaultOption={{true}}
-      @placeholder="Select an option"
-      @requiredLabel="Required"
       @errorMessage={{if this.countriesError "You must select a country"}}
       {{!-- @isFullWidth={{true}} --}}
       @inlineLabel={{true}}
+      @texts={{hash
+        placeholder="Select an option"
+        selectSearchLabel="Rechercher"
+        searchPlaceholder="Rechercher..."
+        requiredLabel="Required"
+      }}
     >
       <:label>Countries</:label>
     </PixSelect>

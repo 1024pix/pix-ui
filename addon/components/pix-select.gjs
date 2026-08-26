@@ -1,3 +1,4 @@
+import { warn } from '@ember/debug';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
@@ -10,7 +11,6 @@ import { or } from 'ember-truth-helpers';
 
 import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEscapeAction from '../modifiers/on-escape-action';
-import { formatMessage } from '../translations';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 import PixSelectList from './pix-select-list';
@@ -22,6 +22,13 @@ export default class PixSelect extends Component {
 
   constructor(...args) {
     super(...args);
+    warn(
+      'PixSelect: @texts.placeholder attribute is mandatory for usability.',
+      Boolean(this.args.texts?.placeholder),
+      {
+        id: 'pix-ui.select-placeholder.mandatory',
+      },
+    );
 
     this.searchId = 'search-input-' + guidFor(this);
     this.selectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
@@ -39,10 +46,6 @@ export default class PixSelect extends Component {
         element.style.setProperty('--pix-select-width', `${selectWidth}rem`);
       });
     }
-  }
-
-  get selectSearchLabel() {
-    return formatMessage(this.args.locale ?? 'fr', 'select.search');
   }
 
   get displayDefaultOption() {
@@ -79,9 +82,9 @@ export default class PixSelect extends Component {
   }
 
   get placeholder() {
-    if (!this.args.value) return this.args.placeholder;
+    if (!this.args.value) return this.args.texts?.placeholder;
     const option = this.args.options.find((option) => option.value === this.args.value);
-    return option ? option.label : this.args.placeholder;
+    return option ? option.label : this.args.texts?.placeholder;
   }
 
   get defaultOption() {
@@ -170,8 +173,8 @@ export default class PixSelect extends Component {
       {{#if (has-block "label")}}
         <PixLabel
           @for={{this.selectId}}
-          @requiredLabel={{@requiredLabel}}
-          @subLabel={{@subLabel}}
+          @requiredLabel={{@texts.requiredLabel}}
+          @subLabel={{@texts.subLabel}}
           @size={{@size}}
           @screenReaderOnly={{@screenReaderOnly}}
           @inlineLabel={{@inlineLabel}}
@@ -219,14 +222,14 @@ export default class PixSelect extends Component {
               <div class="pix-select__search">
                 <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
                 <label class="screen-reader-only" for={{this.searchId}}>
-                  {{this.selectSearchLabel}}
+                  {{@texts.selectSearchLabel}}
                 </label>
                 <input
                   class="pix-select-search__input"
                   id={{this.searchId}}
                   autocomplete="off"
                   tabindex={{if this.isExpanded "0" "-1"}}
-                  placeholder={{@searchPlaceholder}}
+                  placeholder={{@texts.searchPlaceholder}}
                   {{on "input" this.setSearchValue}}
                 />
               </div>
@@ -242,8 +245,8 @@ export default class PixSelect extends Component {
               @selectId={{this.selectId}}
               @isExpanded={{this.isExpanded}}
               @options={{@options}}
-              @defaultOptionValue={{@placeholder}}
-              @emptySearchMessage={{@emptySearchMessage}}
+              @defaultOptionValue={{@texts.placeholder}}
+              @emptySearchMessage={{@texts.emptySearchMessage}}
             />
           </div>
         </PopperJS>
