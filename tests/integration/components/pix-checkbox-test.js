@@ -98,10 +98,13 @@ module('Integration | Component | checkbox', function (hooks) {
     test(`it should read success state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
-
+      this.texts = {
+        stateSuccess: 'Sélection correcte',
+      };
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='success'><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='success' @texts={{this.texts}}><:label
+  >Recevoir la newsletter</:label></PixCheckbox>`,
       );
 
       // then
@@ -118,10 +121,13 @@ module('Integration | Component | checkbox', function (hooks) {
     test(`it should read error state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
-
+      this.texts = {
+        stateError: 'Sélection incorrecte',
+      };
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='error'><:label>Recevoir la newsletter</:label></PixCheckbox>`,
+        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='error' @texts={{this.texts}}><:label
+  >Recevoir la newsletter</:label></PixCheckbox>`,
       );
 
       // then
@@ -138,14 +144,18 @@ module('Integration | Component | checkbox', function (hooks) {
     test(`it should read declarative state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
-
+      this.texts = {
+        stateDeclarative: 'Sélection sans bonne ou mauvaise réponse',
+      };
       // when
       const screen = await render(
-        hbs`<PixCheckbox checked @isDisabled={{this.isDisabled}} @state='declarative'><:label>La galette des
-    rois</:label></PixCheckbox>`,
-      );
-
-      // then
+        hbs`<PixCheckbox
+  checked
+  @isDisabled={{this.isDisabled}}
+  @state='declarative'
+  @texts={{this.texts}}
+><:label>La galette des rois</:label></PixCheckbox>`,
+      ); // then
       assert
         .dom(
           screen.getByRole('checkbox', {

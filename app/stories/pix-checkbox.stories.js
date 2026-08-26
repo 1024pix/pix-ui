@@ -50,17 +50,21 @@ export default {
         type: { summary: 'string' },
       },
     },
-    subLabel: {
-      name: 'subLabel',
-      description: 'Un descriptif complétant le label',
-      type: { name: 'string', required: false },
-    },
-    requiredLabel: {
-      name: 'requiredLabel',
-      description: 'Label indiquant que le champ est requis.',
-      type: { name: 'string', required: false },
+    texts: {
+      name: 'texts',
+      description: 'Objet contenant les différentes traductions',
+      type: { name: 'object', required: false },
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: JSON.stringify({
+            subLabel: 'Mon sous label',
+            requiredLabel: 'Champs requis',
+            stateSuccess: 'Etat valide',
+            stateError: 'Etat invalide',
+            stateDeclarative: 'Etat déclaratif',
+          }),
+        },
       },
     },
     screenReaderOnly: {
@@ -105,8 +109,7 @@ const Template = (args) => {
   @locale={{this.locale}}
   disabled={{this.disabled}}
   @size={{this.size}}
-  @subLabel={{this.subLabel}}
-  @requiredLabel={{this.requiredLabel}}
+  @texts={{this.texts}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >

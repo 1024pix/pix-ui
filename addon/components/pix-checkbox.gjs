@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import { formatMessage } from '../translations';
 import PixLabelWrapped from './pix-label-wrapped';
 export default class PixCheckbox extends Component {
   constructor() {
@@ -65,27 +64,23 @@ export default class PixCheckbox extends Component {
   }
 
   get stateSuccessMessage() {
-    return this.formatMessage('state.success');
+    return this.args.texts?.stateSuccess;
   }
 
   get stateErrorMessage() {
-    return this.formatMessage('state.error');
+    return this.args.texts?.stateError;
   }
 
   get stateDeclarativeMessage() {
-    return this.formatMessage('state.declarative');
-  }
-
-  formatMessage(message) {
-    return formatMessage(this.args.locale ?? 'fr', `input.${message}`);
+    return this.args.texts?.stateDeclarative;
   }
 
   <template>
     <div class="pix-checkbox {{@class}}">
       <PixLabelWrapped
         @for={{this.id}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
+        @requiredLabel={{@text?.requiredLabel}}
+        @subLabel={{@text?.subLabel}}
         @size={{@size}}
         @inlineLabel={{true}}
         @screenReaderOnly={{@screenReaderOnly}}
