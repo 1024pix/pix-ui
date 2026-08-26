@@ -42,6 +42,15 @@ export default class ModalPage extends Controller {
     },
   ];
 
+  @tracked
+  texts = {
+    openLabel: "Ouvrir le menu",
+    closeLabel: "Fermer le menu",
+    mainNavigation: "navigation principale",
+    expandNavigation:  "Revenir à la taille initiale",
+    shrinkNavigation: "Réduire la taille",
+  }
+
   @action
   setStructure(option) {
     this.structure = option;

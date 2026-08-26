@@ -6,20 +6,35 @@ import { module, test } from 'qunit';
 
 module('Integration | Component | pix-navigation', function (hooks) {
   setupRenderingTest(hooks);
+  const texts = {
+    mainNavigation: 'Navigation Principale',
+    openMenu: 'Ouvrir le menu',
+    closeMenu: 'Fermer le menu',
+    shrinkNavigation: 'Réduire la largeur',
+    expandNavigation: 'Revenir à la largeur initiale',
+  };
 
   module('Desktop', function () {
     test('it renders the navigation in a sidebar', async function (assert) {
+      //given
+      this.set('texts', texts);
+
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label' />`);
+      const screen = await render(
+        hbs`<PixNavigation @navigationAriaLabel='label' @texts={{this.texts}} />`,
+      );
       const aside = screen.getByRole('complementary');
 
       // then
-      assert.ok(within(aside).getByRole('navigation', { name: 'label' }));
+      assert.ok(within(aside).getByRole('navigation', { name: texts.mainNavigation }));
     });
 
     test('it renders content at the header of the aside', async function (assert) {
+      //given
+      this.set('texts', texts);
+
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label'>
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}}>
   <:brand>
     <svg role='img'><title>logo</title></svg>
   </:brand>
@@ -31,21 +46,27 @@ module('Integration | Component | pix-navigation', function (hooks) {
     });
 
     test('it renders content in the navigation', async function (assert) {
+      //given
+      this.set('texts', texts);
+
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label'>
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}}>
   <:navElements>
     <a href='toto'>mon lien</a>
   </:navElements>
 </PixNavigation>`);
-      const navBar = screen.getByRole('navigation', { name: 'label' });
+      const navBar = screen.getByRole('navigation', { name: 'Navigation Principale' });
 
       // then
       assert.ok(within(navBar).getByRole('link', { name: 'mon lien' }));
     });
 
     test('it renders content in the footer', async function (assert) {
+      //given
+      this.set('texts', texts);
+
       // when
-      const screen = await render(hbs`<PixNavigation @navigationAriaLabel='label'>
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}}>
   <:footer>
     <a href='toto'>mon lien</a>
   </:footer>
@@ -58,11 +79,12 @@ module('Integration | Component | pix-navigation', function (hooks) {
     });
 
     test('it hides the burger menu', async function (assert) {
+      //given
+      this.set('texts', texts);
+
       // when
-      const screen = await render(
-        hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-      );
-      assert.notOk(screen.queryByRole('button', { name: 'menu' }));
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
+      assert.notOk(screen.queryByRole('button', { name: 'Ouvrir le menu' }));
     });
 
     module('when navigation can be shrink', function () {
@@ -70,16 +92,13 @@ module('Integration | Component | pix-navigation', function (hooks) {
         // given
         const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
         shrinkNavigationService.canNavigationBeShrunk = true;
+        this.set('texts', texts);
 
         // when
-        const screen = await render(
-          hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-        );
+        const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
 
         // then
-        assert
-          .dom(screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }))
-          .exists();
+        assert.dom(screen.getByRole('button', { name: texts.shrinkNavigation })).exists();
       });
 
       module(`when the shrink button is clicked`, function () {
@@ -87,20 +106,17 @@ module('Integration | Component | pix-navigation', function (hooks) {
           // given
           const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
           shrinkNavigationService.canNavigationBeShrunk = true;
+          this.set('texts', texts);
 
           // when
-          const screen = await render(
-            hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-          );
-          await click(
-            screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }),
-          );
+          const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
+          await click(screen.getByRole('button', { name: texts.shrinkNavigation }));
 
           // then
           assert
             .dom(
               screen.getByRole('button', {
-                name: 'Revenir à la largeur initiale du menu de navigation',
+                name: texts.expandkNavigation,
               }),
             )
             .exists();
@@ -111,10 +127,11 @@ module('Integration | Component | pix-navigation', function (hooks) {
           const shrinkNavigationService = this.owner.lookup('service:shrinkNavigationService');
           shrinkNavigationService.canNavigationBeShrunk = true;
           this.set('triggerAction', () => {});
+          this.set('texts', texts);
 
           // when
           const screen = await render(
-            hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close'>
+            hbs`<PixNavigation @texts={{this.texts}}>
   <:footer>
     <p>
       Martin Dupond
@@ -124,9 +141,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 </PixNavigation>`,
           );
 
-          await click(
-            screen.getByRole('button', { name: 'Réduire la largeur du menu de navigation' }),
-          );
+          await click(screen.getByRole('button', { name: texts.shrinkNavigation }));
 
           // then
           assert.dom(screen.getByText('Martin Dupond')).isNotVisible();
@@ -142,10 +157,10 @@ module('Integration | Component | pix-navigation', function (hooks) {
         // given
         const disabledButtonLabel = 'bouton désactivé';
         this.set('label', disabledButtonLabel);
-
+        this.set('texts', texts);
         // when
         const screen = await render(
-          hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close'>
+          hbs`<PixNavigation @texts={{this.texts}}>
   <:navElements>
     <PixButton
       aria-disabled='true'
@@ -157,7 +172,7 @@ module('Integration | Component | pix-navigation', function (hooks) {
 </PixNavigation>`,
         );
 
-        const openMenuButton = screen.getByText('open').closest('button');
+        const openMenuButton = screen.getByText(texts.openMenu).closest('button');
 
         await click(openMenuButton);
 
@@ -165,28 +180,27 @@ module('Integration | Component | pix-navigation', function (hooks) {
         await click(spanElement);
 
         // then
-        assert.ok(screen.queryByText('close'));
+        assert.ok(screen.queryByText(texts.closeMenu));
       });
     });
 
     test('it should close the menu on route change', async function (assert) {
       // given
+      this.set('texts', texts);
       const router = this.owner.lookup('service:router');
 
-      const screen = await render(
-        hbs`<PixNavigation @navigationAriaLabel='label' @openLabel='open' @closeLabel='close' />`,
-      );
+      const screen = await render(hbs`<PixNavigation @texts={{this.texts}} />`);
 
       // when
-      const openMenuButton = screen.getByText('open').closest('button');
+      const openMenuButton = screen.getByText(texts.openMenu).closest('button');
       await click(openMenuButton);
 
       router.trigger('routeDidChange');
       await settled();
 
       // then
-      assert.ok(screen.getByText('open').closest('button'));
-      assert.notOk(screen.queryByText('close'));
+      assert.notOk(screen.queryByText(texts.closeMenu));
+      assert.ok(screen.getByText(texts.openMenu).closest('button'));
     });
   });
 });
