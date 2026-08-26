@@ -1,3 +1,9 @@
+# [63.0.0](https://github.com/1024pix/pix-ui/compare/v62.3.1...v63.0.0) (2026-08-26)
+
+### :boom: BREAKING CHANGE
+
+- [#1028](https://github.com/1024pix/pix-ui/pull/1028) Supprimer les locales dans le composant Pagination (Pix-23984).
+
 ## [62.3.1](https://github.com/1024pix/pix-ui/compare/v62.3.0...v62.3.1) (2026-08-26)
 
 ### :arrow_up: Montée de version
