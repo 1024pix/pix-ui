@@ -1,10 +1,4 @@
 export default {
-  input: {
-    state: {
-      success: 'Correcte selectie',
-      error: 'Onjuiste selectie',
-    },
-  },
   select: {
     search: 'Zoeken',
   },
