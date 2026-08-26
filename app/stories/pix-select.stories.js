@@ -275,37 +275,14 @@ const Template = (args) => {
 
 const TemplateWithParent = (args) => {
   return {
-    template: hbs`
-    {{! template-lint-disable no-inline-styles }}
-    <span style="color: blue;">Composant parent</span>
-  <div style="width: 400px; border: 2px solid blue; padding-top: 1rem; padding-bottom: 1rem;">
-<PixSelect
-    @id={{this.id}}
-    @className={{this.className}}
-    @options={{this.options}}
-    @isSearchable={{this.isSearchable}}
-    @placeholder={{this.placeholder}}
-    @hideDefaultOption={{this.hideDefaultOption}}
-    @searchLabel={{this.searchLabel}}
-    @value={{this.value}}
-    @searchPlaceholder={{this.searchPlaceholder}}
-    @emptySearchMessage={{this.emptySearchMessage}}
-    @errorMessage={{this.errorMessage}}
-    @isDisabled={{this.isDisabled}}
-    @placement={{this.placement}}
-    @iconName={{this.iconName}}
-    @plainIcon={{this.plainIcon}}
-    @size={{this.size}}
-    @subLabel={{this.subLabel}}
-    @inlineLabel={{this.inlineLabel}}
-    @requiredLabel={{this.requiredLabel}}
-    @screenReaderOnly={{this.screenReaderOnly}}
-    @isFullWidth={{this.isFullWidth}}
-    @isComputeWidthDisabled={{this.isComputeWidthDisabled}}
->
+    template: hbs`{{!-- template-lint-disable no-inline-styles --}}
+<span style='color: blue;'>Composant parent</span>
+<div style='width: 400px; border: 2px solid blue; padding-top: 1rem; padding-bottom: 1rem;'>
+  <PixSelect @id={{this.id}} @className={{this.className}} @options={{this.options}} @isSearchable={{this.isSearchable}} @placeholder={{this.placeholder}} @hideDefaultOption={{this.hideDefaultOption}} @searchLabel={{this.searchLabel}} @value={{this.value}} @searchPlaceholder={{this.searchPlaceholder}} @emptySearchMessage={{this.emptySearchMessage}} @errorMessage={{this.errorMessage}} @isDisabled={{this.isDisabled}} @placement={{this.placement}} @iconName={{this.iconName}} @plainIcon={{this.plainIcon}} @size={{this.size}} @subLabel={{this.subLabel}} @inlineLabel={{this.inlineLabel}} @requiredLabel={{this.requiredLabel}} @screenReaderOnly={{this.screenReaderOnly}} @isFullWidth={{this.isFullWidth}} @isComputeWidthDisabled={{this.isComputeWidthDisabled}}>
     <:label>{{this.label}}</:label>
-</PixSelect>
-  </div>`,
+  </PixSelect>
+</div>`,
+
     context: args,
   };
 };

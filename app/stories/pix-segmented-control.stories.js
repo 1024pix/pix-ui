@@ -77,20 +77,12 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`
-        <PixSegmentedControl
-                @toggled={{this.toggled}}
-                @inlineLabel={{this.inlineLabel}}
-                @onChange={{this.onChange}}
-                @iconA={{this.iconA}}
-                @iconB={{this.iconB}}
-                @variant={{this.variant}}
-        >
-          <:label>{{this.label}}</:label>
-          <:viewA>{{this.viewAText}}</:viewA>
-          <:viewB>{{this.viewBText}}</:viewB>
-        </PixSegmentedControl>
-    `,
+    template: hbs`<PixSegmentedControl @toggled={{this.toggled}} @inlineLabel={{this.inlineLabel}} @onChange={{this.onChange}} @iconA={{this.iconA}} @iconB={{this.iconB}} @variant={{this.variant}}>
+  <:label>{{this.label}}</:label>
+  <:viewA>{{this.viewAText}}</:viewA>
+  <:viewB>{{this.viewBText}}</:viewB>
+</PixSegmentedControl>`,
+
     context: args,
   };
 };

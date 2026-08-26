@@ -52,6 +52,7 @@
     @extend %pix-form-element-state;
 
     width: 100%;
+    background-color: var(--pix-neutral-0);
     border: 1px solid var(--pix-neutral-500);
 
     &::placeholder {

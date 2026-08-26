@@ -62,15 +62,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixSidePanel
-  @showSidePanel={{this.showSidePanel}}
-  @title={{this.title}}
-  @subtitle={{this.subtitle}}
-  @iconName={{this.iconName}}
-  @variant={{this.variant}}
-  @focusOnClose={{this.focusOnClose}}
-  @onClose={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
->
+    template: hbs`<PixSidePanel @showSidePanel={{this.showSidePanel}} @title={{this.title}} @subtitle={{this.subtitle}} @iconName={{this.iconName}} @variant={{this.variant}} @focusOnClose={{this.focusOnClose}} @onClose={{fn (mut this.showSidePanel) (not this.showSidePanel)}}>
   <:content>
     <p>
       Un SidePanel est, dans une interface graphique, une fenêtre qui prend le contrôle total du
@@ -78,27 +70,21 @@ const Template = (args) => {
     </p>
   </:content>
   <:footer>
-      <PixButton
-        @iconBefore="delete"
-        @variant="tertiary"
-        @size="small"
-        @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
-      >
+    <PixButton @iconBefore='delete' @variant='tertiary' @size='small' @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}>
       Effacer les filtres
-      </PixButton>
+    </PixButton>
 
-      <PixButton @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}>Appliquer les filtres
-      </PixButton>
+    <PixButton @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}>Appliquer les
+      filtres
+    </PixButton>
   </:footer>
 </PixSidePanel>
-{{! template-lint-disable no-inline-styles }}
+{{!-- template-lint-disable no-inline-styles --}}
 <div style='display:flex; justify-content:center; align-items:center; height:105vh;'>
-  <PixButton
-    @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}}
-    style='height:45px'
-  >Ouvrir le side-panel
+  <PixButton @triggerAction={{fn (mut this.showSidePanel) (not this.showSidePanel)}} style='height:45px'>Ouvrir le side-panel
   </PixButton>
 </div>`,
+
     context: args,
   };
 };

@@ -17,7 +17,7 @@
   }
 
   tbody > tr:nth-of-type(even) > :is(td, th) {
-    background-color: rgba(var(--pix-neutral-20-inline), 0.80);
+    background-color: rgb(var(--pix-neutral-20-inline), 0.80);
   }
 
   tbody > tr.pix-table__clickable-row {
@@ -28,15 +28,15 @@
     }
 
     &:hover > :is(td, th) {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.50);
+      background-color: rgb(var(--pix-neutral-100-inline), 0.50);
     }
 
     &:focus > :is(td, th) {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.40);
+      background-color: rgb(var(--pix-neutral-100-inline), 0.40);
     }
 
     &:active > :is(td, th) {
-      background-color: rgba(var(--pix-neutral-100-inline), 0.75);
+      background-color: rgb(var(--pix-neutral-100-inline), 0.75);
     }
   }
 
