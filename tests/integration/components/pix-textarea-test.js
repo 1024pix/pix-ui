@@ -1,5 +1,5 @@
 import { render } from '@1024pix/ember-testing-library';
-import { fillIn } from '@ember/test-helpers';
+import { fillIn, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -66,6 +66,56 @@ module('Integration | Component | textarea', function (hooks) {
       assert.dom(textarea).hasValue(defaultValue);
       assert.dom(textarea).hasAttribute('maxlength', maxlength);
       assert.ok(screen.getByText('11 / 20'));
+    });
+
+    test('it should update the count when typing', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+
+      // when
+      await fillIn(screen.getByLabelText('label'), 'Hello');
+
+      // then
+      assert.ok(screen.getByText('5 / 20'));
+    });
+
+    test('it should update the count when the value is reset programmatically', async function (assert) {
+      // given
+      this.set('value', 'Hello Pix !');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      await fillIn(screen.getByLabelText('label'), 'Bonjour');
+
+      // when
+      this.set('value', '');
+      await settled();
+
+      // then
+      assert.dom(screen.getByLabelText('label')).hasValue('');
+      assert.ok(screen.getByText('0 / 20'));
+    });
+
+    test('it should update the count when the owning form is reset', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<form><PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+    >label</:label></PixTextarea></form>`,
+      );
+      await fillIn(screen.getByLabelText('label'), 'Bonjour');
+
+      // when
+      this.element.querySelector('form').reset();
+      await settled();
+
+      // then
+      assert.ok(screen.getByText('0 / 20'));
     });
   });
 

@@ -1,17 +1,42 @@
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
+import { tracked } from '@glimmer/tracking';
+import { modifier } from 'ember-modifier';
 
 import PixLabel from './pix-label';
 
+const trackTextLength = modifier((element, [onChange, value]) => {
+  void value;
+  const sync = () => onChange(element.value.length);
+  const syncLater = () => queueMicrotask(sync);
+
+  syncLater();
+
+  element.addEventListener('input', sync);
+  element.form?.addEventListener('reset', syncLater);
+
+  return () => {
+    element.removeEventListener('input', sync);
+    element.form?.removeEventListener('reset', syncLater);
+  };
+});
+
 export default class PixTextarea extends Component {
+  @tracked textLengthIndicator = this.args.value ? this.args.value.length : 0;
+
   get id() {
     if (this.args.id) return this.args.id;
     return 'textarea-' + guidFor(this);
   }
 
-  get textLengthIndicator() {
-    return this.args.value ? this.args.value.length : 0;
+  get remainingCharacters() {
+    if (!this.args.maxlength) return undefined;
+    return Number(this.args.maxlength) - this.textLengthIndicator;
   }
+
+  updateTextLength = (length) => {
+    this.textLengthIndicator = length;
+  };
 
   <template>
     <div class="pix-textarea {{if @inlineLabel ' pix-textarea--inline'}}">
@@ -31,12 +56,14 @@ export default class PixTextarea extends Component {
       <div class="pix-textarea__container">
         <textarea
           id={{this.id}}
+          value={{@value}}
           maxlength={{if @maxlength @maxlength}}
           aria-required="{{if @requiredLabel true false}}"
           required={{if @requiredLabel true false}}
           class="pix-textarea-container__input {{if @errorMessage 'pix-textarea--error'}}"
+          {{trackTextLength this.updateTextLength @value}}
           ...attributes
-        >{{@value}}</textarea>
+        ></textarea>
 
         {{#if @maxlength}}
           {{! prettier-ignore }}
