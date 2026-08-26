@@ -1,5 +1,6 @@
 import { render } from '@1024pix/ember-testing-library';
-import { fillIn } from '@ember/test-helpers';
+import { click, fillIn, settled } from '@ember/test-helpers';
+import userEvent from '@testing-library/user-event';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -66,6 +67,133 @@ module('Integration | Component | textarea', function (hooks) {
       assert.dom(textarea).hasValue(defaultValue);
       assert.dom(textarea).hasAttribute('maxlength', maxlength);
       assert.ok(screen.getByText('11 / 20'));
+    });
+
+    test('it should update the count when typing', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+
+      // when
+      await fillIn(screen.getByLabelText('label'), 'Hello');
+
+      // then
+      assert.ok(screen.getByText('5 / 20'));
+    });
+
+    test('it should count spaces when typing key by key', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      const textarea = screen.getByLabelText('label');
+
+      // when
+      await click(textarea);
+      await userEvent.keyboard('a');
+      await userEvent.keyboard('[Space]');
+      await userEvent.keyboard('b');
+      await settled();
+
+      // then
+      assert.dom(textarea).hasValue('a b');
+      assert.ok(screen.getByText('3 / 20'));
+    });
+
+    test('it should count a space typed alone', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      const textarea = screen.getByLabelText('label');
+
+      // when
+      await click(textarea);
+      await userEvent.keyboard('[Space]');
+      await settled();
+
+      // then
+      assert.dom(textarea).hasValue(' ');
+      assert.ok(screen.getByText('1 / 20'));
+    });
+
+    test('it should count trailing spaces when typing', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      const textarea = screen.getByLabelText('label');
+
+      // when
+      await userEvent.type(textarea, 'Hello Pix  ');
+      await settled();
+
+      // then
+      assert.dom(textarea).hasValue('Hello Pix  ');
+      assert.ok(screen.getByText('11 / 20'));
+    });
+
+    test('it should update the count when erasing with backspace', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      const textarea = screen.getByLabelText('label');
+      await userEvent.type(textarea, 'a b');
+
+      // when
+      await userEvent.keyboard('[Backspace][Backspace]');
+      await settled();
+
+      // then
+      assert.dom(textarea).hasValue('a');
+      assert.ok(screen.getByText('1 / 20'));
+    });
+
+    test('it should update the count when the value is reset programmatically', async function (assert) {
+      // given
+      this.set('value', 'Hello Pix !');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      await fillIn(screen.getByLabelText('label'), 'Bonjour');
+
+      // when
+      this.set('value', '');
+      await settled();
+
+      // then
+      assert.dom(screen.getByLabelText('label')).hasValue('');
+      assert.ok(screen.getByText('0 / 20'));
+    });
+
+    test('it should update the count when the owning form is reset', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<form><PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+    >label</:label></PixTextarea></form>`,
+      );
+      await fillIn(screen.getByLabelText('label'), 'Bonjour');
+
+      // when
+      this.element.querySelector('form').reset();
+      await settled();
+
+      // then
+      assert.ok(screen.getByText('0 / 20'));
     });
   });
 
