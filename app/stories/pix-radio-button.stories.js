@@ -45,17 +45,20 @@ export default {
         type: { summary: 'string' },
       },
     },
-    subLabel: {
-      name: 'subLabel',
-      description: 'Un descriptif complétant le label',
-      type: { name: 'string', required: false },
-    },
-    requiredLabel: {
-      name: 'requiredLabel',
-      description: 'Label indiquant que le champ est requis.',
-      type: { name: 'string', required: false },
+    texts: {
+      name: 'texts',
+      description: 'Objet contenant les différentes traductions',
+      type: { name: 'object', required: false },
       table: {
-        type: { summary: 'string' },
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: JSON.stringify({
+            subLabel: 'Mon sous label',
+            requiredLabel: 'Champs requis',
+            stateSuccess: 'Etat valide',
+            stateError: 'Etat invalide',
+          }),
+        },
       },
     },
     screenReaderOnly: {
@@ -93,8 +96,7 @@ const Template = (args) => {
   @isDisabled={{this.isDisabled}}
   @size={{this.size}}
   @screenReaderOnly={{this.screenReaderOnly}}
-  @requiredLabel={{this.requiredLabel}}
-  @subLabel={{this.subLabel}}
+  @texts={{this.texts}}
 >
   <:label>{{this.label}}</:label>
 </PixRadioButton>`,

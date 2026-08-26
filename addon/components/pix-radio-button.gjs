@@ -4,7 +4,6 @@ import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 
-import { formatMessage } from '../translations';
 import PixLabelWrapped from './pix-label-wrapped';
 
 export default class PixRadioButton extends Component {
@@ -53,15 +52,11 @@ export default class PixRadioButton extends Component {
   }
 
   get stateSuccessMessage() {
-    return this.formatMessage('state.success');
+    return this.args.texts?.stateSuccess;
   }
 
   get stateErrorMessage() {
-    return this.formatMessage('state.error');
-  }
-
-  formatMessage(message) {
-    return formatMessage('fr', `input.${message}`);
+    return this.args.texts?.stateError;
   }
 
   @action
@@ -75,8 +70,8 @@ export default class PixRadioButton extends Component {
     <div class="pix-radio-button {{@class}}">
       <PixLabelWrapped
         @for={{this.id}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
+        @requiredLabel={{@text?.requiredLabel}}
+        @subLabel={{@text?.subLabel}}
         @size={{@size}}
         @screenReaderOnly={{@screenReaderOnly}}
         @isDisabled={{this.isDisabled}}
