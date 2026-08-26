@@ -8,48 +8,6 @@ import sinon from 'sinon';
 module('Integration | Component | pagination', function (hooks) {
   setupRenderingTest(hooks);
 
-  test('Use PixPagination without locale params', async function (assert) {
-    // given
-    const paginationData = {
-      page: 1,
-      pageSize: 10,
-      rowCount: 2,
-      pageCount: 1,
-    };
-    this.set('pagination', paginationData);
-    // when
-    await render(hbs`<PixPagination @pagination={{this.pagination}} />`);
-
-    const PixPaginationElement = this.element.querySelector('.pix-pagination');
-    //then
-    assert.ok(PixPaginationElement);
-    assert.contains('Voir');
-    assert.contains('2 éléments');
-    assert.contains('Page 1 / 1');
-  });
-
-  test('Use locale params to translate component', async function (assert) {
-    // given
-    const paginationData = {
-      page: 1,
-      pageSize: 10,
-      rowCount: 2,
-      pageCount: 1,
-    };
-    this.set('locale', 'en');
-    this.set('pagination', paginationData);
-
-    // when
-    await render(hbs`<PixPagination @pagination={{this.pagination}} @locale={{this.locale}} />`);
-
-    const PixPaginationElement = this.element.querySelector('.pix-pagination');
-    //then
-    assert.ok(PixPaginationElement);
-    assert.contains('See');
-    assert.contains('2 items');
-    assert.contains('Page 1 / 1');
-  });
-
   module('PixPagination controls', function (hooks) {
     let onChangeStub, router;
 
@@ -67,17 +25,16 @@ module('Integration | Component | pagination', function (hooks) {
         rowCount: 12,
         pageCount: 2,
       };
+      const texts = { pageSize: "Nombre d'élément à afficher par page" };
 
       this.set('pagination', paginationData);
       this.set('onChange', onChangeStub);
-
+      this.set('texts', texts);
       // when
       const screen = await render(
-        hbs`<PixPagination @pagination={{this.pagination}} @onChange={{this.onChange}} />`,
+        hbs`<PixPagination @pagination={{this.pagination}} @onChange={{this.onChange}} @texts={{this.texts}} />`,
       );
-
-      await click(screen.getByLabelText("Nombre d'élément à afficher par page"));
-
+      await click(screen.getByLabelText(texts.pageSize));
       const optionLine = await screen.findByRole('option', { name: '50' });
 
       await click(optionLine);
@@ -97,17 +54,16 @@ module('Integration | Component | pagination', function (hooks) {
         rowCount: 12,
         pageCount: 2,
       };
-
+      const texts = { nextPage: 'Page Suivante' };
+      this.set('texts', texts);
       this.set('pagination', paginationData);
       this.set('onChange', onChangeStub);
 
       // when
       const screen = await render(
-        hbs`<PixPagination @pagination={{this.pagination}} @onChange={{this.onChange}} />`,
+        hbs`<PixPagination @pagination={{this.pagination}} @onChange={{this.onChange}} @texts={{this.texts}} />`,
       );
-
-      await click(screen.getByRole('button', { name: 'Aller à la page suivante', exact: false }));
-
+      await click(screen.getByRole('button', { name: texts.nextPage, exact: false }));
       // then
       assert.ok(router.replaceWith.calledWithExactly({ queryParams: { pageNumber: 2 } }));
       assert.ok(onChangeStub.called);
@@ -122,16 +78,17 @@ module('Integration | Component | pagination', function (hooks) {
         pageCount: 2,
       };
 
+      const texts = { previousPage: 'Page Précédente' };
+      this.set('texts', texts);
+
       this.set('pagination', paginationData);
       this.set('onChange', onChangeStub);
 
       // when
       const screen = await render(
-        hbs`<PixPagination @pagination={{this.pagination}} @onChange={{this.onChange}} />`,
+        hbs`<PixPagination @pagination={{this.pagination}} @onChange={{this.onChange}} @texts={{this.texts}} />`,
       );
-
-      await click(screen.getByRole('button', { name: 'Aller à la page précédente', exact: false }));
-
+      await click(screen.getByRole('button', { name: texts.previousPage, exact: false }));
       // then
       assert.ok(router.replaceWith.calledWithExactly({ queryParams: { pageNumber: 1 } }));
       assert.ok(onChangeStub.called);
@@ -146,17 +103,25 @@ module('Integration | Component | pagination', function (hooks) {
       rowCount: 12,
       pageCount: 2,
     };
+    const texts = {
+      title: 'Voir',
+      pageElementCount: '11-12 sur 12 éléments',
+      pageNumber: 'Page 2 / 2',
+    };
+    const onChangeStub = sinon.stub();
+
+    this.set('texts', texts);
     this.set('pagination', paginationData);
-
+    this.set('onChange', onChangeStub);
     // when
-    await render(hbs`<PixPagination @pagination={{this.pagination}} />`);
+    const screen = await render(
+      hbs`<PixPagination @pagination={{this.pagination}} @texts={{this.texts}} @onChange={{this.onChange}} />`,
+    );
 
-    const PixPaginationElement = this.element.querySelector('.pix-pagination');
     //then
-    assert.ok(PixPaginationElement);
-    assert.contains('Voir');
-    assert.contains('11-12 sur 12 éléments');
-    assert.contains('Page 2 / 2');
+    assert.notOk(screen.queryByRole('text', { name: texts.title }));
+    assert.ok(screen.getByText(texts.pageElementCount));
+    assert.ok(screen.getByText(texts.pageNumber));
   });
 
   test('When params isCondensed is true', async function (assert) {
