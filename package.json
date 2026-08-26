@@ -23,7 +23,7 @@
   },
   "overrides": {
     "@storybook/ember": {
-      "ember-source": "~5.12.0"
+      "ember-source": "~7.2.0"
     },
     "ember-source": {
       "@glimmer/component": "^2.0.0"
@@ -110,7 +110,7 @@
     "ember-page-title": "^9.0.0",
     "ember-qunit": "^9.0.0",
     "ember-resolver": "^13.0.0",
-    "ember-source": "^5.11.0",
+    "ember-source": "^7.0.0",
     "ember-template-lint": "^7.0.2",
     "ember-template-lint-plugin-prettier": "^5.0.0",
     "ember-try": "^4.0.0",
