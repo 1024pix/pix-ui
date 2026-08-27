@@ -17,16 +17,8 @@ import PixCheckbox from './pix-checkbox';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 
-function removeCapitalizeAndDiacritics(string) {
-  return string
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
-}
-
 export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
-  @tracked searchData;
   @service elementHelper;
 
   constructor(...args) {
@@ -48,14 +40,6 @@ export default class PixMultiSelect extends Component {
         element.style.setProperty('--pix-multi-select-width', `${selectWidth}rem`);
       });
     }
-
-    warn(
-      `PixMultiSelect: @strictSearch is deprecated in favour of @onSearch`,
-      !this.args.strictSearch,
-      {
-        id: 'pix-ui.pix-multi-select.strictSearch.deprecated',
-      },
-    );
   }
 
   get options() {
@@ -81,9 +65,6 @@ export default class PixMultiSelect extends Component {
   }
 
   get results() {
-    if (this.args.isSearchable && this.searchData) {
-      return this.args.options.filter(({ label }) => this._search(label));
-    }
     return this.args.options;
   }
 
@@ -100,13 +81,6 @@ export default class PixMultiSelect extends Component {
       return selectedOptionLabels;
     }
     return placeholder;
-  }
-
-  _search(label) {
-    if (this.args.strictSearch) {
-      return label.includes(this.searchData);
-    }
-    return removeCapitalizeAndDiacritics(label).includes(this.searchData);
   }
 
   @action
@@ -151,13 +125,7 @@ export default class PixMultiSelect extends Component {
 
   @action
   updateSearch(event) {
-    if (this.args.onSearch) {
-      this.args.onSearch(event.target.value);
-    } else {
-      this.searchData = this.args.strictSearch
-        ? event.target.value
-        : removeCapitalizeAndDiacritics(event.target.value);
-    }
+    this.args.onSearch(event.target.value);
   }
 
   @action

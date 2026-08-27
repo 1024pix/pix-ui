@@ -84,13 +84,6 @@ export default {
       type: { name: 'boolean', required: false },
       table: { defaultValue: { summary: false } },
     },
-    strictSearch: {
-      name: 'strictSearch',
-      description:
-        '**DEPRECATED** : Permet de rendre sensible à la casse et au diacritiques lorsque ``isSearchable`` à ``true``',
-      type: { name: 'boolean', required: false },
-      table: { defaultValue: { summary: false } },
-    },
     onSearch: {
       name: 'onSearch',
       description:
