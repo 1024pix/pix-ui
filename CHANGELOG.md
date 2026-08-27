@@ -1,3 +1,9 @@
+# [66.0.0](https://github.com/1024pix/pix-ui/compare/v65.0.0...v66.0.0) (2026-08-27)
+
+### :boom: BREAKING CHANGE
+
+- [#1038](https://github.com/1024pix/pix-ui/pull/1038) Supprimer les traductions sur PixCheckbox / PixRadiobutton (Pix-24018)
+
 # [65.0.0](https://github.com/1024pix/pix-ui/compare/v64.0.0...v65.0.0) (2026-08-27)
 
 ### :boom: BREAKING CHANGE
