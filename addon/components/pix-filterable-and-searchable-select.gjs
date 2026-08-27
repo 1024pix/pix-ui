@@ -1,3 +1,4 @@
+import { hash } from '@ember/helper';
 import { action } from '@ember/object';
 import { guidFor } from '@ember/object/internals';
 import { inject as service } from '@ember/service';
@@ -109,12 +110,11 @@ export default class PixFilterableAndSearchableSelect extends Component {
         </PixMultiSelect>
         <PixSelect
           @id={{this.pixSelectId}}
-          @placeholder={{@placeholder}}
+          @texts={{hash placeholder=@placeholder selectSearchLabel=@searchLabel}}
           @value={{@value}}
           @options={{this.selectableOptions}}
           @onChange={{@onChange}}
           @isSearchable={{@isSearchable}}
-          @searchLabel={{@searchLabel}}
           @screenReaderOnly={{true}}
           @hideDefaultOption={{@hideDefaultOption}}
           @className="pix-filterable-and-searchable-select__pix-select"
