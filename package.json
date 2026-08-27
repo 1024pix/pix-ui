@@ -61,7 +61,6 @@
   },
   "dependencies": {
     "@babel/core": "^7.25.2",
-    "@formatjs/intl": "^4.0.0",
     "check-engine": "^1.14.0",
     "ember-auto-import": "^2.7.4",
     "ember-cli-babel": "^8.2.0",
@@ -117,7 +116,6 @@
     "eslint": "^9.21.0",
     "eslint-config-prettier": "^10.0.2",
     "eslint-plugin-ember": "^12.5.0",
-    "eslint-plugin-i18n-json": "^4.0.1",
     "eslint-plugin-n": "^17.16.2",
     "eslint-plugin-prettier": "^5.2.3",
     "eslint-plugin-qunit": "^8.1.2",

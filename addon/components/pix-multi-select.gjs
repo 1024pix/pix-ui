@@ -1,3 +1,4 @@
+import { warn } from '@ember/debug';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
@@ -16,12 +17,61 @@ import PixCheckbox from './pix-checkbox';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 
+/**
+ * @typedef {object} PixMultiSelectOption
+ * @property {string} value - Valeur de l'option.
+ * @property {string} label - Texte affiché.
+ */
+
+/**
+ * @typedef {object} PixMultiSelectTexts
+ * @property {string} placeholder - Texte affiché tant qu'aucune option n'est sélectionnée. Obligatoire.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {string} [searchLabel] - Intitulé du champ de recherche, lu par les lecteurs d'écran (accessible uniquement).
+ * @property {string} [searchPlaceholder] - Texte indicatif affiché dans le champ de recherche.
+ * @property {string} [emptySearchMessage] - Message affiché quand aucune option ne correspond à la recherche.
+ */
+
+/**
+ * @typedef {object} PixMultiSelectArgs
+ * @property {PixMultiSelectOption[]} options - Options proposées. Obligatoire.
+ * @property {string[]} [values] - Valeurs des options sélectionnées.
+ * @property {PixMultiSelectTexts} texts - Textes du composant. Obligatoire.
+ * @property {(values: string[]) => unknown} [onChange] - Appelée avec la liste complète des valeurs sélectionnées à chaque changement.
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {boolean} [isDisabled] - Désactive le champ.
+ * @property {boolean} [isSearchable] - Ajoute un champ de recherche en tête de liste.
+ * @property {(value: string) => unknown} [onSearch] - Prend en charge la recherche à la place du filtrage interne, pour interroger un serveur par exemple.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {string} [className] - Classes CSS ajoutées au bouton d'ouverture.
+ * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Popper. Par défaut : `bottom-start`.
+ * @property {boolean} [isComputeWidthDisabled] - Désactive l'alignement automatique de la largeur du champ sur celle de la liste.
+ */
+
+/**
+ * @typedef {object} PixMultiSelectSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixMultiSelectArgs} Args
+ * @property {{ label: [], placeholder: [], default: [PixMultiSelectOption] }} Blocks
+ */
+
 export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
   @service elementHelper;
 
   constructor(...args) {
     super(...args);
+
+    warn(
+      'PixMultiSelect: @texts.placeholder attribute is mandatory for usability. if you not using placeholder {{yield}}',
+      Boolean(this.args.texts?.placeholder),
+      {
+        id: 'pix-ui.select-placeholder.mandatory',
+      },
+    );
 
     this.searchId = 'search-input-' + guidFor(this);
     this.multiSelectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
