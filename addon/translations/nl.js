@@ -8,10 +8,6 @@ export default {
   select: {
     search: 'Zoeken',
   },
-
-  tag: {
-    removeButton: 'Verwijderen',
-  },
   stepper: {
     ariaLabel: 'Stap {current, number} van {total, number}',
   },

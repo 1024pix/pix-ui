@@ -24,15 +24,18 @@ export default {
         'blue-light',
       ],
     },
-    displayRemoveButton: {
-      name: 'displayRemoveButton',
-      description: "Permet d'afficher un bouton pour retirer le tag",
-      type: { name: 'boolean', required: false },
+    texts: {
+      name: 'texts',
+      description: 'object contenant les traductions du composants',
+      type: { name: 'object', required: true },
+      control: { type: 'object' },
       table: {
-        type: { summary: 'boolean' },
-        defaultValue: { summary: false },
-        control: { type: 'radio' },
-        options: [true, false],
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: JSON.stringify({
+            title: 'Supprimer le tag',
+          }),
+        },
       },
     },
     onRemove: {
@@ -41,21 +44,11 @@ export default {
       type: { required: false },
       control: { disable: true },
     },
-    locale: {
-      name: 'locale',
-      description: "Locale permettant de localiser l'aria label du bouton de suppression",
-      type: { name: 'string', required: false },
-      table: { defaultValue: { summary: 'fr' } },
-      control: {
-        type: 'select',
-      },
-      options: ['fr', 'en', 'nl'],
-    },
   },
 };
 
 const Template = (args) => ({
-  template: hbs`<PixTag @color={{this.color}} @displayRemoveButton={{this.displayRemoveButton}} @onRemove={{this.onRemove}}>
+  template: hbs`<PixTag @color={{this.color}} @texts={{this.texts}} @onRemove={{this.onRemove}}>
 Contenu du tag
 </PixTag>`,
   context: args,
@@ -64,6 +57,6 @@ Contenu du tag
 export const Default = Template.bind({});
 Default.args = {
   color: 'primary',
-  displayRemoveButton: false,
+  texts: { removeButtonLabel: 'Supprimer le bouton' },
   onRemove: () => console.log('remove button clicked'),
 };
