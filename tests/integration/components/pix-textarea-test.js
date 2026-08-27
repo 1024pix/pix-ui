@@ -1,10 +1,8 @@
 import { render } from '@1024pix/ember-testing-library';
-import { triggerEvent } from '@ember/test-helpers';
+import { fillIn, settled } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
-
-import fillInByLabel from '../../helpers/fill-in-by-label';
 
 module('Integration | Component | textarea', function (hooks) {
   setupRenderingTest(hooks);
@@ -17,35 +15,108 @@ module('Integration | Component | textarea', function (hooks) {
     const newContent = 'Bonjour Pix !';
 
     // when
-    await render(hbs`<PixTextarea @id='7' @value='old value'><:label>label</:label></PixTextarea>`);
-    await fillInByLabel('label', newContent);
+    const screen = await render(
+      hbs`<PixTextarea @id='7' @value='old value'><:label>label</:label></PixTextarea>`,
+    );
+    const textarea = screen.getByLabelText('label');
+
+    await fillIn(textarea, newContent);
 
     // then
-    const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
-    assert.contains('Bonjour Pix !');
+    assert.dom(textarea).hasValue(newContent);
     assert.strictEqual(textarea.id, '7');
   });
 
-  test('it should count textarea characters length', async function (assert) {
-    // given
-    const defaultValue = '';
-    this.set('value', defaultValue);
-    const maxlength = 20;
-    this.set('maxlength', maxlength);
+  module('available letter', function () {
+    test('it should show empty textarea with no count', async function (assert) {
+      // given
+      const defaultValue = '';
+      this.set('value', defaultValue);
+      const maxlength = '20';
+      this.set('maxlength', maxlength);
 
-    // when
-    await render(
-      hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id'><:label
+      // when
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id'><:label
   >label</:label></PixTextarea>`,
-    );
-    await fillInByLabel('label', 'Hello Pix !');
+      );
+      const textarea = screen.getByLabelText('label');
 
-    // then
-    const textarea = this.element.querySelector(TEXTAREA_SELECTOR);
-    await triggerEvent(textarea, 'keyup', { code: 'Enter' });
+      // then
+      assert.dom(textarea).hasAttribute('maxlength', maxlength);
+      assert.ok(screen.getByText('0 / 20'));
+    });
 
-    assert.strictEqual(textarea.maxLength, maxlength);
-    assert.contains('11 / 20');
+    test('it should filled textarea with available letter remaining', async function (assert) {
+      // given
+      const defaultValue = 'Hello Pix !';
+      this.set('value', defaultValue);
+      const maxlength = '20';
+      this.set('maxlength', maxlength);
+
+      // when
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength={{this.maxlength}} @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      const textarea = screen.getByLabelText('label');
+
+      // then
+
+      assert.dom(textarea).hasValue(defaultValue);
+      assert.dom(textarea).hasAttribute('maxlength', maxlength);
+      assert.ok(screen.getByText('11 / 20'));
+    });
+
+    test('it should update the count when typing', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+
+      // when
+      await fillIn(screen.getByLabelText('label'), 'Hello');
+
+      // then
+      assert.ok(screen.getByText('5 / 20'));
+    });
+
+    test('it should update the count when the value is reset programmatically', async function (assert) {
+      // given
+      this.set('value', 'Hello Pix !');
+      const screen = await render(
+        hbs`<PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+  >label</:label></PixTextarea>`,
+      );
+      await fillIn(screen.getByLabelText('label'), 'Bonjour');
+
+      // when
+      this.set('value', '');
+      await settled();
+
+      // then
+      assert.dom(screen.getByLabelText('label')).hasValue('');
+      assert.ok(screen.getByText('0 / 20'));
+    });
+
+    test('it should update the count when the owning form is reset', async function (assert) {
+      // given
+      this.set('value', '');
+      const screen = await render(
+        hbs`<form><PixTextarea @value={{this.value}} @maxlength='20' @id='textarea-id'><:label
+    >label</:label></PixTextarea></form>`,
+      );
+      await fillIn(screen.getByLabelText('label'), 'Bonjour');
+
+      // when
+      this.element.querySelector('form').reset();
+      await settled();
+
+      // then
+      assert.ok(screen.getByText('0 / 20'));
+    });
   });
 
   test('it should be possible to add required attributes to PixTextarea', async function (assert) {

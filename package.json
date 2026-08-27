@@ -72,8 +72,7 @@
     "ember-modifier": "^4.2.0",
     "ember-popperjs": "^3.0.0",
     "ember-template-imports": "^4.3.0",
-    "ember-truth-helpers": "^5.0.0",
-    "tracked-toolbox": "^2.2.0"
+    "ember-truth-helpers": "^5.0.0"
   },
   "devDependencies": {
     "@1024pix/ember-testing-library": "^3.0.40",
