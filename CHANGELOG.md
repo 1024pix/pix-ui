@@ -1,3 +1,9 @@
+# [65.0.0](https://github.com/1024pix/pix-ui/compare/v64.0.0...v65.0.0) (2026-08-27)
+
+### :boom: BREAKING CHANGE
+
+- [#1036](https://github.com/1024pix/pix-ui/pull/1036) Supprimer les traductions du PixStepper (PIX-23996)
+
 # [64.0.0](https://github.com/1024pix/pix-ui/compare/v63.0.0...v64.0.0) (2026-08-27)
 
 ### :boom: BREAKING CHANGE
