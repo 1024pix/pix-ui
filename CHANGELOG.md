@@ -1,3 +1,9 @@
+# [67.0.0](https://github.com/1024pix/pix-ui/compare/v66.0.0...v67.0.0) (2026-08-27)
+
+### :boom: BREAKING CHANGE
+
+- [#1041](https://github.com/1024pix/pix-ui/pull/1041) Suprimer les traductions de PixNavigation (PIX-24016)
+
 # [66.0.0](https://github.com/1024pix/pix-ui/compare/v65.0.0...v66.0.0) (2026-08-27)
 
 ### :boom: BREAKING CHANGE
