@@ -38,7 +38,11 @@ module('Acceptance | PixSelectPageTest', function (hooks) {
       // when
       const multiSelect = screen.getByRole('button', { name: 'Kebab' });
       await click(multiSelect);
-      await fillIn(await screen.findByRole('textbox', { name: 'Rechercher' }), '[A-Z]{1}[a-z]{6}');
+
+      await fillIn(
+        await screen.findByRole('textbox', { name: 'Rechercher mon condiment' }),
+        '[A-Z]{1}[a-z]{6}',
+      );
       await screen.findByRole('menu');
 
       // then

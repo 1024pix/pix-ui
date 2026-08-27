@@ -549,12 +549,16 @@ module('Integration | Component | multi-select', function (hooks) {
       this.id = 'id-MultiSelectTest';
       this.isSearchable = true;
       this.placeholder = 'Placeholder test';
+      this.texts = {
+        searchLabel: 'Rechercher',
+      };
 
       const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
+  @texts={{this.texts}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}
   @options={{this.options}}
@@ -585,10 +589,14 @@ module('Integration | Component | multi-select', function (hooks) {
       this.isSearchable = true;
       this.strictSearch = true;
       this.placeholder = 'Placeholder test';
+      this.texts = {
+        searchLabel: 'Rechercher mon condiment',
+      };
 
       const screen = await render(hbs`<PixMultiSelect
   @isSearchable={{this.isSearchable}}
   @strictSearch={{this.strictSearch}}
+  @texts={{this.texts}}
   @values={{this.values}}
   @onChange={{this.onChange}}
   @placeholder={{this.placeholder}}
@@ -603,7 +611,7 @@ module('Integration | Component | multi-select', function (hooks) {
       // when
       await click(screen.getByRole('button', { name: 'multiSelectLabel' }));
       await screen.findByRole('menu');
-      await fillByLabel('Rechercher', 'tomate');
+      await fillByLabel(this.texts.searchLabel, 'tomate');
 
       // then
       assert.contains('no result');
@@ -723,6 +731,9 @@ module('Integration | Component | multi-select', function (hooks) {
         this.placeholder = 'MultiSelectTest';
         this.id = 'id-MultiSelectTest';
         this.isSearchable = true;
+        this.texts = {
+          searchLabel: 'Rechercher',
+        };
         this.placeholder = 'Placeholder test';
         this.onSearch = sinon.spy();
 
@@ -730,6 +741,7 @@ module('Integration | Component | multi-select', function (hooks) {
   @isSearchable={{this.isSearchable}}
   @values={{this.values}}
   @onChange={{this.onChange}}
+  @texts={{this.texts}}
   @placeholder={{this.placeholder}}
   @id={{this.id}}
   @emptyMessage={{this.emptyMessage}}

@@ -41,6 +41,10 @@ export default class SelectPage extends Controller {
   @tracked searchValue;
   @tracked multiSearchValue;
 
+  @tracked textsKebab = {
+    searchLabel: 'Rechercher mon condiment'
+  };
+
   @action
   onChange(option) {
     this.selectedOption = option;

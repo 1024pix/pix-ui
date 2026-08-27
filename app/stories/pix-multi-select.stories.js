@@ -24,7 +24,7 @@ export default {
   @className={{this.className}}
   @isSearchable={{this.isSearchable}}
   @onSearch={{this.onSearch}}
-  @searchLabel={{this.searchLabel}}
+  @texts={{this.texts}}
   @values={{this.values}}
   @options={{this.options}}
   @isDisabled={{this.isDisabled}}
@@ -154,6 +154,19 @@ export default {
         type: { summary: 'string' },
       },
     },
+    texts: {
+      name: 'texts',
+      description: 'Objet contenant les libellé disponible pour le PixMultiSelect',
+      type: { name: 'object', required: false },
+      table: {
+        type: {
+          summary: 'object',
+          default: JSON.stringify({
+            searchLabel: 'Rechercher <InsertName>',
+          }),
+        },
+      },
+    },
     screenReaderOnly: {
       name: 'screenReaderOnly',
       description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
@@ -226,6 +239,7 @@ export const multiSelectWithChildComponent = (args) => {
   @className={{this.className}}
   @options={{this.options}}
   @size={{this.size}}
+  @texts={{this.texts}}
   @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
@@ -309,6 +323,7 @@ const TemplateWithYield = (args) => ({
   @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @isSearchable={{this.isSearchable}}
+  @texts={{this.texts}}
   @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @options={{this.options}}
