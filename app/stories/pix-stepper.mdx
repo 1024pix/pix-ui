@@ -28,7 +28,7 @@ Au-delà de 3 étapes, le stepper adapte automatiquement son affichage (mode lon
 ## Usage
 
 ```html
-<PixStepper @steps="{{this.steps}}" @currentStep="{{2}}" @ariaLabel="Étape 1/2" />
+<PixStepper @steps="{{this.steps}}" @currentStep="{{2}}" @texts={{{ariaLabel: "Étape 1/2" }}}/>
 ```
 
 Où `steps` est un tableau d'objets :
