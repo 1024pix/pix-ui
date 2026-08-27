@@ -34,42 +34,15 @@ module('Integration | Component | PixStepper', function (hooks) {
       // given
       this.set('steps', [{ title: 'Étape 1' }, { title: 'Étape 2' }, { title: 'Étape 3' }]);
       this.set('currentStep', 2);
+      this.set('texts', { ariaLabel: 'Étape 2 sur 3' });
 
       // when
       const screen = await render(
-        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} />`,
+        hbs`<PixStepper @steps={{this.steps}} @texts={{this.texts}} @currentStep={{this.currentStep}} />`,
       );
 
       // then
-      assert.dom(screen.getByRole('list', { name: 'Étape 2 sur 3' })).exists();
-    });
-
-    test('it translates aria-label according to @locale', async function (assert) {
-      // given
-      this.set('steps', [{ title: 'Step 1' }, { title: 'Step 2' }]);
-      this.set('currentStep', 1);
-
-      // when
-      const screen = await render(
-        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} @locale='en' />`,
-      );
-
-      // then
-      assert.dom(screen.getByRole('list', { name: 'Step 1 of 2' })).exists();
-    });
-
-    test('it allows overriding aria-label via splattributes', async function (assert) {
-      // given
-      this.set('steps', [{ title: 'Étape 1' }]);
-      this.set('currentStep', 1);
-
-      // when
-      const screen = await render(
-        hbs`<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} aria-label='Inscription' />`,
-      );
-
-      // then
-      assert.dom(screen.getByRole('list', { name: 'Inscription' })).exists();
+      assert.dom(screen.getByRole('list', { name: this.texts.ariaLabel })).exists();
     });
   });
 

@@ -8,7 +8,4 @@ export default {
   select: {
     search: 'Buscar',
   },
-  stepper: {
-    ariaLabel: 'Paso {current, number} de {total, number}',
-  },
 };

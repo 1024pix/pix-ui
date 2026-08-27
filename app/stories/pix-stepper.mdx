@@ -6,7 +6,7 @@ import * as ComponentStories from './pix-stepper.stories';
 # PixStepper
 
 Un `PixStepper` permet d'afficher une progression par étapes. Chaque étape peut avoir un titre et un sous-titre optionnel.
-
+Le composant nécessite une propriété `texts` contenant une clé `ariaLabel` contenant la valeur traduite du `aria-label` du composant.
 Au-delà de 3 étapes, le stepper adapte automatiquement son affichage (mode long).
 
 ## Par défaut
@@ -28,7 +28,7 @@ Au-delà de 3 étapes, le stepper adapte automatiquement son affichage (mode lon
 ## Usage
 
 ```html
-<PixStepper @steps={{this.steps}} @currentStep={{2}} />
+<PixStepper @steps="{{this.steps}}" @currentStep="{{2}}" @texts={{{ariaLabel: "Étape 1/2" }}}/>
 ```
 
 Où `steps` est un tableau d'objets :
