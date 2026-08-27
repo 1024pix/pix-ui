@@ -6,6 +6,15 @@ import sinon from 'sinon';
 
 module('Integration | Component | PixSearchInput', function (hooks) {
   setupRenderingTest(hooks);
+  let clock;
+
+  hooks.beforeEach(function () {
+    clock = sinon.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
+  });
+
+  hooks.afterEach(function () {
+    clock.restore();
+  });
 
   test('it renders the default PixSearchInput with given id and label', async function (assert) {
     // given
@@ -37,9 +46,39 @@ module('Integration | Component | PixSearchInput', function (hooks) {
 ><:label>Champ de recherche de fruits</:label></PixSearchInput>`);
 
     await fillByLabel('Champ de recherche de fruits', 'Mangue');
+    clock.tick(0);
 
     // then
     assert.ok(triggerFiltering.calledWith('pix-123', 'Mangue'));
+  });
+
+  test('it does not call triggerFiltering until debounce time is elapsed', async function (assert) {
+    // given
+    const triggerFiltering = sinon.stub().resolves();
+    this.set('triggerFiltering', triggerFiltering);
+
+    // when
+    await render(hbs`<PixSearchInput
+  @id='pix-123'
+  @debounceTimeInMs='200'
+  @triggerFiltering={{this.triggerFiltering}}
+><:label>Champ de recherche de fruits</:label></PixSearchInput>`);
+
+    await fillByLabel('Champ de recherche de fruits', 'Man');
+    clock.tick(150);
+    // then
+    assert.ok(triggerFiltering.notCalled);
+
+    // when
+    await fillByLabel('Champ de recherche de fruits', 'gue');
+    clock.tick(150);
+    // then
+    assert.ok(triggerFiltering.notCalled);
+
+    // when
+    clock.tick(50);
+    // then
+    assert.ok(triggerFiltering.calledOnce);
   });
 
   test("doesn't update value when input value is udpated", async function (assert) {

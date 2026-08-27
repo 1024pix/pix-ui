@@ -1,6 +1,5 @@
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
-import { debounceTask } from 'ember-lifeline';
 
 import PixIcon from './pix-icon';
 import PixInputBase from './pix-input-base';
@@ -8,6 +7,7 @@ import PixLabel from './pix-label';
 
 export default class PixSearchInput extends PixInputBase {
   initialValue = this.args.value;
+  #timeoutId;
 
   constructor() {
     super(...arguments);
@@ -21,20 +21,28 @@ export default class PixSearchInput extends PixInputBase {
     if (!this.args.triggerFiltering) {
       throw new Error('ERROR in PixSearchInput component, @triggerFiltering param is not provided');
     }
-  }
 
-  debouncedTriggerFiltering(value) {
-    this.args.triggerFiltering(this.id, value);
+    this.debouncedTriggerFiltering = this.#debounce(
+      this.args.triggerFiltering,
+      this.debounceTimeBeforeSearch,
+    );
   }
 
   @action
   onSearch(event) {
-    debounceTask(
-      this,
-      'debouncedTriggerFiltering',
-      event.target.value,
-      this.debounceTimeBeforeSearch,
-    );
+    this.debouncedTriggerFiltering(this.id, event.target.value);
+  }
+
+  willDestroy() {
+    super.willDestroy(...arguments);
+    clearTimeout(this.#timeoutId);
+  }
+
+  #debounce(func, delay) {
+    return (...args) => {
+      clearTimeout(this.#timeoutId);
+      this.#timeoutId = setTimeout(() => func(...args), delay);
+    };
   }
 
   <template>
