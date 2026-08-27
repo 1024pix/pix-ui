@@ -1,3 +1,9 @@
+## [67.0.1](https://github.com/1024pix/pix-ui/compare/v67.0.0...v67.0.1) (2026-08-27)
+
+### :building_construction: Tech
+
+- [#1047](https://github.com/1024pix/pix-ui/pull/1047) Use js-project renovate config and lower schedule
+
 # [67.0.0](https://github.com/1024pix/pix-ui/compare/v66.0.0...v67.0.0) (2026-08-27)
 
 ### :boom: BREAKING CHANGE
