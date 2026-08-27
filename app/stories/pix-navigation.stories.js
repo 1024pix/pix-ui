@@ -22,23 +22,12 @@ export default {
       },
     },
   },
-  args: {
-    mainNavigation: 'Navigation Principale',
-    openMenu: 'Ouvrir le menu',
-    closeMenu: 'Fermer le menu',
-    shrinkNavigation: 'Réduire la largeur',
-    expandNavigation: 'Revenir à la largeur initiale du menu de navigation',
-  },
 };
 
 export const Navigation = (args) => {
   return {
     template: hbs`<PixAppLayout @variant='primary'>
-  <PixNavigation
-    @navigationAriaLabel={{this.navigationAriaLabel}}
-    @openLabel={{this.openLabel}}
-    @closeLabel={{this.closeLabel}}
-  >
+  <PixNavigation @texts={{this.texts}}>
     <:brand>
       <a href='/'>
         <img src='/pix-orga.svg' alt='pix orga' />
