@@ -1,10 +1,4 @@
 export default {
-  input: {
-    state: {
-      success: 'Correct selection',
-      error: 'Incorrect selection',
-    },
-  },
   select: {
     search: 'Search',
   },

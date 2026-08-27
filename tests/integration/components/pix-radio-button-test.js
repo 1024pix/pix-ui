@@ -81,14 +81,18 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     test(`it should read success state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
-
+      this.texts = {
+        stateSuccess: 'Sélection correcte',
+      };
       // when
       const screen = await render(
-        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='success'><:label>Recevoir la
-    newsletter</:label></PixRadioButton>`,
-      );
-
-      // then
+        hbs`<PixRadioButton
+  checked
+  @isDisabled={{this.isDisabled}}
+  @state='success'
+  @texts={{this.texts}}
+><:label>Recevoir la newsletter</:label></PixRadioButton>`,
+      ); // then
       assert
         .dom(
           screen.getByRole('radio', {
@@ -102,11 +106,13 @@ module('Integration | Component | pix-radio-button', function (hooks) {
     test(`it should read error state info if given`, async function (assert) {
       // given
       this.set('isDisabled', true);
-
+      this.texts = {
+        stateError: 'Sélection incorrecte',
+      };
       // when
       const screen = await render(
-        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='error'><:label>Recevoir la
-    newsletter</:label></PixRadioButton>`,
+        hbs`<PixRadioButton checked @isDisabled={{this.isDisabled}} @state='error' @texts={{this.texts}}><:label
+  >Recevoir la newsletter</:label></PixRadioButton>`,
       );
 
       // then
