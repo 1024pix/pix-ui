@@ -12,10 +12,6 @@ module('Integration | Component | PixSearchInput', function (hooks) {
     clock = sinon.useFakeTimers({ toFake: ['setTimeout', 'clearTimeout'] });
   });
 
-  hooks.afterEach(function () {
-    clock.restore();
-  });
-
   test('it renders the default PixSearchInput with given id and label', async function (assert) {
     // given
     this.set('triggerFiltering', sinon.stub());

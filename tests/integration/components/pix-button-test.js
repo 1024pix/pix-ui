@@ -81,14 +81,8 @@ module('Integration | Component | PixButton', function (hooks) {
   });
 
   module('when the button has a trigger action with a promise', function (hooks) {
-    let clock;
-
     hooks.beforeEach(function () {
-      clock = sinon.useFakeTimers();
-    });
-
-    hooks.afterEach(function () {
-      clock.restore();
+      sinon.useFakeTimers();
     });
 
     test('should display a loading state', async function (assert) {
