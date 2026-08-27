@@ -6,7 +6,6 @@ import { inject as service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 
-import { formatMessage } from '../translations';
 import PixButton from './pix-button';
 import PixIconButton from './pix-icon-button';
 
@@ -18,20 +17,30 @@ export default class PixNavigation extends Component {
     super(...args);
     this._navigationId = 'navigation-' + guidFor(this);
     warn(
-      'PixNavigation: @openLabel and @closeLabel are required',
-      this.args.openLabel && this.args.closeLabel,
+      'PixNavigation: @texts.openMenu and @texts.closeMenu are required',
+      this.args.texts?.openMenu && this.args.texts?.closeMenu,
       {
-        id: 'pix-navigation.open-close-labels',
+        id: 'pix-navigation.open-close-menu.required',
+      },
+    );
+    warn(
+      'PixNavigation: @texts.mainNavigation attribute is required for accessibility.',
+      this.args.texts?.mainNavigation,
+      {
+        id: 'pix-ui.stepper-component.texts.mainNavigation.required',
+      },
+    );
+    warn(
+      'PixNavigation: @texts.expandNavigation and @texts.shrinkNavigation attributes are required for accessibility.',
+      this.args.texts?.expandNavigation && this.args.texts?.shrinkNavigation,
+      {
+        id: 'pix-ui.stepper-component.texts.shrink-expand-navigation.required',
       },
     );
   }
 
   @tracked
   navigationMenuOpened = false;
-
-  formatMessage(message, values) {
-    return formatMessage(this.args.locale ?? 'fr', `pixNavigation.${message}`, values);
-  }
 
   @action
   toggleNavigationMenu() {
@@ -64,11 +73,13 @@ export default class PixNavigation extends Component {
   }
 
   get shrunkNavigationAriaLabel() {
-    return this.formatMessage(
-      this.shrinkNavigationService.isShrunk
-        ? 'expandNavigationAriaLabel'
-        : 'shrinkNavigationAriaLabel',
-    );
+    return this.shrinkNavigationService.isShrunk
+      ? this.args.texts.expandNavigation
+      : this.args.texts.shrinkNavigation;
+  }
+
+  get menuLabel() {
+    return this.navigationMenuOpened ? this.args.texts.closeMenu : this.args.texts.openMenu;
   }
 
   get navigationId() {
@@ -104,11 +115,7 @@ export default class PixNavigation extends Component {
             @triggerAction={{this.toggleNavigationMenu}}
           >
             <span class="screen-reader-only">
-              {{#if this.navigationMenuOpened}}
-                {{@closeLabel}}
-              {{else}}
-                {{@openLabel}}
-              {{/if}}
+              {{this.menuLabel}}
             </span>
           </PixButton>
         </div>
@@ -116,7 +123,7 @@ export default class PixNavigation extends Component {
       <nav
         class="pix-navigation__nav"
         {{on "click" this.closeNavigation}}
-        aria-label={{@navigationAriaLabel}}
+        aria-label={{@texts.mainNavigation}}
         id={{this.navigationId}}
       >
         {{yield to="navElements"}}

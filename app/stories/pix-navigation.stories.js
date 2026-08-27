@@ -3,34 +3,31 @@ import { hbs } from 'ember-cli-htmlbars';
 export default {
   title: 'Navigation/Navigation',
   argTypes: {
-    navigationAriaLabel: {
-      description: 'Variante de la navigation',
-      type: { name: 'string', required: true },
+    texts: {
+      name: 'texts',
+      description: 'object contenant les traductions du composants',
+      type: { name: 'object', required: true },
+      control: { type: 'object' },
+      table: {
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: JSON.stringify({
+            mainNavigation: 'Navigation Principale',
+            openMenu: 'Ouvrir le menu',
+            closeMenu: 'Fermer le menu',
+            shrinkNavigation: 'Réduire la largeur',
+            expandNavigation: 'Revenir à la largeur initiale du menu de navigation',
+          }),
+        },
+      },
     },
-    openLabel: {
-      description: 'Label à afficher lorsque la navbar est fermée.',
-      type: { name: 'string', required: true },
-    },
-    closeLabel: {
-      description: 'Label à afficher lorsque la navbar est ouverte.',
-      type: { name: 'string', required: true },
-    },
-  },
-  args: {
-    navigationAriaLabel: 'Navigation Principale',
-    openLabel: 'Ouvrir le menu',
-    closeLabel: 'Fermer le menu',
   },
 };
 
 export const Navigation = (args) => {
   return {
     template: hbs`<PixAppLayout @variant='primary'>
-  <PixNavigation
-    @navigationAriaLabel={{this.navigationAriaLabel}}
-    @openLabel={{this.openLabel}}
-    @closeLabel={{this.closeLabel}}
-  >
+  <PixNavigation @texts={{this.texts}}>
     <:brand>
       <a href='/'>
         <img src='/pix-orga.svg' alt='pix orga' />
