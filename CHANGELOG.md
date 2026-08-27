@@ -1,3 +1,9 @@
+# [64.0.0](https://github.com/1024pix/pix-ui/compare/v63.0.0...v64.0.0) (2026-08-27)
+
+### :boom: BREAKING CHANGE
+
+- [#1029](https://github.com/1024pix/pix-ui/pull/1029) supprimer l'i18n du PixTag (PIX-23992)
+
 # [63.0.0](https://github.com/1024pix/pix-ui/compare/v62.3.1...v63.0.0) (2026-08-26)
 
 ### :boom: BREAKING CHANGE
