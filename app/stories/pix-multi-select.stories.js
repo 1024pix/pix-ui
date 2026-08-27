@@ -20,7 +20,6 @@ export default {
   @screenReaderOnly={{this.screenReaderOnly}}
   @size={{this.size}}
   @onChange={{this.onChange}}
-  @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @isSearchable={{this.isSearchable}}
   @onSearch={{this.onSearch}}
@@ -41,12 +40,6 @@ export default {
         "Permet l'accessibilité du composant attribuant des ``for`` pour chaque entité. **⚠️ L'`id` est obligatoire que si le `label` n'est pas donné. ⚠️**",
       type: { name: 'string' },
     },
-    placeholder: {
-      name: 'placeholder',
-      description:
-        'Rempli le contenu interne du composant, `placeholder` pour `isSearchable` `true`, sinon rawContent du `button`',
-      type: { name: 'string', required: true },
-    },
     locale: {
       name: 'locale',
       description:
@@ -55,12 +48,6 @@ export default {
       table: {
         type: { summary: 'string' },
       },
-    },
-    emptyMessage: {
-      name: 'emptyMessage',
-      description:
-        'Un intitulé de choix indisponible (dans le cas ou certains filtres seraient excluant)',
-      type: { name: 'string', required: true },
     },
     options: {
       name: 'options',
@@ -134,19 +121,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    subLabel: {
-      name: 'subLabel',
-      description: 'Un descriptif complétant le label',
-      type: { name: 'string', required: false },
-    },
-    requiredLabel: {
-      name: 'requiredLabel',
-      description: 'Label indiquant que le champ est requis.',
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
     texts: {
       name: 'texts',
       description: 'Objet contenant les libellé disponible pour le PixMultiSelect',
@@ -156,6 +130,11 @@ export default {
           summary: 'object',
           default: JSON.stringify({
             searchLabel: 'Rechercher <InsertName>',
+            searchPlaceholder: 'cornichon, tomate',
+            emptySearchMessage: 'Pas de résultat',
+            subLabel: 'mon sous label',
+            requiredLabel: 'champs requis',
+            placeholder: 'Mon placeholder',
           }),
         },
       },
@@ -216,7 +195,6 @@ export const Default = {
     label: 'Label du champ',
     options: DEFAULT_OPTIONS,
     onChange: action('onChange'),
-    emptyMessage: 'pas de résultat',
     values: ['1', '3'],
     placeholder: 'placeholder',
   },
@@ -228,12 +206,10 @@ export const multiSelectWithChildComponent = (args) => {
 <PixMultiSelect
   @placeholder={{this.placeholder}}
   @onChange={{this.onChange}}
-  @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @options={{this.options}}
   @size={{this.size}}
   @texts={{this.texts}}
-  @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
   @isDisabled={{this.isDisabled}}
@@ -268,7 +244,7 @@ export const multiSelectSearchable = {
     ...Default.args,
     isSearchable: true,
     strictSearch: false,
-    emptyMessage: 'Aucune option trouvée',
+    texts: { emptyMessage: 'Aucune option trouvée' },
   },
 };
 
@@ -304,7 +280,6 @@ export const multiSelectSearchableDisabled = {
     ...Default.args,
     isSearchable: true,
     strictSearch: true,
-    emptyMessage: 'Aucune option trouvée',
     isDisabled: true,
   },
 };
@@ -313,18 +288,14 @@ const TemplateWithYield = (args) => ({
   template: hbs`<PixMultiSelect
   @id={{this.id}}
   @onChange={{this.onChange}}
-  @emptyMessage={{this.emptyMessage}}
   @className={{this.className}}
   @isSearchable={{this.isSearchable}}
   @texts={{this.texts}}
-  @strictSearch={{this.strictSearch}}
   @values={{this.values}}
   @options={{this.options}}
   @size={{this.size}}
-  @subLabel={{this.subLabel}}
   @locale={{this.locale}}
   @inlineLabel={{this.inlineLabel}}
-  @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >
   <:label>{{this.label}}</:label>

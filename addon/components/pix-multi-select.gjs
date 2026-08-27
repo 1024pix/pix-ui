@@ -1,4 +1,3 @@
-import { warn } from '@ember/debug';
 import { concat } from '@ember/helper';
 import { on } from '@ember/modifier';
 import { action } from '@ember/object';
@@ -60,6 +59,22 @@ export default class PixMultiSelect extends Component {
     return this.args.texts?.searchLabel;
   }
 
+  get searchPlaceholder() {
+    return this.args.texts?.searchPlaceholder;
+  }
+
+  get emptySearchMessage() {
+    return this.args.texts?.emptySearchMessage;
+  }
+
+  get requiredLabel() {
+    return this.args.texts?.requiredLabel;
+  }
+
+  get subLabel() {
+    return this.args.texts?.subLabel;
+  }
+
   get isAriaExpanded() {
     return this.isExpanded ? 'true' : 'false';
   }
@@ -69,7 +84,7 @@ export default class PixMultiSelect extends Component {
   }
 
   get placeholder() {
-    const { values, placeholder } = this.args;
+    const { values, texts } = this.args;
     if (values?.length > 0) {
       const selectedOptionLabels = this.options
         .filter((option) => {
@@ -80,7 +95,7 @@ export default class PixMultiSelect extends Component {
         .join(', ');
       return selectedOptionLabels;
     }
-    return placeholder;
+    return texts?.placeholder;
   }
 
   @action
@@ -159,8 +174,8 @@ export default class PixMultiSelect extends Component {
     >
       <PixLabel
         @for={{this.multiSelectId}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
+        @requiredLabel={{this.requiredLabel}}
+        @subLabel={{this.subLabel}}
         @size={{@size}}
         @screenReaderOnly={{@screenReaderOnly}}
         @inlineLabel={{@inlineLabel}}
@@ -183,7 +198,7 @@ export default class PixMultiSelect extends Component {
           >
             {{#if (has-block "placeholder")}}
               <span class="pix-multi-select__placeholder">{{yield to="placeholder"}}</span>
-            {{else if @placeholder}}
+            {{else}}
               <span class="pix-multi-select__placeholder">{{this.placeholder}}</span>
             {{/if}}
             <PixIcon
@@ -213,7 +228,7 @@ export default class PixMultiSelect extends Component {
                   id={{this.searchId}}
                   autocomplete="off"
                   tabindex={{if this.isExpanded "0" "-1"}}
-                  placeholder={{@searchPlaceholder}}
+                  placeholder={{this.searchPlaceholder}}
                   {{on "input" this.updateSearch}}
                 />
               </li>
@@ -238,7 +253,7 @@ export default class PixMultiSelect extends Component {
             {{else}}
               <li
                 class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
-              >{{@emptyMessage}}</li>
+              >{{this.emptySearchMessage}}</li>
             {{/if}}
           </ul>
         </PopperJS>
