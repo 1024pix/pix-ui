@@ -1,3 +1,9 @@
+## [67.0.3](https://github.com/1024pix/pix-ui/compare/v67.0.2...v67.0.3) (2026-08-28)
+
+### :building_construction: Tech
+
+- [#1055](https://github.com/1024pix/pix-ui/pull/1055) Supprimer la surcharge du schedule
+
 ## [67.0.2](https://github.com/1024pix/pix-ui/compare/v67.0.1...v67.0.2) (2026-08-28)
 
 ### :arrow_up: Montée de version
