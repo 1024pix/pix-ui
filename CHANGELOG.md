@@ -1,3 +1,9 @@
+## [68.0.1](https://github.com/1024pix/pix-ui/compare/v68.0.0...v68.0.1) (2026-08-28)
+
+### :building_construction: Tech
+
+- [#1046](https://github.com/1024pix/pix-ui/pull/1046) Supprimer la librairie ember-lifeline (PIX-24046)
+
 # [68.0.0](https://github.com/1024pix/pix-ui/compare/v67.0.3...v68.0.0) (2026-08-28)
 
 ### :boom: BREAKING CHANGE
