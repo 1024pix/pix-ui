@@ -52,14 +52,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    placeholder: {
-      name: 'placeholder',
-      description: "Placeholder du menu déroulant. Il sert aussi de label pour l'option par défaut",
-      type: { name: 'string', required: true },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
     hideDefaultOption: {
       name: 'hideDefaultOption',
       description: "Cache l'option par défaut",
@@ -77,31 +69,24 @@ export default {
         type: { summary: 'string' },
       },
     },
-    locale: {
-      name: 'locale',
+    texts: {
+      name: 'texts',
       description:
-        'Permet de rendre traduisible le label du formulaire de recherche, par défaut fr',
-      type: { name: 'string', required: false },
+        'Objet contenant les textes traduits du composant. `selectSearchLabel`, `searchPlaceholder` et `emptySearchMessage` sont obligatoires si `isSearchable` est `true`.',
+      type: { name: 'object', required: true },
+      control: { type: 'object' },
       table: {
-        type: { summary: 'string' },
-      },
-    },
-    searchPlaceholder: {
-      name: 'searchPlaceholder',
-      description:
-        'Placeholder de la recherche dans le menu déroulant. **⚠️ Le `searchPlaceholder` est obligatoire que si le `isSearchable` à `true`. ⚠️**',
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
-    emptySearchMessage: {
-      name: 'emptySearchMessage',
-      description:
-        "Message affiché si la recherche ne retourne pas d'options. **⚠️ Le `emptySearchMessage` est obligatoire que si le `isSearchable` à `true`. ⚠️**",
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
+        type: { summary: 'object' },
+        defaultValue: {
+          summary: JSON.stringify({
+            placeholder: 'Sélectionner',
+            selectSearchLabel: 'Rechercher',
+            searchPlaceholder: 'Rechercher...',
+            emptySearchMessage: 'Aucune option',
+            subLabel: '',
+            requiredLabel: '',
+          }),
+        },
       },
     },
     errorMessage: {
@@ -183,19 +168,6 @@ export default {
         type: { summary: 'string' },
       },
     },
-    subLabel: {
-      name: 'subLabel',
-      description: 'Un descriptif complétant le label',
-      type: { name: 'string', required: false },
-    },
-    requiredLabel: {
-      name: 'requiredLabel',
-      description: 'Label indiquant que le champ est requis.',
-      type: { name: 'string', required: false },
-      table: {
-        type: { summary: 'string' },
-      },
-    },
     screenReaderOnly: {
       name: 'screenReaderOnly',
       description: "Permet de rendre le label lisible uniquement par les lecteurs d'écran",
@@ -249,22 +221,17 @@ const Template = (args) => {
   @className={{this.className}}
   @options={{this.options}}
   @isSearchable={{this.isSearchable}}
-  @placeholder={{this.placeholder}}
   @hideDefaultOption={{this.hideDefaultOption}}
-  @locale={{this.locale}}
+  @texts={{this.texts}}
   @value={{this.value}}
-  @searchPlaceholder={{this.searchPlaceholder}}
-  @emptySearchMessage={{this.emptySearchMessage}}
   @errorMessage={{this.errorMessage}}
   @isDisabled={{this.isDisabled}}
   @placement={{this.placement}}
   @iconName={{this.iconName}}
   @plainIcon={{this.plainIcon}}
   @size={{this.size}}
-  @subLabel={{this.subLabel}}
   @inlineLabel={{this.inlineLabel}}
   @isFullWidth={{this.isFullWidth}}
-  @requiredLabel={{this.requiredLabel}}
   @screenReaderOnly={{this.screenReaderOnly}}
 >
   <:label>{{this.label}}</:label>
@@ -284,21 +251,16 @@ const TemplateWithParent = (args) => {
     @className={{this.className}}
     @options={{this.options}}
     @isSearchable={{this.isSearchable}}
-    @placeholder={{this.placeholder}}
     @hideDefaultOption={{this.hideDefaultOption}}
-    @searchLabel={{this.searchLabel}}
+    @texts={{this.texts}}
     @value={{this.value}}
-    @searchPlaceholder={{this.searchPlaceholder}}
-    @emptySearchMessage={{this.emptySearchMessage}}
     @errorMessage={{this.errorMessage}}
     @isDisabled={{this.isDisabled}}
     @placement={{this.placement}}
     @iconName={{this.iconName}}
     @plainIcon={{this.plainIcon}}
     @size={{this.size}}
-    @subLabel={{this.subLabel}}
     @inlineLabel={{this.inlineLabel}}
-    @requiredLabel={{this.requiredLabel}}
     @screenReaderOnly={{this.screenReaderOnly}}
     @isFullWidth={{this.isFullWidth}}
     @isComputeWidthDisabled={{this.isComputeWidthDisabled}}
@@ -326,15 +288,10 @@ const TemplatePopover = (args) => {
       @options={{this.options}}
       @isSearchable={{this.isSearchable}}
       @onChange={{this.onChange}}
-      @placeholder={{this.placeholder}}
       @hideDefaultOption={{this.hideDefaultOption}}
-      @subLabel={{this.subLabel}}
-      @searchLabel={{this.searchLabel}}
+      @texts={{this.texts}}
       @value={{this.value}}
-      @searchPlaceholder={{this.searchPlaceholder}}
       @screenReaderOnly={{this.screenReaderOnly}}
-      @emptySearchMessage={{this.emptySearchMessage}}
-      @requiredLabel={{this.requiredLabel}}
       @errorMessage={{this.errorMessage}}
       @isDisabled={{this.isDisabled}}
       @placement={{this.placement}}
@@ -361,9 +318,11 @@ WithId.args = {
       label: 'Asiminier trilobé oblong vert (à ne pas confondre avec la papaye)',
     },
   ],
-  placeholder: 'Mon innerText',
   isSearchable: false,
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Mon innerText',
+  },
 };
 
 export const WithCustomClass = Template.bind({});
@@ -381,10 +340,12 @@ WithCustomClass.args = {
     },
   ],
   label: 'Mon label',
-  placeholder: 'Mon innerText',
-  subLabel: 'Mon sous label',
   isSearchable: false,
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Mon innerText',
+    subLabel: 'Mon sous label',
+  },
 };
 
 export const Default = Template.bind({});
@@ -398,10 +359,12 @@ Default.args = {
     { value: '6', label: 'Asiminier' },
   ],
   label: 'Mon label',
-  placeholder: 'Mon innerText très très long',
-  subLabel: 'Mon sous label',
   isSearchable: false,
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Mon innerText très très long',
+    subLabel: 'Mon sous label',
+  },
 };
 
 export const WithCategories = Template.bind({});
@@ -418,10 +381,12 @@ WithCategories.args = {
     },
   ],
   label: 'Mon label',
-  placeholder: 'Mon innerText',
-  subLabel: 'Mon sous label',
   isSearchable: false,
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Mon innerText',
+    subLabel: 'Mon sous label',
+  },
 };
 
 export const WithSearch = Template.bind({});
@@ -438,13 +403,15 @@ WithSearch.args = {
     },
   ],
   label: 'Mon label',
-  placeholder: 'Mon innerText',
-  subLabel: 'Mon sous label',
-  searchLabel: 'Mon label',
-  searchPlaceholder: 'Mon innerText',
   isSearchable: true,
-  emptySearchMessage: 'Aucune option',
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Mon innerText',
+    subLabel: 'Mon sous label',
+    selectSearchLabel: 'Rechercher',
+    searchPlaceholder: 'Mon innerText',
+    emptySearchMessage: 'Aucune option',
+  },
 };
 
 export const WithCategoriesAndSearch = Template.bind({});
@@ -461,13 +428,15 @@ WithCategoriesAndSearch.args = {
     },
   ],
   label: 'Mon label',
-  placeholder: 'Mon innerText',
-  subLabel: 'Mon sous label',
-  searchLabel: 'Mon label',
-  searchPlaceholder: 'Mon innerText',
   isSearchable: true,
-  emptySearchMessage: 'Aucune option',
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Mon innerText',
+    subLabel: 'Mon sous label',
+    selectSearchLabel: 'Rechercher',
+    searchPlaceholder: 'Mon innerText',
+    emptySearchMessage: 'Aucune option',
+  },
 };
 
 export const WithDropDownAtTheTop = TemplatePopover.bind({});
@@ -484,11 +453,13 @@ WithDropDownAtTheTop.args = {
     },
   ],
   label: 'JambonFromage',
-  placeholder: 'Mon innerText',
-  subLabel: 'Mon sous label',
   isSearchable: false,
   onChange: action('onChange'),
   placement: 'top',
+  texts: {
+    placeholder: 'Mon innerText',
+    subLabel: 'Mon sous label',
+  },
 };
 
 export const WithIcon = Template.bind({});
@@ -525,9 +496,11 @@ WithIsFullWidth.args = {
     { value: '4', label: 'Papayes' },
   ],
   label: 'Mon label',
-  placeholder: 'Sélectionner un fruit',
   isFullWidth: true,
   inlineLabel: false,
   isComputeWidthDisabled: true,
   onChange: action('onChange'),
+  texts: {
+    placeholder: 'Sélectionner un fruit',
+  },
 };

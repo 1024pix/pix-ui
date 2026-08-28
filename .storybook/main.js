@@ -13,7 +13,6 @@ const config = {
     name: '@storybook/ember',
     options: {},
   },
-
   docs: {},
 };
 export default config;

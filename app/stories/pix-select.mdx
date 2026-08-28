@@ -11,11 +11,21 @@ Les options sont représentées par un tableau d'objet contenant les propriété
 
 > **⚠️** **Il est nécessaire d'avoir au moins un label ou un placeholder !**
 
-> **⚠️** **N'oubliez pas de rajouter un searchLabel dans le cas ou le menu déroulant est cherchable pour le rendre accessible !**
-
 > Pour aider l'utilisateur, rajoutez un placeholder cohérent !
 
-> **⚠️** Pour un champ de filtre sur des résultats qui ne s'affichent pas dans une liste déroulante, utilisez plutôt le [PixSearchInput](?path=/story/others-searchinput--default).
+### Argument `@texts` (obligatoire)
+
+Tous les textes permanents du composant passent par l'argument `@texts` afin de faciliter la traduction lors d'un changement de locale :
+
+- `placeholder`, obligatoire : placeholder du menu déroulant et label de l'option par défaut
+- `selectSearchLabel`, si `isSearchable=true`: label du champ de recherche (accessibilité)
+- `searchPlaceholder`, si `isSearchable=true`: placeholder du champ de recherche
+- `emptySearchMessage`, si `isSearchable=true`: message affiché si la recherche ne retourne aucun résultat
+- `subLabel`: descriptif complétant le label
+- `requiredLabel`: texte indiquant que le champ est requis
+
+
+- **⚠️** Pour un champ de filtre sur des résultats qui ne s'affichent pas dans une liste déroulante, utilisez plutôt le [PixSearchInput](?path=/story/others-searchinput--default).
 
 ## Default
 
@@ -43,6 +53,7 @@ Un exemple est disponible dans l'environnement local sur la page `/select`
   @isSearchable={{true}}
   @options={{customFilteredOptions}}
   @onSearch={{{updateOptions}}}
+  @texts={{texts}}
   ...
 >
   ...
@@ -82,22 +93,24 @@ On force le composant à adopter la largeur de son parent.
 ```html
 <PixSelect
   @className="{{className}}"
-  @subLabel="{{subLabel}}"
-  @placeholder="{{placeholder}}"
   @options="{{options}}"
   @onChange="{{onChange}}"
   @value="{{value}}"
   @isSearchable="{{isSearchable}}"
-  @searchLabel="{{searchLabel}}"
-  @searchPlaceholder="{{searchPlaceholder}}"
-  @emptySearchMessage="{{emptySearchMessage}}"
   @screenReaderOnly="{{screenReaderOnly}}"
-  @requiredLabel="{{requiredLabel}}"
   @errorMessage="{{errorMessage}}"
   @placement="{{placement}}"
   @iconName="{{icon}}"
+  @texts={{hash
+    placeholder="Sélectionner"
+    subLabel="Mon sous-label"
+    requiredLabel="obligatoire"
+    selectSearchLabel="Rechercher"
+    searchPlaceholder="Rechercher..."
+    emptySearchMessage="Aucune option"
+  }}
 >
-<:label>{{label}}</:label>
+  <:label>{{label}}</:label>
 </PixSelect>
 ```
 

@@ -224,6 +224,7 @@ module('Integration | Component | PixFilterableAndSearchableSelect', function (h
   @onChange={{this.onChange}}
   @categoriesId={{this.categoriesId}}
   @categoriesPlaceholder={{this.categoriesPlaceholder}}
+  @searchLabel='Rechercher'
   @isSearchable={{true}}
 >
   <:label>{{this.label}}</:label>
