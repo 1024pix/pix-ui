@@ -13,25 +13,65 @@ import { gt, or } from 'ember-truth-helpers';
 import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEnterAction from '../modifiers/on-enter-action';
 import onEscapeAction from '../modifiers/on-escape-action';
-import { formatMessage } from '../translations';
 import PixCheckbox from './pix-checkbox';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 
-function removeCapitalizeAndDiacritics(string) {
-  return string
-    .normalize('NFD')
-    .replace(/[\u0300-\u036f]/g, '')
-    .toLowerCase();
-}
+/**
+ * @typedef {object} PixMultiSelectOption
+ * @property {string} value - Valeur de l'option.
+ * @property {string} label - Texte affiché.
+ */
+
+/**
+ * @typedef {object} PixMultiSelectTexts
+ * @property {string} placeholder - Texte affiché tant qu'aucune option n'est sélectionnée. Obligatoire.
+ * @property {string} [requiredLabel] - Rend le champ obligatoire et affiche un astérisque, dont ce texte est l'infobulle.
+ * @property {string} [subLabel] - Complément d'information affiché sous le libellé.
+ * @property {string} [searchLabel] - Intitulé du champ de recherche, lu par les lecteurs d'écran (accessible uniquement).
+ * @property {string} [searchPlaceholder] - Texte indicatif affiché dans le champ de recherche.
+ * @property {string} [emptySearchMessage] - Message affiché quand aucune option ne correspond à la recherche.
+ */
+
+/**
+ * @typedef {object} PixMultiSelectArgs
+ * @property {PixMultiSelectOption[]} options - Options proposées. Obligatoire.
+ * @property {string[]} [values] - Valeurs des options sélectionnées.
+ * @property {PixMultiSelectTexts} texts - Textes du composant. Obligatoire.
+ * @property {(values: string[]) => unknown} [onChange] - Appelée avec la liste complète des valeurs sélectionnées à chaque changement.
+ * @property {string} [id] - Identifiant du champ. Généré automatiquement s'il n'est pas fourni.
+ * @property {boolean} [isDisabled] - Désactive le champ.
+ * @property {boolean} [isSearchable] - Ajoute un champ de recherche en tête de liste.
+ * @property {(value: string) => unknown} [onSearch] - Prend en charge la recherche à la place du filtrage interne, pour interroger un serveur par exemple.
+ * @property {'small' | 'default' | 'large'} [size] - Taille du libellé. Par défaut : `default`.
+ * @property {boolean} [screenReaderOnly] - Masque le libellé visuellement, tout en le laissant lisible par les lecteurs d'écran.
+ * @property {boolean} [inlineLabel] - Place le libellé sur la même ligne que le champ.
+ * @property {string} [className] - Classes CSS ajoutées au bouton d'ouverture.
+ * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Popper. Par défaut : `bottom-start`.
+ * @property {boolean} [isComputeWidthDisabled] - Désactive l'alignement automatique de la largeur du champ sur celle de la liste.
+ */
+
+/**
+ * @typedef {object} PixMultiSelectSignature
+ * @property {HTMLDivElement} Element
+ * @property {PixMultiSelectArgs} Args
+ * @property {{ label: [], placeholder: [], default: [PixMultiSelectOption] }} Blocks
+ */
 
 export default class PixMultiSelect extends Component {
   @tracked isExpanded = false;
-  @tracked searchData;
   @service elementHelper;
 
   constructor(...args) {
     super(...args);
+
+    warn(
+      'PixMultiSelect: @texts.placeholder attribute is mandatory for usability. if you not using placeholder {{yield}}',
+      Boolean(this.args.texts?.placeholder),
+      {
+        id: 'pix-ui.select-placeholder.mandatory',
+      },
+    );
 
     this.searchId = 'search-input-' + guidFor(this);
     this.multiSelectId = this.args.id ? this.args.id : 'select-' + guidFor(this);
@@ -49,14 +89,6 @@ export default class PixMultiSelect extends Component {
         element.style.setProperty('--pix-multi-select-width', `${selectWidth}rem`);
       });
     }
-
-    warn(
-      `PixMultiSelect: @strictSearch is deprecated in favour of @onSearch`,
-      !this.args.strictSearch,
-      {
-        id: 'pix-ui.pix-multi-select.strictSearch.deprecated',
-      },
-    );
   }
 
   get options() {
@@ -73,19 +105,36 @@ export default class PixMultiSelect extends Component {
     return classes;
   }
 
+  get searchLabel() {
+    return this.args.texts?.searchLabel;
+  }
+
+  get searchPlaceholder() {
+    return this.args.texts?.searchPlaceholder;
+  }
+
+  get emptySearchMessage() {
+    return this.args.texts?.emptySearchMessage;
+  }
+
+  get requiredLabel() {
+    return this.args.texts?.requiredLabel;
+  }
+
+  get subLabel() {
+    return this.args.texts?.subLabel;
+  }
+
   get isAriaExpanded() {
     return this.isExpanded ? 'true' : 'false';
   }
 
   get results() {
-    if (this.args.isSearchable && this.searchData) {
-      return this.args.options.filter(({ label }) => this._search(label));
-    }
     return this.args.options;
   }
 
   get placeholder() {
-    const { values, placeholder } = this.args;
+    const { values, texts } = this.args;
     if (values?.length > 0) {
       const selectedOptionLabels = this.options
         .filter((option) => {
@@ -96,14 +145,7 @@ export default class PixMultiSelect extends Component {
         .join(', ');
       return selectedOptionLabels;
     }
-    return placeholder;
-  }
-
-  _search(label) {
-    if (this.args.strictSearch) {
-      return label.includes(this.searchData);
-    }
-    return removeCapitalizeAndDiacritics(label).includes(this.searchData);
+    return texts?.placeholder;
   }
 
   @action
@@ -148,13 +190,7 @@ export default class PixMultiSelect extends Component {
 
   @action
   updateSearch(event) {
-    if (this.args.onSearch) {
-      this.args.onSearch(event.target.value);
-    } else {
-      this.searchData = this.args.strictSearch
-        ? event.target.value
-        : removeCapitalizeAndDiacritics(event.target.value);
-    }
+    this.args.onSearch(event.target.value);
   }
 
   @action
@@ -165,10 +201,6 @@ export default class PixMultiSelect extends Component {
   get className() {
     const { className } = this.args;
     return ' ' + className;
-  }
-
-  get selectSearchLabel() {
-    return formatMessage(this.args.locale ?? 'fr', 'select.search');
   }
 
   @action
@@ -192,8 +224,8 @@ export default class PixMultiSelect extends Component {
     >
       <PixLabel
         @for={{this.multiSelectId}}
-        @requiredLabel={{@requiredLabel}}
-        @subLabel={{@subLabel}}
+        @requiredLabel={{this.requiredLabel}}
+        @subLabel={{this.subLabel}}
         @size={{@size}}
         @screenReaderOnly={{@screenReaderOnly}}
         @inlineLabel={{@inlineLabel}}
@@ -216,7 +248,7 @@ export default class PixMultiSelect extends Component {
           >
             {{#if (has-block "placeholder")}}
               <span class="pix-multi-select__placeholder">{{yield to="placeholder"}}</span>
-            {{else if @placeholder}}
+            {{else}}
               <span class="pix-multi-select__placeholder">{{this.placeholder}}</span>
             {{/if}}
             <PixIcon
@@ -239,14 +271,14 @@ export default class PixMultiSelect extends Component {
               <li class="pix-select__search">
                 <PixIcon class="pix-select-search__icon" @name="search" @ariaHidden={{true}} />
                 <label class="screen-reader-only" for={{this.searchId}}>
-                  {{this.selectSearchLabel}}
+                  {{this.searchLabel}}
                 </label>
                 <input
                   class="pix-select-search__input"
                   id={{this.searchId}}
                   autocomplete="off"
                   tabindex={{if this.isExpanded "0" "-1"}}
-                  placeholder={{@searchPlaceholder}}
+                  placeholder={{this.searchPlaceholder}}
                   {{on "input" this.updateSearch}}
                 />
               </li>
@@ -271,7 +303,7 @@ export default class PixMultiSelect extends Component {
             {{else}}
               <li
                 class="pix-multi-select-list__item pix-multi-select-list__item--no-result"
-              >{{@emptyMessage}}</li>
+              >{{this.emptySearchMessage}}</li>
             {{/if}}
           </ul>
         </PopperJS>

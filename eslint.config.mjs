@@ -3,7 +3,6 @@ import babelParser from '@babel/eslint-parser';
 import emberParser from 'ember-eslint-parser';
 import emberRecommendedConfig from 'eslint-plugin-ember/configs/recommended';
 import emberGjsRecommendedConfig from 'eslint-plugin-ember/configs/recommended-gjs';
-import i18nJsonPlugin from 'eslint-plugin-i18n-json';
 import prettierRecommendedConfig from 'eslint-plugin-prettier/recommended';
 import qunitRecommendedConfig from 'eslint-plugin-qunit/configs/recommended';
 import globals from 'globals';
@@ -26,7 +25,6 @@ const emberTryFiles = [
   'bower.json.ember-try',
   'package.json.ember-try',
 ];
-const nonPhraseGeneratedFiles = ['translations/en.json', 'translations/fr.json'];
 
 const nodeFiles = [
   'eslint.config.js',
@@ -101,17 +99,6 @@ export default [
         ...globals.embertest,
         server: false,
       },
-    },
-  },
-  {
-    files: nonPhraseGeneratedFiles,
-    plugins: { 'i18n-json': i18nJsonPlugin },
-    processor: {
-      meta: { name: '.json' },
-      ...i18nJsonPlugin.processors['.json'],
-    },
-    rules: {
-      ...i18nJsonPlugin.configs.recommended.rules,
     },
   },
 ];
