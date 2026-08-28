@@ -1,3 +1,9 @@
+# [68.0.0](https://github.com/1024pix/pix-ui/compare/v67.0.3...v68.0.0) (2026-08-28)
+
+### :boom: BREAKING CHANGE
+
+- [#1042](https://github.com/1024pix/pix-ui/pull/1042) PixSelect - Supprimer les traduction et centraliser les propriétés de texte (PIX-24014)
+
 ## [67.0.3](https://github.com/1024pix/pix-ui/compare/v67.0.2...v67.0.3) (2026-08-28)
 
 ### :building_construction: Tech
