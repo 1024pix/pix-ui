@@ -1,6 +1,6 @@
-@use "pix-design-tokens/typography";
-@use "component-state/form";
-@use "pix-design-tokens/shadows";
+@use 'pix-design-tokens/typography';
+@use 'component-state/form';
+@use 'pix-design-tokens/shadows';
 
 .pix-select {
   position: relative;
@@ -28,7 +28,6 @@
     width: 100%;
     min-width: fit-content;
     max-height: 12rem;
-    margin-top: var(--pix-spacing-1x);
     padding: 0;
     overflow-y: auto;
     white-space: nowrap;
@@ -36,7 +35,9 @@
     background-color: var(--pix-neutral-0);
     border-top: none;
     border-radius: 0 0 var(--pix-spacing-1x) var(--pix-spacing-1x);
-    transition: all 0.1s ease-in-out;
+    transition:
+      opacity 0.1s ease-in-out,
+      visibility 0.1s ease-in-out;
 
     &::-webkit-scrollbar {
       width: 0.5rem;
@@ -59,12 +60,10 @@
     }
 
     &--closed {
-      visibility: hidden;
+      visibility: hidden !important;
       opacity: 0;
     }
   }
-
-
 
   &__search {
     display: flex;
@@ -146,6 +145,6 @@
 
   &__icon {
     margin: auto var(--pix-spacing-1x);
-    color: var(--pix-neutral-100)
+    color: var(--pix-neutral-100);
   }
 }
