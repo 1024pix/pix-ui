@@ -34,10 +34,10 @@ export default class SelectPage extends Controller {
     },
   ];
   @tracked multiOptions = [
-    { value: 'a', label: 'Salade'},
-    { value: 'b', label: 'Tomate'},
-    { value: 'c', label: 'Oignons'},
-  ]
+    { value: 'a', label: 'Salade' },
+    { value: 'b', label: 'Tomate' },
+    { value: 'c', label: 'Oignons' },
+  ];
   @tracked searchValue;
   @tracked multiSearchValue;
 
@@ -70,14 +70,14 @@ export default class SelectPage extends Controller {
   addNewOption() {
     if (this.options.length > 6) return;
     const newOption = { value: '7', label: 'Citron', category: 'yellow' };
-    this.options = [...this.options, newOption]
+    this.options = [...this.options, newOption];
   }
 
   @action
   addNewMultiOption() {
     if (this.multiOptions.length > 3) return;
     const newOption = { value: 'd', label: 'Harissa (NEW)' };
-    this.multiOptions = [...this.multiOptions, newOption]
+    this.multiOptions = [...this.multiOptions, newOption];
   }
 
   @action
@@ -90,6 +90,11 @@ export default class SelectPage extends Controller {
     this.multiSearchValue = search;
   }
 
+  @action
+  triggerFiltering(_, value) {
+    console.log('SEARCH', value);
+  }
+
   countriesOptions = [
     { value: '1', label: 'England' },
     { value: '2', label: 'Cambodgia' },
@@ -97,13 +102,13 @@ export default class SelectPage extends Controller {
   ];
 
   get options() {
-    return
+    return;
   }
 
   get filteredOptions() {
     if (this.searchValue) {
       try {
-        const searchRegex = new RegExp(`${this.searchValue}`, 'i')
+        const searchRegex = new RegExp(`${this.searchValue}`, 'i');
         return this.options.filter((option) => option.label.match(searchRegex));
       } catch {}
     }
@@ -113,7 +118,7 @@ export default class SelectPage extends Controller {
   get filteredMultiOptions() {
     if (this.multiSearchValue) {
       try {
-        const searchRegex = new RegExp(`${this.multiSearchValue}`, 'i')
+        const searchRegex = new RegExp(`${this.multiSearchValue}`, 'i');
         return this.multiOptions.filter((option) => option.label.match(searchRegex));
       } catch {}
     }

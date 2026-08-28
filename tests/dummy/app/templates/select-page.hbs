@@ -62,5 +62,14 @@
     </PixSelect>
   </div>
 
+  <PixSearchInput
+    @id="123"
+    @placeholder="Rechercher"
+    @debounceTimeInMs="500"
+    @triggerFiltering={{this.triggerFiltering}}
+  >
+    <:label>Rechercher ici</:label>
+  </PixSearchInput>
+
   <PixPagination @pagination={{this.pagination}} />
 </div>
