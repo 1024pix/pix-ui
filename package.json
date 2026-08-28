@@ -92,7 +92,7 @@
     "@storybook/addon-controls": "^8.4.7",
     "@storybook/addon-docs": "^8.4.7",
     "@storybook/addon-essentials": "^8.4.7",
-    "@storybook/addon-webpack5-compiler-babel": "^4.0.0",
+    "@storybook/addon-webpack5-compiler-babel": "^4.0.1",
     "@storybook/blocks": "^8.4.7",
     "@storybook/builder-webpack5": "^8.4.7",
     "@storybook/ember": "^8.4.7",
