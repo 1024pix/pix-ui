@@ -22,6 +22,15 @@ export default {
       },
     },
   },
+  args: {
+    texts: {
+      mainNavigation: 'Navigation Principale',
+      openMenu: 'Ouvrir le menu',
+      closeMenu: 'Fermer le menu',
+      shrinkNavigation: 'Réduire la largeur',
+      expandNavigation: 'Revenir à la largeur initiale du menu de navigation',
+    },
+  },
 };
 
 export const Navigation = (args) => {
