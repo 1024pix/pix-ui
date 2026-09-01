@@ -71,4 +71,30 @@ module('Integration | Component | icon-button', function (hooks) {
       assert.strictEqual(this.count, 1);
     });
   });
+
+  module('when no variant is given', function () {
+    test('it renders PixIconButton with the default design', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixIconButton @iconName='add' @ariaLabel='action du bouton' />`,
+      );
+
+      // then
+      const pixIconButton = screen.getByRole('button', { name: 'action du bouton' });
+      assert.dom(pixIconButton).doesNotHaveClass('pix-icon-button--secondary');
+    });
+  });
+
+  module('when variant is secondary', function () {
+    test('it renders PixIconButton with the secondary variant class', async function (assert) {
+      // when
+      const screen = await render(
+        hbs`<PixIconButton @iconName='add' @ariaLabel='action du bouton' @variant='secondary' />`,
+      );
+
+      // then
+      const pixIconButton = screen.getByRole('button', { name: 'action du bouton' });
+      assert.dom(pixIconButton).hasClass('pix-icon-button--secondary');
+    });
+  });
 });

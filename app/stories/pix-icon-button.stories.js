@@ -52,6 +52,17 @@ export default {
         defaultValue: { summary: 'false' },
       },
     },
+    variant: {
+      name: 'variant',
+      description: "Permet d'avoir une déclinaison du design du bouton",
+      options: ['secondary'],
+      type: { name: 'string', required: false },
+      control: { type: 'select' },
+      table: {
+        type: { summary: 'string' },
+        defaultValue: { summary: 'undefined' },
+      },
+    },
   },
 };
 
@@ -64,6 +75,7 @@ const Template = (args) => {
   @triggerAction={{this.triggerAction}}
   @size={{this.size}}
   @isDisabled={{this.isDisabled}}
+  @variant={{this.variant}}
 />`,
     context: args,
   };
@@ -89,5 +101,12 @@ export const disabled = Template.bind({});
 disabled.args = {
   ...Default.args,
   isDisabled: true,
+  triggerAction,
+};
+
+export const secondary = Template.bind({});
+secondary.args = {
+  ...Default.args,
+  variant: 'secondary',
   triggerAction,
 };
