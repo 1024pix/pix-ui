@@ -1,0 +1,5 @@
+@use 'pix-design-tokens/typography';
+
+body {
+  @extend %pix-body-l;
+}
