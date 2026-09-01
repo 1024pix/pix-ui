@@ -1,3 +1,9 @@
+# [68.1.0](https://github.com/1024pix/pix-ui/compare/v68.0.1...v68.1.0) (2026-09-01)
+
+### :rocket: Amélioration
+
+- [#1057](https://github.com/1024pix/pix-ui/pull/1057) Adaptation des border radius du composant PixIndicatorCard (PIX-24099)
+
 ## [68.0.1](https://github.com/1024pix/pix-ui/compare/v68.0.0...v68.0.1) (2026-08-28)
 
 ### :building_construction: Tech
