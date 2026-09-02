@@ -16,6 +16,20 @@ export default class PixIconButton extends Component {
     return this.args.color || 'light-grey';
   }
 
+  get variant() {
+    return this.args.variant;
+  }
+
+  get className() {
+    const classNames = ['pix-icon-button', `pix-icon-button--${this.size}`];
+
+    if (this.variant) {
+      classNames.push(`pix-icon-button--${this.variant}`);
+    }
+
+    return classNames.join(' ');
+  }
+
   get isDisabled() {
     warn(
       'PixIconButton: @isDisabled attribute should be a boolean.',
@@ -52,7 +66,7 @@ export default class PixIconButton extends Component {
   <template>
     <button
       type="button"
-      class="pix-icon-button pix-icon-button--{{this.size}}"
+      class={{this.className}}
       {{on "click" this.triggerAction}}
       aria-disabled="{{this.isDisabled}}"
       ...attributes

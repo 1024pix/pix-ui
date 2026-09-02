@@ -60,4 +60,31 @@
     min-width: 1rem;
     height: 1rem;
   }
+
+  &--secondary {
+    color: var(--pix-primary-700);
+    background-color: transparent;
+    border: 2px solid var(--pix-primary-700);
+
+    &:not([aria-disabled='true']) {
+      &:hover:enabled {
+        color: var(--pix-primary-700);
+        background-color: var(--pix-primary-100);
+        outline: 0;
+      }
+
+      &:focus:enabled {
+        color: var(--pix-primary-900);
+        background-color: var(--pix-primary-100);
+        outline: 1px solid var(--pix-primary-700);
+        outline-offset: -5px;
+      }
+
+      &:active:enabled {
+        color: var(--pix-neutral-0);
+        background-color: var(--pix-primary-700);
+        outline: none;
+      }
+    }
+  }
 }
