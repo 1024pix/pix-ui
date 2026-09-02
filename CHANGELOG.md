@@ -1,3 +1,9 @@
+## [68.1.1](https://github.com/1024pix/pix-ui/compare/v68.1.0...v68.1.1) (2026-09-02)
+
+### :building_construction: Tech
+
+- [#1058](https://github.com/1024pix/pix-ui/pull/1058) Ajouter l'attribut variant dans PixIconButton (PIX-24070).
+
 # [68.1.0](https://github.com/1024pix/pix-ui/compare/v68.0.1...v68.1.0) (2026-09-01)
 
 ### :rocket: Amélioration
