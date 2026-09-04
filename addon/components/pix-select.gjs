@@ -6,11 +6,11 @@ import { service } from '@ember/service';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import onClickOutside from 'ember-click-outside/modifiers/on-click-outside';
-import { PopperJS } from 'ember-popperjs';
 import { or } from 'ember-truth-helpers';
 
 import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEscapeAction from '../modifiers/on-escape-action';
+import PixFloating from './pix-floating';
 import PixIcon from './pix-icon';
 import PixLabel from './pix-label';
 import PixSelectList from './pix-select-list';
@@ -53,7 +53,7 @@ import PixSelectList from './pix-select-list';
  * @property {boolean} [isFullWidth] - Étend le champ à toute la largeur disponible.
  * @property {string} [errorMessage] - Message d'erreur affiché sous le champ. Sa présence applique le style d'erreur.
  * @property {string} [className] - Classes CSS ajoutées au bouton d'ouverture.
- * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Popper. Par défaut : `bottom-start`.
+ * @property {string} [placement] - Position de la liste par rapport au champ, au sens de Floating UI. Par défaut : `bottom-start`.
  * @property {boolean} [isComputeWidthDisabled] - Désactive l'alignement automatique de la largeur du champ sur celle de la liste.
  */
 
@@ -233,7 +233,12 @@ export default class PixSelect extends Component {
       {{/if}}
 
       <div class="pix-select__button-container">
-        <PopperJS @placement={{or @placement "bottom-start"}} as |reference popover|>
+        <PixFloating
+          @placement={{or @placement "bottom-start"}}
+          @strategy="absolute"
+          @offsetOptions={{4}}
+          as |reference popover|
+        >
           <button
             {{reference}}
             type="button"
@@ -298,7 +303,7 @@ export default class PixSelect extends Component {
               @emptySearchMessage={{@texts.emptySearchMessage}}
             />
           </div>
-        </PopperJS>
+        </PixFloating>
         {{#if @errorMessage}}
           <p class="pix-select__error-message">{{@errorMessage}}</p>
         {{/if}}

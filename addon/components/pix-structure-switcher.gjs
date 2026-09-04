@@ -4,11 +4,11 @@ import { guidFor } from '@ember/object/internals';
 import Component from '@glimmer/component';
 import { tracked } from '@glimmer/tracking';
 import onClickOutside from 'ember-click-outside/modifiers/on-click-outside';
-import { PopperJS } from 'ember-popperjs';
 
 import onArrowDownUpAction from '../modifiers/on-arrow-down-up-action';
 import onEscapeAction from '../modifiers/on-escape-action';
 import PixButton from './pix-button';
+import PixFloating from './pix-floating';
 import PixSelectList from './pix-select-list';
 
 export default class PixStructureSwitcher extends Component {
@@ -71,7 +71,12 @@ export default class PixStructureSwitcher extends Component {
       {{on "keydown" this.lockTab}}
       ...attributes
     >
-      <PopperJS @placement="right-end" as |reference popover|>
+      <PixFloating
+        @placement="right-end"
+        @strategy="absolute"
+        @offsetOptions={{20}}
+        as |reference popover|
+      >
         <PixButton
           {{reference}}
           @size="small"
@@ -101,7 +106,7 @@ export default class PixStructureSwitcher extends Component {
             />
           </div>
         {{/if}}
-      </PopperJS>
+      </PixFloating>
     </div>
   </template>
 }

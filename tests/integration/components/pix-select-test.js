@@ -65,6 +65,18 @@ module('Integration | Component | PixSelect', function (hooks) {
       assert.dom(screen.queryByRole('option', { name: 'Oignon' })).doesNotExist();
     });
 
+    test('it keeps the closed dropdown hidden despite floating ui inline styles', async function (assert) {
+      // given & when
+      await render(
+        hbs`<PixSelect @options={{this.options}} @texts={{this.texts}}><:label
+  >{{this.label}}</:label></PixSelect>`,
+      );
+
+      // then
+      const dropdown = document.querySelector('.pix-select__dropdown');
+      assert.strictEqual(getComputedStyle(dropdown).visibility, 'hidden');
+    });
+
     test('it opens the dropdown', async function (assert) {
       // given
       const screen = await render(
