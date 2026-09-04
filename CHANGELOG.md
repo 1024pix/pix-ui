@@ -1,3 +1,9 @@
+## [68.1.2](https://github.com/1024pix/pix-ui/compare/v68.1.1...v68.1.2) (2026-09-04)
+
+### :building_construction: Tech
+
+- [#1056](https://github.com/1024pix/pix-ui/pull/1056) Utiliser FloatingUI au lieu de ember-popperjs
+
 ## [68.1.1](https://github.com/1024pix/pix-ui/compare/v68.1.0...v68.1.1) (2026-09-02)
 
 ### :building_construction: Tech
