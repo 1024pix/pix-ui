@@ -10,6 +10,8 @@
   position: relative;
   flex: 1;
   text-align: center;
+  cursor: default;
+  user-select: none;
 
   &__index {
     position: relative;
@@ -51,6 +53,17 @@
       transform-origin: bottom left;
       rotate: -45deg;
     }
+  }
+
+  &__button {
+    width: 100%;
+    padding: 0;
+    color: inherit;
+    font: inherit;
+    text-align: inherit;
+    background: none;
+    border: none;
+    cursor: pointer;
   }
 
   &__title {

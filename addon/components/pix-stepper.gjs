@@ -1,6 +1,6 @@
 import { warn } from '@ember/debug';
+import { fn } from '@ember/helper';
 import Component from '@glimmer/component';
-import { eq } from 'ember-truth-helpers';
 
 import PixStep from './pix-step';
 
@@ -26,18 +26,28 @@ export default class PixStepperComponent extends Component {
     return classes.join(' ');
   }
 
-  get currentStepIndex() {
-    return this.args.currentStep - 1;
+  get stepsWithState() {
+    const { onStepClick, canNavigateTo, steps, currentStep } = this.args;
+    const currentStepIndex = currentStep - 1;
+
+    return steps.map((step, index) => {
+      const stepNumber = index + 1;
+      const isClickable = onStepClick ? (canNavigateTo ? canNavigateTo(stepNumber) : true) : false;
+
+      return { ...step, stepNumber, isCurrent: index === currentStepIndex, isClickable };
+    });
   }
 
   <template>
     <ol class={{this.cssClass}} role="list" ...attributes aria-label={{@texts.ariaLabel}}>
-      {{#each @steps as |step index|}}
+      {{#each this.stepsWithState as |step index|}}
         <PixStep
           @index={{index}}
           @title={{step.title}}
           @subtitle={{step.subtitle}}
-          @isCurrent={{eq index this.currentStepIndex}}
+          @isCurrent={{step.isCurrent}}
+          @isClickable={{step.isClickable}}
+          @onClick={{if step.isClickable (fn @onStepClick step.stepNumber)}}
         />
       {{/each}}
     </ol>

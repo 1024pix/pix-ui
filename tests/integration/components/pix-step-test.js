@@ -1,4 +1,5 @@
 import { render } from '@1024pix/ember-testing-library';
+import { click } from '@ember/test-helpers';
 import { hbs } from 'ember-cli-htmlbars';
 import { setupRenderingTest } from 'ember-qunit';
 import { module, test } from 'qunit';
@@ -117,5 +118,64 @@ module('Integration | Component | PixStep', function (hooks) {
     // then
     const step = this.element.querySelector('.pix-step');
     assert.dom(step).hasAttribute('data-test', 'custom');
+  });
+
+  module('navigation', function () {
+    test('it renders a button when @isClickable is true', async function (assert) {
+      // given
+      this.set('index', 1);
+      this.set('title', 'Étape 2');
+      this.set('onClick', () => {});
+
+      // when
+      const screen = await render(
+        hbs`<PixStep
+  @index={{this.index}}
+  @title={{this.title}}
+  @isClickable={{true}}
+  @onClick={{this.onClick}}
+/>`,
+      );
+
+      // then
+      assert.dom(screen.getByRole('button')).exists();
+      assert.dom(screen.getByRole('button')).containsText('Étape 2');
+    });
+
+    test('it does not render a button when @isClickable is false', async function (assert) {
+      // given
+      this.set('index', 0);
+      this.set('title', 'Étape 1');
+
+      // when
+      const screen = await render(
+        hbs`<PixStep @index={{this.index}} @title={{this.title}} @isClickable={{false}} />`,
+      );
+
+      // then
+      assert.dom(screen.queryByRole('button')).doesNotExist();
+    });
+
+    test('it calls @onClick when the button is clicked', async function (assert) {
+      // given
+      let clicked = false;
+      this.set('index', 1);
+      this.set('title', 'Étape 2');
+      this.set('onClick', () => (clicked = true));
+
+      // when
+      const screen = await render(
+        hbs`<PixStep
+  @index={{this.index}}
+  @title={{this.title}}
+  @isClickable={{true}}
+  @onClick={{this.onClick}}
+/>`,
+      );
+      await click(screen.getByRole('button'));
+
+      // then
+      assert.true(clicked);
+    });
   });
 });

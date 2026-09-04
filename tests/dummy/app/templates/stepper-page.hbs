@@ -1,1 +1,12 @@
-<PixStepper @steps={{this.steps}} @currentStep={{3}} />
+<p>Étape courante : {{this.currentStep}}</p>
+
+<h2>Non-navigable</h2>
+<PixStepper @steps={{this.steps}} @currentStep={{this.currentStep}} />
+
+<h2>Navigable</h2>
+<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @onStepClick={{this.goToStep}}
+  @canNavigateTo={{this.canNavigateTo}}
+/>
