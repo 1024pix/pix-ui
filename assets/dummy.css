@@ -1,0 +1,18 @@
+.select-page__bordered-container {
+  width: 500px;
+  border: 1px solid;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+}
+
+.select-page__country-select {
+  width: 100%;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 12px;
+  width: 100%;
+}
+/*@ sourceMappingURL=dummy.css.map*/
