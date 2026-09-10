@@ -1,3 +1,9 @@
+## [68.1.5](https://github.com/1024pix/pix-ui/compare/v68.1.4...v68.1.5) (2026-09-10)
+
+### :arrow_up: Montée de version
+
+- [#1050](https://github.com/1024pix/pix-ui/pull/1050) Update dependency @storybook/addon-webpack5-compiler-babel to ^4.0.1 (dossier racine)
+
 ## [68.1.4](https://github.com/1024pix/pix-ui/compare/v68.1.3...v68.1.4) (2026-09-10)
 
 ### :arrow_up: Montée de version
