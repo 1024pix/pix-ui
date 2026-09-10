@@ -1,3 +1,9 @@
+## [68.1.4](https://github.com/1024pix/pix-ui/compare/v68.1.3...v68.1.4) (2026-09-10)
+
+### :arrow_up: Montée de version
+
+- [#1049](https://github.com/1024pix/pix-ui/pull/1049) Update dependency @ember/string to ^4.0.1 (dossier racine)
+
 ## [68.1.3](https://github.com/1024pix/pix-ui/compare/v68.1.2...v68.1.3) (2026-09-10)
 
 ### :arrow_up: Montée de version
