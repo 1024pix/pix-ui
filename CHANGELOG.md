@@ -1,3 +1,9 @@
+## [68.1.6](https://github.com/1024pix/pix-ui/compare/v68.1.5...v68.1.6) (2026-09-10)
+
+### :arrow_up: Montée de version
+
+- [#1051](https://github.com/1024pix/pix-ui/pull/1051) Update dependency browser-tools to v2.4.2 (.circleci)
+
 ## [68.1.5](https://github.com/1024pix/pix-ui/compare/v68.1.4...v68.1.5) (2026-09-10)
 
 ### :arrow_up: Montée de version
