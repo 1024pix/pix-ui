@@ -1,3 +1,9 @@
+## [68.1.3](https://github.com/1024pix/pix-ui/compare/v68.1.2...v68.1.3) (2026-09-10)
+
+### :arrow_up: Montée de version
+
+- [#1052](https://github.com/1024pix/pix-ui/pull/1052) Update dependency ember-load-initializers to ^3.0.1 (dossier racine)
+
 ## [68.1.2](https://github.com/1024pix/pix-ui/compare/v68.1.1...v68.1.2) (2026-09-04)
 
 ### :building_construction: Tech
