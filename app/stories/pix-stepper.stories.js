@@ -36,6 +36,26 @@ export default {
         },
       },
     },
+    onStepClick: {
+      name: 'onStepClick',
+      description:
+        "Callback appelé avec le numéro de l'étape au clic. Active le mode navigation. Sans cette prop, le composant est non-interactif.",
+      type: { name: 'function' },
+      table: {
+        type: { summary: '(stepNumber: number) => void' },
+        defaultValue: { summary: 'undefined' },
+      },
+    },
+    canNavigateTo: {
+      name: 'canNavigateTo',
+      description:
+        'Fonction optionnelle qui détermine si une étape est cliquable. Sans cette prop, toutes les étapes sont cliquables dès que `@onStepClick` est fourni.',
+      type: { name: 'function' },
+      table: {
+        type: { summary: '(stepNumber: number) => boolean' },
+        defaultValue: { summary: 'undefined' },
+      },
+    },
   },
 };
 
@@ -94,4 +114,58 @@ withoutSubtitle.args = {
   texts: {
     ariaLabel: 'étape 2 sur 3',
   },
+};
+
+const NavigableTemplate = (args) => {
+  return {
+    template: hbs`<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @texts={{this.texts}}
+  @onStepClick={{fn (mut this.currentStep)}}
+/>`,
+    context: args,
+  };
+};
+
+export const navigable = NavigableTemplate.bind({});
+navigable.args = {
+  steps: [
+    { title: 'Informations', subtitle: 'Renseignez vos informations' },
+    { title: 'Confirmation', subtitle: 'Vérifiez vos données' },
+    { title: 'Validation', subtitle: 'Finalisez votre inscription' },
+    { title: 'Finalisation', subtitle: 'Complétez votre dossier' },
+  ],
+  currentStep: 3,
+  texts: {
+    ariaLabel: 'étape 3 sur 4',
+  },
+};
+
+const NavigableWithRestrictionTemplate = (args) => {
+  return {
+    template: hbs`<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @texts={{this.texts}}
+  @onStepClick={{fn (mut this.currentStep)}}
+  @canNavigateTo={{this.canNavigateTo}}
+/>`,
+    context: args,
+  };
+};
+
+export const navigableWithRestriction = NavigableWithRestrictionTemplate.bind({});
+navigableWithRestriction.args = {
+  steps: [
+    { title: 'Informations', subtitle: 'Renseignez vos informations' },
+    { title: 'Confirmation', subtitle: 'Vérifiez vos données' },
+    { title: 'Validation', subtitle: 'Finalisez votre inscription' },
+    { title: 'Finalisation', subtitle: 'Complétez votre dossier' },
+  ],
+  currentStep: 3,
+  texts: {
+    ariaLabel: 'étape 3 sur 4',
+  },
+  canNavigateTo: (n) => n > 1 && n < 3,
 };

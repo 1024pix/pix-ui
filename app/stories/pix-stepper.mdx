@@ -1,4 +1,4 @@
-import { Meta, Story, ArgTypes } from '@storybook/blocks';
+import { Meta, Story, ArgTypes } from '@storybook/addon-docs/blocks';
 import * as ComponentStories from './pix-stepper.stories';
 
 <Meta of={ComponentStories} />
@@ -25,10 +25,28 @@ Au-delà de 3 étapes, le stepper adapte automatiquement son affichage (mode lon
 
 <Story of={ComponentStories.withoutSubtitle} height={150} />
 
+## Navigable
+
+Fournir `@onStepClick` active le mode navigation. Toutes les étapes deviennent cliquables et le callback est appelé avec le numéro de l'étape au clic. Cliquez sur les étapes pour voir le stepper se mettre à jour.
+
+<Story of={ComponentStories.navigable} height={150} />
+
+## Navigable avec restriction
+
+`@canNavigateTo` permet de restreindre les étapes accessibles. Ici, seule l'étape 2 est cliquable depuis l'étape 3 (navigation arrière uniquement, étape 1 bloquée).
+
+<Story of={ComponentStories.navigableWithRestriction} height={150} />
+
 ## Usage
 
+### Non-navigable (par défaut)
+
 ```html
-<PixStepper @steps="{{this.steps}}" @currentStep="{{2}}" @texts={{{ariaLabel: "Étape 1/2" }}}/>
+<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @texts={{this.texts}}
+/>
 ```
 
 Où `steps` est un tableau d'objets :
@@ -40,6 +58,34 @@ steps = [
   { title: 'Validation', subtitle: 'Finalisez votre inscription' },
 ];
 ```
+
+### Navigable
+
+```html
+<PixStepper
+  @steps={{this.steps}}
+  @currentStep={{this.currentStep}}
+  @texts={{this.texts}}
+  @onStepClick={{this.goToStep}}
+  @canNavigateTo={{this.canNavigateTo}}
+/>
+```
+
+```js
+// Dans le composant consommateur
+get canNavigateTo() {
+  const current = this.currentStep;
+  return (stepNumber) => stepNumber > 1 && stepNumber < current;
+}
+
+@action
+goToStep(stepNumber) {
+  this.currentStep = stepNumber;
+  // ou : this.router.transitionTo(this.routeForStep[stepNumber - 1]);
+}
+```
+
+`canNavigateTo` doit être un getter (et non un champ de classe) pour que la réactivité Glimmer fonctionne correctement lorsque `currentStep` change.
 
 ## Arguments
 
