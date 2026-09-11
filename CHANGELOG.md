@@ -1,3 +1,9 @@
+## [68.1.7](https://github.com/1024pix/pix-ui/compare/v68.1.6...v68.1.7) (2026-09-11)
+
+### :arrow_up: Montée de version
+
+- [#1064](https://github.com/1024pix/pix-ui/pull/1064) Update dependency html-webpack-plugin to ^5.6.8 (dossier racine)
+
 ## [68.1.6](https://github.com/1024pix/pix-ui/compare/v68.1.5...v68.1.6) (2026-09-10)
 
 ### :arrow_up: Montée de version
