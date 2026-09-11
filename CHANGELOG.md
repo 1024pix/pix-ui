@@ -1,3 +1,9 @@
+# [68.2.0](https://github.com/1024pix/pix-ui/compare/v68.1.9...v68.2.0) (2026-09-11)
+
+### :rocket: Amélioration
+
+- [#1061](https://github.com/1024pix/pix-ui/pull/1061) Rendre le stepper cliquable
+
 ## [68.1.9](https://github.com/1024pix/pix-ui/compare/v68.1.8...v68.1.9) (2026-09-11)
 
 ### :arrow_up: Montée de version
