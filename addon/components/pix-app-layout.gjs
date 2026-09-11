@@ -1,6 +1,6 @@
 import { VARIANTS } from '@1024pix/pix-ui/helpers/variants';
 import { warn } from '@ember/debug';
-import { inject as service } from '@ember/service';
+import { service } from '@ember/service';
 import Component from '@glimmer/component';
 
 import onWindowResize from '../modifiers/on-window-resize';
