@@ -1,3 +1,9 @@
+## [68.1.8](https://github.com/1024pix/pix-ui/compare/v68.1.7...v68.1.8) (2026-09-11)
+
+### :arrow_up: Montée de version
+
+- [#1063](https://github.com/1024pix/pix-ui/pull/1063) Update dependency ember-source to ^5.12.0 (dossier racine)
+
 ## [68.1.7](https://github.com/1024pix/pix-ui/compare/v68.1.6...v68.1.7) (2026-09-11)
 
 ### :arrow_up: Montée de version
