@@ -28,7 +28,8 @@
     "ember-source": {
       "@glimmer/component": "^2.0.0"
     },
-    "glob": "^9.0.0"
+    "glob": "^9.0.0",
+    "handlebars": "4.7.9"
   },
   "scripts": {
     "build": "./scripts/build.sh",
