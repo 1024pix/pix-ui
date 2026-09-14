@@ -1,3 +1,9 @@
+## [68.2.2](https://github.com/1024pix/pix-ui/compare/v68.2.1...v68.2.2) (2026-09-14)
+
+### :arrow_up: Montée de version
+
+- [#1066](https://github.com/1024pix/pix-ui/pull/1066) Update dependency npm-run-all2 to ^8.0.4
+
 # [68.2.0](https://github.com/1024pix/pix-ui/compare/v68.1.9...v68.2.0) (2026-09-11)
 
 ### :rocket: Amélioration
