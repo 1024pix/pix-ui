@@ -1,3 +1,9 @@
+## [68.2.3](https://github.com/1024pix/pix-ui/compare/v68.2.2...v68.2.3) (2026-09-14)
+
+### :arrow_up: Montée de version
+
+- [#1068](https://github.com/1024pix/pix-ui/pull/1068) Update dependency @ember/test-helpers to ^5.4.3
+
 ## [68.2.2](https://github.com/1024pix/pix-ui/compare/v68.2.1...v68.2.2) (2026-09-14)
 
 ### :arrow_up: Montée de version
