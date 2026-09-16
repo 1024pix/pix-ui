@@ -1,3 +1,9 @@
+## [68.2.5](https://github.com/1024pix/pix-ui/compare/v68.2.4...v68.2.5) (2026-09-16)
+
+### :bug: Correction
+
+- [#1027](https://github.com/1024pix/pix-ui/pull/1027) Corriger le background des composants Input (PIX-23985)
+
 ## [68.2.4](https://github.com/1024pix/pix-ui/compare/v68.2.3...v68.2.4) (2026-09-16)
 
 ### :building_construction: Tech
