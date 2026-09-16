@@ -48,38 +48,25 @@ export const AppLayout = (args) => {
   return {
     template: hbs`<PixAppLayout @variant={{this.variant}}>
   <:banner>
-  <PixBannerAlert @type="warning">
+    <PixBannerAlert @type='warning'>
       WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est
       pas un exercice | WARNING ceci n'est pas un exercice | WARNING ceci n'est pas un exercice !
     </PixBannerAlert>
   </:banner>
   <:navigation>
-    <PixNavigation
-      @navigationAriaLabel={{this.navigationAriaLabel}}
-      @openLabel='Ouvrir le menu'
-      @closeLabel='Fermer le menu'
-    >
+    <PixNavigation @navigationAriaLabel={{this.navigationAriaLabel}} @openLabel='Ouvrir le menu' @closeLabel='Fermer le menu'>
       <:brand>
         <a href='/'>
           <img src='/pix-orga.svg' alt='pix orga' />
         </a>
       </:brand>
       <:navElements>
-        <PixNavigationButton
-          @route='hello'
-          @icon='conversionPath'
-          class='active'
-        >Campagnes</PixNavigationButton>
+        <PixNavigationButton @route='hello' @icon='conversionPath' class='active'>Campagnes</PixNavigationButton>
         <PixNavigationButton @route='hello' @icon='infoUser'>Participants</PixNavigationButton>
         <PixNavigationButton @route='hello' @icon='users'>Équipe</PixNavigationButton>
         <PixNavigationButton @route='hello' @icon='seat'> Places</PixNavigationButton>
         <PixNavigationButton href='https://pix.fr' @icon='book'> Documentation</PixNavigationButton>
-        <PixNavigationButton
-          @icon='help'
-          @target='_blank'
-          href='https://pix.fr'
-          title='Pix.fr'
-        >Centre d'aide</PixNavigationButton>
+        <PixNavigationButton @icon='help' @target='_blank' href='https://pix.fr' title='Pix.fr'>Centre d'aide</PixNavigationButton>
       </:navElements>
       <:burgerMenu>
         <PixNavigationButton @route='hello' @icon='infoUser'>Menu</PixNavigationButton>
@@ -99,12 +86,7 @@ export const AppLayout = (args) => {
         <PixButton @variant='primary' @iconBefore='codeNumber' @size='small'>
           J'ai un code
         </PixButton>
-        <PixStructureSwitcher
-          @label='Changer de structure'
-          @structures={{this.structures}}
-          @value={{this.selectedStructure.value}}
-          @onChange={{this.onChange}}
-        />
+        <PixStructureSwitcher @label='Changer de structure' @structures={{this.structures}} @value={{this.selectedStructure.value}} @onChange={{this.onChange}} />
         <PixButton @variant='tertiary' @size='small' @triggerAction={{this.onDisconnect}}>
           Se déconnecter
         </PixButton>
@@ -152,11 +134,7 @@ export const AppLayout = (args) => {
           </a>
         </li>
         <li>
-          <a
-            href='https://pix.fr/accessibilite-pix-certif'
-            target='_blank'
-            rel='noopener noreferrer'
-          >
+          <a href='https://pix.fr/accessibilite-pix-certif' target='_blank' rel='noopener noreferrer'>
             Accessibilité : partiellement conforme
           </a>
         </li>
@@ -167,6 +145,7 @@ export const AppLayout = (args) => {
     </footer>
   </:footer>
 </PixAppLayout>`,
+
     context: {
       ...args,
       structures: [

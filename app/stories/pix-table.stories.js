@@ -64,14 +64,7 @@ export default {
 
 const Template = (args) => {
   return {
-    template: hbs`<PixTable
-  @variant={{this.variant}}
-  @data={{this.data}}
-  @caption={{this.caption}}
-  @displayCaption={{this.displayCaption}}
-  @condensed={{this.condensed}}
-  @onRowClick={{this.onRowClick}}
->
+    template: hbs`<PixTable @variant={{this.variant}} @data={{this.data}} @caption={{this.caption}} @displayCaption={{this.displayCaption}} @condensed={{this.condensed}} @onRowClick={{this.onRowClick}}>
   <:columns as |row context|>
     <PixTableColumn @context={{context}} @type='text'>
       <:header>
@@ -107,10 +100,13 @@ const Template = (args) => {
     </PixTableColumn>
   </:columns>
 </PixTable>
-{{! template-lint-disable no-forbidden-elements}}
+{{!-- template-lint-disable no-forbidden-elements--}}
 <style>
-  .table__column--wide { width: 300px; }
+  .table__column--wide {
+    width: 300px;
+  }
 </style>`,
+
     context: args,
   };
 };
