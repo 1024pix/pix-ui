@@ -1,3 +1,9 @@
+## [68.2.4](https://github.com/1024pix/pix-ui/compare/v68.2.3...v68.2.4) (2026-09-16)
+
+### :building_construction: Tech
+
+- [#1059](https://github.com/1024pix/pix-ui/pull/1059) supprime l'import des design token depuis le reset
+
 ## [68.2.3](https://github.com/1024pix/pix-ui/compare/v68.2.2...v68.2.3) (2026-09-14)
 
 ### :arrow_up: Montée de version
