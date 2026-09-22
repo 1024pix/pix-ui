@@ -1,0 +1,14 @@
+{{! template-lint-disable no-inline-styles }}
+
+<h1>PixTextArea</h1>
+<div style="display: flex; flex-direction: column; gap: 2rem;">
+  <PixTextarea
+    {{on "change" this.onTextarea}}
+    @value={{this.value}}
+    @placeholder="Select an option"
+    @requiredLabel="Required"
+    @maxlength="500"
+  >
+    <:label>Saisie ton texte Broooo</:label>
+  </PixTextarea>
+</div>
