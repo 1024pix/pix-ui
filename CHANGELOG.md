@@ -1,3 +1,9 @@
+## [68.2.6](https://github.com/1024pix/pix-ui/compare/v68.2.5...v68.2.6) (2026-09-22)
+
+### :building_construction: Tech
+
+- [#1032](https://github.com/1024pix/pix-ui/pull/1032) Supprimer la dépendance tracked-toolbox pour le PixTextarea (PIX-24015)
+
 ## [68.2.5](https://github.com/1024pix/pix-ui/compare/v68.2.4...v68.2.5) (2026-09-16)
 
 ### :bug: Correction
