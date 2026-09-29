@@ -1,3 +1,9 @@
+## [68.2.7](https://github.com/1024pix/pix-ui/compare/v68.2.6...v68.2.7) (2026-09-29)
+
+### :coffee: Autre
+
+- [#1070](https://github.com/1024pix/pix-ui/pull/1070) Déprécier le repository Pix UI
+
 ## [68.2.6](https://github.com/1024pix/pix-ui/compare/v68.2.5...v68.2.6) (2026-09-22)
 
 ### :building_construction: Tech
